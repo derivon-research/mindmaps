@@ -1,0 +1,1220 @@
+                                                                   121
+                                                                   To deliver power to small
+                                                                   resistors or large capacitors
+                                                                   cannot be achieved with
+                                                                   conventional output stages.
+                                                                   The output currents are too
+                                                                   large. For this purpose we
+                                                                   need to bias the output
+                                                                   stages in class AB. They
+                                                                   have small quiescent cur-
+                                                                   rents but can deliver very
+                                                                   large currents to the load.
+                                                                      Examples are obviously
+                                                                   audio ampliﬁers for loud-
+                                                                   speakers and headphones,
+                                                                   but also communications
+                                                                   applications such as ADSL
+and XDSL. All of them require large output currents but very low distortion at the same time.
+  Audio ampliﬁers are limited to little over 20 kHz but XDSL ampliﬁers extend now to 1–3 MHz
+and even higher in the future. The distortion must be less than −80 dB so as not to mix up
+channels. This is a very severe speciﬁcation indeed.
+
+
+
+
+                                                                    122
+                                                                    Let us ﬁrst look at the
+                                                                    speciﬁcations of a class-AB
+                                                                    opamp. What are the
+                                                                    problems?
+                                                                       A large number of pos-
+                                                                    sible solutions are intro-
+                                                                    duced and discussed. A few
+                                                                    circuits are added with
+                                                                    supply voltages of 1 V or
+                                                                    less.
+
+
+
+
+                                              337
+338                                                                                       Chapter #12
+
+                                                                        123
+                                                                        For a low-resistor load, a
+                                                                        low output impedance is
+                                                                        required. The source fol-
+                                                                        lower is the only simple
+                                                                        transistor stage which pro-
+                                                                        vides this output resistance.
+                                                                        However, its DC current
+                                                                        handling is not suﬃcient.
+                                                                           A source follower is
+                                                                        shown, biased at 0.1 mA. A
+                                                                        low resistor of 50 V is con-
+                                                                        nected to it. It is clear that
+                                                                        the maximum output volt-
+                                                                        age swing can only be 5 mV.
+                                                                        For higher output voltages,
+                                                                        we would need higher bias-
+ing currents as well. This would lead to an excessive power consumption.
+   We now need a transistor circuit which can deliver large currents only when needed, but with
+a low quiescent biasing current to lower the power consumption as much as possible.
+   Note that this transistor stage can deliver (source) a large current but it can only sink the DC
+biasing current. The positive output swing can therefore be large, but not the negative swing.
+
+
+                                                                    124
+                                                                    A possible solution is to
+                                                                    have two source followers,
+                                                                    Source to Source, as shown
+                                                                    in the middle. The current
+                                                                    out of this stage (source) can
+                                                                    again be very large, depend-
+                                                                    ing on the transistor size.
+                                                                       The current in this stage
+                                                                    (sink) can also be large. The
+                                                                    pMOST can now be driven
+                                                                    as hard as the nMOST. The
+                                                                    main disadvantage of this
+                                                                    double source follower is
+                                                                    that the output swing can
+                                                                    only reach the supply volt-
+                                                                    age within one V . Also,
+                                                                                        GSn
+the output voltage can never be lower than V . For large supply voltages, such as audio
+                                                 GSp
+ampliﬁers, this is no problem but for supply voltages of a few Volts, this is not acceptable.
+  This is why most class-AB output stages for low supply voltages have two output transistors
+Drain-to-Drain. They constitute an ampliﬁer with al least two stages. Stability will have to be
+veriﬁed. They do guarantee rail-to-rail output swing however, at least for capacitive loads.
+  In this case, the low output resistance will have to be realized by application of feedback,
+aggravating the stability issue even more.
+Class AB and driver ampliﬁers                                                                    339
+
+                                                                     125
+                                                                     Why do these ampliﬁers
+                                                                     require class AB operation?
+                                                                     The answer is that this is the
+                                                                     best compromise between
+                                                                     current     capability    and
+                                                                     distortion.
+                                                                       A class-A stage is a stage
+                                                                     in which the peak current
+                                                                     swing never exceeds the DC
+                                                                     biasing current. The average
+                                                                     current is therefore the DC
+                                                                     current.
+                                                                       In a class-B stage the DC
+                                                                     biasing current is zero.
+                                                                     Connecting these swings to
+                                                                     the negative swings from
+another ampliﬁer leads to discontinuities, which is called crossover distortion.
+   Class-AB ampliﬁers are somewhere in between. The DC biasing current (or quiescent current)
+is small compared to the peak current swings. In this way the connections between the two
+halves are more smooth. The crossover distortion can be made very small indeed.
+   One of the speciﬁcations will have to do with the predictability and stability of this quies-
+cent current.
+
+                                                                        126
+                                                                        The ﬁrst requirement is
+                                                                        obviously that rail-to-rail
+                                                                        swings are possible.
+                                                                           The second one has
+                                                                        indeed to do with the quies-
+                                                                        cent current I .
+                                                                                       Q
+                                                                           In addition, large output
+                                                                        currents I     must be pos-
+                                                                                   max
+                                                                        sible (depending on the
+                                                                        application). Their ratio to
+                                                                        I    is called the drive
+                                                                         Q
+                                                                        capability.
+                                                                           The problem is that the
+                                                                        transfer curve of such an
+                                                                        ampliﬁer is now highly non-
+                                                                        linear. For small input volt-
+ages, it is perfectly linear, as any class-A ampliﬁer. For higher input voltages, the output current
+must rise more than linearly with the input voltages. The output current must have an expanding
+characteristic.
+  This will generate some distortion as well, which can be reduced by application of feedback.
+This is why many class-AB stages consist of three stages.
+  The last speciﬁcation has to do with complexity. Class-AB ampliﬁers are the most complicated
+DC-coupled ampliﬁers. Some simplicity is still welcome!
+340                                                                                   Chapter #12
+
+                                                                    127
+                                                                    A conventional diﬀerential
+                                                                    pair has a limiting charac-
+                                                                    teristic rather than an
+                                                                    expanding one. It cannot be
+                                                                    used in a class-AB ampliﬁer.
+                                                                       Circuit techniques will
+                                                                    have to be devised to con-
+                                                                    vert the limiting characteris-
+                                                                    tic into an expanding one.
+                                                                       The simplest solution is
+                                                                    a conventional CMOS in-
+                                                                    verter ampliﬁer!
+
+
+
+
+                                                                    128
+                                                                    A simple CMOS inverter
+                                                                    is an excellent class-AB
+                                                                    ampliﬁer.
+                                                                       Normally it is biased at a
+                                                                    small current I . The cur-
+                                                                                      Q
+                                                                    rent through the capacitive
+                                                                    load however, can be much
+                                                                    larger, because the transis-
+                                                                    tor V can be as much as
+                                                                          GS
+                                                                    the full supply voltage. The
+                                                                    actual load current i is
+                                                                                              L
+                                                                    the diﬀerence between the
+                                                                    nMOST current i and the
+                                                                                        C2
+                                                                    pMOST current i .
+                                                                                        C1
+                                                                       In this circuit the square-
+                                                                    law characteristic of a
+MOST is used. It has an expanding characteristic indeed.
+  The main disadvantage of this circuit is that its two V ’s are between supply voltage and
+                                                            GS
+ground. As a consequence, the quiescent current depends on the supply voltage. Moreover, all
+spikes on the supply voltage (from digital blocks) enter this ampliﬁer. Its PSRR is thus zero dB.
+  Other circuit solutions are now required.
+Class AB and driver ampliﬁers                                                               341
+
+                                                                   129
+                                                                   A better class-AB ampliﬁer
+                                                                   is obtained by cross-cou-
+                                                                   pling the input devices. In
+                                                                   this way, a complementary
+                                                                   diﬀerential pair can be con-
+                                                                   structed with an expanding
+                                                                   characteristic.
+
+
+
+
+                                                                   1210
+                                                                   This circuit is shown twice,
+                                                                   once without cross-coupling
+                                                                   to ﬁgure out the biasing,
+                                                                   and once with the cross-
+                                                                   coupling.
+                                                                      The circuit on the left
+                                                                   contains two source follow-
+                                                                   ers. Actually they are source
+                                                                   followers combined with
+                                                                   current mirrors. This is why
+                                                                   they are called super source
+                                                                   followers.
+                                                                      The nMOSTs are the
+                                                                   same and so are the
+                                                                   pMOSTs.        The    current
+                                                                   through M1 and M4 will
+also be I . This also applies to the current through M2/M5.
+         B
+   All nodes follow the input voltage. For the positive input voltage V+, the Sources of M1 and
+M9, but also the Drain of M3 all have obviously the same voltage swing V+.
+   This also applies to the voltages V− of the other super source follower.
+   Cross-coupling now the two inner lines, generates a nMOST/pMOST diﬀerential pair, with
+V− and V+ at their Gates, and which exhibit an expanding output current.
+   This stage has actually four output currents, i.e. the Drain currents of M1 and M5 which
+increase, and also the Drain currents of M2 and M4 which decrease. They can be combined
+with current mirrors towards the output. In this example only two output currents are used.
+342                                                                                     Chapter #12
+
+                                                                     1211
+                                                                     There are many circuit vari-
+                                                                     ations on these cross-cou-
+                                                                     pled quadruples.
+                                                                        In the circuit on the right,
+                                                                     which was originally made
+                                                                     in bipolar technologies, one
+                                                                     transistor is left out on
+                                                                     either side. Again all DC
+                                                                     currents are set by the cur-
+                                                                     rent sources I . The comple-
+                                                                                    B
+                                                                     mentary diﬀerential pair
+                                                                     is formed again with a
+                                                                     nMOST, with
+                                                                        v at its Gate, and a
+                                                                         in
+                                                                     pMOST, which receives a
+                                                                     −v from the source fol-
+                                                                         in
+lower on the right side. An expanding output current is obtained again.
+  Again, four output currents can be distinguished.
+  It is less symmetrical than the ﬁrst cross-coupled quad, which is therefore preferred.
+
+
+
+
+                                                                      1212
+                                                                      An example of such a cross-
+                                                                      coupled quad as an input
+                                                                      stage is shown in this slide.
+                                                                         After all, this is a symmet-
+                                                                      rical opamp, with cascodes
+                                                                      M15 and M16 for more
+                                                                      gain. Normally its maxi-
+                                                                      mum output current is lim-
+                                                                      ited to B I . The Slew Rate
+                                                                                1 b
+                                                                      is quite limited.
+                                                                         However, substitution of
+                                                                      the input diﬀerential pair by
+                                                                      a cross-coupled quad gives
+                                                                      an expanding current. The
+                                                                      GBW, which is a small-
+                                                                      signal speciﬁcation is the
+same, but the Slew Rate increases drastically.
+  Only two output currents are used of the input cross-couple quad.
+Class AB and driver ampliﬁers                                                                   343
+
+                                                                      1213
+                                                                      A realization of all four
+                                                                      output currents are used of
+                                                                      the input cross-couple quad.
+                                                                      It is biased at low currents
+                                                                      of 5 mA. The output currents
+                                                                      can be much larger however,
+                                                                      because of the expanding
+                                                                      characteristic.
+                                                                         All four output currents
+                                                                      are now used towards the
+                                                                      diﬀerential outputs. This is
+                                                                      also a symmetrical opamp
+                                                                      with cross-coupled quads at
+                                                                      the inputs rather than con-
+                                                                      ventional diﬀerential pairs.
+                                                                         Common-mode feedback
+                                                                      is required because the out-
+                                                                      puts are diﬀerential.
+
+
+
+
+                                                                      1214
+                                                                      The same cross-coupling is
+                                                                      now used here in the output
+                                                                      stage. The eight transistors
+                                                                      are M13–20.
+                                                                         The input is taken from
+                                                                      the previous stage. It can be
+                                                                      either one of the three points
+                                                                      indicated. The other input is
+                                                                      connected to ground.
+                                                                         Only two of the four
+                                                                      output currents are used.
+                                                                      They are current-mirrored
+                                                                      to the output. Transistors
+                                                                      M22 and M24 are quite
+                                                                      large, to be able to source
+                                                                      and sink large currents.
+  The quiescent current is well deﬁned as it is directly relayed to the biasing current sources.
+  The total schematic is shown next.
+344                                                                                    Chapter #12
+
+                                                                    1215
+                                                                    The output stage is easily
+                                                                    recognized because of the
+                                                                    cross-coupled quad. It is
+                                                                    preceded by a double folded
+                                                                    cascode. No g equalization
+                                                                                   m
+                                                                    is used. The points of high
+                                                                    impedance are labeled by
+                                                                    big (red) dots. This is clearly
+                                                                    a two-stage ampliﬁer.
+                                                                       Point A is one input of
+                                                                    the output stage. Point B is
+                                                                    now the other one; it is no
+                                                                    longer connected to ground.
+                                                                    It is derived from point A
+                                                                    by an inverter (with transis-
+                                                                    tors M25-M26) which is
+loaded by the 1/g ’s of the two transistors M27 and M28. Its gain is thus about minus unity.
+                 m
+The output stage now has a diﬀerential drive.
+  The output stage presents a load to the input stage of about 15 pF (at point A). This capacitor
+determines the GBW.
+
+
+
+
+                                                                      1216
+                                                                      Cross-coupled quads are a
+                                                                      useful principle for generat-
+                                                                      ing expanding diﬀerential
+                                                                      currents. It is not the only
+                                                                      one however. Positive feed-
+                                                                      back can be used as well.
+                                                                      Adaptive biasing is actually
+                                                                      used.
+Class AB and driver ampliﬁers                                                                   345
+
+                                                                      1217
+                                                                      An adaptive biasing ampli-
+                                                                      ﬁer adapts its biasing to be
+                                                                      able to provide larger
+                                                                      output currents.
+                                                                         The ampliﬁer in this slide
+                                                                      is a symmetrical ampliﬁer,
+                                                                      which is single ended.
+                                                                      Nowadays it would be
+                                                                      diﬀerential.
+                                                                         Two times two current
+                                                                      mirrors are added, i.e. with
+                                                                      transistors M11/M12 and
+                                                                      M13/M14. Without these
+                                                                      transistors the maximum
+                                                                      output current would be
+                                                                      limited to BI .
+                                                                                   P
+   In order to increase this maximum current, biasing current I must be made larger for larger
+                                                                 p
+input voltages. This biasing current is adapted to the input signal level. This is why it is in
+parallel with two more current mirrors through transistors M18 and M19. Let us follow the
+path to transistor M19.
+   Transistors M19 forms a current mirror (with current factor A) with M20. This latter transistor
+take the diﬀerence in current I –I , which are proportional to the currents in the input stage.
+                                1 2
+The larger of these two currents wins. If I is larger than I then AI current is added to I ,
+                                              1                2         1                        p
+increasing the total biasing current of the ﬁrst stage, and also increasing the maximum output
+current.
+   If, however, I is larger than I , then it is mirrored by M17/M18, also multiplied by A and
+                 2                1
+also added to I .
+                p
+   The adaptive current feedback is a kind of rectiﬁer, as shown next.
+
+
+                                                                      1218
+                                                                      For small input voltages, the
+                                                                      biasing current of the ﬁrst
+                                                                      stage I is only I . The maxi-
+                                                                             B         p
+                                                                      mum output current is Bi .
+                                                                                                  p
+                                                                      For larger input voltages,
+                                                                      for terminal 1 being more
+                                                                      positive than terminal 2,
+                                                                      current I increases drasti-
+                                                                                1
+                                                                      cally and is fed back to the
+                                                                      input biasing current.
+                                                                         With terminal 2 being
+                                                                      more positive than terminal
+                                                                      1 however, current I
+                                                                                                   2
+                                                                      increases by a similar
+                                                                      amount and is also fed back
+                                                                      to the input biasing current.
+346                                                                                    Chapter #12
+
+This total biasing current increases in either direction. The amount of increase depends on
+current factor A.
+
+
+                                                                    1219
+                                                                    For a current factor A equal
+                                                                    to zero, no adaptive biasing
+                                                                    takes place. The output cur-
+                                                                    rent (normalized to Bi ) is
+                                                                                             p
+                                                                    limited for larger input volt-
+                                                                    ages (normalized to nU or
+                                                                                             T
+                                                                    nkT/q.).
+                                                                       For an increasing factor A
+                                                                    however, the expansion of
+                                                                    the output current with
+                                                                    the input voltage is more
+                                                                    and more pronounced. A
+                                                                    class-AB behavior is now
+                                                                    obtained.
+                                                                       Factor A cannot be
+                                                                    increased to very large
+values, depending on matching. A practical limit is about 10. If cascodes are used however, the
+matching between all the current sources improves remarkably. Higher factors of A can then
+be tried.
+  A disadvantage of this ampliﬁer is that transistors M11–14 are added on the node where the
+non-dominant pole is formed. They will therefore slow down the ampliﬁer.
+
+                                                                     1220
+                                                                     A class-AB output stage
+                                                                     can also be biased by trans-
+                                                                     linear circuits, as explained
+                                                                     previously.
+                                                                        A translinear loop is a cir-
+                                                                     cuit which provides a linear
+                                                                     relationship by use of non-
+                                                                     linear circuits. The simplest
+                                                                     example is a current mirror.
+                                                                     Both transistors have a non-
+                                                                     linear current-voltage rela-
+                                                                     tionship and yet the current
+                                                                     gain is perfectly linear. The
+                                                                     voltage between the two
+                                                                     transistors is heavily dis-
+                                                                     torted though.
+Class AB and driver ampliﬁers                                                                    347
+
+                                                                        1221
+                                                                        A translinear loop is formed
+                                                                        by transistors MA2/MA4
+                                                                        and MA9/MA10. Their sum
+                                                                        of V ’s is equal.
+                                                                             GS
+                                                                           The currents through
+                                                                        MA9–MA10 are set by a
+                                                                        DC current source (which is
+                                                                        about 4 mA in this example).
+                                                                        The current through MA4 is
+                                                                        also set by the DC current
+                                                                        of the preceding stage
+                                                                        (which is also about 4 mA in
+                                                                        this example). Only the cur-
+                                                                        rent through the large
+                                                                        output transistor MA2 is
+                                                                        not known.
+   Its current is then deﬁned by the expression in this slide. All transistor sizes W/L’s are known.
+All parameters V and K∞ cancel out.
+                    T       p
+   As a result, we obtain an expression linking the currents to the transistor sizes. The current
+I     through transistor MA2 is about 120 times larger than the current through transistor MA9.
+ DS2
+It is now well deﬁned. It is independent of the supply voltage.
+   A disadvantage of this loop however, is that I     only becomes large when I         becomes zero,
+                                                  DS2                               DS4
+since I     is constant. Transistor MA4 shuts oﬀ for large drives and limits the output current.
+        DS9
+
+
+                                                                    1222
+                                                                    A practical example of such
+                                                                    a translinear loop is shown
+                                                                    in this slide.
+                                                                       The transistors MA2/
+                                                                    MA4 and MA9/MA10 have
+                                                                    actually been copied on the
+                                                                    previous slide. They form a
+                                                                    translinear loop indeed.
+                                                                       The same applies to
+                                                                    the transistors MA1/MA3
+                                                                    which form a translinear
+                                                                    loop with MA5/MA6.
+                                                                       The quiescent current in
+                                                                    the output transistors is thus
+                                                                    given by the expression on
+                                                                    the previous slide.
+  It is now easy to see where the DC currents are coming from. The current through MA9/MA10
+comes form a DC biasing current mirror. The DC current through MA4 comes from the pMOST
+diﬀerential current ampliﬁer M11–14 at the end of the nMOST ﬁrst stage. This current ﬂows
+through the nMOST diﬀerential current ampliﬁer M5–8 at the end of the pMOST ﬁrst stage.
+348                                                                                 Chapter #12
+
+  Transistors MA3 and MA4 carry this DC current as well but no AC current. They are
+bootstrapped out for AC behavior. They present an inﬁnite AC impedance to the currents
+coming from the ﬁrst stage. This is shown next.
+
+                                                                   1223
+                                                                   The output stage is shown
+                                                                   three times, but more and
+                                                                   more simpliﬁed.
+                                                                      First, note that the cur-
+                                                                   rent provided by the current
+                                                                   diﬀerential ampliﬁers of the
+                                                                   ﬁrst stage are in phase. The
+                                                                   output impedances of the
+                                                                   ﬁrst stage are shown explic-
+                                                                   itly in the second ﬁgure. The
+                                                                   transistors MA3 and MA4
+                                                                   are substituted by some
+                                                                   impedance Z in the third
+                                                                   one.
+                                                                      Since both input currents
+                                                                   have the same phase, they
+both increase the gates of the output transistors by about the same voltage. There is nearly no
+AC voltage drop across the impedance Z. It is bootstrapped out.
+   It does not appear in the expression of the gain A .
+                                                     v
+   Transistors MA3 and MA4 only play a role in the translinear loop to set the quiescent current
+trough the output devices. They do not play a role in the gain of GBW.
+   Transistors MA3 and MA4 carry this DC current as well but no AC current. They are
+bootstrapped out for AC behavior. They present an inﬁnite AC impedance to the currents
+coming from the ﬁrst stage.
+
+                                                                   1224
+                                                                   A similar translinear loop to
+                                                                   set the quiescent current
+                                                                   through the output devices
+                                                                   is found in this ampliﬁer. It
+                                                                   is a two-stage ampliﬁer. The
+                                                                   compensation capacitances
+                                                                   are connected to the outputs
+                                                                   of the ﬁrst stage through the
+                                                                   cascodes M14 and M16.
+                                                                      The translinear loop with
+                                                                   output transistor M25 is
+                                                                   highlighted. A similar one is
+                                                                   present for output transis-
+                                                                   tor M26.
+Class AB and driver ampliﬁers                                                                 349
+
+  Again transistors M19/ M20 are bootstrapped out for AC performance. The ﬁrst stage is a
+rail-to-rail input stage, which has been discussed in the previous Chapter.
+
+                                                                1225
+                                                                This is again a two-stage
+                                                                ampliﬁer. A single-ended
+                                                                folded cascode is the
+                                                                   ﬁrst stage. The second
+                                                                stage consists of the two
+                                                                output transistors. Transist-
+                                                                ors M13/M15 and M16/
+                                                                M18 form wideband level
+                                                                shifters between the output
+                                                                of the ﬁrst stage and the
+                                                                Gates of the output transis-
+                                                                tors. They are bootstrapped
+                                                                out for AC signals.
+                                                                   The quiescent current in
+                                                                the output transistors is set
+                                                                by two translinear loops.
+Output transistor M11 with M13 forms a translinear loop with transistors M23 and M21.
+Transistors M13 and M21 are equal and carry equal currents. The quiescent current in M11 is
+set by transistor M23.
+   The same applies to the translinear loop of M12/M14 with M22/M20.
+
+                                                                    1226
+                                                                    This is a three-stage ampli-
+                                                                    ﬁer with nested Miller com-
+                                                                    pensation. The high im-
+                                                                    pedance nodes are labeled
+                                                                    with big (red) dots.
+                                                                       The input stage consists
+                                                                    of two folded cascodes. The
+                                                                    g −equalization is carried
+                                                                     m
+                                                                    out by transistor M5, resis-
+                                                                    tor R1 and the following
+                                                                    current mirrors. When the
+                                                                    average input voltage in-
+                                                                    creases, the pMOSTs are
+                                                                    slowly turned oﬀ, but the
+                                                                    current through resistor R1
+                                                                    increases, increasing the cur-
+rents in the input nMOSTs. It is a simple solution. However, the use of a resistor makes this
+solution depending on the supply voltage.
+   The second stage is a diﬀerential pair, one output of which is directly connected to the gate
+of the output nMOST M53. The other output has to be inverted ﬁrst before it can be applied
+to the output pMOST M52. The output devices of a class-AB stage always have to be driven
+in phase.
+350                                                                                   Chapter #12
+
+  The translinear loops which set the quiescent current are highlighted. They are easily
+recognized.
+  This ampliﬁer can drive 4000 pF. It can sink and source about 100 mA. On 2.5 V it takes
+about 0.6 mA. Its GBW is 1 MHz.
+  Its main disadvantage is that its Slew Rate is not suﬃciently high, causing some cross-over
+distortion.
+
+
+
+
+                                                                     1227
+                                                                     This is the third stage of a
+                                                                     three-stage ampliﬁer.
+                                                                        The complementary input
+                                                                     voltages v are shown, as
+                                                                                 in
+                                                                     generated by the second
+                                                                     stage. The top one is applied
+                                                                     directly to the pMOST out-
+                                                                     put transistor M2. The com-
+                                                                     plementary input −v is
+                                                                                              in
+                                                                     inverted and applied to the
+                                                                     nMOST output transistor
+                                                                     M1. This transistor is copied
+                                                                     to M3 but M times smaller.
+                                                                     The current through M3
+                                                                     and M4 is therefore a mea-
+                                                                     sure of the current through
+                                                                     M1.
+   A three-fold translinear loop is now formed. Two of them include the output transistors. They
+are M2/M12 and M4/M11. They are added towards current mirror M9/M7. The third one is
+M15/M13+14. They are added towards current mirror M10/M8.
+   The purpose of these loops is to prevent one output transistor to go oﬀ, when the other one
+is carrying a large current. Indeed when transistor M2 provides a large output current, M1 may
+shut oﬀ. Even for large output currents, a minimum current through M1 must be guaranteed.
+This decreases the cross-over distortion and increases the speed.
+   If the current through M1 is very small, the currents through M3 and M4 are also small. As
+a result, V      becomes larger. For a large current in M2, V      becomes smaller. The product
+            GS11                                              GS12
+of the two currents through M11 and M12 is set by the reference current through M15. They
+cannot go below a certain value.
+Class AB and driver ampliﬁers                                                                   351
+
+                                                                     1228
+                                                                     The full ampliﬁer is shown
+                                                                     in this slide. The three stages
+                                                                     are used to increase the gain,
+                                                                     yielding very low distortion.
+                                                                        The ﬁrst and second
+                                                                     stages are symmetrical
+                                                                     ampliﬁers. The third stage
+                                                                     consists of two output
+                                                                     devices with the quiescent-
+                                                                     current control described in
+                                                                     the previous slide. Nested
+                                                                     Miller compensation is
+                                                                     used.
+                                                                        Its GBW is 5 MHz. It
+                                                                     gives only −80 dB THD at
+                                                                     10 kHz in 81 V in parallel
+                                                                     with 15 pF. The quiescent
+                                                                     current is 1.4 mA.
+
+
+
+
+                                                                     1229
+                                                                     In this two stage ampliﬁer,
+                                                                     a translinear loop is used to
+                                                                     control the quiescent cur-
+                                                                     rent. However, it is used to
+                                                                     provide common-feedback
+                                                                     at the same time.
+                                                                        The principle is fairly
+                                                                     straightforward. A fully
+                                                                     diﬀerential ampliﬁer is used
+                                                                     at the input. One output
+                                                                     drives output transistor M2
+                                                                     directly. The other one has
+                                                                     to be inverted ﬁrst.
+                                                                        Since the output has a
+                                                                     diﬀerential output, CMFB is
+                                                                     required. This circuit sets
+the average output voltages, which are used at the same time to control the V values of the
+                                                                                  GS
+output devices, thus also controlling the quiescent current in the output transistors.
+  The full circuit is given next.
+352                                                                                       Chapter #12
+
+                                                                       1230
+                                                                       The input stage is a fully-
+                                                                       diﬀerential rail-to-rail ampli-
+                                                                       ﬁer. Its outputs are labeled
+                                                                       with big (red) dots. One of
+                                                                       them goes directly to the
+                                                                       nMOST output transistor.
+                                                                       The other one is inverted
+                                                                       ﬁrst.
+                                                                          A diﬀerential output
+                                                                       needs common-mode feed-
+                                                                       back. This is accomplished
+                                                                       by measurement of the two
+                                                                       outputs with transistors
+                                                                       M20/M21. Their Sources
+                                                                       are joined together to cancel
+                                                                       the diﬀerential signal. This
+common-mode signal is then fed through a cascode (M22), to a current mirror with transistors
+M23, M16B and M17B.
+   The same transistors are part of the translinear loops to set the quiescent current in the output
+stage. For the nMOST output transistor, the loop consists of transistors M2/M21 with M22/M5.
+For the pMOST output transistor, M4 is taken instead. The loop then consists of transistors
+M4/M20, again with M22/M5.
+   The setting for the average output voltage of the ﬁrst stage is also used to set the V ’s of the
+                                                                                           GS
+output devices, and hence the quiescent current.
+
+
+                                                                 1231
+                                                                 This class-AB ampliﬁer uses
+                                                                 a separate opamp to drive
+                                                                 the Gates of all four output
+                                                                 devices. The load is con-
+                                                                 nected between the two
+                                                                 output voltages. It is there-
+                                                                 fore ﬂoating.
+                                                                    These      opamps        are
+                                                                 required to provide suﬃ-
+                                                                 cient gain, even when the
+                                                                 output devices enter the
+                                                                 linear region. As a result, the
+                                                                 distortion is always small.
+                                                                    The ampliﬁer EP which
+                                                                 drives output transistor
+                                                                 M58 is sketched as well. The
+                                                                 feedback loop is not closed.
+   It is a conventional voltage ampliﬁer with input devices M51/M52. The load current mirror
+is shunted by two cascodes however M55/M56 to limit the gain (to about 7), again to reduce
+the distortion.
+Class AB and driver ampliﬁers                                                                353
+
+  The quiescent current is set by the translinear loop M58/M55 and M57/M56 such that the
+current through the output transistor is about I times the ratio of M58 to M57.
+                                                B2
+
+                                                                    1232
+                                                                    On the total schematic, the
+                                                                    four output transistors with
+                                                                    their ampliﬁer, are easily
+                                                                    recognized. The ampliﬁer
+                                                                    is shown with unity-gain
+                                                                    feedback.
+                                                                       Actually, this is a three-
+                                                                    stage ampliﬁer. The input
+                                                                    stage is a folded cascode.
+                                                                    Distributed Miller compen-
+                                                                    sation is applied however,
+                                                                    not nested Miller. This
+                                                                    method of compensation is
+                                                                    much less transparent.
+                                                                       The CMFB ampliﬁer is in
+                                                                    the middle, with M20/M21
+                                                                    and R2/R3.
+
+                                                                    1233
+                                                                    A three-stage class-AB
+                                                                    ampliﬁer is shown in this
+                                                                    slide which uses feedforward
+                                                                    to boost the high-frequency
+                                                                    performance. The ﬁrst stage
+                                                                    is single-ended, which is
+                                                                    not good for CMRR. The
+                                                                    second stage is a non-invert-
+                                                                    ing ampliﬁer which uses a
+                                                                    current mirror. The third
+                                                                    stage consists again of
+                                                                    pMOST        and     nMOST
+                                                                    devices Drain to Drain. The
+                                                                    nMOST is driven by an
+                                                                    emitter follower to drive the
+                                                                    large C       capacitor. The
+                                                                             GS8
+pMOST is driven by a level shifter M10/M11, which is bootstrapped out for AC operation.
+   The compensation is not a pure case of nested Miller compensation. Compensation capacitor
+C determines the GBW. The other capacitors provide feedforward.
+  c
+   The quiescent current in the output transistors is set by two translinear loops consisting of
+M9/M11 with M17/M12 for the pMOST output transistor M9, and of M8/M10 with M13/M15
+for the nMOST.
+   The total current consumption (on 5 V) is 0.35 mA. About 22 mA can be delivered to a low-
+resistance load.
+354                                                                                   Chapter #12
+
+                                                                     1234
+                                                                     Translinear circuits for the
+                                                                     deﬁnition of the quiescent
+                                                                     currents in the output tran-
+                                                                     sistors have the disadvan-
+                                                                     tage that the maximum
+                                                                     output current is limited.
+                                                                     Several more other prin-
+                                                                     ciples are therefore investi-
+                                                                     gated. The ﬁrst one is the
+                                                                     application of current feed-
+                                                                     back to obtain an expanding
+                                                                     characteristic.
+
+
+
+
+                                                                    1235
+                                                                    A simple but very current-
+                                                                    eﬃcient realization is shown
+                                                                    in this slide.
+                                                                       On the left is a conven-
+                                                                    tional     diﬀerential   pair
+                                                                    loaded with a folded cas-
+                                                                    code. Its output current is
+                                                                    simply B times the circular
+                                                                    current of the diﬀerential
+                                                                    pair. The currents are indi-
+                                                                    cated by arrows.
+                                                                       This output current is
+                                                                    limited to the B times I
+                                                                                              bias
+                                                                    however as every diﬀeren-
+                                                                    tial pair has a limiting
+                                                                    characteristic.
+   The addition of just one single transistor changes the operation drastically and converts this
+stage into a class-AB ampliﬁer. Transistor M4B is added, which forms a current mirror with
+M4A as well. It provides current feedback to the diﬀerential pair.
+   Two equal currents now ﬂow from supply to supply. The ﬁrst one ﬂows through transistors
+M2A, M1A and M4B. The other one ﬂows through M2B, M3 and M4A, and is multiplied with
+B towards the output. These currents are not limited by the biasing current I . They can be
+                                                                                bias
+much larger depending on the transistor sizes. They have an expanding or class-AB characteristic.
+   Clearly, these currents can only increase. Another stage with pMOSTs at the input is now
+required to have expanding currents in both directions. This is shown next.
+Class AB and driver ampliﬁers                                                                355
+
+                                                                    1236
+                                                                    The ﬁrst nMOST input cur-
+                                                                    rent-feedback stage is put in
+                                                                    parallel with a pMOST one.
+                                                                    Their outputs are current
+                                                                    mirrored to a high imped-
+                                                                    ance output node, labeled
+                                                                    with a big (red) dot. A
+                                                                    second similar nMOST/
+                                                                    pMOST current-feedback
+                                                                    stage is then used as an
+                                                                    output stage. This is thus
+                                                                    a two-stage ampliﬁer. The
+                                                                    Miller compensation cap-
+                                                                    acitance is clearly seen.
+                                                                       The parallel nMOST/
+                                                                    pMOST pair at the input
+provide nearly rail-to-rail input capability. Indeed, for low input common-mode voltages the
+nMOSTs shut oﬀ but the pMOSTs take over and vice versa. The rail itself cannot actually be
+reached because of a diode-connected transistor M2a (in the ﬁrst stage). About 0.1 V is lost at
+both supply lines. No g −equalization is provided.
+                        m
+  For a 10 kV/100 pF load, the GBW is 0.37 MHz and power dissipation
+  0.25 mW (for ±5 V supply voltages).
+
+
+
+                                                                     1237
+                                                                     This ampliﬁer has two
+                                                                     output stages in parallel.
+                                                                     The top one uses source fol-
+                                                                     lowers. It can provide mod-
+                                                                     erate voltage swing but with
+                                                                     very low distortion.
+                                                                        However, most of the gain
+                                                                     and current (power) comes
+                                                                     from the bottom ampliﬁer.
+                                                                     It consists of two error
+                                                                     ampliﬁers followed by two
+                                                                     output transistors, Drain to
+                                                                     Drain. Some oﬀset is built
+                                                                     in the error ampliﬁers
+                                                                     (shown on the right) so that
+                                                                     the output devices are
+turned oﬀ for small output signals. In this way they do not generate cross-over distortion. The
+source follower ampliﬁer carries out all the tasks.
+   For large output swing, the source follower ampliﬁer cannot follow any more. The class-AB
+power ampliﬁer can still provide rail-to-rail output swing, even when the output devices end up
+in the linear region. The error ampliﬁer still provides suﬃcient gain.
+356                                                                                   Chapter #12
+
+   The quiescent current in the low-distortion source-follower ampliﬁer is set by the translinear
+loop of transistors MO16/MO19 and MO17/MO20. The DC current through MO17/17 sets the
+current in the output devices MO19/20.
+   For a 1 kV/150 pF load, the Slew Rate is 7 V/ms. The GBW is 5.5 MHz and power dissipation
+6.5 mW (±5 V). The equivalent input noise is 10 nV /√Hz, which is quite low.
+                                                     RMS
+
+
+                                                                     1238
+                                                                     More recent technologies
+                                                                     use smaller channel lengths.
+                                                                     As a consequence, the
+                                                                     supply voltage has become
+                                                                     smaller as well. There is a
+                                                                     need for class-AB stages for
+                                                                     supply voltages of 1.5 V
+                                                                     and less.
+                                                                       Translinear circuits can-
+                                                                     not be used any more.
+                                                                     Several examples are given
+                                                                     next.
+
+
+
+
+                                                                     1239
+                                                                     At low supply voltages, the
+                                                                     circuitry becomes simpler.
+                                                                     In this 1.5 V ampliﬁer, the
+                                                                     input stage is a folded cas-
+                                                                     code. It is followed by an
+                                                                     output stage in which the
+                                                                     output pMOST is con-
+                                                                     nected directly to the output
+                                                                     of the input stage.
+                                                                        The output nMOST drive
+                                                                     is very diﬀerent however. It
+                                                                     leads to a current mirror
+                                                                     M23/M24 to carry out two
+                                                                     inversions. Remember that
+                                                                     output transistors have to
+                                                                     be driven in phase. This
+gives rise to extra poles, which have to be compensated for.
+   Two tricks are used. The ﬁrst one is local feedback around output transistor M25, with resistor
+R . This shunt-shunt feedback lowers the impedance at input and output indeed.
+  sh
+   The second trick is the introduction of a zero with time constant R C . This must be tuned
+                                                                        z z
+to one of the non-dominant poles, which is not that easy of course.
+Class AB and driver ampliﬁers                                                                     357
+
+  The quiescent current in the output devices is not that well deﬁned. The variation of this
+current is decreased by the local feedback of resistor R . However, it will never be really
+                                                        sh
+independent of the supply or output voltage.
+
+
+                                                                        1240
+                                                                        A simpler low-voltage class-
+                                                                        AB ampliﬁer is shown in
+                                                                        this slide.
+                                                                           Only the output stage is
+                                                                        shown. It consists of two
+                                                                        current mirrors with current
+                                                                        factor b. They are driven by
+                                                                        two parallel input devices,
+                                                                        with diﬀerent sizes however.
+                                                                        Indeed transistor M1 is
+                                                                        (1+a) times larger than
+                                                                        transistor M2. The top cur-
+                                                                        rent mirror with pMOSTs is
+                                                                        biased by aI and so is the
+                                                                        bottom one with nMOSTs.
+                                                                        These are the quiescent cur-
+                                                                        rents and are well deﬁned.
+  The main advantage of this driver is that points A and B can have very large swings. The
+output stage can sink and source currents which are much larger than the quiescent currents.
+For a large voltage, on point B for example, V        becomes very large but V       is limited by the
+                                                  GS8                            DS8
+cascode M6. Transistor M8 enters the linear region. This levels oﬀ somewhat the increase in
+output current. This current is still a lot larger than for a translinear loop.
+
+
+                                                                        1241
+                                                                        The full ampliﬁer is shown
+                                                                        in this slide.
+                                                                           The ﬁrst stage is a simple
+                                                                        diﬀerential pair followed by
+                                                                        a current mirror to drive the
+                                                                        output stage.
+                                                                           Only two high-impedance
+                                                                        points can be distinguished.
+                                                                        Capacitor C         sets the
+                                                                                        m1
+                                                                        GBW, together with g .
+                                                                                                   m1
+                                                                        Capacitors C and C see
+                                                                                       m2       m3
+                                                                        small resistances only, and
+                                                                        are not so eﬀective.
+358                                                                                      Chapter #12
+
+                                                                      1242
+                                                                      A somewhat similar prin-
+                                                                      ciple for the quiescent cur-
+                                                                      rent is used in this ampliﬁer.
+                                                                      It is a two-stage ampliﬁer
+                                                                      which can operate at low
+                                                                      supply voltages.
+                                                                         The input devices are
+                                                                      lateral pnp transistors.
+                                                                      Actually they are pMOSTs
+                                                                      in which the Source-Bulk
+                                                                      diode is forward biased
+                                                                      (ref. Vittoz). They exhibit
+                                                                      very low 1/f noise.
+                                                                         Output transistor M12 is
+                                                                      driven directly by the ﬁrst
+                                                                      stage. The other output
+transistor M11 is driven by two inverters M7-M9 and M10-M11.
+   The quiescent current in the output transistors is controlled by current source M6. Indeed its
+currents is split up in two parts. The ﬁrst part ﬂows through M7, which has the same V as
+                                                                                               GS
+output transistor M12, and which has a ﬁxed ratio in current to M12.
+   The other part ﬂows through M8, which controls the current in output transistor M11 by
+means of two current mirrors. The currents in the output transistors must be the same. The
+current through M6 controls this current.
+   Using the sizes of the transistors in this slide, the quiescent current is about 1.6 times larger
+than the current in transistor M6.
+
+
+                                                                      1243
+                                                                      A very diﬀerent principle is
+                                                                      based on the current
+                                                                      diﬀerential ampliﬁer, which
+                                                                      has been discussed in
+                                                                      Chapter 3. It has three cur-
+                                                                      rent inputs, actually four, if
+                                                                      an extra current input
+                                                                      source is applied to the
+                                                                      Drain of transistor M4.
+                                                                      Moreover, it can operate on
+                                                                      very low supply voltages.
+                                                                         If a threshold voltage V
+                                                                                                     T
+                                                                      is taken of 0.7 V, and a
+                                                                      V −V (and V            ) of only
+                                                                        GS     T       DSsat
+                                                                      0.15 V, then the supply volt-
+                                                                      age can be as low as 1 Volt.
+The maximum output voltage can then be as high as 0.7 V.
+  If however the V is only 0.3 V, and the same V −V of 0.15 V is taken, then the supply
+                   T                            GS     T
+voltage can be a mere 0.6 V!
+Class AB and driver ampliﬁers                                                                359
+
+  A similar biasing will be used for the class-AB ampliﬁer discussed next. It can therefore be
+used at a supply voltage of only 0.6 V!
+
+                                                                   1244
+                                                                   The class-AB ampliﬁer is
+                                                                   shown in this slide.
+                                                                      On ﬁrst sight it seems to
+                                                                   consist of a diﬀerential pair,
+                                                                   the output of which is fed
+                                                                   back to the current mirror,
+                                                                   biasing this pair. However,
+                                                                   feedback from a diﬀerential
+                                                                   output to a common-mode
+                                                                   node is impossible to grasp.
+                                                                      A better way to under-
+                                                                   stand this circuit is to note
+                                                                   that transistor M2 has a
+                                                                   constant current, i.e. current
+                                                                   I . If not, the feedback loop
+                                                                    B1
+                                                                   to the Gate of M3 will make
+sure of that. The only basic single-transistor conﬁguration in which the transistor carries only
+DC current is the Source follower. Transistor M2 acts as a Source Follower. It passes input
+voltage V unattenuated to the Source of the other input transistor M1.
+          in2
+  Input transistor M1 is a diﬀerential ampliﬁer by itself. One input voltage V is at its Gate
+                                                                               in1
+and the other, V at its Source. It converts this diﬀerential input voltage into an AC current
+                 in2
+which ﬂows from the supply through transistors M3 and M1 to ground. It is mirrored by the
+current mirror M3/M4 to the output. It could also be mirrored out at the Drain of M1 however,
+as will be done in the full circuit, shown next.
+  This AC current is not limited by any DC current. Moreover, it has an expanding characteristic
+because of the square-law characteristic of a MOST. Transistor M1 acts as a class-AB ampliﬁer.
+
+                                                                   1245
+                                                                   The full schematic is given
+                                                                   in this slide. It is fully
+                                                                   diﬀerential. The common-
+                                                                   mode feedback CMFB is
+                                                                   not shown.
+                                                                     The class-AB voltage-to-
+                                                                   current converting transis-
+                                                                   tors are M1b and M1c.
+                                                                     Transistor M1a passes
+                                                                   input voltage in1 to the
+                                                                   Source of M1b. An AC cur-
+                                                                   rent is generated by transis-
+                                                                   tor M1b. This current is
+                                                                   mirrored to output out1 by
+                                                                   current mirror M2a/M3a
+                                                                   and to output out2 by cur-
+                                                                   rent mirror M5b/M6b.
+360                                                                                      Chapter #12
+
+  The same applies to the AC current generated by transistor M1c. It is mirrored to the outputs
+as well.
+  The CMFB can be realized by application of a current to the sources of M7a/M7b.
+
+                                                                       1246
+                                                                       The input transistors M1b
+                                                                       and M1c determine the gain
+                                                                       from input voltage to output
+                                                                       current. Increasing their size
+                                                                       increases their gain, as
+                                                                       shown left.
+                                                                          For a zero diﬀerential
+                                                                       input voltage, the diﬀer-
+                                                                       ential output current is zero
+                                                                       as well. For small input volt-
+                                                                       ages, an expanding charac-
+                                                                       teristic is obtained.
+                                                                          For very large input volt-
+                                                                       ages, the maximum output
+                                                                       current saturates, depending
+                                                                       on the relative transistor
+ratios. The quiescent current is set by current sources I , which is about 2 mA. The current drive
+                                                         B
+capability is also quite high.
+  An increase in the DC current sources I , evidently increases the maximum output current as
+                                            B
+well. This is shown on the right.
+
+                                                                    1247
+                                                                    This last class-AB ampliﬁer
+                                                                    is actually a simpliﬁed ver-
+                                                                    sion of the class-AB ampli-
+                                                                    ﬁer using current feedback,
+                                                                    discussed before. Both are
+                                                                    sketched next to each other
+                                                                    for sake of comparison.
+                                                                    Both use transistor M2 as a
+                                                                    Source follower.
+                                                                       Both ampliﬁers use tran-
+                                                                    sistor M2 as a Source fol-
+                                                                    lower. In the last ampliﬁer
+                                                                    (on the left), only one single
+                                                                    transistor provides the volt-
+                                                                    age-to-current conversion.
+                                                                    Only three transistors carry
+AC current. This is clearly an advantage for high-frequency or for low-power design, or both.
+  In the right ampliﬁer, seven transistors carry an AC current. In principle the more transistors
+carry an AC current, the more poles are generated and the slower the circuit will be. The left
+ampliﬁer is better with this respect.
+Class AB and driver ampliﬁers                                                                  361
+
+   Moreover, the left ampliﬁer can work at a lower supply voltage. The minimum supply voltage
+of the right ampliﬁer is V +2V            but only V +V       for the left one. For a V of only
+                            GS     DSsat            GS  DSsat                          T
+0.3 V, and a V −V of 0.2 V is taken, then the minimum supply voltage is 0.7 V for the left
+               GS     T
+ampliﬁer but 0.9 V for the right one.
+   The left ampliﬁer is clearly superior.
+
+                                                                    1248
+                                                                    A large variety of class-AB
+                                                                    ampliﬁers have been dis-
+                                                                    cussed and compared. Many
+                                                                    diﬀerent principles are avail-
+                                                                    able depending on the
+                                                                    required power levels and
+                                                                    output loads. This is only a
+                                                                    selection of the ampliﬁers
+                                                                    published. It is a good over-
+                                                                    view though.
+                                                                       For all ampliﬁers dis-
+                                                                    cussed, the full references are
+                                                                    now listed. They allow the
+                                                                    reader to study these ampli-
+                                                                    ﬁers in more detail.
+                                                                       More references are given
+than have been included in this chapter. This is done to give the reader a more complete list of
+references to ampliﬁers, which deserve to be examined.
+
+
+                                                                      1249
+362          Chapter #12
+
+      1250
+
+
+
+
+      1251
+

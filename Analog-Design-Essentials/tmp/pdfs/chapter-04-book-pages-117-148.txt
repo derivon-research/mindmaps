@@ -1,0 +1,1676 @@
+                                                                      041
+                                                                      Before we go into more
+                                                                      detail in opamp design, we
+                                                                      want to know more about
+                                                                      the limits of operation. At
+                                                                      the low end this is noise,
+                                                                      whereas at the high end it is
+                                                                      distortion. This latter topic
+                                                                      is discussed in Chapter 15.
+                                                                      We now want to learn more
+                                                                      about noise.
+
+
+
+
+                                                                      042
+                                                                      Every ampliﬁer has noise.
+                                                                      When we apply a small-
+                                                                      signal input to an ampliﬁer,
+                                                                      then the output signal is an
+                                                                      accurate replica of the input,
+                                                                      but ampliﬁed. The output is
+                                                                      proportional to the input, at
+                                                                      least in the middle range.
+                                                                         When we increase the
+                                                                      input signal amplitude, the
+                                                                      output amplitude levels oﬀ.
+                                                                      We generate distortion. The
+                                                                      higher we increase the in-
+                                                                      put the ﬂatter the response
+                                                                      becomes and the more dis-
+                                                                      tortion is generated. In most
+systems we can allow something like 0.1% distortion. In some audio ampliﬁers and
+high-performance analog-to-digital converters we would want rather less than 0.001%
+distortion!!
+   When we decrease the signal amplitude, it gets lost in noise. The Signal-to-Noise Ratio (SNR)
+is the highest possible range of input signals we can obtain regardless of distortion.
+   The Signal-to-Noise-and-Distortion Ratio (SNDR) on the other hand, limits this SNR to a
+certain amount of distortion. Above the 0.1% SNDR is shown, for which the distortion is limited
+to 0.1%. Clearly the SNDR is always smaller than the SNR.
+
+
+
+
+                                                117
+118                                                                                  Chapter #4
+
+                                                                   043
+                                                                   We will ﬁrstly examine how
+                                                                   we can describe noise. After
+                                                                   all, this is a quantity that
+                                                                   comes as a power, not a
+                                                                   voltage or current!
+                                                                      Then we will discuss all
+                                                                   circuits that we have seen
+                                                                   hitherto from the point of
+                                                                   view of noise performance.
+                                                                      The main points will be
+                                                                   how to optimize noise per-
+                                                                   formance. For a resistive
+                                                                   input source, we will opti-
+                                                                   mize the current ﬂowing.
+                                                                   For a capacitive input
+                                                                   source, we will perform
+                                                                   what is called ‘‘capacitive
+                                                                   noise matching’’.
+
+
+
+                                                                044
+                                                                Noise is an arbitrary signal.
+                                                                We never know what to ex-
+                                                                pect next. The signal ampli-
+                                                                tude is unpredictable. As a
+                                                                result there is a Gaussian
+                                                                spreading around zero and
+                                                                the average value is zero.
+                                                                Also, all possible pulses
+                                                                seem to be present, i.e. sharp
+                                                                ones and wide ones.
+                                                                  In order to be able to
+                                                                describe noise we have to
+                                                                take the power of the noise.
+                                                                For this purpose, we square
+                                                                the voltage or we rectify the
+                                                                voltage as shown in this
+slide. The average versus time is now the average noise power. It is clearly not zero but it
+averages out the peaks over a speciﬁc amount of time.
+
+
+
+045
+Fourier has explained how to convert any signal versus time into a signal versus frequency. For
+noise, we obtain a curve which consists of two regions:
+– The region of white noise is ﬂat and extends to very high frequencies (1013 Hz).
+Noise performance of elementary transistor stages                                               119
+
+                                                                     – The region at low fre-
+                                                                        quencies, which is called
+                                                                        pink or 1/f noise as the
+                                                                        noise power is inversely
+                                                                        proportional     to     the
+                                                                        frequency.
+                                                                     The noise density is now the
+                                                                     noise power in an elemen-
+                                                                     tary small frequency band
+                                                                     df. Its dimension is V2/Hz.
+                                                                     Taking the square root
+                                                                     yields VRMS/√Hz.
+                                                                        The integrated noise is the
+                                                                     total noise power between
+                                                                     two frequencies. This integ-
+                                                                     ral is easily taken when the
+                                                                     noise is white or ﬂat. It is
+proportional to the diﬀerence in frequency. Noise is therefore integrated on a linear frequency
+axis. Bode diagrams are always presented with a logarithmic axis. They now give the wrong
+picture. They overemphasize the low-frequency noise.
+   The integrated noise (or also total noise) has V2 as a dimension or V     when the square root
+                                                                         RMS
+is taken.
+   The calculation of the integrated noise in the 1/f noise region involves another integral. The
+main point is not to omit the lower bound frequency. The 1/f noise would go to inﬁnity and so
+does the integrated noise. It would take an inﬁnite time to measure that however!
+
+
+
+                                                                     046
+                                                                     Let us now determine which
+                                                                     noise sources we can ﬁnd in
+                                                                     an      electronic     circuit.
+                                                                     Resistors and junctions give
+                                                                     noise. We will take resis-
+                                                                     tors ﬁrst.
+                                                                       A resistor gives thermal
+                                                                     noise. It is modeled by a
+                                                                     voltage source in series with
+                                                                     the resistor or a current
+                                                                     source in parallel.
+                                                                       The noise voltage is pro-
+                                                                     portional to that resistor,
+                                                                     and to the absolute temper-
+                                                                     ature (in Kelvin). It does not
+                                                                     depend on the actual cur-
+rent ﬂowing through the resistor. Cooling down will therefore reduce the noise (as in many space
+applications!).
+  For a resistor of 1 kV, the thermal noise density is about 4 nV /√Hz at room temperature.
+                                                                 RMS
+120                                                                                       Chapter #4
+
+This is proportional to the square root of the resistor value. A resistor of 100 kV would give
+40 nV /√Hz but a resistor of 10 kV only 4×√10 or 12 nV /√Hz.
+      RMS                                                       RMS
+   Over a bandwidth from 20 Hz to 20 kHz, the total noise of a 100 kV resistor would be
+40×√20 000 nV         or 5.6 mV . For a maximum signal amplitude of 100 mV , this would be
+                  RMS          RMS                                               RMS
+SNR of 17 700 or 85 dB.
+   Note that the lower bound frequency is usually negligible. Indeed, either subtracting 20 Hz
+from 20 kHz or not, will not make any diﬀerence.
+   Finally, note that a noise current can be used in parallel. The larger this parallel resistor, the
+lower the noise.
+
+                                                                   047
+                                                                   The upper frequency limit of
+                                                                   a resistor R is normally
+                                                                                  S
+                                                                   determined by a capacitance
+                                                                   to ground, denoted by C .
+                                                                                                L
+                                                                   Their time constant deter-
+                                                                   mines the bandwidth BW.
+                                                                      If we now want to calcu-
+                                                                   late the integrated noise
+                                                                   of this resistor-capacitance
+                                                                   combination, we have to
+                                                                   take the integral over all fre-
+                                                                   quencies. This integral obvi-
+                                                                   ously contains the ﬁrst-
+                                                                   order ﬁlter transfer function,
+                                                                   related to this bandwidth
+                                                                   BW.
+  We now have to perform this integration. Luckily this is a well known integral.
+
+                                                                 048
+                                                                 Indeed the integral gives
+                                                                 p/2 as a value, provided
+                                                                 the variables are correct.
+                                                                 The integrated noise is
+                                                                 now simply 4kTR BW p/2,
+                                                                                     S
+                                                                 which is the noise of the
+                                                                 resistor itself, multiplied by
+                                                                 BW p/2. This latter band-
+                                                                 width is called the noise ban-
+                                                                 dwidth BW .
+                                                                              n
+                                                                    The ratio of the BW to
+                                                                                            n
+                                                                 the BW is 1.57. This extra
+                                                                 57% is required to take into
+                                                                 account the integral of the
+                                                                 region with the ﬁrst-order
+                                                                 slope of 20 dB/decade. If we
+took a steeper ﬁlter (3rd order or higher), then the BW and the BW nearly coincide.
+                                                       n
+Noise performance of elementary transistor stages                                                121
+
+   However, the bandwidth BW also contains R . As a result R is cancelled out in the expression
+                                                    S              S
+of the integrated noise. A very simple result emerges. The integrated noise is simply kT/C .
+                                                                                               L
+   For 1 pF the integrated noise is 65 mV . For less noise, we have to increase the size of the
+                                              RMS
+capacitance. For 10 pF that would be 65/√10 or about 21 mV .
+                                                                   RMS
+   This can be understood by realizing that for larger resistors, the noise increases but the
+bandwidth is reduced by exactly the same amount.
+   Filters all use the integrated noise as a speciﬁcation or the SNR. They all use large capacitances
+to increase their SNR, and an amplitude which is as high as possible.
+
+
+
+                                                                      049
+                                                                      In this way we reach the
+                                                                      important conclusion that
+                                                                      noise density depends on the
+                                                                      resistor and integrated noise
+                                                                      depends on the capacitance.
+                                                                         For low noise density we
+                                                                      need a small series resistance
+                                                                      (or large parallel resistance).
+                                                                         For low integrated or
+                                                                      total noise, we need a large
+                                                                      capacitance to ground.
+                                                                         Both obviously depend
+                                                                      on absolute temperature.
+                                                                         A designer will therefore
+                                                                      have to determine whether
+                                                                      he deals with a narrow-band
+system (receivers, bandpass ﬁlters, ...) or a wide-band system (switched-capacitor ﬁlters, low-pass
+ﬁlters, ...).
+   In a narrow-band system, the narrow band noise (spot noise) is the noise density, multiplied
+by the bandwidth. The resistances determine the noise performance.
+   In a wide-band system, the kT/C noise is dominant. For low noise, we have to increase the
+capacitances. Doing this will obviously increase the power consumption.
+   This is a rule of thumb. Low noise requires smaller resistances and or larger capacitances.
+Both increase the power consumption. Increasing the noise performance inevitably leads to larger
+power consumption. A low-noise low-power circuit requirement certainly leads to a severe
+compromise!
+
+
+
+0410
+A resistor also exhibits 1/f noise.
+  In general, 1/f noise is dependent on size and the quality of conduction (or homogeneity).
+  This is why the expression for the 1/f noise is a result of ﬁtting lots of data. It contains the
+DC voltage across the resistor, the size (A or WL) and a factor KF , that indicates what
+                                             R                              R
+material is to be used.
+  For example a n-well resistor is single-crystalline silicon. This material is very homogeneous.
+As a result the KF factor is small.
+                   R
+122                                                                                     Chapter #4
+
+                                                                        The same applies to all
+                                                                     diﬀused resistances. Poly-
+                                                                     silicon resistors on the other
+                                                                     hand are much worse.
+                                                                     Discrete carbon resistors are
+                                                                     probably the worst for 1/f
+                                                                     noise.
+                                                                        If we use the same resistor
+                                                                     with much larger dimen-
+                                                                     sions (same W/L but larger
+                                                                     WL), then the 1/f noise is
+                                                                     signiﬁcantly reduced.
+                                                                        Finally reducing the DC
+                                                                     voltage to zero by putting a
+                                                                     capacitance in series, also
+                                                                     kills the 1/f noise. This is
+                                                                     probably the most widely
+used technique in low-noise preampliﬁers!
+  Note that the 1/f noise is normally speciﬁed at 1 Hz. Since the noise voltage is inversely
+proportional to the square root of the frequency, it decreases only slowly.
+
+
+
+                                                                    0411
+                                                                    The other source of white
+                                                                    noise is the shot noise, gen-
+                                                                    erated by a junction, or
+                                                                    diode.
+                                                                       This is white noise but not
+                                                                    thermal noise.
+                                                                       Indeed this noise current
+                                                                    is proportional to the cur-
+                                                                    rent but is independent of
+                                                                    the temperature. Cooling
+                                                                    therefore, does not help!
+                                                                       This applies to any junc-
+                                                                    tion (or diode) which carries
+                                                                    current. It is irrelevant
+                                                                    whether the current ﬂows in
+                                                                    the forward direction (as in
+any forward biased diode) or in the reverse direction (as in a photodiode). The same expression
+is still valid.
+
+
+
+0412
+Obviously, a diode also exhibits 1/f noise.
+  Again the amount of noise depends on the current through it, the size and the material used.
+Noise performance of elementary transistor stages                                               123
+
+                                                                         For example, a small thin-
+                                                                      ﬁlm diode gives a signiﬁcant
+                                                                      amount of 1/f noise.
+                                                                         A large (power) diode in
+                                                                      single-crystalline silicon is
+                                                                      not too bad. This corres-
+                                                                      ponds to the value given in
+                                                                      this slide.
+                                                                         Obviously, the spreading
+                                                                      on this value is quite large!
+                                                                      A measurement on one
+                                                                      single device is not relevant.
+                                                                      Averages have to be taken
+                                                                      over hundreds of devices!
+
+
+
+
+                                                                     0413
+                                                                     A MOST has a resistive
+                                                                     channel. As a result, it
+                                                                     exhibits thermal noise, just
+                                                                     like any other resistor.
+                                                                        The channel is not very
+                                                                     homogeneous, as it con-
+                                                                     ducts well at the Source side,
+                                                                     but is pinched oﬀ at the
+                                                                     Drain side. This is why some
+                                                                     integrals will be required to
+                                                                     calculate the channel resis-
+                                                                     tance and the noise gener-
+                                                                     ated by it.
+                                                                        Nevertheless, the channel
+                                                                     noise can be represented by
+                                                                     a noise current source in
+parallel with the g current source. The integral leads to a eﬀective channel resistor R of
+                    m                                                                         CH
+3/2g . The 4kT factor clearly shows that we are dealing with thermal noise.
+    m
+  In deep submicron or nanometer CMOS devices, velocity saturation appears. As a result the
+coeﬃcient 2/3 increases (Ref. Han, JSSC, March ’05, 726–735). It is about 50% larger for 0.18 mm
+CMOS and doubles for 0.13 mm CMOS.
+  The poly Gate resistor R cannot be discounted, however. Even if the Gate material is highly
+                           G
+doped, it can make a large contribution, depending on the actual dimensions, and on how long
+the Gate line is prolonged outside the active region.
+
+0414
+Normally we refer both white noise sources to the input, in order to be able to calculate the
+SNR at the input.
+124                                                                                    Chapter #4
+
+                                                                       The channel noise current
+                                                                    can easily be shifted to the
+                                                                    input by dividing it by g
+                                                                                                m
+                                                                    (and the power by g 2).
+                                                                                         m
+                                                                       The two noise powers are
+                                                                    then added at the input. In
+                                                                    this way we obtain a ther-
+                                                                    mal noise resistance R ,
+                                                                                              eff
+                                                                    which is the sum of both
+                                                                    sources. The channel noise
+                                                                    gives the ﬁrst contribution.
+                                                                    The Gate resistor R is the
+                                                                                         G
+                                                                    other one. The input noise
+                                                                    voltage is called the equiva-
+                                                                    lent input noise voltage. It
+                                                                    is inversely proportional
+                                                                    to transconductance g , at
+                                                                                            m
+least whilst the Gate resistor is small.
+   At very high frequencies, a capacitance C appears across the Gate-Source terminals. As a
+                                               GS
+result, for a low source resistance (typically 50 V) a noise current can ﬂow through capacitance
+C as shown in this slide.
+  GS
+   This current is obviously correlated to the equivalent input voltage. Their powers cannot be
+added up. However, this noise current is only relevant at very high frequencies, beyond f /5. It
+                                                                                          T
+is only relevant in the noise optimization of LNA’s, VCO’s and RF mixers.
+
+
+
+                                                                   0415
+                                                                   The equivalent input noise
+                                                                   voltage of a MOST can be
+                                                                   made small by increasing
+                                                                   the transconductance. This
+                                                                   will require a small V −V
+                                                                                          GS    T
+                                                                   but a large W/L and current.
+                                                                      This is only true if the
+                                                                   Gate resistance is small. In
+                                                                   this layout a MOST is
+                                                                   shown with very large W/L.
+                                                                   The poly Gate lines between
+                                                                   the Sources and Drains have
+                                                                   become very long, generat-
+                                                                   ing a fairly large resistance.
+                                                                      In order to avoid this
+                                                                   resistance, it is better to
+divide the layout in several smaller blocks, such that the Gate contacts can be much closer to
+the middle of the Gate lines.
+  The Gate resistance therefore depends very much on the layout style.
+Noise performance of elementary transistor stages                                                    125
+
+                                                                          0416
+                                                                          This is also very much the
+                                                                          case for the Substrate
+                                                                          resistance.
+                                                                            Even if the Substrate con-
+                                                                          tact is shorted to the Source
+                                                                          contact, it is impossible
+                                                                          to avoid the presence of
+                                                                          a Substrate resistance. Its
+                                                                          value evidently depends on
+                                                                          whether the substrate has a
+                                                                          back contact or not. It is
+                                                                          diﬃcult to calculate its value
+                                                                          because it is a distributed
+                                                                          resistance. It will always be
+                                                                          present.
+                                                                            This resistance gives
+noise, which has to be included in the small-signal diagram.
+
+
+
+                                                                  0417
+                                                                  The noise of the Bulk or
+                                                                  Substrate resistance R is
+                                                                                           B
+                                                                  included. It is multiplied by
+                                                                  the Bulk transconductance
+                                                                  g , to be transferred to the
+                                                                   mb
+                                                                  output. Then it has to be
+                                                                  divided again by the trans-
+                                                                  conductance g itself, to be
+                                                                                  m
+                                                                  transferred to the Gate. The
+                                                                  ratio g /g applies in the
+                                                                          mb m
+                                                                  parameter n−1.
+                                                                     The total equivalent input
+                                                                  noise voltage includes the
+                                                                  contribution of the substrate
+                                                                  resistance R , multiplied by
+                                                                               B
+                                                                  (n−1)2.
+   Again, the value of this resistance R depends on the layout. For low-noise performance, a
+                                        B
+large substrate contact will have to be designed.
+
+
+
+0418
+The last contribution to the equivalent input noise voltage is given by the series resistance in
+the Source itself. Normally, this is quite small, but depending on the eﬀective channel length.
+  It is easy to show (see next slide) that the noise of the Source resistor can simply be added to
+the noise of the Gate resistor. It is as if the Source resistor itself can be added to the Gate resistor.
+126                                                                                     Chapter #4
+
+                                                                        The realization of a large
+                                                                     low-noise MOST requires
+                                                                     the simultaneous minimiza-
+                                                                     tion of all four contribu-
+                                                                     tions. Quite often the bulk
+                                                                     resistor R is forgotten in
+                                                                                B
+                                                                     the design plan!!
+                                                                        Nowadays, for deep sub-
+                                                                     micron CMOS, the channel
+                                                                     noise contribution seems to
+                                                                     have a coeﬃcient larger
+                                                                     than 2/3. Values of up to 2
+                                                                     have been measured. It is
+                                                                     not yet clear, whether this is
+                                                                     because of the upcoming
+                                                                     eﬀect of velocity saturation
+                                                                     or with breakdown or
+                                                                     punch-through.
+
+
+
+
+                                                                    0419
+                                                                    The noise of the Source
+                                                                    resistor R can simply be
+                                                                    added to the noise of the
+                                                                       Gate resistor. The calcu-
+                                                                    lation is given in this slide.
+                                                                    We ﬁrstly assume that this
+                                                                    resistor is larger than 1/g .
+                                                                                                m
+                                                                    Otherwise it has no eﬀect!
+                                                                       We now calculate the con-
+                                                                    tribution of the channel
+                                                                    noise to the output. It is the
+                                                                    channel noise itself divided
+                                                                    by (g R)2.
+                                                                          m
+                                                                       We then calculate the
+                                                                    contribution of the resistor
+                                                                    noise to the output. It is
+                                                                    simply 4kT/R.
+  When we take the sum of both, we see that the channel noise of the transistor has become
+negligible, compared to the resistor noise. Indeed, g R is much larger than unity.
+                                                     m
+  As a result, the equivalent input noise voltage is dominated by the resistor noise. Moreover,
+the expression is the same as for the Gate resistance noise.
+Noise performance of elementary transistor stages                                                    127
+
+                                                                           0420
+                                                                           As an exercise, let us try to
+                                                                           calculate the equivalent
+                                                                           input noise voltage of a
+                                                                           MOST biased at 65 mA.
+                                                                           Only thermal noise is taken
+                                                                           into account and the layout
+                                                                           is such that all Gate and
+                                                                           Bulk resistances can be
+                                                                           ignored. The expression is
+                                                                           repeated in this slide. A
+                                                                           transistor with 65 mA cur-
+                                                                           rent, generates a transcon-
+                                                                           ductance of g =0.65 mS
+                                                                                            m
+                                                                           (if    V −V =0.2 V          is
+                                                                                   GS    T
+                                                                           chosen). The noise resis-
+                                                                           tance 2/3/g is then about
+                                                                                      m
+1 kV. The equivalent input noise voltage is therefore 4 nV         /√Hz.
+                                                             RMS
+                                                                    0421
+                                                                    A MOST device also exhib-
+                                                                    its a lot of 1/f noise. This is
+                                                                    due to the surface states.
+                                                                    The silicon has a crystal
+                                                                    structure, which is cut oﬀ at
+                                                                    the surface, where Gate
+                                                                    oxide is grown on top. This
+                                                                    causes surface states which
+                                                                    contribute to the 1/ noise.
+                                                                       Several expressions are in
+                                                                    use. The one with C 2 in
+                                                                                             ox
+                                                                    the denominator has the
+                                                                    advantage, that coeﬃcient
+                                                                    KF is nearly independent
+                                                                        F
+                                                                    of the technology. Actually,
+                                                                    all technology eﬀects are
+represented by the C 2. If we use a KF with C only, then we lose this advantage.
+                      ox                       ox
+  Obviously, the transistor size WL (not W/L) is also included. A MOST with a thin oxide or
+a small channel length, and a large WL product shows little 1/f noise.
+  We also note that a p-JFET is the transistor with lowest 1/f noise. A pMOST is about ten
+times worse. A nMOST is by far the worst transistor for 1/f noise. It is 30–60 times larger than
+for a pMOST of the same size. The expression gives a factor of 40, but there is a large spreading
+on it!
+  It is for this reason that some audio preampliﬁers still want JFETs at their inputs. This also
+applies to some radiation detection circuitry.
+  Finally note that the equivalent input 1/f noise voltage does not depend on the DC biasing
+current. The output current depends on the DC current, but not the equivalent input voltage. A
+small current dependency may sometimes be detected. This is usually negligible.
+128                                                                                       Chapter #4
+
+                                                                      0422
+                                                                      When we examine the white
+                                                                      and 1/f noise together, we
+                                                                      notice a very slow crossover
+                                                                      from one to the other. Their
+                                                                      asymptotes meet at fre-
+                                                                      quency f , called the corner
+                                                                                c
+                                                                      frequency.
+                                                                         Obviously, this frequency
+                                                                      depends on the DC biasing
+                                                                      current. The higher the cur-
+                                                                      rent, the larger the transcon-
+                                                                      ductance and the lower the
+                                                                      white noise.
+                                                                         Since the 1/f noise does
+                                                                      not change, the corner fre-
+                                                                      quency shifts to the right, for
+                                                                      higher DC currents.
+  Actually, the corner frequency is a very strange measure for 1/f noise. The lower the white
+noise, the higher the corner frequency.
+  Also, note that the thermal noise depends on the ratio W/L, whereas the 1/f noise depends on
+the WL product.
+  Finally, note that there are circuit techniques to reduce the 1/f noise such as chopping and
+correlated-double-sampling (Ref. Enz, Temes, Proc. IEEE, Nov.96, 1584–1614). Also switching
+the biasing of the transistors can reduce the 1/f noise somewhat, as much as 10 dB (Ref. Gierkink,
+JSSC July 1999, 1022–1025).
+
+
+                                                                       0423
+                                                                       As an exercise, we want to
+                                                                       calculate what the corner
+                                                                       frequency f is for the
+                                                                                    c
+                                                                       nMOST of the previous
+                                                                       exercise, with a DC current
+                                                                       of 65 mA.
+                                                                          We use a technology of
+                                                                       0.35 mm CMOS with a K∞ as
+                                                                       given; the channel length
+                                                                       has been chosen to be three
+                                                                       times larger (for gain).
+                                                                          Simply plugging all the
+                                                                       values in the 1/f noise
+                                                                       expression yields an f of
+                                                                                                c
+                                                                       370 kHz. It is clear that
+                                                                       small-sized MOST are no
+good for audio applications. Power MOSTs are ideal for that!
+Noise performance of elementary transistor stages                                                129
+
+                                                                    0424
+                                                                    When a MOST is driven at
+                                                                    its Bulk rather than at its
+                                                                    Gate, then the Bulk trans-
+                                                                    conductance g has to be
+                                                                                    mb
+                                                                    used rather than the trans-
+                                                                    conductance g . Remember
+                                                                                   m
+                                                                    that their ratio is n−1 (see
+                                                                    Chapter 1), which is not
+                                                                    known accurately, but lies
+                                                                    somewhere between 0.3
+                                                                    and 0.5.
+                                                                       The equivalent input
+                                                                    noise voltages that are pre-
+                                                                    sent at the Bulk, are then
+                                                                    diﬀerent. They are repeated
+                                                                    at the Gate on the left. They
+are given by the expressions on the right. Both expressions contain the Bulk transconductance
+g squared. Since g is always smaller than g , the Bulk equivalent input noise is always
+ mb                   mb                          m
+larger than the Gate equivalent input noise. This evidently applies to both the white noise and
+the 1/f noise.
+   A Bulk drive is therefore not a good solution for noise.
+
+
+                                                                       0425
+                                                                       A bipolar transistor has two
+                                                                       pn-junctions, through which
+                                                                       current ﬂows. As a result
+                                                                       two sources of shot noise
+                                                                       will have to be present. They
+                                                                       are added in the small-signal
+                                                                       model in this slide. They are
+                                                                       white noise sources.
+                                                                          One collector shot noise
+                                                                       current source is added
+                                                                       between collector and emit-
+                                                                       ter. It is proportional to the
+                                                                       collector current.
+                                                                          The other one is between
+                                                                       base and emitter and is
+                                                                       proportional to the base
+                                                                       current.
+   Finally, a resistive base resistance noise voltage has to be added in series with the base input.
+   Normally, the 1/f noise is added to the base shot noise current source. For a silicon transistor,
+an average value of the KF factor is given in this slide. Normally, the 1/f noise of a bipolar
+transistor is much lower than of a MOST because the current ﬂows in the bulk, not at the surface.
+   The 1/f noise is again inversely proportional to the emitter size A .
+                                                                       EB
+130                                                                                    Chapter #4
+
+                                                                     0426
+                                                                     Again the noise sources can
+                                                                     be combined at the input, in
+                                                                     order to be able to compare
+                                                                     them to the input signal.
+                                                                        The collector shot noise
+                                                                     has to be divided by g 2 in
+                                                                                              m
+                                                                     order to be translated into
+                                                                     an input voltage.
+                                                                        The base shot noise
+                                                                     remains where it is.
+                                                                        As a result, two equiva-
+                                                                     lent noise sources are found,
+                                                                     a voltage noise source and a
+                                                                     current noise source, which
+                                                                     is actually the base shot
+                                                                     noise. Which one is domi-
+nant will depend on the source impedance, as we will see later.
+  The equivalent input noise voltage obviously also includes the base and emitter resistances.
+  Note that the expression of the equivalent input voltage is very similar to the one for MOST.
+The only diﬀerence is that now the coeﬃcient of 1/g is 1/2 instead of 2/3. This is small diﬀerence
+                                                    m
+indeed. We cannot forget however that for the same DC current the transconductance of a
+bipolar transistor is about 4 times larger than for a MOST. Its equivalent input noise voltage
+will therefore decrease.
+
+
+                                                                     0427
+                                                                     Now that we know what the
+                                                                     noise models are for a
+                                                                     MOST and a bipolar tran-
+                                                                     sistor, we want to use them
+                                                                     to calculate the SNR of an
+                                                                     ampliﬁer, a cascode, etc.
+                                                                        Moreover we have used
+                                                                     ideal current sources for the
+                                                                     biasing and as active loads.
+                                                                     All the current sources have
+                                                                     to be realized by means
+                                                                     of transistors, which also
+                                                                     exhibit noise.
+
+
+
+
+0428
+Addition of an active load M2 to a single-transistor ampliﬁer M1, gives the circuit in this slide.
+  The equivalent input noise source of the load transistor M2 is shown explicitly. It is in series
+Noise performance of elementary transistor stages                                             131
+
+                                                                   with the noise coming from
+                                                                   the biasing voltage V .
+                                                                                              B
+                                                                   Normally, this biasing volt-
+                                                                   age is followed by a large
+                                                                   decoupling capacitance to
+                                                                   ground, such that the noise
+                                                                   from it can be ignored.
+                                                                      The noise of the load
+                                                                   transistor M2 is now ampli-
+                                                                   ﬁed by g        towards the
+                                                                              m2
+                                                                   output. It has to be divided
+                                                                   by g to be referred to the
+                                                                        m1
+                                                                   input. The noise of transis-
+                                                                   tor M2 is therefore multi-
+                                                                   plied by a factor g /g .
+                                                                                      m2 m1
+                                                                      To make the noise contri-
+                                                                   bution of M2 negligible,
+we must design this load transistor with large V −V or small W/L, which is actually the same.
+                                                 GS  T
+Both transistors now carry the same DC current. Transconductance g can only be made
+                                                                         m2
+smaller if it is designed for a larger V −V , such as 0.5 V. The input transistor then keeps
+                                        GS     T
+0.2 V as a V −V .
+             GS     T
+   This is an important conclusion, which will be repeated many times. Current source and
+current mirror devices must be designed for small size W/L and hence for large V −V !
+                                                                                  GS    T
+   Note that only the white noise sources have been considered here.
+
+
+                                                                    0429
+                                                                    The same analysis can be
+                                                                    repeated for 1/f noise.
+                                                                       However, all 1/f noise
+                                                                    sources contain the area
+                                                                    WL of the transistors. The
+                                                                    resulting expression are
+                                                                    therefore more cumber-
+                                                                    some.
+                                                                       Moreover the equivalent
+                                                                    input noise voltage shows a
+                                                                    minimum, if the input chan-
+                                                                    nel length is taken as a vari-
+                                                                    able. It shows that the input
+                                                                    transistor channel length L
+                                                                                                 1
+                                                                    must be about 10 times
+                                                                    larger than load transistor
+channel length L . This is not a problem as the load transistor has normally a small W/L. It is
+                2
+normally a small square device.
+  The drawback could then be that the gain is reduced as a result of the small channel length
+L . Cascodes will therefore be needed to alleviate this problem.
+ 2
+132                                                                                       Chapter #4
+
+                                                                       0430
+                                                                       An ampliﬁer which is used
+                                                                       in a system with a character-
+                                                                       istic impedance, such as
+                                                                       600 V in audio and 50 V in
+                                                                       RF circuits, is characterized
+                                                                       by a Noise Figure NF.
+                                                                          The Noise Figure is
+                                                                       deﬁned as the ratio of the
+                                                                       total input noise to the noise
+                                                                       of the source impedance R .
+                                                                                                   S
+                                                                       It actually indicates how
+                                                                       much noise is added by
+                                                                       the ampliﬁer to the noise
+                                                                       already present by the char-
+                                                                       acteristic source impedance
+                                                                       R .
+                                                                         S
+   If we now take an ampliﬁer with both an input noise voltage and current (understanding that
+a MOST ampliﬁer has no input noise current), then we can easily determine the expression of
+the Noise Figure.
+   The noise source that is now dominant, depends on the value of the source resistor R .
+                                                                                               S
+   For a small R , the ampliﬁer is voltage-driven. In this case R di in the numerator is negligible.
+                 S                                               S ieq
+The noise voltage is then dominant.
+   This is not at all surprising, a noise performance of a voltage-driven ampliﬁer is governed by
+the equivalent input noise voltage. The Noise Figure then decreases for increasing R . For a
+                                                                                             S
+large R , the ampliﬁer is current-driven. In this case, dv in the numerator is negligible. The
+        S                                                    ieq
+noise current is then dominant and the Noise Figure increases for increasing R .
+                                                                                    S
+   There must therefore be a minimum, versus R .
+                                                    S
+
+                                                                   0431
+                                                                   This minimum is clearly vis-
+                                                                   ible when the NF, together
+                                                                   with the N /N ratio, is
+                                                                                 A S
+                                                                   plotted versus R .
+                                                                                    S
+                                                                      For small values of R , the
+                                                                                           S
+                                                                   NF decreases, but increases
+                                                                   again for large values of R .
+                                                                                                S
+                                                                   The minimum in the middle
+                                                                   is simply obtained for the
+                                                                   ratio of the two equivalent
+                                                                   input noise sources.
+                                                                      Operating     a    bipolar
+                                                                   ampliﬁer in this minimum
+                                                                   is called Resistive Noise
+                                                                   Matching.
+                                                                      Note that for a voltage
+drive, the larger current gives the larger g and the lower NF. On the other hand, for a current
+                                            m
+Noise performance of elementary transistor stages                                               133
+
+drive, the larger current gives a larger base shot noise and hence a larger NF. This is exactly the
+opposite result.
+  A MOST does not have an input noise current. Its NF is a straight line, decreasing
+continuously.
+  It is clear that for large source impedances, a bipolar transistor will never be used. The base
+noise current would ﬂow in this large source resistance and kill the noise performance. Large
+source resistances are very common. Examples are preampliﬁers for photodiodes, biopotentials,
+but also low-frequency capacitive pressure sensors, etc.
+
+
+                                                                      0432
+                                                                      Now that we know how
+                                                                      an ampliﬁer performs with
+                                                                      respect to low noise, let us
+                                                                      observe the two other single-
+                                                                      transistor stages. They are
+                                                                      the source follower and the
+                                                                      cascode.
+                                                                         We will ﬁnd that the noise
+                                                                      performance of a source
+                                                                      follower is really poor
+                                                                      whereas a cascode performs
+                                                                      beautifully!
+
+
+
+
+                                                                      0433
+                                                                      A source follower, or an
+                                                                      emitter follower in this case,
+                                                                      has a gain of at most unity.
+                                                                      As a result, the noise of the
+                                                                      next ampliﬁer is not attenu-
+                                                                      ated when we refer its noise
+                                                                      to the input.
+                                                                         When we identify all noise
+                                                                      sources for a bipolar realiza-
+                                                                      tion, not forgetting the out-
+                                                                      put noise of the DC biasing
+                                                                      current source I , we then
+                                                                                        T
+                                                                      easily ﬁnd their contribu-
+                                                                      tions to the output. Dividing
+                                                                      all output components by
+                                                                      the gain gives us the total
+equivalent input noise voltage.
+  It is clear that the input noise voltages of both the emitter follower and the ampliﬁer, appear
+134                                                                                       Chapter #4
+
+together at the input. Moreover, the input noise current of the emitter follower ﬂows through
+the large resistor R . If this resistor weren’t large, why would we need an emitter follower?
+                    S
+  Finally, the current of the emitter follower cannot be too small or the noise current of the
+current source comes into eﬀect.
+  It can be concluded that the noise performance of a source follower is really poor. It should
+never be used at the input of a low-noise ampliﬁer!
+
+
+                                                                       0434
+                                                                       The noise performance of a
+                                                                       cascode is excellent. It does
+                                                                       not impair the noise perfor-
+                                                                       mance at all, as shown next.
+
+
+
+
+                                                                      0435
+                                                                      Indeed, we like using cas-
+                                                                      codes because they add a
+                                                                      lot of gain without increas-
+                                                                      ing the current consump-
+                                                                      tion. The question now is
+                                                                      whether cascode transistor
+                                                                      M2, which heavily contrib-
+                                                                      utes to the gain, will also
+                                                                      contribute to the noise. The
+                                                                      answer is negative!
+                                                                         For both transistors the
+                                                                      equivalent input noise volt-
+                                                                      age is in series with the Gate.
+                                                                         The noise voltage of the
+                                                                      cascode transistor M2, will
+                                                                      be visible at its Source ter-
+minal but cannot inﬂuence the current through it. Actually, M2 acts as a source follower for its
+noise source dv2. As a result the output current is insensitive to the noise of the cascode.
+  A calculation of the gain, using small-signal models for the transistors (with g and r ), shows
+                                                                                    m       o
+that the equivalent input noise voltage of the cascode has to be divided by the gain of the input
+Noise performance of elementary transistor stages                                               135
+
+transistor, squared. Even if this gain is very low, as in deep submicron CMOS, the squaring will
+make sure that the noise of M2 is neglected.
+   As a result, the noise of a two-transistor cascode is the same as for the input transistor. And
+yet the cascode does contribute to the gain! This is why cascodes are so frequently used!
+
+
+                                                                      0436
+                                                                      Another way to look at the
+                                                                      noise performance is to con-
+                                                                      centrate on the cascode
+                                                                      only.
+                                                                        Current source i is the
+                                                                                          S
+                                                                      input      current    source,
+                                                                      coming eventually from
+                                                                      another transistor. Current
+                                                                      source i is the cascode
+                                                                                N
+                                                                      noise current.
+                                                                        For large values of load
+                                                                      resistor R , we ﬁnd that the
+                                                                                 L
+                                                                      cascode noise current i is
+                                                                                               N
+                                                                      simply multiplied by R
+                                                                                                  S
+                                                                      toward the output. The
+                                                                      input signal current i is
+                                                                                               S
+multiplied by a much larger factor, i.e. g r R , or g R times greater than i .
+                                          m DS S      m S                        N
+  This factor g R is therefore the value by which the input current is more ampliﬁed than the
+               m S
+cascode noise current. This is why the noise of the cascode is negligible.
+  This factor g R depends on R however. If the cascode is not driven by a real current source,
+               m S                S
+with large output resistance, then this noise reduction decreases, as shown next.
+
+
+                                                                      0437
+                                                                         Indeed, the voltage gains
+                                                                      across the cascode are
+                                                                      shown, versus load resis-
+                                                                      tance R .
+                                                                              L
+                                                                         For a high load resistance,
+                                                                      the gain reduction g R is
+                                                                                             m S
+                                                                      clearly visible.
+                                                                         This means that the cas-
+                                                                      code cannot be driven by a
+                                                                      low resistance, or by a volt-
+                                                                      age source, as suggested in
+                                                                      some wideband ampliﬁers.
+                                                                      The noise performance then
+                                                                      deteriorates really badly.
+136                                                                                       Chapter #4
+
+                                                                    0438
+                                                                    A folded cascode contains
+                                                                    two DC current sources.
+                                                                    The top one, with transistor
+                                                                    M3, distributes the DC cur-
+                                                                    rents over both stages. The
+                                                                    other one acts as an active
+                                                                    load.
+                                                                       The noise of the top cur-
+                                                                    rent source is very similar
+                                                                    as for an active load.
+                                                                    Transistor M3 must be
+                                                                    designed with large V −
+                                                                                             GS
+                                                                    V or small W/L. Indeed,
+                                                                      T
+                                                                    the full expression shows the
+                                                                    same g ratio as for a single-
+                                                                            m
+                                                                    transistor ampliﬁer with
+                                                                    active load.
+  The noise of the cascode can be neglected altogether, as shown previously. Its noise is reduced
+by the gain of the input transistor.
+  A folded cascode is a low-noise ampliﬁer, provided the noise of transistor M3 can be reduced
+by proper sizing or other techniques.
+
+
+
+                                                                      0439
+                                                                      Cascodes are sometimes
+                                                                      used with an input transis-
+                                                                      tor M1 in the linear region,
+                                                                      to avoid distortion at the
+                                                                      input.
+                                                                         In this case, it is no longer
+                                                                      clear whether the noise of
+                                                                      the cascode transistor is still
+                                                                      negligible.
+                                                                         For this purpose we have
+                                                                      to introduce a parameter to
+                                                                      indicate how deeply the
+                                                                      input transistor M1 works
+                                                                      in the linear region. This is
+                                                                      parameter a . For a =1, the
+                                                                                    1         1
+                                                                      transistor is on the onset of
+saturation. Normally a is about 0.5 or less.
+                       1
+  The expression describing a MOST in the linear region is given, followed by its on resis-
+tance R .
+         on1
+  The voltage gain is smaller than before. Actually it is only a fraction of the gain of the cascode
+by itself !
+  The total equivalent input noise voltage is due to the on resistance R and the thermal noise
+                                                                          on1
+Noise performance of elementary transistor stages                                                137
+
+of the cascode. The latter noise source is no longer negligible! Moreover the input noise voltage
+is even larger because of the a factor in the denominator.
+                               1
+   The actual small-signal model and calculations are given next.
+
+
+
+                                                                      0440
+                                                                      The small-signal model of
+                                                                      the cascode with an input
+                                                                      transistor M1 in the linear
+                                                                      region is shown in this slide.
+                                                                         Note that the small-signal
+                                                                      model of transistor M1, in
+                                                                      the linear region, is a current
+                                                                      source g v with a small
+                                                                                m1 in
+                                                                      on resistance R       in paral-
+                                                                                       on1
+                                                                      lel. The output noise current
+                                                                      is simply due to the on resis-
+                                                                      tance R . It can be referred
+                                                                              on1
+                                                                      to the input, as a input noise
+                                                                      voltage, by dividing this
+                                                                      noise current by g 2.
+                                                                                           m1
+                                                                         The total equivalent input
+noise voltage is now the sum of the input noise of transistor M1 and the noise of the cascode.
+  For this calculation, we need to ﬁnd the gains to the output, of the input noise voltage of the
+input transistor dv , and of the input noise voltage of the cascode transistor dv . They are both
+                   1                                                               2
+given at low frequencies.
+
+
+
+                                                                       0441
+                                                                       After the noise analysis of
+                                                                       the single-transistor con-
+                                                                       ﬁgurations, we now consider
+                                                                       the two-transistor conﬁgur-
+                                                                       ations.
+                                                                          A current mirror is taken
+                                                                       ﬁrst now, followed by
+                                                                       diﬀerential pairs.
+                                                                          We already know that a
+                                                                       current source transistor
+                                                                       should be designed with
+                                                                       large V −V or small
+                                                                                 GS     T
+                                                                       W/L. Let us see whether this
+                                                                       applies to all current sources
+                                                                       and mirrors.
+138                                                                                         Chapter #4
+
+                                                                  0442
+                                                                  A simple current mirror is
+                                                                  shown in this slide. Its cur-
+                                                                  rent gain factor is B.
+                                                                     All possible noise sources
+                                                                  are shown by mean of cur-
+                                                                  rent sources. The input
+                                                                  signal has an input noise
+                                                                  source in parallel and both
+                                                                  transistors have noise cur-
+                                                                  rent sources, which are pro-
+                                                                  portional to g .
+                                                                                 m
+                                                                     The total output noise is
+                                                                  given below. Clearly all
+                                                                  input noise is multiplied by
+                                                                  B2.
+                                                                     The only way to make the
+output noise small is to design all devices with large V −V or small W/L, as expected. For
+                                                        GS  T
+later matching (Chapter 12), we will also need to design the current mirrors with small W/L.
+This is therefore a very attractive result.
+
+                                                                         0443
+                                                                         The noise of a current
+                                                                         source can be further
+                                                                         reduced by inserting series
+                                                                         resistances, as shown in
+                                                                         this slide.
+                                                                            At ﬁrst sight, it is a
+                                                                         strange concept to add noisy
+                                                                         resistors to reduce the noise,
+                                                                         but it works.
+                                                                            Indeed let us ﬁrst add all
+                                                                         relevant noise sources. The
+                                                                         resistor noise sources are
+                                                                         modeled by currents, in-
+                                                                         versely proportional to the
+                                                                         resistor values.
+                                                                            The total output noise
+current is given. Instead of trying to analyze this result, let us plot the total output noise versus
+series resistor.
+  It is shown next.
+
+0444
+This log-log plot shows the contributions of the transistors themselves, marked by M, and of
+the series resistors, marked by R. The current factor B is taken as unity for simplicity. Also both
+resistors are identical.
+  It is clear that for low resistors the noise of the transistors is dominant. The output noise is
+Noise performance of elementary transistor stages                                                139
+
+                                                                       simply the sum of the noise
+                                                                       power of the two transistors.
+                                                                          However, if we increase
+                                                                       the resistors to beyond 1/g ,
+                                                                                                   m
+                                                                       we ﬁnd two important
+                                                                       results:
+                                                                       – The transistor noise is
+                                                                          decreased as a result
+                                                                          of the feedback factor
+                                                                          g R . The power is
+                                                                           m2 2
+                                                                          decreased by the square of
+                                                                          this factor.
+                                                                       – Also the total output
+                                                                          noise is smaller than
+                                                                          before; it has decreased to
+                                                                          smaller values.
+                                                                       Actually, the resistor noise
+has taken over the transistor noise. As a result the output noise power decreases inversely
+proportional to that resistor value. Also their 1/f noise may be much lower.
+   This is a remarkable result. Series resistors will always be used to realize current sources with
+ultra-low output noise.
+   This is a result that has been known for bipolar transistor current sources since 1975. Why
+then, is this technique not used routinely for MOST’s?
+
+
+                                                                       0445
+                                                                       MOST devices have already
+                                                                       a technique to reduce the
+                                                                       output noise current. They
+                                                                       don’t need series resistors.
+                                                                          This technique consists
+                                                                       of taking large values of
+                                                                       V −V or small values of
+                                                                         GS    T
+                                                                       W/L, has already been
+                                                                       explained. This gives the
+                                                                       same eﬀect as adding series
+                                                                       resistors.
+                                                                          Indeed let us compare
+                                                                       two transistor ampliﬁers
+                                                                       with diﬀerent V −V and
+                                                                                        GS     T
+                                                                       W/L. They have the same
+                                                                       Gate voltage V . They also
+                                                                                       G
+carry the same DC current.
+  The ﬁrst one with transistor M1 has a large V −V and hence small W/L. The second one
+                                               GS    T
+with transistor M2 has a smaller V −V and much larger W/L. The diﬀerence in V is taken
+                                  GS   T                                     GS
+up by a series resistor R.
+  The question is whether they have the same gain or same output noise.
+140                                                                                    Chapter #4
+
+  The second one has a larger g because its V −V is smaller. The feedback of R, reduces
+                                  m                GS    T
+the gain. As a result they have the same gain.
+  The same is also true for the output noise. The second one generates more output noise
+current because of the larger g , but it is reduced because of the feedback of R. As a result both
+                               m
+output noise values are the same.
+
+
+                                                                   0446
+                                                                   The output noise current of
+                                                                   the popular bipolar current
+                                                                   mirror is now examined.
+                                                                      Clearly we already know
+                                                                   what output noise current is
+                                                                   produced by the two current
+                                                                   mirror devices M1 and M2.
+                                                                   The question is how much
+                                                                   noise is contributed by tran-
+                                                                   sistor M3 and by the resis-
+                                                                   tor R.
+                                                                      The expressions are given
+                                                                   in this slide. Transistor M3
+                                                                   gives shot noise whereas
+                                                                   the resistor R gives thermal
+                                                                   noise.
+                                                                      Both inject noise at the
+common point. As a result they are subject to the feedback loop formed by M1 and M3. This
+is why their contributions to the output noise power have to divided by b 2.
+                                                                          3
+   As a result they are negligible.
+
+
+                                                                 0447
+                                                                 A circuit technique that is
+                                                                 sometimes used to reduce
+                                                                 the output noise of a current
+                                                                 source is given in this slide.
+                                                                    The transistor is split up
+                                                                 into parts. One of them, usu-
+                                                                 ally the one with the larger
+                                                                 current, then receives a
+                                                                 series resistor to reduce its
+                                                                 noise output. In this exam-
+                                                                 ple, this latter one takes 3/4
+                                                                 of the total current.
+                                                                    How well does this work?
+                                                                 Obviously in order to be
+                                                                 able to accommodate this
+                                                                 series resistor, we need to
+take a V biasing voltage that is quite large. It is much larger than V . We compare two
+        G2                                                               G1
+Noise performance of elementary transistor stages                                                141
+
+cases. In the ﬁrst case we have only one single MOST, which takes all the DC current. Its output
+noise current is then known.
+  In the other case, we take two MOSTs. One has a much larger V than the other. In this
+                                                                         G2
+case, we have two contributions to the output noise current. The ﬁrst one is due to transistor
+M1, which runs at 1/4 of the DC current. The other one is due to the resistor R. This resistor
+however, must have a value (V −V )/(0.75I ).
+                                 G2   G1        out
+  Two terms appear in the total noise of the second case. The ﬁrst one is the transistor noise
+whereas the second one is due to the resistor. It is clear that we need a really large V to make
+                                                                                        G2
+this work. If we applied that same V to the single MOST of the ﬁrst case, we would obtain
+                                       G2
+similar noise performance. This technique therefore does not work!
+
+
+                                                                    0448
+                                                                    After the noise analysis of
+                                                                    the current mirrors, we will
+                                                                    discuss the noise perfor-
+                                                                    mance of a diﬀerential pair.
+
+
+
+
+                                                                    0449
+                                                                    A simple diﬀerential ampli-
+                                                                    ﬁer is illustrated in this slide.
+                                                                      Both transistors exhibit
+                                                                    the same amount of noise,
+                                                                    as they carry equal currents.
+                                                                    These noise powers are not
+                                                                    correlated. They have to be
+                                                                    summed up. The question is
+                                                                    on which side?
+                                                                      The symbol of such a
+                                                                    diﬀerential ampliﬁer is
+                                                                    shown on the right. Do we
+                                                                    have to insert the equivalent
+                                                                    noise voltage at the positive
+                                                                    or at the negative input?
+                                                                      The answer is obvious.
+142                                                                                      Chapter #4
+
+Both are equivalent! Indeed the noise voltage is squared at the end of the calculations. As a
+result, it does not make any diﬀerence whether the noise is applied to the positive or negative
+side. We prefer the side where it is easier to do the calculations!
+   As a result, the total equivalent input noise source is simply twice the noise voltage power of
+one single transistor.
+   A diﬀerential ampliﬁer always gives √2 or 41% more input noise voltage than a single
+ampliﬁer. The lowest-noise ampliﬁers are single-input. On the other hand, these single-input
+ampliﬁers are much more sensitive to substrate noise. The debate on whether to use diﬀerential
+input ampliﬁers in RF receivers for example, is therefore still ongoing.
+
+
+
+                                                                       0450
+                                                                       A voltage diﬀerential ampli-
+                                                                       ﬁer with single-ended out-
+                                                                       put is shown in this slide.
+                                                                       The noise sources of all four
+                                                                       transistors are added by
+                                                                       their current sources.
+                                                                          This is a circuit with two
+                                                                       equal halves. If we know the
+                                                                       input noise power for one
+                                                                       halve, we simply multiply
+                                                                       by two.
+                                                                          Moreover each half con-
+                                                                       sists of an amplifying tran-
+                                                                       sistor loaded by a current
+                                                                       source. We already know
+                                                                       how to reduce the noise con-
+tribution of the current source. We simply design it with a larger V −V .
+                                                                       GS     T
+   The resulting equivalent input voltage is now what we expected. It contains a factor of two
+for the two halves. Also it contains the g ratio, which is typical for an active load.
+                                           m
+   If we succeed in making the load V −V small, then we can limit the input noise to the two
+                                       GS      T
+input transistors only. However, if we choose the same V −V for all transistors, or if we have
+                                                             GS    T
+bipolar transistors, then the noise of all 4 transistors is equally important!
+
+
+
+0451
+Diﬀerential pairs with large V −V values are actually called transconductors. If we cannot
+                                GS    T
+make the V −V suﬃciently large, because of velocity saturation, we can still add resistors. In
+            GS     T
+both cases we assume equal resistors and we also take g R>1.
+                                                         m
+  For small signals both realizations are equivalent. Indeed their gains are the same.
+  How about noise?
+  First of all, we notice that in the ﬁrst case, DC current I /2 ﬂows through the resistors R,
+                                                              B
+which is not true in the second case. We therefore need a larger DC supply voltage.
+  Moreover, the noise performance is quite diﬀerent. In the ﬁrst case the equivalent input noise
+voltage is the noise contributed by both resistors. This is because for g R>1, the transistor
+                                                                           m
+noise is negligible.
+Noise performance of elementary transistor stages                                                 143
+
+                                                                           Note that the noise con-
+                                                                        tributed by the DC current
+                                                                        source I is altogether negli-
+                                                                                B
+                                                                        gible, as it is a common-
+                                                                        mode signal, cancelled by
+                                                                        the diﬀerential output.
+                                                                           In the second case, the
+                                                                        noise from the DC current
+                                                                        sources I /2 (with transcon-
+                                                                                 B
+                                                                        ductance g ) is not negligi-
+                                                                                   mB
+                                                                        ble. On the contrary it is the
+                                                                        dominant noise source. This
+                                                                        is the main disadvantage of
+                                                                        the second case!
+
+
+
+
+                                                                       0452
+                                                                       Finally, let us have a look
+                                                                       at the noise performance of
+                                                                       an opamp with resistive
+                                                                       feedback.
+                                                                          We assume that the over-
+                                                                       all voltage gain is large, i.e.
+                                                                       that R is much larger than
+                                                                               2
+                                                                       R .
+                                                                         1
+                                                                          We can distinguish three
+                                                                       sources of noise, i.e. the two
+                                                                       resistors and the opamp
+                                                                       itself, which has an input
+                                                                       noise voltage source v .
+                                                                                                A
+                                                                          Calculation of the contri-
+                                                                       butions of these three volt-
+                                                                       age sources to the output
+and division by the voltage gain R /R , allows us to determine the total equivalent input noise
+                                    2 1
+voltage power.
+  For large gain, the noise voltage of the input resistor R and of the opamp are the dominant
+                                                            1
+noise sources.
+  This is to be expected. The input resistor R is in series with the input signal. Also the opamps
+                                               1
+noise voltage is its equivalent input noise voltage. At the input, it appears unaltered.
+
+
+
+0453
+For most of the ampliﬁers, a resistive source impedance was assumed. Indeed, many sensors are
+resistive such as Wheatstone bridge pressure sensors.
+144                                                                                      Chapter #4
+
+                                                                         Many sensors are capaci-
+                                                                      tive, however. Photodiodes
+                                                                      and radiation detectors are
+                                                                      capacitive, but so are capac-
+                                                                      itive accelerometers, micro-
+                                                                      phones, etc. The question is
+                                                                      then, what transistor biasing
+                                                                      provides the best noise per-
+                                                                      formance? This is called
+                                                                      capacitive noise matching.
+                                                                         Quite often this analysis
+                                                                      leads to complicated expres-
+                                                                      sions. They have been sim-
+                                                                      pliﬁed to the bare minimum.
+                                                                      Also the design plan has
+                                                                      been simpliﬁed to a single
+                                                                      equation.
+
+
+
+                                                                      0454
+                                                                      A capacitive sensor can be
+                                                                      represented by a current
+                                                                      source in parallel or a volt-
+                                                                      age in series. The latter
+                                                                      model is chosen as the calcu-
+                                                                      lations are a bit simpler. The
+                                                                      optimization provides the
+                                                                      same results.
+                                                                         The ﬁrst preampliﬁer con-
+                                                                      sists of a single transistor
+                                                                      loaded by an ideal (or very-
+                                                                      low-noise) current source.
+                                                                      It is usually followed by
+                                                                      another ampliﬁer to have
+                                                                      more gain.
+                                                                         The feedback loop is car-
+ried out by means of a capacitance. Indeed capacitances don’t give any noise. Since the source
+is capacitive, the feedback element should also be capacitive!
+   The gain A is then simply given by the ratio of the two capacitances.
+               v
+   In this case, the input transistor is the only noisy component. The question then is, what must
+be its channel width W (for minimum channel length L) and its current I               , for minimum
+                          opt                                                   DSopt
+noise?
+   What would be its SNR for an input signal of 10 mV ?
+                                                           RMS
+   We cannot forget that the input impedance of the MOST is also capacitive. Its C is
+                                                                                                GS
+proportional to the width W, for minimum channel length L. We will use minimum channel
+length L, because we will end up with very large W/L ratio’s. It is preferable to use minimum
+channel length then!
+Noise performance of elementary transistor stages                                              145
+
+                                                                     0455
+                                                                     Now we have to transfer the
+                                                                     noise source from the Gate
+                                                                     of the MOST to the input
+                                                                     of the ampliﬁer. Once the
+                                                                     noise source is at the
+                                                                     input, the SNR is readily
+                                                                     calculated.
+                                                                        In order to do so, we cal-
+                                                                     culate the gain from the
+                                                                     equivalent input noise volt-
+                                                                     age to the output, we calcu-
+                                                                     late the gain from the input
+                                                                     to the output, and we
+                                                                     equate both.
+                                                                        The gain from the noise
+                                                                     source to the output is the
+most diﬃcult. Since the feedback loop is still closed by capacitance C , the capacitance ratio
+                                                                          c
+determines the gain. Indeed, the Gate itself acts as a virtual ground.
+  The gain from input to output is simply C /C .
+                                              a f
+  Equation of both provides the noise contribution of the MOST, transferred to the input.
+
+
+
+                                                                    0456
+                                                                    The noise of the MOST is
+                                                                    actually transferred to the
+                                                                    input by means of a capaci-
+                                                                    tive transformer. It is clearly
+                                                                    ampliﬁed, by that capaci-
+                                                                    tance ratio. Note however,
+                                                                    that this capacitive ratio
+                                                                    depends on the transistor
+                                                                    size or transistor width, as
+                                                                    C is part of it.
+                                                                      GS
+                                                                       Rewriting this expression,
+                                                                    in terms of transistor width,
+                                                                    shows that there is mini-
+                                                                    mum of the input noise
+                                                                    versus width W. For small
+                                                                    W, it drops out of the
+numerator and the noise goes down with W. For large W, the kW term overcompensates the W
+factor in the denominator and the noise goes up with W.
+   It is clear that we will try to make that up-transformation factor as small as possible. The
+numerator contains all possible capacitances connected to that node. A long coaxial wire for
+example between the photodiode and the ampliﬁer would add a lot of capacitance, heavily
+deteriorating the noise performance. This is why all low-noise capacitive sensors have to be
+integrated together with their preampliﬁer.
+146                                                                                      Chapter #4
+
+                                                                      0457
+                                                                      This expression is given
+                                                                      again, together with a plot
+                                                                      of the input noise versus
+                                                                      width W.
+                                                                          There is clearly a mini-
+                                                                      mum. It is obtained at the
+                                                                      point where the transistor
+                                                                      input capacitance C ,
+                                                                                                GS
+                                                                      equals the sum of capaci-
+                                                                      tances,     seen    by    the
+                                                                      transistor.
+                                                                          For example if the sensor
+                                                                      capacitance C =5 pF, a
+                                                                                       a
+                                                                      feedback capacitance of
+                                                                      C =1 pF provides a voltage
+                                                                        f
+                                                                      gain of 5. The optimum
+width is the W =6/0.002=3000 mm or 3 mm.
+                 opt
+   In practice we prefer an operating point on the left of this optimum. The noise is not much
+worse but the size can be as much as half !
+   Now that we know the transistor width, we have to know in which technology (L and K∞) we
+will realize this ampliﬁer. Choosing a V −V =0.2 V then gives us the current I              and the
+                                             GS   T                                   DSopt
+transconductance g        .
+                     mopt
+   For example for L=0.13 mm, for which K∞ =150 mA/V2, I                 =138 mA and g      =1.38 S.
+                                                  n                DSopt               mopt
+The noise resistance 2/3g        is then 0.48 V. This is a very low value indeed!
+                            mopt
+
+                                                                 0458
+                                                                 In order to obtain the SNR,
+                                                                 we must ﬁnd the total or
+                                                                 integrated noise. The band-
+                                                                 width BW is approximated
+                                                                 by the f of that input device,
+                                                                         T
+                                                                 divided by the gain.
+                                                                 Parameter f is determined
+                                                                               T
+                                                                 by the input capacitance
+                                                                 C        and the transcon-
+                                                                   GSopt
+                                                                 ductance g         . In this
+                                                                               mopt
+                                                                 example, it is 36 GHz.
+                                                                    The noise bandwidth is
+                                                                 now 57% larger or 57 GHz.
+                                                                    Finally the SNR is then
+                                                                 the ratio of the input signal
+                                                                 to the total noise. The result
+                                                                 is easily calculated!
+  At the optimum the noise power is twice as high, corresponding to 0.48√2 or 0.68 V. The
+noise density is then about 0.1 nV /√Hz. The integrated noise is then 24 mV .
+                                  RMS                                        RMS
+  The SNR is ﬁnally 417 or 52 dB. This is not band for a 36 GHz ampliﬁer!
+Noise performance of elementary transistor stages                           147
+
+                                                    0459
+                                                    In this Chapter, we have
+                                                    carried out simpliﬁed analy-
+                                                    ses on the noise perfor-
+                                                    mance of all elementary
+                                                    circuits. This will allow us
+                                                    to obtain the equivalent
+                                                    input noise on most of the
+                                                    circuitry that follows.
+                                                                   051
+                                                                   The operational ampliﬁer
+                                                                   (opamp) is certainly the
+                                                                   main building block in all of
+                                                                   the analog electronics. It is
+                                                                   usually implemented in a
+                                                                   feedback loop to provide
+                                                                   stable and predictable gain
+                                                                   and low noise.
+                                                                      In this chapter we will
+                                                                   review what is required to
+                                                                   make sure that this ampliﬁer
+                                                                   is stable under all conditions
+                                                                   of feedback. An opamp is
+                                                                   required not only to be
+                                                                   stable but also to provide a
+                                                                   well-behaved response. For
+example, peaking in the frequency domain is normally to be avoided. Also, when a square
+waveform is applied to an opamp, we don’t want any ringing.
+  All these requirements will impose some fairly precise settings on the positions of the poles
+and zeros of this ampliﬁer. Adding the requirement that the power consumption be minimized,
+we will ﬁnd that it is quite easy to ﬁnd an optimum in performance, in view of a certain GBW
+and capacitive load.
+  However, there are many more speciﬁcations in an opamp. They will be postponed to the
+Chapter following this one.
+
+                                                                     052
+                                                                     First of all, we have to
+                                                                     review some of the terminol-
+                                                                     ogy of an operational ampli-
+                                                                     ﬁer, such as open-and
+                                                                     closed-loop gain. Also, we
+                                                                     want to review some basics
+                                                                     of second-order systems.
+                                                                     These are the ﬁrst two
+                                                                     Sections. We put emphasis
+                                                                     on two-stage ampliﬁers. We
+                                                                     have dealt with single-tran-
+                                                                     sistor stages already in
+                                                                     Chapter 2.
+                                                                        We will focus especially
+                                                                     on that positive zero which
+                                                                     shows up in any two-stage
+opamp. They can be avoided by means of additional current consumption. It is much more
+elegant however, to use some circuit tricks which allow the reduction of the total biasing current.
+   Finally, we will extended the compensation techniques, adopted for a two-stage ampliﬁer, to
+three-stage ampliﬁers. Many class-AB ampliﬁers have three stages. Moreover, three stages become
+a necessity once the gain per stages has gone down to real low values, as in nanometer CMOS.
+
+                                               149
+

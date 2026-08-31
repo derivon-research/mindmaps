@@ -1,0 +1,1523 @@
+712                                                                                    Chapter #23
+
+                                                                     233
+                                                                     Two of the most important
+                                                                     characteristics of a LNA is
+                                                                     the   noise     performance
+                                                                     within the constraints of
+                                                                     impedance matching.
+                                                                       This is why they are dis-
+                                                                     cussed ﬁrst.
+                                                                       Some attention is now
+                                                                     paid to the linearity of a
+                                                                     LNA, as large input signals
+                                                                     are as common as small
+                                                                     ones.
+                                                                       A comparison follows
+                                                                     between the most popular
+                                                                     conﬁgurations. The ﬁrst has
+                                                                     an ampliﬁer (Common-
+Source Conﬁguration) at the input whereas the second has a cascode (Common-Gate
+Conﬁguration).
+  MOST transistors can exhibit non-quasi-static behavior at high frequencies. We have to
+investigate when this eﬀect is important.
+  Finally, a large number of conﬁgurations are discussed, including components for electrostatic-
+discharge protection.
+
+
+                                                                     234
+                                                                     A voltage wave traveling
+                                                                     along a transmission line
+                                                                     will be partially reﬂected at
+                                                                     the end of this line if the
+                                                                     termination impedance is
+                                                                     diﬀerent from the line
+                                                                     impedance. This reﬂected or
+                                                                     unwanted signal is zero if
+                                                                     the termination is perfect.
+                                                                     Parameter s        gives the
+                                                                                   11
+                                                                     amount of reﬂected signal to
+                                                                     the input signal; it is there-
+                                                                     fore minus inﬁnity.
+                                                                        This is only true if the
+                                                                     input impedance of the
+                                                                     LNA is exactly the same as
+the characteristic impedance of the (transmission) line, which is usually 50 V.
+   For slight deviations, reﬂection occurs and s is not minus inﬁnity any more. For example, if
+                                                11
+the reﬂected signal is −3 dB compared to the sign l itself, then s is only about −10 dB.
+                                                                  11
+   Values of s up to −10 dB are acceptable for LNA’s, although higher values are preferred.
+              11
+   This impedance matching obviously applies to the antenna. An example is given in this slide
+of an LNA with high input impedance (as for MOST) and antenna which exhibits about 50 V;
+L ow-noise ampliﬁers                                                                             713
+
+its s is −20 dB. It is clear that reﬂections will especially occur at the LNA input and less at
+     11
+the antenna terminal.
+
+                                                                     235
+                                                                     If a transmission line with
+                                                                     characteristic impedance is
+                                                                     terminated in a resistor with
+                                                                     the same value, then a divi-
+                                                                     sion by two occurs.
+                                                                        This is shown in this slide.
+                                                                     A voltage source with value
+                                                                     v has an internal resistance
+                                                                      s
+                                                                     R. It is matched by a trans-
+                                                                     mission line with load aR. It
+                                                                     now presents a resistance
+                                                                     aR to the voltage source.
+                                                                        For perfect matching the
+                                                                     load resistance equals the
+                                                                     source resistance and a= 1.
+                                                                     Usually, the load resistance
+is somewhat diﬀerent; a is larger or smaller.
+   In this case, what is the Noise Figure?
+   Both the signal power S and noise power N are readily calculated at the output.
+                             out                    out
+   The Noise Figure, which is deﬁned as the ratio of the total noise at the output, divided by the
+noise due only to the source resistance (see Chapter 4), is obtained as given in this slide.
+   For perfect impedance matching, a is unity and the Noise Figure is 2 or 3 dB.
+   This is a typical value for resistive terminations, as shown next.
+
+                                                                     236
+                                                                     If a single transistor is taken
+                                                                     as a LNA, to which a resis-
+                                                                     tor aR is added for proper
+                                                                     termination, then it is clear
+                                                                     that the only design parame-
+                                                                     ter left is the transconduct-
+                                                                     ance g . Indeed, the Noise
+                                                                             m
+                                                                     Figure is given in two cases,
+                                                                     with perfect matching (a=
+                                                                     1) and without aR.
+                                                                        Matching       (a=1)       is
+                                                                     required to avoid reﬂec-
+                                                                     tions. The NF is higher,
+                                                                     however. If no matching
+                                                                     resistance is present (a=0),
+                                                                     then the NF can be higher.
+  Both conditions are plotted versus transconductance g .
+                                                       m
+  Deviations from the matching condition can give higher Noise Figures.
+714                                                                                   Chapter #23
+
+                                                                    237
+                                                                    Input impedance matching
+                                                                    and noise are not the only
+                                                                    concerns of a LNA.
+                                                                       For large input signal
+                                                                    amplitudes, distortion will
+                                                                    also occur. This is why this
+                                                                    aspect is discussed in detail.
+                                                                       A compromise will now
+                                                                    have to be taken. To have a
+                                                                    better feel for these compro-
+                                                                    mises, some attention is paid
+                                                                    to all other important
+                                                                    speciﬁcations.
+                                                                       For this purpose, the
+                                                                    schematic of a receiver has
+                                                                    to be looked at in detail. A
+receiver in combination with a transmitter is a transceiver.
+  This is shown next.
+
+
+
+
+                                                                   238
+                                                                   A transceiver consists of a
+                                                                   receiver and a transmitter as
+                                                                   shown in this slide.
+                                                                      The input impedance
+                                                                   matching is important for
+                                                                   the LNA of the receiver for
+                                                                   several reasons. First of all,
+                                                                   reﬂections have to be
+                                                                   avoided over the transmis-
+                                                                   sion line between the chan-
+                                                                   nel (SAW) ﬁlter and the
+                                                                   LNA. Secondly, the LNA
+                                                                   must provide the right load
+                                                                   impedance to this channel
+                                                                   ﬁlter.
+                                                                      The input impedance of
+the LNA must be as close as possible to the source resistance R , which is usually 50 V. This is
+                                                               S
+called impedance matching.
+  Moreover, the equivalent input noise must also be as small as possible. After all, the LNA is
+the ﬁrst active ampliﬁcation block. Going for the minimum Noise Figure is called noise matching.
+This has nothing to do with impedance matching. In practice, noise will be reduced as much as
+possible within the constraint of impedance matching.
+  The LNA leads to the mixer. Again a 50 V transmission line is used depending on the distance
+L ow-noise ampliﬁers                                                                             715
+
+between LNA and mixer. If they are next to each other there is no need for a 50 V line. Higher
+output impedances can now be used in the LNA.
+  Normally, a zero-IF or low-IF architecture is used. In any case, the LNA must have suﬃcient
+gain to avoid the noise of the mixer to appear at the antenna. Gains of 12–16 dB are typical.
+
+
+
+
+                                                                       239
+                                                                       Let us take as an example,
+                                                                       a DCS-1800 receiver. It
+                                                                       operates at a carrier fre-
+                                                                       quency of 1.8 GHz.
+                                                                          Several sensitivities and
+                                                                       values of Noise Figures are
+                                                                       shown     in    this    slide.
+                                                                       Remember that 1 dBm is 1
+                                                                       mW in 50 V, which corres-
+                                                                       ponds to 224 mV . A sen-
+                                                                                         RMS
+                                                                       sitivity is speciﬁed of
+                                                                       −100 dBm for an input
+                                                                       SNR of 9 dB. The input
+                                                                       noise must be at −109 dBm.
+                                                                          The     bandwidth        is
+                                                                       200 kHz. The Noise Figure
+is 12 dB. If 3 dB loss is taken into account for the channel ﬁlter, then a Noise Figure of 9 dB is
+required.
+   Let us now try to ﬁnd out about the distortion.
+   Distortion is important to avoid leakage from one channel to the adjacent channels. Especially
+intermodulation and cross-modulation distortion are to be avoided. Both are described by the
+3rd-order intermodulation intercept (IIP3) as shown in Chapter 18.
+   A minimum input signal is taken 3 dB higher than the sensitivity speciﬁes. For a high input
+signal at −49 dBm, the SNR must still be 9 dB.
+   The distortion speciﬁcation now leads to a IIP3 of −20.5 dBm.
+   Again, to take into account the attenuation in the preceding channel ﬁlter, 3 dB has to be
+subtracted, leading to an IIP3 of −23.5 dBm.
+   Normally, MOST ampliﬁers can easily satisfy such a speciﬁcation, depending on the choice
+of the V −V .
+         GS     T
+716                                                                                    Chapter #23
+
+                                                                2310
+                                                                The expression of the cur-
+                                                                rent I of a MOST has to
+                                                                       DS
+                                                                be taken for high V −V .
+                                                                                      GS    T
+                                                                This means that the ﬁtting
+                                                                parameter H must be added
+                                                                to model the linearization of
+                                                                the I −V characteristic,
+                                                                      DS    GS
+                                                                as a result of mainly velocity
+                                                                saturation.
+                                                                   The second and third
+                                                                derivatives of this expres-
+                                                                sions give rise to the IM2
+                                                                and IM3 intermodulation
+                                                                expressions. From the latter
+                                                                one the IIP3 is readily
+                                                                derived.
+  The IIP3 depends to a large extent on the choice of the V −V , as shown next.
+                                                           GS T
+
+
+
+                                                                     2311
+                                                                     The IIP3 is plotted versus
+                                                                     the value of V −V
+                                                                                             GS   T
+                                                                     for diﬀerent CMOS tech-
+                                                                     nologies.
+                                                                        It is clear that the higher
+                                                                     the V −V , the higher the
+                                                                            GS     T
+                                                                     IIP3 is but in a nonlinear
+                                                                     way.
+                                                                        It is also clear that for a
+                                                                     V −V of 0.5 V, 15 dBm
+                                                                       GS      T
+                                                                     IIP3 is readily available,
+                                                                     independently        of    the
+                                                                     technology.
+                                                                        At V −V of 0.2 V, the
+                                                                              GS     T
+                                                                     older CMOS technology
+                                                                     provides the best IIP3. This
+is a result of the ever stronger eﬀect of velocity saturation (parameter H) in deeper submicron
+technologies.
+L ow-noise ampliﬁers                                                                        717
+
+                                                                   2312
+                                                                   Now that the input imped-
+                                                                   ance matching, the Noise
+                                                                   Figure and IIP3 have been
+                                                                   introduced, they all have to
+                                                                   be derived for various cir-
+                                                                   cuit conﬁguration.
+                                                                      At these high frequencies,
+                                                                   only simple circuits can be
+                                                                   used. A single transistor
+                                                                   ampliﬁer is used more often,
+                                                                   followed by a cascode
+                                                                   ampliﬁer. This is why they
+                                                                   are discussed ﬁrst.
+
+
+
+
+                                                                   2313
+                                                                   A single-MOST ampliﬁer is
+                                                                   shown in this slide. Its
+                                                                   equivalent input noise volt-
+                                                                   age source is added.
+                                                                      A series inductor L is
+                                                                                             G
+                                                                   added to tune out the eﬀect
+                                                                   of the input capacitance
+                                                                   C . This inductor has been
+                                                                     GS
+                                                                   selected so that the operat-
+                                                                   ing frequency v fulﬁlls the
+                                                                                    in
+                                                                   expression labeled 1. This is
+                                                                   the ﬁrst design equation.
+                                                                      At this frequency f , the
+                                                                                          in
+                                                                   ratio of Gate voltage v to
+                                                                                             in
+                                                                   the signal voltage v is read-
+                                                                                       s
+                                                                   ily calculated as given in
+                                                                   this slide.
+   It is clear that some gain can easily be realized, provided the input capacitance C is
+                                                                                            GS
+suﬃciently small (for a given standard R), or the added inductance L suﬃciently large. This is
+                                                                     G
+the second design equation.
+   Note that, the input capacitance C is eﬀectively tuned out such that the input impedance
+                                      GS
+Z is ideally zero.
+  in
+718                                                                                     Chapter #23
+
+                                                                      2314
+                                                                      The single-MOST ampliﬁer
+                                                                      is shown again in this slide.
+                                                                      Its equivalent input noise
+                                                                      voltage source v            is
+                                                                                           MOST
+                                                                      added.
+                                                                         The Noise Figure is now
+                                                                      readily calculated. It can be
+                                                                      rewritten in terms of the sev-
+                                                                      eral parameters involved.
+                                                                         The last expression shows
+                                                                      that for low NF the f of the
+                                                                                            T
+                                                                      MOST must be made high.
+                                                                      This means that, ﬁrst of all,
+                                                                      the MOST must be selected
+                                                                      and then the corresponding
+                                                                      inductor L . For high f the
+                                                                                  G            T
+channel length must be as small as possible and its V −V high (see Chapter 1).
+                                                      GS     T
+  The Noise Figure is determined by this choice. This is the third design equation. No additional
+independent design parameters are present.
+
+
+
+                                                                      2315
+                                                                      An inductor can also be
+                                                                      added in the Source as
+                                                                      shown in this slide.
+                                                                         This gives rise to a reduc-
+                                                                      tion of the transconductance
+                                                                      and an increase in output
+                                                                      resistance.
+                                                                         The input impedance
+                                                                      however, shows a real part
+                                                                      L v and an imaginary part.
+                                                                        S T
+                                                                      The real part can be used
+                                                                      to tune the input resistance
+                                                                      to the source resistance R (of
+                                                                      usually 50 V) as shown next.
+L ow-noise ampliﬁers                                                                           719
+
+                                                                     2316
+                                                                     The matching of the input
+                                                                     impedance to the source
+                                                                     resistor R (usually 50 V)
+                                                                     is not carried out with a
+                                                                     resistor because it kills the
+                                                                     Noise Figure. Normally,
+                                                                     two inductances are used,
+                                                                     one in the Source L and
+                                                                                            S
+                                                                     one in the Gate L . The
+                                                                                          G
+                                                                     latter one L is usually the
+                                                                                  G
+                                                                     bonding wire.
+                                                                        Both of them are used to
+                                                                     tune out the input capaci-
+                                                                     tance C , as indicated by
+                                                                              GS
+                                                                     the equation number one.
+                                                                     This occurs only around
+                                                                     the operating frequency f
+                                                                                                 in
+                                                                     (=v /2p).
+                                                                          in
+  Under this condition, the input impedance is purely resistive and equal to v L which is made
+                                                                               T S
+equal to R. This is the design equation number two.
+  For a given transistor (C and v , which is g /2pC ) and a given frequency f , both L
+                             GS       T           m      GS                           in          S
+and L are now determined.
+      G
+  How much is the gain, and the Noise Figure?
+
+
+
+                                                                 2317
+                                                                 Several gains are readily cal-
+                                                                 culated. The transistor
+                                                                 model only includes the g
+                                                                                             m
+                                                                 and C ; the output resis-
+                                                                        GS
+                                                                 tance r is usually a lot
+                                                                         DS
+                                                                 larger than R and can
+                                                                                  L
+                                                                 therefore be neglected.
+                                                                    In this case, and remem-
+                                                                 bering the two matching
+                                                                 conditions, the current gain
+                                                                 is readily calculated. Also,
+                                                                 the voltage gain is easily
+                                                                 derived.
+                                                                    The power gain is the pro-
+                                                                 duct of both. It contains the
+                                                                 v squared. A transistor
+                                                                   T
+must now be taken with high v . This means that its channel length L must be made as small
+                             T
+as possible and its V −V high (see Chapter 1).
+                     GS T
+720                                                                                     Chapter #23
+
+                                                                      2318
+                                                                      Note that the voltage gain
+                                                                      G is diﬀerent whether an
+                                                                         v
+                                                                      inductor L is inserted in the
+                                                                                   S
+                                                                      Source or not.
+                                                                          Without this inductor (on
+                                                                      the left) the input impedance
+                                                                      is zero. The input imped-
+                                                                      ance is not matched to the
+                                                                      antenna.
+                                                                          With this inductor (on the
+                                                                      right), the input impedance
+                                                                      is purely resistive and equal
+                                                                      to R (or 50 V). As a result,
+                                                                      there is a division by two at
+                                                                      the input such that the volt-
+                                                                      age gain is a factor of two
+                                                                      smaller.
+
+
+
+                                                                     2319
+                                                                     The Noise Figure NF is
+                                                                     deﬁned as in Chapter 4.
+                                                                        The equivalent input
+                                                                     noise of the input transistor
+                                                                     is as given in this slide. The
+                                                                     term 2/3 has been left out to
+                                                                     take into account that this
+                                                                     MOST is probably operat-
+                                                                     ing close to velocity satura-
+                                                                     tion where its thermal noise
+                                                                     is probably larger. It may
+                                                                     help somewhat to lower the
+                                                                     Drain-Source voltage to
+                                                                     avoid velocity saturation.
+                                                                        The noise of the load R
+                                                                                                  L
+                                                                     is neglected.
+   Under the two matching conditions, the NF can then be rewritten as given in this slide.
+   It is striking that the NF decreaes for larger values of v , but not for larger g . Parameter
+                                                             T                       m
+v is therefore clearly the dominant transistor parameter.
+  T
+   Also, note that the NF is quite low at lower frequencies, but increases versus frequency. At
+the highest frequencies of interest the NF may not be all that attractive.
+L ow-noise ampliﬁers                                                                     721
+
+                                                              2320
+                                                              The 3rd-order intermodula-
+                                                              tion intercept point IIP3 can
+                                                              be calculated using the
+                                                              simple model of Chapter 1,
+                                                              in which ﬁtting parameter h
+                                                              is used (or H).
+                                                                 Because of the two deriva-
+                                                              tives to be taken, the expres-
+                                                              sion is quite evolved.
+                                                                 A plot is given of the IIP3
+                                                              versus the transistor current
+                                                              I and its V −V . It is
+                                                               DS             GS     T
+                                                              striking to see that the value
+                                                              of V −V is not all that
+                                                                    GS    T
+                                                              important. The only real
+                                                              important parameter is the
+DC current I . The higher the current, the higher the IIP3.
+            DS
+
+
+
+                                                              2321
+                                                              Instead of an ampliﬁer, a
+                                                              cascode can be taken as
+                                                              well. Its advantage is that its
+                                                              input impedance is resistive
+                                                              up to high frequencies and
+                                                              can be set by the current.
+                                                              Indeed, it is the inverse
+                                                              transconductance.
+                                                                 However, a closer look
+                                                              reveals that several other
+                                                              factors come in such as the
+                                                              parameter n (#1+g /g ),
+                                                                                    mB m
+                                                              and the output resistance
+                                                              r . They render the input
+                                                               DS
+                                                              resistance     much       less
+                                                              accurate.
+722                                                                                   Chapter #23
+
+                                                                    2322
+                                                                    If the LNA is matched, i.e.
+                                                                    if R#1/g , then it is easily
+                                                                               m
+                                                                    found that the current gain
+                                                                    is unity and the voltage and
+                                                                    power gain are as given in
+                                                                    this slide. It shows that the
+                                                                    load resistor R is much (up
+                                                                                     L
+                                                                    to ten times) larger than R.
+                                                                       The Noise Figure is also
+                                                                    easily derived. It is given in
+                                                                    this slide provided the gain
+                                                                    is large enough to neglect
+                                                                    the noise from R .
+                                                                                       L
+                                                                       Note that this expression
+                                                                    yields a NF of 2 or 3 dB
+                                                                    under matched conditions.
+This value is rather high but is independent of frequency.
+  For very high frequencies this NF may even be better than for an ampliﬁer conﬁguration, as
+shown next.
+  The linearity is always better than for an ampliﬁer conﬁguration because this stage is actually
+current driven.
+
+
+
+                                                                 2323
+                                                                 For sake of comparison,
+                                                                 the Noise Figure is given
+                                                                 for three diﬀerent currents
+                                                                 versus frequency for a stan-
+                                                                 dard 0.13 mm CMOS tech-
+                                                                 nology.
+                                                                    In addition, a FOM is
+                                                                 added as described in this
+                                                                 slide.
+                                                                    The ampliﬁer (Common-
+                                                                 Gate) conﬁguration shows a
+                                                                 NF which deteriorates when
+                                                                 the frequency increases,
+                                                                 which is not true for the cas-
+                                                                 code (Common Gate). For a
+                                                                 small current (5 mA), the
+                                                                 cascode performs better
+than the ampliﬁer from about 12 GHz. This is about f /2 however, and may not be so useful.
+                                                    T
+  The FOM of an ampliﬁer is always higher than for a cascode.
+L ow-noise ampliﬁers                                                                         723
+
+                                                                    2324
+                                                                    As LNA’s reach high fre-
+                                                                    quencies, up to f /2, some
+                                                                                        T
+                                                                    other phenomena show up.
+                                                                    In addition to distributed
+                                                                    capacitors, both to the sub-
+                                                                    strate as between parallel
+                                                                    lines, the distributed nature
+                                                                    of the channel of a MOST
+                                                                    starts playing as well.
+                                                                       This is explained next.
+
+
+
+
+                                                                   2325
+                                                                   In a classical quasi-static
+                                                                   model of a MOST, we
+                                                                   assume that any change in
+                                                                   Gate voltage is followed by
+                                                                   an instantaneous change in
+                                                                   channel charge. In practice,
+                                                                   there is some delay, how-
+                                                                   ever. To change the charge
+                                                                   in the channel, or in the
+                                                                   inversion layer, carriers
+                                                                   must be drawn from Source
+                                                                   and Drain, which takes
+                                                                   time.
+                                                                      In order to model this
+                                                                   time delay to a ﬁrst degree,
+                                                                   a low-pass ﬁlter is added at
+the Gate. It is realized by addition of a resistor R  , which forms a low-pass ﬁlter with input
+                                                      NQS
+capacitance C .
+               GS
+  The value of this resistor R     must be about 1/5g (see Chapter 1, Tsividis 1987).
+                               NQS                      m
+  Clearly, this eﬀect is important for really high frequencies, higher than f /5. LNA’s and VCO’s
+                                                                             T
+operate up to frequencies of f /3, however. This eﬀect must now be taken into account if precise
+                              T
+predictions are important.
+  Also, if an inductor is added in series with the Gate, then the eﬀect of this resistor is even
+more important.
+724                                                                                  Chapter #23
+
+                                                                    2326
+                                                                    This additional resistance
+                                                                    R     in series with the Gate
+                                                                      NQS
+                                                                    deteriorates the NF as
+                                                                    shown in this slide. As a
+                                                                    resistance 1/5g is taken.
+                                                                                    m
+                                                                       It is a single-MOST
+                                                                    ampliﬁer with only a Gate
+                                                                    inductor.
+                                                                       Several terms have to be
+                                                                    added to the Noise Figure.
+                                                                    The most important one is
+                                                                    the term which is squared.
+                                                                       Note that the input
+                                                                    impedance is no more zero
+                                                                    but equal to this resistance
+                                                                    R .
+                                                                      NQS
+
+
+
+                                                                   2327
+                                                                   When two inductors are
+                                                                   used, the addition of the
+                                                                   NQS resistor inﬂuences the
+                                                                   matching equations. The
+                                                                   ﬁrst one (on top right) is
+                                                                   about the tuning out of
+                                                                   capacitor C , and is the
+                                                                                GS
+                                                                   same as before.
+                                                                     The second one however,
+                                                                   includes R , such that a
+                                                                               NQS
+                                                                   smaller value of L is
+                                                                                           S
+                                                                   obtained.
+                                                                     The Noise Figure will be
+                                                                   worse, as an additional
+                                                                   resistor R      is present in
+                                                                              NQS
+                                                                   series with the Gate of the
+ampliﬁer. In its simplest approximation, the R     simply has to be added to source resistor R.
+                                               NQS
+The most important addition however, is the factor which is squared.
+L ow-noise ampliﬁers                                                                     725
+
+                                                                2328
+                                                                This LNA can now be fur-
+                                                                ther optimized, taking into
+                                                                account this R . First of
+                                                                                NQS
+                                                                all this R     is substituted
+                                                                           NQS
+                                                                by 1/5g . Then the opti-
+                                                                         m
+                                                                mum value of R can be
+                                                                found, as a function of g .
+                                                                                          m
+                                                                   The value of R is slightly
+                                                                higher than 50 V but the NF
+                                                                is lower than before.
+
+
+
+
+                                                                2329
+                                                                Further optimization shows
+                                                                that now the transistor size
+                                                                has to be adapted as well,
+                                                                giving a diﬀerent value for
+                                                                C .
+                                                                  GS
+                                                                   The expression of the NF
+                                                                has now become very simple
+                                                                now. It is the lowest value
+                                                                possible.
+                                                                   It is obvious that lower
+                                                                values of NF can only be
+                                                                obtained, provided higher
+                                                                g values are obtained, and
+                                                                  m
+                                                                hence more power.
+                                                                   A plot of this expression
+                                                                is also given.
+  The larger the transconductance, the lower the NF.
+  For 1 dB Noise Figure, about 33 mS transconductance is required.
+726                                                                               Chapter #23
+
+                                                                2330
+                                                                This optimization illustrates
+                                                                the compromises to be
+                                                                taken.
+                                                                  For a constant load resis-
+                                                                tor R , the gain is given for
+                                                                      L
+                                                                diﬀerent currents, causing at
+                                                                the same time, deviations for
+                                                                the ideal input matching
+                                                                conditions.
+                                                                  For a 50 V input resis-
+                                                                tance, the s is zero. The
+                                                                             11
+                                                                gain then increases with
+                                                                the current.
+                                                                  Taking a slightly smaller
+                                                                input resistance however,
+                                                                increases the s to −12 dB
+                                                                                11
+but gives about 2 dB more gain.
+  This is clearly advantageous provided some reﬂection (−12 dB s ) can be allowed.
+                                                                11
+
+
+
+
+                                                                2331
+                                                                Now that the design equa-
+                                                                tions have been identiﬁed
+                                                                for low-noise LNA’s, taking
+                                                                into account Non-quasi-
+                                                                static eﬀects, we focus on
+                                                                some realizations.
+                                                                   It is clear that the conﬁg-
+                                                                urations only diﬀer a small
+                                                                amount. The transistor sizes
+                                                                and currents however, are
+                                                                largely diﬀerent depending
+                                                                on the frequencies. Also, the
+                                                                sizes of the inductors which
+                                                                are added, can be very
+                                                                diﬀerent.
+L ow-noise ampliﬁers                                                                       727
+
+                                                                  2332
+                                                                  Our overview starts with a
+                                                                  very simple LNA.A cascode
+                                                                  is used to improve the isola-
+                                                                  tion between output and
+                                                                  input. This is especially
+                                                                  required to avoid leakage
+                                                                  from the next block, which
+                                                                  is usually a mixer, to the
+                                                                  input of the LNA.
+                                                                     In order to avoid noise
+                                                                  coming from the cascode, its
+                                                                  DC current is reduced.
+                                                                  A current source with
+                                                                  pMOST, provides some of
+                                                                  the DC current to the input
+                                                                  transistor. In this way, the
+contribution of the noise of the load devices can be reduced somewhat.
+  At the input, the bond-wire is shown. It is used to tune out the eﬀect of the input MOST
+capacitance and of the bonding pad capacitance.
+
+
+
+                                                                2333
+                                                                This LNA consists of two
+                                                                equal stages.
+                                                                   The input transistors M1
+                                                                and M2 are connected as a
+                                                                common CMOS inverter
+                                                                ampliﬁer. Both of them con-
+                                                                tribute to the transconduct-
+                                                                ance. The current in the
+                                                                nMOST is now reused in
+                                                                the pMOST.
+                                                                   However, the biasing cur-
+                                                                rent of a CMOS inverter
+                                                                ampliﬁer heavily depends
+                                                                on the supply voltage. This
+                                                                problem is solved here by a
+                                                                biasing block consisting of
+transistors M3-M7. This block provides DC feedback such that the DC output voltage equals
+V for the ﬁrst LNA. It is fully decoupled from the AC operation by means of two decoupling
+  B1
+capacitors C and C .
+             B      X
+   At the input a matching network N is provided.
+                                     S
+728                                                                                        Chapter #23
+
+                                                                        2334
+                                                                        Current reuse can also be
+                                                                        eﬀectuated in another way.
+                                                                           If a two-stage ampliﬁer is
+                                                                        required, or an ampliﬁer fol-
+                                                                        lowed by a source follower,
+                                                                        then current is used twice,
+                                                                        as shown on the right.
+                                                                           However, a judicious set
+                                                                        of capacitors allows limiting
+                                                                        the current to just one single
+                                                                        path. This is shown on the
+                                                                        left.
+                                                                           Transistor M1 sees a
+                                                                        signal ground at its Source.
+                                                                        Its output is coupled to the
+                                                                        Source follower underneath.
+  The same technique is used three times in the following LNA.
+
+
+
+
+                                                                        2335
+                                                                        In this LNA, three input
+                                                                        nMOSTs M11-M13 are
+                                                                        placed in parallel to increase
+                                                                        the transconductance. They
+                                                                        all share the same DC cur-
+                                                                        rent, however. The outputs
+                                                                        are placed in parallel two by
+                                                                        two and applied to a second
+                                                                        stage with transistors M21–
+                                                                        M22. The same method is
+                                                                        then applied in the second
+                                                                        stage. Their two outputs are
+                                                                        put in parallel again and
+                                                                        applied to a third ampliﬁer
+                                                                        stage with transistor M31,
+                                                                        which provides the output
+voltage through cascode transistor M4.
+  The DC biasing is applied by means of current mirrors M5 and M13, M23 and M32.
+  The transistor sizes, currents and resistors are all given in this slide. The resulting speciﬁcations
+are given next.
+L ow-noise ampliﬁers                              729
+
+                       2336
+                       The actual gain is 14.8 dB,
+                       which is relatively high. The
+                       NF is quite reasonable for
+                       this power consumption.
+                          The layout shows the
+                       large area taken up by the
+                       decoupling capacitance. As
+                       this LNA has a single-ended
+                       input, it easily picks up noise
+                       from the ground and supply
+                       lines. A decoupling capaci-
+                       tance at the supply line is
+                       therefore mandatory.
+
+
+
+
+                       2337
+                       The measurements show
+                       that the gain and reverse
+                       isolation are quite good
+                       indeed.
+                          The bandwidth is less
+                       than expected, 700 MHz
+                       instead of 900 MHz.
+730                                                                                   Chapter #23
+
+                                                                    2338
+                                                                    The IIP3 and Noise Figure
+                                                                    are shown.
+                                                                       For the IIP3 the gain is
+                                                                    measured and the 3rd-order
+                                                                    intermodulation distortion.
+                                                                    The extrapolated curves
+                                                                    meet at an input signal level
+                                                                    of about −4.7 dBm. This is
+                                                                    a normal value for a MOST
+                                                                    input, which has a V −V
+                                                                                         GS     T
+                                                                    of only 0.22 V.
+                                                                       The Noise Figure is not
+                                                                    that ﬂat but is never much
+                                                                    higher than 3 dB up to
+                                                                    900 MHz.
+                                                                       In this LNA, the ESD
+protection is not part of the design procedure. A better approach is given next.
+
+                                                                     2339
+                                                                        This LNA is matched to
+                                                                     50 Ohms at both input and
+                                                                     output. The supply voltage
+                                                                     is 1.5 V. At the input, it is
+                                                                     an ampliﬁer using inductive
+                                                                     source degeneration for
+                                                                     input matching. The source
+                                                                     inductor L is implemented
+                                                                                 s
+                                                                     as two parallel bonding
+                                                                     wires. It also uses a cascode
+                                                                     transistor.
+                                                                        At the input, L is the
+                                                                                          g
+                                                                     input bonding wire which
+                                                                     serves as the inductor for
+                                                                     input resonance. To the
+                                                                     right of that we have the
+input bonding pad which has been especially designed, as will be explained further. It basically
+consists of only the top metal layer. The bottom metal layer serves to shield the pad from the
+substrate and increase its Quality factor. After that we have the ESD-protection diodes. The
+upper diode conducts the ESD-charge in case of a positive pulse vs. V . The lower diode
+                                                                            DD
+operates in case of a negative pulse vs. ground.
+  The output features a load inductor L with its series resistance, R . This inductor is imple-
+                                           d                            s
+mented on-chip and has a patterned ground shield beneath to shield it from the substrate. The
+50 Ohms output is ensured through the use of a capacitive divider made up of C and C . The
+                                                                                    1       2
+output bonding pad also takes part in the matching as it is just in parallel to C . Also, this
+                                                                                      2
+bonding pad has been shielded from the substrate in order to increase coupling through the
+substrate which would degrade the reverse isolation. It also ensures a ﬁxed and known value for
+the pad capacitance.
+L ow-noise ampliﬁers                            731
+
+                       2340
+                       This is a microphotograph
+                       of the LNA.
+                          The input and the output
+                       are easily recognized.
+                          Also,     the   protection
+                       diodes and the transistors
+                       are visible.
+                          Finally, the load inductor
+                       and C and C , the capaci-
+                              1         2
+                       tive divider can be found.
+                          These large objects on the
+                       left are the decoupling
+                       capacitors.
+
+
+
+
+                       2341
+                          The Noise Figure of the
+                       LNA was measured using
+                       a noise ﬁgure analyzer.
+                       This measurement was per-
+                       formed while the LNA was
+                       operating in its nominal
+                       9 mW (at 1.5 V supply volt-
+                       age) regime.
+                          The Noise Figure of the
+                       LNA reaches a minimum of
+                       0.79 dB at the frequency of
+                       operation. The NF stays
+                       below 1 dB for a bandwidth
+                       of about 130 MHz and stays
+                       below 2 dB for more than
+                       400 MHz around the work-
+                       ing frequency.
+732                                                                                Chapter #23
+
+                                                                2342
+                                                                Further measurements of
+                                                                the noise ﬁgure were per-
+                                                                formed in diﬀerent power
+                                                                regimes. The bottom curve
+                                                                is the curve shown on the
+                                                                previous slide. The next
+                                                                curve when going up is mea-
+                                                                sured when reducing the
+                                                                bias current to 3mA. The
+                                                                Noise Figure here reaches a
+                                                                minimum of 1 dB. Above
+                                                                that we have the Noise
+                                                                Figure for the LNA while
+                                                                drawing 2 mA from a 1 V
+                                                                supply. The minimum is
+                                                                now 1.2 dB. The ﬁnal curve
+was measured drawing 1 mA from a 1 V supply, i.e. consuming only 1 mW. The minimum noise
+ﬁgure is 1.9 dB.
+  Note, however, that the input matching conditions are no longer fulﬁlled in the last three
+measurements.
+
+
+
+                                                                 2343
+                                                                    Finally, the linearity per-
+                                                                 formance of the LNA was
+                                                                 measured. The signal power
+                                                                 of the ﬁrst-order output and
+                                                                 the third-order intermodu-
+                                                                 lation products are plotted
+                                                                 vs. the input power. Linear
+                                                                 regression shows an input
+                                                                 referred IP3 of −10.8 dBm.
+                                                                 Although linearity is not
+                                                                 always that important, this
+                                                                 value would be suﬃcient for
+                                                                 the very stringent linearity
+                                                                 speciﬁcation of the GSM
+                                                                 system.
+                                                                    The −1 dB compression
+                                                                 point is measured to be at
+                                                                 −24 dBm.
+L ow-noise ampliﬁers                                                                        733
+
+                                                                    2344
+                                                                    This is a summary of the
+                                                                    performance of the LNA
+                                                                    compared to the speciﬁca-
+                                                                    tions.
+                                                                       The supply voltage is
+                                                                    1.5 V. The power dissipation
+                                                                    is 9 mW which is lower than
+                                                                    the 10 mW speciﬁcation.
+                                                                    The noise ﬁgure was mea-
+                                                                    sured 0.79 dB, lower than
+                                                                    the 1dB speciﬁcation. The
+                                                                    power gain was maximized
+                                                                    and is measured to be 20 dB.
+                                                                    Input and output reﬂection
+                                                                    are −11 dB. Reverse isola-
+
+tion is larger than 31 dB over the entire spectrum of the network analyzer. The input IP3 is
+−10.8 dBm which is more than suﬃcient.
+   A ﬁnal measurement which was done is a HBM test for the level of ESD protection. The
+speciﬁcation put forward was 0.5 kV. Measurements have shown that the LNA input is able to
+withstand pulses from −1.4 to +0.6 kV, exceeding the speciﬁcation.
+   Die area is 0.6 by 1.1 mm2.
+
+
+                                                                  2345
+                                                                  In this ﬁgure, a Figure of
+                                                                  merit is plotted vs. the
+                                                                  power gain for published
+                                                                  CMOS LNAs. The Figure
+                                                                  of merit is minus ten times
+                                                                  the log of F minus one times
+                                                                  power, where F is the Noise
+                                                                  Figure. A high Figure of
+                                                                  merit means that the LNA
+                                                                  scores well in the area of low
+                                                                  Noise Figure and low power
+                                                                  consumption.
+                                                                    As such, the three main
+                                                                  performance parameters are
+                                                                  shown in this plot. Circuits
+                                                                  with a low Noise Figure, a
+low power consumption and high power gain are located more towards the upper right corner.
+Most LNAs with very low Noise Figure and/or power consumption also have low power gain
+and vice versa. This last realization however, succeeds in combining good performance in all
+three areas.
+734                                                                        Chapter #23
+
+                                                         2346
+                                                         LNA’s at higher frequencies
+                                                         have very much the same
+                                                         design ﬂow as their lower
+                                                         frequency        counterparts.
+                                                         Only the inductors are
+                                                         smaller to be able to tune
+                                                         out higher frequencies.
+                                                            An example of an LNA at
+                                                         5 GHz is given in this slide.
+                                                            It is a conventional single-
+                                                         ended cascode ampliﬁer.
+                                                         Two inductors are used
+                                                         again, with only 0.5 nH in
+                                                         the Source.
+                                                            An output matching net-
+                                                         work is added to obtain
+                                                         50 V output impedance.
+                                                            The Noise Figure is now
+                                                         quite low.
+
+
+
+                                                         2347
+                                                         An interesting technique to
+                                                         reduce the noise contributed
+                                                         by the input MOST M1, is
+                                                         the circuit schematic in this
+                                                         slide.
+                                                            In this ampliﬁer, the
+                                                         signal itself is inverted from
+                                                         input to output, as in most
+                                                         ampliﬁers. The voltage
+                                                         caused by the noise current
+                                                         I of input transistor M1
+                                                          n,1
+                                                         is not inverted, however.
+                                                         Summation of both signals,
+                                                         with the proper scaling will
+                                                         cancel out the contribution
+                                                         of the noise current I to
+                                                                                  n,1
+                                                         the output.
+  The appropriate expressions are given in this slide.
+  The full circuit is given next.
+L ow-noise ampliﬁers                                                                               735
+
+                                                                        2348
+                                                                        Noise cancellation is sub-
+                                                                        ject to the condition given
+                                                                        in this slide. The summa-
+                                                                        tion or adding ampliﬁer
+                                                                        consists of transistors M2a,
+                                                                        M2b and M3. The resulting
+                                                                        Noise Figure is quite low
+                                                                        without a lot of additional
+                                                                        power consumption.
+
+
+
+
+                                                                        2349
+                                                                        A diﬀerential LNA is shown
+                                                                        in this slide. Its advantage is
+                                                                        that it is less susceptible to
+                                                                        spikes and noise on the sub-
+                                                                        strate and the supply lines.
+                                                                        However, it takes two times
+                                                                        the DC current.
+                                                                           It consists of two cascode
+                                                                        ampliﬁers, to which four
+                                                                        transistors M5–M8 have
+                                                                        been added to suppress the
+                                                                        3rd-order distortion. As a
+                                                                        result the −1 dB compres-
+                                                                        sion point is at −5 dBm,
+                                                                        meaning that the IIP3 is
+                                                                        about at 5 dBm, which is
+                                                                        quite large indeed.
+   The distortion cancellation operates as follows.
+   For one single MOST the current is given on the right, together with its ﬁrst three derivatives.
+The 3rd-order one G3 has a negative peak around a V of 0.7 V. It has a positive peak as well
+                                                           GS
+at 1.8 V.
+   Another transistor combination M5–M7 is now added which shows a positive peak at only
+0.7 V. Addition of its current to the current of the previous transistor allows (partial) cancellation
+of the 3rd-order distortion components.
+   It is clear that cancellation techniques always suﬀer from mismatch. Complete cancellation is
+always hard to achieve. However, an increase of the IIP3 with 5 dBm is normally suﬃcient. This
+is the case here.
+736                                                                                 Chapter #23
+
+                                                                2350
+                                                                A wideband LNA for an
+                                                                Ultra-Wide Band receiver is
+                                                                shown in this slide.
+                                                                   The frequency extends
+                                                                from 3 to 10 GHz. It has
+                                                                been realized in a fairly con-
+                                                                servative 0.18 mm CMOS.
+                                                                The gain is rather low
+                                                                indeed.
+                                                                   The capacitance C of
+                                                                                         p
+                                                                0.1 pF has been added to
+                                                                C     to be tuned out more
+                                                                  GS1
+                                                                accurately by means of
+                                                                inductors L and L .
+                                                                            g        s
+                                                                   A parallel L C network
+                                                                                2 2
+                                                                is added to broadband the
+frequency response without impairing the input impedance matching.
+
+
+
+
+                                                                  2351
+                                                                  A diﬀerential LNA for a
+                                                                  WLAN ISM receiver is
+                                                                  shown in this slide.
+                                                                     The advantage of a
+                                                                  diﬀerential conﬁguration is
+                                                                  that it rejects substrate noise
+                                                                  much better.
+                                                                     The input antenna must
+                                                                  then be followed by a balun.
+                                                                  This is a toroidal RF trans-
+                                                                  former which converts the
+                                                                  single-ended input into a
+                                                                  symmetrical output.
+                                                                     The conﬁguration is a
+                                                                  well known cascode stage.
+                                                                     The gain is fairly high. As
+                                                                  a result the IIP3 is rather
+                                                                  low.
+L ow-noise ampliﬁers                                                                        737
+
+                                                                2352
+                                                                Another diﬀerential LNA
+                                                                for UWB up to 5 GHz is
+                                                                shown in this slide.
+                                                                   As it is the diﬀerential, the
+                                                                sensitivity to substrate cou-
+                                                                pling is quite small. It
+                                                                consists of two gain stages
+                                                                with resistive feedback. As
+                                                                a result, the linearity is
+                                                                improved over the full
+                                                                bandwidth.
+                                                                   The gain is quite high. As
+                                                                a result, the IIP3 is rather
+                                                                low. A gain reduction mode
+                                                                is provided however, which
+                                                                yields a better IIP3.
+  Note that the ESD protection is included. The input can withstand 1.5 kV. This is why we
+focus now on the impact of ESD protection networks on the performance of the LNA’s.
+
+
+
+                                                               2353
+                                                               The LNA is normally the
+                                                               ﬁrst active building block in
+                                                               a receiver.
+                                                                  As it is connected directly
+                                                               to the input pad over a
+                                                               bonding wire, it receives
+                                                               electrostatic discharge volt-
+                                                               ages from outside.
+                                                                  These voltages can be
+                                                               quite high (kV’s) and can
+                                                               easily zap the Gate of the
+                                                               input transistor. A protec-
+                                                               tion device is now required.
+                                                                  Normally, this consists of
+                                                               series resistances to the Gate
+                                                               and parallel diodes to
+ground. A low-resistance path is now realized for overvoltages. This is discussed in more
+detail next.
+738                                                                                      Chapter #23
+
+                                                                       2354
+                                                                       ESD protection networks
+                                                                       can be tested in various
+                                                                       ways. The simplest model of
+                                                                       an ESD source is probably
+                                                                       the Human Body Model. It
+                                                                       models a human who dis-
+                                                                       charges into a pin. It con-
+                                                                       sists of a capacitor C
+                                                                                                 HBM
+                                                                       which is charged to a high
+                                                                       voltage (kV’s) and dis-
+                                                                       charged over a small resistor
+                                                                       R       (about 1500 V) and
+                                                                         HBM
+                                                                       bonding wire inductor L
+                                                                                                 HBM
+                                                                       to the input pad. A small
+                                                                       parasitic capacitor C is pre-
+                                                                                             2
+                                                                       sent as well.
+   A protection diode is therefore connected to supply and ground. It must be able to take large
+currents to avoid large voltages at the Gate. In this example, the diode must be able to conduct
+0.67 A/kV overvoltage. It takes a fairly large area, and gives a fairly large capacitor at the input
+of the LNA.
+   ESD protection diodes add capacitances to ground however, after the Gate inductance L            .
+                                                                                                HBM
+The tuning out of the C capacitance is disturbed somewhat, leading to smaller values of R
+                          GS
+and larger transistor sizes.
+   These capacitances can be tuned out as well. It is always preferable however, to keep the input
+matching network as simple as possible.
+
+                                                                   2355
+                                                                   A HBM models a human.
+                                                                   Another way to stress the
+                                                                   input protection is to charge
+                                                                   a transmission line (Z =
+                                                                                             o
+                                                                   50 V) to a high voltage and
+                                                                   to discharge it through a
+                                                                   large resistor R       to the
+                                                                                      TLP
+                                                                   input pin.
+                                                                      Resistors R       and R
+                                                                                   T,1        T,2
+                                                                   are added to avoid reﬂec-
+                                                                   tions on both ends. The
+                                                                   diode on the left end is
+                                                                   added to avoid leakage to
+                                                                   ground during charging.
+                                                                      The following test pro-
+                                                                   cedure is normally adopted.
+  The stress test is executed between two pins (here pin1 and pin 2). First of all, the leakage
+current is measured between these two pins. Then a high voltage discharge is applied after which
+the leakage current is measured again. The discharge voltage is stepped up until the leakage
+current has become excessive. An example of such a TLP test is given at the end of this Chapter.
+L ow-noise ampliﬁers                                                                          739
+
+                                                                     2356
+                                                                     For sake of illustration, the
+                                                                     eﬀect is shown of the ESD
+                                                                     capacitance on the Noise
+                                                                     Figure for a 1.6 GHz LNA
+                                                                     (in 0.25 mm CMOS). The
+                                                                     current is 6 mA. The input
+                                                                     C is about 0.15 pF.
+                                                                       GS
+                                                                        For a C     increasing to
+                                                                                ESD
+                                                                     0.35 pF, the NF increases
+                                                                     from 0.9 dB to 1.5 dB. The
+                                                                     power gain then decreases
+                                                                     from 19.3 to 15.7 dB.
+                                                                        This ESD protection pro-
+                                                                     vides better protection, as
+                                                                     shown in the second plot.
+
+
+
+
+                                                                    2357
+                                                                    If capacitive protection
+                                                                    devices are used, it is now
+                                                                    better to connect them in a
+                                                                    p-network, as shown in this
+                                                                    slide. The addition of an
+                                                                    inductor L inbetween in-
+                                                                                g
+                                                                    creases the protection some-
+                                                                    what. This inductor is actu-
+                                                                    ally too small to play a role
+                                                                    at the ESD-frequencies. It
+                                                                    does play a role for the input
+                                                                    impedance matching at the
+                                                                    RF frequencies.
+                                                                       Also, any parasitic capaci-
+                                                                    tance at the Gate of the
+                                                                    MOST to ground, can be
+absorbed by the ESD-device capacitance C . This latter capacitor must always be included in
+                                            2
+the design process, for high-frequency LNA’s.
+   The design of such a p-network is not obvious, as even more degrees of freedom are available.
+However, the main concern is to make C as small as possible.
+                                          1
+   The Noise Figure will be reduced somewhat as the inductor L has some series resistance
+                                                                   g
+(typically 2 V/nH).
+740                                                                                          Chapter #23
+
+                                                                          2358
+                                                                          An example of such a
+                                                                          p-network is shown in this
+                                                                          slide.
+                                                                             The capacitance C of the
+                                                                                              m
+                                                                          ESD protection is also part
+                                                                          of the matching network. It
+                                                                          forms a p-network with the
+                                                                          input capacitance of M1.
+                                                                             The LNA is a single-
+                                                                          ended cascode ampliﬁer,
+                                                                          with a second ampliﬁcation
+                                                                          stage to provide a 50 V
+                                                                          output resistance.
+
+
+
+
+                                                                         2359
+                                                                         As an ESD-protection, an
+                                                                         inductor can be used instead
+                                                                         of a capacitor as well. This
+                                                                         is shown in this slide.
+                                                                            Inductor l        is used to
+                                                                                         ESD
+                                                                         short the low-frequency
+                                                                         ESD currents to ground
+                                                                         while it forms a parallel res-
+                                                                         onant circuit with parasitic
+                                                                         capacitance C , such that it
+                                                                                          p
+                                                                         is invisible for RF voltages.
+                                                                            Clearly, the ESD inductor
+                                                                         has some series resistance as
+                                                                         well R        . It is clear that
+                                                                                 S,ESD
+                                                                         this resistance must be
+                                                                         minimized.
+   Capacitor C is a coupling capacitor for RF voltages. The low-frequency ESD signals see a
+                c
+low-pass ﬁlter to ground. The high-frequency RF signals see a high-pass ﬁlter to the input Gate.
+   The advantage of this protection is that for a capacitive protection an inductor must be added
+to tune out the parasitic capacitances of the protection components. For an inductive protection,
+nothing must be added. The protection inductor can be used to tune out existing parasitic
+capacitances.
+   For noise, the inductive protection is better as no resistances are added in series with the
+input Gate.
+   Inductor L     is 2 nH; it is realized by a string of ﬁve diodes, giving 3 V series resistance only.
+              ESD
+It takes an area of about 130 mm2. This inductor forms a parallel resistance of 1 kV together
+with C , which is suﬃciently high not to impair the noise performance.
+       p
+L ow-noise ampliﬁers                                                                      741
+
+                                                                 2360
+                                                                 The addition of an ESD
+                                                                 protection changes the char-
+                                                                 acteristics considerably as
+                                                                 shown in this slide.
+                                                                    The gain (s ) increases
+                                                                                 21
+                                                                 but the Noise Figure
+                                                                 decreases around the center
+                                                                 frequency of 5 GHz. The
+                                                                 input impedance (s ) devi-
+                                                                                      11
+                                                                 ates less from 50 V except at
+                                                                 one particular frequency,
+                                                                 evidently depending on the
+                                                                 values of the tuning com-
+                                                                 ponents.
+
+
+
+
+                                                                 2361
+                                                                 Measured results on the
+                                                                 protection network as a
+                                                                 result of a TLP test are
+                                                                 shown in this slide.
+                                                                   The leakage currents
+                                                                 before and after the large
+                                                                 ESD currents are shown.
+                                                                 This is completed for four
+                                                                 combinations of pins.
+                                                                   Both the available cur-
+                                                                 rents from the input termi-
+                                                                 nal towards the positive
+                                                                 supply (V ) and ground
+                                                                           DD
+                                                                 (V ) are quite large. About
+                                                                    SS
+                                                                 1 A to ground is reached for
+                                                                 a 10 V input voltage.
+  This corresponds to static discharge voltages of up to 3 kV.
+742                                                                                  Chapter #23
+
+                                                                    2362
+                                                                    In this Chapter, Low-noise
+                                                                    ampliﬁers (LNA’s) have
+                                                                    been discussed which oper-
+                                                                    ate at high (RF) frequencies.
+                                                                       They have been optimized
+                                                                    for low noise and distortion
+                                                                    within the constraints of
+                                                                    input (and output) imped-
+                                                                    ance matching.
+                                                                       The elementary expres-
+                                                                    sions have been derived for
+                                                                    impedance matching and
+                                                                    noise matching. The two
+                                                                    main conﬁgurations have
+                                                                    been compared. It has been
+                                                                    shown that the ampliﬁer
+input almost always performs better than the cascode input.
+  At these high frequencies the Non-quasi-static behavior of the MOST has sometimes to be
+taken into account. This is certainly true if the operating frequency is higher than f /3 of
+                                                                                           T
+the MOST.
+  Many of the realizations given are commented on. They all exhibit similar circuit conﬁgurations
+but take diﬀerent compromises in speed, noise and distortion.
+  Finally, considerable attention is paid to the ESD-protection. Indeed, as the LNA is the ﬁrst
+active stage in a receiver, it is subject to lightning and other static discharges. Protection
+components such as diodes and MOSTs must be added, which shift the compromise in the
+direction of more power consumption and/or noise.
+                                                                     241
+                                                                     Today, most integrated cir-
+                                                                     cuit realizations include
+                                                                     both digital and analog
+                                                                     functions, on the same sub-
+                                                                     strate. Processors include
+                                                                     ADCs and DACs. RF func-
+                                                                     tions are added to digital
+                                                                     processors. Many more
+                                                                     examples can be found.
+                                                                        This means that coupling
+                                                                     occurs between both types
+                                                                     of circuits. Most often, the
+                                                                     digital blocks generate
+                                                                     spikes on the ground and
+                                                                     supply lines, which are
+                                                                     sensed by the analog
+                                                                     ampliﬁers.
+  To avoid deterioration of the dynamic range of these high-performance analog functions,
+coupling must be minimized.
+  This is discussed in this Chapter. First of all, several sources of coupling are categorized.
+Layout techniques are now discussed to reduce coupling. Attention is also paid to the speciﬁcation
+power-supply-rejection-ratio and how it can be predicted for some speciﬁc ampliﬁer blocks.
+
+                                                                      242
+                                                                      Coupling is best visible
+                                                                      when a sinusoidal waveform
+                                                                      is analyzed with high
+                                                                      spectral purity. Switching
+                                                                      on the logic functions on the
+                                                                      same substrate, induces
+                                                                      high-frequency noise on the
+                                                                      waveform. This is a result of
+                                                                      coupling. It deteriorates
+                                                                      drastically the SNR. This is
+                                                                      what has to be avoided in
+                                                                      present-day     mixed-signal
+                                                                      circuits.
+
+
+
+
+243
+In coupling, three phenomena have to be investigated.
+   The ﬁrst one is the generator of the noise. The digital circuits usually work with a clock. They
+draw current spikes through their supply lines, which cause voltage spikes on the supply
+linesand ground.
+
+                                               743
+

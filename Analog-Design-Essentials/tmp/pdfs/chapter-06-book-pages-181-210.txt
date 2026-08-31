@@ -1,0 +1,1626 @@
+                                                                  061
+                                                                  In the previous Chapter we
+                                                                  learned all we need about
+                                                                  the stability of an opera-
+                                                                  tional     transconductance
+                                                                  ampliﬁer, to be able to
+                                                                  implement it by means of
+                                                                  MOST devices.
+                                                                     Now we would like to
+                                                                  reﬁne the design plan. Up
+                                                                  till now we have arbitrarily
+                                                                  chosen the compensation
+                                                                  capacitances. The question
+                                                                  is, how can we improve on
+                                                                  that?
+                                                                     Finally, we have now
+                                                                  focused on a few speciﬁca-
+tions only, which are the GBW and the Phase Margin. Surely there are many more speciﬁcations.
+They are elaborated on in this Chapter.
+
+                                                                  062
+                                                                  The transistor implementa-
+                                                                  tion of a single-transistor
+                                                                  ampliﬁer is given ﬁrst.
+                                                                     It is followed by a two-
+                                                                  transistor Miller OTA. A
+                                                                  detailed design plan is dis-
+                                                                  cussed, to give rise to the
+                                                                  lowest     possible    power
+                                                                  consumption.
+                                                                     Moreover, the maximum
+                                                                  GBW is estimated for a
+                                                                  speciﬁc CMOS technology.
+                                                                  It is shown that GHz values
+                                                                  are easily reached.
+                                                                     Finally, all other speciﬁ-
+                                                                  cations are listed, a few of
+which are discussed for the two-stage Miller OTA.
+  The same CMOS Miller OTA is used throughout. All numerical values relate to the same
+ampliﬁer. As a result, the reader can give himself a good idea about the appropriate orders of
+magnitudes.
+  The design of a single-stage OTA is approached ﬁrst.
+
+063
+A diﬀerential voltage ampliﬁer is given in this slide.
+  The expressions describing the gain, bandwidth and GBW of a single-stage OTA, have been
+previously discussed.
+
+                                             181
+182                                                                                    Chapter #6
+
+                                                                       The GBW is obviously
+                                                                    what could have been
+                                                                    expected. Note that the load
+                                                                    capacitance also contains
+                                                                    some parasitic capacitances,
+                                                                    which are due to the transis-
+                                                                    tor capacitances. They are
+                                                                    summarized as C , the sum
+                                                                                      n1
+                                                                    of the transistor capaci-
+                                                                    tances at node 1.
+                                                                       Nevertheless, this circuit
+                                                                    also contains a second node,
+                                                                    and even a third one. Do we
+                                                                    have to take the capaci-
+                                                                    tances of these nodes to
+                                                                    ground into account?
+                                                                       Indeed, a capacitance to
+ground gives a pole. Do we therefore have two additional non-dominant poles?
+  The answer is negative. First of all, at node three, no AC signal is present when the stage is
+driven diﬀerentially. Node 3 does not come in.
+  At node 2 we do have a non-dominant pole. There are two reasons however, why it can be
+neglected.
+
+
+                                                                   064
+                                                                   Before we focus on the non-
+                                                                   dominant poles, let us ﬁnd
+                                                                   out how much GBW can be
+                                                                   expected from such a simple
+                                                                   ampliﬁer. We know already
+                                                                   that it is the best for low-
+                                                                   power consumption. What
+                                                                   does this mean in actual
+                                                                   numbers?
+                                                                      The simplest Figure of
+                                                                   Merit (FOM) for opamps is
+                                                                   the one with the GBW, the
+                                                                   C and the power consump-
+                                                                     L
+                                                                   tion. Later on, some other
+                                                                   speciﬁcations could be
+                                                                   added, such as noise, or
+                                                                   swing, etc.
+  Instead of the power consumption, the current consumption can also be taken.
+  For this purpose, a diﬀerential conﬁguration has been taken as sketched in this slide. The
+eﬀective load capacitance is now only half of what we would have for a single-ended output. On
+the other hand, there is also no current mirror to double the output current. This OTA is
+representative for a single-stage ampliﬁer!
+  We ﬁnd that for a 10 mA total current, a load capacitance of 1 pF can still yield a GBW of
+Systematic design of operational ampliﬁers                                                   183
+
+10 MHz. Even easier to remember is that with 1 mA, a 1 MHz GBW can be achieved for a 1pF
+load capacitance.
+  This gives a FOM of 1000 in MHzpF/mA. Actually, it is slightly less, i.e. 800. We will see
+however, that this is an excellent result, when we compare with other OTA’s in the next Chapter.
+
+
+                                                                    065
+                                                                    Let us now focus again on
+                                                                    non-dominant poles.
+                                                                       The position of this non-
+                                                                    dominant pole is easily
+                                                                    established. The resistance
+                                                                    at node 2 is simply 1/g .
+                                                                                              m3
+                                                                    The node capacitance C is
+                                                                                             n2
+                                                                    the sum of all transistor
+                                                                    capacitances, connected to
+                                                                    node 2.
+                                                                       For a MOST, the capaci-
+                                                                    tance C is about equal to
+                                                                            DB
+                                                                    its C . This is why all four
+                                                                         GS
+                                                                    capacitances in C         are
+                                                                                         n2
+                                                                    taken equal. This is a gross
+                                                                    approximation but good
+enough to deal with this pole. Capacitance C is about 4×CGS3.
+                                            n2
+  The non-dominant pole f is about f /4. This is the ﬁrst reason why node 2 does not aﬀect
+                           nd          T3
+us too much. This non-dominant pole is simply located at too high frequencies, compared to
+the GBW.
+  The second reason is on the next slide.
+
+
+                                                                    066
+                                                                    The capacitance C          on
+                                                                                           n2
+                                                                    node 2 does create a pole
+                                                                    indeed, but also a zero.
+                                                                      Indeed, a capacitance to
+                                                                    ground on the other side of
+                                                                    a diﬀerential ampliﬁer with
+                                                                    a single output, creates a
+                                                                    pole f and a zero at twice
+                                                                          nd
+                                                                    the frequency 2×f .
+                                                                                        nd
+                                                                      At higher frequencies, the
+                                                                    output current is divided by
+                                                                    two, since the current mirror
+                                                                    does not receive any more
+                                                                    current. A division by two
+                                                                    can only be represented by
+                                                                    a pole-zero doublet, the zero
+of which is a factor of two higher than the pole.
+184                                                                                      Chapter #6
+
+  This is illustrated for the voltage ampliﬁer in which all other capacitances are omitted.
+  The advantage of this zero is that it greatly compensates the phase shift of the pole. The net
+result is a small change in phase shift.
+  The inﬂuence on the Phase Margin of this pole-zero pair is therefore negligible.
+  As a result, the capacitance C at node 2 can be ignored. We have now found two reasons
+                                   n2
+for that.
+
+
+
+
+                                                                       067
+                                                                       As a design example, let us
+                                                                       take a GBW and C as
+                                                                                               L
+                                                                       indicated.
+                                                                          The g is readily calcu-
+                                                                                 m
+                                                                       lated, and so is the current,
+                                                                       provided the V −V is
+                                                                                         GS     T
+                                                                       chosen appropriately (to be
+                                                                       0.2 V).
+                                                                          By means of the K∞ factor
+                                                                       we can calculate the
+                                                                       required W/L.
+                                                                          Now the L must be
+                                                                       selected. In order to achieve
+                                                                       some gain, we take about 3
+                                                                       times the minimum channel
+                                                                       length or 1 mm.
+   The widths are then easily added. The nMOS has a smaller width as its K∞ is larger.
+   We could try to verify whether the pole at node 2 is indeed negligible. For this purpose we
+must ﬁnd f or rather the input capacitance C .
+            T                                    GS2
+   A MOST has a C =kW with k=2 fF/mm if the minimum length is used. A MOST with a
+                      GS
+W/L=100 for a L=0.35 mm would have a W=35 mm and hence a C of 70 fF. Now both the
+                                                                         GS
+L and W are three times larger. The C         is 70×3×3=630 fF. Its f is about 300 MHz and
+                                          GS2                            T2
+f /4#76 MHz. Luckily, this pole is followed by zero!!!
+ T2
+   If we really do not want this pole-zero doublet below the GBW, we have to make the
+transistors smaller, deteriorating the gain. Another possibility is to make the transistors smaller
+and to add cascodes to increase the gain!
+Systematic design of operational ampliﬁers                                                       185
+
+                                                                       068
+                                                                       Now we focus on the design
+                                                                       plan of a CMOS Miller
+                                                                       OTA, realized with transis-
+                                                                       tors. Again we will verify the
+                                                                       gain, bandwidth and the
+                                                                       GBW. Moreover, we have
+                                                                       to make sure that the com-
+                                                                       pensation capacitance gen-
+                                                                       erates enough polesplitting
+                                                                       to position the f beyond
+                                                                                         nd
+                                                                       the GBW.
+
+
+
+
+                                                                        069
+                                                                        A CMOS OTA is shown in
+                                                                        this slide. The input devices
+                                                                        are     normally     pMOST
+                                                                        devices as they give better
+                                                                        matching (see Chapter 12).
+                                                                           The ﬁrst block converts
+                                                                        the diﬀerential input voltage
+                                                                        into a current by means of
+                                                                        transconductance g .
+                                                                                             m1
+                                                                           The second stage is a
+                                                                        transimpedance ampliﬁer,
+                                                                        converting this current into
+                                                                        a voltage. Actually, only one
+                                                                        transistor M6 takes care of
+                                                                        that, together with capaci-
+                                                                        tance C .
+                                                                                 c
+   Obviously this circuit is the most straightforward realization of the two-stage OTA discussed
+in the previous Chapter.
+   Indeed, nodes 1 and 4 cause two poles, which are split by C . Parasitic capacitance C is also
+                                                                 c                           n1
+shown. It consists mainly of the input capacitance C        of transistor M6. This latter transistor
+                                                        GS6
+is a big transistor as it carries a much larger current than the input transistors.
+
+
+0610
+In order to be able to calculate the gains, etc, we draw on the small signal equivalent circuit. It
+is shown below.
+   The 4-transistor input stage is represented by the g generator, and the second stage by the
+                                                       m1
+g generator.
+  m6
+186                                                                                    Chapter #6
+
+                                                                     The input stage has an
+                                                                  output resistance which is
+                                                                  the inverse of g , which is
+                                                                                   024
+                                                                  a short way of stating
+                                                                  g +g .
+                                                                   o2 o4
+                                                                     This circuit can be simpli-
+                                                                  ﬁed to a two-node circuit
+                                                                  with two transconductances
+                                                                  and a RC circuit from each
+                                                                  node to ground. Obviously,
+                                                                  there are two nodes, but also
+                                                                  a compensation capacitance
+                                                                  C to split them up.
+                                                                    c
+                                                                     All values given are for
+                                                                  1 MHz/10 pF realization,
+                                                                  which will be used for all
+                                                                  numerical examples from
+now on. These values have also been used for the pole-zero position diagrams in the previous
+Chapter.
+  How exactly these values have been obtained, will be explained when we discuss the design
+plans next.
+
+
+                                                                     0611
+                                                                     The gains are now easily cal-
+                                                                     culated. We have two stages
+                                                                     so we have two gains A
+                                                                                                v1
+                                                                     and A , and a total gain A .
+                                                                           v2                   v
+                                                                        The bandwidth is obvi-
+                                                                     ously due to the Miller eﬀect
+                                                                     of capacitance C , as
+                                                                                           c
+                                                                     expected.
+                                                                        The GBW is now the pro-
+                                                                     duct of both. It is exactly
+                                                                     what we have anticipated.
+                                                                        Also, the non-dominant
+                                                                     pole is again what we have
+                                                                     derived in the previous
+                                                                     Chapter. Again, normally C
+                                                                                                 c
+                                                                     is about 3 times C .
+                                                                                       n1
+
+0612
+For this particular ampliﬁer, the pole-zero position and Bode diagrams are sketched in this slide.
+   For zero C , two poles are found, which are clearly too close together. Peaking would occur
+              c
+if feedback is applied.
+   This capacitance has been increased to about 1 pF. In this case the dominant pole has
+decreased a lot but what is more important is that the non-dominant pole has moved out until
+Systematic design of operational ampliﬁers                                                   187
+
+                                                                  it is almost three times the
+                                                                  GBW.
+                                                                     The zero is still too far to
+                                                                  bother us!
+                                                                     The result is a CMOS
+                                                                  Miller OTA with a gain of
+                                                                  about 3000 or 70 dB, a
+                                                                  bandwidth of about 300 Hz
+                                                                  and a GBW of 1 MHz.
+                                                                     The total power con-
+                                                                  sumption is 27 mA. Its FOM
+                                                                  is therefore 370 MHzpF/mA
+                                                                  which is an excellent value
+                                                                  for a two-stage ampliﬁer.
+                                                                  Actually, anything that is
+                                                                  better than 100 is good!
+
+
+
+                                                                  0613
+                                                                  The question remains. How
+                                                                  has this Miller OTA been
+                                                                  designed. Can we do better?
+                                                                  Can we obtain a better
+                                                                  FOM?
+                                                                     We will see that there are
+                                                                  three ways to obtain the
+                                                                  same optimum in terms of
+                                                                  minimum power consump-
+                                                                  tion. Any design plan can
+                                                                  now be adopted.
+
+
+
+
+0614
+Since we only have two speciﬁcations up till now, we only have two equations, one for the GBW
+and one for the stability.
+  As a result, when we require a speciﬁc GBW for a speciﬁc C , we simply have to solve these
+                                                               L
+two equations.
+  The problem is that we have three variables. They are the current in the ﬁrst stage (or g ),
+                                                                                           m1
+the current in the second stage (or g ) and the compensation capacitance C .
+                                     m6                                     c
+  Up till now, we have chosen the compensation capacitance, which allows us to solve the two
+equations, since they only have two variables g and g .
+                                                m1      m6
+  This is indeed the ﬁrst possible design plan.
+188                                                                                      Chapter #6
+
+                                                                         There are two more
+                                                                      design plans, i.e. choosing
+                                                                      the g ﬁrst and then solve
+                                                                            m1
+                                                                      the two equations, or choos-
+                                                                      ing the g ﬁrst and then
+                                                                                 m6
+                                                                      solve the two equations.
+                                                                         All three design plans lead
+                                                                      to the same optimum.
+                                                                         The same two equations
+                                                                      can obviously be used in
+                                                                      any direction. One could
+                                                                      wonder, for example, how
+                                                                      much GBW can be obtained
+                                                                      for a C of 5 pF with only
+                                                                               L
+                                                                      0.2 mA? We also ask, how
+                                                                      much load capacitance can
+                                                                      we drive with 1 mA for a
+                                                                      GBW of 200 MHz?
+
+
+
+                                                                     0615
+                                                                     All three design plans lead
+                                                                     to the same optimum
+                                                                     indeed.
+                                                                       There is a slight prefer-
+                                                                     ence for choosing the com-
+                                                                     pensation capacitance C
+                                                                                                  c
+                                                                     ﬁrst as this capacitance can
+                                                                     only have a small range of
+                                                                     values. Indeed, it cannot be
+                                                                     smaller than about 3×C .
+                                                                                               n1
+                                                                       On the other hand, it
+                                                                     cannot be larger than the
+                                                                     load capacitance C divided
+                                                                                         L
+                                                                     by 2–3. It is now fairly easy
+                                                                     to choose this compensation
+                                                                     capacitance about right.
+  This is why so many designers simply choose C as a starting point for their design procedure.
+                                                  c
+  Of course, even better is to try a few diﬀerent capacitance values!
+  Let us work out an example ﬁrst!
+
+
+
+0616
+As an example, let us ﬁnd the currents in both stages for a given GBW and
+  C . An appropriate compensation capacitance is selected of 1 pF, which immediately yields
+    L
+the two g ’s. The currents and W/L’s are now easily calculated.
+         m
+Systematic design of operational ampliﬁers                                                      189
+
+                                                                         A problem may be that it
+                                                                      is not so obvious how to
+                                                                      ﬁnd the value of capacitance
+                                                                      C . It is mainly C . As
+                                                                        n1                 GS6
+                                                                      long as we do not know g ,
+                                                                                                 m6
+                                                                      we do not know C       either.
+                                                                                         GS6
+                                                                         Moreover, it would be
+                                                                      interesting to try out a few
+                                                                      diﬀerent values of C .
+                                                                                           c
+
+
+
+
+                                                                     0617
+                                                                     These are the reasons why it
+                                                                     is better to try a few diﬀerent
+                                                                     values of C and solve the
+                                                                                   c
+                                                                     two equations for g and
+                                                                                             m1
+                                                                     g . The currents of both
+                                                                       m6
+                                                                     stages can now be plotted
+                                                                     versus     capacitance      C,
+                                                                                                  c
+                                                                     together with the total cur-
+                                                                     rent consumption. This is
+                                                                     sketched in this slide.
+                                                                        What is obvious, is that
+                                                                     we obtain a minimum in
+                                                                     power consumption!
+                                                                        The g increases with C
+                                                                              m1                   c
+                                                                     is easy to see from the
+                                                                     expression of the GBW.
+   That the g now decreases with increasing C is maybe not so obvious, and yet it is clearly
+               m6                                 c
+given by the expression of the non-dominant pole f .
+                                                      nd
+   Indeed for a constant GBW and hence constant f , g decreases for increasing C . Actually
+                                                       nd m6                              c
+this is not all unexpected. After all g and C ensure stability together. If one is larger, the other
+                                        m6   c
+one can be smaller!
+   Both curves cross at a value of C which is fairly large. Remember however that we will select
+                                       c
+a value of C , which is 2–3 times smaller than C . This is very close to the optimum but just
+               c                                    L
+left of it!
+   For very large values of C , g reaches a minimum. The current in the output stage reaches
+                               c m6
+its minimum value. This value of g is given in this slide. It is obviously proportional to both
+                                       m6
+the GBW and the C .
+                      L
+190                                                                                         Chapter #6
+
+                                                                       0618
+                                                                       As an example, we take the
+                                                                       same CMOS Miller OTA of
+                                                                       1 MHz for 10 pF, which has
+                                                                       been used before.
+                                                                           The currents in both
+                                                                       stages, i.e. 2g , g         and
+                                                                                         m1   m6
+                                                                       g      are plotted versus com-
+                                                                         mtot
+                                                                       pensation capacitance C .
+                                                                                                     c
+                                                                       Remember that they stand
+                                                                       for 2I , I         and I but
+                                                                               DS1 DS6         tot
+                                                                       are 10 times larger (for
+                                                                       V −V =0.2 V).
+                                                                          GS     T
+                                                                           It is clear that the mini-
+                                                                       mum has a diﬀerent shape
+                                                                       from          the     previous
+                                                                       illustration.
+   This is an ideal plot to select a value of C . It shows that the value of 1 pF is indeed a good
+                                                c
+choice, at least if no other speciﬁcations have to be taken into account.
+   We could have also taken 2 or even 3 pF as well. Indeed, the additional current consumption
+is still less than the current through the output stage. A larger capacitance would reduce the
+noise, as we will see later in this Chapter.
+   Finally, note that for these plots a constant value of C has been assumed. This is not quite
+                                                            n1
+true, however. For larger g , the current is also larger and so is the size W/L and the input
+                              m
+capacitance. As a result C increases with g . If we introduce this relationship, then g is
+                             n1                   m6                                              m6
+much ﬂatter versus C for small values of C . This does not change our choice of compensation
+                        c                     c
+capacitance however, since we have to select a value of at least 2–3 times C .
+                                                                                  n1
+
+
+                                                                      0619
+                                                                      The second design plan is to
+                                                                      choose g or the current in
+                                                                                 m6
+                                                                      the output stage.
+                                                                         This is also very easy.
+                                                                      Indeed, we already know
+                                                                      what the minimum value of
+                                                                      g is. It is repeated in this
+                                                                        m6
+                                                                      slide. It is the value of g
+                                                                                                     m6
+                                                                      obtained for inﬁnite C .
+                                                                                                c
+                                                                         We now simply take a g
+                                                                                                     m6
+                                                                      value which is 30% larger.
+                                                                      This means that C will end
+                                                                                           c
+                                                                      up at a value which is about
+                                                                      3 times C , as explained by
+                                                                                  n1
+                                                                      the expression of the non-
+                                                                      dominant pole.
+  This value of g        should be close to the minimum in area, which is illustrated in this slide.
+                    m6
+Systematic design of operational ampliﬁers                                                     191
+
+   The advantage of taking g as an independent variable, is that we can now easily calculate
+                             m6
+C , which is little more than C .
+  n1                            GS6
+   Moreover, it is more evident to start with g in this design plan. After all, the current in the
+                                               m6
+output stage is by far the larger one. We therefore want to focus on the minimization of this
+current ﬁrst.
+
+
+                                                                     0620
+                                                                     Finally, the third design
+                                                                     plan is to start with a selec-
+                                                                     tion of the current in the
+                                                                     input stage.
+                                                                        A possible reason to go
+                                                                     for this design plan, could
+                                                                     be the noise performance.
+                                                                     After all the equivalent
+                                                                     input noise voltage will
+                                                                     depend on the transcon-
+                                                                     ductances of the MOSTs in
+                                                                     the input stage.
+                                                                        Again, a minimum is
+                                                                     reached when we plot the
+                                                                     total area versus g .
+                                                                                         m1
+                                                                        Once C becomes C
+                                                                                  c               L
+divided by 2–3, then we obtain a value of g       which is similar to the values obtained by the
+                                             m1
+previous design plans.
+  However, it is not worked out any further.
+
+
+                                                               0621
+                                                               This design procedure can
+                                                               now easily be formalized, for
+                                                               such a Miller CMOS OTA.
+                                                                  The goal is to ﬁnd out
+                                                               what maximum GBW can
+                                                               be reached within a certain
+                                                               CMOS technology. Also, we
+                                                               want to ﬁnd the shortest
+                                                               way to design this OTA.
+                                                                  First of all, a number of
+                                                               design choices have to be
+                                                               made. They have all been
+                                                               previously used. We list
+                                                               them again and introduce
+                                                               design parameters a, b and
+                                                               c.
+  Parameter a sets the ratio between C and C . Take 2 as an example.
+                                        L    c
+  Parameter b sets the ratio between C and C or C . Take 3 as an example. Also, remember
+                                      c     n1    GS6
+192                                                                                    Chapter #6
+
+that C can easily be described as a function of the transistor width; the k parameter is
+       GS
+about 2 fF/mm.
+  Parameter c sets the ratio between f and C . We have taken 3 many times, let us take 2 for
+                                      nd       c
+this example.
+  The maximum GBW can now easily be described as a fraction c of the non-dominant pole.
+  Also, note that C can be described in terms of the width of the output transistor. Obviously,
+                    L
+the larger the C , the more current we will need to drive it, and the larger the transistor width
+                L
+becomes!
+
+
+
+                                                                    0622
+                                                                    The last expression of C
+                                                                                                L
+                                                                    can now be substituted in
+                                                                    the expression of the GBW.
+                                                                    We now take the general
+                                                                    expression of g from the
+                                                                                     m
+                                                                    ﬁrst Chapter on models.
+                                                                    Remember that this is the
+                                                                    expression which spans both
+                                                                    the strong inversion and
+                                                                    velocity saturation regions.
+                                                                    These are the regions which
+                                                                    we will use for high speed.
+                                                                       Substitution of this g
+                                                                                                m
+                                                                    expression in the one of the
+                                                                    GBW, yields an expression
+                                                                    in which only V −V and
+                                                                                     GS    T
+                                                                    L are left as parameters.
+  This is not surprising at all. We have known all along that these are the two choices that we
+have to make for any transistor in the signal path.
+  It is surprising, however, to ﬁnd that the maximum GBW does not depend on the load
+capacitance.
+  Actually, increasing the load capacitance increases the width of the output transistor and its
+current. The speed of the output transistor mainly depends on its length!
+  The speed of a MOST is better represented by parameter f . This is why we now try to
+                                                                T
+substitute the transistor parameters V −V and L by parameter f .
+                                      GS    T                      T
+
+
+
+0623
+The expression of parameter f for both the weak inversion and velocity saturation regions are
+                              T
+taken from Chapter 1. Clearly, it depends on V −V and L, very much as the GBW does.
+                                                GS   T
+   Substitution now yields a ﬁnal expression of the GBW with only f as a parameter.
+                                                                   T
+   For the values previously chosen, we ﬁnd that the maximum GBW is about 1/16 of the f of
+                                                                                         T
+the output device.
+   A two-stage Miller CMOS OTA can have a GBW of 5 GHz, provided we select a CMOS
+technology where an f of 80 GHz can be obtained. Checking the f curves of Chapter 1, we ﬁnd
+                      T                                         T
+Systematic design of operational ampliﬁers                                                     193
+
+                                                                      that a 80 nm CMOS is
+                                                                      required for that (for
+                                                                      V −V =0.2 V), but only
+                                                                        GS    T
+                                                                      0.1 mm technology if we
+                                                                      make V =0.5 V.
+                                                                              GST
+                                                                         The actual power con-
+                                                                      sumption will depend on the
+                                                                      capacitive load. The larger
+                                                                      the load, the higher the
+                                                                      power consumption!
+                                                                         The optimum design plan
+                                                                      has now become fairly
+                                                                      simple, as shown next.
+
+
+
+
+                                                                    0624
+                                                                    However, before the design
+                                                                    plan is spelled out, let us see
+                                                                    what values of GBW are
+                                                                    available for diﬀerent values
+                                                                    of channel length.
+                                                                       For this purpose, the
+                                                                    values of f have to be
+                                                                                  T
+                                                                    obtained from Chapter 1.
+                                                                    They refer to transistor M6.
+                                                                    A value is taken of
+                                                                    V −V =0.2 V.
+                                                                      GS     T
+                                                                       The parameters a, b and
+                                                                    c have to be selected. They
+                                                                    are taken the same as before,
+                                                                    giving rise to a ratio of 16
+                                                                    between f and the maxi-
+                                                                               T6
+                                                                    mum GBW.
+  The plot shows that for large channel lengths, where the mobility (K∞) model is still valid, a
+GBW is obtained if the channel length L is not larger than 0.35 mm.
+  For smaller channel lengths, the velocity saturation model evidently prevails. A 10 GHz GBW
+can be realized provided the minimum channel length is now 90 nm or less. This is also the
+cross-over value of the channel length from one model to the other!
+
+
+
+0625
+Let us now draw up a design plan.
+  The three design choices have to be selected ﬁrst.
+194                                                                                     Chapter #6
+
+                                                                         We must ﬁnd the mini-
+                                                                      mum f which can handle
+                                                                             T
+                                                                      the process. The higher f ,
+                                                                                                 T
+                                                                      the smaller the channel
+                                                                      length will be and the more
+                                                                      expensive the CMOS tech-
+                                                                      nology required. A mini-
+                                                                      mum f leads to a minimum
+                                                                            T
+                                                                      channel length L.
+                                                                         We now choose the actual
+                                                                      channel length. It can be the
+                                                                      minimum channel length or
+                                                                      a somewhat larger value,
+                                                                      depending on the gain
+                                                                      required. Also, the value of
+                                                                      V −V must be selected.
+                                                                        GS    T
+                                                                         The capacitive load now
+determines the output transistor width, and its current.
+  All other values are now easily derived.
+
+
+
+
+                                                                      0626
+                                                                      A numerical example is
+                                                                      worked out in this slide.
+                                                                         The very ﬁrst design
+                                                                      choices to be made are for
+                                                                      the three design parameters.
+                                                                         The minimum f value is
+                                                                                        T
+                                                                      a direct result from these
+                                                                      choices. We now have to dis-
+                                                                      cover which channel length
+                                                                      can deliver such high f
+                                                                                                  T
+                                                                      values. Note that this is the
+                                                                      actual channel length used,
+                                                                      which may be 2–3 times
+                                                                      higher than the minimum
+                                                                      channel length of a particu-
+                                                                      lar CMOS technology. Here
+they are taken the same, because we do not have a lot of room left: 80 GHz f is quite high indeed.
+                                                                             T
+  The transistor width is a direct result of the load capacitance. It determines both the current
+and the value of C .
+                    n1
+  The compensation capacitance C is a fraction a of C .
+                                    c                     L1
+  Clearly, C comes out to be 1/3 of C since b was 3.
+             n1                          c
+  From the GBW we ﬁnally obtain g and I .
+                                      m1        DS1
+  The total current consumption is 3.56 mA, which is quite high because of the large GBW and
+load capacitance. Its FOM however, is 561 MHzpF/mA, which is not bad at all!
+Systematic design of operational ampliﬁers                                                 195
+
+                                                               0627
+                                                               The expression of parameter
+                                                               f for both the weak inver-
+                                                                T
+                                                               sion and strong inversion
+                                                               regions is taken from
+                                                               Chapter 1. Clearly, it
+                                                               depends     on     inversion
+                                                               coeﬃcient i and L.
+                                                                  The expression of the
+                                                               GBW with only f as a
+                                                                                    T
+                                                               parameter, is the same as
+                                                               previously mentioned.
+                                                                  For the values chosen
+                                                               before, we ﬁnd that the max-
+                                                               imum GBW is about 1/16 of
+                                                               the f of the output device.
+                                                                    T
+                                                                  A     two-stage     Miller
+CMOS OTA can have a small GBW, provided we select proper values of L and i.
+  The actual power consumption will depend on the capacitive load. The larger the load, the
+higher the power consumption!
+  The optimum design plan has become fairly simple now, as shown next.
+
+
+
+                                                                 0628
+                                                                 The three design choices
+                                                                 have to be selected ﬁrst.
+                                                                    We choose the actual
+                                                                 channel length L . It can be
+                                                                                   6
+                                                                 the     minimum       channel
+                                                                 length or a somewhat larger
+                                                                 value, depending on the gain
+                                                                 required. However, this
+                                                                 value of L sets the fre-
+                                                                              6
+                                                                 quency f .
+                                                                          TH6
+                                                                    The value of i is now
+                                                                 easily calculated as f /f .
+                                                                                       TH TH6
+                                                                    The capacitive load now
+                                                                 determines the output tran-
+                                                                 sistor width, and its current.
+                                                                    All other values are now
+                                                                 easily derived.
+
+
+
+0629
+A numerical example is worked out below.
+  The values speak for themselves.
+196                                                                                         Chapter #6
+
+                                                                 However, the value of L
+                                                                                           6
+                                                              could have been taken
+                                                              larger than 0.5 mm. This
+                                                              would have decreased the
+                                                              value of f      and increased
+                                                                         TH6
+                                                              the inversion coeﬃcient i .
+                                                                                         6
+                                                                 For example, doubling
+                                                              the channel length to 1 mm,
+                                                              decreases f      to 480 MHz,
+                                                                          TH6
+                                                              and increases i to 0.033. This
+                                                              halves I          to 0.16 mA.
+                                                                        DST6
+                                                              Current I          doubles to
+                                                                          DS6
+                                                              5.5 mA, leaving the input
+                                                              stage current I            un-
+                                                                                   DS1
+                                                              changed at 1.6 mA. Also, the
+                                                              compensation capacitance is
+                                                              the same at 2.5 pF.
+  The FOM of this last opamp is 575 MHzpF/mA, which is quite impressive indeed.
+
+
+                                                                         0630
+                                                                         Up till now, the GBW and
+                                                                         stability conditions have
+                                                                         been studied in great detail.
+                                                                         However, an OTA has
+                                                                         many more speciﬁcations.
+                                                                         Actually, the shortlist of the
+                                                                         speciﬁcations, for which we
+                                                                         have to carry out a design,
+                                                                         is one of the major design
+                                                                         decisions. The other speci-
+                                                                         ﬁcations, which are not
+                                                                         shortlisted, are to be veriﬁed
+                                                                         later, hoping that none of
+                                                                         them have to be upgraded
+                                                                         to that shortlist, so that we
+                                                                         do not have to start all
+                                                                         over again.
+   First of all, we will try to make a systematic list of all possible speciﬁcations. We are not sure
+that this is possible. For an analog circuit, some more speciﬁcations can always be added. There
+is always something extra that can be achieved with an analog circuit.
+   Nevertheless, this list of speciﬁcations is fairly complete. Of course none of them will be used.
+It is just an attempt to list them all.
+   Speciﬁcations of commercial ampliﬁers do not follow this list. They are actually a summary
+of measurement results. Some of them are missing. Some of them are contradictory.
+   Afterwards, a few of the most important speciﬁcations are analyzed in detail.
+Systematic design of operational ampliﬁers                                                    197
+
+                                                                    0631
+                                                                    As an introduction, it is
+                                                                    good to carry out a DC
+                                                                    analysis of an ampliﬁer
+                                                                    somewhere in the middle of
+                                                                    the design space. This will
+                                                                    not give accurate data, but
+                                                                    is a good starting point
+                                                                    to have some idea about
+                                                                    possible DC currents and
+                                                                    voltages.
+                                                                       This is followed by a
+                                                                    small-signal analysis, so that
+                                                                    some elementary knowledge
+                                                                    is obtained about orders of
+                                                                    magnitude of transconduct-
+                                                                    ances, output resistances,
+                                                                    capacitances, etc.
+  Experienced designers can leave out these two introductory steps.
+  DC analysis comes next.
+  Perhaps one of the most important speciﬁcations is the common-mode input range over which
+an ampliﬁer can operate. This is actually the average input voltage range. For smaller and
+smaller supply voltages, this speciﬁcation has become one of the most important.
+  The maximum output voltage range is a lot easier to achieve. A rail-to-rail output range is
+quite feasible provided the output loads are purely resistive and provided only two transistors
+are used in the output stage with no cascodes.
+  The maximum output current is normally the DC current of the output stage. In Chapter 11
+we will add class-AB output stages to be able to deliver more current.
+
+
+                                                               0632
+                                                               The AC analysis has been
+                                                               partially carried out.
+                                                                  It is good practice to
+                                                               verify the impedance on all
+                                                               the nodes. It gives an idea
+                                                               on where to expect addi-
+                                                               tional poles, etc.
+                                                                  The gain versus frequency
+                                                               is actually the only speciﬁ-
+                                                               cation that we have fully
+                                                               studied.
+                                                                  The GBW versus biasing
+                                                               is a misleading speciﬁcation.
+                                                               When we have minimized
+                                                               the current consumption for
+                                                               a certain GBW, we can then
+no longer modify it. Changing the current would render that ampliﬁer unstable or generated
+198                                                                                      Chapter #6
+
+overconsumption in current. As a result, spec 3.3 does not actually exist. For an overdesigned
+ampliﬁer it is possible though, to tune the GBW by means of the biasing current.
+   The Slew Rate and output voltage at high frequencies will be discussed in more detail. They
+are just too important.
+   The settling time is really important for Analog-to-digital converters and all switching applica-
+tions. It will be discussed at a later stage.
+   The input impedance of a CMOS OTA is purely capacitive as the two input C capacitances
+                                                                                    GS
+appear in series. For a bipolar OTA, resistances have to be added. No more attention will be
+paid to them.
+   The output impedance will be examined, as there is no class-AB output stage.
+
+
+
+
+                                                                   0633
+                                                                   Many speciﬁcations are
+                                                                   dealing with oﬀset and
+                                                                   noise.
+                                                                      Oﬀset has to do with mis-
+                                                                   match between transistors,
+                                                                   capacitors, etc. It can be
+                                                                   reduced by increasing the
+                                                                   size. The CMRR is related
+                                                                   to it. In a sense we have two
+                                                                   speciﬁcations, originating
+                                                                   from the same phenomena.
+                                                                   Actually, the PSRR is also
+                                                                   related to it. They are all dis-
+                                                                   cussed in Chapter 15.
+                                                                      The input bias current is
+                                                                   certainly of importance for
+a bipolar opamps and maybe in the future for CMOS opamps, if Gate current is present.
+  The equivalent input noise voltage and current will be discussed in detail.
+  Capacitive noise matching has been brieﬂy mentioned in Chapter 4. Inductive source imped-
+ances are too cumbersome and are left out here.
+  Finally, distortion is gaining in importance. This is why a whole Chapter is devoted to it
+(Chapter 18).
+
+
+
+
+0634
+Finally, we have a number of more exotic aspects of opamps.
+   Connection of an inductor instead of a capacitance as a load may impair the stability. A good
+example is a loudspeaker.
+   Switching a whole opamp in and out is even more exotic. And yet, this is a technique to
+realize switched-capacitor ﬁlters down to really low supply voltages. Indeed, for these voltages
+it is no longer possible to implement switches. Switching the opamp itself is a possible solution.
+Systematic design of operational ampliﬁers                            199
+
+                                             This can be done either by
+                                             switching in and out the
+                                             biasing transistors or by
+                                             switching the supply voltage
+                                             itself. The stability and
+                                             recovery are diﬀerent in
+                                             both cases. This will be dis-
+                                             cussed in Chapter 21.
+                                                Repeating all speciﬁca-
+                                             tions at diﬀerent supply
+                                             voltages and at diﬀerent
+                                             temperatures are obvious
+                                             speciﬁcations to be added,
+                                             depending on the applica-
+                                             tion.
+
+
+
+
+                                             0635
+                                             A few of these speciﬁcations
+                                             will now be discussed.
+                                               The numerical results will
+                                             be given for the same Miller
+                                             CMOS OTA. We start with
+                                             the common-mode input
+                                             voltage range.
+200                                                                                       Chapter #6
+
+                                                                       0636
+                                                                       For all speciﬁcations, the
+                                                                       same ampliﬁer will be used
+                                                                       throughout. It is the Miller
+                                                                       CMOS OTA of 1 MHz
+                                                                       GBW for a 10 pF load.
+                                                                          In this way, the reader can
+                                                                       give himself a fairly good
+                                                                       picture on how all these
+                                                                       numerical speciﬁcations ﬁt
+                                                                       together.
+                                                                          The circuit is shown again
+                                                                       in this slide.
+
+
+
+
+                                                                      0637
+                                                                      The Common-mode input
+                                                                      voltage is the average input
+                                                                      voltage. Its range is limited
+                                                                      by the supply voltages.
+                                                                         For the CM input voltage
+                                                                      going up, the V         of the
+                                                                                        GS1
+                                                                      input devices, added to the
+                                                                      V      of the DC current
+                                                                        DS7
+                                                                      source, do not allow opera-
+                                                                      tion up to the positive
+                                                                      supply voltage. The maxi-
+                                                                      mum CM input voltage is
+                                                                      therefore V −V −V .
+                                                                                  DD    GS1      DS7
+                                                                         The values obviously
+                                                                      depend on which V −V
+                                                                                             GS     T
+                                                                      values have been used. For
+the input devices the V −V value is small (0.2 V) but it is a lot larger (0.5 V) for the DC
+                        GS    T
+current source.
+  For a supply voltage of ±2.5 V, the maximum CM input voltage is illustrated in this slide.
+  The lowest possible CM input voltage can come much closer to the negative supply voltage.
+Indeed, it is given by V +V +V −V . This value can be quite close to the V supply
+                        SS   GS3    DS1     GS1                                           SS
+but can never actually reach it, whatever V −V values are chosen.
+                                            GS   T
+  The total CM input voltage range is only a fraction of the rail-to-rail span. Some other
+ampliﬁers (in Chapter 11) will be capable of input rail-to-rail performance.
+  Also, note that this ampliﬁer could still operate at ±1 V provided the input transistors are
+biased at about −0.7 V.
+Systematic design of operational ampliﬁers                                                       201
+
+                                                                       0638
+                                                                       The output voltage range is
+                                                                       a lot better!
+                                                                          It depends on whether a
+                                                                       resistive load is added to the
+                                                                       capacitive one or not.
+                                                                       Normally, there is no resis-
+                                                                       tive load on-chip. Blocks are
+                                                                       put in series such that they
+                                                                       only see Gates as loads. This
+                                                                       depends on the application
+                                                                       however.
+                                                                          If no resistive loads are
+                                                                       present, then the output can
+                                                                       go rail-to-rail. Indeed, even
+                                                                       for output voltages close to
+                                                                       the positive rail, when the
+output transistor ends up in the linear region, the capacitor is still charged further until the
+output voltage reaches the positive supply voltage. Of course, in this region, the gain will have
+decreased. Some distortion will now show up. Nevertheless, the supply rail can be reached! The
+same applies to the negative rail.
+  If there is a resistive load, a resistive divider is created as soon as the output transistor M5
+enters the linear region, as illustrated in this slide. In this case, the supply rail can never be
+reached. The output can get close though, depending on the size of the output transistor.
+  Note that this is the ideal output structure for a wide-swing opamp. No cascodes are used.
+Moreover, the output devices are connected drain-to-drain. This is why class AB output drivers
+use this output conﬁguration. Only the Gate drive circuits diﬀer (see Chapter 12).
+
+
+                                                                       0639
+                                                                       Whenever an opamp is
+                                                                       driven with a large input
+                                                                       voltage, slewing occurs at
+                                                                       the output.
+                                                                          Large input voltages are
+                                                                       used to try to make the
+                                                                       opamp go faster.
+                                                                          In this case, the input
+                                                                       transistors are overdriven,
+                                                                       i.e. one is on and the other
+                                                                       is oﬀ, as illustrated in this
+                                                                       slide.
+                                                                          The input transistor
+                                                                       which is on, now operates as
+                                                                       a cascode, driven by the
+                                                                       total input stage current I .
+                                                                                                  B1
+                                                                       The current mirror then
+draws the same current from the compensation capacitance C .
+                                                          c
+202                                                                                      Chapter #6
+
+  We have a situation where a capacitance C is driven by a constant current. As a result, the
+                                                c
+voltage slope across it, is constant and called the Slew Rate SR.
+  This SR appears at the output as the V        is still about constant. Indeed, transistor M6 still
+                                            GS6
+conducts as if nothing has happened!
+  This SR limits the steepest possible slope at the output of the opamp.
+  Clearly, this phenomenon works in both directions.
+
+                                                                     0640
+                                                                     This steepest possible slope
+                                                                     at the output is clearly visi-
+                                                                     ble when the opamp is
+                                                                     driven by a square wave-
+                                                                     form with large amplitude.
+                                                                        A trapezoidal output
+                                                                     waveform results, clearly
+                                                                     showing the limited slopes.
+                                                                        This slewing is also visible
+                                                                     when a sinusoidal waveform
+                                                                     is applied with large ampli-
+                                                                     tude. In this case, triagonal
+                                                                     distortion results.
+                                                                        This latter waveform
+                                                                     shows that there is a direct
+                                                                     link between the maximum
+amplitude V          , the frequency f     and the Slew Rate SR. During a period T /4, the SR
+              OUTmax                   max                                            max
+allows a maximum amplitude V             . The maximum output voltage V         is therefore heavily
+                                  OUTmax                                OUTmax
+limited by the Slew Rate, as given by this expression.
+   This is plotted next.
+
+                                                                      0641
+                                                                      This plot shows that for
+                                                                      higher frequencies, close to
+                                                                      the GBW, only small output
+                                                                      voltage amplitudes can be
+                                                                      expected.
+                                                                         This curve is also called
+                                                                      the large-signal bandwidth
+                                                                      of the OTA.
+                                                                         In this design example, a
+                                                                      SR of 2.2 V/ms only provides
+                                                                      0.4 V       at the GBW of
+                                                                             peak
+                                                                      1 MHz, rather than 2.5 V
+                                                                                               peak
+                                                                      at low frequencies.
+                                                                         It is not clear how to
+                                                                      remedy this, as both GBW
+                                                                      and SR depend on the input
+transistor current and capacitance C .
+                                    c
+Systematic design of operational ampliﬁers                                                    203
+
+  Actually, we want to achieve a larger SR for the same GBW. Which transistor parameters
+have to be adjusted?
+
+                                                                     0642
+                                                                     In order to achieve a larger
+                                                                     SR for the same GBW, we
+                                                                     take the ratio and rewrite it
+                                                                     in terms of transistor
+                                                                     parameters.
+                                                                        We ﬁnd that for a MOST,
+                                                                     this ratio is simply propor-
+                                                                     tional to its V −V . The
+                                                                                     GS    T
+                                                                     larger we make the input
+                                                                     transistor V −V , the
+                                                                                    GS1   T
+                                                                     larger the SR will be for the
+                                                                     same GBW. Clearly, SR has
+                                                                     to do with high speed. This
+                                                                     result is not unexpected. We
+                                                                     have known all along that
+                                                                     for high speed we need to
+take large values of V −V . The noise performance will suﬀer from that, but again we have
+                       GS1    T
+known this all along.
+  Clearly, the use of a bipolar transistor at the input reduces the SR by a factor of 10 for the
+same GBW. This also applies to a MOST in weak inversion.
+  In order to improve the SR for a bipolar ampliﬁer, we have to insert series resistors. The SR
+increases accordingly. Clearly, the noise performance suﬀers from that as well.
+  To realize an ampliﬁer with high speed or SR, and low noise at the same time is a real
+compromise!
+
+                                                                  0643
+                                                                  There is a possibility to
+                                                                  decouple SR from GBW
+                                                                  by using cross-coupling as
+                                                                  shown in this slide (actually
+                                                                  realized for bipolar transis-
+                                                                  tors). However, the cost is
+                                                                  increased power consump-
+                                                                  tion.
+                                                                     For small signals, transis-
+                                                                  tors M1 and M2 provide
+                                                                  gain and GBW as usual.
+                                                                  They run at a fairly small
+                                                                  DC current however, such
+                                                                  that their g is also small.
+                                                                               m
+                                                                  Their DC current is only
+                                                                  1/(n+1) of the biasing cur-
+                                                                  rent I .
+                                                                        B
+  For large input signals the input transistors switch on or oﬀ. As a result all current I can
+                                                                                          B
+204                                                                                       Chapter #6
+
+ﬂow to the output, to slew the output voltage. The current is now n+1 times larger. The ratio
+SR/GBW is also n+1 times higher.
+  The main drawback is obviously that for small signals, a large current I is ﬂowing, only a
+                                                                          B
+small fraction of which is used to generate transconductance. Most of the DC current is now
+actually wasted.
+
+                                                                    0644
+                                                                    Normally, it is the internal
+                                                                    Slew Rate which establishes
+                                                                    the limit. However, it can
+                                                                    also be the external Slew
+                                                                    Rate.
+                                                                       The load capacitance
+                                                                    needs to be charged as well.
+                                                                    All current of current source
+                                                                    M5 is now used to slew the
+                                                                    output voltage.
+                                                                       In the design procedures
+                                                                    presented in this Chapter,
+                                                                    the output stage current is a
+                                                                    lot larger than the input
+                                                                    stage current, whereas the
+                                                                    compensation capacitance is
+only a factor 2–3 times smaller than the load capacitance, the internal SR is the limiting factor,
+by at least a factor of 2.
+  This is not always the case however and should be veriﬁed. In the example of the 1MHz
+Miller CMOS OTA, the internal SR is 2.2 V/ms but the external SR is only 2.5 V/ms, which is
+barely larger!
+
+                                                                       0645
+                                                                       The Slew Rate is also part
+                                                                       of the total settling time.
+                                                                          When we apply a square
+                                                                       waveform with large ampli-
+                                                                       tude, the output will slew
+                                                                       ﬁrst until it reaches the ﬁnal
+                                                                       output voltage within a
+                                                                       large percentage, let us say
+                                                                       10%. From then on the
+                                                                       small-signal operation is
+                                                                       taking over and the band-
+                                                                       width (or GBW) is deter-
+                                                                       mining the settling time. The
+                                                                       cross-over from SR to BW
+                                                                       limiting behavior is not
+                                                                       clear.
+   The minimum settling time would be based on a calculation in which we forget about the SR
+altogether. In this case, 0.1% settling takes 6.9 (or 7) time constants.
+Systematic design of operational ampliﬁers                                                       205
+
+   The maximum settling time is obtained by addition of the time required to slew from zero to
+the ﬁnal output voltage, to the 7 time constants required to reach 0.1% accuracy.
+   For example, if we take the same 1 MHz Miller CMOS OTA, set at a closed-loop gain of 10.
+The BW is 100 kHz and the corresponding time constant is 1.6 ms. Settling to 0.1% would take
+7 time constants or 11.2 ms.
+   To reach an output voltage of 1 V with a SR of 2.2 V/ms takes 0.45 ms. The total settling time
+is now between 11.2 and 11.6 ms. The actual settling time takes up most of the time!
+
+                                                                     0646
+                                                                     The output impedance is
+                                                                     examined next.
+                                                                        For this purpose, we have
+                                                                     left out the external resistive
+                                                                     load. They are normally
+                                                                     absent anyway. We can dis-
+                                                                     tinguish two output imped-
+                                                                     ances, i.e. the one of the
+                                                                     ampliﬁer itself Z       and the
+                                                                                        OUT
+                                                                     output impedance inclu-
+                                                                     ding the load capacitance
+                                                                     Z       . The latter one is the
+                                                                       OUTCL
+                                                                     impedance at the intercon-
+                                                                     nect to the next stage.
+                                                                        The output impedance
+                                                                     Z     itself is high at low fre-
+                                                                       OUT
+quencies, where it is the parallel combination of the r ’s of M5 and M6.
+                                                       o
+  At high frequencies however, the compensation capacitance C acts as a short. The output
+                                                                   c
+impedance Z      becomes resistive with value 1/g . This is shown next.
+            OUT                                   m6
+
+                                                                       0647
+                                                                       Without feedback, the open-
+                                                                       loop output impedance
+                                                                       Z      is high indeed at low
+                                                                         OUT
+                                                                       frequencies. It decreases
+                                                                       until it reaches the level
+                                                                       1/g .
+                                                                           m6
+                                                                          The pole f of this Z     is
+                                                                                     d         OUT
+                                                                       about the same as for the
+                                                                       open-loop gain characteris-
+                                                                       tic. The zero f however, is
+                                                                                       z
+                                                                       a new characteristic fre-
+                                                                       quency. It is nowhere visible
+                                                                       in the gain characteristic. It
+                                                                       only appears in the output
+                                                                       impedance and in the noise
+                                                                       characteristic, which comes
+                                                                       next.
+206                                                                                       Chapter #6
+
+   Actually, this zero is at the frequency where the output resistance of the ﬁrst stage is taken
+over by the impedance of the compensation capacitance C . It is the frequency where the gain
+                                                            c
+of the ﬁrst stage starts decreasing.
+   Anyway, for most of the frequency region, the output impedance is quite low. As a result, we
+do not need a class AB stage. These latter stages are only necessary to drive oﬀ-chip loads. Also,
+a line connection at an impedance of a few kV’s does not pick up a lot of noise. It is a good
+value for interconnect.
+   Application of unity-gain feedback causes the output impedance to be divided by the total
+gain. Since the pole f is the same for both, it disappears. The zero remains, indicating a wide
+                       d
+region which is inductive.
+   With the load capacitance C included, the impedance Z            starts decreasing at the non-
+                                  L                           OUTCL
+dominant pole f .
+                 nd
+
+                                                                        0648
+                                                                        In order to ﬁnd the equiva-
+                                                                        lent input noise voltage, we
+                                                                        have to introduce the input
+                                                                        noise voltages for the ﬁrst
+                                                                        and second stages.
+                                                                           They are included in the
+                                                                        small-signal equivalent cir-
+                                                                        cuit shown in this slide.
+                                                                           The input noise of the
+                                                                        input stage is given as well.
+                                                                        Only the two input transis-
+                                                                        tors themselves are in-
+                                                                        cluded. We have assumed
+                                                                        that the current mirror
+                                                                        devices have been designed
+                                                                        for low noise.
+   The input noise of the second stage is due to transistor M6 only. It is embedded in the circuit
+in this slide. Note that it has taken a fairly strange position, in series with the Gate. Therefore,
+its eﬀect is not found that easily.
+   We now have to shift the input noise voltage of the second stage to the input. For this purpose,
+we calculate its contribution to the output, and then divide it by the total gain.
+   The result is shown next.
+
+
+0649
+Both contributions of the noise sources to the output noise are shown in this slide for unity-
+gain feedback. The contribution of the input stage drops oﬀ at frequencies beyond the GBW.
+   The second-stage noise however, becomes dominant at high frequencies. The behavior at these
+frequencies is most important as noise has to be looked at on a linear frequency scale.
+   At low frequencies the noise density of the second stage is clearly negligible. It can be divided
+by the gain of the ﬁrst stage squared.
+   Beyond the zero frequency f , which is the same as for the output impedance, the noise
+                                 z
+contribution of the second stage starts rising, until it becomes dominant at the highest frequencies.
+Systematic design of operational ampliﬁers                                                   207
+
+                                                                      The noise starts rising
+                                                                    because from the zero fre-
+                                                                    quency on, the gain of the
+                                                                    ﬁrst stage goes down. As a
+                                                                    result, the noise goes up.
+                                                                      The result is not so bad
+                                                                    in the sense that the noise
+                                                                    density of the second stage
+                                                                    never really takes over
+                                                                    below the GBW. The maxi-
+                                                                    mum noise contribution of
+                                                                    the second stage is actually
+                                                                    the input noise voltage, as
+                                                                    given in the previous slide.
+                                                                    Since g      is much larger
+                                                                             m6
+                                                                    than g , the noise of the
+                                                                            m1
+                                                                    second stage is always negli-
+                                                                    gible with respect to the
+                                                                    noise of the ﬁrst stage.
+
+
+
+                                                                    0650
+                                                                    In order to ﬁnd the integ-
+                                                                    rated noise of this OTA, we
+                                                                    have to integrate the input
+                                                                    noise density over all fre-
+                                                                    quencies. Since we are deal-
+                                                                    ing with a ﬁrst-order roll-
+                                                                    oﬀ, we will ﬁnd again this
+                                                                    increase of the bandwidth to
+                                                                    the noise bandwidth by a
+                                                                    factor of p/2.
+                                                                       A unity-gain situation is
+                                                                    used. The bandwidth equals
+                                                                    the GBW.
+                                                                       The total integrated noise
+                                                                    is now simply the product of
+                                                                    the equivalent input noise
+voltage with the noise bandwidth.
+   Since transconductance g determines both, the input noise voltage and the GBW, it cancels
+                              m1
+out. As a result, the total integrated noise only contains the compensation capacitance C .
+                                                                                           c
+   The noise of the second stage has been neglected although its contribution is close to 20%.
+   Increasing the total integrated noise performance, will require larger capacitances, and hence
+larger currents.
+   Low noise always leads to higher power consumption!
+208                                                                                     Chapter #6
+
+                                                                  0651
+                                                                  As for resistive noise, OTA
+                                                                  noise leads to similar
+                                                                  conclusions.
+                                                                     Noise density always
+                                                                  depends on resistors or
+                                                                  transconductances, whereas
+                                                                  integrated noise depends on
+                                                                  the main capacitance. This
+                                                                  is C for a single-stage
+                                                                       L
+                                                                  ampliﬁer but C for a two-
+                                                                                   c
+                                                                  or three-stage ampliﬁer.
+                                                                     They are linked, however.
+                                                                  Larger capacitances will
+                                                                  lead to larger currents,
+                                                                  which will yield larger trans-
+                                                                  conductances.
+  Care has to be exerted however, to make sure that the noise of the output stage does not
+become dominant at the highest frequencies of interest. For this purpose the output g must
+                                                                                        m
+always be larger than the input g . This is a requirement which has originated from stability
+                                 m
+considerations as well!
+
+
+
+                                                                    0652
+                                                                    As a conclusion on this
+                                                                    Miller CMOS OTA of
+                                                                    1 MHz GBW for a 10 pF
+                                                                    load capacitance, we need to
+                                                                    look at the layout.
+                                                                       The input devices at the
+                                                                    right in the middle, are fairly
+                                                                    big to suppress the 1/f noise
+                                                                    somewhat.
+                                                                       The output devices at the
+                                                                    left. They are obviously
+                                                                    larger. The compensation
+                                                                    capacitance of 1 pF is
+                                                                    clearly visible, although
+                                                                    quite small.
+
+
+
+
+0653
+As a conclusion to this Chapter, a design exercise is launched of a Miller CMOS OTA.
+   The speciﬁcations are fairly conventional.
+   It is suggested to adopt the second design plan, in which the minimum current in the output
+stage is to be calculated ﬁrst.
+Systematic design of operational ampliﬁers                                                   209
+
+                                                                      The sequence suggested
+                                                                   to design this ampliﬁer is
+                                                                   given. After g and I       we
+                                                                                  m6      DS6
+                                                                   have to extract W as this
+                                                                                       6
+                                                                   provides C         which is
+                                                                                 GS6
+                                                                   taken to be equal to C .
+                                                                                           n1
+                                                                      The compensation cap-
+                                                                   acitance C is now easily
+                                                                               c
+                                                                   obtained from the expres-
+                                                                   sion for the non-dominant
+                                                                   pole.
+                                                                      Finally, we design the
+                                                                   input stage as we know C .
+                                                                                               c
+                                                                      Noise density and integ-
+                                                                   rated noise are easy exten-
+                                                                   sions in this design exercise.
+
+
+
+
+                                                                   0654
+                                                                   In this Chapter, a consider-
+                                                                   able amount of design detail
+                                                                   has been given on a Miller
+                                                                   CMOS operational trans-
+                                                                   conductance ampliﬁer.
+                                                                      It has been shown that an
+                                                                   optimum can be reached in
+                                                                   terms of power consump-
+                                                                   tion and that this optimum
+                                                                   can be reached along
+                                                                   various diﬀerent design
+                                                                   procedures.
+                                                                      In practice, too many
+                                                                   speciﬁcations have to be ful-
+                                                                   ﬁlled however, for too few
+                                                                   design variables. Many
+compromises are thus to be taken. Increasing the complexity of the circuit conﬁguration is only
+one way to deal with these compromises.
+  This is why we want to examine more complicated circuits and diﬀerent realizations of
+operational ampliﬁers.
+                                                                   071
+                                                                   The list of diﬀerent opera-
+                                                                   tional ampliﬁers is endless.
+                                                                   And yet it is possible to
+                                                                   classify them in a limited
+                                                                   number of important cate-
+                                                                   gories. Examples are sym-
+                                                                   metrical opamps and folded
+                                                                   cascodes. They are being
+                                                                   reused and redesigned con-
+                                                                   tinuously. They are the
+                                                                   kings of the list of important
+                                                                   ampliﬁers.
+                                                                      Many other opamps can
+                                                                   be included in this list
+                                                                   because they highlight some
+                                                                   cleverness in design or
+because they excel in performance.
+  In this Chapter, a review is given on many important opamp circuits. In many cases the design
+compromises are discussed, together with their limits in terms of speed or noise or some other
+speciﬁcations.
+
+
+
+
+                                                                   072
+                                                                   In this Chapter the trade
+                                                                   oﬀs     between        standard
+                                                                   CMOS and BiCMOS are
+                                                                   also discussed. This is why
+                                                                   some known schematics are
+                                                                   also included.
+                                                                      Most of the discussion is
+                                                                   on the symmetrical OTA
+                                                                   and the folded cascode OTA
+                                                                   as they are so often used.
+                                                                      Finally, a list of published
+                                                                   opamps are discussed to
+                                                                   show that the design prin-
+                                                                   ciples are applicable to most
+                                                                   of them.
+                                                                      We recall the simplest
+                                                                   diﬀerential voltage ampliﬁer
+                                                                   that we have observed.
+
+
+
+
+                                             211
+

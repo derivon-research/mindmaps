@@ -1,0 +1,1904 @@
+                                                                    211
+                                                                    Low power consumption is
+                                                                    not always a result of low
+                                                                    supply voltages. The addi-
+                                                                    tional signal processing
+                                                                    required to maintain the
+                                                                    same or maybe an even
+                                                                    better dynamic range des-
+                                                                    pite the reduction in supply
+                                                                    voltage, may cause addi-
+                                                                    tional power consumption.
+                                                                       Good     examples     are
+                                                                    sigma-delta (or delta-sigma)
+                                                                    analog-to-digital converters.
+                                                                    Their lowest supply voltage
+                                                                    is 0.6 and even 0.5 V, which
+                                                                    is largely suﬃcient to
+be embedded in 65 and even 45 nm CMOS. The problem in these converters is that they have
+to maintain the same dynamic range as their 1.8 V and higher counterparts.
+  A low supply voltage always assumes that all circuit techniques are also applied to reduce the
+power consumption. This Chapter explains what circuit techniques are available to realize low
+power Delta-Sigma converters at very low supply voltages.
+  Many of these circuit techniques will become important once nanometer CMOS have become
+mainstream.
+
+
+                                                                   212
+                                                                   To initiate this Chapter, a
+                                                                   few essential aspects of
+                                                                   Delta-Sigma converters are
+                                                                   reviewed. This is a very
+                                                                   short introduction to Delta-
+                                                                   Sigma converters. For more
+                                                                   thorough      understanding,
+                                                                   the reader is referred to
+                                                                   more detailed references
+                                                                   such     as    Northsworthy
+                                                                   (Wiley), Schreier (Wiley)
+                                                                   and Johns-Martin (Wiley).
+                                                                      Most low-power Delta-
+                                                                   Sigma       converters   use
+                                                                   switched-capacitor ﬁlters for
+                                                                   the noise shaping. Switches
+become a problem however, for such low supply voltages. They are discussed ﬁrst.
+  Rather than use switches, the opamps can be switched themselves. Today, many very-low-
+voltage Sigma-Delta converters use this technique. The principle will be explained, followed by
+a number of design examples.
+  Finally, some of the most recent low-voltage Delta-sigma converters are discussed. Some of
+
+                                              637
+638                                                                                      Chapter #21
+
+them use series resistors at the input, some others use full feedforward. They are discussed and
+compared on the basis of a commonly agreed Figure of Merit.
+
+
+                                                                       213
+                                                                       A Sigma-Delta Analog-to-
+                                                                       digital converter samples
+                                                                       the incoming analog signal
+                                                                       at a frequency, which is
+                                                                       much higher than needed.
+                                                                       The minimum sampling
+                                                                       frequency according to
+                                                                       Nyquist, is twice the maxi-
+                                                                       mum frequency of the
+                                                                       incoming signal. For low-
+                                                                       quality speech, the band-
+                                                                       width is limited to 3.4 kHz.
+                                                                       The minimum sampling fre-
+                                                                       quency would be 6.8 kHz.
+                                                                       An ECG (Electro Cardio
+                                                                       Gram) is limited to about
+150 Hz. Its minimum sampling frequency would be 300 Hz.
+   In Sigma-Delta ADCs the sampling frequency is much higher, 20 to 1000 times, depending on
+the application. The ratio of this sampling frequency to the minimum Nyquist sampling frequency
+is called the oversampling ratio (OSR). It is the ﬁrst design parameter in a Sigma-Delta converter.
+The more the incoming signal is over-sampled, the more the signal information is emphasized
+with respect to the noise. As a result, the SNR (Signal-to-Noise Ratio) will be higher for an
+higher oversampling ratio (OSR). The resolution of the ADC will be higher for an higher
+oversampling ratio (OSR).
+   We can state that the high oversampling leads to higher resolution. A Sigma-Delta ADC
+exchanges speed for resolution.
+   To eﬀectively obtain this higher SNR however, the noise must be ﬁltered out. This is achieved
+by noise shaping. This is realized by a ﬁlter H(f ).
+   A Sigma-Delta converter consists of a feedback loop with a ﬁlter and a quantizer, which
+carries out the AD Conversion. The feedback loop is closed over a DAC. A preﬁlter (anti-aliasing
+ﬁlter) is required to make sure the incoming bandwidth is limited. A post ﬁlter (decimator ﬁlter)
+is applied to lower the sampling frequency to what satisﬁes Nyquist.
+
+
+214
+The largest error in such an ADC converter is the quantization noise. This is actually not noise
+but the diﬀerence between the original analog signal and the analog signal, quantized with a
+limited number of bits.
+   An example is shown in this slide. The original analog signal is the dotted sine wave. The
+sampled and quantized analog signal for 4 bit (or 16 steps) is shown in full line. The diﬀerence
+is in the middle. It is small in amplitude, depending on the number of bits (B) taken. Moreover,
+it contains many diﬀerent frequencies. This is why it is called noise. It is the quantization noise.
+It is the noise which determines the Signal-to-Noise ratio of the converter and hence its resolution.
+L ow-power sigma-delta AD converters                                                                639
+
+                                                                        The size of one single step
+                                                                     is the reference voltage
+                                                                     divided by 2B in which B is
+                                                                     the number of bits; for 8 bits
+                                                                     this is 256. For a reference
+                                                                     voltage of 1 V, this step is
+                                                                     about 4 mV. This is barely
+                                                                     larger than mismatch or
+                                                                     oﬀset. Additional techniques
+                                                                     will be required to enhance
+                                                                     the SNR. Noise shaping is
+                                                                     such a technique. For this
+                                                                     purpose, a noise ﬁlter is
+                                                                     included in the feedback
+                                                                     loop. This is explained in the
+                                                                     next slide.
+                                                                        For 8 bits, the number of
+256 corresponds to 48 dB. The precise value is 2 dB higher, which is 50 dB. For 16 bits we ﬁnd,
+in a similar way 98 dB, which is a very high number indeed, this is required by a limited number
+of applications such as audio CD’s and some others.
+
+
+                                                                         215
+                                                                         The minimum number of
+                                                                         components of the Delta-
+                                                                         sigma feedback loop are the
+                                                                         noise ﬁlter H(f ), the quan-
+                                                                         tizer and the DAC.
+                                                                            For a single-bit converter,
+                                                                         the quantizer is only a com-
+                                                                         parator. The DAC then
+                                                                         switches between two DC
+                                                                         reference voltages.
+                                                                            For multi-bit converters,
+                                                                         the quantizer is a real ADC,
+                                                                         such a ﬂash ADC or any
+                                                                         other type, depending on the
+                                                                         speed required. The DAC is
+                                                                         then a real multi-bit DAC,
+in which linearity is one of the main speciﬁcations. The higher number of bits, the larger the
+resolution can be. This is the second design parameter of a Sigma-delta converter, i.e. the number
+of bits.
+   Many Sigma-Delta converters stick with one single bit conversion as a comparator and a
+switch from DC reference voltages are so easy to realize. Matching is hardly an issue for single-
+bit converters.
+   It is clear that for the incoming input signal x, the transfer function is as given in this slide. If
+H(z) has a high magnitude, the gain is about unity.
+   For noise signals, generated in the feedback loop by the quantizer (comparator) for example,
+640                                                                                       Chapter #21
+
+the transfer function is very diﬀerent. If H(z) has a high magnitude, the quantization noise is
+reduced considerably. The SNR also increases considerably.
+  A simple example with a low-pass ﬁlter is given next.
+
+
+
+                                                                       216
+                                                                       The simplest possible feed-
+                                                                       back loop with such a noise
+                                                                       ﬁlter H is shown in this slide.
+                                                                       Its gain is k . The (quantiza-
+                                                                                     1
+                                                                       tion) noise or error signal in
+                                                                       general is represented by e.
+                                                                       The feedback loop is closed
+                                                                       over a block with gain k .
+                                                                                                   2
+                                                                          From the network equa-
+                                                                       tions it is clear the gains for
+                                                                       the incoming signal x and
+                                                                       for the error signal e are very
+                                                                       diﬀerent indeed.
+                                                                          For a large loop gain
+                                                                       1+k k H, the gain for the
+                                                                             1 2
+                                                                       incoming signal is 1/k ,
+                                                                                                     2
+whereas the gain for the error signal (quantization noise) can be quite small. This latter ﬁlter
+action is the actual noise shaping.
+  This is evident if a ﬁrst-order low-pass ﬁlter is taken for ﬁlter H, as shown next.
+
+
+
+                                                                        217
+                                                                        When a low-pass ﬁlter of
+                                                                        ﬁrst order is taken for H,
+                                                                        with cut-oﬀ frequency f
+                                                                                                    m
+                                                                        and slope −20 dB/decade,
+                                                                        the contribution of the error
+                                                                        (noise) signal in the output
+                                                                        y shows an inverted charac-
+                                                                        teristic. Its contribution is
+                                                                        low at frequencies below f
+                                                                                                    m
+                                                                        and it increases at 20 dB/
+                                                                        decade for higher frequen-
+                                                                        cies. The noise is pushed
+                                                                        towards higher frequencies.
+                                                                           At low frequencies, the
+                                                                        SNR is the ratio of x/k and
+                                                                                                2
+                                                                        e/k k H. This is propor-
+                                                                            1 2
+tional to k , which is the gain in the forward path of the feedback loop. The higher this gain,
+            1
+the higher the SNR.
+   Also, the higher the order of the ﬁlter, the steeper the slope of the noise beyond frequency f .
+                                                                                                   m
+L ow-power sigma-delta AD converters                                                           641
+
+Higher-order ﬁlters allow higher values of k . As a result, higher-order ﬁlters give rise to higher
+                                            1
+SNR values.
+  The order of this ﬁlter is therefore the third design parameter of a Sigma-delta converter.
+Recall that the other two are the oversampling ratio OSR and the number of bits B of the
+quantizer.
+
+
+
+                                                                     218
+                                                                     Normally, third-and fourth-
+                                                                     order ﬁlters are used. A ﬁrst-
+                                                                     order Sigma-Delta is rarely
+                                                                     used because it shows pat-
+                                                                     terns in the output spectrum
+                                                                     which are hard to remove.
+                                                                        Second-order Sigma-delta
+                                                                     converters are easy to real-
+                                                                     ize. Since only a second-
+                                                                     order ﬁlter is involved, no
+                                                                     problems arise with respect
+                                                                     to stability. Their noise
+                                                                     shaping capability is some-
+                                                                     what limited, however.
+                                                                        Third-order and fourth-
+                                                                     order converters are used
+most (see slide). To go higher is diﬃcult because of stability problems.
+   Fourth-order ﬁlters in a single feedback loop as shown in this slide, are risky but feasible. It
+is better to organize them in a Mash or cascaded topology as shown next.
+
+
+
+                                                                      219
+                                                                      A 4th-order Mash (or cas-
+                                                                      caded) topology has four
+                                                                      ﬁlter sections for 4th order
+                                                                      noise shaping. Only two of
+                                                                      them are in a single feedback
+                                                                      loop. Stability is easily
+                                                                      achieved.
+                                                                         It has three outputs how-
+                                                                      ever, which are fed to a
+                                                                      so-called noise-cancellation
+                                                                      circuit. This means that the
+                                                                      three outputs must receive
+                                                                      the right gain and the right
+                                                                      delay so that the noise can-
+                                                                      cels. Matching will now be
+                                                                      an issue. However, many
+realizations have shown that matching is not really a problem.
+642                                                                                  Chapter #21
+
+                                                                     2110
+                                                                     The values of the SNR
+                                                                     which can be achieved
+                                                                     depending on the values of
+                                                                     the three design variables
+                                                                     are given in this slide.
+                                                                     However, for all of them
+                                                                     single-bit quantization is
+                                                                     taken.
+                                                                        The SNR is given versus
+                                                                     the OSR and for diﬀerent
+                                                                     orders of noise-shaping. The
+                                                                     higher the OSR and the
+                                                                     noise-shaping order, the
+                                                                     higher the SNR.
+                                                                        The same SNR can there-
+                                                                     fore be achieved for either
+higher OSR or for higher noise-shaping. For example, 80 dB SNR (corresponding to 13 bit
+resolution) can be realized by either an OSR of only 14 requiring 4th order noise shaping, or by
+an OSR of 50 allowing only 2nd order noise shaping. Which one is preferable?
+   Fourth-order noise shaping may require a Mash topology, which requires tougher matching
+conditions. High OSR values on the other hand, require higher-speed opamps which require
+more power consumption.
+   This is the trade-oﬀ. For high-speed Sigma-Delta converters low values of OSR’s are preferred,
+leading to stability and matching considerations. For low-power Sigma-Delta converters, low
+values of OSR’s are also preferred, leading to similar considerations.
+
+                                                                    2111
+                                                                    The use of more bits for the
+                                                                    quantization also increases
+                                                                    the maximum SNR.
+                                                                       In this graph M stands for
+                                                                    multibit;
+                                                                    – M4 thus stands for 4 bit
+                                                                       quantization,
+                                                                    – C211 stands for 4th-order
+                                                                       noise shaping with a
+                                                                       2–1–1 Mash or cascaded
+                                                                       topology; note that a 2–2
+                                                                       Mash topology oﬀers
+                                                                       less SNR,
+                                                                    – SL4 stand for a 4th-order
+                                                                       single-loop topology.
+                                                                    It is clear that a 4-bit 4th-
+order noise shaping is by far the best.
+  It is also clear that 3rd-order noise shaping provides lower SNR values. This is true for both
+a 2–1 Mash topology (C21) and for a 3rd order single-loop topology (SL3).
+L ow-power sigma-delta AD converters                                                        643
+
+  From this it can be concluded that multibit Sigma-delta realizations oﬀer the highest SNR
+values for low OSR values. If matching problems have to be avoided however, single-bit solutions
+are quite attractive provided 4th order noise shaping is used in a 2–1–1 Mash topology.
+
+                                                                    2112
+                                                                    Now that we know which
+                                                                    topology is most attractive,
+                                                                    we have to focus on the
+                                                                    implementation.
+                                                                      Most noise-shaping ﬁlters
+                                                                    are realized with switched-
+                                                                    capacitor techniques. How-
+                                                                    ever, for low supply volt-
+                                                                    ages, the switches are
+                                                                    diﬃcult to realize.
+                                                                      This is discussed next.
+
+
+
+
+                                                                  2113
+                                                                  The supply voltage de-
+                                                                  creases for decreasing chan-
+                                                                  nel lengths. For 0.25 mm
+                                                                  channel length, the supply
+                                                                  voltage was 2.5 V; for
+                                                                  0.18 mm CMOS it was 1.8 V
+                                                                  and so on. For 90 nm
+                                                                  CMOS the supply voltage is
+                                                                  about 1.2 V. Supply voltages
+                                                                  will now be used below 1 V.
+                                                                     With a 1 V supply voltage
+                                                                  the MOST switch is diﬃcult
+                                                                  to turn on.
+                                                                     Assume that a transmis-
+                                                                  sion gate is used as a switch,
+                                                                  with a nMOST in parallel
+with a pMOST, as shown in this slide, The nMOST Gate is driven with a positive (supply)
+voltage to turn it on. The pMOST is at the same time driven with the most negative voltage
+or ground.
+   For zero input voltage V , the Gate drive of the nMOST is the full supply voltage V , its
+                            in                                                            DD
+V     also equals V . This is suﬃcient to provide a low ON-resistance.
+  GSn              DD
+   Indeed, assume that the V is about 0.6 V and the minimum V −V for conduction is about
+                             T                                GS     T
+0.2 V, the minimum V is now about 0.8 V. As a result, the input voltage V can only increase
+                       GS                                                  in
+until it reaches V –0.8 V. For higher input voltages, the nMOST can no longer be turned on.
+                  DD
+644                                                                                       Chapter #21
+
+  The same is true for the pMOST device. The input voltage V can only decrease until it
+                                                                  in
+reaches 0.8 V. For lower input voltages, the pMOST can no longer be turned on.
+  This establishes a minimum value for the supply voltage V       which is the sum of both V
+                                                            DDmin                            GS
+values. In this example this is 1.6 V.
+
+                                                                      2114
+                                                                      The same story is given in
+                                                                      this slide. The output con-
+                                                                      ductance (inverse ON resis-
+                                                                      tance) is given for input
+                                                                      voltages from zero to the
+                                                                      supply voltage V .
+                                                                                        DD
+                                                                         In both cases, the
+                                                                      nMOST conducts for low
+                                                                      input voltages and the
+                                                                      pMOST for high input volt-
+                                                                      ages. For a large supply
+                                                                      voltage (5 V), there is a large
+                                                                      region in the middle where
+                                                                      both the nMOST and
+                                                                      pMOST conduct, giving
+                                                                      rise to a small total ON-
+                                                                      resistance.
+   However, for a small supply voltage (1 V) there is a hole in the middle. None of the MOSTs
+can be turned on. For such a low supply voltage it is therefore not possible to construct a
+nMOST/pMOST switch combination which conducts for all input voltages.
+   How can we solve this problem?
+   Note that in the plots in this slide, the V ’s have been substituted by the V ’s themselves. In
+                                              GS                                  T
+this way, the lowest possible V ’s values have been taken into account. There may still be some
+                                GS
+leakage because of the weak-inversion operation but this has been neglected.
+
+                                                                       2115
+                                                                       The same story is repeated
+                                                                       once more but for the
+                                                                       ON-resistances themselves.
+                                                                       The numerical values of the
+                                                                       ON-resistances are plotted
+                                                                       for input voltages going
+                                                                       from zero to the supply volt-
+                                                                       age V .
+                                                                               DD
+                                                                          The numerical values cor-
+                                                                       respond to an older CMOS
+                                                                       process with rather large V
+                                                                                                      T
+                                                                       values (0.9 V). The W/L
+                                                                       ratios are ﬁve.
+                                                                          It is clear that for a supply
+                                                                       voltage of 5 V, there is a
+                                                                       large region in the middle
+L ow-power sigma-delta AD converters                                                        645
+
+where both transistors conduct. This region disappears when the supply voltage is lowered to a
+value which is roughly the sum of the two V ’s or 1.8 V in this example.
+                                               T
+  As a consequence, such a transmission gate with a nMOST/pMOST parallel combination
+cannot be used any longer for supply voltages below the sum of the V ’s. This is 1.8 V in this
+                                                                          T
+example. For present days V ’s of
+                              T
+  0.35 V, this is about 0.7 V. This is lower than 1 V, but not signiﬁcantly!
+
+
+                                                                    2116
+                                                                    What solutions are available
+                                                                    for using switches at supply
+                                                                    voltages below the sum of
+                                                                    the threshold voltages?
+                                                                      The ﬁrst one is to ask for
+                                                                    a modiﬁcation in technol-
+                                                                    ogy. Normally the V ’s are
+                                                                                          T
+                                                                    determined for optimum
+                                                                    performance of the digital
+                                                                    part. This means that nowa-
+                                                                    days two diﬀerent oxide
+                                                                    thickness are often avail-
+                                                                    able. The thinner ones oﬀer
+                                                                    lower V ’s and higher
+                                                                               T
+                                                                    speeds. The thicker ones
+                                                                    provide larger values of V
+                                                                                               T
+and lower leakage currents. This latter is the low-power process.
+  The high-speed process now provides lower V values. It is ideally suited to provide switches
+                                                  T
+which can switch all input voltages. The leakage current is higher, however. As a result, the
+switch may be diﬃcult to switch oﬀ !
+  Another solution is to use voltage multipliers. They are circuits which provide DC output
+voltages which are higher than the supply voltage V . This higher voltage can now be used to
+                                                     DD
+drive the Gates of the switches.
+  The main problems of such multipliers are their low power eﬃciency. Moreover, they may
+cause reliability problems for the thin Gate oxides.
+  Another alternative is not to use these switches any more, but to switch the preceding opamp.
+This is called the switched-opamp approach.
+  All three alternatives are now discussed in more detail.
+
+
+2117
+The ﬁrst alternative is to lower the value of the V . Smaller V values require smaller V
+                                                      T           DD                           T
+values! How far can this go?
+   A small value of V causes the weak-inversion part of the i −v characteristic to cross the
+                     T                                        DS GS
+axis of zero V . In other words, even for zero V , some current ﬂows. This is called the leakage
+              GS                                GS
+current. This means that all digital gates conduct current even when switched oﬀ.
+   Lowering the V causes excessive power consumption. A minimum value seems to be about
+                  T
+0.3 V (Ref. Rabaey).
+   Most chips operate at higher temperatures, however. Chip temperatures of up to 100°C higher
+646                                                                                  Chapter #21
+
+                                                                    than room temperature are
+                                                                    common. Since the thresh-
+                                                                    old voltage V decreases
+                                                                                    T
+                                                                    with about 2 mV/°C, it can
+                                                                    be 0.2 V lower than at room
+                                                                    temperature. The leakage
+                                                                    current is weak inversion
+                                                                    depends on the V in an
+                                                                                        GS
+                                                                    exponential way, increasing
+                                                                    by nearly a factor of ten per
+                                                                    100 mV. At high chip tem-
+                                                                    peratures, the leakage cur-
+                                                                    rent can now be about 2
+                                                                    orders of magnitude larger.
+                                                                    The choice of the V must
+                                                                                          T
+                                                                    compensate this. The V
+                                                                                                T
+                                                                    cannot be chosen too small!
+Values of 0.3 to 0.4 V have become common nowadays.
+   Finally, mismatch causes a large spreading of the V values. The actual V value can thus be
+                                                       T                   T
+a lot lower than expected. Again, the leakage current depends on the V in an exponential way.
+                                                                      GS
+The V cannot be selected too small!
+       T
+
+
+
+                                                                    2118
+                                                                    Voltage multipliers are used
+                                                                    to generate DC voltages
+                                                                    which are higher than the
+                                                                    supply voltage V . This
+                                                                                        DD
+                                                                    high voltage is now used to
+                                                                    drive the Gates of the
+                                                                    nMOST switches. Little cur-
+                                                                    rent is required as they only
+                                                                    drive Gates. They can there-
+                                                                    fore be realized with little
+                                                                    additional power.
+                                                                      They consist of a series of
+                                                                    diodes and capacitors orga-
+                                                                    nized in a number of stages.
+                                                                    Instead of diodes, diode-
+                                                                    connected MOSTs can be
+used. They are driven by an oscillator.
+   The larger the number of stages, the higher the output voltage. The larger the capacitors the
+larger the output power. The most important parameter is doubtless the power eﬃciency. This
+has improved many times since the original reference.
+   This is why more attention is paid to it.
+L ow-power sigma-delta AD converters                                                           647
+
+                                                                    2119
+                                                                    The actual power eﬃciency
+                                                                    g can be expressed in terms
+                                                                    of an equivalent resistor R .
+                                                                                                 eq
+                                                                    It is also clearly a function
+                                                                    of the output current.
+                                                                       This loss resistor R is
+                                                                                              eq
+                                                                    proportional to the number
+                                                                    of stages n, but inversely
+                                                                    proportional to the clock
+                                                                    frequency f and the size of
+                                                                    the capacitor C used. There
+                                                                    is an additional non-linear
+                                                                    factor in this expression,
+                                                                    which includes the switch
+                                                                    resistance. This factor is less
+                                                                    important to have an idea
+about the orders of magnitude.
+   It can be concluded that a voltage multiplier generates an output voltage with the highest
+eﬃciency, provided as few stages are used as possible, but with the highest possible capacitor
+and clock frequency.
+   Unfortunately, these are exactly the same conditions for a maximum of injection of spikes in
+the substrate. Coupling to the sensitive analog parts can now be expected. This will be discussed
+in more detail in Chapter 24.
+
+                                                                   2120
+                                                                   Voltage multipliers show
+                                                                   several more drawbacks.
+                                                                      They generate higher
+                                                                   voltage than the supply volt-
+                                                                   age. Care must be taken not
+                                                                   to exceed the maximum
+                                                                   voltage on the thin Gate
+                                                                   oxides.
+                                                                      At about 0.8 V/nm thick-
+                                                                   ness an oxide breaks down.
+                                                                   A CMOS technology of
+                                                                   0.18 mm has an oxide thick-
+                                                                   ness of about 1/50th or
+                                                                   3.6 nm. This would break
+                                                                   down under a voltage of
+                                                                   about 2.9 V. The standard
+supply voltage for 0.18 mm CMOS is 1.8 V. This is suﬃciently far from the breakdown voltage.
+  However, if voltage multiplies are added, care has to be take not to end up too close to the
+breakdown voltage. If not, reliability issues appear.
+  A CMOS technology of 90 nm has an oxide thickness of about 1.8 nm, corresponding to a
+breakdown voltage of about 1.5 V. The supply voltage is 1.3 V. Voltage multipliers are therefore
+excluded!
+648                                                                                      Chapter #21
+
+  Another disadvantage of voltage multipliers is that clock drivers are required to drive all the
+capacitors. They take additional power and cause large spikes into the substrate. Substrate noise
+and coupling is now hard to avoid.
+
+                                                                      2121
+                                                                      An interesting example of a
+                                                                      voltage multiplier, which
+                                                                      has been designed according
+                                                                      to the rules of the previous
+                                                                      slides, is given in this slide.
+                                                                         It provides an output
+                                                                      voltage which tracks the
+                                                                      supply voltage V         but is
+                                                                                          DD
+                                                                      always 1 V higher. This
+                                                                      diﬀerence of 1 V is used
+                                                                      to realize a rail-to-rail in-
+                                                                      put ampliﬁer with only
+                                                                      one single input pair (see
+                                                                      Chapter 11). As a result, the
+                                                                      distortion can be made less
+                                                                      than −80 dB.
+   This operates with only two stages but with a fairly high clock frequency of 10 MHz. The
+capacitors are selected fairly small. The ripple on this DC supply has been reduced by taking a
+large capacitor C . Together with the voltage gain of transistor M5, this capacitor C allows a
+                  o                                                                       o
+reduction of the ripple to a mere 5 mV, for a 60 mA output current. This was necessary as the
+voltage multiplier is not used only for Gate drives but to supply DC current to input
+diﬀerential pair.
+   It works for supply voltages of 1.8 V to 3.3V. It has been realized in 0.5 mm CMOS.
+   For more details the reader is referred to the paper in reference.
+
+                                                                       2122
+                                                                       If switches cannot be used
+                                                                       any more because of the low
+                                                                       supply voltage, the whole
+                                                                       opamp can be switched.
+                                                                       This is called the switched-
+                                                                       opamp approach.
+                                                                          This is discussed next.
+                                                                          The principles are ex-
+                                                                       plained ﬁrst, followed by a
+                                                                       few realizations.
+L ow-power sigma-delta AD converters                                                            649
+
+                                                                       2123
+                                                                       In a conventional switched-
+                                                                       capacitor integrator, the
+                                                                       input voltage v is sampled
+                                                                                       IN
+                                                                       on capacitor aC, when
+                                                                       phase W1 is high. The two
+                                                                       MOSTs labeled W1 then
+                                                                       conduct whereas the other
+                                                                       two are oﬀ.
+                                                                         On phase W2, the charge
+                                                                       aCv      is transferred to
+                                                                           IN
+                                                                       capacitor C. The resulting
+                                                                       output voltage is now a
+                                                                       multiplied by the input volt-
+                                                                       age; the voltage gain is a.
+                                                                         When a single supply
+                                                                       voltage V is used, a DC
+                                                                                  DD
+reference voltage V      may have to be added, to make sure that the voltages at both the minus
+                     REF
+and plus inputs of the opamp never exceed the common-mode input range. A typical value is
+0.2 V depending on the type of opamp.
+   The main problem of this integrator when the supply voltage is small, is the input switch.
+Indeed, if we take as an input voltage 0.5 V for a supply (and clock) voltage of 1 V (V =
+                                                                                              REF
+0.2 V), then all MOST switches receive a V of 0.8 V when switched in, except the input
+                                                 GS
+transistor. This latter one only receives 0.3 V and is not on at all! This is the problem.
+
+
+                                                                      2124
+                                                                      A solution is obtained by
+                                                                      switching the preceding
+                                                                      opamp. This obviously only
+                                                                      works if several switched-
+                                                                      capacitor integrators are put
+                                                                      in series.
+                                                                         Take the integrator in the
+                                                                      frame. Its input switch on
+                                                                      phase w2 has been shifted to
+                                                                      the preceding opamp. The
+                                                                      whole opamp is switched in
+                                                                      and out at clock phase w2.
+                                                                         In a similar way, the
+                                                                      opamp within the frame is
+                                                                      switched in and out at clock
+                                                                      phase w1, in order to be able
+to provide the input voltage to the next integrator.
+   The last opamp shown is now switched at clock phase w2.
+   It is easier to realize an opamp with a low supply voltage than to realize an input switch with
+a low supply (or clock) voltage. Moreover, it is fairly straightforward to switch an opamp. This
+is discussed next.
+650                                                                                     Chapter #21
+
+  The only problem left is the very ﬁrst input switch. At the input, a compromise will have to
+be taken for the maximum input voltage. Alternative solutions will be discussed later in this
+Section.
+
+                                                                      2125
+                                                                      The very ﬁrst switched
+                                                                      opamp is shown in this slide.
+                                                                         It is a two-stage Miller
+                                                                      opamp, to which two
+                                                                      switches have been added,
+                                                                      i.e. nMOST M9 and
+                                                                      pMOST M10.
+                                                                         When the voltage of clock
+                                                                      phase w is high, M10 is oﬀ
+                                                                      and M9 is on. The opamp
+                                                                      functions as expected.
+                                                                         When the voltage of clock
+                                                                      phase w is low however,
+                                                                      M10 is on and shorts the
+                                                                      Gate voltage of transistors
+                                                                      M8, M7 and M5 to the
+supply lines. All these transistors are therefore oﬀ.
+  Also, M9 is oﬀ. Both stages of the opamp are switched oﬀ.
+  How fast can an opamp be switched on and oﬀ depends on the loop gain of the feedback
+arrangement. If the gain around the opamp is a, then its bandwidth is GBW/a. The corresponding
+time constant for the output voltage is also the time constant for the switching in and out of the
+whole opamp.
+  This is shown next.
+
+                                                                      2126
+                                                                      This is the output voltage of
+                                                                      the switched opamp of the
+                                                                      previous slide, when it is
+                                                                      switched out.
+                                                                         The expected exponential
+                                                                      is given by the dotted line.
+                                                                      The time constant is indeed
+                                                                      one over two times p times
+                                                                      the bandwidth of the op-
+                                                                      amp.
+                                                                         A big hump occurs how-
+                                                                      ever, after about 0.5 ms. This
+                                                                      is a result of the discharge
+                                                                      of the compensation capaci-
+                                                                      tance C . It is a great deal
+                                                                               c
+                                                                      better to insert a switch in
+series with this capacitor, not to allow it to discharge and charge, as will be shown later.
+L ow-power sigma-delta AD converters                                                          651
+
+                                                                    2127
+                                                                    A low-pass biquadratic ﬁlter
+                                                                    using this technique, is
+                                                                    shown in this slide.
+                                                                       Each opamp is switched
+                                                                    according to the switch of
+                                                                    the next sampling capacitor.
+                                                                    An extra switched opamp is
+                                                                    added to provide the feed-
+                                                                    back on phase 2.The mini-
+                                                                    mum supply voltages for
+                                                                    this realization is about
+                                                                    1.5 V. In this older CMOS
+                                                                    technology the V is about
+                                                                                      T
+                                                                    0.9 V and the V is 1.2 V
+                                                                                     GS
+                                                                    (for V −V #0.3 V). For
+                                                                           GS    T
+                                                                    an input voltage of 0.6 V ,
+                                                                                             ptp
+the minimum supply voltage is about 1.5 V.
+  The input switch on phase 2 is the main problem. It limits the input range to V minus V
+                                                                                 DD      T
+or about 0.6 V.
+
+
+                                                                    2128
+                                                                    The low-pass ﬁlter charac-
+                                                                    teristic is as expected. It
+                                                                    shows a −40 dB/decade
+                                                                    roll-oﬀ     for   frequencies
+                                                                    beyond the bandwidth
+                                                                    (which is 1.5 kHz), up to
+                                                                    about half the clock fre-
+                                                                    quency of 115 kHz.
+                                                                       At low frequencies the
+                                                                    gain is a factor of 2 or 6 dB.
+                                                                       Let us observe the noise
+                                                                    and distortion.
+
+
+
+
+2129
+The input noise is mainly the kT/C noise, typical for a switched-capacitor ﬁlter. It is therefore
+fairly high.
+   The distortion comes up rather strongly once the input signal has become so large that the
+input switch cannot be fully switched on any more. This occurs at about 0.6 V input amplitude.
+                                                                             ptp
+The resulting DR is close to 70 dB which is typical for switched-capacitor ﬁlters.
+   No additional disadvantages are present as a result of the switched opamp approach.
+652                                                                                  Chapter #21
+
+                                                                       The total power con-
+                                                                    sumption (at this 2.4 mm
+                                                                    CMOS       technology)     is
+                                                                    110 mW at 1.5 V supply
+                                                                    voltage. This is quite
+                                                                    low. Indeed, an additional
+                                                                    advantage of the switched-
+                                                                    opamp approach is that the
+                                                                    opamps are oﬀ 50% of the
+                                                                    time. The power consump-
+                                                                    tion is therefore halved as
+                                                                    well, which is a considerable
+                                                                    advantage.
+                                                                       Even more power can be
+                                                                    consumed when a class-AB
+                                                                    stage is used at the output.
+                                                                    This will be shown later.
+
+
+                                                                    2130
+                                                                    The input switch is still a
+                                                                    problem in the switched-
+                                                                    opamp approach discussed
+                                                                    before. Improved input
+                                                                    switching is now required.
+                                                                       Moreover, the switching
+                                                                    of the opamp causes tran-
+                                                                    sients which are unaccept-
+                                                                    able. Possible remedies are
+                                                                    discussed next.
+
+
+
+
+2131
+The ﬁrst remedy is to make everything fully diﬀerential. A fully-diﬀerential opamp is now used,
+as shown in this slide.
+   It is a two-stage Miller opamp with a folded cascode as a ﬁrst stage. A second stage is needed
+to provide rail-to-rail output swing. The gain can be quite high, 75 dB in this example.
+   For a 1 pF load, the GBW is about 30 MHz, for only 80 mW power consumption. This gives
+a high FOM indeed!
+   The opamp can be switched in and out because of the four switches (in blue). Only the output
+stage is switched in and out, by transistors M11. The input stage remains on, which improves
+the settling time.
+L ow-power sigma-delta AD converters                                                          653
+
+                                                                     Of more importance, is
+                                                                  that    the     compensation
+                                                                  capacitance CC has a series
+                                                                  switch MS. The voltage
+                                                                  across CC is therefore con-
+                                                                  stant irrespective of the
+                                                                  switching. The settling time
+                                                                  is greatly improved by this
+                                                                  arrangement.
+                                                                     The minimum supply
+                                                                  voltage     V       is   only
+                                                                                DD
+                                                                  V +V          or V +2 V       .
+                                                                    GS    DSsat     T     DSsat
+                                                                  For a V of 0.6 V, a V of
+                                                                           T              DD
+                                                                  1 V is easily achieved
+                                                                  (V −V =0.2 V).
+                                                                     GS    T
+                                                                     Note that the inputs oper-
+                                                                  ate close to ground. As a
+result the whole supply voltage V is available for V of the input switch V .
+                                  DD                  GS                     GS
+   The average output voltage is about 0.5 V however, for maximum output swing. A level shifter
+is required between output and input.
+
+
+
+                                                                    2132
+                                                                    Such a level shifter is imple-
+                                                                    mented by addition of
+                                                                    capacitor CDC. This capaci-
+                                                                    tor is taken to be the same
+                                                                    as capacitor CIN. The DC
+                                                                    output voltage V is now
+                                                                                       O
+                                                                    found to be half the supply
+                                                                    voltage V .
+                                                                              DD
+                                                                      This is explained in more
+                                                                    detail next. The circuit is
+                                                                    repeated twice, once at
+                                                                    phase W1 and once at
+                                                                    phase W2.
+654                                                                                 Chapter #21
+
+                                                                   2133
+                                                                   Under phase W1, the ﬁrst
+                                                                   opamp is switched oﬀ and is
+                                                                   therefore left out. Capacitor
+                                                                   C     ﬁnds itself between
+                                                                     DC
+                                                                   ground and the virtual
+                                                                   ground, at the minus input
+                                                                   of the opamp. It carries no
+                                                                   charge.
+                                                                      The total charge at the
+                                                                   input is found on capacitor
+                                                                   C , which is between
+                                                                     IN
+                                                                   supply voltage V and the
+                                                                                      DD
+                                                                   virtual ground.
+
+
+
+
+                                                                2134
+                                                                Under phase W2, the second
+                                                                opamp is switched oﬀ and is
+                                                                therefore left out. Capacitor
+                                                                C now ﬁnds itself between
+                                                                  DC
+                                                                the supply voltage V and
+                                                                                        DD
+                                                                ground.
+                                                                   Capacitor C now carries
+                                                                                IN
+                                                                charge V C . The total
+                                                                           O IN
+                                                                charge is therefore found, as
+                                                                given in this slide. If capaci-
+                                                                tors C and C are made
+                                                                       DC         IN
+                                                                equal, the DC output volt-
+                                                                age V ends up at half the
+                                                                      O
+                                                                supply voltage.
+                                                                   This sets the output and
+                                                                input common-mode volt-
+ages. All switches now have the full supply-voltage V as their V . This is also true for the
+                                                     DD         GS
+input switches.
+
+
+
+2135
+Similar level shifting is required in the Common-mode feedback circuit.
+  Again, a capacitor C is added to provide 0.5 V level shifting, between the output of the ﬁrst
+                         CM
+opamp and the input of the CMFB opamp. The outputs are sampled and summed to cancel out
+the diﬀerential output signals by capacitors C and C (see Chapter 8). The CMFB ampliﬁer
+                                               P     M
+has a pMOST diﬀerential pair at the input such that its input voltage is close to ground as for
+the other opamps.
+L ow-power sigma-delta AD converters                                                   655
+
+                                                                 Capacitors C are in par-
+                                                                               FF
+                                                              allel with C and C to pro-
+                                                                          P        M
+                                                              vide zeros in the CMFB
+                                                              gain characteristic, to speed
+                                                              up the CMFB performance
+                                                              without adding more power
+                                                              (see Chapter 8).
+                                                                 These circuits have been
+                                                              used to construct a second-
+                                                              order ﬁlter with a 450 kHz
+                                                              bandwidth (at 1.8 MHz
+                                                              clock frequency). It con-
+                                                              sumes only 160 mA at 1 V
+                                                              supply voltage (with V Ys
+                                                                                        T
+                                                              of 0.65 V in 0.5 mm CMOS).
+                                                              Its peak SNR is about
+                                                              58 dB. The maximum input
+                                                              voltage is 1.6 V , which is
+                                                                               ptp
+                                                              very high indeed.
+
+
+
+
+                                                              2136
+                                                              Even less power consump-
+                                                              tion has been reached when
+                                                              a class-AB ampliﬁer is used
+                                                              as an output stage.
+                                                                 Moreover, some other
+                                                              design tricks can be applied
+                                                              to minimize the power
+                                                              consumption.
+                                                                 They are collected in this
+                                                              design example.
+
+
+
+
+2137
+The switched-opamp integrator is shown in this slide.
+  It is fully-diﬀerential. The common-mode feedback is carried out by means of capacitors
+C       . The CMFB circuitry itself is not shown.
+ CMS,eq
+  The functions of the various capacitors is fairly obvious.
+656                                                                                   Chapter #21
+
+                                                                      A DC level shift is again
+                                                                    required as the average
+                                                                    output voltage is at 50% of
+                                                                    the supply voltage and the
+                                                                    average input voltage close
+                                                                    to ground. This is again
+                                                                    realized by means of capaci-
+                                                                    tors C .
+                                                                           CM
+                                                                      Note that the switches are
+                                                                    such that the outputs of the
+                                                                    opamp are at V , not to
+                                                                                      DD
+                                                                    forward bias the junctions of
+                                                                    the switch transistors.
+
+
+
+
+                                                                    2138
+                                                                    The schematic of the 3rd-
+                                                                    order Delta-Sigma con-
+                                                                    verter is shown in this slide.
+                                                                    A single-loop topology is
+                                                                    selected as it consumes
+                                                                    somewhat less power than a
+                                                                    2–1 cascaded topology.
+                                                                    Moreover, the gain require-
+                                                                    ments per stage are less
+                                                                    severe.
+                                                                       The coeﬃcients have been
+                                                                    obtained from Matlab simu-
+                                                                    lations. Care is taken to
+                                                                    optimize the output swings
+                                                                    for all integrators. For an
+                                                                    input swing of 0.2 V, the
+output swings are respectively 0.36, 0.5 and 0.5 V.
+   In order to avoid an additional opamp to set the timing of the clocks right, half delays are
+introduced. They are digital and consume very little power.
+
+
+2139
+The opamp used is a class-AB ampliﬁer as shown in this slide. Class AB is preferred as it lowers
+the quiescent current.
+   It contains two input transistors M1 and M2 and a low-voltage current source M2, M3 and
+M4. Transistors M2 serve as a source follower as its current is constant and equal to I . This
+                                                                                        B1
+is ensured by the feedback loop around transistors M2 and M3. As a result V       is constant as
+                                                                              GS2
+well. Input voltage V is transferred unattenuated to its Source.
+                      in2
+L ow-power sigma-delta AD converters                                                            657
+
+                                                                         Input    transistor      M1
+                                                                      receives thus the diﬀerential
+                                                                      input voltage V −V as
+                                                                                        in1    in2
+                                                                      its V . This voltage is con-
+                                                                           GS
+                                                                      verted into a signal current
+                                                                      by transistor M1 only. In
+                                                                      this ampliﬁer, only one
+                                                                      single transistor M1 con-
+                                                                      verts the diﬀerential input
+                                                                      voltage into a current.
+                                                                      Moreover this transistor
+                                                                      provides       a      class-AB
+                                                                      characteristic.
+                                                                         The signal current ﬂows
+                                                                      through transistors M3 and
+                                                                      is mirrored out by transistor
+                                                                      M4. It can also be taken out
+at the Drain of transistor M1 as shown in the full schematic, shown next.
+   Finally, note that this ampliﬁer can operate on less than 1 V supply voltage. It only takes one
+single V and V           to operate properly. If a V is taken of 0.6 V and a V        of 0.2 V, then
+         GS        DSsat                            T                           DSsat
+the minimum supply voltage V is 1 V. If however, a V is available of 0.3 V, then V can be
+                                 DD                        T                               DD
+as low as 0.7 V. This is quite low indeed!
+
+
+
+                                                                      2140
+                                                                      In the full schematic, the
+                                                                      diﬀerential nature is clearly
+                                                                      recognized.
+                                                                         Input pMOST transistors
+                                                                      M and M carry out the
+                                                                         1b        1c
+                                                                      input voltage to current
+                                                                      conversion. The signal cur-
+                                                                      rent through transistor M
+                                                                                                  1b
+                                                                      is now fed to the output by
+                                                                      current mirror M          and
+                                                                                           2a
+                                                                      M , but also by current
+                                                                         3a
+                                                                      mirror M        and M . A
+                                                                                 5b          6b
+                                                                      diﬀerential output current is
+                                                                      therefore obtained.
+                                                                         Common-mode feedback
+                                                                      is applied as currents
+injected at the Drains of transistors M and M .
+                                        5a     5b
+   The opamps can be switched in and out by disconnecting all connections to the power supply
+lines. This ensures a very fast recovery time.
+658                                                                                         Chapter #21
+
+                                                                          2141
+                                                                          The class-AB characteristics
+                                                                          are clearly visible in this
+                                                                          slide.   They      give    the
+                                                                          diﬀerential output current
+                                                                          versus diﬀerential input
+                                                                          voltage. They also show a
+                                                                          curved class-AB character-
+                                                                          istic.
+                                                                             The biasing currents I
+                                                                                                        B
+                                                                          are only of the order of 1 mA.
+                                                                          The W/L ratio in the current
+                                                                          mirrors is about 120.
+                                                                          Relatively large output cur-
+                                                                          rents are now available.
+                                                                             In the ﬁrst plot, several
+                                                                          values are taken of the input
+                                                                          transistors M and M .
+                                                                                          1b          1c
+The larger the input sizes, the steeper the characteristic.
+  In the other plot the biasing current I is varied. As a result, the maximum output current
+                                           B
+varies with it.
+  These two parameters allow shaping of the class-AB characteristic.
+
+
+
+                                                                          2142
+                                                                          Since this is a fully-
+                                                                          diﬀerential ampliﬁer, CMFB
+                                                                          is required.
+                                                                             This is aﬀected by two
+                                                                          sampling capacitors C ,
+                                                                                                    CMS
+                                                                          which cancel out the
+                                                                          diﬀerential signal at their
+                                                                          summation point, which is
+                                                                          then fed to a diﬀerential
+                                                                          ampliﬁer. As two diﬀerent
+                                                                          currents are required to
+                                                                          close the feedback loop, one
+                                                                          side of the diﬀerential ampli-
+                                                                          ﬁer is doubled.
+                                                                             In order to realize the
+                                                                          half-supply     level    shift,
+capacitor C          is added, with equal size as capacitor C         .
+              CMS2                                              CMS
+L ow-power sigma-delta AD converters                                                          659
+
+                                                                      2143
+                                                                      The comparator for the
+                                                                      single-bit conversion is
+                                                                      shown in this slide.
+                                                                         The comparator consists
+                                                                      of a diﬀerential pair with
+                                                                      transistors M1, loaded by a
+                                                                      negative resistance (because
+                                                                      of the positive feedback)
+                                                                      with transistors M2. The
+                                                                      gain is suﬃciently high to
+                                                                      cause a regenerative action
+                                                                      yielding a logic on one side
+                                                                      and a zero on the other. It
+                                                                      consumes about 6 mA.
+                                                                         In such a comparator,
+                                                                      normally a switch is re-
+quired between the Drains of the input transistors M1. This switch is closed before the input
+voltage is applied. As soon as the switch is opened, the regenerative action causes a logic one or
+zero at the output, depending on the input signal.
+  Because of the low supply voltage however, such a switch is not possible. This function is
+taken up by the two switches M3. When they are switched oﬀ, regenerative action takes place.
+  Note that the average input voltage is again close to ground.
+
+
+                                                                     2144
+                                                                     The input integrator does
+                                                                     not have a preceding opamp
+                                                                     which can be switched. The
+                                                                     input signal will now be lim-
+                                                                     ited in amplitude by the
+                                                                     input switch.
+                                                                        In this realization, the
+                                                                     supply voltage is 0.9 V. The
+                                                                     minimum voltage drive for
+                                                                     the input switch is about
+                                                                     0.65 V, barely larger than
+                                                                     the threshold voltage. As a
+                                                                     result, the maximum diﬀer-
+                                                                     ential input voltage is about
+                                                                     500 mV .
+                                                                              ptp
+660                                                                                  Chapter #21
+
+                                                                   2145
+                                                                   The output spectrum for the
+                                                                   maximum input signal is
+                                                                   shown in this slide.
+                                                                      The noise ﬂoor at low fre-
+                                                                   quencies is quite low. The
+                                                                   integrated noise is shown as
+                                                                   well. For an input signal of
+                                                                   1 kHz, the SNR is about
+                                                                   76 dB.
+                                                                      Distortion is already
+                                                                   clearly visible, however.
+                                                                   Second-order distortion is
+                                                                   present because of the
+                                                                   single-ended input drive
+                                                                   used for this measurement.
+                                                                   The SNDR (signal to noise
+and distortion ratio) is then only about 62 dB.
+  The bandwidth is about 16 kHz, corresponding to an OSR of 48.
+
+                                                                   2146
+                                                                   Both the SNR and SNDR
+                                                                   are given versus the input
+                                                                   signal, for a supply voltage
+                                                                   of 0.9 V.
+                                                                      It is clear that distortion
+                                                                   shows up at the high end,
+                                                                   limiting the SNDR to values
+                                                                   about 14 dB below the max-
+                                                                   imum SNR.
+
+
+
+
+2147
+A microphotograph of this realization is shown in this slide. The ﬁrst integrator uses larger
+capacitors (4 pF) to reduce the thermal kT/C noise. This means that for the ﬁrst integrator the
+thermal noise is about equal to the quantization noise. For the other stages, the sampling
+capacitor is only 0.6 pF. A unit capacitor of 0.2 pF has been taken.
+   The power consumption has been minimized by reduction of the currents in the opamps to
+their minimum. The current consumption of the ﬁrst stage is larger (33 mA) than for the other
+stages (6 mA). The current consumption of the CMFB ampliﬁers is about the same as for the
+diﬀerential ones.
+L ow-power sigma-delta AD converters                                                           661
+
+                                                                         Their GBW values are
+                                                                      only 2–3 times the clock fre-
+                                                                      quency. They are all 4 MHz,
+                                                                      to be compared with a clock
+                                                                      frequency of 1.5 MHz.
+                                                                         This means that for the
+                                                                      ﬁrst integrator, the thermal
+                                                                      noise is about equal to the
+                                                                      quantization noise.
+                                                                         Remember that in a
+                                                                      switched-opamp approach
+                                                                      the current consumption is
+                                                                      halved by itself.
+                                                                         As a result, the power
+                                                                      consumption for this reso-
+                                                                      lution and this bandwidth of
+                                                                      16 kHz is very low. This will
+be illustrated by the comparative Table at the end of this Chapter.
+
+
+
+                                                                      2148
+                                                                      Several other low-voltage
+                                                                      Sigma-Delta       converters
+                                                                      exist, which all address the
+                                                                      problem of the series
+                                                                      switches and in particular of
+                                                                      the input switch.
+                                                                         They all operate at supply
+                                                                      voltages below 1 V.
+                                                                         The operating principles
+                                                                      are discussed next, followed
+                                                                      by some discussion on their
+                                                                      advantages and disadvan-
+                                                                      tages.
+                                                                         The unity-gain-reset prin-
+                                                                      ciple is ﬁrst.
+
+
+
+
+2149
+In this principle, the opamp is always reset to ground. In this way, the input switch always has
+the maximum V , even for small supply voltages.
+                  GS
+   In order to understand the principle, let us neglect the level shifters V /2. Also, the voltage
+                                                                             dd
+presented by the previous integrator is called V .
+                                                 in
+   During phase 1 (red), the charge on capacitor C is Q , which is C V . The signal voltage at
+                                                    1     1             1 in
+the output V is zero as this opamp is connected in unity-gain conﬁguration (except for a DC
+              out
+level shift).
+662                                                                                  Chapter #21
+
+                                                                     During phase 2 (blue),
+                                                                  this charge C V is transfer-
+                                                                                1 in
+                                                                  red to capacitor C . The
+                                                                                        2
+                                                                  charge on this capacitor
+                                                                  changes by an amount
+                                                                  C V such that the output
+                                                                    1 in
+                                                                  voltage V changes by an
+                                                                            out
+                                                                  amount V C /C .
+                                                                             in 1 2
+                                                                     During this phase the pre-
+                                                                  vious opamp is now reset to
+                                                                  zero, as it is connected
+                                                                  in unity-gain conﬁguration
+                                                                  (except for a DC level shift).
+                                                                     Each opamp has zero at
+                                                                  its output during one phase
+                                                                  and the output voltage
+                                                                  during the other phase.
+There is no problem with switches which have to pass a high signal level, and which have too
+small a drive voltage V .
+                       GS
+   The disadvantage however, is that the output voltages have to swing over a large range for
+each new clock phase. The Slew Rate must be quite high, leading to more power consumption
+in the opamps.
+
+
+
+                                                                   2150
+                                                                   The opamp conﬁguration is
+                                                                   shown in this slide.
+                                                                      It is a pseudo-diﬀerential
+                                                                   ampliﬁer. It consists of two
+                                                                   equal but separate ampliﬁ-
+                                                                   ers. Two stages are used for
+                                                                   high gain and for large
+                                                                   output swing.
+                                                                      The GBW and the SR are
+                                                                   quite high in view of the
+                                                                   clock frequency of 10 MHz.
+                                                                   The power consumption is
+                                                                   quite low.
+                                                                      Note that again DC
+                                                                   level shifters are required
+                                                                   between outputs and inputs.
+For maximum output swing the average output voltage is 0.5 V (for a 1 V supply voltage)
+whereas the average input voltage is close to ground. Such a level shifter can be realized by a
+few switches and an additional capacitor, as shown before.
+L ow-power sigma-delta AD converters                                                         663
+
+                                                                   2151
+                                                                   This integrator is used in a
+                                                                   second-order     sigma-delta
+                                                                   modulator as shown in this
+                                                                   slide. Half-delays are used
+                                                                   for correct timing.
+                                                                      The     input    sampling
+                                                                   capacitance is 2 pF. The
+                                                                   maximum SNR is 78 dB for
+                                                                   20 kHz signal bandwidth
+                                                                   (clock at 10 MHz). The total
+                                                                   power consumption is 5.6
+                                                                   mW at 1 V supply voltage.
+                                                                      An 8 dB lower SNR is
+                                                                   obtained for a 50 kHz
+                                                                   input signal.
+                                                                      Note that the distortion is
+quite low, at the cost of high current consumption in the ampliﬁers, however.
+
+
+
+                                                                    2152
+                                                                    Another low-voltage, low-
+                                                                    power Sigma-delta modula-
+                                                                    tor is discussed next.
+                                                                       It has been optimized for
+                                                                    low power and has been
+                                                                    realized in 90 nm CMOS. A
+                                                                    low-power opamp is used
+                                                                    with a class-AB output
+                                                                    stage.
+664                                                                                   Chapter #21
+
+                                                                    2153
+                                                                    A single-loop topology is
+                                                                    preferred for low-power
+                                                                    designs since it is less sensi-
+                                                                    tive to circuit non-idealities
+                                                                    such as low opamp gain,
+                                                                    switch resistance and capac-
+                                                                    itor mismatch.
+                                                                       A clock is used of 4 MHz
+                                                                    and an OSR of 100 to reach
+                                                                    a signal bandwidth of
+                                                                    20 kHz.
+                                                                       The coeﬃcients are such
+                                                                    that the same output swing
+                                                                    is obtained for all integ-
+                                                                    rators, which is about 80%
+                                                                    of the reference voltage
+(which is 0.6 V) at an input voltage of −3 dB.
+  The minimum-gain requirement is only about 30 dB. This is easily achieved by a low-voltage
+opamp as discussed next.
+
+
+
+                                                                    2154
+                                                                    As an opamp a symmetrical
+                                                                    OTA is used.
+                                                                       Current starving is used
+                                                                    however, to increase the
+                                                                    gain (see Chapter 7). At such
+                                                                    a low supply voltage, too
+                                                                    little room is available for
+                                                                    cascodes.
+                                                                       Current starving means
+                                                                    that a DC current source
+                                                                    takes away most of the DC
+                                                                    current from the load tran-
+                                                                    sistors M2. As a result, the
+                                                                    AC impedance of these tran-
+                                                                    sistors increase, giving rise
+                                                                    to more gain. A large factor
+                                                                    B is used as well.
+  The ﬁrst ampliﬁer of this sigma-delta converter uses a k value of 0.8 and a B factor of 10.
+  Actually, factor k indicates what fraction of the current through the input transistor M1 is
+taken up by the DC current source. The small-signal resistance 1/g of transistors M2 increases
+                                                                  m2
+by a factor (1−k) in weak inversion, and so does the small-signal gain A.
+L ow-power sigma-delta AD converters                                                            665
+
+                                                                      2155
+                                                                      Care must be taken how-
+                                                                      ever, not to increase the
+                                                                      small-signal resistance 1/g
+                                                                                                  m2
+                                                                      too much. Indeed, a non-
+                                                                      dominant pole p is formed
+                                                                                        nd
+                                                                      at this node.
+                                                                        This pole p must be
+                                                                                       nd
+                                                                      kept at 3 GBW to ensure
+                                                                      suﬃcient phase-margin (see
+                                                                      Chapter 5). As a result, an
+                                                                      upper limit is established on
+                                                                      the value of k.
+
+
+
+
+                                                                     2156
+                                                                     The total opamp schematic
+                                                                     is shown in this slide.
+                                                                        The current-starving sym-
+                                                                     metrical OTA serves as a
+                                                                     ﬁrst stage of a two-stage
+                                                                     ampliﬁer. An output stage is
+                                                                     required to reach rail-to-rail
+                                                                     output swing. It is a class-
+                                                                     AB ampliﬁer at the same
+                                                                     time.
+                                                                        It is a fairly simple
+                                                                     class-AB ampliﬁer with a
+                                                                     main purpose of increasing
+                                                                     the Slew-Rate, without too
+                                                                     much distortion.
+                                                                        Node Bp is a ﬁxed biasing
+point, which determines the class AB operating point. CMFB is the output of a separate CMFB
+ampliﬁer, realized by switched capacitors.
+  For load capacitors of 6 pF, as used in the ﬁrst integrator, the GBW is 57 MHz for only 80 mA
+current consumption.
+  The gain is about 50 dB, which is a lot more than 30 dB.
+666                                                                                  Chapter #21
+
+                                                                    2157
+                                                                    The full schematic of the
+                                                                    sigma-delta modulator is
+                                                                    shown in this slide. The ﬁrst
+                                                                    integrator takes most of the
+                                                                    current as it is designed for
+                                                                    6 pF sampling capacitors.
+                                                                    The other two integrators
+                                                                    only use 0.4 pF capacitors.
+                                                                    Their power consumption is
+                                                                    much lower. All common-
+                                                                    mode output voltages are
+                                                                    0.5 V, whereas the input
+                                                                    ones are 0.2 V.
+                                                                       All switches are imple-
+                                                                    mented as transmission
+                                                                    gates. Despite the low
+supply voltage, suﬃcient V    is available for all switches. Indeed, the threshold voltages are
+                           GS
+about 0.3 V.
+  Vertical metal-wall capacitors are used with values of 1.7 fF/mm2. No horizontal capacitors
+were available.
+
+
+
+
+                                                                    2158
+                                                                    The output spectrum for a
+                                                                    5 kHz input signal is shown
+                                                                    in this slide.
+                                                                       A peak SNR is reached of
+                                                                    85 dB while the peak SNDR
+                                                                    is 81 dB.
+                                                                       The consumption is then
+                                                                    130 mA (at 1 V supply volt-
+                                                                    age) for the analog part
+                                                                       and 10 mA for the digital
+                                                                    part.
+L ow-power sigma-delta AD converters                             667
+
+                                       2159
+                                       Both the peak SNR and
+                                       SNDR are shown in this
+                                       slide.
+                                          They reach values of 85
+                                       and 81 dB respectively.
+                                          The reference voltage is
+                                       0.6 V.
+
+
+
+
+                                       2160
+                                       Other low-power sigma
+                                       delta converters are dis-
+                                       cussed. They again address
+                                       the input switch to improve
+                                       the SNDR ratio.
+                                         In this one, a series resis-
+                                       tor is used at the input,
+                                       which replaces the input
+                                       switch.
+668                                                                                Chapter #21
+
+                                                                2161
+                                                                In the switched-capacitor
+                                                                integrator, shown in this
+                                                                slide, the input switch is
+                                                                replaced by a resistor R. On
+                                                                phase W1P the sampling
+                                                                capacitor C is charged to
+                                                                              S
+                                                                the output voltage of the
+                                                                ﬁrst opamp. On phase W2
+                                                                the charge is then transfer-
+                                                                red to integration capacitor
+                                                                C.
+                                                                  I
+                                                                    The use of this resistor R
+                                                                has several advantages. First
+                                                                of all, it avoids the need to
+                                                                use a switch. This switch is
+                                                                diﬃcult to drive because of
+                                                                the low supply voltage.
+   Moreover, the linearity is quite high provided the ON-resistance of switch W1P can be
+made small.
+   The drawback is that an additional time constant RC comes in, which may limit the high-
+                                                         S
+frequency performance. This is a low-frequency solution.
+
+
+
+                                                               2162
+                                                               For low supply voltages, it
+                                                               is diﬃcult to maintain the
+                                                               input common-mode volt-
+                                                               age constant during the
+                                                               switching. In order to sup-
+                                                               press     this change       in
+                                                               common-mode input volt-
+                                                               age, several solutions exist.
+                                                                  In the top one, a capacitor
+                                                               C is added, connected to
+                                                                 Ls
+                                                               the supply lines. It acts as a
+                                                               DC level shifter, as pre-
+                                                               viously described.
+                                                                  In the solution at the
+                                                               bottom, the input resistor R
+                                                               and sampling capacitor C
+                                                                                             S
+are doubled, allowing the cancellation of the input common-mode voltage. This results in less
+kT/C noise.
+L ow-power sigma-delta AD converters                                                         669
+
+                                                                   2163
+                                                                   The sigma-delta converter
+                                                                   itself is a fourth-order
+                                                                   MASH 2–2 converter. In
+                                                                   the ﬁrst second-order loop,
+                                                                   the loop ﬁlter only pro-
+                                                                   cesses the quantization
+                                                                   error. The signal amplitudes
+                                                                   are therefore much smaller
+                                                                   and much lower distortion
+                                                                   levels are obtained. As a
+                                                                   result, the second stage does
+                                                                   not contain the signal any
+                                                                   more. No additional sub-
+                                                                   traction is now required in
+                                                                   the coupling between both
+                                                                   stages.
+  It is clear from the coeﬃcients used, that the feedforward causes quantization noise only in
+the feedback loop.
+
+
+
+                                                                    2164
+                                                                    The circuit implementation
+                                                                    is shown in this slide.
+                                                                       The switched input resis-
+                                                                    tors are easily found.
+                                                                    Everything is fully diﬀer-
+                                                                    ential. The CMFB is applied
+                                                                    through the capacitors
+                                                                    CM1.
+                                                                       On phase W1P the signal
+                                                                    is sampled onto sampling
+                                                                    capacitors C . On phase W2
+                                                                                  S1
+                                                                    the charge is then transfer-
+                                                                    red to the integration capac-
+                                                                    itors C by connecting the
+                                                                            I1
+                                                                    bottom plate of each capaci-
+                                                                    tor to V or V (which is
+                                                                              DD      SS
+                                                                    ground).
+670                    Chapter #21
+
+      2165
+      The measured SNDR is
+      shown in this slide. The
+      SNR is the same, since the
+      distortion is very low up to
+      the reference voltage. This
+      means that both the supply
+      voltage and the reference
+      voltage are 0.6 V. For an
+      input voltage of 0.6 V      a
+                              ptp
+      SNDR is obtained of 78 dB.
+      This is quite impressive
+      indeed.
+        The maximum signal band-
+      width is about 24 kHz. It
+      has been realized in 0.35 mm
+      CMOS and consumes only
+      1 mW at 0.6 V.
+
+
+
+      2166
+      The main advantage of
+      feedforward is that only
+      quantization noise is pro-
+      cessed by the feedback loop.
+      As a result, the input swing
+      can be made larger without
+      distortion. This is also the
+      case in the next and last
+      sigma-delta modulator of
+      this Chapter.
+L ow-power sigma-delta AD converters                                                           671
+
+                                                                     2167
+                                                                     Full feedforward means that
+                                                                     the input signal is fed
+                                                                     directly to the quantizer. As
+                                                                     a result, the noise transfer
+                                                                     function H (z) is the same as
+                                                                                 e
+                                                                     in a conventional topology
+                                                                     but the signal transfer func-
+                                                                     tion H (z) is unity. This sug-
+                                                                            x
+                                                                     gests that the distortion is a
+                                                                     lot less in the full-feedfor-
+                                                                     ward topology.
+                                                                        Indeed, the signal goes
+                                                                     directly to the quantizer
+                                                                     without passing through the
+                                                                     loop ﬁlter integrators. These
+                                                                     ﬁlters only process the
+quantization error, which is much smaller in amplitude than the signal itself. The distortion will
+be a lot less indeed. The overload level can be higher and so is the dynamic range.
+
+
+                                                                 2168
+                                                                 A      4th-order    single-bit
+                                                                 sigma-delta converter with
+                                                                 full feedforward is shown in
+                                                                 this slide. Eight gain coeﬃ-
+                                                                 cients have to be deter-
+                                                                 mined, which is only
+                                                                 possible by optimization of
+                                                                 the SNR and by equaliza-
+                                                                 tion of the swings at the
+                                                                 integrator outputs. This is
+                                                                 achieved by means of behav-
+                                                                 ioral simulation. One of the
+                                                                 many possible solutions is
+                                                                 indicated.
+                                                                    Remember that the signal
+                                                                 gain is unity and that the
+loop ﬁlters only process the quantization noise. This reduces the distortion considerably, as
+shown next.
+672                                                                                       Chapter #21
+
+                                                                        2169
+                                                                        First of all, the gain itself
+                                                                        can be relaxed from 60 to
+                                                                        30 dB, which is easily
+                                                                        achieved, even in nanometer
+                                                                        CMOS at 1 V supply
+                                                                        voltage.
+                                                                           Moreover, the eﬀect of the
+                                                                        distortion is much smaller.
+                                                                           The gain of each opamp
+                                                                        is modeled as given by
+                                                                        A=A (1+a v +a v 2)
+                                                                              0      1 o 2 o
+                                                                        in which the a represents
+                                                                                         1
+                                                                        the second-order non-lin-
+                                                                        earity and a the third-
+                                                                                       2
+                                                                        order one.
+  It is shown in this slide that for equal nonlinearities in the opamps, full feedforward considerably
+reduces the distortion at the output. Only a modest gain of 40 dB is used. This is not suﬃcient
+for a conventional sigma-delta converter, but more than suﬃcient for the full-feedforward one.
+
+
+
+                                                                        2170
+                                                                        This is also evidenced by
+                                                                        investigating the signal
+                                                                        levels at the outputs of the
+                                                                        four integrators.
+                                                                           In a conventional topol-
+                                                                        ogy the signal swings are
+                                                                        high at each output node. In
+                                                                        a full-feedforward topology
+                                                                        the signal swings are much
+                                                                        smaller as they mainly con-
+                                                                        tain the quantization errors.
+                                                                        The distortion generated by
+                                                                        these opamps will thererfore
+                                                                        be a great deal smaller.
+L ow-power sigma-delta AD converters                                                           673
+
+                                                                      2171
+                                                                      The opamps used in full-
+                                                                      feedforward conﬁguration
+                                                                      can now have less gain;
+                                                                      30 dB is suﬃcient.
+                                                                         The opamp schematic is
+                                                                      shown in this slide.
+                                                                         It is a conventional two-
+                                                                      stage opamp with a tele-
+                                                                      scopic cascode at the input.
+                                                                      The settling time has been
+                                                                      optimized. A switched-
+                                                                      capacitor CMFB is used.
+                                                                         The ﬁrst one reaches a
+                                                                      GBW of about 200 MHz
+                                                                      and consumes 4 mA at 1 V.
+                                                                      The load capacitor is now
+                                                                      about 3 pF.
+
+
+
+
+                                                                     2172
+                                                                     The circuit schematic of the
+                                                                     4th-order sigma delta con-
+                                                                     verter is shown in this slide.
+                                                                        The four stages are clearly
+                                                                     seen. All switches are imple-
+                                                                     mented as transmission
+                                                                     gates. Since the threshold
+                                                                     voltages are only about
+                                                                     0.35 V (in this 0.13 mm
+                                                                     CMOS technology), there is
+                                                                     no need for clock boosting
+                                                                     circuitry.
+                                                                        The capacitors are real-
+                                                                     ized with sandwich struc-
+                                                                     tures using ﬁve layers. As a
+                                                                     result, the capacitance is
+                                                                     0.35 fF/mm2.
+  Clocked at 64 MHz, the modulator consumes 6.1 mA in the analog part and 1.3 mA in the
+digital part including the output buﬀer. The reference voltage is 0.8 V, with a supply voltage of
+1 V. The oversampling ratio is 64, resulting in a 0.5 MHz maximum signal bandwidth.
+674                                                                                  Chapter #21
+
+                                                                   2173
+                                                                   The output spectrum shows
+                                                                   the response of a 100 kHz
+                                                                   sinusoidal input signal. A
+                                                                   peak SNR of 86 dB has been
+                                                                   obtained.
+                                                                      The maximum signal ban-
+                                                                   dwidth is 500 kHz.
+
+
+
+
+                                                                   2174
+                                                                   The maximum SNR is
+                                                                   86 dB but the maximum
+                                                                   SNDR is reduced to about
+                                                                   75 dB. This is a result of the
+                                                                   distortion generated in the
+                                                                   feedforward switch, which
+                                                                   has to handle the full input
+                                                                   signal swing. This must be
+                                                                   improved further.
+
+
+
+
+2175
+As a conclusion, a table is made up for comparison. A Figure of Merit is used as in Rabii (JSSC
+June 97, 783–796).
+  Only low-power sigma-delta converters are considered in the top list. After the name the year
+of publication (in the JSSC or ISSCC) is given. The type mentions which technique is used to
+arrive at 1 V supply voltage.
+  SwR stands for switched-resistor, SO for switched-Opamp, LV for reduced threshold voltage,
+VM for voltage multiplier.
+  The supply voltage is listed, followed by the dynamic range, bandwidth and power
+consumption.
+L ow-power sigma-delta AD converters                                                          675
+
+                                                                      This shows that for
+                                                                   supply voltages of 1 V and
+                                                                   below, Yao04, Peluso98 and
+                                                                   Dessouky01 are the best.
+                                                                      On the other hand, the
+                                                                   lowest supply voltages have
+                                                                   been reached by Ahn05
+                                                                   (0.6 V) and Sauerbrey02
+                                                                   (0.7 V). Quite often, this
+                                                                   deals with a reduction of the
+                                                                   absolute value of the thresh-
+                                                                   old voltage, however.
+                                                                      In the second list, a series
+                                                                   of high-frequency sigma-
+                                                                   delta converters are added.
+                                                                   It is clear that only a few of
+                                                                   them operate at 1 V supply
+voltage or less. Moreover, the FOM’s are in general, higher. This illustrates that compromises
+have to be taken to be able to reach a 1 V supply voltage or less.
+
+
+
+                                                                     2176
+                                                                     If only the supply voltage
+                                                                     itself is taken as a measure
+                                                                     for comparison, the graph in
+                                                                     this slide results.
+                                                                        Again, the lowest supply
+                                                                     voltages have been reached
+                                                                     by Ahn05 (0.6 V) and
+                                                                     Sauerbrey02 (0.7 V). The
+                                                                     two techniques used are also
+                                                                     indicated, i.e. gate boost-
+                                                                     ing and reduced threshold
+                                                                     voltages.
+676                    Chapter #21
+
+      2177
+      In this Chapter, an overview
+      is given of the techniques
+      which are available to
+      reduce the supply voltage
+      and the power consumption
+      in sigma-delta converters.
+         The main problem at low
+      supply voltages is the input
+      sampling switch and the
+      increase of the distortion.
+      This can be remedied by the
+      switched-opamp technique
+      and also by a number of
+      clever circuit techniques.
+         They have all been dis-
+      cussed and compared for a
+      generally accepted FOM.
+

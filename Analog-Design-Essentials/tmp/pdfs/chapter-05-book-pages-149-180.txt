@@ -1,0 +1,1543 @@
+                                                                   051
+                                                                   The operational ampliﬁer
+                                                                   (opamp) is certainly the
+                                                                   main building block in all of
+                                                                   the analog electronics. It is
+                                                                   usually implemented in a
+                                                                   feedback loop to provide
+                                                                   stable and predictable gain
+                                                                   and low noise.
+                                                                      In this chapter we will
+                                                                   review what is required to
+                                                                   make sure that this ampliﬁer
+                                                                   is stable under all conditions
+                                                                   of feedback. An opamp is
+                                                                   required not only to be
+                                                                   stable but also to provide a
+                                                                   well-behaved response. For
+example, peaking in the frequency domain is normally to be avoided. Also, when a square
+waveform is applied to an opamp, we don’t want any ringing.
+  All these requirements will impose some fairly precise settings on the positions of the poles
+and zeros of this ampliﬁer. Adding the requirement that the power consumption be minimized,
+we will ﬁnd that it is quite easy to ﬁnd an optimum in performance, in view of a certain GBW
+and capacitive load.
+  However, there are many more speciﬁcations in an opamp. They will be postponed to the
+Chapter following this one.
+
+                                                                     052
+                                                                     First of all, we have to
+                                                                     review some of the terminol-
+                                                                     ogy of an operational ampli-
+                                                                     ﬁer, such as open-and
+                                                                     closed-loop gain. Also, we
+                                                                     want to review some basics
+                                                                     of second-order systems.
+                                                                     These are the ﬁrst two
+                                                                     Sections. We put emphasis
+                                                                     on two-stage ampliﬁers. We
+                                                                     have dealt with single-tran-
+                                                                     sistor stages already in
+                                                                     Chapter 2.
+                                                                        We will focus especially
+                                                                     on that positive zero which
+                                                                     shows up in any two-stage
+opamp. They can be avoided by means of additional current consumption. It is much more
+elegant however, to use some circuit tricks which allow the reduction of the total biasing current.
+   Finally, we will extended the compensation techniques, adopted for a two-stage ampliﬁer, to
+three-stage ampliﬁers. Many class-AB ampliﬁers have three stages. Moreover, three stages become
+a necessity once the gain per stages has gone down to real low values, as in nanometer CMOS.
+
+                                               149
+150                                                                                    Chapter #5
+
+                                                                   053
+                                                                   Operational ampliﬁers have
+                                                                   been used to carry out oper-
+                                                                   ations on analog signals
+                                                                   with great precision. They
+                                                                   allow the addition, subtrac-
+                                                                   tion, multiplication, etc. of
+                                                                   analog voltages. This is
+                                                                   shown in this slide for three
+                                                                   input voltages. The output
+                                                                   voltage is a precise sum of
+                                                                   the input voltages, scaled by
+                                                                   the corresponding resistors.
+                                                                      This only works well pro-
+                                                                   vided the opamp itself has
+                                                                   high gain up to high fre-
+                                                                   quencies, with low noise, etc.
+   High gain means that for any output voltage, the diﬀerential input voltage is about zero.
+   The input currents are always zero if we use MOSTs and no bipolar transistors. In nanometer
+CMOS some Gate current may show up, giving rise to problems with the input currents!
+   This means that the most important speciﬁcation of an opamp is its gain and bandwidth or
+its gain bandwidth product GBW.
+   We will optimize the GBW of an opamp for a certain capacitive load, towards minimum
+power consumption.
+
+
+
+                                                                  054
+                                                                  Most simple opamps only
+                                                                  have one single-output. This
+                                                                  has been the case in most
+                                                                  discrete electronics. All volt-
+                                                                  ages are referred to ground,
+                                                                  which is easy to reach on a
+                                                                  printed circuit board, for
+                                                                  example.
+                                                                     In integrated circuits,
+                                                                  more and more analog func-
+                                                                  tions are integrated together
+                                                                  with digital blocks. As a
+                                                                  result, the substrate is pol-
+                                                                  luted with clock spikes and
+                                                                  logic noise. In this mixed-
+                                                                  signal environment, all cir-
+cuits must be fully-diﬀerential. This doubles the power consumption but rejects the common-
+mode noise.
+  We will discuss single-ended ampliﬁers ﬁrst and then construct fully-diﬀerential ampliﬁers in
+Chapter 9.
+Stability of operational ampliﬁers                                                             151
+
+                                                                     055
+                                                                     An opamp can have a volt-
+                                                                     age input or a current input.
+                                                                        A voltage opamp has a
+                                                                     diﬀerential voltage ampliﬁer
+                                                                     as an input (see left). It
+                                                                     senses an input voltage.
+                                                                        It usually contains a
+                                                                     single-transistor as a second
+                                                                     stage. The output itself is at
+                                                                     a high impedance level, at
+                                                                     least at low frequencies. It
+                                                                     therefore acts as a current
+                                                                     source for the load.
+                                                                        As a result, we have a
+                                                                     voltage-current ampliﬁer or
+                                                                     transconductance ampliﬁer.
+It is often called Operational Transconductance Ampliﬁer.
+   The other ampliﬁer (see right) has a current input, because the ﬁrst transistor at the input is
+a cascode. It also has a current output. It is thus a current-current ampliﬁer.
+   Needless to say that the characteristics are very diﬀerent. They are diﬃcult to compare as
+they involve external resistors.
+
+
+
+
+                                                                  056
+                                                                  All possible combinations
+                                                                  for voltage/current input
+                                                                  and output are depicted in
+                                                                  this slide. The operational
+                                                                  transconductance ampliﬁer
+                                                                  is the second one. If we
+                                                                  add a (class AB) output to
+                                                                  this OTA, we obtain a
+                                                                  voltage output. This is now
+                                                                  a conventional operational
+                                                                  ampliﬁer. Its voltage gain is
+                                                                  normally very high.
+                                                                     It is not that easy to com-
+                                                                  pare an OTA to an opamp,
+                                                                  as the voltage gain of an
+                                                                  OTA depends on the load
+                                                                  R .
+                                                                    L
+  Both ampliﬁers can be realized with a current input. They have diﬀerent names depending on
+who is talking.
+  In order to compare a current input ampliﬁer to a voltage-input ampliﬁer is more diﬃcult.
+152                                                                                     Chapter #5
+
+Indeed, sometimes a current-input ampliﬁer is driven from an input voltage source, having a
+source resistance R . Clearly, this resistance shows up in the comparison with a voltage ampliﬁer.
+                   S
+Obviously the smaller we can make R , the better.
+                                          S
+  We will start with an OTA.
+
+
+
+                                                                 057
+                                                                 Opamps and OTA’s are used
+                                                                 with feedback. Normally,
+                                                                 resistors are used, but also
+                                                                 (switched) capacitors and
+                                                                 sometimes even inductors.
+                                                                   Some easy conﬁgurations
+                                                                 are sketched in this slide.
+                                                                 The ﬁrst one is the inverting
+                                                                 ampliﬁer, the second one the
+                                                                 non-inverting ampliﬁer.
+                                                                   However, they have all
+                                                                 gains which are easy to set
+                                                                 precisely. They all have
+                                                                 diﬀerent input resistances.
+                                                                   The last conﬁguration is
+                                                                 a buﬀer. The gain is unity
+but the input impedance is very high and the output impedance low.
+
+
+
+                                                                     058
+                                                                     Opamps are used to make
+                                                                     all kinds of ﬁlters as well.
+                                                                        The simplest one is prob-
+                                                                     ably the integrator.
+                                                                        At ever lower frequencies,
+                                                                     the gain increases continu-
+                                                                     ously until the value is
+                                                                     reached of the open-loop
+                                                                     gain of the opamp itself.
+                                                                        At all other frequencies, a
+                                                                     constant slope is obtained of
+                                                                     −20 dB/decade, and a con-
+                                                                     stant phase shift of 90°.
+Stability of operational ampliﬁers                              153
+
+                                     059
+                                     A ﬁrst-order low-pass ﬁlter
+                                     is an integrator with a resis-
+                                     tor across the capacitor.
+                                     It is also called a lossy
+                                     integrator.
+                                        At lower and lower fre-
+                                     quencies, the gain is now set
+                                     by the ratio of the two
+                                     resistors.
+                                        At the pole frequency, or
+                                     the bandwidth, the phase
+                                     shift is exactly halfway
+                                     between zero and 90°, which
+                                     is 45°.
+                                        Note that a ﬁrst-order
+                                     decreasing     characteristic,
+                                     which is called a pole,
+                                     always shows a slope of
+                                     −20 dB/decade and −90°
+                                     phase shift.
+
+
+
+                                     0510
+                                     Inductors can obviously be
+                                     used as well.
+                                        Substitution of the capac-
+                                     itor by an inductor provides
+                                     a high-pass characteristic.
+                                     At high frequencies, the gain
+                                     will be reduced by the
+                                     internal poles of the opamp
+                                     itself, as we will see later in
+                                     this Chapter.
+154                       Chapter #5
+
+      0511
+      Another high-pass ﬁlter is
+      shown in this slide. It uses a
+      capacitor. The transfer char-
+      acteristic is very diﬀerent.
+         At very low frequencies,
+      the gain is constant. It starts
+      increasing at the zero fre-
+      quency.
+         Note that a ﬁrst-order
+      increasing       characteristic,
+      which is caused by a zero,
+      always shows a slope of
+      20 dB/decade and a 90°
+      phase shift.
+         Obviously, at high fre-
+      quencies, the gain will
+      decrease because of the
+      internal poles of the opamp
+      itself.
+
+
+
+
+      0512
+      Another ﬁlter with a low-
+      pass characteristic is shown
+      in this slide. At high frequen-
+      cies it now has a constant
+      gain.
+         Since we are dealing with
+      a pole at zero frequency and
+      a zero here, the phase shift
+      is diﬀerent.
+         Many more ﬁlters can be
+      realized by means of
+      opamps. These few exam-
+      ples have been added to
+      illustrate this point. We will
+      now focus on the poles and
+      zeros within the opamp
+      itself.
+Stability of operational ampliﬁers                                                           155
+
+                                                                0513
+                                                                An opamp always has one
+                                                                internal dominant pole. It
+                                                                occurs at frequency f . It is
+                                                                                       1
+                                                                normally caused by one
+                                                                of the bigger capacitances
+                                                                inside the ampliﬁer.
+                                                                   The product of the open-
+                                                                loop gain A and this pole
+                                                                              o
+                                                                frequency f is the GBW.
+                                                                             1
+                                                                The GBW is the product of
+                                                                the gain and the bandwidth,
+                                                                for each setting of the gain.
+                                                                   Indeed, the ratio of the
+                                                                two resistors, in an inverting
+                                                                ampliﬁer for example, sets
+                                                                the closed-loop gain A . The
+                                                                                        c
+corresponding bandwidth is the f . Their product is again the GBW.
+                                1c
+  In the case of a unity-gain buﬀer, the bandwidth coincides with the GBW, which is the
+maximum frequency at which this opamp can be used.
+  An opamp allows therefore, an exchange gain for bandwidth. The lower the closed-loop gain,
+the higher the bandwidth. The product is always the GBW.
+  An opamp is a very versatile building block.
+
+
+
+                                                                    0514
+                                                                    Using an opamp with feed-
+                                                                    back is only a special case
+                                                                    of a feedback system. How-
+                                                                    ever, in such a system the
+                                                                    gain block G has a lot of
+                                                                    gain, which is not very
+                                                                    precise.
+                                                                       The feedback elements,
+                                                                    which are resistors and
+                                                                    capacitors, determine the
+                                                                    closed-loop characteristic.
+                                                                    They are very precise.
+                                                                       The loop gain is the ratio
+                                                                    of the open-loop gain and
+                                                                    the closed-loop gain. It is
+                                                                    the gain, going around in
+the loop. It is the quantity that determines all the properties of a feedback system. It is the
+quantity which indicates how the input and output impedances change. This will be explained
+in a more rigorous way in Chapter 8.
+156                                                                                   Chapter #5
+
+                                                                    0515
+                                                                    An opamp is really a single-
+                                                                    pole system. As a result,
+                                                                    it allows exchange of gain
+                                                                    with bandwidth, within a
+                                                                    speciﬁc GBW.
+                                                                       Because there is only one
+                                                                    dominant pole, there can be
+                                                                    only one internal node at
+                                                                    high impedance. If there are
+                                                                    more nodes at high imped-
+                                                                    ance, then we have more
+                                                                    poles. In this case we have
+                                                                    to add capacitance or
+                                                                    increase the currents, such
+                                                                    that this second pole, the
+                                                                    nondominant pole, is at
+suﬃciently high frequencies, beyond the GBW.
+  All two-stage ampliﬁers have two high-impedance nodes and hence two poles. Therefore, all
+ampliﬁers with two high-impedance nodes are called two-stage ampliﬁers, irrespective of the
+number of transistors.
+  We will have to compensate these two-stage ampliﬁers, i.e. we will have to add capacitance or
+increase currents to shift the non-dominant pole out to suﬃciently high frequencies. As a result,
+the ampliﬁer resembles again a single-pole system.
+  Wideband ampliﬁers are very diﬀerent. They consist of more stages, each of them having a
+pole. They are normally compensated at one particular setting of the gain. They are not meant
+to exchange gain for bandwidth. On the contrary, at that gain setting, they are optimized for
+maximum bandwidth. More about such ampliﬁers is given in Chapter 8.
+
+
+                                                                    0516
+                                                                    If the operational ampliﬁer
+                                                                    is truly a single-pole ampli-
+                                                                    ﬁer, then it can never show
+                                                                    peaking or any other form
+                                                                    of instability. Indeed the
+                                                                    slope of −20 dB/decade is
+                                                                    then maintained to frequen-
+                                                                    cies beyond its GBW. Also,
+                                                                    its phase of −90° is constant
+                                                                    for all frequencies beyond
+                                                                    the bandwidth f .
+                                                                                      1
+                                                                       Application of unity-gain
+                                                                    feedback results in an ampli-
+                                                                    ﬁer, the bandwidth of which
+                                                                    coincides with the GBW.
+                                                                       There is no trace of
+                                                                    peaking.
+Stability of operational ampliﬁers                                                            157
+
+  Peaking or onset of oscillation would only be possible if the phase characteristic approached
+the −180° line. In this case the negative feedback would be converted into positive feedback
+and oscillation would be possible.
+  We will have to verify how far away the phase is from that critical −180°. This is why this
+phase distance has received a name. It is called phase margin. It is taken at the frequency where
+the loop gain is unity. In this case this frequency is the GBW.
+  Clearly, a phase margin of 90° is large enough not to ﬁnd peaking, or any form of oscillation.
+
+
+
+
+                                                                   0517
+                                                                   This is very diﬀerent for an
+                                                                   opamp with two poles at fre-
+                                                                   quencies f and f .
+                                                                               1       2
+                                                                      Each pole causes a phase
+                                                                   shift of −90°. As a result,
+                                                                   we ﬁnd a phase shift at high
+                                                                   frequencies. This means that
+                                                                   at high frequencies, the
+                                                                   signal is inverted. There
+                                                                   is still a loop gain slightly
+                                                                   larger than unity. Negative
+                                                                   feedback turns into positive
+                                                                   feedback with a little bit of
+                                                                   gain. We obtain therefore,
+                                                                   an oscillator rather than an
+                                                                   ampliﬁer!
+  At the frequency where the loop gain becomes unity (which here is the GBW), the phase
+margin PM is not quite zero. If it were zero we would have a real oscillator. It is not quite zero
+but very small. This is why this ampliﬁer shows a tendency for oscillation. It shows a large
+amount of peaking at that frequency.
+  We do not want peaking because such a peak is very irreproducible. Moreover the noise is
+deteriorated by that peak. Remember, noise has to be looked at on a linear frequency axis. Such
+a peak then extends over most of the frequency range.
+  The question is, how far do we have to stay with our phase characteristic from this critical
+−180°; how large can the phase margin PM be allowed to increase to avoid this peaking?
+158                                                                                    Chapter #5
+
+                                                                     0518
+                                                                     Nevertheless, the same
+                                                                     ampliﬁer, with two poles,
+                                                                     can be used without peak-
+                                                                     ing. It is suﬃcient to use it
+                                                                     at a higher closed-loop
+                                                                     gain A .
+                                                                             c
+                                                                       The closed-loop gain is
+                                                                     quite high now. As a result,
+                                                                     the loop gain is much
+                                                                     smaller. Moreover, when we
+                                                                     check where the loop gain
+                                                                     becomes unity, we ﬁnd a fre-
+                                                                     quency at which the phase
+                                                                     margin PM is quite high.
+                                                                       This is why there is no
+                                                                     peaking. The amplitude
+curve is quite nicely rounded.
+  It is clear that the same ampliﬁer can show peaking or not, depending on the actual closed-
+loop gain A . It is also clear that for unity-gain feedback, the frequency where we have to check
+             c
+the phase margin is the highest. The phase margin is the smallest at the highest frequency. Unity-
+gain ampliﬁers give the highest amount of peaking!
+
+
+
+
+                                                                     0519
+                                                                     Let us now gradually lower
+                                                                     the closed loop gain A .
+                                                                                           c
+                                                                       The loop gain increases,
+                                                                     and the frequency at which
+                                                                     we have to read the phase
+                                                                     margin increases. The phase
+                                                                     margin thus decreases and
+                                                                     the peaking is gradually
+                                                                     showing up!
+Stability of operational ampliﬁers                                                            159
+
+                                                                     0520
+                                                                     For even lower closed-loop
+                                                                     gain A , the loop gain
+                                                                             c
+                                                                     increases further, and the
+                                                                     frequency at which we have
+                                                                     to read the phase margin
+                                                                     increases even more. The
+                                                                     phase margin thus decreases
+                                                                     further and the peaking
+                                                                     therefore becomes more
+                                                                     severe!
+
+
+
+
+                                                                   0521
+                                                                   Finally, we have again
+                                                                   reached the point of unity-
+                                                                   gain closed-loop gain A .
+                                                                                                c
+                                                                   The loop gain is the same as
+                                                                   the open-loop gain. The fre-
+                                                                   quency at which we have to
+                                                                   read the phase margin is
+                                                                   now the GBW. The phase
+                                                                   margin has become very
+                                                                   small and the peaking is
+                                                                   most severe!
+                                                                      It is clear that the worst
+                                                                   peaking has been obtained
+                                                                   for the largest loop gain, i.e.
+                                                                   for the lost closed-loop gain
+                                                                   or for unity gain. This is
+                                                                   clearly the worst case.
+  We will try to avoid this peaking by adding a compensation capacitance or by increasing the
+currents. It is clear that an ampliﬁer which has been compensated at unity gain, is overcompen-
+sated at most other settings of closed-loop gain.
+160                                                                                   Chapter #5
+
+                                                                    0522
+                                                                    How can we compensate a
+                                                                    two-pole ampliﬁer?
+                                                                       The objective is quite
+                                                                    straightforward. We have to
+                                                                    ﬁnd a means to shift the
+                                                                    second or non-dominant
+                                                                    pole f to higher frequencies.
+                                                                           2
+                                                                    The extra −90° attributed
+                                                                    to this pole has now disap-
+                                                                    peared. The phase margin is
+                                                                    now 90°.
+                                                                       To illustrate the eﬀect of
+                                                                    shifting the non-dominant
+                                                                    pole to higher frequencies,
+                                                                    we repeat the Bode dia-
+                                                                    grams for the same two-pole
+ampliﬁer and the same unity-gain, but with three diﬀerent positions of the nondominant pole f .
+                                                                                               2
+  In the Bode diagrams shown in this slide, the second pole f is clearly too close to the ﬁrst
+                                                               2
+one f . Large peaking results.
+     1
+
+
+                                                                    0523
+                                                                    Shifting the second pole to
+                                                                    higher frequencies increases
+                                                                    the phase margin and de-
+                                                                    creases the peaking.
+                                                                      In this case the non-domi-
+                                                                    nant pole f coincides with
+                                                                                2
+                                                                    the GBW. As a result the
+                                                                    phase margin is 45°. The
+                                                                    peaking is smaller indeed.
+Stability of operational ampliﬁers                                                            161
+
+                                                                     0524
+                                                                     Finally, we have shifted the
+                                                                     non-dominant pole f to a
+                                                                                           2
+                                                                     value which is about three
+                                                                     times the GBW.
+                                                                       In this case the phase
+                                                                     margin is close to 70°. The
+                                                                     peaking is gone altogether.
+                                                                     The amplitude curve is
+                                                                     nicely rounded.
+                                                                       This is what we want to
+                                                                     design all our opamps for, a
+                                                                     phase margin of around 70°,
+                                                                     such that no peaking occurs.
+                                                                       Where is this factor of
+                                                                     three coming from?
+
+
+
+
+                                                                    0525
+                                                                    This factor of three is actu-
+                                                                    ally a result of a calculation
+                                                                    of the peaking and phase
+                                                                    margin, of a two-pole
+                                                                    system to which unity-gain
+                                                                    feedback is applied. This is
+                                                                    explained in all textbooks
+                                                                    on feedback or control
+                                                                    theory!
+                                                                       When we take the expres-
+                                                                    sion of ampliﬁer A with low-
+                                                                    frequency gain A and two
+                                                                                        0
+                                                                    poles, we have to plug it in
+                                                                    the feedback expression for
+                                                                    unity gain. Actually, this
+                                                                    feedback expression was
+G/(1+GH) but here H=1 and G=A. The closed-loop gain A is unity at low frequencies.
+                                                              c
+  In this feedback expression, we can rewrite the coeﬃcients in terms of resonant frequency f
+                                                                                                 r
+and damping f (Greek letter d, zeta).
+  Often parameter Q is used instead of f, then Q=1/2 f.
+  It is clear that f gives the frequency at which peaking or resonance occurs. Parameter f
+                    r
+determines how high the peaking is. For zero f, the term in s vanishes and we obtain a zero
+denominator at frequency f . Therefore, we obtain an oscillator at frequency f .
+                           r                                                   r
+  We will need values of f between 0.5 and 1 to avoid peaking. Actually when f=1, we have
+one double pole.
+162                                                                                    Chapter #5
+
+                                                                    0526
+                                                                    The actual values of the
+                                                                    phase margin and peaking
+                                                                    are now easily calculated.
+                                                                    They are given in this slide.
+                                                                    Also, the amount of peaking
+                                                                    in the frequency domain P
+                                                                                                f
+                                                                    is given, followed by the
+                                                                    amount of peaking in the
+                                                                    time domain P .
+                                                                                   t
+                                                                      For a ratio of three
+                                                                    between the non-dominant
+                                                                    pole and the GBW, the
+                                                                    phase margin is 72°. The
+                                                                    corresponding f is 0.87
+                                                                    (or Q=0.57). No peaking
+                                                                    occurs in the Bode diagram.
+  We could be allowed to reduce the non-dominant pole a bit, to two times the GBW. The
+phase margin decreases to 63°, decreasing the f as well to 0.71 (and Q=0.71) and we still do
+not have peaking.
+  We cannot forget, however, that we are using hand calculations here. After this part of the
+design procedure, we want to verify the circuit performance by means of a numerical simulator
+such as SPICE, Then all parasitic capacitances come in, pushing the non-dominant pole to lower
+values and
+  decreasing the phase margin. A value of three is thus a good safety position to start with.
+
+
+
+
+                                                                    0527
+                                                                    A better sketch of the peak-
+                                                                    ing in the frequency domain
+                                                                    (or in the Bode diagram) is
+                                                                    shown in this slide.
+                                                                      The value of the maxi-
+                                                                    mum peaking P is given as
+                                                                                     f
+                                                                    well. It is clear that for a
+                                                                    damping f of 0.7, we obtain
+                                                                    a maximally-ﬂat response.
+                                                                    Going to larger f reduces
+                                                                    the bandwidth too much.
+                                                                      Also, going to smaller
+                                                                    values of f causes peaking
+                                                                    indeed.
+                                                                      For zero f, we would have
+                                                                    a peak to inﬁnity, which is
+                                                                    typical for an oscillator.
+Stability of operational ampliﬁers                                                             163
+
+                                                                     0528
+                                                                     Peaking in the frequency
+                                                                     domain corresponds to ring-
+                                                                     ing in the time domain.
+                                                                         To the same ampliﬁer, we
+                                                                     apply now an input voltage
+                                                                     v     which has a square
+                                                                       IN
+                                                                     waveform. The output volt-
+                                                                     age v      follows with some
+                                                                            OUT
+                                                                     delay.
+                                                                         For small values of f how-
+                                                                     ever, the output voltage
+                                                                     overshoots, followed by
+                                                                     ringing. The system is
+                                                                     underdamped. The peak of
+                                                                     the ﬁrst overshoot P is
+                                                                                                t
+                                                                     given.
+   By taking a damping f of 0.7, the overshoot is very light and there is no ringing. A value of
+f of 0.87 would not give any overshoot at all.
+   These values of f for no ringing are clearly similar to the values for no peaking. Ringing in
+the time domain and peaking in the frequency domain are clearly equivalent.
+   The settling time is the time required to obtain the ﬁnal value with a certain error. For
+example, a square waveform applied to a ﬁrst-order system, gives an exponential with a certain
+time constant. For settling within 0.1%, we need to wait ln(1000) or 6.9 time constants.
+   For a slightly underdamped two-pole system, it is not so obvious to ﬁnd the 0.1% settling
+time. Certainly a f between 0.7 and 0.8 gives the best compromise between rise time and
+settling time.
+
+
+                                                                      0529
+                                                                      Now that we know what it
+                                                                      means to have a stable
+                                                                      ampliﬁer, or an ampliﬁer
+                                                                      without peaking or ringing,
+                                                                      let us apply this theory now
+                                                                      to a conventional two-stage
+                                                                      ampliﬁer.
+164                                                                                      Chapter #5
+
+                                                                     0530
+                                                                     A generic 2-stage ampliﬁer
+                                                                     is shown in this slide.
+                                                                        It consists of a diﬀerential
+                                                                     input stage, which converts
+                                                                     the diﬀerential input voltage
+                                                                     into a current, by transcon-
+                                                                     ductance g . A second-
+                                                                                   m1
+                                                                     stage follows, which is usu-
+                                                                     ally little more than a single-
+                                                                     transistor ampliﬁer, and
+                                                                     which has a transconduct-
+                                                                     ance g . The output load
+                                                                              m2
+                                                                     consists of both a resistor
+                                                                     and a capacitor.
+                                                                        The second stage has a
+                                                                     feedback capacitor C . It
+                                                                                               c
+will be used to compensate this opamp. This is why it is called compensation capacitance. We
+will now try to ﬁnd the gain, bandwidth and the gain-bandwidth product GBW.
+   The gain is readily found by realizing that the second stage is actually a transresistance
+ampliﬁer which converts the input current into the output voltage, by means of the impedance of
+capacitor C .
+            c
+   The gain A is then simply the product of the input g with the impedance of C . Obviously,
+              v                                         m1                            c
+this gain A decreases with frequency, and crosses the unity-gain line at the frequency GBW.
+           v
+   The gain does not go to inﬁnity at very low frequencies. It stops somewhere depending on
+whether cascodes are used, etc. The low-frequency gain is not that important after all. The higher
+frequency region is much more important, since feedback is always applied.
+
+
+
+
+                                                                      0531
+                                                                      The GBW is thus given by
+                                                                      the frequency where the
+                                                                      voltage gain is unity. Its
+                                                                      expression is valid for all
+                                                                      two-stage ampliﬁers!
+                                                                         Remember that a single-
+                                                                      transistor ampliﬁer has a
+                                                                      similar expression for the
+                                                                      GBW. However, note that it
+                                                                      contains the load capaci-
+                                                                      tance. This two-stage op-
+                                                                      amp contains the compensa-
+                                                                      tion capacitance C instead.
+                                                                                          c
+                                                                         For stability, we have to
+                                                                      know the position of the
+                                                                      non-dominant pole.
+Stability of operational ampliﬁers                                                             165
+
+   This pole f is determined by the other capacitance, i.e. the load capacitance C . The time
+                nd                                                                    L
+constant is given by the product of this load capacitance C and the resistance seen by it. This
+                                                               L
+is resistor R but especially resistance 1/g , oﬀered by the second stage, across which C acts
+              L                             m2                                                c
+as a short-circuit at these high frequencies, where f is expected to occur.
+                                                     nd
+   Indeed the second stage is usually a single transistor. Its Drain is then connected to its Gate.
+Its resistance is simply 1/g .
+                            m2
+   Therefore, the non-dominant pole is mainly determined by time constant C /g . An exact
+                                                                                  L m2
+calculation reveals that we have to take into account that a small capacitance C is present at
+                                                                                   n1
+node 1. The capacitive division C /C is a kind of correction factor. We normally choose
+                                     n1 c
+capacitor C to be at least three times larger than C .
+             c                                         n1
+
+
+
+
+                                                                      0532
+                                                                      Both the GBW and the non-
+                                                                      dominant pole are linked by
+                                                                      the stability requirement.
+                                                                      The f /GBW must be
+                                                                              nd
+                                                                      about three!
+                                                                         Rewriting this provides
+                                                                      an important relationship
+                                                                      between the trans-conduc-
+                                                                      tances on one hand, and the
+                                                                      capacitances on the other.
+                                                                         The correction factor
+                                                                      C /C is simply taken to be
+                                                                        n1 c
+                                                                      0.3. Combining this with the
+                                                                      ratio f /GBW of three, we
+                                                                             nd
+                                                                      obtain a factor of 4.
+                                                                         This relationship shows
+why the current in the second stage of a 2-stage opamp always consumes much more power
+than the ﬁrst stage. Indeed for a speciﬁc V −V (such as 0.2 V), the transconductances represent
+                                           GS    T
+the currents. Normally, we choose the compensation capacitance to be smaller than the load
+capacitance. It is usually 2–3 times smaller.
+   As a result, the current in the second stage is 8–12 times larger than the current in an input
+transistor.
+   This relationship also shows that a redesign for larger C , requires either a larger C or a
+                                                              L                             c
+larger g . These are the two techniques, that we will use to compensate a two-stage opamp.
+        m2
+   As an example, for a speciﬁc GBW and C , the equations can easily be solved to ﬁnd the two
+                                              L
+g ’s, provided we ﬁrstly choose C !
+ m                                  c
+
+
+
+
+0533
+The stability requirement forces us to position the non-dominant pole at suﬃciently high
+frequencies (around 3 GBW).
+166                                                                                     Chapter #5
+
+                                                                         The question now is, how
+                                                                      to carry out the design?
+                                                                      Which parameters are we
+                                                                      going to use in the design
+                                                                      plan to shift the non-domi-
+                                                                      nant pole.
+                                                                         We will ﬁnd that there are
+                                                                      two possible design plans,
+                                                                      both with advantages and
+                                                                      disadvantages. Both of them
+                                                                      lead to pole splitting, which
+                                                                      allows us to move this non-
+                                                                      dominant pole to even
+                                                                      higher values.
+
+
+
+
+                                                                      0534
+                                                                      Let us now take the two-
+                                                                      stage operational ampliﬁer.
+                                                                      We substitute the g -blocks
+                                                                                           m
+                                                                      by their voltage controlled
+                                                                      current sources. Also, node
+                                                                      resistances are added on
+                                                                      each node, representing the
+                                                                      output impedances. There-
+                                                                      fore, the small-signal equiv-
+                                                                      alent circuit is obtained.
+                                                                         The low-frequency gains
+                                                                      A     and A        are easily
+                                                                        v1           v2
+                                                                      derived as they are merely
+                                                                      products of g ’s and output
+                                                                                     m
+                                                                      resistances. The total gain
+                                                                      A is then their product.
+                                                                        v
+  Addition of all capacitances provides an expression of the gain versus frequency, which is of
+second order. It is only of second order, despite the fact that we distinguish three capacitances,
+because the three capacitances form a capacitive loop. Disrupting this loop, for example by
+putting in a series resistor somewhere in this loop, would raise the order of the gain expression
+to three. The analysis would then become much more cumbersome.
+
+
+
+0535
+The full expression of the gain A is given in this slide. Only two approximations have been
+                                   v
+taken. We have assumed that the gain is larger than unity and that node resistance resistor R
+                                                                                              n1
+is larger than load resistance R .
+                                L
+Stability of operational ampliﬁers                                                            167
+
+                                                                       The denominator is of
+                                                                    second order in s or jv. It
+                                                                    now has two roots, which
+                                                                    are the two poles. They can
+                                                                    be real or complex.
+                                                                       The numerator has one
+                                                                    root only, which is the zero.
+                                                                    It is a positive zero (in the
+                                                                    polar diagram).
+                                                                       The question is again how
+                                                                    we have to dimension C
+                                                                                                c
+                                                                    and/or g to shift the non-
+                                                                             m2
+                                                                    dominant pole out to higher
+                                                                    frequencies?
+                                                                       For this purpose, we have
+                                                                    to take a look at the posi-
+                                                                    tions of the poles when C
+                                                                                                c
+                                                                    is varied.
+  This is not so obvious as C occurs at several places in the denominator. In order to ﬁgure out
+                             c
+how the two poles (and the zero) change as we vary C , we draw the pole-zero position diagram.
+                                                      c
+
+
+
+
+                                                                    0536
+                                                                    It is not so diﬃcult to obtain
+                                                                    the two poles. After all, they
+                                                                    are the roots of the denomi-
+                                                                    nator, which is just a
+                                                                    second-order expression.
+                                                                       In most cases however,
+                                                                    there is an easy way to
+                                                                    obtain the poles. We assume
+                                                                    that the poles have values
+                                                                    which are widely diﬀerent.
+                                                                    Indeed, we expect to ﬁnd a
+                                                                    dominant pole and a non-
+                                                                    dominant pole which are
+                                                                    very diﬀerent.
+                                                                       In this case, the dominant
+                                                                    pole can be obtained by
+dropping the term in s2 in the denominator. The dominant pole is simply −1/a.
+  The non-dominant pole is also easy to ﬁnd. It is obtained by dropping the term 1 in the
+denominator, and by taking out one s. The non-dominant pole is simply −a/b.
+  Clearly, as coeﬃcient a changes as a result of a parameter change somewhere, both poles are
+then aﬀected, but in opposite ways. If the dominant pole decreases, the non-dominant pole must
+increase.
+  This will be the basis for pole splitting.
+168                                                                                         Chapter #5
+
+                                                                           0537
+                                                                           The pole-zero position dia-
+                                                                           gram is a plot of the poles
+                                                                           and zero versus frequency,
+                                                                           for one of the design param-
+                                                                           eters as a variable.
+                                                                              The frequency axis is
+                                                                           the same as in the Bode
+                                                                           diagram.
+                                                                              In this example, compen-
+                                                                           sation capacitance C is
+                                                                                                    c
+                                                                           taken as a design variable.
+                                                                           Indeed, we want to see how
+                                                                           C can be used to shift out
+                                                                             c
+                                                                           the second pole to higher
+                                                                           frequencies than GBW.
+                                                                              Clearly for a C smaller
+                                                                                                c
+than 10 fF, two poles occur. They are fairly close to each other. The Bode diagram is now easily
+sketched.
+   However, for larger C (larger than about 20 fF in this example) the poles split. The dominant
+                            c
+pole f becomes ever more dominant.
+      d
+   The non-dominant pole f now shifts out, as intended.
+                                nd
+   The Bode diagrams are added for values of C of 0.1 and 1 pF. It is clear that for a C of
+                                                      c                                               c
+1 pF, suﬃcient pole splitting has been achieved. Indeed, the f is about three times larger than
+                                                                   nd
+the GBW, which is about 1 MHz.
+   The expression of the dominant pole is easily extracted from the expression of the gain. This
+is given in this slide. It is clearly due to the Miller eﬀect of this (fairly large) capacitor C .
+                                                                                                  c
+   However, we also have a positive zero!
+
+
+
+                                                                        0538
+                                                                        In order to better under-
+                                                                        stand what a positive zero
+                                                                        means, we have to compare
+                                                                        the eﬀect on the phase of a
+                                                                        positive zero, with that of a
+                                                                        negative zero.
+                                                                           There is no need to have
+                                                                        a second-order system for
+                                                                        this purpose. A ﬁrst-order
+                                                                        system can be taken as well.
+                                                                        The Bode diagrams are
+                                                                        sketched for a ﬁrst-order
+                                                                        system with one single pole
+                                                                        and one single zero. In the
+                                                                        second case the zero is
+                                                                        positive.
+Stability of operational ampliﬁers                                                                169
+
+   Both have obviously the same amplitude. Consequently, amplitudes are not aﬀected by
+signs.
+   They have a very diﬀerent phase characteristic, however. In the ﬁrst Bode diagram the phase
+returns to zero for high frequencies. For the second diagram however, for a positive zero, the
+phase goes to −180°.
+   This is like having a second pole, rather than a zero!
+   This completely ruins our phase margin!!!
+   We have tried to limit the phase contribution of the non-dominant pole to about 20° by
+carefully locating this non-dominant pole beyond the GBW. A positive zero now shows up,
+which brings in another −90°. This will ruin the phase margin.
+   Moreover, the larger we make the compensation capacitance C , the more this zero shifts to
+                                                                  c
+lower frequencies. Large values of C are therefore not allowed!
+                                      c
+
+
+
+
+                                                                         0539
+                                                                         Another way to realize the
+                                                                         same pole splitting is to use
+                                                                         g , set by the current in the
+                                                                           m2
+                                                                         second stage. It works even
+                                                                         better than with C !
+                                                                                             c
+                                                                            Increasing the current
+                                                                         from low values to higher
+                                                                         one causes the dominant
+                                                                         pole to be exactly the same
+                                                                         as before. In the Miller
+                                                                         eﬀect, the g     is as much
+                                                                                      m2
+                                                                         present as C itself.
+                                                                                      c
+                                                                            However, the non-domi-
+                                                                         nant has a better behavior.
+                                                                         It keeps on increasing to
+                                                                         high values, for high values
+                                                                         of g .
+                                                                              m2
+  The main advantage is that the positive zero moves out to higher values, when g increases.
+                                                                                         m2
+Therefore, this zero disappears!
+  As a result, it is a lot easier to realize pole splitting by increasing g than it is with C .
+                                                                           m2                  c
+  The major drawback of compensating an opamp with g is that the current consumption
+                                                                 m2
+increases drastically.
+  For low-power designs we therefore prefer to compensate an opamp by increasing the compen-
+sation capacitance C . We now have to ﬁnd other ways of dealing with the positive zero!
+                       c
+170                     Chapter #5
+
+      0540
+      This conclusion is what
+      we have already reached
+      previously.
+         Increasing     the    load
+      capacitance will force us to
+      either increase the compen-
+      sation capacitance or to
+      increase the current in the
+      second stage, as imposed by
+      the stability requirement.
+      Both help!
+         Therefore, if during some
+      design eﬀort, the capaci-
+      tance C does not provide
+               c
+      suﬃcient phase margin, then
+      we have to increase the cur-
+      rent in the second stage
+      somewhat. This always
+      helps!
+
+
+
+      0541
+      Nevertheless, we do not
+      want to increase the current
+      in the second stage. All
+      analog design is towards
+      low-power design.
+        This is why we have to
+      ﬁnd all possible techniques
+      to remove this positive zero.
+        They are listed next.
+Stability of operational ampliﬁers                                                              171
+
+                                                                       0542
+                                                                       In order to understand how
+                                                                       we can abolish the positive
+                                                                       zero, we have to try to
+                                                                       understand what its origin
+                                                                       is, which adds another −90°
+                                                                       phase shift.
+                                                                           This is a result of the
+                                                                       feedforward through the
+                                                                       compensation capacitance.
+                                                                           Indeed, the compensation
+                                                                       capacitance is bidirectional
+                                                                       after all, as most capaci-
+                                                                       tances. This means that
+                                                                       feedback current and feed-
+                                                                       forward current ﬂow at the
+                                                                       same time.
+  The feedback current is the Miller eﬀect current from output to input. It ﬂows between two
+nodes which are opposite in phase.
+  The feedforward current is only easy to see when we leave out the ampliﬁer itself. We now
+notice a feedforward current through C which causes a small output signal which is in phase
+                                         c
+with the input. This is the current which causes the zero. It is a positive zero because it provides
+an output signal which is of opposite phase compared with the ampliﬁed output signal.
+  To abolish this positive zero, we have to make that compensation capacitance unidirectional.
+In other words, we have to put a transistor in series, which cuts the feedforward path.
+
+
+
+
+                                                                      0543
+                                                                      There are three ways to
+                                                                      abolish the positive zero.
+                                                                      For the ﬁrst two, it is easy
+                                                                      to see that the feedforward
+                                                                      current is blocked. The third
+                                                                      technique is more diﬃcult to
+                                                                      understand.
+                                                                         The ﬁrst technique con-
+                                                                      sists of putting a source fol-
+                                                                      lower in series with the
+                                                                      compensation capacitance.
+                                                                      The feedback is still present
+                                                                      but the feedforward current
+                                                                      ﬂows through the source fol-
+                                                                      lower to the positive supply,
+                                                                      without aﬀecting the output.
+  Putting this source follower in the expression of the gain, gives as a result that the numerator
+has gone. There is no more zero. It is now an easy way to solve this problem. However, we need
+172                                                                                     Chapter #5
+
+some biasing current through the follower. This may not be the real solution for low-power
+design.
+  The second technique is using a cascode instead. Its DC current is pulled out of the Source.
+A pMOST can be used as well, provided DC current is injected into the Source.
+  Again, the AC feedback current can ﬂow but not the feedforward current.
+  The zero simply vanishes, but again at the cost of some additional biasing current. This
+problem can be solved as shown on the next slide.
+  The third technique does not require any biasing current. This is why it is often preferred in
+low-power ampliﬁers.
+
+
+
+                                                                      0544
+                                                                      There are three ways to
+                                                                      abolish the positive zero.
+                                                                      For the ﬁrst two, it is easy
+                                                                      to see that the feedforward
+                                                                      current is blocked. The third
+                                                                      technique is more diﬃcult to
+                                                                      understand.
+                                                                         The ﬁrst technique con-
+                                                                      sists of putting a source
+                                                                      follower in series with the
+                                                                      compensation capacitance.
+                                                                      The feedback is still present
+                                                                      but the feedforward current
+                                                                      ﬂows through the source fol-
+                                                                      lower to the positive supply,
+                                                                      without aﬀecting the output.
+  Putting this source follower in the expression of the gain, gives as a result that the numerator
+has gone. There is no more zero. It is now an easy way to solve this problem. However, we need
+some biasing current through the follower. This may not be the real solution for low-power design.
+  The second technique is using a cascode. Its DC current is pulled out of the Source. A pMOST
+can also be used, provided DC current is injected into the Source.
+  Again, the AC feedback current can ﬂow but not the feedforward current.
+  The zero simply vanishes, but again at the cost of some additional biasing current. This
+problem can be solved as shown on the next slide.
+  The third technique does not require any biasing current. This is why it is often preferred in
+low-power ampliﬁers.
+
+
+
+0545
+A good example of the use of the second technique is shown in this slide.
+  It is a telescopic cascode followed by a single-transistor ampliﬁer as a second stage.
+  The compensation capacitance C is no longer connected between the output and input of the
+                                    c
+second stage. It takes a path through one of the cascodes, avoiding the positive zero.
+  The second technique is used quite often as it does not require any additional biasing current!
+Stability of operational ampliﬁers                                                                173
+
+                                                                        It is not so easy to work
+                                                                     out which cascode solution
+                                                                     of the two to use. In prin-
+                                                                     ciple, the second one is a
+                                                                     little bit better as it takes the
+                                                                     side of the input transistor.
+                                                                     There are less higher-order
+                                                                     poles and zeros in this case!
+                                                                        Some designers take half
+                                                                     the compensation capaci-
+                                                                     tance to both sides, which is
+                                                                     very similar indeed!
+
+
+
+
+                                                                   0546
+                                                                   The third technique to abol-
+                                                                   ish the positive zero, is to
+                                                                   insert a small resistor R , in
+                                                                                              c
+                                                                   series with C .
+                                                                                  c
+                                                                      This resistor causes some
+                                                                   cancellation of the eﬀect of
+                                                                   the feedforward by the
+                                                                   feedback.
+                                                                      The expression of the zero
+                                                                   is now modiﬁed as shown.
+                                                                   It is clear that for a resis-
+                                                                   tance R equal to 1/g , the
+                                                                             c             m2
+                                                                   zero is at inﬁnity. It has
+                                                                   vanished.
+                                                                      It is not so easy, however,
+                                                                   to match a resistor to a g
+                                                                                                m
+value. Especially if the resistor is realized by means of a MOST in the linear region, then the
+matching is more diﬃcult.
+  There is a simple solution to this problem, however. We increase the size of the resistor.
+  This zero now turns into a negative zero. In other words the minus sign in the expression of
+the zero compensates the minus sign in the gain expression.
+  This negative zero is positioned between the negative poles and can therefore be used to
+compensate one of them.
+
+
+0547
+For a much larger resistor, the expression of the zero can be simpliﬁed to the one given in this
+slide. In order to be eﬀective, we have to position this zero close to the GBW, for example at 2–3
+174                                                                                     Chapter #5
+
+                                                                      times the GBW where the
+                                                                      nondominant poles are.
+                                                                         This yields a new expres-
+                                                                      sion for R , which is now
+                                                                                  c
+                                                                      related to g      instead of
+                                                                                    m1
+                                                                      gm2.
+                                                                         We simply position R
+                                                                                                  c
+                                                                      between both the values
+                                                                      obtained, with preference to
+                                                                      be closer to 1/3g .
+                                                                                        m1
+                                                                         A numerical example will
+                                                                      show that it is quite easy to
+                                                                      position the resistor R as
+                                                                                               c
+                                                                      indicated and that the toler-
+                                                                      ance on this resistor can be
+                                                                      allowed to be quite large!
+
+
+
+
+                                                                    0548
+                                                                    As an example, let us take a
+                                                                    two-stage opamp with a
+                                                                    GBW of 50 MHz for a C
+                                                                                                  L
+                                                                    of 2 pF.
+                                                                       We resort to the same
+                                                                    design plan as before. We
+                                                                    choose C to be 1 pF, half
+                                                                                c
+                                                                    the value of C . We will
+                                                                                      L
+                                                                    reﬁne this choice in the next
+                                                                    Chapter.
+                                                                       For a chosen C , the g
+                                                                                        c        m1
+                                                                    is easily calculated. For a
+                                                                    V −V of 0.2 V, its current
+                                                                      GS     T
+                                                                    is ten times larger, or 31 mA.
+                                                                    Note that 1/g        is 3.2 kV
+                                                                                    m1
+                                                                    and 1/3g is about 1 kV.
+                                                                               m1
+   For the second stage we recall that f must be three times higher than the GBW. Its g is
+                                        nd                                                    m2
+also readily calculated. The current is now eight times higher than the current in the input
+transistor or 252 mA and 1/g is 400 V.
+                            m2
+   We now have to position R between 400 V and 1 kV. Doing this on a logarithmic scale means
+                             c
+that we have to take a harmonic average. This gives about 640 V.
+   The advantage of doing this is that the tolerance is larger and the same in both directions.
+This resistor can have an absolute tolerance of 60%, which makes it quite easy to achieve!
+Stability of operational ampliﬁers                           175
+
+                                     0549
+                                     As we have become familiar
+                                     with the design of a two-
+                                     stage ampliﬁer, we can
+                                     easily extend this design
+                                     method     to    three-stage
+                                     ampliﬁers. Indeed, we will
+                                     use the Miller eﬀect twice.
+                                        The resulting power con-
+                                     sumption will be relatively
+                                     high as we have to deal with
+                                     the two non-dominant
+                                     poles. In Chapter 10 on
+                                     multistage ampliﬁers, we
+                                     will present some more
+                                     multistage ampliﬁers with
+                                     much lower power con-
+                                     sumption.
+
+
+
+
+                                     0550
+                                     Before we expand towards
+                                     a three-stage ampliﬁer, let
+                                     us review the principles of
+                                     a single- and two-stage
+                                     ampliﬁer.
+                                       A single-stage ampliﬁer
+                                     has only one high-imped-
+                                     ance point, usually at the
+                                     output. The load capaci-
+                                     tance C therefore deter-
+                                             L
+                                     mines the GBW.
+                                       It is also the input g
+                                                              m1
+                                     which     determines   this
+                                     GBW.
+176                                                                                  Chapter #5
+
+                                                                   0551
+                                                                   A two-stage ampliﬁer has
+                                                                   two high-impedance points.
+                                                                   These two points must be
+                                                                   connected by a compensa-
+                                                                   tion capacitance C to carry
+                                                                                      C
+                                                                   out polesplitting. This com-
+                                                                   pensation capacitance there-
+                                                                   fore determines the GBW.
+                                                                      Again it is the input
+                                                                   g    which determines this
+                                                                     m1
+                                                                   GBW.
+                                                                      The non-dominant pole
+                                                                   is now determined by the
+                                                                   load capacitance C at the
+                                                                                        L
+                                                                   output.
+
+
+
+
+                                                                   0552
+                                                                   A three-stage ampliﬁer has
+                                                                   three high-impedance points.
+                                                                   These three points must be
+                                                                   connected by two compen-
+                                                                   sation capacitances C and
+                                                                                          C
+                                                                   C      to carry out pole
+                                                                     D
+                                                                   splitting.
+                                                                      The most eﬃcient way to
+                                                                   achieve this is to nest these
+                                                                   two Miller capacitances,
+                                                                   resulting in the Nested-
+                                                                   Miller conﬁguration. Cap-
+                                                                   acitance C is the overall
+                                                                               C
+                                                                   compensation capacitance.
+                                                                   This is why it determines the
+                                                                   GBW. The other one merely
+leads to a non-dominant pole.
+   Again, it is the input g which determines this GBW. There are now two non-dominant
+                           m1
+poles. One of them is again determined by the load capacitance C , as for a two-stage ampliﬁer.
+                                                                L
+The other is determined by the additional compensation capacitance C . The question now is,
+                                                                       D
+how to deal with two non-dominant poles rather than one?
+Stability of operational ampliﬁers                                                                177
+
+                                                                          0553
+                                                                          We have to be careful spell-
+                                                                          ing out the nested-Miller
+                                                                          compensation of a three-
+                                                                          stage ampliﬁer. The ﬁrst two
+                                                                          stages are normally realized
+                                                                          by means of diﬀerential
+                                                                          pairs.
+                                                                             The ﬁrst stage is a
+                                                                          diﬀerential pair because we
+                                                                          need a diﬀerential input.
+                                                                             The second stage is real-
+                                                                          ized by means of a diﬀer-
+                                                                          ential pair because we need
+                                                                          a non-inverting ampliﬁer.
+                                                                          Otherwise, capacitance C
+                                                                                                     C
+                                                                          would provide positive
+feedback! An alternative for this second stage would be a current mirror as explained in
+Chapter 10 on multistage ampliﬁers.
+   One of the ﬁrst bipolar realizations is shown in this slide. The transconductances and compensa-
+tion capacitances are easily identiﬁed.
+
+                                                                        0554
+                                                                        If two non-dominant poles
+                                                                        contribute to the phase
+                                                                        margin, then we have to
+                                                                        extend the expression of the
+                                                                        Phase Margin PM with
+                                                                        another pole, as given in
+                                                                        this slide.
+                                                                           The curves for equal PM
+                                                                        of respectively 60°, 65° and
+                                                                        70° are now easily calcu-
+                                                                        lated. Taking the tangent of
+                                                                        the expression of PM allows
+                                                                        the simpliﬁcation of the
+                                                                        calculations!
+                                                                           Let us focus on the rela-
+                                                                        tionship between the two
+non-dominant poles f for a PM of 60°.
+                       nd
+  It is clear that if we have a f fairly close to the GBW. The other one will then be far away.
+                                 nd
+They can also be at an equal distance from the GBW, at about 3.5–4 times the GBW.
+  Normally, one f is put at about 3 times the GBW and the other one at about 5 times. We
+                    nd
+obviously prefer to have the 5×GBW at the output because the higher frequency requires the
+higher current. It is more advantageous to have the higher current at the output. More current
+can be taken out by the load.
+  A good choice for a PM of 60° is therefore a ratio f /GBW of three for the middle pole and
+                                                       nd
+ﬁve for the output pole.
+178                                                                                     Chapter #5
+
+                                                                 0555
+                                                                 If we select non-dominant
+                                                                 poles which are widely
+                                                                 diﬀerent, then the current
+                                                                 required to position the
+                                                                 higher-frequency pole may
+                                                                 become excessive.
+                                                                    To illustrate this point,
+                                                                 the relationship between the
+                                                                 two non-dominant poles is
+                                                                 plotted in this slide, followed
+                                                                 by a plot of the total current
+                                                                 consumption.
+                                                                    This shows that once we
+                                                                 select a higher-frequency
+                                                                 pole beyond 6–7 times the
+                                                                 GBW, the total power con-
+sumption increases. There is a minimum indeed around values of 5×GBW, requiring the other
+pole to be around 3×GBW, exactly as suggested in the previous slide.
+  The minimum is not very pronounced, however. The designer is still relatively free in his
+choice of non-dominant pole positions.
+
+
+                                                                     0556
+                                                                     The design plan itself is then
+                                                                     fairly straightforward.
+                                                                        Remember that for the
+                                                                     two-stage ampliﬁer, we have
+                                                                     chosen the value of the com-
+                                                                     pensation capacitance. It
+                                                                     was taken to be about 2–3
+                                                                     times smaller than the load
+                                                                     capacitance.
+                                                                        For     this    three-stage
+                                                                     ampliﬁer we adopt a similar
+                                                                     strategy. Both compensa-
+                                                                     tion capacitances are chosen
+                                                                     to be equal, and to be about
+                                                                     2–3 times smaller than the
+                                                                     load capacitance.
+  Of course, they can be taken diﬀerently. It is clear that according to the equations describing
+the stability, we would obtain the same Phase Margin. It is not clear yet however, how this
+would aﬀect some other speciﬁcations.
+  Having chosen the two compensation capacitances, we simply have to solve three equations
+with three variables g , g and g .
+                      m1 m2       m3
+Stability of operational ampliﬁers                                                           179
+
+                                                                   0557
+                                                                   As an example, let us design
+                                                                   an opamp with the GBW
+                                                                   and C given in this slide.
+                                                                          L
+                                                                      The compensation cap-
+                                                                   acitances have been set at
+                                                                   half the load capacitance or
+                                                                   1 pF. The g ’s are now
+                                                                                  m
+                                                                   easily calculated. It is obvi-
+                                                                   ous that because of the
+                                                                   higher-frequency pole f at
+                                                                                            nd2
+                                                                   the output,
+                                                                      the output transistor M3
+                                                                   also consumes most of the
+                                                                   current.
+
+
+
+
+                                                                   0558
+                                                                   For sake of comparison, we
+                                                                   have designed a single-stage,
+                                                                   two-stage and a three-stage
+                                                                   opamp for the same
+                                                                   speciﬁcations.
+                                                                      It is obvious that the
+                                                                   single-stage opamp is the
+                                                                   champion in power con-
+                                                                   sumption. The addition of
+                                                                   compensation capacitances
+                                                                   invariably leads to excessive
+                                                                   power consumption.
+                                                                      However, a single-stage
+                                                                   opamp does not provide a
+                                                                   lot of gain. The addition of
+                                                                   cascodes and gain boosting
+reduces the output swing. This is where a two-stage Miller opamp oﬀers considerable advantages.
+  A three-stage ampliﬁer will be used whenever we need a class-AB output stage. Also when the
+supply voltage is so low that there is no room for cascodes, we may have to go for cascading
+rather than cascoding!
+180                    Chapter #5
+
+      0559
+      We have now acquired
+      suﬃcient knowledge about
+      the stability of an opera-
+      tional     transconductance
+      ampliﬁer, to be able to
+      implement it by means of
+      MOSTs         or    bipolar
+      transistors.
+         This is discussed in the
+      next Chapter.
+

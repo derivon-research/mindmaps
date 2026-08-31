@@ -1,0 +1,456 @@
+      101
+      Instead of voltages, currents
+      can be used at the inputs as
+      well. They lead to current-
+      input ampliﬁers.
+        They are discussed in this
+      Chapter.
+
+
+
+
+      102
+      First of all, full operational
+      ampliﬁers are discussed,
+      after which some more con-
+      ﬁgurations are following.
+         In this class, transresis-
+      tance ampliﬁers can be
+      added as well. They are dis-
+      cussed in Chapter 14 how-
+      ever, on shunt-series feed-
+      back at the input.
+         As a result this is a fairly
+      short Chapter.
+
+
+
+
+291
+292                                                                                     Chapter #10
+
+                                                                    103
+                                                                    Current ampliﬁers are used
+                                                                    for current sensors and
+                                                                    for some high-frequency
+                                                                    applications.
+                                                                       For example a photo-
+                                                                    diode (pixel detector, radia-
+                                                                    tion detector, ...) which
+                                                                    receives light, provides a
+                                                                    current proportional to this
+                                                                    amount of light, provided it
+                                                                    is reverse biased. It behaves
+                                                                    as a current source with
+                                                                    value I .
+                                                                            IN
+                                                                       In this case a voltage
+                                                                    ampliﬁer can be used with
+                                                                    resistive feedback, which
+provides an output voltage R I , or a current-input ampliﬁer with transresistance A .
+                            F IN                                                         R
+  The question is, which one is better, from the point of view of gain (or sensitivity), speed and
+noise performance?
+
+
+                                                                       104
+                                                                       A current input assumes the
+                                                                       use of cascodes, as shown in
+                                                                       this slide.
+                                                                          This ampliﬁer actually
+                                                                       consists of two current mir-
+                                                                       rors, connected by their ref-
+                                                                       erence voltages. The outputs
+                                                                       are then current mirrored to
+                                                                       the output, with current
+                                                                       factor B .
+                                                                                2
+                                                                          These two current mirrors
+                                                                       provide the biasing. Both
+                                                                       transistors M1 and M3 are
+                                                                       biased at current I .
+                                                                                           B
+                                                                          However, for small-sig-
+                                                                       nals, transistors M1 and M3
+operate as cascodes. The input current i is divided over both input cascodes, multiplied by B ,
+                                        IN                                                        2
+and generates an output voltage in the output resistance R      at the Drains of output transistors
+                                                            OUT
+M5 and M6.
+  The current gain is very modest but the transresistance can be very large, especially if cascodes
+are used on transistors M5/M6 and gain boosting on these cascodes.
+  The bandwidth BW is determined by R          as well. As a result, the transresistance-bandwidth
+                                           OUT
+product does not contain R      any more.
+                            OUT
+  It is not possible to compare the product A BW to the GBW of a voltage ampliﬁer. They
+                                                R
+have totally diﬀerent dimensions!
+Current-input operational ampliﬁers                                                                293
+
+  The main advantage of this ampliﬁer is that the Slew-Rate is unlimited. Indeed, for a large
+input current, the SR is determined by this input current itself, multiplied by B2.
+
+                                                                        105
+                                                                        This large input current can
+                                                                        be larger than the biasing
+                                                                        current I . In this case, tran-
+                                                                                  B
+                                                                        sistor M1 carries a large cur-
+                                                                        rent and transistor M3 goes
+                                                                        oﬀ. Transistor M1 operates
+                                                                        in class-AB! The Slew-Rate
+                                                                        is then very high, at the price
+                                                                        of some distortion!
+                                                                           If we do not want this dis-
+                                                                        tortion, we have to choose a
+                                                                        biasing current I , which is
+                                                                                            B
+                                                                        always larger than the peak
+                                                                        signal current i .
+                                                                                         IN
+                                                                           High-speed         generally
+                                                                        leads to bad noise per-
+                                                                        formance!
+   This also applies to this current-input ampliﬁer. A detailed analysis (on the next slide) shows
+that the noise of a cascode is always negligible, provided it is not driven by a voltage source and
+it does not have a low resistive load. This is exactly what we have here.
+   Cascode transistor M1 sees 1/g as a source resistance and has 1/g as a load. The output
+                                   m3                                       m2
+noise current of M1 ﬂows unattenuated through both M2 and M3. Fortunately, they cancel out
+at the output. However, the noise current powers of M2 and M4 themselves add up. Together
+they make up the total equivalent input noise current.
+   The SNR is then easily calculated. The larger we take I , the worse the SNR becomes!
+                                                             B
+   Indeed, higher speed leads to more noise!
+
+                                                                        106
+                                                                        For a MOST cascode, the
+                                                                        contributions of the input
+                                                                        current i and of the transis-
+                                                                                 in
+                                                                        tor current noise source i
+                                                                                                     N
+                                                                        are compared. Both are
+                                                                        calculated to the output.
+                                                                        Finally, the ratio of input
+                                                                        noise to the transistor noise
+                                                                        current i /i is calculated.
+                                                                                  in N
+                                                                        This shows what the equiva-
+                                                                        lent input noise current is as
+                                                                        a result of the transistor
+                                                                        noise, which is the same in
+                                                                        all cases, and which is pro-
+                                                                        portional to g .
+                                                                                       m
+294                                                                                    Chapter #10
+
+   Four cases can be distinguished depending on whether the cascode has a real current drive
+(cases 2 and 4). Resistance R is then the output resistance of the input current source i . It is
+                               BB                                                          in
+larger than R unless R is substituted by a current source I .
+                L         L                                    L
+   When the cascode is driven by a low resistance R , it acts rather as a voltage source. Again,
+                                                       B
+the load can be a small resistor R or large, as a current source I .
+                                    L                               L
+   It is clear that the contribution of the transistor noise to the input current is always small,
+except when the cascode is voltage driven (or driven with another 1/g ) and at the same time,
+                                                                         m
+a small load resistor is used, or the input 1/g of a current mirror.
+                                               m
+   There is one single condition where the noise of a cascode is important. In all other cases it
+is negligible.
+
+
+                                                                     107
+                                                                     Another way to explore the
+                                                                     high-speed capabilities of a
+                                                                     current opamp is to close
+                                                                     the feedback loop.
+                                                                        A     two-stage   voltage
+                                                                     opamp is sketched in this
+                                                                     slide, in which the loop is
+                                                                     closed by means of two
+                                                                     resistors R and R . They
+                                                                                 S       F
+                                                                     deﬁne the gain R /R , and
+                                                                                        F S
+                                                                     also the bandwidth.
+                                                                        Indeed, a voltage opamp
+                                                                     exchanges bandwidth for
+                                                                     gain. It has a constant
+                                                                     GBW, as is clearly shown by
+                                                                     the expressions.
+
+
+                                                                     108
+                                                                     A similar two-stage opamp
+                                                                     is sketched in this slide, but
+                                                                     with a current-input stage as
+                                                                     a ﬁrst stage rather than with
+                                                                     a voltage-input stage.
+                                                                        Again, the loop is closed
+                                                                     by means of two resistors R
+                                                                                                   S
+                                                                     and R , which again deﬁne
+                                                                            F
+                                                                     the gain R /R .
+                                                                                  F S
+                                                                        However, the bandwidth is
+                                                                     now diﬀerent. It seems to be
+                                                                     determined by the series
+                                                                     resistor R . This resistor con-
+                                                                                S
+                                                                     verts the input voltage into a
+                                                                     current, as a result it appears
+                                                                     in the expressions separately.
+Current-input operational ampliﬁers                                                         295
+
+  If we now keep this resistor R constant, and vary the feedback resistor R to set the gain,
+                                S                                          F
+then we have exactly the same set of curves as for a voltage opamp.
+  This is shown next.
+
+                                                                   109
+                                                                   On the left, a voltage opamp
+                                                                   is shown with a gain of 1000.
+                                                                   Its GBW is 32 MHz.
+                                                                      On the right, a current
+                                                                   opamp is shown, with the
+                                                                   same gain. The input series
+                                                                   resistor R is kept constant,
+                                                                             S
+                                                                   at a value of 5 kV. As a
+                                                                   result, this current opamp
+                                                                   has a GBW of 32 MHz. The
+                                                                   exchange of gain and band-
+                                                                   width is the same as for a
+                                                                   voltage opamp.
+                                                                      On the other hand, we
+                                                                   can vary this resistor R to
+                                                                                             S
+                                                                   set the gain. This is shown
+                                                                   next.
+
+
+
+                                                                  1010
+                                                                  On the left, the same voltage
+                                                                  opamp is taken from the
+                                                                  previous slide. On the right,
+                                                                  we use the same current
+                                                                  opamp but we now vary R
+                                                                                              S
+                                                                  to set the gain. The feedback
+                                                                  resistor R is kept constant,
+                                                                             F
+                                                                  at a value of 100 kV.
+                                                                    We now we have an
+                                                                  ampliﬁer with a constant
+                                                                  bandwidth, rather than with
+                                                                  constant gain-bandwidth.
+                                                                  The bandwidth is deter-
+                                                                  mined by the R C time
+                                                                                      F c
+                                                                  constant.
+                                                                    It is clear that with this
+current opamp, we can reach combinations of large gain and high speed, which are not available
+with a voltage opamp. This is a clear advantage.
+  For a gain of 1000, the bandwidth now extends to 1.6 MHz, rather than to 32 kHz, which is
+an enormous increase.
+296                                                                                   Chapter #10
+
+                                                                     1011
+                                                                     For this gain of 1000, The
+                                                                     value of R is now 100 V.
+                                                                                 S
+                                                                     For higher gains, this resis-
+                                                                     tor has to be even smaller.
+                                                                     This is not so easy as the
+                                                                     input resistance 1/2g      of
+                                                                                            m1
+                                                                     the circuit starts playing a
+                                                                     role.
+                                                                        As a consequence, these
+                                                                     high speeds are not easily
+                                                                     realized at high gain values.
+                                                                     The curves bend to the left.
+                                                                     The gain is still large in
+                                                                     practice, but not as large as
+                                                                     expected.
+                                                                        Also, bipolar transistors
+have lower input resistances. They can therefore be used towards higher gain-bandwidth combina-
+tions. This is why most commercial current opamps are in bipolar technology.
+
+
+
+                                                                     1012
+                                                                     Now that the advantages
+                                                                     are known for current
+                                                                     opamps, let us have a look
+                                                                     at some realizations.
+Current-input operational ampliﬁers                                                             297
+
+                                                                     1013
+                                                                     This is a single-stage current
+                                                                     operational ampliﬁer in
+                                                                     bipolar technology. The
+                                                                     bandwidth is set by the two
+                                                                     capacitors at the output. It
+                                                                     is 80 MHz.
+                                                                        Obviously, the Slew Rate
+                                                                     is large as well. For a closed-
+                                                                     loop gain of 1, it is 450 V/ms!
+                                                                        The output stage consists
+                                                                     of a double emitter follower.
+                                                                        As usual, with high-speed
+                                                                     ampliﬁers, no noise speciﬁ-
+                                                                     cation is given.
+
+
+
+
+                                                                      1014
+                                                                      The speciﬁcations of this
+                                                                      ampliﬁer clearly show the
+                                                                      constant-bandwidth
+                                                                      behavior.
+                                                                         For example, for a R =
+                                                                                               F
+                                                                      100 kV. The bandwidth is
+                                                                      just over 200 kHz. It does
+                                                                      not depend on the actual
+                                                                      gain.
+                                                                         Curves are also given for
+                                                                      R =10 kV and 1 kV. It is
+                                                                        F
+                                                                      clear that for the latter, a
+                                                                      gain of 100 is not easily
+                                                                      obtained. Indeed, for this
+                                                                      value of R , a gain of 100
+                                                                                 F
+                                                                      would necessitate a R of a
+                                                                                             S
+                                                                      mere 10 V!
+   In this case, the input resistance of the ampliﬁer takes over. The curve bends to the left.
+   At a gain of 100, a bandwidth of 4 MHz results, which would require a GBW of 400 MHz if
+it were a voltage ampliﬁer.
+298                                                                                      Chapter #10
+
+                                                                       1015
+                                                                       A single-stage ampliﬁer is
+                                                                       easily extended to a two-
+                                                                       stage ampliﬁer as shown
+                                                                       next.
+                                                                          This ampliﬁer is copied
+                                                                       from an earlier slide for sake
+                                                                       of comparison.
+                                                                          Note that the emitter fol-
+                                                                       lowers at the output are
+                                                                       represented by a voltage
+                                                                       ampliﬁer with unity gain.
+
+
+
+
+                                                                       1016
+                                                                       The     two-stage     current
+                                                                       ampliﬁer is shown in this
+                                                                       slide.
+                                                                          Obviously, a compensa-
+                                                                       tion capacitor is now
+                                                                       required, which will cause
+                                                                       more current to ﬂow in the
+                                                                       second stage.
+                                                                          The main advantage is
+                                                                       however that the output
+                                                                       swing can be larger. Also,
+                                                                       more gain can be achieved
+                                                                       without the use of cascodes.
+                                                                          Again, bipolar transistors
+                                                                       are used at the input to have
+                                                                       a smaller input resistance. Is
+                                                                       this why smaller values can
+be used for the series input resistor R , yielding higher gain-bandwidth combinations?
+                                         S
+  The input cascode transistors determine the noise performance in single-stage current ampliﬁ-
+ers. Active loads are now used for these cascodes. Is their noise still dominant?
+  The answer is positive. Indeed, at higher frequencies, the compensation capacitance acts as a
+short-circuit. The second stage is little more than an impedance 1/g . This is a low impedance.
+                                                                      m2
+The noise of the input cascodes is therefore still dominant.
+Current-input operational ampliﬁers                              299
+
+                                      1017
+                                      In bipolar technology, this
+                                      current opamp has excellent
+                                      performance.
+                                        For a gain of 10, the band-
+                                      width is 57 MHz. For a gain
+                                      of 1, the BW is 340 MHz
+                                      and the SR is an impressive
+                                      3500 V/ms.
+                                        The quiescent current is
+                                      only 1 mA on a single 5 V
+                                      supply.
+                                        The input current for
+                                      these values is 15 mA.
+
+
+
+
+                                      1018
+                                      Current ampliﬁers have
+                                      existed before.
+                                         An earlier current ampli-
+                                      ﬁer is shown in this slide.
+                                         The current diﬀerence at
+                                      the input is realized by addi-
+                                      tion of a current mirror on
+                                      the non-inverting input
+                                      terminal.
+                                         It is clearly a single-stage
+                                      ampliﬁer with modest per-
+                                      formance.
+300                                                                              Chapter #10
+
+                                                              1019
+                                                              An       integrated   current
+                                                              ampliﬁer is depicted in this
+                                                              slide.
+                                                                 It is a two-stage ampliﬁer
+                                                              with current input. The
+                                                              output of the ﬁrst stage is at
+                                                              the Drains of transistors
+                                                              Q21/Q22. Transistors Q1
+                                                              and Q2 now serve as emitter
+                                                              followers to drive the
+                                                              second stage.
+                                                                 In this stage, pnp-npn
+                                                              composites are used to drive
+                                                              the output load. For exam-
+                                                              ple, the Q3/Q5 composite
+                                                              behaves as a super-pnp tran-
+                                                              sistor. On the other side,
+                                                              Q4/Q6 are a super npn.
+  The compensation capacitances CC1 and CC2 are connected from the middle point of such a
+composite, which is a strange point indeed.
+  The performance is great: 110 MHz bandwidth and 230 V/ms, using bipolar transistors with
+an f of 3.8 GHz only!
+    T
+
+
+
+
+                                                                 1020
+                                                                 In this Chapter, current
+                                                                 ampliﬁers are shortly dis-
+                                                                 cussed and compared to
+                                                                 voltage ampliﬁers.
+                                                                   Current ampliﬁers pro-
+                                                                 vide higher-speed perfor-
+                                                                 mance at the cost of higher
+                                                                 equivalent input noise.
+

@@ -1,0 +1,1119 @@
+                                                                    081
+                                                                    Fully-diﬀerential    circuits
+                                                                    have two diﬀerential out-
+                                                                    puts. They need them to be
+                                                                    able to reject the common-
+                                                                    mode disturbances gener-
+                                                                    ated by the digital circuits,
+                                                                    the class-AB drivers, the
+                                                                    clock drivers, etc.
+                                                                       As a consequence, all
+                                                                    mixed-signal circuitry re-
+                                                                    quires the ampliﬁers to be
+                                                                    fully-diﬀerential. However,
+                                                                    his will cost a lot of addi-
+                                                                    tional power consumption.
+                                                                    Consequently, an extra
+                                                                    ampliﬁer will be required to
+stabilize the average or common-mode output level. It is called the common-mode feedback
+(CMFB) ampliﬁer. It obviously takes additional current.
+   One of the most important speciﬁcations will therefore be at which extra current an ampliﬁer
+can be made fully-diﬀerential.
+
+
+
+                                                                     082
+                                                                     Besides the power consump-
+                                                                     tion, some other speciﬁca-
+                                                                     tions may come in, which
+                                                                     are typical for CMFB
+                                                                     ampliﬁers. For example, the
+                                                                     input range is an important
+                                                                     characteristic.
+                                                                        All   requirements     of
+                                                                     CMFB ampliﬁers will be
+                                                                     reviewed ﬁrst.
+                                                                        They are followed by a
+                                                                     discussion of the three most
+                                                                     important types of CMFB
+                                                                     ampliﬁers. All of them have
+                                                                     advantages and disadvan-
+                                                                     tages. None of them pro-
+                                                                     vides an ideal solution.
+  After this discussion, a number of practical realizations are examined. Their compromises are
+discussed.
+  Finally, an exercise is launched to generate better insight. It includes the comparison of a
+CMOS with a BiCMOS solution.
+
+
+
+                                              239
+240                                                                                      Chapter #8
+
+                                                                   083
+                                                                   The simplest fully-diﬀer-
+                                                                   ential ampliﬁer is certainly
+                                                                   this     single-stage    OTA,
+                                                                   shown on the right. It is very
+                                                                   similar to the diﬀerential
+                                                                   voltage ampliﬁer discussed
+                                                                   in Chapter 2, shown on the
+                                                                   left. However, the current
+                                                                   mirror is substituted by two
+                                                                   DC current sources.
+                                                                      The circular current, gen-
+                                                                   erated by the diﬀerential
+                                                                   input voltage is indicated
+                                                                   with arrows.
+                                                                      It is clear that this fully-
+                                                                   diﬀerential OTA is even sim-
+pler than the single-ended voltage ampliﬁer. Only two transistors participate in the small-signal
+operation. It can therefore reach higher frequencies!
+  On the other hand, it is also clear that this ampliﬁer has a biasing problem. Both biasing
+voltages V and V try to set the DC currents, which is one too many!
+           B1       B2
+                                                                     084
+                                                                     The biasing voltages V
+                                                                                                  B1
+                                                                     and V have to be such that
+                                                                            B2
+                                                                     all transistors are in the sat-
+                                                                     uration region. Otherwise
+                                                                     they would exhibit a small
+                                                                     output resistance which
+                                                                     would deteriorate the gain.
+                                                                        The problem of the two
+                                                                     biasing voltages is that they
+                                                                     have to be matched to such
+                                                                     a degree that the average
+                                                                     output voltages are some-
+                                                                     where halfway between the
+                                                                     supply voltages, to keep all
+                                                                     transistors in saturation,
+                                                                     even for a large output swing.
+   For example, if V is ﬁxed, then a value of V , which is 20 mV too high would reduce both
+                     B1                           B2
+output voltages by 1 V (if the gain of the nMOSTs is 50). Even worse, when the V is larger,
+                                                                                       B2
+the average output voltages are so low that the nMOSTs M3/M4 end up in the linear region,
+killing the gain!
+   We have the same problem when biasing voltage V is too low. Now the average output
+                                                          B2
+voltages are too high and the pMOSTs M1/M2 end up in the linear region, killing the gain as well!
+   This kind of matching is impossible to realize. This is why we need an additional ampliﬁer to
+tune V to the required average or common-mode output voltages. This ampliﬁer only works
+        B2
+on common-mode signals. It is called the common-mode feedback ampliﬁer.
+Fully-diVerential ampliﬁers                                                                  241
+
+                                                                    085
+                                                                    One example of such a
+                                                                    CMFB ampliﬁer is shown in
+                                                                    this slide.
+                                                                       Both output voltages are
+                                                                    measured. Since we only
+                                                                    want feedback on the
+                                                                    common-mode signals, we
+                                                                    have to cancel out the
+                                                                    diﬀerential signals. This is
+                                                                    done at node 4.
+                                                                       Now we have to close the
+                                                                    loop with an ampliﬁer, and
+                                                                    feed it to a common-mode
+                                                                    point. Any biasing point in
+                                                                    the circuit can be used for
+                                                                    that. For this ampliﬁer it is
+                                                                    node 5.
+   Clearly, part of the circuit belongs to both the common-mode and the diﬀerential ampliﬁer.
+For example, transistors M3 and M4 are DC current sources for the diﬀerential signals, but
+single-transistor ampliﬁers for the common-mode signals.
+   Also, the CMFB ampliﬁer is always connected in unity-gain feedback. Nodes 1 and 2 are at
+the same time the input and output of the CMFB ampliﬁer. It may thus require more power to
+ensure stability.
+   The diﬀerential ampliﬁer is evidently shown without feedback.
+   Biasing voltage V is the independent biasing voltage. This could well have been the Gates of
+                     B
+the NMOSTs M3/M4, as shown next.
+
+                                                                    086
+                                                                    Another CMFB ampliﬁer is
+                                                                    shown here. It now closes
+                                                                    the feedback loop to the top
+                                                                    current source. This is
+                                                                    indeed good!
+                                                                      Again, the output volt-
+                                                                    ages are measured. The
+                                                                    diﬀerential signals are can-
+                                                                    celled out and the CMFB
+                                                                    loop is closed by means of
+                                                                    an ampliﬁer.
+                                                                      Now transistors M1 and
+                                                                    M2 are common to both
+                                                                    ampliﬁers. They function as
+                                                                    a (diﬀerential) ampliﬁer for
+                                                                    diﬀerential signals, but as
+cascodes for the common-mode signals.
+  In order to gain somewhat more insight in this CMFB ampliﬁer it is sketched separately in
+the next slide.
+242                                                                                      Chapter #8
+
+                                                                       087
+                                                                       The common-mode equiva-
+                                                                       lent circuit is easily found
+                                                                       by putting all diﬀerential
+                                                                       devices in parallel and
+                                                                       connecting them to the
+                                                                       common-mode input signals.
+                                                                          It is clear that node 1 is
+                                                                       at the same time the input
+                                                                       and the output of the
+                                                                          CMFB ampliﬁer. This is
+                                                                       also the circuit that will be
+                                                                       used, to derive the common-
+                                                                       mode gain, bandwidth and
+                                                                       GBW .
+                                                                              CM
+                                                                          Actually, the open-loop
+                                                                       gain is B B g R , in
+                                                                                     1 2 m5 n1
+which B and B are the current gain factors of the two current mirrors. This gain is not so high
+         1       2
+but only a small amount of gain is needed. The stabilization of the common-mode output voltage
+does not need to be so accurate. The outputs will both be at V           above the negative supply.
+                                                                  GS5,6
+For large swing, we increase the size of these V ’s.
+                                                GS
+  The GBW will evidently be given by the B B g /(2pC ). We have two input transistors
+              CM                                 1 2 m5        L
+M5 and M6 but also two load capacitors. The GBW can therefore be made quite high, at the
+                                                      CM
+cost of a lot of power consumption though!
+
+
+
+                                                                      088
+                                                                      As a summary, let us repeat
+                                                                      what the three tasks are of
+                                                                      a CMFB ampliﬁer.
+                                                                         They have to measure the
+                                                                      output voltages, cancel the
+                                                                      diﬀerential signals and close
+                                                                      the feedback loop.
+                                                                         Also, the CMFB ampliﬁer
+                                                                      always operates in unity-
+                                                                      gain.
+                                                                         Finally, it is important to
+                                                                      note that the gain of the
+                                                                      CMFB ampliﬁer is used to
+                                                                      increase the Common-mode
+                                                                      rejection ratio (as shown in
+                                                                      Chapter 15).
+Fully-diVerential ampliﬁers                                                                  243
+
+                                                                     089
+                                                                     Let us now look at the main
+                                                                     requirements of CMFB
+                                                                     ampliﬁers..
+                                                                        The ﬁrst one requires
+                                                                     the common-mode GBW
+                                                                                               CM
+                                                                     to be higher than the
+                                                                     diﬀerential GBW . How-
+                                                                                       DM
+                                                                     ever, this depends on the
+                                                                     application.
+                                                                        Indeed, if the common-
+                                                                     mode ampliﬁer were slow,
+                                                                     only providing DC biasing,
+                                                                     then a high-speed spike on
+                                                                     the supply line or the sub-
+                                                                     strate would throw the input
+                                                                     devices or the active loads
+in the linear region. Slow common-mode feedback would then take too much time to restore
+the biasing in the input stage. During all this time, the high-speed diﬀerential ampliﬁer would
+be out of operation. This why this speciﬁcation comes ﬁrst.
+   In some speciﬁc circuits such as some sigma-delta converters, high speed ampliﬁers are only
+used in the low-frequency region. In this case this speciﬁcation can be relaxed considerably!
+   Requiring the GBW to be as large as the GBW              will require a lot of power, directly
+                        CM                               DM
+conﬂicting with the last speciﬁcation. We will see that there is no easy way of avoiding this
+compromise. In principle, a fully-diﬀerential ampliﬁer simply doubles the power consumption.
+   Finally, the output swing is also a problem. It is limited by both the output swing of the
+diﬀerential ampliﬁer and by the common-mode input range of the CMFB ampliﬁer (whichever
+is smaller).
+
+                                                             0810
+                                                             The       diﬀerential     and
+                                                             common-mode ampliﬁers
+                                                             don’t necessarily have the
+                                                             same load capacitances.
+                                                                A situation is sketched in
+                                                             this slide where we have two
+                                                             consecutive fully-diﬀerential
+                                                             ampliﬁers. Both are using
+                                                             diﬀerential feedback to set
+                                                             the gain and the bandwidth.
+                                                                The capacitances C are
+                                                                                     L
+                                                             parasitic capacitances to
+                                                             ground. They obviously
+                                                             depend on the length and
+                                                             nature of the interconnect.
+                                                             Capacitance C is a mutual
+                                                                             M
+                                                             capacitance.
+  Now both the diﬀerential and common-mode load capacitances are derived.
+244                      Chapter #8
+
+      0811
+      All the capacitances which
+      are present at the output ter-
+      minals of one ampliﬁer are
+      sketched in this slide. The
+      input capacitances of the
+      next ampliﬁer are included
+      as well.
+         The virtual grounds are
+      taken as real grounds.
+         An input voltage is added
+      to measure the total capaci-
+      tance at the outputs. It will
+      be a diﬀerential input volt-
+      age to ﬁnd the diﬀerential
+      load capacitance, but a
+      common-mode input volt-
+      age for the load capacitance
+      of the CMFB ampliﬁer.
+
+
+
+      0812
+      For diﬀerential operation,
+      the diﬀerential input voltage
+      sees a load capacitance
+      C      , as indicated in this
+        INDM
+      slide.
+         The diﬀerential load
+      capacitance is quite small. It
+      only contains the mutual
+      capacitance and half of all
+      the others.
+Fully-diVerential ampliﬁers                                                                     245
+
+                                                                0813
+                                                                For common-mode opera-
+                                                                tion, the common-mode
+                                                                input voltage sees a load
+                                                                capacitance C      , which is
+                                                                              INCM
+                                                                a lot larger.
+                                                                   The feedback capacitors
+                                                                C and also the sampling
+                                                                  F
+                                                                capacitors C        are all
+                                                                               S
+                                                                doubled.
+                                                                   The CMFB ampliﬁer has
+                                                                to drive larger load capaci-
+                                                                tances than the diﬀerential
+                                                                one. Moreover, it is always
+                                                                connected in unity gain, for
+                                                                which stability is harder to
+                                                                achieve. These are two
+reasons for trying to reduce the power consumption as much as possible.
+
+
+
+
+                                                                     0814
+                                                                     Even with the simplest,
+                                                                     single-stage, fully-diﬀeren-
+                                                                     tial ampliﬁer, we have to be
+                                                                     careful with the deﬁnition of
+                                                                     the load capacitance. After
+                                                                     all, this load capacitance
+                                                                     determines the GBW!
+                                                                        With a ﬂoating capaci-
+                                                                     tance (at the left) we have to
+                                                                     include this capacitance
+                                                                     twice in the diﬀerential
+                                                                     GBW . Moreover there
+                                                                           DM
+                                                                     is no common-mode load
+                                                                     capacitance! Its GBW
+                                                                                                 CM
+                                                                     would therefore be inﬁnity.
+                                                                        With two capacitors to
+ground, the situation is very diﬀerent. The diﬀerential load capacitance is smaller; it is C itself.
+                                                                                             L
+The common-mode load capacitance is not at zero. It is twice C !
+                                                                 L
+246                                                                                      Chapter #8
+
+                                                                      0815
+                                                                      Now that we know how to
+                                                                      derive the speciﬁcations of a
+                                                                      fully-diﬀerential ampliﬁer,
+                                                                      let us have a look at the
+                                                                      three most used ones. The
+                                                                      ﬁrst one uses MOSTs in
+                                                                      the linear region for the
+                                                                      common-mode feedback.
+
+
+
+
+                                                                      0816
+                                                                      This is probably the sim-
+                                                                      plest possible CMFB ampli-
+                                                                      ﬁer.
+                                                                         It consists of a diﬀerential
+                                                                      pair, the current source of
+                                                                      which consists of two tran-
+                                                                      sistors M3 in the linear
+                                                                      region, with a V <
+                                                                                               DS3
+                                                                      V −V .
+                                                                        GS3    T
+                                                                         The three functions of the
+                                                                      CMFB ampliﬁer are clearly
+                                                                      distinguished.
+                                                                         The output voltages are
+                                                                      measured by the two tran-
+                                                                      sistors M3. Their Drains are
+                                                                      connected to cancel the
+diﬀerential signal and the feedback loop is closed.
+   Transistors M3 are thus the input devices of the CMFB ampliﬁer. This is why their g is in
+                                                                                            m3
+the expression of the GBW .
+                             CM
+   The input transistors M1 of the diﬀerential pair function as cascodes for the CMFB.
+   It is clear that in the linear region, the transconductances are much smaller than in the
+saturation region. The common-mode GBW is therefore smaller than the GBW . This is a
+                                              CM                                      DM
+disadvantage!
+   Why do the transistors M3 operate in the linear region?
+   There are two reasons. First of all, to have an output voltage in the middle, we need a large
+V . So as not to loose a large voltage drop, we need a small V . Clearly M3 must be in the
+  GS3                                                             DS3
+linear region.
+   The other reason is linearity. We need a linear cancellation of the diﬀerential signal to avoid
+the reduction of the diﬀerential gain because of the feedback. Transistors in the linear region are
+very linear indeed!
+Fully-diVerential ampliﬁers                                                                   247
+
+                                                                   0817
+                                                                   Another       fully-diﬀerential
+                                                                   ampliﬁer with CMFB is
+                                                                   shown in this slide.
+                                                                      The diﬀerential ampliﬁer
+                                                                   is a symmetrical ampliﬁer,
+                                                                   whereas the CMFB ampli-
+                                                                   ﬁer is the same as before. It
+                                                                   uses transistors M5 in the
+                                                                   linear region.
+                                                                      Again, the outputs are
+                                                                   measured. The diﬀerential
+                                                                   signal is cancelled out with
+                                                                   the (green) line and the loop
+                                                                   is closed.
+                                                                      Transistors M6 are cas-
+                                                                   codes in both ampliﬁers.
+   Note that the independent biasing is taken care of by transistor M7 in the middle. It has a
+large V    (half the total supply voltage) and a small V .
+       GS7                                              DS7
+   By matching the transistors M5 to M7, the output voltages will be around zero. Assume then,
+that we have a B factor of three. Transistor M5 is then 50% larger than transistor M7. Its
+current is also 50% larger than in transistor M7. Their V voltages are the same because of
+                                                            DS
+cascodes M6. Their V values must also be the same. Since the Gate of M7 is connected to
+                       GS
+ground, the output voltages must also be around ground.
+   Moreover, the output voltages are better deﬁned (by matching) than in the previous circuit,
+where they depend on transistor sizes.
+
+
+                                                                     0818
+                                                                     The same CMFB ampliﬁer
+                                                                     can be applied to a folded
+                                                                     cascode stage as well.
+                                                                        Now we have a folded
+                                                                     cascode OTA for the
+                                                                     diﬀerential operation. The
+                                                                     same CMFB ampliﬁer is
+                                                                     applied as before.
+                                                                        Transistors MN3 operate
+                                                                     in the linear region. They
+                                                                     carry out the three func-
+                                                                     tions again.
+                                                                        The output voltages will
+                                                                     be around 0 V because
+                                                                     the transistors MN3 are
+                                                                     matched to the two transis-
+tors in the current source at the input. Their Gates are connected to ground. The currents in all
+branches are the same. The V values are also the same. The output voltages are therefore
+                                GS
+around ground.
+248                                                                                  Chapter #8
+
+                                                                 0819
+                                                                 A fully-diﬀerential rail-to-
+                                                                 rail ampliﬁer is shown in
+                                                                 this slide. It consists of two
+                                                                 folded cascodes in parallel.
+                                                                    The CMFB ampliﬁer is as
+                                                                 before. Transistors Mra and
+                                                                 Mrb are in the linear region
+                                                                 and deﬁne the GBW . This
+                                                                                       CM
+                                                                 is smaller than the GBW ,
+                                                                                             DM
+                                                                 which may be a disad-
+                                                                 vantage.
+                                                                    This CMFB ampliﬁer has
+                                                                 the same advantage as
+                                                                 before. The average output
+                                                                 voltage is set by matching.
+                                                                 However, the transistors
+Mra/Mrb are matched to transistors Mref. Its Gate voltage Vbo sets the average voltage of
+the outputs.
+   The independent biasing is carried out by the transistors M3/M4 and M15. All currents are
+set by these sources.
+
+
+
+                                                                0820
+                                                                Another example of CMFB
+                                                                with MOSTs in the linear
+                                                                region is shown in this slide.
+                                                                   It is a high-speed ampli-
+                                                                ﬁer. A GBW of 850 MHz in
+                                                                two 5 pF capacitors can be
+                                                                reached thanks to the large
+                                                                currents, despite the old
+                                                                1.2 mm CMOS technology.
+                                                                   It is a folded cascode for
+                                                                a diﬀerential operation. The
+                                                                only additional feature is the
+                                                                feedforward around the
+                                                                slower pMOST cascodes
+                                                                through capacitors C .
+                                                                                       f
+                                                                   The CMFB ampliﬁer is
+the same as before. The outputs are around 0 V, because the Gates of the nMOSTs providing
+DC current to the input pair are at zero ground.
+Fully-diVerential ampliﬁers                                                                   249
+
+                                                                   0821
+                                                                   As a last example of this
+                                                                   type of common-mode feed-
+                                                                   back, a simple single-stage
+                                                                   voltage ampliﬁer is repeated
+                                                                   in this slide.
+                                                                      It is however, a transcon-
+                                                                   ductor for diﬀerential opera-
+                                                                   tion. The input devices
+                                                                   operate in the linear region
+                                                                   to avoid distortion.
+                                                                      The CMFB ampliﬁer also
+                                                                   consists of devices in the
+                                                                   linear region, in order to
+                                                                   provide accurate cancella-
+                                                                   tion of the diﬀerential signal.
+                                                                   The loop is closed over pnp
+transistors with some Emitter degeneration.
+   This CMFB ampliﬁer has one disadvantage however, which is also present for the very ﬁrst
+single-stage voltage ampliﬁer discussed on slide 16 of this Chapter. The average output voltage
+is not so well deﬁned.
+   The average or common-mode output voltage is set by the V values of the top transistors
+                                                                 GS
+M3 and M4. These values will depend on the currents imposed by current source I , the sizes
+                                                                                   tot
+of transistors M3/M4 and their KP values. They are therefore not that accurate.
+   Whether this is a problem depends on the next circuit, which inherits its DC biasing from
+this stage.
+
+
+                                                                   0822
+                                                                   The main advantage of this
+                                                                   ﬁrst principle of CMFB is
+                                                                   that no additional power is
+                                                                   required. The main disad-
+                                                                   vantage is that this CMFB
+                                                                   ampliﬁer may not be suﬃ-
+                                                                   ciently fast, depending on
+                                                                   the application.
+                                                                      This second principle has
+                                                                   exactly the opposite charac-
+                                                                   teristics. It takes two more
+                                                                   stages, resulting in much
+                                                                   more power consumption.
+                                                                   The speed however, can be
+                                                                   set independently of the
+                                                                   diﬀerential ampliﬁer, and
+                                                                   can be made as large as the
+                                                                   designer likes.
+250                                                                                   Chapter #8
+
+                                                                   0823
+                                                                   This fully-diﬀerential ampli-
+                                                                   ﬁer uses two equal resistors
+                                                                   R to cancel out the
+                                                                   diﬀerential signals. In this
+                                                                   way a common-mode bias-
+                                                                   ing voltage is obtained for
+                                                                   the Gates of transistors M2.
+                                                                      Consequently, there is no
+                                                                   biasing problem. Current
+                                                                   source I determines all
+                                                                             B
+                                                                   currents.
+                                                                      The main disadvantage is
+                                                                   that the resistors R must be
+                                                                   increased in size to ensure a
+                                                                   lot of gain. An easy solution
+                                                                   is to insert source followers
+between the Drains of the input transistors M1 and the two resistors R, as shown next. Smaller
+values of R are then possible.
+
+
+
+                                                                   0824
+                                                                   The circuit schematic is
+                                                                   shown in this slide.
+                                                                     The diﬀerential ampliﬁer
+                                                                   is just a folded cascode
+                                                                   OTA, loaded with 4 pF
+                                                                   capacitors.
+                                                                     Its GBW is then readily
+                                                                               DM
+                                                                   obtained.
+                                                                     Two more source follow-
+                                                                   ers are added at the out-
+                                                                   puts, which are required for
+                                                                   the CMFB, but which can
+                                                                   be used as outputs for
+                                                                   diﬀerential operation as
+                                                                   well.
+Fully-diVerential ampliﬁers                                                                       251
+
+                                                                       0825
+                                                                       The CMFB ampliﬁer is
+                                                                       highlighted on this slide.
+                                                                          It takes two more stages
+                                                                       to realize this feedback loop.
+                                                                       The ﬁrst one consists of
+                                                                       two source followers to pro-
+                                                                       vide low-impedance out-
+                                                                       puts. They are needed to be
+                                                                       able to connect two resistors
+                                                                       R to the outputs, to provide
+                                                                         a
+                                                                       accurate cancellation of the
+                                                                       diﬀerential signals.
+                                                                          The other stage on the
+                                                                       left, is the error ampliﬁer.
+                                                                       It compares the average
+                                                                       output voltage to a reference
+voltage, and feeds back to the biasing of the cascode stage.
+  It is clear that a lot of power is required to bias these two extra stages. Minimization of the
+power consumption is of the utmost importance.
+  The GBW is easily obtained, as transistors M6 are the input devices. The source followers
+               CM
+only have a gain of unity. A factor of two is lost because only one output is taken of the error
+ampliﬁer. Since the GBW is set independently of the diﬀerential input, it can be set at any
+                             CM
+value larger than the GBW .
+                              DM
+  Obviously, we are very worried about the stability of this multistage CMFB ampliﬁer. The
+nodes with non-dominant poles are the outputs, the Gate of M6AB and the Gates of current
+mirror M2/M7.The most important one is probably at the Gate of M6AB, depending on the
+choice of R . At this node the resistors R are in parallel, and the input capacitances C           in
+             a                                a                                                GS6
+series, which gives twice a factor of two in the f      . A zero f is introduced with C to compensate
+                                                   ndCM           z                    a
+this f     .
+      ndCM
+                                                                       0826
+                                                                       The source followers in the
+                                                                       previous realization take a
+                                                                       lot of power. This is why
+                                                                       they are left out in this third
+                                                                       type of CMFB.
+                                                                          This one will take less
+                                                                       power. However, some
+                                                                       other disadvantage will
+                                                                       show up. The output swing
+                                                                       will be limited by the CMFB
+                                                                       ampliﬁer, not by the
+                                                                       diﬀerential one!
+252                                                                                Chapter #8
+
+                                                                 0827
+                                                                 The error ampliﬁer for the
+                                                                 CMFB is now on the right.
+                                                                 The diﬀerential ampliﬁer is
+                                                                 just a conventional two-
+                                                                 stage Miller ampliﬁer with a
+                                                                 symmetrical ampliﬁer as an
+                                                                 input stage.
+                                                                    The GBW       is therefore
+                                                                               DM
+                                                                 easily obtained.
+                                                                    The biasing of the input
+                                                                 pair is provided by the
+                                                                 CMFB as shown next.
+
+
+
+
+                                                                 0828
+                                                                 The error ampliﬁer consists
+                                                                 of two diﬀerential pairs
+                                                                 M58–61, each of them being
+                                                                 connected to an output of
+                                                                 the diﬀerential ampliﬁer.
+                                                                 They compare the outputs
+                                                                 directly to ground, which
+                                                                 is obviously halfway the
+                                                                 supply voltages.
+                                                                   The average output volt-
+                                                                 age is well deﬁned.
+                                                                   The cancellation of the
+                                                                 diﬀerential signals is now
+                                                                 carried out at the outputs of
+                                                                 these two diﬀerential pairs
+                                                                 and fed back to the current
+source M5/M6 of the input pair.
+   The GBW is thus determined by the common-mode pairs M58–61, as given in this slide.
+              CM
+Again a factor of two is lost because only one output is taken of these pairs.
+   It can be set at any value though, higher than the GBW if required.
+                                                           CM
+   The main advantage of this CMFB conﬁguration is that it takes less power and yet provides
+a wide-band CMFB ampliﬁer. However, the only non-dominant pole added is at the gates
+of M5/M6.
+   The main disadvantage of this solution is that the output swing is limited by the common-
+mode input range of the CMFB ampliﬁer. The diﬀerential pair M58/M59 limits the range to
+about 2.8(V −V ). The output swing of the diﬀerential ampliﬁer is rail-to-rail.
+             GS     T
+Fully-diVerential ampliﬁers                                                                     253
+
+                                                                   0829
+                                                                   An example of such
+                                                                   common-mode feedback is
+                                                                   the ampliﬁer shown in this
+                                                                   slide.
+                                                                      The input stage consists
+                                                                   of class AB diﬀerential pairs
+                                                                   and will be discussed in
+                                                                   Chapter 12. Their outputs
+                                                                   are current mirrored (M15/
+                                                                   M18, M10/M11, M16/M17,
+                                                                   M9/M12) to the outputs
+                                                                   over cascode transistors. It
+                                                                   is thus a symmetrical OTA
+                                                                   for a diﬀerential operation.
+                                                                      The    common-feedback
+                                                                   ampliﬁer consists of two
+diﬀerential pairs on either side. Two connections are used to cancel the diﬀerential signal. The
+outputs are then fed back to the sources of cascodes M13 and M14 to the outputs.
+  It is clear that a lot of current is consumed in the CMFB ampliﬁers. Moreover, the output
+swings are limited by input ranges of the CMFB diﬀerential pairs, as explained in this slide.
+
+
+                                                                      0830
+                                                                      As a comparison, the three
+                                                                      types of CMFB ampliﬁers
+                                                                      are listed in this slide.
+                                                                         It is clear that the ﬁrst
+                                                                      type, with the MOSTs in the
+                                                                      linear region, has the lowest
+                                                                      power consumption. It does
+                                                                      not oﬀer the same wide-
+                                                                      band performance of the
+                                                                      other two. It only uses one
+                                                                      single ampliﬁer.
+                                                                         Its output swing is limited
+                                                                      by the use of cascodes. It can
+                                                                      still be about 80% of the
+                                                                      total supply voltage, which
+                                                                      is not too bad at all.
+   The third type of CMFB ampliﬁer needs one ampliﬁer more, i.e. the error ampliﬁer. Its speed
+is good but its output swing is limited by the input common-mode range.
+   In addition, the middle CMFB ampliﬁer needs source followers. It now requires three ampliﬁer
+stages which takes a lot of power. Its output swing is now mainly limited by the source followers.
+Indeed their V values have to be subtracted directly from the output swings.
+                GS
+   Adding more diﬀerential pairs in the CMFB pairs makes the requirements on the matching
+more severe. The ﬁrst solution with transistors in the linear region require stiﬀer tolerances than
+the other ones. It would take an elaborate analysis to show this, which, however, is left out.
+254                                                                                    Chapter #8
+
+                                                                     0831
+                                                                     Most fully-diﬀerential ampli-
+                                                                     ﬁers use one of the three
+                                                                     types of CMFB shown in
+                                                                     this slide. They may also use
+                                                                     some variations on these
+                                                                     conﬁgurations, as shown
+                                                                     next.
+                                                                        Also some switching solu-
+                                                                     tions are available, which
+                                                                     are used in sampled-data
+                                                                     systems.
+
+
+
+
+                                                                   0832
+                                                                   The ﬁrst example is shown
+                                                                   in this slide.
+                                                                      It consists of a folded-cas-
+                                                                   code OTA for diﬀerential
+                                                                   operation. Gain boosting is
+                                                                   added to all cascodes. Its
+                                                                   GBW        is of the order of
+                                                                          DM
+                                                                   hundreds of MHz, and yet
+                                                                   its gain can be as high as
+                                                                   100 dB.
+                                                                      The CMFB ampliﬁer
+                                                                   starts with source followers.
+                                                                   It is therefore of type two.
+                                                                   However, no error ampliﬁer
+                                                                   is used to reduce the power
+                                                                   consumption. The extra
+gain of the error ampliﬁer is not required as the common-mode feedback is applied to the Gates
+of transistors M4, which have gain-boosted cascodes to the outputs as well. The common-mode
+loop gain is suﬃciently high indeed.
+Fully-diVerential ampliﬁers                                                                      255
+
+                                                                       0833
+                                                                       Another good example of a
+                                                                       fully-diﬀerential ampliﬁer of
+                                                                       type 2 is shown in this slide.
+                                                                          Two-stage Miller opamps
+                                                                       are used now.
+                                                                          This gives the additional
+                                                                       advantage that the output
+                                                                       impedance is not so high at
+                                                                       middle frequencies. The
+                                                                       source followers can now
+                                                                       be left out. Only an error
+                                                                       ampliﬁer is required.
+
+
+
+
+                                                                       0834
+                                                                       An example of the CMFB
+                                                                       ampliﬁer of type 3 is shown
+                                                                       in this slide.
+                                                                          The main disadvantage of
+                                                                       such a CMFB ampliﬁer is
+                                                                       that its input range is too
+                                                                       limited. This input range
+                                                                       can be enhanced by addition
+                                                                       of Source resistors R as
+                                                                       shown in this slide. The lin-
+                                                                       earity is therefore greatly
+                                                                       improved.
+                                                                          Note, the average output
+                                                                       voltage is the sum of the ref-
+                                                                       erence voltage VDC and
+                                                                       V .
+                                                                         GS7
+  Also, the transistors M7 are split up in equal parts. All four DC currents through transistors
+M7 are equal. The cancellation of the diﬀerential signal is now carried out by cross-coupling.
+  An additional advantage of the insertion of the resistors R is that the input capacitance loading
+oﬀered to the diﬀerential ampliﬁer is minimal. In this way, high-frequency, fully-diﬀerential
+opamps can be obtained.
+256                                                                                   Chapter #8
+
+                                                                   0835
+                                                                   This fully-diﬀerential ampli-
+                                                                   ﬁer uses a CMFB of type
+                                                                   one, i.e. with transistors in
+                                                                   the linear region (on the
+                                                                   right).
+                                                                      The diﬀerential ampliﬁer
+                                                                   is just a folded cascode
+                                                                   OTA. Additional capaci-
+                                                                   tances C       with R      are
+                                                                             comp        comp
+                                                                   used to boost its high-fre-
+                                                                   quency performance (above
+                                                                   20 MHz).
+                                                                      The CMFB ampliﬁer
+                                                                   consists of MOSTs M20/
+                                                                   M21 in the linear region and
+                                                                   current mirrors M23/M17
+and M15/M9,10. This is a wide-band ampliﬁer, but at the cost of additional power consumption.
+  The outputs will end up around reference voltage V , as the transistors M19–21 have sizes
+                                                     ref
+which are matched to their currents.
+
+
+
+
+                                                                0836
+                                                                When        several      fully-
+                                                                diﬀerential ampliﬁers are
+                                                                used in series, for high-order
+                                                                ﬁlters for example, there is
+                                                                no need to have CMFB
+                                                                around each stage sepa-
+                                                                rately. In order to save
+                                                                power, CMFB can be
+                                                                applied over two diﬀerential
+                                                                ampliﬁers in series, as
+                                                                shown in this slide.
+                                                                   Now, the average output
+                                                                voltage is measured at the
+                                                                output of the second ampli-
+                                                                ﬁer, and applied to the
+                                                                common-mode input of the
+ﬁrst ampliﬁer. Since the common-mode output of the ﬁrst ampliﬁer is used to set the biasing of
+the second one, all common-mode levels are well deﬁned.
+Fully-diVerential ampliﬁers                                                                      257
+
+                                                                 0837
+                                                                 Common-mode             feedback
+                                                                 can also be embedded in
+                                                                 the diﬀerential ampliﬁer as
+                                                                 shown in this slide.
+                                                                    After all, this is a symmet-
+                                                                 rical OTA with current
+                                                                 factor B.
+                                                                    However, the current mir-
+                                                                 rors M2/M3 have an addi-
+                                                                 tional output current with
+                                                                 transistors M4, to cancel
+                                                                 the diﬀerential signals at the
+                                                                 diode-connected          MOSTs
+                                                                 M6. These latter devices are
+                                                                 the inputs of current mirrors
+                                                                 M5/M6 which close the
+                                                                 feedback loop.
+  The actual output voltages can be modiﬁed by injecting currents with transistors M7 driven
+by some other CMFB loop.
+  The additional power consumption in this solution, is quite modest. Moreover, the output
+swing is not hampered by the CMFB ampliﬁer.
+  As a consequence, this is an attractive solution indeed!
+
+
+
+                                                                        0838
+                                                                        When a clock is avail-
+                                                                        able, as in all sampled-
+                                                                        data circuitry, it can be
+                                                                        used towards a low-power
+                                                                        CMFB loop.
+                                                                           This ampliﬁer is just a
+                                                                        symmetrical OTA.
+                                                                           The outputs are measured
+                                                                        by a number of switches and
+                                                                        capacitors, which provide
+                                                                        common-mode feedback to
+                                                                        the gates of transistors
+                                                                        M11/M12.
+                                                                           This feedback is not
+                                                                        applied directly to the Gates
+                                                                        of M8/M6 to make sure that
+not all current can be switched in the output devices. For common-mode disturbance in the
+supply lines or substrate, large transients at the outputs can be avoided in this way.
+   In order to see how this circuit works, it is copied when all transistors are on, driven by clock
+W , and then when all transistors are on, driven by clock W .
+  1                                                           2
+258                                                                                        Chapter #8
+
+                                                                        0839
+                                                                        This is exactly the same cir-
+                                                                        cuit as before.
+                                                                           In this slide, clock W is
+                                                                                                  1
+                                                                        high, all the transistors,
+                                                                        which are driven by this
+                                                                        clock, are on. The other
+                                                                        ones are oﬀ. Thick lines indi-
+                                                                        cate which paths the signals
+                                                                        can take.
+                                                                           Clearly, the outputs are
+                                                                        AC coupled by capacitors
+                                                                        C1/C2. Their diﬀerential
+                                                                        content is then cancelled
+                                                                        out. Finally, this signal is
+                                                                        then applied to the Gate of
+                                                                        transistor M12 to close the
+                                                                        feedback loop.
+  The GBW is set by g            and the output load capacitor.
+              CM             m12
+  The DC level at the Gate of M12 is not deﬁned because of the coupling capacitances C1/C2.
+  This is why the other two capacitances C3/C4 are precharged to the proper DC voltages.
+Their left side is set to analog ground (Vdd/2), whereas their right side is set at a biasing voltage,
+which is the same as at the Gates of current mirror transistors M5/M6/M8.
+  On the next phase, the capacitors are swapped around, as shown in the next slide.
+  Continuous CMFB is thus ensured.
+
+
+
+                                                                      0840
+                                                                      In the phase W , the other
+                                                                                        2
+                                                                      transistors are on. Capaci-
+                                                                      tors C3/C4 now provide
+                                                                      common-mode           feedback,
+                                                                      whereas the other ones
+                                                                      C1/C2       are     reset    or
+                                                                      precharged.
+                                                                         It is clear that this solu-
+                                                                      tion does not take any
+                                                                      power at all except for the
+                                                                      switching power consump-
+                                                                      tion of all switches and
+                                                                      capacitors.
+                                                                         However, there are a few
+                                                                      disadvantages.
+                                                                         First of all, the clock fre-
+quency appears in the signal path. This is a result of clock injection and charge redistribution,
+which are typical for all sampled-data circuits such as switched-capacitor ﬁlters. This is explained
+in detail in Chapter 17.
+Fully-diVerential ampliﬁers                                                                 259
+
+  As a result, we can only use this solution at frequencies well below the clock frequency.
+  Moreover, these clock injection and charge redistribution signals severely limit the dynamic
+range. Intermodulation (and folding) of these signals provide an upper limit to the signal-to-
+noise ratio.
+  Finally, the switched capacitors increase the capacitive load of the CMFB ampliﬁer. As a
+result, the GBW will be reduced and the common-mode settling time increased.
+                CM
+
+
+
+                                                                  0841
+                                                                  Now that most types of
+                                                                  CMFB ampliﬁers have been
+                                                                  presented, this is a good
+                                                                  opportunity to launch a
+                                                                  design exercise.
+                                                                    Only the design task is
+                                                                  described. The solution can
+                                                                  be obtained from the editor,
+                                                                  in the exercise solution
+                                                                  book.
+
+
+
+
+                                                                  0842
+                                                                     This      fully-diﬀerential
+                                                                  ampliﬁer is of type 2. It is a
+                                                                  folded cascode. It has both
+                                                                  source followers and an
+                                                                  error ampliﬁer for the
+                                                                  common-mode feedback.
+                                                                     The outputs are evidently
+                                                                  at nodes 5 or 2.
+                                                                     The circuit has been sim-
+                                                                  pliﬁed somewhat. For exam-
+                                                                  ple, the current mirror
+                                                                  transistors M4 have all the
+                                                                  same size. Moreover, the
+                                                                  CMFB resistors R are used
+                                                                                      a
+                                                                  without the parallel capaci-
+                                                                  tors C . They can be added
+                                                                         a
+                                                                  afterwards.
+260                                                                                    Chapter #8
+
+                                                                     0843
+                                                                     The speciﬁcations to which
+                                                                     this ampliﬁer has to be
+                                                                     designed, are given in this
+                                                                     slide. The GBW’s are quite
+                                                                     moderate, but so is the
+                                                                     technology.
+                                                                        Note that the GBW is
+                                                                                             CM
+                                                                     a factor of two larger than
+                                                                     the GBW .
+                                                                               DM
+                                                                        Note also that the total
+                                                                     supply voltage is only 3 V.
+                                                                     This is why we want to max-
+                                                                     imize the output swing.
+                                                                     Obviously we always take
+                                                                     minimum currents.
+                                                                        For these speciﬁcations,
+only one possible design results. Only one set of currents and transistor sizes emerges.
+  All other speciﬁcations such as Slew Rate, noise density, etc., can be veriﬁed afterwards.
+
+
+
+
+                                                                    0844
+                                                                    A BiCMOS equivalent is
+                                                                    shown in this slide.
+                                                                       The CMFB ampliﬁer is
+                                                                    the highest-speed circuit
+                                                                    block. This is why it is real-
+                                                                    ized by means of npn tran-
+                                                                    sistors. Also the current
+                                                                    mirrors M4 are realized
+                                                                    with pnp transistors. They
+                                                                    only need a V of 0.1 V
+                                                                                    CE
+                                                                    compared with a V           of
+                                                                                            DS
+                                                                    0.2 V for MOSTs. We gain
+                                                                    0.1 V in output swing.
+Fully-diVerential ampliﬁers                                                                    261
+
+                                                                      0845
+                                                                      The speciﬁcations to which
+                                                                      this ampliﬁer has to be
+                                                                      designed are the same.
+                                                                        Again, the total supply
+                                                                      voltage is 3 V. We want to
+                                                                      maximize again the output
+                                                                      swing. All currents have to
+                                                                      be minimized.
+                                                                        Only one possible design
+                                                                      emerges.
+                                                                        The other speciﬁcations
+                                                                      such as Slew Rate, noise
+                                                                      density, etc., are then veri-
+                                                                      ﬁed for comparison.
+                                                                        As a hint for this design,
+                                                                      the following steps have to
+                                                                      be taken.
+   The maximum output swing is the diﬀerence between the largest voltage at the output and
+the smallest one. This determines the output swing, but also the average output voltage. This
+leads to the upper value of the reference voltage V and the value of V .
+                                                    r1                    r2
+   From the values of the GBW, the g can easily be derived. Choices for V −V and L lead
+                                       m                                       GS     T
+to values of the current and the transistor size.
+   In this way, all currents are known, except for the currents in the source followers M5.
+   These currents, through transistors M5 determine the swing across resistors R , which has
+                                                                                      a
+been derived before. The resistors R determine on their turn, the non-dominant poles.
+                                     a
+
+
+
+
+                                                                      0846
+                                                                      In this Chapter fully-
+                                                                      diﬀerential ampliﬁers have
+                                                                      been discussed in great
+                                                                      detail. Design procedures
+                                                                      have been discussed for all
+                                                                      CMFB ampliﬁers.
+                                                                        Finally an exercise is
+                                                                      launched to test the compre-
+                                                                      hension of the reader.
+

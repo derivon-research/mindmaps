@@ -1,0 +1,1373 @@
+744                                                                                    Chapter #24
+
+                                                                        These spikes are then
+                                                                     injected into the substrate,
+                                                                     as each output has a small
+                                                                     capacitance C          to the
+                                                                                    DigSub
+                                                                     substrate. They have a wide
+                                                                     frequency spectrum. This is
+                                                                     why they are called noise.
+                                                                        The second phenomenon
+                                                                     is the transmission of this
+                                                                     noise to the other side of the
+                                                                     substrate, where the analog
+                                                                     circuits are present. This
+                                                                     obviously depends on the
+                                                                     nature of the substrate, on
+                                                                     the presence of an epitaxial
+                                                                     layer, etc.
+                                                                        The third phenomenon is
+the pickup of this noise by the sensitive analog circuits. Each transistor also has the substrate
+as an input. It converts the substrate noise into a drain current. As a result, the SNR suﬀers
+badly from substrate noise. The most important speciﬁcation with this respect, is the PSSR or
+Power-supply-rejection ratio.
+  All analog circuits are better made fully-diﬀerential to reject the substrate noise as much as
+possible. Mismatch limits this rejection however, and limits the SNR, which can be reached in
+a mixed-signal circuit.
+
+
+
+                                                                      244
+                                                                      Let us concentrate ﬁrst on
+                                                                      the generation of the noise
+                                                                      in the substrate.
+                                                                         Transmission in the sub-
+                                                                      strate, or coupling to the
+                                                                      analog parts through the
+                                                                      substrate comes next.
+                                                                         The pickup by the analog
+                                                                      circuits is the ﬁnal Section.
+Coupling eVects in mixed analog-digital ICs                                                     745
+
+                                                                      245
+                                                                      Any digital gate causes tran-
+                                                                      sitions at its output from a
+                                                                      logical zero to one, or vice-
+                                                                      versa. This transition causes
+                                                                      a current spike from sub-
+                                                                      strate to ground. As an
+                                                                      example, a simple CMOS
+                                                                      inverter is used. This cur-
+                                                                      rent spike is then easily
+                                                                      described, as shown in this
+                                                                      slide.
+                                                                         The size of this spike evi-
+                                                                      dently depends on the sizes
+                                                                      of the transistors used. Since
+                                                                      thousands of digital gates
+                                                                      are put together in a proces-
+                                                                      sor, the total current can be
+                                                                      quite large and can have a
+                                                                      wide frequency spectrum.
+
+
+                                                                      246
+                                                                      However, analog circuits
+                                                                      can also cause current
+                                                                      spikes. For example, class-
+                                                                      AB stages draw currents
+                                                                      which are larger than their
+                                                                      quiescent current.
+                                                                        As an example, look at
+                                                                      the class-AB input stage
+                                                                      shown in this slide. For large
+                                                                      input voltages, the currents
+                                                                      can become quite large.
+                                                                      When the current is moni-
+                                                                      tored through the positive
+                                                                      supply line. Large current
+                                                                      spikes are visible, nearly 50
+                                                                      times the quiescent current.
+   Evidently, this ampliﬁer is used in a switched-capacitor ﬁlter. At each clock cycle, the opamp
+is driven hard, causing these current spikes to ﬂow.
+   An important compromise is now to be taken. Class AB circuits allow considerable reduction
+in quiescent power consumption. On the other hand, they cause current spikes which may impair
+the SNR.
+746                                                                                    Chapter #24
+
+                                                                 247
+                                                                 Do all digital gates cause
+                                                                 current spikes? The answer
+                                                                 is negative. Current spikes
+                                                                 are typical for CMOS logic.
+                                                                 No current is consumed in
+                                                                 either the zero output state
+                                                                 or the output state. Current
+                                                                 is only consumed during
+                                                                 the transition. This is the
+                                                                 strength of CMOS logic.
+                                                                 The static power consump-
+                                                                 tion is very low but
+                                                                 increases with the clock
+                                                                 frequency.
+                                                                    Several other loc families
+                                                                 exist which consume current
+continuously. ECL in bipolar technology or current-mode logic in CMOS (see slide) are good
+examples. As current is consumed continuously, the power consumption is high. The advantage
+however, is that the current spikes are hardly visible.
+
+
+                                                                     248
+                                                                     Even class-A ampliﬁers can
+                                                                     cause current spikes. An
+                                                                     example is shown in this
+                                                                     slide of a symmetrical
+                                                                     class-A OTA.
+                                                                        When it is used in a
+                                                                     switched-capacitor    ﬁlter,
+                                                                     current spikes are found at
+                                                                     each clock cycle. Indeed,
+                                                                     charging load capacitance
+                                                                     C fast, generates a current
+                                                                       L
+                                                                     spike from the positive
+                                                                     supply through M8 and C .
+                                                                                               L
+                                                                        In the same way, will
+                                                                     the discharge of this load
+                                                                     capacitance C cause a cur-
+                                                                                   L
+rent spike through M6 to ground?
+  These spikes are not as large as in a class-AB circuit, they are not invisible, however.
+Coupling eVects in mixed analog-digital ICs                                                    747
+
+                                                                      249
+                                                                      Now that it is clear that
+                                                                      both digital and analog cir-
+                                                                      cuits generate plenty of cur-
+                                                                      rent spikes, it has to be
+                                                                      ﬁgured out how they can be
+                                                                      prevented from traveling to
+                                                                      the other side of the sub-
+                                                                      strate, where the analog
+                                                                      input stages are detecting
+                                                                      whatever reaches their gates
+                                                                      or substrates underneath.
+                                                                         The distribution of the
+                                                                      pins plays an important
+                                                                      role. It is discussed ﬁrst.
+                                                                         The longitudinal trans-
+                                                                      mission through the sub-
+strate is another important factor.
+   Finally, layout techniques can be used to reduce coupling.
+
+
+
+                                                                      2410
+                                                                      A pin of a chip package is
+                                                                      normally connected over a
+                                                                      bonding wire to a bonding
+                                                                      pad. This pad then leads to
+                                                                      the active circuits by means
+                                                                      of metal lines.
+                                                                         Both bonding wires and
+                                                                      long metal lines, on chip and
+                                                                      in the package, represent
+                                                                      some resistance but especi-
+                                                                      ally inductance. At high fre-
+                                                                      quencies (or clocks) this
+                                                                      inductance can represent
+                                                                      impedances of many Ohms.
+                                                                      Indeed, fast clocks have
+                                                                      short rise times and there-
+fore generate large impedances. The voltage drop DV along this pad or line can now be
+considerable.
+   A bonding wire has an inductance of about 1 nH/mm. Depending on which pin is contacted,
+the connection to the active circuit on the chip, can reach values up to 21 nH, for a 40-pin
+plastic package. A clock current spike of 20 mA with a 2 ns rise time causes a voltage drop of
+about 210 mV. Depending on the logic, values can be allowed up to 500 mV.
+   This voltage drop is generated by the current to the digital circuit and appears on the supply
+line of both, the digital and analog circuit block. As a result the PSRR of the analog block will
+suﬀer heavily and will probably be no more than 40 dB.
+748                                                                                   Chapter #24
+
+                                                                    2411
+                                                                    The bonding wires also
+                                                                    cause ground bounces and
+                                                                    supply line bounces. This is
+                                                                    illustrated in this slide.
+                                                                       A digital gate with input
+                                                                    voltage v and supply volt-
+                                                                              inD
+                                                                    age V       is in the neighbor-
+                                                                           DD,D
+                                                                    hood of an analog ampliﬁer,
+                                                                    this is biased at a certain
+                                                                    current and has V          as a
+                                                                                          DD,A
+                                                                    supply voltage. The latter
+                                                                    supply line has a decoupling
+                                                                    capacitance C , to sup-
+                                                                                      dec
+                                                                    press noise and ripple.
+                                                                       All connections to the
+                                                                    supply lines carry bonding
+wires. We monitor the output voltage of the analog ampliﬁer v       as a result of a digital input
+                                                                  outA
+signal v .
+        inD
+   The only coupling between both circuits is along the ground line, which is common to both.
+   Digital transitions at the output of the digital gate, are visible at the output of the analog
+ampliﬁer, as shown next.
+
+
+
+                                                                    2412
+                                                                    Digital transitions of the
+                                                                    digital gate, cause ringing
+                                                                    indeed at the analog output.
+                                                                    The size of it depends heav-
+                                                                    ily on the values of the bond
+                                                                    wire inductances. The larger
+                                                                    the inductances, the larger
+                                                                    the ringing.
+                                                                       They have to be short-
+                                                                    ened, or replaced by ﬂip-
+                                                                    chip bonding, as will be
+                                                                    shown later.
+                                                                       A more elaborate analysis
+                                                                    of ground bounce is given in
+                                                                    Badaroglu, JSSC July 2004,
+                                                                    1119–1130.
+
+
+
+2413
+The best strategy for pinning is therefore to avoid common supply lines or common ground
+lines altogether.
+   The top solution is the best one. It costs one extra pin, however.
+Coupling eVects in mixed analog-digital ICs                                                     749
+
+                                                                        The other two solutions
+                                                                     are poor. Each pad has a
+                                                                     capacitance to ground and
+                                                                     has an inductor in series to
+                                                                     model the bond wire.
+                                                                        It is now clear that both
+                                                                     solutions form a ﬁlter from
+                                                                     one supply to the other. The
+                                                                     middle one is better than the
+                                                                     bottom one.
+                                                                        In the bottom connection,
+                                                                     the pin itself and all external
+                                                                     decoupling capacitors con-
+                                                                     nected to that pin, are iso-
+                                                                     lated from the supply lines
+                                                                     because of the bonding-wire
+                                                                     inductance. This is clearly
+                                                                     the worst possible solution.
+
+
+                                                                    2414
+                                                                    The bonding wires again
+                                                                    play an important role in
+                                                                    this sensor preampliﬁer fol-
+                                                                    lowed by a DSP block. Both
+                                                                    the input and output are
+                                                                    actually analog. The core is
+                                                                    a DSP block preceded by a
+                                                                    ADC and followed by a
+                                                                    DAC. All this is on-chip,
+                                                                    whereas the sensor itself and
+                                                                    the output are oﬀ-chip.
+                                                                       How to connect the
+                                                                    supply lines and ground?
+                                                                       The substrate is separated
+                                                                    from the analog ground,
+                                                                    which is reserved for the
+input and output ampliﬁers on-chip only and to the ground of the sensor oﬀ-chip.
+  The substrate is taken out separately and connected externally to the supply ground line.
+Many parallel bonding-wires are used in parallel as this ground connection is common to both
+the analog circuits and digital blocks. Two separate pins are used however, for these ground
+connections VSSA and VSSD.
+  The supply voltages also come in over two separate pins VDDA and VDDD. Again, multiple
+bonding wires are used for the digital supply pin.
+  All necessary precautions have now been taken to avoid coupling. The most sensitive point
+for coupling is at the analog ground of the input ampliﬁer. As no diﬀerential sensor is used, this
+point will pick up noise from the substrate and from the external PCB ground. Diﬀerential
+sensors are therefore always preferred.
+750                                                                                    Chapter #24
+
+                                                                   2415
+                                                                   It is not always easy to
+                                                                   model the coupling between
+                                                                   the analog and digital
+                                                                   blocks. A network of resis-
+                                                                   tors and capacitors can be
+                                                                   used, as shown in this slide.
+                                                                   However it is a non-trivial
+                                                                   task to obtain realistic
+                                                                   values of all these com-
+                                                                   ponents.
+                                                                      Both the analog and the
+                                                                   digital blocks are coupled
+                                                                   by means of capacitors to a
+                                                                   common substrate, which
+                                                                   can be modeled as a grid of
+                                                                   resistors and capacitors.
+Both the analog and the digital blocks have separate pins for supply lines and ground. They all
+consist of inductors in series with small resistors.
+  The external supply line and ground are on top and at the bottom.
+  This applies to analog and digital blocks which are suﬃciently small such that they do not
+have to be subdivided over more blocks. If this is the case, then the simulation time grows
+considerably.
+
+
+
+                                                                    2416
+                                                                    In this example, we try to
+                                                                    ﬁnd out what is a reasonable
+                                                                    number of pins.
+                                                                       The maximum number of
+                                                                    pins is nine. This is evidently
+                                                                    rarely acceptable. Some of
+                                                                    the pins can be combined to
+                                                                    reduce this number, as
+                                                                    explained now.
+                                                                       The nine pins can be
+                                                                    divided into four for the
+                                                                    analog part, four for the dig-
+                                                                    ital part and one for the
+                                                                    screen in the middle. This
+                                                                    screen is a metal plate with
+                                                                    a certain width to physically
+separate the analog blocks from the digital ones as far as necessary. It should also go as deep
+as possible. It is therefore connected to an underlying deep diﬀusion.
+  The four pins of the analog part are the following:
+– the positive supply line
+– the ground line
+Coupling eVects in mixed analog-digital ICs                                                  751
+
+– the substrate (bulk)
+– the guard rings.
+Occasionally, the substrate can be connected to one of the supply lines (positive supply or
+ground). This is not always advisable however, as will be shown later.
+  The guard rings are diﬀusions surrounding the most sensitive analog ampliﬁers. They are
+meant to take up noise coming laterally from the digital parts. Of course, they do not pick up
+a great deal of noise arriving vertically. This will also be discussed later in more detail.
+  Digital blocks can also have four pins, although in practice only two of them are used, the
+positive supply line and ground.
+
+                                                                    2417
+                                                                    These    conclusions are
+                                                                    repeated, together with
+                                                                    some useful suggestions
+                                                                    about the layout.
+                                                                       They speak for them-
+                                                                    selves.
+
+
+
+
+                                                                   2418
+                                                                   Another way to summarize
+                                                                   the techniques to reduce
+                                                                   noise pick up is given in
+                                                                   this slide.
+                                                                      Some eﬀort is also being
+                                                                   made to reduce the genera-
+                                                                   tion of noise. The spreading
+                                                                   of the digital activity may
+                                                                   help to reduce the spec-
+                                                                   tral content of the noise
+                                                                   generated.
+                                                                      On the analog (receiver)
+                                                                   side we notice that buried
+                                                                   layers are suggested to
+                                                                   screen the transistors from
+                                                                   the noise coming in verti-
+                                                                   cally. This is a very eﬀective
+technique, indeed. On the other hand, buried layers are not always available.
+752                                                                                   Chapter #24
+
+  Quite often, considerable space is allotted to decoupling capacitances. These are small capaci-
+tances connected locally to provide low impedances to ground at high frequencies.
+
+
+
+                                                                2419
+                                                                Actually, the same tech-
+                                                                niques to avoid coupling
+                                                                of noise is applicable
+                                                                for printed-circuit boards
+                                                                (PCB) as for silicon chips.
+                                                                   This is why an example is
+                                                                given of a printed-circuit
+                                                                board with an analog block
+                                                                and a digital block. It is to
+                                                                be connected to several
+                                                                pieces of equipment.
+                                                                   It is clear that all sup-
+                                                                ply lines are separated.
+                                                                Moreover, the shielding of
+                                                                all connecting cables is con-
+                                                                nected to the external
+ground separately. The substrate or the ground plane of the PCB is also connected separately
+to the external ground.
+
+
+
+                                                                    2420
+                                                                    On-chip decoupling may
+                                                                    not always work.
+                                                                       An example is given in
+                                                                    this slide where decoupling
+                                                                    does more harm than good.
+                                                                       A single digital gate is
+                                                                    used. It is switched by appli-
+                                                                    cation of a logic one. It is
+                                                                    loaded by a load capacitor.
+                                                                    Its supply lines are con-
+                                                                    nected over bonding wire
+                                                                    inductors. The supply volt-
+                                                                    age is measured at the termi-
+                                                                    nals of the gate.
+                                                                       Without decoupling cap-
+                                                                    acitance,      high-frequency
+ringing is detected on the supply line. The addition of a decoupling capacitance C across the
+                                                                                      D
+gate terminals, causes ringing of this capacitor with the bonding wire inductors. It has a lower
+frequency than before, but is larger in amplitude.
+   Addition of series resistors R dampens this ringing but also causes a DC voltage drop along
+                                 L
+the supply lines, which is to be avoided.
+Coupling eVects in mixed analog-digital ICs                                                        753
+
+                                                                       2421
+                                                                       A better solution is to add a
+                                                                       series resonant RLC circuit
+                                                                       across      the     decoupling
+                                                                       capacitor C .
+                                                                                     D
+                                                                          A series resonant RLC
+                                                                       circuit provides a null in the
+                                                                       impedance (see Chapter 22)
+                                                                       at its resonant frequency f .
+                                                                                                     r
+                                                                       It is therefore an ideal circuit
+                                                                       to dampen oscillation at this
+                                                                       frequency.
+                                                                          If its resonant frequency
+                                                                       can be tuned at the ringing
+                                                                       frequency of the decoupling
+                                                                       capacitor with the bonding
+                                                                       wire inductors, then the
+damping will stop the ringing.
+   If this ringing occurs at the clock frequency, then it is fairly easy to tune this series RLC
+circuit to this clock frequency. It is not as critical as it sounds. Some typical values are given in
+this slide.
+
+                                                                       2422
+                                                                       Now that we have a better
+                                                                       view on how to cope with
+                                                                       the bonding wire inductors,
+                                                                       let us see how the substrate
+                                                                       itself plays a role.
+                                                                          It is clear that the sub-
+                                                                       strate is most responsible for
+                                                                       the transmission of the noise
+                                                                       from the digital part to the
+                                                                       analog part.
+
+
+
+
+2423
+Several possible substrates are shown in this slide.
+  The top one has an epitaxial layer, whereas the other one has not.
+  The epitaxial layer is usually doped fairly low (with high resistivity) so as to set the MOST
+characteristics. The substrate however, is highly doped (with low resistivity) to allow current
+ﬂow with low voltage drops. As a consequence, the current reaches the p+ diﬀusion from the
+Injector to the Receiver in a vertical direction. Also, as the substrate has low resistivity, the
+754                                                                                      Chapter #24
+
+                                                                       distance between Injector
+                                                                       and Receiver does not
+                                                                       matter.
+                                                                         One of the questions is,
+                                                                       how close can the Injector
+                                                                       be to the Drain before hori-
+                                                                       zontal current ﬂows in the
+                                                                       epitaxial layer? The answer
+                                                                       is that if the distance
+                                                                       between both diﬀusions is
+                                                                       smaller than about 4 times
+                                                                       the thickness of the epitaxial
+                                                                       layer, then horizontal cur-
+                                                                       rent can also be expected in
+                                                                       the epitaxial layer.
+                                                                         This is the case if no epi-
+                                                                       taxial layer is present. The
+whole substrate is now lowly doped. As a consequence, the current from the left p+ island (the
+Injector) spreads into the substrate to be collected again at the right p+ island, or the Receiver.
+Both horizontal and vertical currents are then present around the p+ island.
+  In this case, the distance will play a role: the larger the distance, the larger the resistance
+between both islands.
+
+
+
+                                                                       2424
+                                                                       In this experiment, the
+                                                                       inﬂuence of the distance
+                                                                       between the Injector (at the
+                                                                       right) and the Receiver (at
+                                                                       the left) is investigated in
+                                                                       more detail.
+                                                                          A short current pulse is
+                                                                       injected at a n+ island. This
+                                                                       is expected to cause a cur-
+                                                                       rent to both p+ grounds,
+                                                                       the digital ground at the
+                                                                       right, and the analog ground
+                                                                       at the far left. A nMOST
+                                                                       transistor is added at the
+                                                                       left. It is biased as a source
+                                                                       follower with a 50 V Source
+resistor, at which node the output voltage is measured.
+  The left p+ island is connected to the analog ground, but is actually the substrate contact for
+the analog part, which is here the nMOST Source follower. The lateral resistor between this
+substrate contact and the Source of the nMOST is denoted by r . It must be made smaller in size.
+                                                                1
+  In a similar way, the lateral resistor between the digital injector and its substrate contact is
+denoted by r . It must also be made smaller.
+              2
+Coupling eVects in mixed analog-digital ICs                                                       755
+
+  The lateral distance between the analog nMOST and the digital injector is denoted by resistor
+R. The larger this R is the better.
+  Indeed the Voltage V sensed at the Source of the nMOST Source follower, as a result of
+                         out
+the input current I , is as given in this slide. This current ﬂows mainly to its digital ground and
+                   in
+causes a voltage r I , in the epitaxial layer, underneath the digital p+ island. This voltage is
+                   2 in
+then sensed at the output through a potentiometric divider of R and r .
+                                                                         1
+
+
+
+
+                                                                      2425
+                                                                      The output voltage V          is
+                                                                                                out
+                                                                      given in this slide, versus dis-
+                                                                      tance between Injector and
+                                                                      Receiver.
+                                                                         On a lightly doped sub-
+                                                                      strate, without epitaxial
+                                                                      layer, the currents ﬂows
+                                                                      through a large resistance.
+                                                                      As a result, the output volt-
+                                                                      age is large and inversely
+                                                                      proportional to the distance.
+                                                                         When a lightly doped epi-
+                                                                      taxial layer is added on top,
+                                                                      the result is the same.
+                                                                      Indeed, the current still
+                                                                      encounters a large resis-
+tance, which is proportional to the distance.
+   Only when a heavily-doped substrate is used, all the current ﬂows directly to the substrate
+and along the substrate to the other island. The distance is no longer of any importance.
+Moreover, the output voltage is small because the substrate resistance is small.
+   Only when the distance between both islands is smaller than 3–4 times the epitaxial thickness,
+some current now ﬂows through the epitaxial layer. The resistance is higher and so is the
+output voltage.
+   A designer must be aware of the kind of substrate that is being used in this particular CMOS
+technology.
+
+
+
+
+2426
+If no epitaxial layer is present, the extension of the distance is now about the only remedy left
+to reduce coupling.
+   This is not quite true. The third dimension can be used as well.
+   An example is given in this slide. Between the injector (on the right) and the receiver, a deep
+diﬀusion is added (such as the n-well), connected to the supply voltage. As a result, a wide
+depletion region is added.
+756                     Chapter #24
+
+         This n-well diﬀusion with
+      its depletion region acts as
+      an isolator between Injector
+      and Receiver.
+         In this way, the current
+      path from Injector to
+      Receiver is made longer, the
+      resistance larger and the
+      coupling weaker.
+
+
+
+
+      2427
+      Remember that all these
+      contacts need separate pins.
+         As an example, a supply
+      line (or ground line) of a dig-
+      ital block which runs in par-
+      allel with a supply line (or
+      ground line) of analog
+      block, and gives capacitive
+      coupling.
+         A deep diﬀusion with
+      metal on top between both
+      reduces signiﬁcantly the
+      coupling. Even better, is to
+      lead the three bonding wires
+      to diﬀerent pins.
+Coupling eVects in mixed analog-digital ICs                                                       757
+
+                                                                     2428
+                                                                     Deeper isolation is obtained
+                                                                     by deep trench isolation
+                                                                     between      Injector      and
+                                                                     Receiver.
+                                                                        In the example in this
+                                                                     slide, a deep trench is etched
+                                                                     between the areas on the left
+                                                                     and the right. Moreover,
+                                                                     both areas have a buried
+                                                                     layer, which are ideal to
+                                                                     screen away currents com-
+                                                                     ing in vertically.
+                                                                        The right n-well houses
+                                                                     pMOST devices, whereas
+                                                                     the area on the left houses
+                                                                     nMOST devices. The isola-
+tion between both is quasi perfect as it cuts through most of the silicon.
+   Taking two diﬀerent chips is even more perfect, but requires more expensive packaging.
+
+
+                                                                      2429
+                                                                      Guard rings are ideal to
+                                                                      screen away currents com-
+                                                                      ing in horizontally. This is
+                                                                      illustrated in this slide.
+                                                                         Guard rings are highly-
+                                                                      doped       diﬀusion       rings
+                                                                      around a sensitive transistor
+                                                                      or ampliﬁer stage, with the
+                                                                      same doping as the under-
+                                                                      lying material. In a p− epi-
+                                                                      taxial layer, they are shallow
+                                                                      p+ diﬀusions, as shown in
+                                                                      this slide.
+                                                                         Their purpose is to pick
+                                                                      up the current which comes
+                                                                      in horizontally along the
+epitaxial layer and along the surface and to lead it outside.
+   The substrate contact (on the right) is normally separate. Moreover it is better connected to
+a separate pin as well, as shown on top.
+   If the substrate contact and guard ring contact are connected together, to save a pin, as shown
+at the bottom, the current from the substrate contact can re-enter the silicon through the guard-
+ring contact and reach the transistor. This is better to be avoided.
+758                                                                                       Chapter #24
+
+                                                                        2430
+                                                                        Horizontal coupling be-
+                                                                        tween two parallel lines is
+                                                                        purely capacitive. However,
+                                                                        this is only true for non-con-
+                                                                        ductive substrates.
+                                                                          The coupling is shown
+                                                                        between two parallel con-
+                                                                        ductors at some distance,
+                                                                        such that the isolation is
+                                                                        about 60 dB at 1 GHz. It is
+                                                                        purely capacitive. It evi-
+                                                                        dently decreases at 20 dB/
+                                                                        decade. This is only true for
+                                                                        perfectly isolating SOI
+                                                                        substrates.
+                                                                          Actually, this capacitance
+can be calculated, as shown in this slide for two areas A, a distance apart D, which is much
+larger than the dimension of area A. It is assumed that the dielectric is pure silicon oxide.
+   These curves also show that the isolation becomes more resistive the higher the
+doping level is. For partially doped SOI (around 20 Vcm), the coupling is resistive between
+200 MHz and 10 GHz. The same applies to bulk silicon with the same low resistivity (20 Vcm).
+Taking SOI does not pay oﬀ in this frequency region!
+   Bulk silicon is a lot worse. For frequencies higher than 100 MHz, it provides very little
+isolation. The coupling is resistive. It can be modeled with resistors as done before.
+   At very low frequencies, the isolation can be very large. It is now mainly limited by the leakage
+currents of the reverse biased diodes (Drain-bulk, etc. ...).
+
+
+                                                                        2431
+                                                                        Now that we know what
+                                                                        isolation to expect in the
+                                                                        substrate, let us see how
+                                                                        transmission in the sub-
+                                                                        strate can be modeled and
+                                                                        what layout rules can be
+                                                                        extracted. This is mainly
+                                                                        based on simulations of
+                                                                        larger substrates with noise
+                                                                        sources and sensitive pre-
+                                                                        ampliﬁers combined. Some-
+                                                                        times experimental data is
+                                                                        available as well, however.
+Coupling eVects in mixed analog-digital ICs                                                       759
+
+                                                                        2432
+                                                                        Experimental      work      to
+                                                                        model all substrate resist-
+                                                                        ances and capacitances is a
+                                                                        tedious job. It is the only
+                                                                        way however, to obtain real-
+                                                                        istic results with simula-
+                                                                        tions. In this way, the eﬀect
+                                                                        of bond wire inductances
+                                                                        can be evaluated. An exam-
+                                                                        ple is given in this slide.
+                                                                           A cross-section is given of
+                                                                        a CMOS inverter in n-well
+                                                                        CMOS. Actually, this is
+                                                                        twin-well CMOS as an addi-
+                                                                        tional p-well is provided in
+                                                                        the p-substrate for the
+nMOSTs. Both cases are considered, i.e. a highly doped substrate which can be regarded as a
+equipotential plane, and a lowly-doped substrate, which has to be modeled by horizontal resistors
+or impedances.
+   The nMOST in the p-well has a p+ substrate contact, connected with the Source to ground
+over a bonding wire L . There is a horizontal resistor (or impedance) between the channel area
+                         b
+of the nMOST and its substrate contact. There are also two resistors (or impedances) connecting
+the channel area and the contact area to the substrate.
+   Similarly, for the pMOST, a horizontal resistor (or impedance) must be included between the
+channel area and the substrate contact. Moreover, two separate capacitors are required to model
+the depletion region of the n-well on the p-substrate. One additional horizontal resistor (or
+impedance) is required to model the area between both transistors.
+   All these resistors (or impedances) are distributed resistors and are therefore not easy to model.
+
+
+                                                                        2433
+                                                                        In order to measure the sub-
+                                                                        strate noise, a wide-band
+                                                                        ampliﬁer is required, as
+                                                                        shown in this slide.
+                                                                           It is a single diﬀerential
+                                                                        pair with output Source fol-
+                                                                        lowers. The CMRR is some-
+                                                                        what limited by uneven
+                                                                        substrate impedances. How-
+                                                                        ever, it does provide a GBW
+                                                                        of 500 MHz.
+                                                                           The diﬀerence is mea-
+                                                                        sured between the external
+                                                                        ground and the substrate.
+                                                                        Both are capacitively cou-
+                                                                        pled. The output voltage
+760                                                                                    Chapter #24
+
+includes all noise picked up from the substrate after redistribution by all horizontal and vertical
+impedances, as discussed previously.
+
+
+                                                                      2434
+                                                                      The output voltage is shown
+                                                                      in this slide.
+                                                                         The noise is generated by
+                                                                      a ring oscillator, which can
+                                                                      be switched on and oﬀ.
+                                                                      Its frequency is about
+                                                                      800 MHz.
+                                                                         It is clear that this fre-
+                                                                      quency is clearly visible at
+                                                                      the substrate of the analog
+                                                                      MOSTs. It can now be
+                                                                      regarded as an input signal
+                                                                      at the back gate of the
+                                                                      MOSTs.
+                                                                         Moreover, it also shows
+                                                                      that the horizontal and ver-
+tical resistors (or impedances) can be modeled fairly well. The measurement results do not deviate
+a signiﬁcant amount from the SPICE results.
+   In conclusion, the modeling of the distributed horizontal and vertical impedances is a necessity
+to be able to predict coupling by means of simulation.
+
+
+                                                                     2435
+                                                                     From the same data, the
+                                                                     inﬂuence of the bonding
+                                                                     wires can be extracted in
+                                                                     great detail.
+                                                                       The noise is generated in
+                                                                     the substrate and reaches
+                                                                     the analog CMOS inverter
+                                                                     through substrate coupling.
+                                                                       If bonding wires are used
+                                                                     with large inductances, then
+                                                                     the noise currents cannot
+                                                                     escape from the substrate
+                                                                     contacts. As a consequence,
+                                                                     the noise levels in the
+                                                                     substrate underneath the
+                                                                     analog circuits are high.
+  This is illustrated in this slide. It shows the voltage obtained on the substrate, versus bond
+wire inductance. Very low inductance can only be obtained with ﬂip-chip bonding. In this case
+the supply line and ground contacts carry zero resistance. What is left is due to direct coupling
+to the Sources and Drains of the MOSTs.
+Coupling eVects in mixed analog-digital ICs                                                     761
+
+  The cross-over point seems to be around 0.1 nH which corresponds to about 0.1 mm bonding
+wire. This is very short indeed, and not practical.
+
+
+                                                                      2436
+                                                                      In the previous example,
+                                                                      a 7-stage ring oscillator
+                                                                      is used as a noise source
+                                                                      and only a single-CMOS
+                                                                      inverter-ampliﬁer as receiver.
+                                                                      This has been extended to a
+                                                                      220-Kgates telecom chip as
+                                                                      a noise source and a WLAN
+                                                                      modem as receiver. The
+                                                                      bonding wires are 6 nH.
+                                                                         Both the peak-to-peak
+                                                                      and the RMS noise are
+                                                                      shown (on the left). The
+                                                                      largest peak around 75
+                                                                      MHz can also be found by
+                                                                      simulation. Accurate values
+have been introduced for all parasitic resistances and capacitances.
+  There is a fairly linear relation between the noise and the supply voltage. This is a result of
+the increased current injection in the substrate, which increases linearly with the supply voltage.
+  It is also found that as a great deal of noise is generated by the Input/Output buﬀers as by
+the digital gates themselves!
+
+
+                                                                    2437
+                                                                    Another example of a sub-
+                                                                    strate model to carry out
+                                                                    simulations of the noise cou-
+                                                                    pling in more complex cir-
+                                                                    cuitry is shown in this slide.
+                                                                       A digital CMOS inverter
+                                                                    is shown together with its
+                                                                    substrate contacts. It causes
+                                                                    the injection of a number of
+                                                                    currents into the substrate.
+                                                                    The substrate itself is mod-
+                                                                    eled as a mesh of resistors.
+                                                                       The noise currents have
+                                                                    various origins, such as
+                                                                    noise from the switching
+                                                                    transients on the supply
+lines and noise from the switching on the output Drains. These noise currents are modeled as
+separate independent input current sources, in parallel with either resistors (if no junctions are
+involved) or capacitors (in the case of junctions).
+762                                                                                       Chapter #24
+
+  Long simulations are required to discover which are the nodes in the circuit with higher noise
+coupling and with lower noise coupling.
+  Examples of the results are shown next.
+
+                                                                     2438
+                                                                     It is obvious that the simula-
+                                                                     tion times heavily depend
+                                                                     on the resolution of the
+                                                                     mesh. The simulation time
+                                                                     increases with a higher
+                                                                     order of the number of
+                                                                     nodes. Only partial circuits
+                                                                     can therefore be handled,
+                                                                     depending on the computer
+                                                                     used.
+                                                                        Examples are given of iso-
+                                                                     noise curves (or contours)
+                                                                     obtained for an ampliﬁer
+                                                                     surrounded by three noise
+                                                                     sources     (bottom       left).
+                                                                     Clearly, these noise sources
+cause a great deal of noise, even in the middle where the ampliﬁer is positioned (point A). When
+a guard ring is added however (bottom right), the noise contours are compressed closer to the
+noise sources, leaving the center (point A) nearly noiseless.
+  If, on the other hand, all noise sources are on top and on the right (top right) the noise
+contours are clearly asymmetrical.
+  Such simulations show that it is possible to obtain quantitative data about noise coupling.
+However, depending on the computer power available, such simulations will always be limited
+to partial circuits.
+
+                                                                       2439
+                                                                       If everything fails, if a lot of
+                                                                       noise is generated by the
+                                                                       digital or class-AB circuits
+                                                                       and if the substrates under
+                                                                       digital and analog are not
+                                                                       isolated at all, then we can
+                                                                       still try to make the analog
+                                                                       circuits insensitive to the
+                                                                       substrate and power supply
+                                                                       noise.
+                                                                          This speciﬁcation is called
+                                                                       the power-supply rejection
+                                                                       ratio (PSRR). We will see
+                                                                       that the PSRR is never as
+                                                                       good       for   single-ended
+                                                                       ampliﬁers. The conclusion is
+Coupling eVects in mixed analog-digital ICs                                                    763
+
+that all mixed-signal circuits must be made full-diﬀerential. As a result, the power consumption
+increases drastically (more than doubles!).
+  For full-diﬀerential circuitry, the limit is now reached by mismatch. This is also the case for
+CMRR. Actually, what the PSRR is for the rejection of power-supply-line noise is the CMRR
+for the rejection of ground noise.
+  Its deﬁnition is therefore easily established.
+
+
+
+
+                                                                     2440
+                                                                     This Bode diagram shows
+                                                                     the gain A of an ampliﬁer
+                                                                                v
+                                                                     for a diﬀerential input. It is
+                                                                     high at low frequencies (A )
+                                                                                                v0
+                                                                     but decreases with a slope of
+                                                                     −20 dB/decade until the
+                                                                     GBW is reached.
+                                                                        The gain A        of this
+                                                                                      DD
+                                                                     ampliﬁer is also shown with
+                                                                     the positive power supply
+                                                                     v as an input. It is rather
+                                                                      DD
+                                                                     low at low frequencies
+                                                                     (A ) but does not change
+                                                                        DD0
+                                                                     all that much at high fre-
+                                                                     quencies. The reason is that
+                                                                     at high frequencies, capaci-
+tive coupling prevents the output voltage to become really small. The output becomes constant
+as a result of a ratio of some capacitors, usually the load capacitor C and some parasitic
+                                                                            L
+coupling capacitor C . If C is 2 pF and C is 0.1 pF, the ratio is now 20 or 26 dB.
+                      n     L               n
+   The PSRR is now deﬁned as the ratio of the gain A to the diﬀerential input to the gain A
+                                                       v                                        DD
+of the supply voltage. It is high at low frequencies and low at high frequencies. At the GBW
+however, the gain A is unity. At this frequency, the PSRR equals the inverse of the gain A .
+                     v                                                                         DD
+It is an excellent measure of the PSRR at high frequencies.
+   For the example in this slide, the PSRR is 26 dB at the GBW.
+   At this frequency, the PSRR is rather small, because it is a ratio of two capacitors, the load
+capacitor and some parasitic coupling capacitor.
+
+
+
+
+2441
+What components play an important role in PSRR?
+   An example is given in this slide of a current ampliﬁer. The impedance at the Gates of
+transistors M1 and M2 is low. Does this mean that the PSRR is large at high frequencies?
+   At low frequencies, all capacitances can be left out. In this case, output resistor r determines
+                                                                                        o
+the current to the current mirror. The output current is therefore small.
+   At high frequencies, the parasitic coupling capacitance C takes over the role of r . The current
+                                                             p                        o
+to the current mirror now increases with frequency and so does the output current. The gain of
+764                                                                                     Chapter #24
+
+                                                                      the current mirror is con-
+                                                                      stant up to a frequency
+                                                                      g /2pC or f . This is evi-
+                                                                        m     GS     T
+                                                                      dently higher than all fre-
+                                                                      quencies of interest.
+                                                                         Note that capacitance C
+                                                                                                    p
+                                                                      is a coupling capacitor
+                                                                      between the positive supply
+                                                                      line and the output of the
+                                                                      input transistor. It is usually
+                                                                      a lot larger than the output
+                                                                      capacitor of the transistor
+                                                                      only.
+
+
+
+
+                                                                      2442
+                                                                      Let us now have a look at
+                                                                      the PSRR       of a simple
+                                                                                 DD
+                                                                      OTA, as shown in this slide.
+                                                                         A detailed analysis has
+                                                                      shown that the most impor-
+                                                                      tant components are r and
+                                                                                            o1
+                                                                      r . Indeed, the current
+                                                                       o5
+                                                                      caused by a small signal on
+                                                                      the positive supply voltage
+                                                                      v     ﬂows through M4,
+                                                                        DD
+                                                                      through resistor r       and
+                                                                                          o1
+                                                                      through M2 to the output.
+                                                                      The current through r
+                                                                                                 o5
+                                                                      reaches the output directly.
+                                                                         The PSRR of this gain
+                                                                                   DD
+                                                                      block is now the ratio of
+both gains given in this slide. It has a very similar expression as the small-signal voltage gain.
+It is also large at low frequencies as it includes the g r products of the transistors in the
+                                                          m o
+signal path.
+   It will be reduced at higher frequencies.
+
+2443
+The PSRR at higher frequency is of much higher importance as digital blocks on chips are
+            DD
+more likely going to work at high clock frequencies. These are the frequencies which are expected
+to be rejected by the analog circuits.
+  At high frequencies, the coupling is mainly carried out by the capacitors C and C           . The
+                                                                                n4       n5DD
+ﬁrst one C is a capacitance from node 4 to ground. Capacitor C         is the coupling capacitance
+           n4                                                     n5DD
+between node 5 (at the output) and the V supply line. Again, this capacitance can be a great
+                                           DD
+Coupling eVects in mixed analog-digital ICs                                                        765
+
+                                                                      deal larger than the output
+                                                                      capacitor C of transistor
+                                                                                     DS
+                                                                      M5. It is made up by the
+                                                                      coupling between the V
+                                                                                                    DD
+                                                                      supply line and the output
+                                                                      line of the ampliﬁer.
+                                                                         For the PSRR at high
+                                                                                           DD
+                                                                      frequencies the g comes in
+                                                                                          m1
+                                                                      of the input devices. At the
+                                                                      GBW however, the g             is
+                                                                                                 m1
+                                                                      substituted by C , as shown
+                                                                                          L
+                                                                      in this slide.
+                                                                         As expected, this PSRR
+                                                                                                    DD
+                                                                      at the GBW is not very
+                                                                      large, as it is a ratio of small
+                                                                      capacitances. For a fre-
+                                                                      quency at 1/10th of the
+GBW, the PSRR is 20 dB larger, etc.
+               DD
+ Note that the PSRR can only be high if both the capacitances C and C      are small.
+                   DD                                          n4     n5DD
+
+
+
+                                                                      2444
+                                                                      The PSRR with respect to
+                                                                                  SS
+                                                                      the other supply voltage is
+                                                                      signiﬁcantly diﬀerent.
+                                                                         It is caused by the cou-
+                                                                      pling capacitor C      at the
+                                                                                        n3DD
+                                                                      common-Source point. For
+                                                                      perfect matching of the tran-
+                                                                      sistor pair M1,2 and M4,5
+                                                                      none of this current can ﬂow
+                                                                      through the output load C .
+                                                                                                 L
+                                                                         Mismatch between, for
+                                                                      example, transistors M1 and
+                                                                      M2, will cause some of this
+                                                                      current to ﬂow through the
+                                                                      output load, however.
+                                                                         The PSRR will be a
+                                                                                     SS
+ratio of capacitors, multiplied by a matching factor. It will be a lot larger than the PSRR of
+                                                                                              DD
+the positive supply line.
+  On the other hand, this coupling capacitance can be quite large as the capacitance C
+                                                                                                well
+between the p-well and the substrate has to be added. Both input devices are in this p-well. Its
+area is therefore quite large and so is the capacitor C .
+                                                       well
+  Note that nowadays mainly n-well CMOS technologies are used. The structure is then inverted
+– the input devices are then pMOSTs.
+766                                                                                    Chapter #24
+
+                                                                    2445
+                                                                    The situation is somewhat
+                                                                    more complicated in a two-
+                                                                    stage Miller OTA.
+                                                                       After all, when the input
+                                                                    signal is applied at the posi-
+                                                                    tive supply voltage, it is not
+                                                                    clear whether the current
+                                                                    through the ﬁrst stage is
+                                                                    added or subtracted from
+                                                                    the current through the
+                                                                    second stage.
+                                                                       A thorough calculation at
+                                                                    low frequencies shows that
+                                                                    the current through
+                                                                       output resistor r of the
+                                                                                         o7
+                                                                    current source transistor
+M7 of the ﬁrst stage is the dominant one. This current can only provide a contribution to the
+output voltage of the ﬁrst stage provided there is some mismatch in the ﬁrst stage, as previously
+explained.
+  At low frequencies, the PSRR is then readily found. It can be fairly large as it contains
+                                  DD
+two factors.
+
+
+
+                                                                     2446
+                                                                     At high frequencies, the situ-
+                                                                     ation is very diﬀerent.
+                                                                         First of all, capacitances
+                                                                     take over but also resistor
+                                                                     r remains in the expres-
+                                                                       o5
+                                                                     sions. Calculations show
+                                                                     that the PSRR          at the
+                                                                                        DD
+                                                                     GBW now contains three
+                                                                     terms.
+                                                                         Two of them are simply
+                                                                     related to the two dominant
+                                                                     coupling capacitors. For the
+                                                                     ﬁrst C       it is easy to see
+                                                                             n3DD
+                                                                     that this performs exactly
+                                                                     the same role as resistor r .
+                                                                                                 o7
+                                                                     The mismatch in the ﬁrst
+stage comes in. Also, C     can be quite large as it includes the well to substrate capacitance of
+                        n3DD
+the input transistors.
+   Capacitor C      is the direct coupling capacitance between the supply line and the output.
+               n4DD
+   The ﬁrst term g /g is somewhat harder to understand. It is actually the resistive divider
+                   o5 m6
+from the supply line to the output, made up by r and the resistance 1/g oﬀered by M6 at
+                                                    o5                      m6
+high frequencies.
+Coupling eVects in mixed analog-digital ICs                                                       767
+
+  It is impossible to predict which one of the three terms is dominant. It is probably the ﬁrst or
+the second one as they only have one single factor involved. The last one has two factors.
+
+
+
+                                                                    2447
+                                                                    The PSRR from the nega-
+                                                                                SS
+                                                                    tive supply does not involve
+                                                                    matching. Indeed at low fre-
+                                                                    quencies, it is a result of cur-
+                                                                    rents through resistors r
+                                                                                                  o1
+                                                                    and r .
+                                                                          o4
+                                                                       The current through resis-
+                                                                    tor r ﬂows through M3
+                                                                          o1
+                                                                    (and the input devices M1
+                                                                    and M2). It is therefore mir-
+                                                                    rored to M4 and injected as
+                                                                    a current on node 1. From
+                                                                    here it is ampliﬁed to the
+                                                                    output in the same way as
+                                                                    the signal current from the
+                                                                    input transistors M1 and
+                                                                    M2.
+  The current through r        is also injected as a current on node 1. It is now added to the
+                        o4
+previous current.
+
+
+
+                                                                       2448
+                                                                       At high frequencies, the situ-
+                                                                       ation is again somewhat
+                                                                       more complicated.
+                                                                          The dominant capaci-
+                                                                       tances are added in the cir-
+                                                                       cuit schematic. They are the
+                                                                       coupling capacitors between
+                                                                       the supply line and node 1,
+                                                                       the output of the input
+                                                                       stage.
+                                                                          Calculation    of       the
+                                                                       PSRR       shows however,
+                                                                              SS
+                                                                       that this capacitor is not
+                                                                       that important. The PSRR
+                                                                                                    SS
+                                                                       is zero dB anyway. This
+                                                                       means that any signal at the
+negative supply reaches the output terminal unattenuated.
+  This clearly proves that single-ended opamps cannot be used for mixed-signal analog
+processing.
+  What is the origin of this 0 dB?
+768                                                                                   Chapter #24
+
+   At high frequencies, transistor M6 behaves as a small resistance with value 1/g . As a result
+                                                                                   m6
+the negative line is nearly shorted to the output line. The attenuation from supply line to output
+is therefore zero.
+
+
+
+
+                                                                     2449
+                                                                     One way to improve the
+                                                                     PSRR is to a make com-
+                                                                            SS
+                                                                     pensation capacitor C uni-
+                                                                                            c
+                                                                     directional. After all, it is
+                                                                     this capacitor C which
+                                                                                         c
+                                                                     turns transistor M6 into a
+                                                                     resistor.
+                                                                       The addition of a cascode,
+                                                                     used very much to get rid
+                                                                     of the positive zero (see
+                                                                     Chapter 5), increases the
+                                                                     PSRR      from zero to a
+                                                                            SS
+                                                                     capacitance ratio, as for the
+                                                                     other ampliﬁers. Values of
+                                                                     the order of 20 dB (at the
+                                                                     GBW) can now be expected.
+                                                                       The actual calculation is
+                                                                     shown next.
+
+
+
+
+                                                             2450
+                                                             A simpliﬁed schematic is
+                                                             shown in this slide, and an
+                                                             even more simpliﬁed one to
+                                                             the right.
+                                                                Calculation of the gain
+                                                             from the negative supply
+                                                             line V to the output shows
+                                                                    SS
+                                                             that the parasitic capaci-
+                                                             tance at the input node of
+                                                             transistor M6 now plays a
+                                                             dominant role.
+                                                                Its ratio to the compensa-
+                                                             tion capacitor C determines
+                                                                               c
+                                                             the PSRR . For this reason,
+                                                                         SS
+                                                             we may want to make C
+                                                                                         c
+                                                             larger. Remember, however,
+that the value of C determines the GBW, the stability and the integrated noise. So many
+                   c
+compromises have already come together in C !
+                                           c
+Coupling eVects in mixed analog-digital ICs                                                    769
+
+                                                                    2451
+                                                                    Another two-stage Miller
+                                                                    ampliﬁer is shown in this
+                                                                    slide. It uses a symmetrical
+                                                                    OTA as a ﬁrst stage.
+                                                                    Cascodes are used as well. It
+                                                                    is therefore evident that the
+                                                                    compensation capacitor is
+                                                                    led through a cascode,
+                                                                    which is here M10.
+                                                                       As a result the PSRR is
+                                                                                              SS
+                                                                    enhanced as well.
+                                                                       The actual expression is
+                                                                    shown in this slide.
+                                                                       It is a ratio of capacitors
+                                                                    involving a large number of
+                                                                    parasitic capacitances. It
+                                                                    will be larger than 0 dB, but
+                                                                    not signiﬁcantly!
+
+
+                                                                    2452
+                                                                    The PSRR for a symmetri-
+                                                                                 SS
+                                                                    cal OTA by itself is shown
+                                                                    in this slide. It is mainly
+                                                                    determined by mismatches.
+                                                                       At low frequencies it is
+                                                                    determined by the resistance
+                                                                    at node 5.
+                                                                       At high frequencies (at
+                                                                    GBW) however, it is deter-
+                                                                    mined by the diﬀerence in
+                                                                    coupling capacitance from
+                                                                    the supply line to the nodes
+                                                                    4 and 5. Because node 4 is
+                                                                    the output node and node 5
+                                                                    is not, the coupling capaci-
+                                                                    tor C      is likely to be much
+                                                                          n4SS
+larger than the one on the other side C        .
+                                          n5SS
+   As a result, the simplest expression of the PSRR is the ratio of C to this coupling capacitor
+                                                   SS                L
+C      . Again, values of 20 dB can be expected.
+  n4SS
+770                                                                                    Chapter #24
+
+                                                                      2453
+                                                                      Experimental evidence on
+                                                                      PSRR is not easily found.
+                                                                      One example is shown in
+                                                                      this slide.
+                                                                        The PSRR has been mea-
+                                                                      sured for both a single-
+                                                                      ended as for a fully-
+                                                                      diﬀerential switched-capaci-
+                                                                      tor ampliﬁer. They act as a
+                                                                      receiver.
+                                                                        The noise sources are a
+                                                                      number of logic gates and
+                                                                      inverters, as shown on top.
+                                                                      A smaller or larger number
+                                                                      of logic gates can be
+                                                                      switched in.
+
+
+
+                                                                    2454
+                                                                    The noise voltage is mea-
+                                                                    sured at the output of the
+                                                                    analog ampliﬁer structure.
+                                                                       It is clear that the single-
+                                                                    ended ampliﬁer is much
+                                                                    more sensitive to the digital
+                                                                    noise than the fully-diﬀer-
+                                                                    ential one.
+                                                                       Increasing the supply
+                                                                    voltage increases the cur-
+                                                                    rents in the logic gates and
+                                                                    also the spike current
+                                                                    transfer to the analog cir-
+                                                                    cuits. This is clearly visible
+                                                                    on the right. Even the
+                                                                    diﬀerential noise pick up
+increases rather drastically. This is probably due to mismatch in substrate contacts.
+  Quite often many sources of mismatch are often overlooked. For example for a fully-diﬀerential
+input stage of an opamp, good matching not only requires perfectly symmetrical layout but also
+identical surroundings. For example, the substrate contacts of the input transistors must also
+have the same size and an equal distance to the axis of symmetry. If not, diﬀerent substrate
+resistances result, and diﬀerent body eﬀects.
+

@@ -1,0 +1,2346 @@
+                                                                       181
+                                                                       Distortion has become an
+                                                                       important topic. The larger
+                                                                       the signal levels, the larger
+                                                                       the distortion becomes.
+                                                                          Indeed, the supply voltage
+                                                                       decreases with smaller chan-
+                                                                       nel lengths. The signal levels
+                                                                       have to be made as large as
+                                                                       possible to obtain a Signal-
+                                                                       to-Noise-and-Distortion
+                                                                       ratio, which is as high as
+                                                                       possible.
+                                                                          We now need to know
+                                                                       which distortion levels cor-
+                                                                       respond with which signal
+                                                                       levels.
+  Unfortunately, distortion is a kind of garbage can for everything that impairs the spectral
+purity of a signal. Every month new kinds of distortion are discovered. We will concentrate,
+however, on the main sources. The distortion levels will be described in terms of signal amplitudes.
+
+
+
+                                                                       182
+                                                                       Distortion is most impor-
+                                                                       tant in communication sys-
+                                                                       tems, in which many
+                                                                       frequency channels have to
+                                                                       be processed.
+                                                                          For example, two chan-
+                                                                       nels are shown at two adja-
+                                                                       cent frequencies. The second
+                                                                       of which contains modula-
+                                                                       tion information. Its modu-
+                                                                       lation index is m .
+                                                                                         c
+                                                                          Distortion will cause the
+                                                                       modulation to be transfer-
+                                                                       red from Channel 2 to
+                                                                       Channel 1. This is called
+                                                                       cross-modulation. We want
+to calculate how the cross-modulation is for a non-linear system.
+
+
+
+
+                                                519
+520                                                                                     Chapter #18
+
+                                                                   183
+                                                                   Before we engage in calcula-
+                                                                   tions, we want to review the
+                                                                   deﬁnitions commonly used
+                                                                   for distortion.
+                                                                      After that we will calcu-
+                                                                   late the distortion generated
+                                                                   by a MOST, both as a
+                                                                   single-ended ampliﬁer as in
+                                                                   a diﬀerential ampliﬁer. This
+                                                                   is repeated for a bipolar
+                                                                   transistor.
+                                                                      The main technique used
+                                                                   to reduce distortion is feed-
+                                                                   back. Calculations are given
+                                                                   to predict the distortion
+                                                                   when feedback is present.
+  Finally, some examples are given on how to calculate distortion in more complicated circuits,
+including operational ampliﬁers. Both two-stage and three-stage operational ampliﬁers will be
+discussed.
+  Finally some other sources of distortion are mentioned but not discussed in detail.
+
+
+                                                                     184
+                                                                     We will not discuss the
+                                                                     eﬀects of linear distortion in
+                                                                     this Chapter but of nonlin-
+                                                                     ear distortion.
+                                                                        Linear distortion is a
+                                                                     result of ﬁlter action. A per-
+                                                                     fectly linear system which
+                                                                     shows some kind of ﬁltering
+                                                                     action, will distort the pic-
+                                                                     ture of the signal versus
+                                                                     time. For example, a high-
+                                                                     pass ﬁlter will emphasize the
+                                                                     steep edges of a square
+                                                                     waveform, as they represent
+                                                                     the higher frequencies. The
+                                                                     output waveform has there-
+fore peaked. It is diﬀerent from the input waveform, and is distorted. This is linear distortion. It
+occurs for all ﬁlters.
+Distortion in elementary transistor circuits                                                   521
+
+                                                                      185
+                                                                      A similar eﬀect is seen for
+                                                                      low-pass ﬁlters. Any low-
+                                                                      pass ﬁlter will eliminate the
+                                                                      steep edges of a square
+                                                                      waveform, as they represent
+                                                                      the higher frequencies. The
+                                                                      output waveform is now
+                                                                      rounded. It is again diﬀerent
+                                                                      from the input waveform,
+                                                                      and is distorted. This kind
+                                                                      of linear distortion occurs
+                                                                      for all ﬁlters.
+                                                                         It will not be discussed
+                                                                      any further.
+
+
+
+
+                                                                      186
+                                                                      Nonlinear distortion on the
+                                                                      other hand is generated by
+                                                                      a nonlinear transfer curve,
+                                                                      as shown in this slide. The
+                                                                      output voltage is nonlinear
+                                                                      in terms of the input voltage
+                                                                      for this ampliﬁer.
+                                                                         This ampliﬁer is biased at
+                                                                      a speciﬁc point Q, the quies-
+                                                                      cent point. A sine waveform
+                                                                      will generate an output
+                                                                      waveform which is dis-
+                                                                      torted. The bottom half is
+                                                                      compressed, whereas the top
+                                                                      half is expanded.
+                                                                         The larger the amplitude
+of the input voltage, the more distorted the output voltage will be, as a larger fraction of the
+transfer curve is covered around point Q.
+   Distortion levels will always increase for increasing input amplitudes.
+522                                                                                   Chapter #18
+
+                                                                    187
+                                                                    When the input voltage
+                                                                    becomes too large, clipping
+                                                                    occurs of the output voltage.
+                                                                    This is called a hard
+                                                                    nonlinearity.
+                                                                       At this point, the distor-
+                                                                    tion is very large, more than
+                                                                    10% for example. Few
+                                                                    applications can tolerate
+                                                                    such large values. We will
+                                                                    limit ourselves to low levels
+                                                                    of distortion, of the level of
+                                                                    0.1% (–60 dB) down to
+                                                                    0.001% (–100 dB) depend-
+                                                                    ing on the application.
+                                                                       We are therefore only
+                                                                    interested in soft nonlineari-
+                                                                    ties, which give small
+                                                                    amounts of distortion only.
+
+
+
+                                                                  188
+                                                                  Such soft nonlinearity can
+                                                                  be described by means of a
+                                                                  power series, as shown in
+                                                                  this slide.
+                                                                     The coeﬃcient a gives
+                                                                                         0
+                                                                  the DC output voltage
+                                                                  in quiescent point Q.
+                                                                  Coeﬃcient a gives the
+                                                                                  1
+                                                                  small-signal gain. It is the
+                                                                  slope of the transfer curve in
+                                                                  point Q. Coeﬃcient a gives
+                                                                                           2
+                                                                  the second-order nonlinear-
+                                                                  ity. Actually, it represents
+                                                                  the even-order nonlinearit-
+                                                                  ies, as coeﬃcients a , a , etc.
+                                                                                       4 4
+                                                                  become gradually smaller.
+  In the same way, third-order coeﬃcient a represents the higher-order ones a , a , etc.
+                                          3                                     5 7
+Distortion in elementary transistor circuits                                                    523
+
+                                                                     189
+                                                                     For any nonlinear transfer
+                                                                     curve, the coeﬃcient a , a ,
+                                                                                                0 1
+                                                                     a , a , ... can easily be found
+                                                                      2 3
+                                                                     by taking derivatives.
+                                                                       Coeﬃcient a is simply
+                                                                                        0
+                                                                     the DC value, which is
+                                                                     reached for zero small signal
+                                                                     input level u.
+                                                                       Coeﬃcient a is clearly
+                                                                                        1
+                                                                     the ﬁrst derivative of the
+                                                                     output signal y with respect
+                                                                     to the input signal u.
+                                                                       The other coeﬃcients
+                                                                     are obtained as indicated.
+                                                                     Corrections have to be
+                                                                     made for the coeﬃcients
+appearing during the derivation. It is clear that for coeﬃcient a for example, the transfer curve
+                                                                 3
+must be suﬃciently smooth. Several MOST models were not that smooth at the cross-over
+points, prohibiting the calculation of coeﬃcient a .
+                                                    3
+
+
+
+                                                                   1810
+                                                                   Once the nonlinearity has
+                                                                   been described by a power
+                                                                   series, the harmonic distor-
+                                                                   tion can easily be calculated.
+                                                                      In an input signal, u is
+                                                                   applied with amplitude U
+                                                                   and frequency v, then a little
+                                                                   trigonometry helps us to
+                                                                   ﬁnd the contributions at
+                                                                   2vand 3v.
+                                                                      The ratio of the compo-
+                                                                   nent at 2vto the fundamen-
+                                                                   tal at v is then by deﬁnition
+                                                                   the second harmonic distor-
+                                                                   tion. Since coeﬃcient a is
+                                                                                             3
+                                                                   usually quite small com-
+pared to a , the component at the fundamental at v is just about a U.
+          1                                                        1
+  Note that the second harmonic distortion HD is proportional to the amplitude U of the
+                                                 2
+fundamental. Doubling the input voltage will therefore double the second harmonic distortion.
+  In the same way, the third harmonic distortion is deﬁned.
+  The ratio of the component at 3vto the fundamental at v is thus by deﬁnition the third
+harmonic distortion. Note that the third harmonic distortion HD is proportional to the square
+                                                                3
+of the amplitude U of the fundamental. Doubling the input voltage will multiply the third
+harmonic distortion by four.
+524                                                                                    Chapter #18
+
+                                                                     1811
+                                                                     These relationships are
+                                                                     easily plotted on log scales
+                                                                     as shown in this slide. They
+                                                                     give straight lines with
+                                                                     slopes of 1 dB/dB for HD
+                                                                                                  2
+                                                                     and 2 dB/dB for HD .
+                                                                                            3
+                                                                        Clearly, this is only valid
+                                                                     for low levels of distortion.
+                                                                     For high input signals the
+                                                                     curves ﬂatten because of the
+                                                                     high levels of distortion. We
+                                                                     never want to increase the
+                                                                     input voltage that much!
+                                                                        For low input signals the
+                                                                     distortion is drowned in
+                                                                     noise. Clearly, it is impos-
+sible to recognize the slopes in that region.
+   It is clear from the above, that the only way to measure distortion is to ﬁnd the region where
+it has a linear dependence (on a log-log scale) on the input signal amplitude and to check whether
+the slopes are right. The second-order distortion must have a slope of 1 dB/dB and the third-
+order one 2 dB/dB.
+
+
+
+                                                              1812
+                                                              Some measurement equip-
+                                                              ment only measures total
+                                                              harmonic distortion THD,
+                                                              which is a kind of RMS
+                                                              value (or eﬀective value) of
+                                                              all distortion ratios. In this
+                                                              way it is impossible of
+                                                              course to verify the slopes.
+                                                                 However, quite often it is
+                                                              possible to identify the
+                                                              slopes in diﬀerent regions of
+                                                              the input voltage.
+                                                                 For example the THD
+                                                              was measured of a diﬀused
+                                                              resistor. For the low voltage
+                                                              across it, the HD is domi-
+                                                                                  2
+nant, whereas for high voltage, the HD is dominant. Indeed, they are clearly identiﬁed by
+                                      3
+their slopes.
+Distortion in elementary transistor circuits                                                     525
+
+                                                                       1813
+                                                                       The distortion is also mea-
+                                                                       sured by means of a
+                                                                       spectrum analyzer. An ex-
+                                                                       ample is shown in this slide
+                                                                       for a fundamental frequency
+                                                                       of 30 MHz. The second har-
+                                                                       monic is set at 60 MHz and
+                                                                       the third one at 90 MHz.
+                                                                          Note however, that the
+                                                                       components are now given,
+                                                                       not the ratios of HD and
+                                                                                             2
+                                                                       HD . Increasing the funda-
+                                                                           3
+                                                                       mental component by 1 dB
+                                                                       will raise the second-order
+                                                                       by 2 dB and the third-order
+                                                                       by 3 dB.
+
+
+
+                                                                     1814
+                                                                     Another way to characterize
+                                                                     distortion is to use inter-
+                                                                     modulation distortion.
+                                                                        For this purpose, two sine
+                                                                     waves have to be applied. In
+                                                                     this case, they have equal
+                                                                     amplitudes U and frequen-
+                                                                     cies v and v . This is more
+                                                                            1       2
+                                                                     common in communication
+                                                                     systems where two adjacent
+                                                                     channel frequencies are
+                                                                     taken. In HiFi systems on
+                                                                     the other hand, frequencies
+                                                                     are taken of 50 Hz and
+                                                                     4 kHz with widely diﬀerent
+                                                                     amplitudes.
+   These two fundamental frequencies will generate all intermodulation products, if applied to a
+nonlinear system, described by a power series.
+   Substitution of input signal u generates second-order intermodulation products with coeﬃcient
+a and third-order intermodulation products with coeﬃcient a .
+ 2                                                               3
+   IM is now the ratio of the two components at v ±v to the fundamental. In a similar way
+      2                                                1    2
+IM is now the ratio of the four components at 2v ±v and v ±v to the fundamental.
+    3                                                1    2        1  2
+   In order to learn where all these components occur on the frequency axis, a picture is given next.
+   Note, however, that there is a very simple relationship between IM and HD. For example,
+IM is about 10 dB higher than HD .
+    3                                  3
+526                                                                                  Chapter #18
+
+                                                                     1815
+                                                                     In order to show where all
+                                                                     these intermodulation com-
+                                                                     ponents appear, a simple
+                                                                     example is given in which
+                                                                     the fundamental frequencies
+                                                                     are at 10 and 11 MHz.
+                                                                        Both have their second
+                                                                     harmonics at 20 and
+                                                                     22 MHz and their third har-
+                                                                     monics at 30 and 33 MHz.
+                                                                     They are all green.
+                                                                        The second-order inter-
+                                                                     modulation components are
+                                                                     at 1 and 21 MHz. It is clear
+                                                                     that second-order distortion
+                                                                     generates intermodulation
+components at low frequencies. This is important for HiFi ampliﬁers for example!
+   Third-order intermodulation shows up in four places, i.e. at 9, 12, 31 and 32 MHz. The ones
+at 9 and 12 MHz are especially important, as they appear in the adjacent channels. They are
+also easier to measure with a spectrum analyzer as they appear in the same narrow frequency
+region as the fundamentals.
+
+
+
+                                                                    1816
+                                                                    There are thus several
+                                                                    reasons why we will focus
+                                                                    on IM .
+                                                                           3
+                                                                       First of all, IM is 10 dB
+                                                                                         3
+                                                                    larger than HD . It gives
+                                                                                       3
+                                                                    components next to the fun-
+                                                                    damentals which are to
+                                                                    measure, and ﬁnally, they
+                                                                    are the only important ones
+                                                                    in diﬀerential systems, in
+                                                                    which second-order distor-
+                                                                    tion is cancelled out, as we
+                                                                    will see later.
+
+
+
+
+1817
+An example of such a spectrum is shown in this slide.
+  Two frequencies are applied to this IF ﬁlter, of 10.695 and 10.705 MHz. The IM components
+                                                                                3
+Distortion in elementary transistor circuits                                                    527
+
+                                                                      can therefore be found at
+                                                                      equal distances on both
+                                                                      sides, i.e. at 10.685 and
+                                                                      10.715 MHz. The other dis-
+                                                                      tortion components have
+                                                                      nothing to do with this.
+                                                                      They are generated by some
+                                                                      other mechanisms.
+                                                                         Also, note that both IM
+                                                                                                 3
+                                                                      components are supposed to
+                                                                      be equal. However, small
+                                                                      diﬀerences     are    always
+                                                                      possible!
+
+
+
+
+                                                                      1818
+                                                                      Several more measures exist
+                                                                      for IM . A few of them are
+                                                                             3
+                                                                      shown in this slide. A
+                                                                      diﬀerential ampliﬁer is
+                                                                      taken with input voltage
+                                                                      V , which gives a nonlinear
+                                                                        in
+                                                                      output      voltage      V ,
+                                                                                                 out
+                                                                      described by a power series
+                                                                      with coeﬃcients a and a .
+                                                                                          1        3
+                                                                      Because of the diﬀerential
+                                                                      nature a =0.
+                                                                               2
+                                                                         The components them-
+                                                                      selves are plotted on a log
+                                                                      scale versus (log) input volt-
+                                                                      age amplitude. The funda-
+                                                                      mental itself has a slope of
+                                                                      1 dB/dB, whereas the third-
+order IM components have a slope of 3 dB/dB. The ratio between both is the IM . Its maximum
+          3                                                                         3
+value is attained when the IM3 level equals the noise level. This is the largest possible dynamic
+range that can be reached. It is the third-order Intermodulation Free Dynamic Range IMFDR .
+                                                                                                   3
+It obviously occurs at only one speciﬁc value of the input voltage.
+   Any other Noise Dynamic Range is smaller than the IMFDR .
+                                                                 3
+   The input voltage, for which their extrapolated values meet is called the IM intercept point
+                                                                                  3
+IP . The input voltage, for which the output is compressed by 1 dB is called the −1 dB
+   3
+compression point. Obviously, both of them must be related to the expression of the IM , as
+                                                                                               3
+shown next.
+528                                                                                   Chapter #18
+
+                                                                     1819
+                                                                     The IP is reached at the
+                                                                              3
+                                                                     input voltage for which the
+                                                                     amplitude of the fundamen-
+                                                                     tal a V equals IM . Its
+                                                                           1 in             3
+                                                                     value is easily calculated
+                                                                     from the power series. It is
+                                                                     obviously determined by the
+                                                                     same coeﬃcients a and a
+                                                                                         3       1
+                                                                     as IM itself.
+                                                                            3
+                                                                        The relation with IM is
+                                                                                              3
+                                                                     now easily found, both in
+                                                                     absolute value, as in dB.
+                                                                        For example, for coeﬃ-
+                                                                     cients of a =0.01 and a =
+                                                                                  3            1
+                                                                     0.5, IM =3.4×10−4 or
+                                                                                3
+                                                                     −69.4 dB for 0.15 V RMS
+input voltage (−16.5 dB); then IP =8.16 V or 18.2 dB. Note that, 1 V is taken as a reference
+                                    3
+and hence all dB are actually dBV. In high-frequency systems such as communication systems,
+1 V is usually not seen as a reference. It is the Voltage corresponding to 1 mW in 50 V. This
+gives as a reference Voltage, the square root of 0.05 V2 or 0.2236 V . In this case 13 dB (which
+                                                                    RMS
+is 20×log(0.2236)) has to be added to the dBV values in this slide, which gives an input voltage
+of −3.5 dBm, an IM of −56.4 dBm and an IP of 31.2 dBm.
+                      3                           3
+
+
+                                                                     1820
+                                                                     The maximum dynamic
+                                                                     range IMFDR is also easily
+                                                                                      3
+                                                                     found. It is the IM ratio at
+                                                                                          3
+                                                                     the input voltage where the
+                                                                     IM component at the
+                                                                         3
+                                                                     output equals the output
+                                                                     noise level V .
+                                                                                   nout
+                                                                        Since it also depends on
+                                                                     coeﬃcient a , it can be
+                                                                                    3
+                                                                     described in terms of the
+                                                                     IP .
+                                                                        3
+                                                                        For example, for the same
+                                                                     values as on the previous
+                                                                     slide,    the      IMFDR =
+                                                                                               3
+                                                                     48.8 dB (when the noise level
+                                                                     is at −42 dBm).
+Distortion in elementary transistor circuits                                                 529
+
+                                                                  1821
+                                                                  Another way to specify the
+                                                                  IM distortion is the −1 dB
+                                                                      3
+                                                                  compression point V           .
+                                                                                         in1dBc
+                                                                  It is the input voltage for
+                                                                  which the output amplitude
+                                                                  is reduced by 1 dB, as a
+                                                                  result of the subtraction of
+                                                                  the IM component. This is
+                                                                          3
+                                                                  easy to measure, but is not
+                                                                  so accurate, as 1 dB is not
+                                                                  that easy to distinguish.
+                                                                     It is also given by the
+                                                                  a /a ratio as both IM and
+                                                                    1 3                   3
+                                                                  the IP .
+                                                                         3
+                                                                     A reduction by 1 dB cor-
+                                                                  responds to a coeﬃcient of
+about 0.9. The expressions of the V        is therefore easily found.
+                                    in1dBc
+  Note that the V        is always approximately 10 dB smaller than the IP in dB.
+                  in1dBc                                                  3
+
+
+
+
+                                                                  1822
+                                                                  As another exercise, a
+                                                                  diﬀerential ampliﬁer is
+                                                                  taken with a large amount
+                                                                  of gain. Its value is 20 or
+                                                                  26 dB. For the third-order
+                                                                  coeﬃcient a of 0.4 and
+                                                                                   3
+                                                                  input voltage of 0.45 V ,
+                                                                                           RMS
+                                                                  all the values are calculated
+                                                                  again, which specify the
+                                                                  third-order distortion. They
+                                                                  are the IM , the IP and
+                                                                                  3      3
+                                                                  the V         .
+                                                                         in1dBc
+                                                                     If the input noise level is
+                                                                  given (which is the output
+                                                                  noise divided by the gain),
+                                                                  then the IMFDR can be
+                                                                                      3
+                                                                  calculated as well.
+530                                                                                   Chapter #18
+
+                                                                    1823
+                                                                    Another advantage of deal-
+                                                                    ing with IM is that it also
+                                                                                  3
+                                                                    gives the third-order cross-
+                                                                    modulation CM . Cross-
+                                                                                       3
+                                                                    modulation is what we are
+                                                                    really after, as it describes
+                                                                    how much modulation
+                                                                    information is transferred
+                                                                    from one carrier to its adja-
+                                                                    cent carrier.
+                                                                       Application of an ampli-
+                                                                    tude modulated waveform
+                                                                    with modulation index m
+                                                                                                c
+                                                                    to the same power series,
+                                                                    shows that the CM is
+                                                                                            3
+                                                                    simply the product of the
+IM with the modulation index m . This is also true to some extent for other modulation systems.
+    3                            c
+  There are plenty of reasons to concentrate on the IM as the most important speciﬁcation of
+                                                        3
+third-order distortion.
+
+
+
+                                                                    1824
+                                                                    Let us ﬁnd out what third-
+                                                                    order distortion is given by
+                                                                    a MOST and then by a
+                                                                    bipolar transistor. As a
+                                                                    bipolar transistor has the
+                                                                    steepest transfer curve, and
+                                                                    thus the highest g /I
+                                                                                              m CE
+                                                                    ratio, it will also give the
+                                                                    highest distortion.
+                                                                        A MOST on the other
+                                                                    hand, only has a square-law
+                                                                    characteristic. It gives much
+                                                                    less distortion. This is why
+                                                                    it is used at the input of most
+                                                                    receivers, as well as in other
+                                                                    exotic technologies such as
+                                                                    GaAs.
+Distortion in elementary transistor circuits                            531
+
+                                               1825
+                                               The current of a MOST can
+                                               still be described by a
+                                               square-law relationship in
+                                               its simplest form.
+                                                  Application of a small-
+                                               signal v , with amplitude
+                                                        gs
+                                               V , superimposed on a DC
+                                                 gs
+                                               biasing voltage V , yields
+                                                                  GS
+                                               a small-signal current i
+                                                                          ds
+                                               superimposed on the DC
+                                               current I .
+                                                         DS
+                                                  Note that we have to
+                                               write voltages and currents
+                                               in the correct way so as to
+                                               clarify which components
+                                               are actually needed.
+                                                  A graphical explanation is
+                                               given next.
+
+
+
+
+                                               1826
+                                               DC components are always
+                                               written with capitals: I is
+                                                                        DS
+                                               therefore the DC current
+                                               through the transistor.
+                                                   The instantaneous value
+                                               of the small-signal or AC
+                                               component is indicated by
+                                               i , which has an amplitude
+                                                ds
+                                               I .
+                                                ds
+                                                   Finally, the total DC and
+                                               AC signal is denoted by i .
+                                                                          DS
+                                               This notation is used to give
+                                               general model and network
+                                               expressions.
+532                                                                                   Chapter #18
+
+                                                                    1827
+                                                                    Subtraction of the DC com-
+                                                                    ponent I from the total
+                                                                                DS
+                                                                    current expression i         or
+                                                                                             DS
+                                                                    I +i , gives the AC com-
+                                                                     DS ds
+                                                                    ponent i . It is easily con-
+                                                                               ds
+                                                                    verted in a power series of
+                                                                    i versus input voltage v .
+                                                                     ds                         gs
+                                                                        It is not surprising to see
+                                                                    that no third-order coeﬃ-
+                                                                    cient is present. Indeed,
+                                                                    a third-order component
+                                                                    cannot be obtained from
+                                                                    a square-law relationship!
+                                                                    There is no IM , only IM !
+                                                                                      3          2
+
+
+
+
+                                                                   1828
+                                                                   The coeﬃcients g of the
+                                                                   power series are now easily
+                                                                   identiﬁed.
+                                                                      The ﬁrst is g , obviously
+                                                                                    1
+                                                                   the transconductance g of
+                                                                                             m
+                                                                   the MOST.
+                                                                      The second is g , this rep-
+                                                                                       2
+                                                                   resents the second-order dis-
+                                                                   tortion, described by IM .
+                                                                                               2
+                                                                   Its value is proportional to
+                                                                   the peak amplitude of the
+                                                                   input voltage V , scaled by
+                                                                                    gs
+                                                                   the value of V −V used.
+                                                                                   GS    T
+                                                                      For low distortion, large
+                                                                   values must be used of
+                                                                   V −V .
+                                                                     GS     T
+  No IM is present, which is an enormous advantage in a single-ended MOST ampliﬁer. Of
+          3
+course, this is only true in so far as the current of a MOST can be accurately described by the
+simple square-law relationship. This is nowadays only true for values of V −V , slightly
+                                                                                GS     T
+over 0.2 V.
+Distortion in elementary transistor circuits                                                    533
+
+                                                                    1829
+                                                                    A more general way of
+                                                                    describing distortion is to
+                                                                    use the relative current
+                                                                    swing U rather than the cur-
+                                                                    rent I or the input voltage
+                                                                          ds
+                                                                    V . It is deﬁned as the ratio
+                                                                      gs
+                                                                    of the peak AC current I
+                                                                                                 ds
+                                                                    to the DC current I .
+                                                                                          DS
+                                                                       We will see that distortion
+                                                                    can easily be calculated once
+                                                                    we know what the relative
+                                                                    current swing is. Moreover,
+                                                                    we will ﬁnd that any tech-
+                                                                    nique which reduces the rel-
+                                                                    ative current swing, such as
+                                                                    feedback, can be used to
+                                                                    reduce distortion.
+  The power series for the relative current swing is denoted by y. Its ﬁrst-order component is
+denoted by u, the peak value is denoted by U. Its value is obviously given by the same ratio V
+                                                                                                 gs
+to V −V .
+     GS   T
+  Choosing a large value of V −V will therefore reduce the relative current swing, and hence
+                              GS    T
+the IM distortion.
+        2
+
+
+
+                                                                      1830
+                                                                      An example is given in this
+                                                                      slide.
+                                                                         For a peak relative cur-
+                                                                      rent swing of 40%, the IM
+                                                                                                   2
+                                                                      is quite high, i.e. 10%. This
+                                                                      is reached for an input volt-
+                                                                      age of 71 mV          if V −
+                                                                                       RMS      GS
+                                                                      V =0.5 V.
+                                                                        T
+534                                                                                     Chapter #18
+
+                                                                      1831
+                                                                      A MOST has many more
+                                                                      distortion       components.
+                                                                      Only K         has been dis-
+                                                                                2gm
+                                                                      cussed hitherto. In general,
+                                                                      K      is not zero, leading to
+                                                                        3gm
+                                                                      IM . Finding AC voltages
+                                                                          3
+                                                                      at the Drain or at the Bulk,
+                                                                      will also generate distortion,
+                                                                      and lots of intermodulation
+                                                                      products, most of which
+                                                                      are of less importance.
+                                                                      However, especially as K
+                                                                                                 2go
+                                                                      is K      have become more
+                                                                            3g0
+                                                                      important as the output
+                                                                      conductance of deep sub-
+                                                                      micron transistor have
+                                                                      become quite small.
+   Maybe all distortion components of a MOST have never been fully extracted, certainly not
+in all three regions of operation such as strong inversion, weak inversion and velocity saturation.
+   We will concentrate mainly on coeﬃcient K         which corresponded with K or K∞W/L in the
+                                                 2gm
+original (or simplest) power series.
+
+
+
+                                                                      1832
+                                                                      A MOST with its Drain
+                                                                      connected to the Gate is
+                                                                      called a diode-connected
+                                                                      MOST. It is as non-linear as
+                                                                      a MOST. This is clearly seen
+                                                                      when v is substituted by
+                                                                              GS
+                                                                      v in the square-law expres-
+                                                                       DS
+                                                                      sion of the MOST.
+                                                                         The relative current swing
+                                                                      and the IM are the same as
+                                                                                  2
+                                                                      for the MOST.
+Distortion in elementary transistor circuits                             535
+
+                                               1833
+                                               For deep-submicron or
+                                               manometer CMOS, the
+                                               strong-inversion has be-
+                                               come quite small. It is the
+                                               region where the curvature
+                                               is inverted. The exponential
+                                               of the weak-inversion region
+                                               curves upwards whereas the
+                                               ﬂattening in velocity satura-
+                                               tion gives a downwards
+                                               curvature.
+                                                  As a result, the second
+                                               derivative of the transcon-
+                                               ductance goes through zero.
+                                               This is a point of zero HD
+                                                                           3
+                                               and IM . It occurs for
+                                                         3
+                                               values just above V . Some
+                                                                    T
+                                               parameter extraction rou-
+                                               tines take this point as V !
+                                                                         T
+
+
+
+
+                                               1834
+                                               In practice, however, this
+                                               point of zero HD is quite
+                                                                   3
+                                               sharp. Any variation in
+                                               V −V or in transistor size
+                                                 GS    T
+                                               gives a large increase in
+                                               HD .
+                                                    3
+                                                  Some experimental curves
+                                               are shown in this slide. The
+                                               crossover from weak inver-
+                                               sion (red) to velocity satura-
+                                               tion (blue) is barely visible.
+                                               It is exceedingly hard to
+                                               maintain the biasing (V
+                                                                           GS
+                                               −V ) at this point.
+                                                    T
+536                     Chapter #18
+
+      1835
+      When two MOSTs are con-
+      nected as a diﬀerential pair,
+      then the limiting transfer
+      characteristic emerges as
+      described in Chapter 3. The
+      input sine wave is therefore
+      rounded or compressed.
+         If no oﬀset is present, then
+      the rounding is the same on
+      both halves of the sine wave.
+      The DC output voltage will
+      not change and the IM
+                                    2
+      is zero. As long as the
+      rounding on both halves is
+      the same, symmetry is main-
+      tained and no IM is found.
+                          2
+         However, third-order dis-
+      tortion is now generated as
+      a result of the rounding.
+
+
+
+      1836
+      The relative current swing in
+      a diﬀerential pair with
+      MOSTs is derived in
+      Chapter 3 and repeated
+      here.
+         Care must be taken to
+      have the factors of 2 right!
+         For a small input voltage
+      the output current is linear.
+      The square root with the
+      squared relative input volt-
+      age becomes important and
+      causes the ﬂattening of the
+      transfer curve in both
+      directions.
+Distortion in elementary transistor circuits                                               537
+
+                                                                 1837
+                                                                 For a small relative input
+                                                                 voltage, the square root can
+                                                                 be developed into a power
+                                                                 series, only the ﬁrst term of
+                                                                 which is retained.
+                                                                    The power series of the
+                                                                 relative current swing y
+                                                                 has become very simple.
+                                                                 Coeﬃcient a =1 and a =
+                                                                               1           3
+                                                                 1/8. Obviously, IM is zero
+                                                                                      2
+                                                                 and the IM is simply about
+                                                                             3
+                                                                 one tenth of the peak rela-
+                                                                 tive current swing U
+                                                                 squared.
+                                                                    Again, for a large value of
+                                                                 V −V , the relative cur-
+                                                                   GS     T
+rent swing is small and so is the IM .
+                                     3
+  This is also obvious from the IP , which is proportional to V −V .For a V −V of 0.5 V,
+                                   3                           GS T        GS T
+we obtain an IP of 1.65 V or 17.4 dBm.
+                3
+
+
+
+                                                                 1838
+                                                                 The third-order distortion
+                                                                 in a diﬀerential pair can be
+                                                                 reduced by biasing the
+                                                                 MOSTs in the linear region.
+                                                                    For this purpose, the
+                                                                 values of V of the input
+                                                                              DS
+                                                                 MOSTs must be kept con-
+                                                                 stant at a value between 100
+                                                                 and 200 mV. This is
+                                                                 achieved by means of a con-
+                                                                 stant-current source I . If
+                                                                                         D
+                                                                 V =V =V              then the
+                                                                   GS1    GS2     GSD
+                                                                 input transistors M1 and
+                                                                 M2 have equal V . The
+                                                                                      DS
+                                                                 resulting values of g and
+                                                                                       m1
+                                                                 g are less in absolute value
+                                                                  m2
+than in the saturation region, but more constant.
+  Moreover, changing the value of the current source I allows a change in the input transcon-
+                                                      D
+ductance for use in a g −C ﬁlter (see next Chapter).
+                       m
+  The transistors M5 and M6 are shorted. They are used to compensate the poles associated
+with the input capacitances C     and C .
+                              GS1      GS2
+538                    Chapter #18
+
+      1839
+      The distortion in a bipolar
+      transistor is higher because
+      the current-voltage charac-
+      teristic is steeper.
+         Several distortion charac-
+      teristics are now calculated,
+      for a single ended bipolar
+      transistor ampliﬁer and then
+      for a diﬀerential pair.
+
+
+
+
+      1840
+      A bipolar transistor is expo-
+      nential. Application of a DC
+      Base-Emitter voltage V
+                                 BE
+      with an ac voltage v super-
+                          be
+      imposed, gives a DC collec-
+      tor current I with a AC
+                    CE
+      signal i on it. The relative
+              ce
+      collector current swing is
+      denoted by y. It is obtained
+      by a simple division of both
+      currents.
+         This exponential can now
+      be developed into a power
+      series, provided the input
+      signal amplitude V is small
+                         be
+      compared to kT /q.
+                       e
+Distortion in elementary transistor circuits                              539
+
+                                               1841
+                                               The coeﬃcients of the power
+                                               series are now given in this
+                                               slide.
+                                                  The distortion compo-
+                                               nents IM and IM are
+                                                           2          3
+                                               easily derived from them.
+                                                  It is clear that a bipolar
+                                               transistor gives both even
+                                               and odd-order distortion.
+                                               Also, their values are quite
+                                               large.
+
+
+
+
+                                               1842
+                                               For example, if a relative
+                                               current swing is used with
+                                               a maximum of 10%, then
+                                               the IM is 0.125%. Only
+                                                         3
+                                               1.8 mV        input signal will
+                                                       RMS
+                                               now be needed.
+                                                  The IP is quite small.
+                                                           3
+                                               It is only 50 mV            or
+                                                                      RMS
+                                               −13 dBm.
+                                                  For an input voltage of
+                                               100 mV peak. The bipolar
+                                               transistor is overdriven.
+                                               Power series cannot be used
+                                               any more, but Bessel func-
+                                               tions. We do not develop
+                                               this topic any more.
+540                                                                                   Chapter #18
+
+                                                                    1843
+                                                                    If a bipolar transistor is con-
+                                                                    nected as a diode, which is
+                                                                    actually the Base-Emitter
+                                                                    diode, then the same
+                                                                    amount of distortion can be
+                                                                    expected.
+                                                                       This diode has been used,
+                                                                    for example, at the input of
+                                                                    a bipolar current mirror.
+                                                                    The distortion at the middle
+                                                                    point of a current mirror is
+                                                                    therefore quite large.
+
+
+
+
+                                                                  1844
+                                                                  When two bipolar transis-
+                                                                  tors are connected as a
+                                                                  diﬀerential pair, the transfer
+                                                                  characteristic now consists
+                                                                  of exponentials as well.
+                                                                  Together they yield a tanh
+                                                                  function, as explained in
+                                                                  Chapter 3.
+                                                                     If the applied diﬀerential
+                                                                  input voltage v is small
+                                                                                     Id
+                                                                  compared to kT /q, then
+                                                                                        e
+                                                                  these functions can be devel-
+                                                                  oped into power series.
+                                                                     Again, the second-order
+                                                                  component is zero if there is
+                                                                  no mismatch. The third-
+order component gives rise to the IM shown in this slide. The corresponding IP is also given.
+                                     3                                           3
+   Remember that a MOST diﬀerential pair had about 1/10 of U2 as IM , now it is 1/4 U2. A
+                                                                         3
+MOST diﬀerential pair is 2.5 times better for IM than a bipolar diﬀerential pair, for the same
+                                                 3
+relative current swing. Moreover, the input voltage corresponding with it is also larger, as in a
+MOST diﬀerential pair the input voltage is scaled to V −V .
+                                                       GS    T
+Distortion in elementary transistor circuits                                                   541
+
+                                                                     1845
+                                                                     Before we end this section
+                                                                     on distortion of bipolar
+                                                                     transistors, this is probably
+                                                                     a good place to comment
+                                                                     about distortion in resistors
+                                                                     and capacitors.
+                                                                        Diﬀused resistors are
+                                                                     fairly nonlinear as they are
+                                                                     separated from the substrate
+                                                                     by a depletion layer. The
+                                                                     voltage across the resistor
+                                                                     modiﬁes the thickness of the
+                                                                     depletion layer and the
+                                                                     conductivity of the resistor.
+                                                                     A resistor behaves as a
+                                                                     Junction FET with a high
+pinch-oﬀ (or threshold) voltage. Its eﬀective V −V is very high and its distortion is relatively
+                                               GS     T
+low. It is not negligible, however.
+   Poly resistors and metal resistors do not have this depletion layer and are much more linear.
+   The same applies to capacitances.
+   Diﬀusion capacitances are depletion layer capacitances and are very non-
+linear. Metal-to-metal capacitances, on the other hand, are very linear. This also applies to poly-
+to-poly capacitances, some values are given in this slide.
+
+
+
+                                                                     1846
+                                                                     The non-linear characteris-
+                                                                     tic of a diﬀusion capacitance
+                                                                     is illustrated in this slide.
+                                                                          The junction capacitance
+                                                                     C is C at zero Volt across
+                                                                        j       0
+                                                                     it. It is modeled by a square-
+                                                                     root characteristic. For a
+                                                                     bias Voltage -V , the junc-
+                                                                                       B
+                                                                     tion capacitance can be
+                                                                     described by a DC factor
+                                                                     followed by an AC one. This
+                                                                     latter factor can now be
+                                                                     developed into a power
+                                                                     series. Its coeﬃcients can be
+                                                                     used to calculate the values
+                                                                     of IM and IM .
+                                                                              2       3
+542                                                                                   Chapter #18
+
+                                                             1847
+                                                             The most common tech-
+                                                             nique to reduce the distor-
+                                                             tion is by application of
+                                                             feedback.
+                                                                Feedback reduces distor-
+                                                             tion in two ways. First of all,
+                                                             it reduces the relative cur-
+                                                             rent swing. Secondly, it
+                                                             reduces the distortion by the
+                                                             feedback factor (or loop
+                                                             gain).
+                                                                Let us investigate how the
+                                                             coeﬃcients of the power
+                                                             series are aﬀected by the
+                                                             feedback. We will now cal-
+                                                             culate the actual distortion
+components IM and IM . Index f is used to indicate that they are valid for a system with
+             2f     3f
+feedback.
+
+
+                                                                    1848
+                                                                    Feedback with factor F is
+                                                                    applied around a non-linear
+                                                                    ampliﬁer, characterized by
+                                                                    coeﬃcients a , a , a , .... The
+                                                                                 1 2 3
+                                                                    same system can also be
+                                                                    described by coeﬃcients d ,
+                                                                                                  1
+                                                                    d , d , ... The question is,
+                                                                     2 3
+                                                                    what is the relationship
+                                                                    between the coeﬃcients d
+                                                                    and a?
+                                                                       This is found by writing
+                                                                    the network equation and
+                                                                    elimination of u. Subsequent
+                                                                    elimination of y between
+                                                                    this result and the power
+                                                                    series with coeﬃcients d
+                                                                    yields these d coeﬃcients.
+                                                                       They are given next.
+
+
+1849
+The open-loop gain a is divided by the loop gain 1+T, as expected (1+LG in Chapter 13).
+                       1
+For large T, the closed-loop gain d is just about 1/F, as explained by ﬁrst-order feedback theory
+                                    1
+(see Chapter 13).
+   The second-order coeﬃcient d of the power series with feedback, is given to a but divided
+                                  2                                                  2
+by the third power of the loop gain T.
+Distortion in elementary transistor circuits                                                    543
+
+                                                                          The third-order coeﬃ-
+                                                                      cient d of the power series
+                                                                              3
+                                                                      with feedback, is given to a
+                                                                                                   3
+                                                                      but is now divided by the
+                                                                      ﬁfth power of the loop gain
+                                                                      T. Actually, a gives a con-
+                                                                                    2
+                                                                      tribution. The second-order
+                                                                      distortion of the nonlinear
+                                                                      ampliﬁer can take one more
+                                                                      turn through the loop to
+                                                                      generate third-order distor-
+                                                                      tion. However, it has the
+                                                                      opposite sign of the contri-
+                                                                      bution from a . Coeﬃcient
+                                                                                     3
+                                                                      a gives compression dis-
+                                                                        3
+                                                                      tortion, whereas a gives
+                                                                                           2
+                                                                      expansion of the sine wave.
+They can cancel out at one particular value of the coeﬃcients a.
+  The distortion components are now easily calculated.
+
+
+                                                                      1850
+                                                                      By use of the coeﬃcients d,
+                                                                      the distortion components
+                                                                      IM and IM with feed-
+                                                                          2f          3f
+                                                                      back (index f ) are easily
+                                                                      calculated.
+                                                                         The IM contains T2 in
+                                                                                  2f
+                                                                      the denominator. If we asso-
+                                                                      ciate one T to the reduction
+                                                                      of the gain, and as a conse-
+                                                                      quence, the reduction of the
+                                                                      relative current swing, then
+                                                                      we see that the IM is
+                                                                                              2f
+                                                                      reduced by T itself. A rule
+                                                                      of thumb is that we calculate
+                                                                      the distortion for the rela-
+                                                                      tive current swing, taking
+into account the eﬀect of the feedback on this current swing. The distortion for this stage is now
+easily calculated. It is divided by the loop gain to take into account the reduction by the loop
+gain T.
+   In the same way, IM is calculated. Again, the two terms appear related to a and a . If a is
+                          3f                                                        3     2      3
+dominant, the same rule of thumb applies. An easy way to calculate the distortion is to ﬁnd the
+distortion for a relative current swing, taking into account the eﬀect of feedback. The distortion
+is then obtained by division by the loop gain T itself, and not by T2.
+   The same is true if a is dominant. Indeed the T2 in the denominator is reduced to T since
+                          2
+the numerator also contains T. Clearly, we have assumed all along that T is always larger than
+unity and that the loop gain can be represented by T, rather than 1+T.
+544                                                                                   Chapter #18
+
+                                                                     1851
+                                                                     The factor between square
+                                                                     brackets can be rewritten
+                                                                     provided T is large, as
+                                                                     shown in this slide.
+                                                                        Which term is dominant,
+                                                                     depends on the actual tran-
+                                                                     sistor conﬁguration.
+                                                                        Three examples are given.
+                                                                        A MOST in the strong-
+                                                                     inversion region has a zero
+                                                                     a . It is clear that in
+                                                                      3
+                                                                     this case, all third-order
+                                                                     distortion is due to a .
+                                                                                               2
+                                                                     Application of feedback
+                                                                     around a single-transistor
+                                                                     MOST ampliﬁer generates
+third-order distortion, which is not present without feedback.
+   For a single bipolar-transistor ampliﬁer the coeﬃcients are given in this slide. This yields as
+a second term with a a value of 3. Clearly, this latter term is now dominant.
+                       2
+   A diﬀerential pair, on the other hand, does not have second-order distortion; its a is zero. As
+                                                                                      2
+a result, its IM is zero but not its IM . It is obviously caused by the third-order distortion a
+                2f                      3f                                                       3
+of the open-loop ampliﬁer.
+
+
+
+                                                                   1852
+                                                                   One of the simplest ampliﬁ-
+                                                                   ers with feedback is a single
+                                                                   bipolar-transistor ampliﬁer
+                                                                   with a series resistor R in
+                                                                                             E
+                                                                   the Emitter. The loop gain
+                                                                   is now simply g R , which
+                                                                                      m E
+                                                                   is assumed to be larger than
+                                                                   unity. It is also the DC volt-
+                                                                   age V across the resistor
+                                                                          RE
+                                                                   R , scaled by kT /q.
+                                                                      E                e
+                                                                       Substitution of the ratio
+                                                                   a /a into IM yields the
+                                                                     2 1            2f
+                                                                   expression given in this
+                                                                   slide. As predicted, the IM
+                                                                                               2f
+                                                                   is linearly proportional to
+                                                                   the relative current swing U,
+and has to be divided by the loop gain 1+T, or by T itself for large T.
+Distortion in elementary transistor circuits                                                545
+
+                                                                 1853
+                                                                 Substitution of the ratio
+                                                                 a /a and of a /a into IM
+                                                                   2 1           3 1          3f
+                                                                 yields the expression given
+                                                                 in this slide.
+                                                                    As predicted, the IM is
+                                                                                           3f
+                                                                 proportional to the relative
+                                                                 current swing U squared,
+                                                                 and has to be divided by the
+                                                                 loop gain 1+T, or by T
+                                                                 itself for large T, not by T2!
+                                                                    Note that there is a null
+                                                                 for T=0.5. It is a very sharp
+                                                                 null however, which cannot
+                                                                 be easily used. This is shown
+                                                                 in the next slide.
+
+
+
+
+                                                                 1854
+                                                                 The results are plotted for a
+                                                                 bipolar-transistor ampliﬁer
+                                                                 with an emitter resistor R
+                                                                                             E
+                                                                 of increasing value.
+                                                                    The DC current I        is
+                                                                                        CE
+                                                                 constant and so is the rela-
+                                                                 tive current swing. This
+                                                                 means that the input voltage
+                                                                 is constant up to T=1 and
+                                                                 then increases with T.
+                                                                    Note that for values of T
+                                                                 larger than unity, both IM
+                                                                                             2f
+                                                                 and IM decrease with the
+                                                                         3f
+                                                                 same slope of −20 dB/
+                                                                 decade. Note also that the
+                                                                 IM shows a null at T=0.5,
+                                                                     3f
+                                                                 which is quite sharp indeed.
+
+
+
+
+1855
+For large loop gain T, simpliﬁed expressions can be obtained.
+  Substitution of T by g R yields the second set of expressions. Substitution of g by the DC
+                         m E                                                      m
+current ICE divided by kT /q yields the last set of expressions.
+                           e
+  They indicate what the relationships are between the IM and IM and the input voltage
+                                                            2fT      3fT
+amplitude V , the DC current I and the resistor R . For constant I and input voltage V ,
+            in                  CE                    E              CE                    in
+546                                                                                     Chapter #18
+
+                                                                      and increasing R , the rela-
+                                                                                         E
+                                                                      tive current swing decreases,
+                                                                      decreasing the distortion
+                                                                      components considerably.
+                                                                         This is for a bipolar tran-
+                                                                      sistor. Let us have a look
+                                                                      now at a MOST with a
+                                                                      series resistor R in the
+                                                                                           S
+                                                                      Source.
+
+
+
+
+                                                                       1856
+                                                                       For a MOST, the third
+                                                                       order coeﬃcient a is zero.
+                                                                                            3
+                                                                       The third-order distortion
+                                                                       with feedback, will therefore
+                                                                       be caused by the second-
+                                                                       order coeﬃcient a .
+                                                                                           2
+                                                                          Another big diﬀerence
+                                                                       between a bipolar transistor
+                                                                       and a MOST is that the
+                                                                       kT /q must be substituted
+                                                                           e
+                                                                       by (V −V )/2, which can
+                                                                              GS     T
+                                                                       be chosen, but which is
+                                                                       always larger than kT /q.
+                                                                                                 e
+                                                                       For low distortion, a small
+                                                                       value of V −V must also
+                                                                                   GS    T
+                                                                       be selected, because the
+eﬀect of the increase in g , and in loop gain T is more important than the decrease of the
+                            m
+V −V .
+  GS    T
+   For large T, similar results are obtained as for a bipolar transistor. Substitution of T by g R
+                                                                                                m S
+also yields expressions which are very similar to the ones for a bipolar transistor.
+   For example, for IM the coeﬃcient is about 1/10, whereas 1/4 for a bipolar transistor. It is
+                        3fT
+therefore 2.5 times smaller than for a bipolar transistor. However, if V −V =0.2 V is chosen,
+                                                                           GS    T
+then (V −V )/2=0.1 V which is four times larger than kT /q×26 mV. For the same DC
+         GS    T                                                  e
+current and resistor, the MOST ampliﬁer gives 4/2.5 or about 1.6 times worse IM than a bipolar
+                                                                                     3
+ampliﬁer, for the same input voltage.
+Distortion in elementary transistor circuits                                                         547
+
+                                                                        1857
+                                                                        The question arises whether
+                                                                        it is better for low distortion,
+                                                                        to take a MOST with large
+                                                                        V −V (as for MOST
+                                                                           GS     T
+                                                                        M1), or to take MOST with
+                                                                        small V −V and a series
+                                                                                  GS     T
+                                                                        resistor R (as for MOST 2).
+                                                                        The diﬀerence between the
+                                                                        V        and the V        is the
+                                                                           GS1               GS2
+                                                                        voltage across the resistor
+                                                                        V .
+                                                                           R
+                                                                            The Gates are at the same
+                                                                        voltage V . We also take
+                                                                                     G
+                                                                        equal DC currents.
+                                                                            It is clear that for third-
+                                                                        order distortion IM , the
+                                                                                                 3
+conﬁguration with M1 is the best as it does not give any IM . The one with feedback resistor
+                                                                  3
+R does give IM !
+                 3f
+  For second-order distortion IM (for M1) and IM (for M2), we have to calculate the ratio
+                                   2                    2f
+IM /IM . The result is given in this slide.
+   2f    2
+  It shows that the voltage across the resistor V must be larger than V −V (or V                     ) to
+                                                    R                           GS1     T       GST1
+make a diﬀerence. If this is the case, the distortion is inversely proportional to the voltage V .
+                                                                                                      R
+  For second-order distortion, it is better to use as large a resistor as possible, but not for third-
+order distortion!
+
+
+                                                                   1858
+                                                                   When the series resistor in
+                                                                   the Source is greatly
+                                                                   increased, i.e. when an ideal
+                                                                   current source I is used
+                                                                                        B
+                                                                   with inﬁnite output resis-
+                                                                   tance, then the distortion
+                                                                   due to the non-linearity of
+                                                                   the I −V characteristic
+                                                                         DS     GS
+                                                                   is zero.
+                                                                      In this case, the non-lin-
+                                                                   earity of the output conduc-
+                                                                   tance is dominant. It can
+                                                                   again be described in terms
+                                                                   of relative current swing U,
+                                                                   as given in this slide. Voltage
+                                                                   V L is the Early voltage of
+                                                                     E
+the MOST. The larger the Early voltage, the smaller the relative current swing and the smaller
+the distortion is.
+  The same applies to an emitter follower.
+  We have silently assumed that the Bulk-Source voltage of the source follower is zero. This is
+548                                                                                    Chapter #18
+
+only possible when the Bulk can be connected to the source or when the nMOST is in a p-well.
+However, CMOS processes have normally a n-well. A nMOST source follower has normally its
+Bulk connected to ground. This causes a lot of distortion, as shown next.
+
+
+                                                                     1859
+                                                                     Indeed, when the Bulk is
+                                                                     connected to ground, the
+                                                                     parasitic JFET becomes
+                                                                     active (see Chapter 1), and
+                                                                     the gain becomes smaller
+                                                                     than unity.
+                                                                        In this case, the threshold
+                                                                     voltage V depends on the
+                                                                                T
+                                                                     output voltage through
+                                                                     parameter c, which repre-
+                                                                     sents the body eﬀect as
+                                                                     explained in Chapter 1. The
+                                                                     relation between input and
+                                                                     output voltage is now easily
+                                                                     derived. It is clearly a non-
+                                                                     linear relationship.
+
+
+                                                                     1860
+                                                                     This nonlinear relationship
+                                                                     is plotted in this slide. The
+                                                                     slope of this curve decreases
+                                                                     for larger input and output
+                                                                     voltages. It is actually 1/n in
+                                                                     which n contains g (see
+                                                                     Chapter 1).
+                                                                        This nonlinear relation-
+                                                                     ship gives rise to a power
+                                                                     series. The coeﬃcients are
+                                                                     given for speciﬁc values of
+                                                                     the transistor parameters.
+                                                                        It is obvious that a source
+                                                                     follower, which cannot be
+                                                                     embedded in a separate well,
+                                                                     cannot be used, if distortion
+                                                                     is of any concern!
+
+
+1861
+The inclusion of series resistors in the source is used very often to enlarge the input range of a
+diﬀerential pair. In principle this can be done by taking large values of V −V . If this is not
+                                                                             GS     T
+suﬃcient, series resistors R must be inserted.
+Distortion in elementary transistor circuits                                                       549
+
+                                                                          The IM is now reduced
+                                                                                   3
+                                                                       or the IP is increased.
+                                                                                 3
+                                                                          Actually, there are two
+                                                                       possible realizations of the
+                                                                       same principle. For small-
+                                                                       signal performance they are
+                                                                       almost the same. Actually,
+                                                                       the circuit with a single
+                                                                       resistor 2R (on the right) has
+                                                                       the advantage that we do
+                                                                       not have to try to match two
+                                                                       separate resistors. On the
+                                                                       other hand, the output
+                                                                       capacitances of the bias cur-
+                                                                       rent sources I        will limit
+                                                                                        bias
+                                                                       the high-frequency perfor-
+                                                                       mance, which is not the case
+                                                                       for the left circuit.
+  The main diﬀerence however, is that for the left circuit, the DC bias current I ﬂows through
+                                                                                   bias
+the resistor R, which is not the case on the right. For large resistors R and low supply voltages,
+the circuit on the right is the better one.
+  Diﬀerential ampliﬁers with a large input range, and hence low distortion, are called transcon-
+ductors. They are used intensively for continuous-time ﬁlters, discussed in the next Chapter.
+
+
+                                                                    1862
+                                                                    Because of the limited
+                                                                    supply voltage, very large
+                                                                    value of resistor R cannot be
+                                                                    used. Additional feedback is
+                                                                    now required as shown in
+                                                                    this slide.
+                                                                       The purpose of all such
+                                                                    circuits is to increase the
+                                                                    loop gain to reduce the dis-
+                                                                    tortion. This can be done by
+                                                                    addition of just one or two
+                                                                    transistors in the feedback
+                                                                    loop, as shown on the left,
+                                                                    or by an inclusion of a full
+                                                                    operational ampliﬁer, as
+                                                                    shown on the right.
+  In the latter case, the loop gain at low frequencies is very high. As a result the diﬀerential
+input voltage is enforced upon the resistor 2R, giving rise to a very linear voltage to current
+conversion.
+  For a high-frequency transconductor the circuit on the left may be preferred, as its loop gain
+may be higher at high frequencies.
+550                                                                                    Chapter #18
+
+                                                                     1863
+                                                                     Transconductors can also
+                                                                     suppress the distortion by
+                                                                     cancellation, rather than by
+                                                                     local feedback. An often
+                                                                     used example is given in this
+                                                                     slide. It is actually a MOST
+                                                                     version of the well known
+                                                                     bipolar Gilbert multiplier
+                                                                     (JSSC Dec. 68, 365–373). It
+                                                                     is asymmetrical, however.
+                                                                        It    consists     of   two
+                                                                     diﬀerential pairs with tran-
+                                                                     sistors M1 and M2, the
+                                                                     second of which has smaller
+                                                                     g ’s and is cross-coupled.
+                                                                       m
+                                                                        This cross-coupling allows
+the reduction of the IM3 to zero but also reduces the signal amplitude itself.
+  There are actually two design parameters, i.e. the ratio a of the two biasing currents I , and
+                                                                                              B
+the ratio v of the two values of V −V . They are linked by a simple expression for zero IM .
+                                  GS    T                                                         3
+  For example, for a=0.25, the ratio v must be 1.6 (for example, V −V =0.2 and 0.32 V).
+                                                                     GS     T
+  Obviously, the cancellation will never be perfect. Mismatch will play a role.
+
+
+
+                                                                     1864
+                                                                     The expressions for the
+                                                                     diﬀerential output current
+                                                                     and the IM are given in
+                                                                                    3
+                                                                     this slide.
+                                                                        It is clear that IM
+                                                                                                  3
+                                                                     depends on the relative cur-
+                                                                     rent swing U as usual, but
+                                                                     also on the two design
+                                                                     parameters a and v. This
+                                                                     additional fraction with a
+                                                                     and v is plotted on the next
+                                                                     slide. It is obvious, however,
+                                                                     that it becomes zero if v
+                                                                     equals a−1/3. It gives rise to
+                                                                     a reduction of the signal
+                                                                     amplitude itself. A compro-
+                                                                     mise is therefore to be taken.
+  For example, for a=0.25, the ratio v must be 1.6 (for example V −V =0.2 and 0.32 V). In
+                                                                     GS     T
+this case, the gain is reduced by a2/3 or by 12%, which is quite reasonable.
+Distortion in elementary transistor circuits                                                  551
+
+                                                                   1865
+                                                                   This fraction is plotted for
+                                                                   diﬀerent combinations of
+                                                                   parameters a and v.
+                                                                      It can be noted that the
+                                                                   crossing point for zero is less
+                                                                   sharp if smaller values are
+                                                                   taken for a and therefore
+                                                                   larger values of v. The range
+                                                                   of V −V values over
+                                                                          GS    T
+                                                                   which the same model holds
+                                                                   is limited, however. This
+                                                                   limits the value of a as well.
+                                                                      This is why a good com-
+                                                                   promise for a=0.25, for
+                                                                   which the ratio v must be
+                                                                   1.6. This gives very reason-
+able values for V −V =0.2 V and 0.32 V.
+                 GS     T
+  In this case the gain is reduced by a2/3 or by 40%, as shown next.
+
+
+
+                                                                   1866
+                                                                   The ratio by which the
+                                                                   signal amplitude is reduced
+                                                                   as a result of the cross-cou-
+                                                                   pling is shown in this slide.
+                                                                      The larger a is, the less
+                                                                   signal amplitude remains.
+                                                                   This is another reason not
+                                                                   to choose too small a value
+                                                                   of a.
+                                                                      For a value of a=0.25, the
+                                                                   output signal amplitude is
+                                                                   reduced by a2/3 or by 40%,
+                                                                   as shown in this slide.
+552                                                                                     Chapter #18
+
+                                                                      1867
+                                                                      Now that we know how
+                                                                      much the distortion can be
+                                                                      reduced by means of feed-
+                                                                      back, let us apply this to the
+                                                                      ampliﬁer, which is always
+                                                                      used with feedback, i.e. an
+                                                                      operational ampliﬁer. For a
+                                                                      large output swing, a two-
+                                                                      stage Miller operation is
+                                                                      normally used.
+                                                                         First of all, we have to
+                                                                      ﬁgure out what the signal
+                                                                      voltage amplitudes are for
+                                                                      both stages. This is achieved
+                                                                      ﬁrst at low frequencies, and
+                                                                      then for all frequencies up
+                                                                      to the GBW.
+  It is clear that at high frequencies, the voltage gains are small, such that the input voltages
+increase. This will have two eﬀects. The distortion per stage increases and secondly, the loop
+gain, which decreases the distortion, decreases. The distortion will now increase considerably at
+higher frequencies.
+
+
+                                                                      1868
+                                                                      As an example, an opamp is
+                                                                      taken with a 10 MHz GBW.
+                                                                      It is set at a closed-loop gain
+                                                                      of 10. Its bandwidth is there-
+                                                                      fore 1 MHz.
+                                                                         A load is added, which
+                                                                      mainly consists of a capaci-
+                                                                      tance. As a result, some cur-
+                                                                      rent will ﬂow in the output
+                                                                      transistors. For higher fre-
+                                                                      quencies, this current will
+                                                                      increase, leading to even
+                                                                      more distortion.
+                                                                         Let us now discover how
+                                                                      distortion is aﬀected by the
+                                                                      frequency dependence of the
+                                                                      gain blocks in the opamp.
+Distortion in elementary transistor circuits                           553
+
+                                               1869
+                                               An opamp is taken with two
+                                               stages. We assume that only
+                                               the ﬁrst stage is nonlinear
+                                               whereas the second stage
+                                               has a ﬁxed gain factor B1.
+                                                  By use of the same tech-
+                                               nique as before, the coeﬃ-
+                                               cients d of the resulting
+                                               power series are easily
+                                               obtained.
+
+
+
+
+                                               1870
+                                               The distortion components
+                                               IM and IM are now easily
+                                                   2        3
+                                               obtained. We ﬁnd that they
+                                               are exactly the same as for
+                                               a single stage ampliﬁer.
+                                                 The only diﬀerence is that
+                                               the loop gain is 1+T larger.
+                                               The gains of both stages are
+                                               obviously present in the
+                                               loop gain.
+                                                 The resulting distortion
+                                               will be smaller because of
+                                               the increased loop gain.
+554                                                                                    Chapter #18
+
+                                                                     1871
+                                                                     A diﬀerent result is obtained
+                                                                     when a low-pass ﬁlter is
+                                                                     inserted     between      both
+                                                                     stages. This better resembles
+                                                                     a two-stage ampliﬁer. The
+                                                                     compensation capacitance
+                                                                     exerts a low-pass ﬁlter char-
+                                                                     acteristic to the ﬁrst stage.
+                                                                        The low-pass ﬁlter has a
+                                                                     pole at frequency f . It is
+                                                                                           p
+                                                                     combined with the gain
+                                                                     block B , to be denoted by
+                                                                              1
+                                                                     gain B , which is nothing
+                                                                             1p
+                                                                     else than a ﬁlter block with
+                                                                     low-frequency gain B .
+                                                                                            1
+                                                                        A similar analysis as
+before again yields the coeﬃcients d of the power series.
+
+
+                                                                     1872
+                                                                     Both distortion components
+                                                                     IM and IM now contain
+                                                                         2           3
+                                                                     this low-pass ﬁlter charac-
+                                                                     teristic, but inverted. Indeed
+                                                                     a low-pass ﬁlter characteris-
+                                                                     tic in the feedback loop
+                                                                     yields a high pass ﬁlter char-
+                                                                     acteristic. This is used to
+                                                                     carry out noise shaping in
+                                                                     all Sigma-delta modulators
+                                                                     (see Chapter 21).
+                                                                        In the IM characteristic,
+                                                                                    3
+                                                                     the slope beyond pole fre-
+                                                                     quency f , is 60 dB/decade,
+                                                                                p
+                                                                     which is quite steep indeed.
+                                                                     Note that the rise starts at
+frequency f itself, without being aﬀected by the loop gain.
+           p
+   Depending on the generator of distortion in the ﬁrst stage, a diﬀerent coeﬃcient a emerges.
+For a diﬀerential pair it is evident that the third-order distortion of the input stage dominates.
+Distortion in elementary transistor circuits                                                   555
+
+                                                                     1873
+                                                                     Let us now keep the input
+                                                                     stage linear. It has a ﬁxed
+                                                                     gain A . The second stage is
+                                                                            1
+                                                                     now      non-linear,     with
+                                                                     coeﬃcients b.
+                                                                        A similar analysis as
+                                                                     before again yields the
+                                                                     coeﬃcients d. Note however
+                                                                     that the non-linear ampliﬁer
+                                                                     has a fairly large input volt-
+                                                                     age, this is due to the pres-
+                                                                     ence of gain block A .
+                                                                                           1
+
+
+
+
+                                                                     1874
+                                                                     The distortion components
+                                                                     IM and IM are easily
+                                                                         2          3
+                                                                     found.
+                                                                        The big diﬀerence with
+                                                                     the previous results is that
+                                                                     the ﬁrst-stage gain A also
+                                                                                            1
+                                                                     appears in the numerator,
+                                                                     even squared for IM . This
+                                                                                          3
+                                                                     is not unexpected, as the
+                                                                     input signal is applied by
+                                                                     gain A and then applied to
+                                                                            1
+                                                                     the non-linear ampliﬁer
+                                                                     with coeﬃcients b.
+
+
+
+
+1875
+If both ampliﬁers are nonlinear, with a low-pass ﬁlter in between, we ﬁnd the distortion
+components as given in this slide.
+   The contributions of the ﬁrst stage carry coeﬃcients a (black) whereas the second stage
+coeﬃcients b (red).
+   It is clear that at low frequencies the distortion of the output stage dominates. The reason is
+that the input voltage of the output stage is fairly high, because of gain a .
+                                                                            1
+   At higher frequencies however, the distortion of the input stage dominates, because it has
+started increasing at frequency f , which is the dominant pole of the ampliﬁer.
+                                  p
+556                                                                                      Chapter #18
+
+                                                                        If we take now a Miller
+                                                                     opamp with a diﬀerential
+                                                                     input stage (a =0) and a
+                                                                                      2
+                                                                     single-ended output stage,
+                                                                     then all IM is due to the
+                                                                                   2
+                                                                     non-linearity of the output
+                                                                     transistor, at least at low fre-
+                                                                     quencies. This is also true at
+                                                                     high frequencies as a
+                                                                     diﬀerential pair does not
+                                                                     generate second-order dis-
+                                                                     tortion. In practice, some
+                                                                     other sources of distortion
+                                                                     take over. The output con-
+                                                                     ductance of the output tran-
+                                                                     sistor then starts coming in.
+                                                                        The IM is also due to the
+                                                                                3
+non-linearity of the output stage at low frequencies. At high frequencies the non-linearity of the
+input stage takes over.
+
+
+                                                                       1876
+                                                                       Similar results can be
+                                                                       obtained for three-stage
+                                                                       ampliﬁers (‘‘Distortion in
+                                                                       Single-, Two-and Three-
+                                                                       stage ampliﬁers’’, Hernes,
+                                                                       etal, TCAS-I, May 2005,
+                                                                       846–856, ‘‘Distortion analy-
+                                                                       sis    of    Miller-compen-
+                                                                       sated three-stage ampliﬁers,
+                                                                       Cannizzaro, etal, TCAS-1,
+                                                                       2005).
+                                                                          The contributions of the
+                                                                       ﬁrst stage carry coeﬃcients
+                                                                       a (black) whereas the output
+                                                                       stage coeﬃcients c (red).
+                                                                       The intermediate second
+stage carries coeﬃcients b (green).
+   It is clear that at low frequencies the distortion of the output stage again dominates. The
+reason is that the input voltage of the output stage is fairly high, because of gains a and b .
+                                                                                       1     1
+   At high frequencies, the distortion of the input stage takes over. The contributions of the
+second stage in the middle are always negligible. This is a result of the compensation scheme in
+which the lowest non-dominant pole is at a lower frequency than the one of the second stage.
+   It is clear that a number of less important non-linearities have been neglected. The most
+important ones are the output conductances of the output transistors.
+   Note, ﬁnally, that a simple rule can be deduced from these expressions. The distortion can
+always be calculated provided the relative current swing can be calculated. For this purpose, we
+Distortion in elementary transistor circuits                                                      557
+
+need to know the input voltage for each stage. The relative current swing then gives the distortion
+component. This value must now be divided by the value of the loop gain at that frequency. An
+example will clarify this.
+
+
+
+                                                                    1877
+                                                                    A two stage Miller opamp
+                                                                    is taken with a 10 MHz
+                                                                    GBW, set at a closed-loop
+                                                                    gain of 10. Its bandwidth is
+                                                                    therefore 1 MHz. All values
+                                                                    of the gains and transistor
+                                                                    parameters are given in this
+                                                                    slide. Each stage has a low-
+                                                                    frequency gain of 100. For a
+                                                                    signal output voltage of 1 V,
+                                                                    the voltages at the input and
+                                                                    in between the two stages,
+                                                                    are easily calculated.
+                                                                       What is the main source
+                                                                    of distortion?
+                                                                       This is clearly the output
+stage as it is driven by 10 mV, whereas the input stage only receives 0.1 mV input voltage. This
+is clear from the calculations.
+   At higher frequencies however, the input signal required to deliver 1 V will increase, as the
+open-loop voltage decreases. It is not so obvious however, to determine what will be the signal
+voltage between the two stages. This is shown in the next slide.
+
+
+
+                                                                      1878
+                                                                      On the left, the Bode dia-
+                                                                      gram is given of the open-
+                                                                      and closed-loop gain. It
+                                                                      shows what the output volt-
+                                                                      age is for a small input volt-
+                                                                      age, which increases in
+                                                                      frequency.
+                                                                         On the right, the voltage
+                                                                      is added at the intermediate
+                                                                      point. It shows that at low
+                                                                      frequencies the gain of the
+                                                                      ﬁrst stage decreases. It is fol-
+                                                                      lowed by a low-pass ﬁlter,
+                                                                      with a pole equal to the
+                                                                      dominant pole of the
+                                                                      opamp. The gain across the
+                                                                      output stage is constant.
+558                                                                                     Chapter #18
+
+  This is true until the opamp reaches the frequency with time-constant R (C +C ). From here
+                                                                             L L      c
+on the gain of the second stage decreases as well. As a result, the distortion increases. Moreover,
+the loop gain has become quite small! The distortion will now increase quite steeply.
+
+
+                                                                      1879
+                                                                      At low frequencies, for
+                                                                      example at 100 Hz. The
+                                                                      input signal levels are easily
+                                                                      calculated for both the input
+                                                                      stage and the output stage.
+                                                                         The relative current swing
+                                                                      for the input stage is now
+                                                                      only 0.05% but it is 10% for
+                                                                      the output stage. It is clear
+                                                                      that the output transistor
+                                                                      will generate a lot of second-
+                                                                      order distortion. It is given
+                                                                      next.
+
+
+
+
+                                                                      1880
+                                                                      For a 10% relative current
+                                                                      swing, the IM distortion is
+                                                                                     2
+                                                                      easily found to be 1.5%.
+                                                                      This distortion must now be
+                                                                      divided by the loop gain at
+                                                                      low frequencies. From the
+                                                                      Bode diagram we ﬁnd that
+                                                                      this is 1000.
+                                                                         The resulting IM          is
+                                                                                               2f
+                                                                      0.0025%, which is negligi-
+                                                                      ble indeed.
+                                                                         First of all, little distor-
+                                                                      tion is generated. Secondly,
+                                                                      the loop gain at this fre-
+                                                                      quency is quite large.
+Distortion in elementary transistor circuits                                                       559
+
+                                                                        1881
+                                                                        At a frequency of 100 kHz,
+                                                                        on the other hand, which is
+                                                                        not such a high frequency
+                                                                        for this ampliﬁer, the gain
+                                                                        across the input stage
+                                                                        decreases to about unity.
+                                                                        The gain of the output stage
+                                                                        is still approximately 100.
+                                                                           The signal levels at the
+                                                                        input and at the intermedi-
+                                                                        ate point are shown in this
+                                                                        slide.
+                                                                           It is clear that the distor-
+                                                                        tion in the input stage will
+                                                                        now be much larger,
+                                                                        whereas the distortion on
+the output stage is the same as at 100 Hz.
+  The relative current swing in the input stage has increased by a factor of 100. It is now 0.05.
+This is still too small to be able to play a role for distortion.
+  The calculations show this.
+
+
+                                                                       1882
+                                                                       Indeed, the IM2 distortion
+                                                                       of the second stage is
+                                                                       the same as mentioned
+                                                                       previously.
+                                                                          The third-order distortion
+                                                                       of the diﬀerential input stage
+                                                                       is still negligible. Higher fre-
+                                                                       quencies would be needed to
+                                                                       make the distortion of the
+                                                                       ﬁrst stage dominant.
+                                                                          However, the loop gain at
+                                                                       this frequency is only 10. As
+                                                                       a result, the IM is a lot
+                                                                                            2f
+                                                                       larger, i.e. 0.25% rather than
+                                                                       0.0025% at low frequencies.
+                                                                       This is only a result of the
+                                                                       reduced loop gain.
+   At even higher frequencies, the loop gain becomes even smaller. In addition the input signals
+of both stages increase further, giving rise to a steep increase of the distortion.
+   This is shown experimentally next.
+560                                                                                    Chapter #18
+
+                                                                   1883
+                                                                   This is an experimental
+                                                                   result for a two-stage
+                                                                   opamp, with a GBW of
+                                                                   1 MHz.
+                                                                      It is clear that second-
+                                                                   order distortion is domi-
+                                                                   nant. It is generated by the
+                                                                   output stage. Its slope is
+                                                                   close to 40 dB/decade as
+                                                                   expected.
+                                                                      The third-order distortion
+                                                                   is visible at higher frequen-
+                                                                   cies but never dominant. Its
+                                                                   slope is even higher.
+                                                                      For frequencies lower
+                                                                   than about 7 kHz, the dis-
+tortions drown in the noise. No reliable measurements of distortion are possible here.
+
+
+                                                                      1884
+                                                                      An example of a two-stage
+                                                                      opamp with low distortion
+                                                                      is shown in this slide.
+                                                                         The ﬁrst stage is a con-
+                                                                      ventional folded cascode. It
+                                                                      is followed by a second-
+                                                                      stage without cascodes for
+                                                                      large output swing.
+                                                                         For low distortion at
+                                                                      intermediate     frequencies,
+                                                                      the GBW must be as high
+                                                                      as possible.
+                                                                         To    avoid     Slew-Rate
+                                                                      induced distortion, the slope
+                                                                      of the sine wave going
+                                                                      through zero must be less
+than the Slew Rate. The frequency at which this happens is reached at 380 MHz for a 0.38 V
+peak output voltage.
+  It is clear that such an ampliﬁer consumes a lot of power, i.e. 2.5 mA in each input transistor
+and 15 mA in the output transistors, which is 25 mA altogether on a 1.8 V supply voltage. This
+gives a FOM of only 1 MHzpF/mA.
+  The distortion is very low however, as shown next.
+Distortion in elementary transistor circuits                                                  561
+
+                                                                  1885
+                                                                  The distortion components
+                                                                  HD and HD are plotted
+                                                                       2           3
+                                                                  on a log-log-scale to verify
+                                                                  the slopes. The slopes them-
+                                                                  selves are also added.
+                                                                     It is clear that the slopes
+                                                                  are correct over the whole
+                                                                  range of input amplitudes,
+                                                                  at least for HD .
+                                                                                    2
+                                                                     For HD the slope is cor-
+                                                                              3
+                                                                  rect up to about 0.8 V ,
+                                                                                             ptp
+                                                                  beyond which there is
+                                                                  a slight increase. Beyond
+                                                                  1.2 V      there is a sharp
+                                                                         ptp
+                                                                  increase. We enter the
+                                                                  region of hard non-linearity.
+This is probably caused by a cascode coming out of the strong-inversion region.
+  Curves at a higher frequency (80 MHz) are given as well. Better curves versus frequency are
+shown next.
+
+                                                                     1886
+                                                                     The experimental results
+                                                                     versus frequency are shown
+                                                                     in this slide. They are all
+                                                                     taken for an output swing of
+                                                                     0.75 Volt . The labels Ch1,
+                                                                              ptp
+                                                                     Ch2 and Ch3 refer to
+                                                                     diﬀerent samples.
+                                                                        The simulation results are
+                                                                     carried out by means of
+                                                                     Maple and by Eldo simula-
+                                                                     tions are shown as well
+                                                                     for comparison. The Maple
+                                                                     simulations are actually
+                                                                     symbolic simulations. They
+                                                                     take into account only the
+                                                                     ﬁrst three terms of the
+power series. The Eldo simulations are transient circuit simulations to which a Fourier analysis
+is applied. The HD is dominated by the distortion in the output stage. At higher frequencies, it
+                    2
+increases because of the reduced loop gain. At lower frequencies it is underestimated because of
+various other sources of distortion.
+   The HD shows a larger gap between simulated and measured values. At low frequencies the
+            3
+HD is generated by the output stage whereas at high frequencies it is taken over by distortion
+    3
+of the input stage. They have a diﬀerent polarity. The cancellation point is clearly visible in
+Maple but much less in Eldo and in the experimental data.
+   Also, several more sources of distortion are present, among which the output conductance
+distortion of the output transistors are the major ones.
+562                                                                                      Chapter #18
+
+                                                                       1887
+                                                                       As distortion refers to any
+                                                                       deviation from the ideal sine
+                                                                       wave, for a sinusoidal input
+                                                                       waveform, many other
+                                                                       sources of distortion can
+                                                                       occur.
+                                                                          A few of them are listed
+                                                                       here. This list will never be
+                                                                       exhaustive however. Each
+                                                                       new application may give
+                                                                       rise to a new kind of
+                                                                       distortion.
+
+
+
+
+                                                                       1888
+                                                                       Too small a Slew-Rate can
+                                                                       prevent to pass the high fre-
+                                                                       quency slope of sine wave,
+                                                                       which is reached when the
+                                                                       sine wave goes through zero.
+                                                                       When the Slew-Rate is
+                                                                       much too low, a triangular
+                                                                       waveform then results,
+                                                                       giving excessive HD (more
+                                                                                            3
+                                                                       than 10%). This is clearly to
+                                                                       be avoided.
+                                                                          A MOST as a switch will
+                                                                       give distortion as well as its
+                                                                       resistance depends on the
+                                                                       V , which is the diﬀerence
+                                                                         GS
+                                                                       between the Gate drive volt-
+age and the signal output voltage at the Source. This eﬀect is especially detrimental at low supply
+voltages (<1.8 V). This will be discussed in more detail in Chapter 21.
+  At high frequencies, it is actually no longer possible to use power series and phasors to correct
+the response for frequency dependence. The power series must be substituted by Volterra series.
+As they can only be applied to simple circuits, they are seldom used.
+  In continuous-time ﬁlters, discussed in the next Chapter, some more techniques are used to
+cancel the distortion. This is possible provided suﬃcient matching can be reached. Some examples
+will be given in the next Chapter.
+  Finally, some simple guidelines are added to allow reduction of distortion.
+Distortion in elementary transistor circuits                                                 563
+
+                                                                   1889
+                                                                   Since distortion is propor-
+                                                                   tional to both voltage and
+                                                                   current swing, the ﬁrst
+                                                                   guidelines simply state that
+                                                                   low-distortion performance
+                                                                   can be reached when both
+                                                                   swings are small.
+                                                                      Distortion can always
+                                                                   be reduced by application
+                                                                   of feedback. This feedback
+                                                                   causes a reduction in distor-
+                                                                   tion, ﬁrst by reducing the
+                                                                   signal swing and on top of
+                                                                   that, by dividing the distor-
+                                                                   tion by the loop gain.
+                                                                      Finally, second-order dis-
+tortion can always be avoided by making all circuitry fully-diﬀerential. Obviously, the power
+consumption also increases and so does the input noise. However, the Signal-to-noise-and-
+distortion will increase. Mismatch will give some second-order distortion but it will usually be
+smaller than the third-order one.
+
+
+
+                                                                   1890
+                                                                   As a ﬁnal overview, the dis-
+                                                                   tortion components are
+                                                                   listed for all elementary cir-
+                                                                   cuits, ﬁrst of all, without,
+                                                                   and then with feedback.
+                                                                   They all have been pre-
+                                                                   viously derived.
+                                                                      For example, take the
+                                                                   second-order distortion of a
+                                                                   MOST. Its IM is 1/4 of U ,
+                                                                                    2          p
+                                                                   in which U is the ratio of
+                                                                                p
+                                                                   the peak input voltage V
+                                                                                               ip
+                                                                   divided by (V −V )/2.
+                                                                                        GS   T
+                                                                   Also, its IM is about 1/10
+                                                                                  3
+                                                                   of U 2, in which U is the
+                                                                         p                 p
+                                                                   ratio of the peak input
+                                                                   voltage V          divided by
+                                                                                ip
+                                                                   (V −V ).
+                                                                      GS     T
+564                    Chapter #18
+
+      1891
+      A similar Table is easily
+      made for the distortion
+      components with feedback.
+      The loop gain is T.
+         For example, the IM of
+                             3
+      a single-MOST ampliﬁer is
+      about 1/10 of U 2, in which
+                      p
+      U is the ratio of the peak
+        p
+      input voltage V divided by
+                     ip
+      (V −V )/2, and divided by
+         GS    T
+      T3. Two T’s comes from the
+      reduction in current swing
+      (through U ) and one of
+                  p
+      them from the reduction in
+      loop gain.
+
+
+
+
+      1892
+      A few general references are
+      listed on distortion. They
+      speak for themselves.
+Distortion in elementary transistor circuits                             565
+
+                                               1893
+                                               In this Chapter, an intro-
+                                               duction is given on distor-
+                                               tion caused by the weak
+                                               nonlinearities of the transis-
+                                               tors. The deﬁnitions of dis-
+                                               tortion have been given ﬁrst.
+                                               They are followed by distor-
+                                               tion calculations of MOST
+                                               and bipolar devices in both
+                                               single and diﬀerential con-
+                                               ﬁgurations.
+                                                  Considerable attention is
+                                               paid to the reduction of dis-
+                                               tortion by feedback. Finally
+                                               some guide lines and over-
+                                               view Tables are added to
+                                               allow easy prediction of dis-
+                                               tortion levels in any kind of
+                                               ampliﬁer.
+

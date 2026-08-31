@@ -1,0 +1,1592 @@
+                                                                      111
+                                                                      Rail-to-rail ampliﬁers are a
+                                                                      special category of ampliﬁ-
+                                                                      ers. They can take input
+                                                                      signal swings from the posi-
+                                                                      tive to the negative supply
+                                                                      rail. Their common-mode
+                                                                      input range extends from
+                                                                      rail to rail.
+                                                                         However, this is fairly
+                                                                      easy to do at the output.
+                                                                      This is quite complicated
+                                                                      however at the input. In
+                                                                      principle, only a folded cas-
+                                                                      code is capable of including
+                                                                      a supply rail at the input.
+                                                                      This will be the basis for all-
+                                                                      rail-to-rail input ampliﬁers.
+   An alternative principle is to use depletion-mode nMOST devices. Leaving out an ion implant
+allows nMOST devices to obtain a negative threshold voltage. This allows rail-to-rail input
+stages with supply voltages down to 1 V. It is not considered any further however, as no standard
+CMOS can be used.
+   Let us ﬁrst decide when we need such an input. What are the circuit conﬁgurations which
+allow a rail-to-rail input range?
+
+
+
+
+                                                                       112
+                                                                       In addition, such ampliﬁers
+                                                                       will have to operate at low
+                                                                       supply voltages. We are thus
+                                                                       looking for rail-to-rail input
+                                                                       ampliﬁers at low supply
+                                                                       voltages where we have the
+                                                                       highest need indeed for large
+                                                                       signal swings.
+
+
+
+
+                                                301
+302                                                                                       Chapter #11
+
+                                                                       113
+                                                                       The ﬁrst reason to require
+                                                                       a rail-to-rail input range is
+                                                                       to be able to maintain the
+                                                                       same Signal-to-Noise ratio
+                                                                       for smaller supply voltages.
+                                                                       Indeed signal swings de-
+                                                                       crease with the supply volt-
+                                                                       age. A rail-to-rail swing at
+                                                                       the input is the highest that
+                                                                       can be obtained.
+                                                                         For maximum output
+                                                                       swing, a fully-diﬀerential
+                                                                       operation is a must as well.
+                                                                         At the output, it is easy to
+                                                                       provide a rail-to-rail swing.
+                                                                       We simply take two output
+transistors Drain to Drain. For a capacitive load, rail-to-rail is guaranteed.
+   At the input, however, we do not need rail-to-rail operation.
+
+
+
+
+                                                                       114
+                                                                       To illustrate this last point,
+                                                                       let us take this well known
+                                                                       symmetrical opamp.
+                                                                          For a capacitive load, it
+                                                                       is obvious that the output
+                                                                       can reach rail-to-rail output
+                                                                       voltages. At the extremities,
+                                                                       the output transistor goes
+                                                                       into the linear region and
+                                                                       the gain is reduced leading
+                                                                       to distortion. It is still rail-
+                                                                       to-rail, however.
+                                                                          At the input, it is clear
+                                                                       that a voltage is lost of
+                                                                       V +V             for the input
+                                                                         GS1     DSsat9
+                                                                       range, which is rather large.
+Some other circuitry is now required.
+  Is this always required?
+Rail-to-rail input and output ampliﬁers                                                        303
+
+                                                                      115
+                                                                      The answer is negative.
+                                                                      Three ampliﬁer realizations
+                                                                      are shown in this slide. Only
+                                                                      one of them requires a rail-
+                                                                      to-rail input range.
+                                                                        An inverting ampliﬁer has
+                                                                      almost no swing at all at the
+                                                                      inputs. The output signal is
+                                                                      divided by the open-loop
+                                                                      gain so that the minus in-
+                                                                      put hardly sees any signal.
+                                                                      At higher frequencies, the
+                                                                      minus input sees a larger
+                                                                      voltage but never rail-to-
+                                                                      rail!
+                                                                        This also applies to the
+non-inverting ampliﬁer. Both inputs have about the same swing. If some gain is required, then
+the inputs can never reach rail-to-rail swings.
+  The only conﬁguration which needs rail-to-rail input swing is the buﬀer. Since the gain is
+unity, a rail-to-rail output requires the input to be able to follow.
+  Buﬀers are more often class-AB ampliﬁers. Most class-AB ampliﬁers have a rail-to-rail input.
+Many of the examples given, have a class-AB output.
+
+
+
+
+                                                                      116
+                                                                      Another good application of
+                                                                      a rail-to-rail input is the
+                                                                      CMFB ampliﬁer required in
+                                                                      fully-diﬀerential ampliﬁers.
+                                                                         However, the output
+                                                                      swing of the diﬀerential
+                                                                      ampliﬁer is followed by a
+                                                                      CMFB ampliﬁer. In order
+                                                                      to be able to have rail-to-
+                                                                      rail diﬀerential output swing
+                                                                      we must have a rail-to-rail
+                                                                      input swing for the CMFB
+                                                                      ampliﬁer.
+                                                                         This is rarely the case as
+                                                                      rail-to-rail input ampliﬁers
+                                                                      are more complicated. As a
+consequence, they are diﬃcult to be realized at high frequencies with limited power consumption.
+304                      Chapter #11
+
+      117
+      The ﬁrst type of rail-to-rail
+      input ampliﬁer is the one
+      that uses 3× current mir-
+      rors, as shown next.
+
+
+
+
+      118
+      The only way to reach a rail-
+      to-rail input swing is to use
+      two folded cascodes in par-
+      allel. Only the input transis-
+      tors are shown.
+         Each of the input pairs
+      needs a minimum input
+      voltage of one V +V            .
+                        GS     DSsat
+      For a V of 0.7 V, this is
+                T
+      about 1.1 V (when V −
+                               GS
+      V =0.2 V).
+        T
+         When both inputs are
+      now connected in parallel,
+      2.2 V is required as a mini-
+      mum value for the supply
+      voltage!
+Rail-to-rail input and output ampliﬁers                                                       305
+
+                                                                     119
+                                                                     Connecting both inputs in
+                                                                     parallel reduces the input
+                                                                     common-mode range by
+                                                                     2.2 V. The minimum supply
+                                                                     voltage must therefore be a
+                                                                     minimum of 2.2 V. In prac-
+                                                                     tice the supply voltage will
+                                                                     be 2.5 V.
+                                                                        We are a long way from
+                                                                     a 1 V supply voltage! Even
+                                                                     if V were only
+                                                                         T
+                                                                        0.3 V,   the   minimum
+                                                                     supply voltage would still
+                                                                     be 1.4 V.
+
+
+
+
+                                                                    1110
+                                                                    With a supply voltage of
+                                                                    2.5 V, there is a problem
+                                                                    with the total transconduct-
+                                                                    ance and thus with the
+                                                                    total GBW.
+                                                                       For common-mode input
+                                                                    voltages with V        in the
+                                                                                      INCM
+                                                                    middle (at half the supply
+                                                                    voltage), both input pairs
+                                                                    are operational. Their g ’s
+                                                                                              m
+                                                                    are now added. Actually, the
+                                                                    g is doubled, as normally
+                                                                      m
+                                                                    the nMOST transconduct-
+                                                                    ance equals the pMOST
+                                                                    one.
+                                                                       On both extremities how-
+ever, only one pair is operational and the g     is not doubled. It is therefore half of what is
+                                              m
+obtained in the middle.
+   The transconductances are sketched in this slide for each pair separately and also summed. It
+is clear that the pMOST g goes to zero when the common-mode input V                   reaches the
+                               m                                                 INCM
+positive supply voltage within 1.1
+   V. Also, at zero V      , the nMOSTs are oﬀ and only start working once V        is larger than
+                      INCM                                                     INCM
+approximately 1.1 V.
+306                     Chapter #11
+
+      1111
+      We cannot allow the total
+      transconductance g          to
+                             mtot
+      change over a factor of two
+      over the input common-
+      mode range. This would
+      give a large amount of
+      distortion.
+         In order to equalize the
+      g      , we must increase the
+        mtot
+      g of each pair by a fac-
+        m
+      tor of two at both ends. In
+      general, we must ﬁnd a way
+      to make g        or the sum of
+                  mtot
+      the g ’s constant over the
+              m
+      whole common-mode range.
+
+
+
+
+      1112
+      How can we make the sum
+      of the g ’s constant over the
+              m
+      whole      common       mode
+      range?
+         Substitution of the g ’s by
+                              m
+      their expression with the
+      current and W/L shows that
+      we have to adjust the cur-
+      rents. The MOSTs are
+      assumed to work in strong
+      inversion.
+         To double the g , we
+                             m
+      must multiply the current by
+      four. In other words, we
+      must add three times more
+      current to the existing cur-
+      rent than we already had.
+Rail-to-rail input and output ampliﬁers                                                          307
+
+                                                                     1113
+                                                                     A circuit that is able to add
+                                                                     three times more current to
+                                                                     the existing current than
+                                                                     already present, is shown in
+                                                                     this slide.
+                                                                        For a common-mode (or
+                                                                     average) input voltage in the
+                                                                     middle, both pairs are oper-
+                                                                     ational. The transistor M
+                                                                                                  rn
+                                                                     is then oﬀ. Its gate voltage
+                                                                     V is too high compared to
+                                                                       rn
+                                                                     the common-mode input
+                                                                     voltage.
+                                                                        When the input voltages
+                                                                     increase    however,       the
+                                                                     pMOSTs turn oﬀ, and all
+current I ﬂows through M to the 3× current mirror, which is then added to the current I
+         B                   rn                                                                    B
+of the nMOST current source. This current is thus multiplied by four. The nMOST transconduct-
+ances are now doubled.
+   The actual voltage at which the current is taken from the input pMOSTs towards M is
+                                                                                              rn
+reference voltage V . The transistor M now forms a diﬀerential pair with both input pMOSTs.
+                    rn                rn
+When the common-mode input voltage is exactly V , half the current I ﬂows through the
+                                                      rn                      B
+pMOSTs and the other half through the transistor M . When the average input voltage is
+                                                         rn
+higher than V , all the current ﬂows through M . The input pMOSTs are now completely
+               rn                                  rn
+shut oﬀ.
+   Note that reference voltage V must be about 1.1 V lower than the supply voltage if V is 0.7 V.
+                                rn                                                       T
+
+
+
+                                                                      1114
+                                                                      The same arrangement can
+                                                                      be made for the nMOSTs.
+                                                                      Another reference voltage
+                                                                      V is now added, which is
+                                                                        rp
+                                                                      about 1.1 V.
+                                                                         When the average input
+                                                                      voltage is less than 1.1 V, all
+                                                                      current I of the nMOST
+                                                                                B
+                                                                      current source is pulled
+                                                                      through transistor M . It
+                                                                                               rp
+                                                                      is then multiplied by three
+                                                                      and added to the current
+                                                                      already ﬂowing through the
+                                                                      pMOSTs. The current is
+                                                                      multiplied by four and the
+
+transconductance by two (if they operate in strong inversion).
+308                                                                                      Chapter #11
+
+                                                                      1115
+                                                                      The transconductance is
+                                                                      then eﬀectively equalized
+                                                                      over the whole common-
+                                                                      mode input range. During
+                                                                      the transitions however, the
+                                                                      sum of the g ’s is not con-
+                                                                                     m
+                                                                      stant. They show an error of
+                                                                      about 15%.
+                                                                         An approximate expres-
+                                                                      sion of the actual g         is
+                                                                                              mtot
+                                                                      given. It is derived from the
+                                                                      simple square-law models of
+                                                                      a MOST.
+                                                                         An error of 15% may
+                                                                      not sound too bad. It all
+                                                                      depends on the application.
+However, We will see later in a comparative table (last slide), that this is the worst of all.
+
+
+
+
+                                                                       1116
+                                                                       A realization which has
+                                                                       used this g equalization is
+                                                                                   m
+                                                                       shown in this slide.
+                                                                         The two input cascodes in
+                                                                       parallel are easily found.
+                                                                       The output transistors act
+                                                                       as a second stage. Miller
+                                                                       capacitances are therefore
+                                                                       necessary. They go through
+                                                                       cascodes to avoid positive
+                                                                       zero’s. Some speciﬁcations
+                                                                       are also listed.
+                                                                         The 3× current mirrors
+                                                                       are easily identiﬁed as well.
+Rail-to-rail input and output ampliﬁers                           309
+
+                                          1117
+                                          Another way to provide g
+                                                                     m
+                                          equalization is to use Zener
+                                          diodes. Although Zener
+                                          diodes are not available,
+                                          MOSTs are used instead.
+
+
+
+
+                                          1118
+                                          A Zener diode actually pro-
+                                          vides a more sharp break-
+                                          down at V . A MOST does
+                                                    Z
+                                          not provide the same sharp-
+                                          ness. The addition of a few
+                                          MOSTs can sharpen the
+                                          corner somewhat. It is then
+                                          called an electronic Zener
+                                          diode.
+310                                                                                Chapter #11
+
+                                                               1119
+                                                               The principle is shown in
+                                                               this slide.
+                                                                  For input common-mode
+                                                               voltages in the middle, all
+                                                               transistors are on. The two
+                                                               diode connected MOSTs in
+                                                               the middle conduct as well.
+                                                               Because they are 6× larger,
+                                                               they take six times more
+                                                               current. The total current in
+                                                               either current source is now
+                                                               8I , where I is the current
+                                                                  B         B
+                                                               in each input transistor.
+                                                                  Let us call the voltage
+                                                               across the two diodes V . It
+                                                                                        Z
+                                                               is two times their V .
+                                                                                    GS
+  When the average input voltage goes up, the pMOSTs drop out, as shown next.
+
+
+
+
+                                                                 1120
+                                                                 When the average input
+                                                                 voltage goes up, for exam-
+                                                                 ple, up to the supply voltage,
+                                                                 the pMOSTs drop out.
+                                                                 Indeed, the voltage across
+                                                                 the two diodes has dropped
+                                                                 to below the V voltage and
+                                                                                 Z
+                                                                 drops out. They are omitted
+                                                                 from the ﬁgure in this slide.
+                                                                    As a consequence, all the
+                                                                 current 8I has to ﬂow in
+                                                                             B
+                                                                 the two nMOST transistors.
+                                                                 They both carry a current
+                                                                 of 4I , which is four
+                                                                        B
+                                                                 times larger than before.
+                                                                 Their transconductance now
+                                                                 doubles.
+Rail-to-rail input and output ampliﬁers                           311
+
+                                          1121
+                                          A much better behavior
+                                          is achieved by taking an
+                                          electronic Zener. For this
+                                          purpose, an ampliﬁer is
+                                          added in parallel with the
+                                          nMOST Zener diode fol-
+                                          lowed by a source follower.
+                                             The transitions are now
+                                          much better deﬁned. This
+                                          means that the error in
+                                          transconductance over the
+                                          common-mode input range
+                                          is smaller.
+
+
+
+
+                                          1122
+                                          However, the error in trans-
+                                          conductance is only 6% in
+                                          contrast with 25% without
+                                          the ampliﬁer.
+                                             The larger current in the
+                                          input devices leads to a
+                                          larger Slew Rate, which is
+                                          a considerable additional
+                                          advantage.
+312                                                                                    Chapter #11
+
+                                                                      1123
+                                                                      The conﬁgurations in this
+                                                                      slide exploit the square-law
+                                                                      relationship of a MOST in
+                                                                      strong inversion, to extract
+                                                                      a doubling of the transcon-
+                                                                      ductance as a result of a
+                                                                      multiplication of the current
+                                                                      by four.
+                                                                         At lower currents, and at
+                                                                      lower frequencies, weak
+                                                                      inversion can be used. In
+                                                                      this case, the transcon-
+                                                                      ductance is proportional
+                                                                      to the current and current
+                                                                      feedback loops can be
+                                                                      used to equalize the trans-
+                                                                      conductance.
+
+
+
+
+                                                                     1124
+                                                                     In weak inversion, the trans-
+                                                                     conductance is proportional
+                                                                     to the current. Maintaining
+                                                                     a constant current over
+                                                                     the whole common-mode
+                                                                     input range will provide
+                                                                     a constant total trans-
+                                                                     conductance.
+                                                                        There is one problem
+                                                                     however. The factor n is
+                                                                     diﬀerent for nMOST and
+                                                                     pMOST devices. Remember
+                                                                     that this n factor is not very
+                                                                     precise because it contains
+                                                                     the depletion layer capaci-
+                                                                     tance, which depends on
+                                                                     biasing voltages.
+   Nevertheless, it is vital to try to compensate for this diﬀerence in the n factor. An error in
+transconductance will otherwise result.
+Rail-to-rail input and output ampliﬁers                                                       313
+
+                                                                  1125
+                                                                  A possible realization is
+                                                                  shown in this slide. It only
+                                                                  works for low average input
+                                                                  voltages.
+                                                                    For input voltages close
+                                                                  to V , all four input
+                                                                        ref
+                                                                  MOSTs carry about the
+                                                                  same current I . Transistor
+                                                                                   B
+                                                                  M takes about half the
+                                                                    r
+                                                                  current 2I of the current
+                                                                             B
+                                                                  source with current 4I .
+                                                                                            B
+                                                                  Transistor M therefore acts
+                                                                                 r
+                                                                  as a kind of current switch.
+                                                                    For lower input voltages,
+                                                                  the input nMOSTs are oﬀ
+                                                                  and all the current 4I ﬂows
+                                                                                        B
+through transistor M . As a result, the pMOST input devices carry a current 2I . Their current
+                     r                                                         B
+is doubled and so is their transconductance.
+   For high input voltages, the pMOSTs are oﬀ. The input nMOSTs then draw all the current
+4I . The current and the transconductance of the input nMOSTs is doubled.
+   B
+   The top pMOST current mirror is used to provide some compensation for the diﬀerence in
+n factor.
+
+
+
+
+                                                                  1126
+                                                                  However, the design of this
+                                                                  rail-to-rail input stage is not
+                                                                  obvious. The choice of the
+                                                                  reference voltage V           is
+                                                                                            ref
+                                                                  rather critical. This is shown
+                                                                  in this slide.
+                                                                     Exact equalization of g
+                                                                                                m
+                                                                  is a real compromise indeed.
+314                                                                                  Chapter #11
+
+                                                                   1127
+                                                                   An example of this kind of
+                                                                   g equalization is shown in
+                                                                     m
+                                                                   this slide. This opamp has
+                                                                   rail-to-rail input and output.
+                                                                   So it can be used as a buﬀer.
+                                                                      The opamp itself has a
+                                                                   double folded cascode as a
+                                                                   ﬁrst stage and two output
+                                                                   transistors as a second stage.
+                                                                   Miller capacitances are now
+                                                                   required. They do not go
+                                                                   through cascodes however,
+                                                                   possibly leading to prob-
+                                                                   lems with positive zero’s.
+                                                                      Some speciﬁcations are
+                                                                   added.
+  The g equalization circuitry is highlighted on the next slide.
+       m
+
+
+
+
+                                                                   1128
+                                                                   The reference voltage V is
+                                                                                             ref
+                                                                   generated at the Drain/Gate
+                                                                   of transistor MB5. The
+                                                                   current-switch transistor is
+                                                                   MN3. Its current determines
+                                                                   the current in the nMOST
+                                                                   transistor pair through cur-
+                                                                   rent mirror MN1/MN2.
+                                                                      In order to see how this
+                                                                   circuit is working, it is
+                                                                   repeated on the next slide. It
+                                                                   is already clear that the cur-
+                                                                   rent in one pair will double
+                                                                   when the other one is oﬀ. As
+                                                                   a result, the transconduct-
+                                                                   ance will double as well.
+Rail-to-rail input and output ampliﬁers                                                         315
+
+                                                                     1129
+                                                                     The input stage is shown
+                                                                     twice, once with the inputs
+                                                                     halfway at the supply volt-
+                                                                     age and once with the inputs
+                                                                     at the supply voltage. In the
+                                                                     ﬁrst case, all four input tran-
+                                                                     sistors carry approximately
+                                                                     equal currents (about 5 mA).
+                                                                     The thickness of the line cor-
+                                                                     responds to the size of the
+                                                                     current.
+                                                                        Note that the top current
+                                                                     source has a ﬁxed current.
+                                                                     All other currents change
+                                                                     with the average input
+                                                                     voltage.
+   For a high input voltage, the pMOSTs go oﬀ. The full current is now available to the nMOST
+devices. Their current doubles and so does their transconductance, providing that they operate
+in weak inversion.
+   Large devices are used for small currents. The transistors operate in weak inversion indeed.
+
+
+                                                                    1130
+                                                                    A very diﬀerent approach is
+                                                                    to use a current feedback
+                                                                    loop, provided the transis-
+                                                                    tors operate in weak
+                                                                    inversion
+                                                                       In the example in this
+                                                                    slide, the total current is
+                                                                    measured in the pMOST
+                                                                    input pair and mirrored to
+                                                                    current generator I . Also,
+                                                                                         Bp
+                                                                    the total current is measured
+                                                                    in the nMOST input pair
+                                                                    and mirrored to current
+                                                                    generator I . Both are
+                                                                                  Bn
+                                                                    summed after correction of
+                                                                    the I current for the n
+                                                                          Bp
+factor in summation point S and compared to the reference current 4I .
+                                                                        B
+   If the sum of the currents does not correspond to 4I , the gates of the current sources have
+                                                          B
+to be adjusted. If the Gate of the pMOST current source must go up, then the Gate of the
+nMOST current source must go down. This is why there is an inverter before its Gate.
+   Clearly this is a common-mode feedback loop. It must therefore be made stable. However,
+compensation capacitance cannot be too large. The common-mode feedback loop must be as
+fast as the diﬀerential circuit! This is explained in Chapter 8.
+   How can we measure the total current in each input pair?
+316                                                                                     Chapter #11
+
+                                                                     1131
+                                                                     The feedback loop acts on a
+                                                                     replica of the input stage.
+                                                                        The input stage is copied,
+                                                                     with the same transistor
+                                                                     sizes and currents. The
+                                                                     corresponding inputs are
+                                                                     connected. The outputs of
+                                                                     the replicas are shorted to
+                                                                     cancel out the diﬀerential
+                                                                     signals. In this way, the total
+                                                                     current is measured in such
+                                                                     a pair, regardless of whether
+                                                                     it is on, oﬀ or halfway.
+                                                                        The averaged outputs
+                                                                     now lead to current mirrors
+                                                                     to be summed towards
+                                                                     point S.
+  Replica is an ideal way to bias transistors without actually contacting the sensitive nodes, and
+without feedback. A few more examples are given.
+
+
+
+
+                                                                     1132
+                                                                     This circuit contains mainly
+                                                                     one single-transistor ampli-
+                                                                     ﬁer.
+                                                                        How can we set the
+                                                                     average output voltage
+                                                                     without feedback on this
+                                                                     transistor?
+                                                                        The answer is replica
+                                                                     biasing. A transistor with
+                                                                     the same characteristics is
+                                                                     put in parallel. This one is
+                                                                     now part of a feedback loop.
+                                                                     Its DC output voltage will
+                                                                     be V . The average output
+                                                                          REF
+                                                                     voltage of the ampliﬁer itself
+                                                                     will also be V .
+                                                                                    REF
+  The DC output voltage will not be exactly V        of course, because some mismatch is always
+                                              REF
+present.
+  The capacitance is required to reduce the inﬂuence of the AC voltage on the biasing. The
+resistor R is to raise the AC input impedance of the ampliﬁer.
+          S
+Rail-to-rail input and output ampliﬁers                                                      317
+
+                                                                  1133
+                                                                  Another example of replica
+                                                                  biasing is given in this slide.
+                                                                  It is much closer to the rail-
+                                                                  to-rail ampliﬁer discussed
+                                                                  earlier.
+                                                                     The input pair is doubled.
+                                                                  They share the voltage at
+                                                                  the Gates of their DC cur-
+                                                                  rent sources. The left pair
+                                                                  however is included in a
+                                                                  feedback loop, which en-
+                                                                  sures that the current
+                                                                  equals I .
+                                                                           REF
+                                                                     Again, a capacitor is
+                                                                  required to stabilize the
+                                                                  common-mode          feedback
+                                                                  loop.
+
+
+
+
+                                                                 1134
+                                                                 A similar replica biasing is
+                                                                 used in this rail-to-rail
+                                                                 input stage.
+                                                                    Both input pairs have a
+                                                                 replica stage, the outputs of
+                                                                 which are shorted and fed to
+                                                                 the Summation point by
+                                                                 means of current mirrors.
+                                                                    At this point, the summed
+                                                                 currents are compared to
+                                                                 the reference current 4I .
+                                                                                            B
+                                                                 This point directly drives
+                                                                 the Gates of the pMOST
+                                                                 current sources. An inverter
+                                                                 is required however to drive
+                                                                 the Gates of the nMOST
+                                                                 current sources.
+  The correction of the n factor is applied to the pMOST current mirror on the left.
+318                    Chapter #11
+
+      1135
+      The total ﬁrst stage of this
+      ampliﬁer is given in this
+      slide.
+         The cascodes transistors
+      of the two folded cascodes
+      are easily recognized. Trans-
+      istors Mra and Mrb provide
+      common-mode feedback to
+      the diﬀerential outputs.
+         The four capacitances
+      are Miller compensation
+      capacitances, as shown next.
+
+
+
+
+      1136
+      One of the two output
+      stages is shown, together
+      with the ﬁrst-stage folded
+      cascodes, without the rep-
+      lica biasing.
+         The two second-stage
+      transistors lead to the
+      output. From the output
+      two compensation capaci-
+      tances lead to the output of
+      the ﬁrst stage through both
+      cascodes. Two capacitors
+      are needed because only one
+      of the cascodes may be oper-
+      ational at one of the
+      extremities.
+Rail-to-rail input and output ampliﬁers                                              319
+
+                                                           1137
+                                                           The full second stage or
+                                                           output stage is given in this
+                                                           slide.
+                                                              The output stage of the
+                                                           previous slide is now
+                                                           repeated twice, once with
+                                                           transistors M20a-M23a and
+                                                           once with transistors M20b-
+                                                           M23b.
+                                                              The output stage is also
+                                                           diﬀerential. As a result,
+                                                           another common-mode feed-
+                                                           back (CMFB) ampliﬁer is
+                                                           required. The output is
+                                                           averaged with resistors Ra
+                                                           and Rb. The CMFB ampli-
+                                                           ﬁer can take many diﬀerent
+conﬁgurations (see Chapter 8). This is only one of them.
+
+
+
+                                                           1138
+                                                           The g equalization works
+                                                                  m
+                                                           quite well. The error of 4%
+                                                           is due to the mismatch in
+                                                           n factor.
+                                                              The supply voltage used
+                                                           here is quite large. It can be
+                                                           reduced to about 2.2 V if we
+                                                           want to have both pairs on
+                                                           at the same time.
+                                                              Is this required? The
+                                                           answer is negative as
+                                                           shown next.
+320                                                                                   Chapter #11
+
+                                                                     1139
+                                                                     There is no need to have an
+                                                                     input range where both
+                                                                     input pairs are on. The
+                                                                     supply voltage could be
+                                                                     reduced to the point where
+                                                                     a perfect crossover is
+                                                                     achieved. This means that
+                                                                     the pMOST pairs goes oﬀ
+                                                                     exactly at the point where
+                                                                     the nMOST pair comes up.
+                                                                        This cross-over point is
+                                                                     exactly at halfway the
+                                                                     supply voltage for the
+                                                                     average input. Also, this
+                                                                     point is exactly where the
+                                                                     g ’s are halved. As a result,
+                                                                       m
+there is no more sum to be taken, except around the middle of the input range. The total
+transconductance equals the transconductance of one pair taken only at the extremities.
+   The resultant supply voltage is 1.5 V in this design example. This is set experimentally of
+course. This voltage is now twice V +V            . This is V +2(V −V ). For operation in weak
+                                     GS     DSsat            T    GS    T
+inversion V −V =50 mV has been taken. The values of V must therefore have been 0.65 V.
+             GS    T                                           T
+   For V values of 0.3 V, this rail-to-rail opamp would operate on a supply voltage of 0.8 V.
+         T
+This is below 1 V!
+   However, it is impossible to set this supply voltage beforehand, as it depends on the absolute
+value of V . Some tolerance must be added to this value. For V values of 0.3 V, this rail-to-rail
+           T                                                      T
+opamp can certainly operate on a supply voltage below 1 V!
+
+
+
+                                                                     1140
+                                                                     The error in transconduct-
+                                                                     ance is obviously reﬂected in
+                                                                     the error on the GBW. This
+                                                                     has been measured as shown
+                                                                     in this slide.
+                                                                        From left to right, the
+                                                                     total deviation is 4% or
+                                                                     maybe better ±2%. The
+                                                                     supply voltage is only 1.5 V.
+Rail-to-rail input and output ampliﬁers                                                      321
+
+                                                                   1141
+                                                                   However, the variation in g
+                                                                                                m
+                                                                   or GBW is not the biggest
+                                                                   problem. The biggest prob-
+                                                                   lem is the change in oﬀset
+                                                                   voltage from left to right.
+                                                                      Going from low to high
+                                                                   common-mode input volt-
+                                                                   ages, a diﬀerent input pair is
+                                                                   operational, pMOST on the
+                                                                   left but nMOST on the
+                                                                   right.
+                                                                      These pairs usually have
+                                                                   diﬀerent oﬀset voltages. This
+                                                                   change in oﬀset voltage
+                                                                   gives a lot of distortion. For
+                                                                   a supply voltage of 1.5 V,
+the diﬀerence is about 5 mV. This can be regarded as an error signal (for example 1 V). The
+distortion can be as high as 0.5% or −50 dB. This is too much for most applications!
+  In bipolar technologies, this oﬀset can be ten times smaller. The distortion is also ten times
+smaller or −70 dB, which is much more acceptable.
+  For a supply voltage of 3 V, the oﬀset is averaged out in the middle. The distortion remains
+however.
+
+
+
+
+                                                               1142
+                                                               This layout is shown that
+                                                               most input stage devices are
+                                                               quite big. Indeed, they are
+                                                               used in weak inversion,
+                                                               which leads to large W/L
+                                                               ratios.
+                                                                  The speciﬁcations are
+                                                               added as well. They show a
+                                                               FOM of about 320 MHzpF/
+                                                               mA, which is very reason-
+                                                               able indeed. This shows that
+                                                               a replica input stage does
+                                                               not add all that much to the
+                                                               power consumption. After
+                                                               all, the current consumption
+                                                               in the ﬁrst stage of a
+two-stage opamp is always small. Doubling it is not going to make a big diﬀerence in total
+power consumption.
+322                                                                                    Chapter #11
+
+                                                                      1143
+                                                                      The previous rail-to-rail
+                                                                      ampliﬁer had the advantage
+                                                                      that the supply voltage can
+                                                                      be as low as 1.5 V but had
+                                                                      at the same time the disad-
+                                                                      vantage that this supply
+                                                                      voltage is hard to predict.
+                                                                        In the next rail-to-rail
+                                                                      ampliﬁer an internal supply
+                                                                      voltage is derived from
+                                                                      the external one, which is
+                                                                      always set at the minimum
+                                                                      possible supply voltage. An
+                                                                      exact cross-over situation is
+                                                                      always maintained. In this
+                                                                      way, a minimum supply
+voltage is reached which is barely 1.3 V.
+  Moreover, the PSRR is greatly improved as well.
+
+
+
+
+                                                                     1144
+                                                                     The internal supply voltage
+                                                                     V    will be such that the
+                                                                       DD
+                                                                     exact cross-over condition is
+                                                                     always maintained auto-
+                                                                     matically. This means that
+                                                                     at half this supply voltage
+                                                                     V /2, the g ’s of both pairs
+                                                                       DD         m
+                                                                     are reduced to half. In this
+                                                                     way the sum is unity over
+                                                                     the whole common-mode
+                                                                     input range.
+                                                                        This internal supply volt-
+                                                                     age will now be a result of
+                                                                     two feedback loops.
+                                                                        The ﬁrst one has a task to
+                                                                     maintain the same current
+in both pairs. It will therefore be a current feedback which ensures equality of the currents and
+hence of the transconductances.
+   The second feedback loop will be a low dropout voltage regulator which maintains the
+minimum possible internal supply voltage V . It will always equal the sum of the V +V
+                                               DD                                       GS    DSsat
+voltages of both pairs at half the current, or half the transconductance.
+   Whatever the V ’s are, the minimum internal supply voltage is always guaranteed, providing
+                   T
+a constant g .
+             m
+Rail-to-rail input and output ampliﬁers                                                          323
+
+                                                                 1145
+                                                                 The rail-to-rail opamp is a
+                                                                 simple double input stage.
+                                                                 Not even cascodes are used.
+                                                                 The four outputs of the two
+                                                                 input pairs are combined
+                                                                 towards one single output
+                                                                 node in the simplest possible
+                                                                 way. This can be improved
+                                                                 greatly. However, the focus
+                                                                 is on the rail-to-rail perfor-
+                                                                 mance of the input stage.
+                                                                    A second stage is added
+                                                                 to drive the measurement
+                                                                 system.
+                                                                    The two supply voltage
+                                                                 are clearly separated. The
+internal supply voltage V will be derived from the external one V       .
+                         DD                                       DDext
+
+
+
+
+                                                                       1146
+                                                                       The ﬁrst feedback has a task
+                                                                       of maintaining the same
+                                                                       current in both pairs. It is
+                                                                       the current feedback which
+                                                                       ensures equality of the cur-
+                                                                       rents, whatever happens to
+                                                                       the transistors.
+                                                                          The independent bias-
+                                                                       ing is provided by current
+                                                                       source I . The same current
+                                                                                B
+                                                                       also ﬂows in the nMOST
+                                                                       diﬀerential pair. This pair is
+                                                                       a replica of the nMOST pair
+                                                                       used in the ampliﬁer itself.
+                                                                       However, the input Gates
+                                                                       are connected to the positive
+                                                                       supply V .
+                                                                                 DD
+   Its average current is measured and compared to the average current of the pMOST pair, the
+Gates of which are connected to the negative supply V (or ground).
+                                                           SS
+   The point of comparison, point S, is fed back to a current mirror which closes the feedback loop.
+   This circuit already provides the Gate drives for the nMOST and the pMOST current sources
+in the actual ampliﬁer. They are labeled by I and I .
+                                               Bn       Bp
+324                                                                                      Chapter #11
+
+                                                                      1147
+                                                                      The other feedback loop is
+                                                                      a low-dropout voltage regu-
+                                                                      lator which maintains the
+                                                                      minimum possible internal
+                                                                      supply voltage V . It must
+                                                                                          DD
+                                                                      equal the sum of the
+                                                                      V +V           voltages of both
+                                                                        GS     DSsat
+                                                                      pairs at half the current. The
+                                                                      pass transistor M is driven
+                                                                                           P
+                                                                      by ampliﬁer M /M . This
+                                                                                         A R
+                                                                      latter transistor acts as a
+                                                                      resistive load.
+                                                                         The half current sources
+                                                                      are now generated ﬁrst. The
+                                                                      factors of 2 are clearly visi-
+                                                                      ble. Moreover, the input
+pairs are duplicated once more, with their four Gates connected together.
+  A voltage regulator feedback circuit is added on the right, such that voltage V always equals
+                                                                                   DD
+the sum of the voltages V        +V    and the V +V             .
+                          DSsatp   GSp           GSn     DSsatn
+
+
+
+
+                                                                       1148
+                                                                       The whole ampliﬁer is
+                                                                       shown in this slide.
+                                                                          The actual ampliﬁer is at
+                                                                       the lower end. The top part
+                                                                       is the biasing circuitry.
+                                                                          The input pairs have been
+                                                                       duplicated twice. This adds
+                                                                       a small amount to the power
+                                                                       consumption, Since this is a
+                                                                       two-stage ampliﬁer how-
+                                                                       ever, the power consump-
+                                                                       tion is not that bad, as will
+                                                                       be shown in the compara-
+                                                                       tive table at the end of this
+                                                                       Chapter.
+Rail-to-rail input and output ampliﬁers                                                   325
+
+                                                                 1149
+                                                                 The internal supply voltage
+                                                                 V , is derived from the
+                                                                   int
+                                                                 external V , as shown by
+                                                                            ext
+                                                                 this measurement result.
+                                                                    The value of about
+                                                                 1.2–1.3 V depends obvi-
+                                                                 ously on the actual values of
+                                                                 V . They must be about
+                                                                   T
+                                                                 100 mV lower than for
+                                                                 the previous rail-to-rail
+                                                                 ampliﬁer.
+                                                                    The minimum external
+                                                                 supply voltage is little more
+                                                                 than the internal one, about
+                                                                 100 mV higher. This means
+                                                                 that this ampliﬁer can be
+used with an external supply voltage from 1.3 V.
+   The maximum external supply voltage is limited however. Folded cascodes can only go about
+0.5 V above the positive supply voltage. The rail-to-rail performance is therefore limited to
+approximately 1.8 V.
+
+
+
+
+                                                                 1150
+                                                                 The actual change in input
+                                                                 transconductance or GBW
+                                                                 over the common mode
+                                                                 input range is about
+                                                                 6%. The actual crossover
+                                                                 region shows the most
+                                                                 irregularities.
+                                                                    In this design example,
+                                                                 the change in transconduct-
+                                                                 ance may even be more
+                                                                 important for the distortion
+                                                                 than the change in oﬀset.
+                                                                    Let us have a look at the
+                                                                 oﬀset indeed.
+326                                                                                   Chapter #11
+
+                                                                   1151
+                                                                   Some of the speciﬁcations
+                                                                   are collected here.
+                                                                      Its FOM is not poor, as
+                                                                   it is 56 MHzpF/mA. This
+                                                                   shows again that duplicat-
+                                                                   ing the input stage of a two-
+                                                                   stage opamp is more accept-
+                                                                   able from the point of view
+                                                                   of power consumption.
+                                                                      The input g /I            is
+                                                                                     m1 DS1
+                                                                   about 20 V−1, which shows
+                                                                   that the transistor is in weak
+                                                                   inversion. Because of the
+                                                                   low currents used, the equiv-
+                                                                   alent input noise is rather
+                                                                   high.
+  In weak inversion, the transistors have large sizes. The oﬀset is fairly small. The change of
+oﬀset is fairly small as well!
+
+
+
+
+                                                                     1152
+                                                                     The area of this opamp is
+                                                                     about 1.5×0.8 mm. This is
+                                                                     quite large as many two rep-
+                                                                     lica input stages have been
+                                                                     added. Moreover, all input
+                                                                     transistors work in weak
+                                                                     inversion such that they
+                                                                     have large sizes. This is
+                                                                     clearly visible.
+Rail-to-rail input and output ampliﬁers                                                 327
+
+                                                              1153
+                                                              All these rail-to-rail ampli-
+                                                              ﬁers need a double V
+                                                                                         GSn
+                                                              +V         as a supply voltage
+                                                                  DSsatn
+                                                              to be able to operate.
+                                                                 For example, for a V of
+                                                                                        T
+                                                              0.6 V and a V −V of
+                                                                                 GS    T
+                                                              0.15 V, the supply voltage
+                                                              becomes 1.8 V. Reducing
+                                                              the V to 0.3 V as is the
+                                                                     T
+                                                              case for CMOS technologies
+                                                              with 90 nm channel length
+                                                              and below, the supply volt-
+                                                              age could reach the 1 V level
+                                                              indeed. The condition is
+                                                              however, that the transistor
+
+works more in weak inversion. Its V −V of 0.10 V is very close to the 70–80 mV crossover
+                                   GS     T
+value between strong and weak inversion (see Chapter 1).
+
+
+
+
+                                                              1154
+                                                              Many more rail-to-rail in-
+                                                              put ampliﬁers exist. Many of
+                                                              them are found in combina-
+                                                              tion with class-AB stages.
+                                                                 Some of them are dis-
+                                                              cussed here. They have been
+                                                              selected on the basis that
+                                                              they oﬀer some exciting
+                                                              design aspects.
+                                                                 At the end of this Chapter
+                                                              a comparative table is
+                                                              added.
+328                                                                                    Chapter #11
+
+                                                                     1155
+                                                                     Another way to keep the
+                                                                     sum of the currents constant
+                                                                     over the whole common-
+                                                                     mode input range is shown
+                                                                     in this slide. This will allow
+                                                                     the sum of the transconduct-
+                                                                     ances to stay constant, pro-
+                                                                     vided the transistors are
+                                                                     biased in weak inversion.
+                                                                        The input stage is shown
+                                                                     in this slide. A second stage
+                                                                     has to be added to make a
+                                                                     full opamp. This input stage
+                                                                     consumes 2.3 mW, whereas
+                                                                     the full opamp is 9 mW (all
+                                                                     on 3.3 V). The supply volt-
+age can be as low as 2.2 V however, as demonstrated previously.
+  When the input voltages are halfway the supply voltage, then all input nMOSTs M1-M4 are
+carrying a current I/2 (and so do the input pMOSTs M7-M10). Transistors M3 and M4 pull all
+current I away from the pMOSTs M11-M12, such that these latter devices are oﬀ. In the same
+way, transistors M5 and M6 are oﬀ.
+  When the common-mode input voltage is high, pMOSTs M7-M10 go oﬀ. Transistors M9-M10
+do not pull current away any more from M5 and M6, which now carry current I/2 as well. The
+nMOSTs M1-M2 and M5-M6 now contribute to the total transconductance.
+  For a high CM input voltage, transistors M5-M6 take over the role of M7-M8. This is in the
+same way as for low CM input voltages, M11-M12 takes over the role of M1-M2. The total
+current and transconductance is therefore constant over the whole common-mode input range.
+
+
+                                                                    1156
+                                                                    Distortion is the main prob-
+                                                                    lem of CMOS rail-to-rail
+                                                                    input ampliﬁers. Without
+                                                                    trimming, they cannot oﬀer
+                                                                    more than 40–50 dB signal-
+                                                                    to-distortion ratio.
+                                                                       This ampliﬁer provides a
+                                                                    solution. Its signal-to-dis-
+                                                                    tortion ratio can be as high
+                                                                    as 90 dB!
+                                                                       This is accomplished by
+                                                                    using only one diﬀerential
+                                                                    pair at the input. An internal
+                                                                    voltage regulator is used,
+                                                                    which provides an internal
+                                                                    supply voltage, this is
+always higher than the external one by about 1 V. This Volt is suﬃcient to allow the input Gates
+Rail-to-rail input and output ampliﬁers                                                        329
+
+to cover the full supply voltage. It is thus a rail-to-rail input ampliﬁer indeed, but with low
+distortion.
+  The second stage is a class-AB ampliﬁer, which will be discussed in Chapter 12.
+
+                                                                    1157
+                                                                    This rail-to-rail opamp is
+                                                                    well known. It consists of a
+                                                                    double folded cascode fol-
+                                                                    lowed by a class-AB second
+                                                                    stage with Miller compensa-
+                                                                    tion through the cascodes.
+                                                                        The g −equalization still
+                                                                             m
+                                                                    has to be added though. The
+                                                                    principle is discussed next.
+                                                                        Note that for increasing
+                                                                    Vin-, both currents I and
+                                                                                            dsn
+                                                                    I     increase. One of them
+                                                                      dsp
+                                                                    will disappear however,
+                                                                    when the common-mode
+                                                                    voltage V       is high or low.
+                                                                               INCM
+                                                                    When V           is high, the
+                                                                               INCM
+input pMOSTs are oﬀ and I disappears but I survives.
+                              dsp                dsn
+   If we now apply a maximum-current selecting circuit to I           and I , the larger one will
+                                                                  dsn      dsp
+survive. This is the current that is passed on to the next stage.
+   We now have to insert a maximum-current selector between the Drains which carry I and
+                                                                                          dsn
+I and the second stage.
+ dsp
+
+                                                                   1158
+                                                                   The g -equalization makes
+                                                                          m
+                                                                   use of maximum-current
+                                                                   selector circuits. The main
+                                                                   diﬀerence with all previous
+                                                                   rail-to-rail ampliﬁers is that
+                                                                   all g −equalizers made use
+                                                                        m
+                                                                   of common-mode circuitry.
+                                                                   All added noise is therefore
+                                                                   common-mode noise, which
+                                                                   is cancelled by the diﬀer-
+                                                                   ential output.
+                                                                      The g −equalizers dis-
+                                                                             m
+                                                                   cussed here, act on the
+                                                                   diﬀerential circuits. All
+                                                                   added noise now ends up in
+                                                                   the signal path. It cannot be
+                                                                   cancelled any more.
+  Two maximum-current selecting circuits are shown in this slide. The left one is a single-ended
+one, whereas the right one is ﬂoating.
+330                                                                                Chapter #11
+
+  The nMOST Drain with current I is connected to the Iin1 input, and the pMOST Drain
+                                     dsn
+with current I to the Iin2 input. Both currents are summed by the current mirrors towards
+              dsp
+Iout. As a consequence, the larger current wins. It is then fed to the second stage.
+  The maximum-current selecting circuits on the right is explained next.
+
+                                                                 1159
+                                                                 The polarities of the circular
+                                                                 currents are indicated. The
+                                                                 +input is assumed to rise.
+                                                                   It is clear that both rising
+                                                                 currents are led to a ﬂoating
+                                                                 current mirror (most right),
+                                                                 the output of which goes to
+                                                                 the second stage.
+                                                                   Both currents of opposite
+                                                                 polarity are ﬂowing through
+                                                                 the left ﬂoating current
+                                                                 mirror. Its output goes to
+                                                                 the other output transistor.
+
+
+
+
+                                                               1160
+                                                               Another circuit of interest is
+                                                               the biasing circuit which
+                                                               makes sure that the
+                                                               nMOSTs and pMOSTs
+                                                               have equal transconduct-
+                                                               ances.
+                                                                  This circuit is shown in
+                                                               this      slide.   Transistors
+                                                               Ma1–4 form a translinear
+                                                               loop, as indicated by the
+                                                               expression with the V ’s.
+                                                                                         GS
+                                                               The V ’s drop out. What is
+                                                                       T
+                                                               left is an expression with the
+                                                               currents and the transistor
+                                                               sizes. All currents are indi-
+                                                               cated, and so are the W/K
+                                                               ratio’s.
+   The result is that the K’I products for both a nMOST and a pMOST are the same. Their
+                             DS
+transconductances are the same as well.
+   This is therefore a transconductance equalizer circuit.
+Rail-to-rail input and output ampliﬁers                                                      331
+
+                                                                   1161
+                                                                   The ﬁrst type of maximum-
+                                                                   current selector and trans-
+                                                                   conductance equalizer cir-
+                                                                   cuit are added to the rail-to-
+                                                                   rail ampliﬁer, shown ﬁrst.
+                                                                      Both maximum-current
+                                                                   selectors are easily found.
+                                                                   Their outputs go to a
+                                                                   diﬀerential current ampliﬁer
+                                                                   with cascodes. Its outputs
+                                                                   then drive the Gates of
+                                                                   the output transistors. It is
+                                                                   still a two-stage ampliﬁer,
+                                                                   despite the complexity of the
+                                                                   ﬁrst stage. The equivalent
+                                                                   input noise is therefore
+                                                                   rather high.
+
+
+
+
+                                                                 1162
+                                                                 The ﬂoating maximum-cur-
+                                                                 rent selector and transcon-
+                                                                 ductance equalizer circuit
+                                                                 are added to the same rail-
+                                                                 to-rail ampliﬁer, as shown in
+                                                                 this slide.
+                                                                    The outputs go to the
+                                                                 same second stage as before.
+                                                                 It is thus also a second stage
+                                                                 ampliﬁer.
+                                                                    However,       the    input
+                                                                 devices have a more sym-
+                                                                 metrical load. The CMRR is
+                                                                 now higher.
+                                                                    Remember that the noise
+                                                                 is rather high because of the
+analog signal processing applied directly to the AC currents, and not to the common-mode
+circuitry or the biasing.
+332                                                                                  Chapter #11
+
+                                                                    1163
+                                                                    In order to be able to reach
+                                                                    a supply voltage, even with
+                                                                    V ’s of 0.7 V is not an easy
+                                                                      T
+                                                                    task.
+                                                                       Whatever circuitry is
+                                                                    applied to the input devices,
+                                                                    an average input voltage of
+                                                                    0.5 V will never allow either
+                                                                    the nMOST or the pMOST
+                                                                    to conduct. Only the input
+                                                                    devices are shown of two
+                                                                    folded cascodes.
+                                                                       Only for input voltages
+                                                                    larger than about 0.8 V, the
+                                                                    nMOST starts conducting.
+                                                                    Also, the pMOST can only
+                                                                    conduct for average input
+                                                                    voltages below about 0.2 V.
+
+
+
+
+                                                                     1164
+                                                                     The solution is to insert
+                                                                     level shifters.
+                                                                        Indeed, inserting two
+                                                                     resistors R between the
+                                                                     actual input and the Gates,
+                                                                     and two current sources I
+                                                                                                B
+                                                                     allows the necessary level
+                                                                     shifting.
+                                                                        For example, with cur-
+                                                                     rents of 10 mA and resistors
+                                                                     of 30 kV, the level shift
+                                                                     is then 0.3 V. For an in-
+                                                                     put voltage of 0.5 V, the
+                                                                     nMOST Gate is at 0.8 V
+                                                                     and the pMOST Gate at
+                                                                     0.2 V. Both transistors are
+                                                                     now operational.
+  Note that this current source I is only needed when the input voltage is
+                                 B
+  0.5 V. It can disappear for other input voltages. For example, if the input voltage is 0.2 V or
+lower, current I can be zero.
+                B
+Rail-to-rail input and output ampliﬁers                                                           333
+
+                                                                        1165
+                                                                        In this realization a current
+                                                                        is generated which is trian-
+                                                                        gular with its maximum at
+                                                                        0.5 V, and which becomes
+                                                                        zero for inputs below 0.2 V
+                                                                        or higher than 0.8 V.
+                                                                           The actual input voltage
+                                                                        and the Gate voltages are
+                                                                        plotted versus average input
+                                                                        voltage. It is clearly seen
+                                                                        that for input voltages larger
+                                                                        than 0.5 V, the nMOST
+                                                                        already conducts. Also, the
+                                                                        pMOST conducts for input
+                                                                        voltages up to 0.5 V. A rail-
+                                                                        to-rail input range is now
+                                                                        obtained.
+
+
+
+
+                                                                        1166
+                                                                        The full schematic is shown
+                                                                        in this slide.
+                                                                           Four resistors and current
+                                                                        sources are used to level-
+                                                                        shift the inputs. The currents
+                                                                        I are derived in a separate
+                                                                         B
+                                                                        current generator.
+                                                                           The outputs then simply
+                                                                        go to two diﬀerential cur-
+                                                                        rent ampliﬁers. A simple
+                                                                        second stage is provided to
+                                                                        be able to output the signal.
+                                                                           This rail-to-rail input
+                                                                        arrangement also has some
+                                                                        drawbacks. First of all, the
+                                                                        four current sources I , may
+                                                                                               B
+not match that well. Their diﬀerence in current ﬂows out and gives rise to a kind of bias current
+(as is common in bipolar ampliﬁers). Moreover, they may not be the same for both inputs. There
+is thus also an oﬀset current.
+   Another disadvantage is the presence of noisy resistors in series with all four inputs. The noise
+performance will now suﬀer.
+   It is possible to reduce these resistors but larger currents I are required, worsening the input
+                                                                 B
+oﬀset currents.
+   It is the only rail-to-rail input opamp however, which works on 1 V for conventional V ’s.
+                                                                                                 T
+334                                                                                     Chapter #11
+
+                                                                      1167
+                                                                      The level-shift current gen-
+                                                                      erator is shown in this slide.
+                                                                      It has to generate an output
+                                                                      current which ﬁrst increases
+                                                                      with the input voltage and
+                                                                      then decreases again.
+                                                                         It is obviously a common-
+                                                                      mode block. A replica input
+                                                                      stage is used, in which the
+                                                                      diﬀerential signals are can-
+                                                                      celled. The outputs are led
+                                                                      to a current summer by
+                                                                      means of a number of cur-
+                                                                      rent sources. Its output thus
+                                                                      gives rise to a pseudo-trian-
+                                                                      gular output current I .
+                                                                                              B
+
+
+
+
+                                                                     1168
+                                                                     As a conclusion, a compara-
+                                                                     tive table is given comparing
+                                                                     the diﬀerent speciﬁcations of
+                                                                     the types discussed.
+                                                                        The ﬁrst column is the
+                                                                     type, followed by the refer-
+                                                                     ence.
+                                                                        The error is given in
+                                                                     transconductance. Most of
+                                                                     them achieve 5–8%. This
+                                                                     will give rise to some distor-
+                                                                     tion, which is normally
+                                                                     smaller however than the
+                                                                     distortion due to the chang-
+                                                                     ing oﬀset voltage.
+                                                                        The FOM indicates how
+much current has been consumed by the addition of circuitry for the rail-to-rail input. Anything
+that is larger than 30–50 is more acceptable. It is seen that only ampliﬁers with a large FOM
+have been discussed in this Chapter. Some other ones are added which are less attractive.
+   The column with current does not mean much. The eﬀect of the current has been included in
+the FOM.
+   The last column lists the minimum supply voltages. For most standard opamps this is about
+2.5 V. The two ampliﬁers with 1.5 and 1.3 V use input devices in weak inversion and are optimized
+towards low supply voltages.
+   The only 1 V ampliﬁer is the last one. It compromises however, on speciﬁcations which are
+not listed here, such as input noise and input biasing current.
+Rail-to-rail input and output ampliﬁers                             335
+
+                                          1169
+                                          In this Chapter rail-to-rail
+                                          input ampliﬁers have been
+                                          discussed. Various types of
+                                          circuit conﬁgurations have
+                                          been analyzed and com-
+                                          pared.
+                                             Such an input stage will
+                                          mainly serve as a stage for
+                                          a class-AB ampliﬁer, to
+                                          guarantee rail-to-rail perfor-
+                                          mance for both input and
+                                          output.
+
+
+
+
+                                          1170
+336          Chapter #11
+
+      1171
+

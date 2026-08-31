@@ -1,0 +1,1652 @@
+                                                                       201
+                                                                       An important class of
+                                                                       analog circuits are analog-
+                                                                       to-digital and digital-toana-
+                                                                       log converters as they pro-
+                                                                       vide the conversion from the
+                                                                       analog to digital signals and
+                                                                       vice-versa.
+                                                                          The number of converter
+                                                                       types is legion however, as
+                                                                       many diﬀerent resolutions
+                                                                       and speeds are involved.
+                                                                          They can thus be classi-
+                                                                       ﬁed in terms of resolution
+                                                                       and speed capability.
+                                                                          This chapter is limited to
+                                                                       Nyquist converters. The
+input signal frequency can reach half the clock frequency. Moreover, each sample is quantized
+to full precision. In oversampling converters the input signal frequency is much lower than the
+clock frequency. Also, the precision is obtained as a result of averaging in a feedback loop. These
+will be discussed in the next Chapter.
+   However, a number of deﬁnitions have to be given ﬁrst.
+
+
+                                                                      202
+                                                                      After the deﬁnitions, we will
+                                                                      focus on DACs ﬁrst. The
+                                                                      main limitations in DACs
+                                                                      are a result of mismatch,
+                                                                      either between transistors or
+                                                                      between passives as resistors
+                                                                      and capacitors.
+                                                                         The AD Converters will
+                                                                      be discussed. The principles
+                                                                      of the more important types
+                                                                      will be introduced, followed
+                                                                      by     some      realizations.
+                                                                      Considerable attention is
+                                                                      paid to the limitations in
+                                                                      both speed and resolution.
+
+
+
+
+                                                603
+604                                                                                     Chapter #20
+
+                                                                      203
+                                                                      An ADC converts a con-
+                                                                      tinuous input Voltage into a
+                                                                      number of discrete steps,
+                                                                      which are labeled by means
+                                                                      of a digital code. The input
+                                                                      voltage is quantized.
+                                                                         In the example in this
+                                                                      slide, any voltage between
+                                                                      zero and the reference
+                                                                      Voltage V , corresponds to
+                                                                                 ref
+                                                                      a three-bit code. Ideally, all
+                                                                      steps are equally wide and
+                                                                      high. In practice however,
+                                                                      some irregularities occur.
+                                                                      These nonidealities will be
+                                                                      described by speciﬁcations
+such as INL and DNL, as will be explained later.
+   A DAC, on the other hand, converts a digital code into a number of voltages. This is shown
+in this slide for a three-bit input code. The voltages are all fractions of a reference voltage V .
+                                                                                                 ref
+Again the steps are ideally all equal, but some non-idealities are hard to avoid in practice.
+
+
+
+                                                                      204
+                                                                      The number of steps taken
+                                                                      is called the resolution.
+                                                                         The value of the analog
+                                                                      output voltage now depends
+                                                                      on which bits b are 1 or 0.
+                                                                      For example, for a code 110
+                                                                      and a reference voltage of
+                                                                      0.6 V, the output voltage is
+                                                                      0.6×(2−1+2−2) or 0.45 V.
+                                                                      For a resolution N, the
+                                                                      smallest step V     is the ref-
+                                                                                      LSB
+                                                                      erence Voltage divided by
+                                                                      2N. For example this is 1/256
+                                                                      or 0.4% for a 8 bit con-
+                                                                      verter, or 2.3 mV for a 0.6 V
+                                                                      reference voltage. The error
+must always be smaller than the resolution.
+  The coeﬃcient of 1/2 is the most signiﬁcant bit, whereas the coeﬃcient of the last one 1/2N is
+the least signiﬁcant bit.
+CMOS ADC and DAC principles                                                             605
+
+                                                              205
+                                                              The diﬀerence between the
+                                                              actual input voltage and the
+                                                              quantized voltage is a signal
+                                                              e, which has the shape of a
+                                                              sawtooth with peak-to-peak
+                                                              amplitude D.
+                                                                 Its RMS value can be
+                                                              easily calculated to be D2/12.
+                                                              It is called quantization
+                                                              noise, because it is small.
+                                                                 It is obvious that the
+                                                              quantization noise is smaller
+                                                              if the resolution N is larger.
+                                                                 The Signal-to-noise ratio
+                                                              SNR can then easily be cal-
+                                                              culated to be 3/2 times 22N.
+Obviously, the larger the resolution, the larger the SNR.
+  A rule of thumb is that for a resolution N, the SNR is about 6N+2. For a resolution of
+(N=) 8 bit, the SNR is about 50 dB. The SNR increases by 6 dB for each extra bit.
+
+
+                                                              206
+                                                              The non-idealities of the DA
+                                                              conversion give rise to sev-
+                                                              eral speciﬁcations, such as
+                                                              the DNL and the INL.
+                                                                 The DNL is the largest
+                                                              step ever minus one LSB. It
+                                                              is the largest deviation from
+                                                              a regular step.
+                                                                 The INL is the largest
+                                                              deviation from the average
+                                                              slope.
+                                                                 If this slope is not right,
+                                                              then a gain error is found.
+                                                              This slope must go through
+                                                              zero. If not, an oﬀset occurs.
+606                                                                                  Chapter #20
+
+                                                                     207
+                                                                     When the output voltage
+                                                                     changes in time, as a result
+                                                                     of change of bit b, then the
+                                                                     transition may not be
+                                                                     instantaneous.
+                                                                        The change in voltage
+                                                                     may experience a limited
+                                                                     rise time, or slew rate.
+                                                                     Moreover an overshoot may
+                                                                     occur, called glitch. The
+                                                                     energy in this glitch (which
+                                                                     is the integral under this
+                                                                     glitch waveform) must be
+                                                                     smaller than the energy of
+                                                                     a LSB.
+                                                                        The time required to
+reach the ﬁnal value (within 0.1% for example) is called the settling time.
+  As clocks are used, some clock feedthrough may occur as well.
+
+
+
+
+                                                                    208
+                                                                    In the frequency domain,
+                                                                    the analog output voltage of
+                                                                    a DAC may contain various
+                                                                    harmonics.
+                                                                      The ratio of the output,
+                                                                    fundamental to the largest
+                                                                    harmonic is called the
+                                                                    SFDR. This is usually the
+                                                                    second harmonic. For fully-
+                                                                    diﬀerential systems how-
+                                                                    ever, this is most probably
+                                                                    the third harmonic.
+CMOS ADC and DAC principles                                                                607
+
+                                                                  209
+                                                                  For a certain resolution, the
+                                                                  quantization (and other)
+                                                                  noise is about constant. The
+                                                                  SNR increases for increas-
+                                                                  ing input voltage. The maxi-
+                                                                  mum SNR is reached for the
+                                                                  largest possible input signal
+                                                                  amplitude.
+                                                                     This latter signal is nor-
+                                                                  mally limited by distortion.
+                                                                  In the example in this slide
+                                                                  the maximum SNR is theo-
+                                                                  retically 74 dB, correspond-
+                                                                  ing to 12 bit. Because of
+                                                                  distortion, only 66 dB is
+                                                                  found however, correspond-
+ing to about 10.6 bit. The SNDR (Signal-to-noise-and-distortion ratio) is thus only 66 dB.
+  The ideal values are always somewhat higher. As a rule of thumb about 1 bit is lost from
+theory to practice (measurement).
+
+
+
+                                                                   2010
+                                                                   Now that all deﬁnitions
+                                                                   have been given, let us
+                                                                   examine which principles of
+                                                                   DACs are most used.
+                                                                     There are three of them,
+                                                                   the current-steering one
+                                                                   being used most often.
+608                                                                                    Chapter #20
+
+                                                                     2011
+                                                                     Possibly the simplest DAC
+                                                                     is shown in this slide.
+                                                                        It uses a string of equal
+                                                                     resistors, which allows all
+                                                                     possible voltage fractions of
+                                                                     the reference Voltage V
+                                                                                                REF
+                                                                     to be obtained. These frac-
+                                                                     tions are added depending
+                                                                     on the switches B and
+                                                                     buﬀered toward the output.
+                                                                        It is clear that many resis-
+                                                                     tors are required for high
+                                                                     resolution DAC’s of this
+                                                                     type. Moreover, matching
+                                                                     between the resistors R
+                                                                     limits the resolution to 6–8
+                                                                     bit.
+
+                                                                    2012
+                                                                    Much fewer resistors are
+                                                                    required if they are binary
+                                                                    weighted. Currents are also
+                                                                    added rather than voltages.
+                                                                       It is clear that matching
+                                                                    plays an important role
+                                                                    again. This is a problem as
+                                                                    the resistors have widely
+                                                                    diﬀerent values: for a 8 bit
+                                                                    converter the largest resistor
+                                                                    is 256 times larger than the
+                                                                    smallest one.
+                                                                       This is remedied by the
+                                                                    arrangement on the next
+                                                                    slide.
+                                                                       The main disadvantage is
+probably that this converter is prone to glitches. Consider the transition from (B0B1B2B3 =)
+0111 to 1000. In the ﬁrst case, the current ﬂowing into the opamp is 1/8+1/4+1/2=0.875 times
+V /R. In the other case the current is V /R itself. There is smooth transition expected from
+  REF                                       REF
+0.875 to 1 indeed.
+   If however, mismatch is such that 0.875 is higher than 1, then the conversion curve is no
+longer monotonic. A glitch now occurs!
+
+2013
+In this DAC only resistors are used of two sizes r and 2R. Actually, all resistors have equal size
+but for 2R two resistors are put in series. This greatly facilitates the matching between the
+resistors (see Chapter 15). A resolution of 10 bit is fairly easily achieved.
+CMOS ADC and DAC principles                                                                       609
+
+                                                                           Moreover, the total sum
+                                                                        of resistor area is much
+                                                                        smaller indeed!
+                                                                           To see how this 4-bit con-
+                                                                        verter works, the currents
+                                                                        are indicated, through all
+                                                                        the branches.
+                                                                           The current through the
+                                                                        most left resistor 2R, and
+                                                                        switch B3, is current I . This
+                                                                                               R
+                                                                        is actually V /2R. This
+                                                                                        REF
+                                                                        current always ﬂows as it is
+                                                                        directed by switch B3, either
+                                                                        to the input of the opamp
+                                                                        (as shown) or to ground.
+                                                                           The current through the
+                                                                        most left (horizontal) resis-
+tor R is also current I . Indeed, it is followed by another resistor 2R through switch B2 in
+                         R
+parallel with another (horizontal) resistor R, which again sees a resistor R. As a result, each
+(horizontal) resistor R sees a resistance R to the right.
+   At the end of the resistor string, it is clear that the two most right resistors 2R are in parallel
+and oﬀer a resistance R to the most right (horizontal) resistance. At all nodes, a resistance R is
+seen to the right with respect to ground.
+   When the switches are in position 1111 (as shown), then all currents are directed into the
+opamp and through the feedback resistor R towards the output. If a switch is in position 0, then
+its current ﬂows to ground and does not contribute to the output voltage.
+
+
+                                                                    2014
+                                                                    Nevertheless better match-
+                                                                    ing can be obtained by
+                                                                    means of capacitors rather
+                                                                    than with transistors. If a
+                                                                    resolution of 10 bit can be
+                                                                    easily obtained with a resis-
+                                                                    tor bank, then 12 bit can
+                                                                    be obtained with a matched
+                                                                    capacitor       bank      (see
+                                                                    Chapter 15).
+                                                                       An example of such 3-bit
+                                                                    capacitor bank is shown in
+                                                                    this slide. The larger capaci-
+                                                                    tor 4C consists of 4 equal
+                                                                    capacitors C laid out prop-
+                                                                    erly (see Chapter 15).
+   By means of charge redistribution, the output voltage is a sum of binary fractions of the
+reference voltage V .
+                   ref
+   In clock phase W1 (as shown) all binary capacitors are charged to V .
+                                                                       ref
+610                                                                                     Chapter #20
+
+  The output voltage holds the voltage obtained during the previous clock phase.
+  In clock phase W2, the charge of the capacitors which belong to the switches connected to
+ground, is transferred to the output capacitor 8C.
+  The output voltage then changes depending on the charge transferred from these capacitors.
+  Note that this circuit suﬀers from the same problems as switched capacitors ﬁlters. They can
+easily achieve a 70 dB dynamic range corresponding to about 12 bit, but not much more.
+
+
+
+                                                                       2015
+                                                                       Binary currents can also be
+                                                                       switched directly as shown
+                                                                       in this slide.
+                                                                          The binary code deter-
+                                                                       mines which currents are
+                                                                       added towards the input of
+                                                                       the opamp.
+                                                                          Now, of course, the mis-
+                                                                       match between the binary
+                                                                       current sources will play a
+                                                                       role. In principle, current
+                                                                       sources do not match as well
+                                                                       as capacitors. Limited reso-
+                                                                       lution is therefore obtained.
+                                                                          Moreover glitches can
+                                                                       occur during transitions to
+higher bits. As this is also a result of mismatch, careful layout will have to be ensured.
+  Glitches can be avoided however, by using a thermometer code rather than a binary code.
+
+
+
+                                                                      2016
+                                                                      This table shows the diﬀer-
+                                                                      ence. Each time the binary
+                                                                      code changes to the next
+                                                                      number, the next digital
+                                                                         value in the thermometer
+                                                                      code goes from 0 to 1.
+                                                                      Monotonicity is now guar-
+                                                                      anteed. Glitches can there-
+                                                                      fore be avoided.
+                                                                         The price to pay however,
+                                                                      is the larger number of digi-
+                                                                      tal variables. For eight
+                                                                      values, only three bits are
+                                                                      necessary in the binary code
+                                                                      but seven in the thermome-
+                                                                      ter code.
+CMOS ADC and DAC principles                                                                     611
+
+                                                                      2017
+                                                                      In this current-steering
+                                                                      DAC thermometer code is
+                                                                      used for both row and col-
+                                                                      umns. This results in good
+                                                                      monotonicity.
+                                                                         Current is switched to the
+                                                                      output when both the row
+                                                                      and column lines for a
+                                                                      speciﬁc cell are high. These
+                                                                      currents add up toward the
+                                                                      input of an opamp with a
+                                                                      resistor in the feedback
+                                                                      loop. Also, simple resistor
+                                                                      can be used as shown in this
+                                                                      slide. This is especially true
+                                                                      for high-frequency realiza-
+                                                                      tions where a resistor is
+                                                                      50 V.
+  The switch itself is also shown in this slide.
+  It consists of a diﬀerential pair, the current source of which carries the binary current. How
+can the matching between these transistors Q be improved, will be explained in the next slide.
+                                                 4
+  The transistors of the diﬀerential pair Q and Q are driven by the digital control signals.
+                                              1        2
+They are on or oﬀ, and conduct the current either to ground or to the output.
+  Note that a cascode transistor Q is used to better isolate the analog current sources (transistors
+                                    3
+Q ) from the digital switches Q and Q .
+  4                              1        2
+                                                                     2018
+                                                                     The matching of the current
+                                                                     sources is now discussed in
+                                                                     more detail.
+                                                                        In the binary implementa-
+                                                                     tion, each bit directly steers
+                                                                     a current source with a
+                                                                     value that is twice as large
+                                                                     as that of the next less sig-
+                                                                     niﬁcant bit, while in the
+                                                                     unary implementation each
+                                                                     bit steers a number of unit
+                                                                     current sources.
+                                                                        Comparing the perfor-
+                                                                     mance of these two architec-
+                                                                     tures shows that the binary
+                                                                     architecture has a larger
+DNL and glitch energy error, but since this architecture requires no thermometer decoder (as
+the unary implementation does) it has a lower power and area consumption.
+  A combination of the advantages of the two architectures is found in the segmented architecture.
+Here the LSBs are implemented in a binary way while the MSBs are implemented in a unary way.
+612                                                                                  Chapter #20
+
+   As a conclusion, one can state that in CMOS the best architecture to achieve a high update
+rate and a high linearity is the segmented current steering architecture.
+   In the unary implementation, the DNL error equals about s(I)/I, in which s(I) is the standard
+deviation on a unary current source. In the binary implementation however, at half-scale
+transition, 2N−1 unit current sources are switched oﬀ. The DNL error is thererfore much larger.
+For the segmented architecture, the DNL error is in between.
+   How much standard deviation s(I)/I is actually required?
+
+
+                                                                   2019
+                                                                   This standard deviation
+                                                                   s(I)/I can be predicted in
+                                                                   terms of yield, by means of
+                                                                   a fairly complicated func-
+                                                                   tion, of which a value is
+                                                                   given in this slide.
+                                                                      For a 90% yield in INL,
+                                                                   the constant C is given in
+                                                                   this slide, giving rise to an
+                                                                   easy expression, which is
+                                                                   plotted in this slide.
+                                                                      It shows that for 10 bit
+                                                                   resolution, a standard devia-
+                                                                   tion s(I)/I is required of
+                                                                   about 0.8% if a yield of 90%
+                                                                   is needed.
+  Other values are easily found as well.
+  A standard deviation s(I)/I of 0.8% can easily be achieved in present day CMOS processes.
+This number will be used to ﬁnd the sizes of the transistors for the current sources.
+
+
+                                                                   2020
+                                                                   Sizing is only one technique
+                                                                   to improve the matching.
+                                                                   Other layout techniques
+                                                                   have been discussed in
+                                                                   Chapter 15. For example,
+                                                                   centroide layout is of utmost
+                                                                   importance to improve the
+                                                                   matching.
+                                                                      This is shown in this slide,
+                                                                   for the switching schemes
+                                                                   for the current sources.
+                                                                      In general, the error dis-
+                                                                   tribution can be modeled by
+                                                                   a linear or symmetric gradi-
+                                                                   ent E, or a combination of
+                                                                   both. A linear gradient is
+CMOS ADC and DAC principles                                                                       613
+
+caused by, for example, a variation of oxide thickness or a drop in ground line. A symmetric
+gradient, on the other hand, can be caused by temperature or packaging stress.
+  The switching schemes show how the digital codes are transformed into decimal values (or
+thermometer code).
+  Several schemes are compared.
+  In the sequential switching scheme (on top), the current sources in a given row are turned on
+sequentially from the left to the right. The eﬀect on the INL is given in the next slide. It is clear
+that this scheme causes large linearity errors due to the accumulation of both graded and
+symmetrical errors.
+
+
+                                                                       2021
+                                                                       In the conventional sym-
+                                                                       metrical switching scheme,
+                                                                       the current sources are
+                                                                       turned on in a symmetrical
+                                                                       way around the center of the
+                                                                       row. The graded errors are
+                                                                       now cancelled at every two
+                                                                       increments of the digital
+                                                                       input (see left) but the errors
+                                                                       generated by a symmetrical
+                                                                       gradient will accumulate as
+                                                                       indicated on the right.
+                                                                          In the hierarchical sym-
+                                                                       metrical switching scheme,
+                                                                       the current sources are
+                                                                       turned on around the ﬁrst
+and the third quarter of the current sources row. Two diﬀerent schemes are now possible. In
+scheme A, the symmetrical error generated by current source 1 is cancelled by current source 2,
+while the graded error caused by the current source pair (1,2) is cancelled by the current source
+pair (3,4).
+   In switching scheme B, the errors caused by the linear gradient are cancelled out at current
+source level while the symmetrical errors are cancelled at the current source pair level.
+   As a result, in type A, the INL error is about the same for both the graded and the symmetrical
+error distribution whereas in type B, the INL error caused by the symmetrical error distribution
+is twice as large as the one caused by the graded error distribution.
+   Therefore, the hierarchical symmetrical scheme A has been preferred.
+   It is obvious that such heuristics may not yield optimum results. Optimization algorithms
+such as the Q2 random walk switching scheme have been used to achieve 14 bit conversion
+(Ref. Van Der Plas, JSSC Dec. 1999, 1708–1718).
+
+
+2022
+Since two D/A converters that are processed in the same technology do not necessarily have the
+same speciﬁcations due to technological variations, it is of the utmost importance to know the
+precise relationship that exists between the speciﬁcations of the circuit and the matching proper-
+ties of the used technology.
+614                                                                                      Chapter #20
+
+                                                                           For a current-steering
+                                                                        D/A converter, the INL is
+                                                                        mainly determined by the
+                                                                        matching behavior of the
+                                                                        current sources. The param-
+                                                                        eter that is best suited for
+                                                                        expressing this technology
+                                                                        versus DAC-speciﬁcation
+                                                                        relation is the INL yield.
+                                                                        This INL yield is deﬁned as
+                                                                        the ratio of the number of
+                                                                        D/A converters with an INL
+                                                                        smaller than B LSB to the
+                                                                        total number of tested D/A
+                                                                        converters.
+                                                                           The random variations
+                                                                        are modeled using a normal
+distribution with expected value zero and a relative standard deviation s(I)/I. The statistical
+relationship has been investigated analytically, resulting in an accurate formula expressing directly
+the relationship between the INL yield speciﬁcation, the resolution and the relative unit current
+standard deviation for the D/A converter. This was given before.
+   Note that the gate area of the current sources is inversely proportional to the relative unit
+current standard deviation. Since a high yield requires a small value for this standard deviation,
+this directly implies a large current source area.
+   To obtain a 12 bit accuracy, a relative unit current source standard deviation of 0.25% is
+necessary.
+
+
+
+                                                                      2023
+                                                                      Using the following equa-
+                                                                      tions, the dimensions of the
+                                                                      current source can be
+                                                                         easily found. For a 1V
+                                                                      peak-to-peak output volt-
+                                                                      age over a double termi-
+                                                                      nated (coax)cable, a full-
+                                                                      scale current I of 20 mA is
+                                                                                     FS
+                                                                      designed. The current equa-
+                                                                      tion is the ﬁrst equation on
+                                                                      the right.
+                                                                         The mismatch equation is
+                                                                      copied from the previous
+                                                                      slide together with the value
+                                                                      for the relative unit current
+                                                                      standard deviation and the
+gate overdrive voltage. As a result, the width of the unit current source transistor equals 1.8 mm
+and its length is 30 mm.
+CMOS ADC and DAC principles                                                                       615
+
+                                                                        2024
+                                                                        As an example, a realization
+                                                                        is discussed of a high-speed
+                                                                        10-bit current steering DAC.
+                                                                           At high frequencies, atten-
+                                                                        tion has to be paid to the
+                                                                        dynamic performance. This
+                                                                        suﬀers from several eﬀects
+                                                                        such as
+                                                                        – timing errors
+                                                                        – capacitive     feedthrough
+                                                                           from the digital control
+                                                                           signals
+                                                                        – lack of stability of the
+                                                                           Drain voltage of the cur-
+                                                                           rent source transistors.
+                                                                        This latter eﬀect is even
+more dominant if the output impedances of the current sources are too low. Indeed, switching
+the transistors M on and oﬀ causes the voltage across the current source transistor M to
+                   sw                                                                            cs
+vary. As a result, the eﬀective resolution is decreased.
+   This is shown in the next slide.
+   Note that this realization consists of 5 bit binary and 5 bit unary sub-DACs. For the ﬁve most
+signiﬁcant bits, the input bit streams are converted to a 32 bit thermometer code output. For
+the 5-bit binary LSB processing, the digital outputs are the same as the input. A dummy decoder
+has been added however, to minimize latency problems between the signals generated by the
+MSB decoder and the binary LSB bits.
+
+
+
+
+                                                                   2025
+                                                                   The output impedance to
+                                                                   achieve a speciﬁc resolution
+                                                                   is shown for a 25 V load. For
+                                                                   a resolution of 10 bits, the
+                                                                   output impedance must be
+                                                                   at least 6.4 MV. For a 12
+                                                                   bits resolution, this must be
+                                                                   100 MV!
+                                                                      It is clear that the only
+                                                                   way to achieve such a high
+                                                                   value is to insert a cascode
+                                                                   transistor M       between the
+                                                                                 casc
+                                                                   switching pair and the cur-
+                                                                   rent source. The main char-
+                                                                   acteristic of this cascode
+                                                                   transistor is that its output
+capacitance should be as small as possible. This means that its drain area must be as small as
+616                                                                                  Chapter #20
+
+possible. As a result its W/L is made small (2–3) and its V −V is large, as large as 1 V,
+                                                             GS   T
+provided the power supply allows this.
+  To achieve a 99.7% INL, the current source matching must be at least 0.5%. The dimensions
+of the current source transistor M are then easily calculated. The cascode has been made as
+                                   cs
+small as possible in this 0.35 mm CMOS technology.
+
+
+
+
+                                                                    2026
+                                                                    A layout of this realization
+                                                                    is shown in this slide.
+                                                                       Many blocks have been
+                                                                    laid out by hand to reduce
+                                                                    the dimensions to a mini-
+                                                                    mum. This also applies to
+                                                                    the dummy decoder men-
+                                                                    tioned previousl.
+                                                                       As a result, the dynamic
+                                                                    performance is excellent, as
+                                                                    shown in the next slide.
+
+
+
+
+                                                                  2027
+                                                                  A single-tone spectrum is
+                                                                  shown in this slide.
+                                                                     At low frequencies, an
+                                                                  eﬀective resolution is ob-
+                                                                  tained of 74 dB or 11.7 bits.
+                                                                     For a clock frequency of
+                                                                  1 GHz, the maximum fre-
+                                                                  quency on this plot is
+                                                                  500 MHz. A resolution of
+                                                                  70 dB is still achieved up to
+                                                                  250 MHz signal frequency,
+                                                                  which is still about 11.3 bits.
+                                                                     At the highest frequency,
+                                                                  the SFDR is 61 dB or about
+                                                                  10 bits indeed. At this point
+                                                                  the analog part consumes
+60 mW and the digital part 62 mW, all from 1.9 V power supply. This is for a 20 mA full-scale
+current. For a 16 mA full-scale current, the power consumption drops to 110 mW.
+CMOS ADC and DAC principles                                                                  617
+
+                                                                    2028
+                                                                    For comparison, a Figure of
+                                                                    Merit has to be devised.
+                                                                       This FOM includes the
+                                                                    resolution, the maximum
+                                                                    signal frequency at which
+                                                                    this resolution has been
+                                                                    obtained and the power
+                                                                    consumption.
+                                                                       As it is plotted versus
+                                                                    inverse area, it emphasizes
+                                                                    the high-frequency perfor-
+                                                                    mance of this converter.
+
+
+
+
+                                                                    2029
+                                                                    Now that the most impor-
+                                                                    tant principles have been
+                                                                    discussed of DACs, we look
+                                                                    at ADC’s.
+                                                                       Again, the most impor-
+                                                                    tant principles are intro-
+                                                                    duced. They are ﬁrst of all,
+                                                                    compared in terms of reso-
+                                                                    lution and speed.
+
+
+
+
+2030
+The conversion speed is certainly the highest for ﬂash ADCs. It is the lowest for integrating
+ADCs. However, the resolution of the latter ones can be much higher.
+   Sigma-delta (or oversampling) converters can also reach high resolutions. All the others suﬀer
+from matching and are limited to 12–14 bits.
+   Various Figures of Merit are used for the comparison of the performance. The one shown is
+mainly used for oversampling converters, sometimes with the peak SNR instead of the DR.
+   Instead of this FOM the energy per conversion is quite often used or P/f . For example, a
+                                                                               s
+low-power successive-approximation ADC (Scott, JSSC July 2003, 1123–1129) reaches a power
+consumption of 3.1 mW for a sampling frequency (or twice the BW) of 100 kHz which yields 31
+618                                                                                 Chapter #20
+
+                                                                  pJoule/Sample. At this point
+                                                                  the resolution is only 4.5 bit,
+                                                                  however.
+                                                                     A more often used Figure
+                                                                  of Merit also includes P/f
+                                                                                                s
+                                                                  (or P/2BW), but supple-
+                                                                  mented with the dynamic
+                                                                  range 2N. For 4.5 bit, 2N
+                                                                  is 22.6, which yields one
+                                                                  over 1.4 pJoule/conversion.
+                                                                  Low power ADCs presently
+                                                                  reach values below 1 pJ/
+                                                                  conversion.
+                                                                     We will start with the
+                                                                  integrating ones.
+
+
+
+
+                                                                  2031
+                                                                  Integrating or dual-slope
+                                                                  converters can reach high
+                                                                  resolutions because match-
+                                                                  ing does not come in. The
+                                                                  same components are used
+                                                                  by the same integrator
+                                                                  twice.
+                                                                     It uses two time periods
+                                                                  T and T . The ﬁrst one is
+                                                                    1       2
+                                                                  constant whereas the second
+                                                                  depends on the input signal.
+                                                                     During the ﬁrst time T ,
+                                                                                             1
+                                                                  the input Voltage −V is
+                                                                                          in
+                                                                  integrated with time con-
+                                                                  stant R C during a con-
+                                                                           1 1
+                                                                  stant period T , which
+                                                                                    1
+equals 2N times the clock period T . A voltage V is reached, as is shown in the next slide.
+                                   clk              x
+   During the second period T , the input Voltage V is integrated with the same time constant
+                               2                      ref
+R C during such a time T , that the output voltage is again zero.
+  1 1                       2
+   A counter is used to measure the times T and T . It counts up during time T and down
+                                               1        2                         1
+during time T .
+              2
+   A simple relationship exists between the two time periods T and T , as shown in this slide
+                                                                1     2
+and in the next slide.
+   This counter therefore generates the digital equivalent B .
+                                                            out
+CMOS ADC and DAC principles                                                                      619
+
+                                                                       2032
+                                                                       A counter counts up during
+                                                                       time T and down during
+                                                                               1
+                                                                       time T . In the ﬁrst time T
+                                                                              2                     1
+                                                                       the slope depends on the
+                                                                       input voltage V , whereas
+                                                                                         in
+                                                                       during the second time T ,
+                                                                                                   2
+                                                                       the slope is constant, such
+                                                                       that this time T depends on
+                                                                                       2
+                                                                       the input signal V .
+                                                                                            in
+                                                                          A simple and very linear
+                                                                       relationship exists between
+                                                                       the two time periods T and
+                                                                                               1
+                                                                       T , as shown in this slide.
+                                                                         2
+
+
+
+
+                                                                       2033
+                                                                       Such integrating or dual-
+                                                                       slope ADC has many
+                                                                       advantages.
+                                                                          The result is independent
+                                                                       of the actual values of the
+                                                                       resistor R and capacitor
+                                                                                   1
+                                                                       C . As long as the opamp
+                                                                         1
+                                                                       has suﬃcient gain, it does
+                                                                       not aﬀect the result. The lin-
+                                                                       earity is high and so is the
+                                                                       resolution.
+                                                                          The circuitry is actually
+                                                                       fairly simple. Only opamps
+                                                                       are used, an RC circuit and
+                                                                       some switches.
+                                                                          The converter is fairly
+slow, however. For a large input voltage, such as V itself, the counter has to count up over 2N
+                                                      ref
+clock pulses and also down over as many pulses. The conversion time is thus quite long.
+   For slow digital voltmeters, this is an excellent solution. This is especially true if the hum of
+the 50 Hz mains (60 Hz in USA) is synchronized by the clock. In this way the eﬀect of the hum
+is cancelled.
+   At the input of an oscilloscope, higher speeds are required however, and less resolution.
+
+
+2034
+For such applications a SAR ADC is used.
+  It consists of a Sample-and-hold at the input, to maintain a constant voltage during the
+conversion.
+620                                                                                   Chapter #20
+
+                                                                       This is followed by a com-
+                                                                    parator, which generates the
+                                                                    bits by successive approxi-
+                                                                    mation. The bits are fed
+                                                                    back through a DAC to
+                                                                    close the loop. The succes-
+                                                                    sive-approximation register
+                                                                    compares the incoming volt-
+                                                                    age to the next binary value
+                                                                    as shown in this slide.
+                                                                       Assume that the input
+                                                                    voltage is 0.4 V (the refer-
+                                                                    ence voltage is 1 V).
+                                                                       In a ﬁrst comparison
+                                                                    0.4 V is found to be less than
+                                                                    1 V. This yields a digital 0,
+                                                                    which is the MSB.
+   The interval is now divided by 2 and the incoming voltage is compared to
+   0.5 V. This again yields a digital 0.
+   The interval is now divided by 2 and the incoming voltage is compared to 0.25 V. This now
+yields a digital 1. Moreover, this 1 is used as a control signal to indicate that in the next
+comparison the interval 0.25 to 0.375 has to be selected, not the one between 0.125 and 0.25 V.
+   This sequence is continued for N comparisons or N bits.
+   This successive approximation takes only N clock cycles. It is therefore much faster than an
+integrating ADC. It is sensitive to the oﬀset of the comparator, however.
+
+
+                                                                   2035
+                                                                   As a DAC, a charge redistri-
+                                                                   bution DAC is often used as
+                                                                   shown in this slide.
+                                                                     It consists of an opamp
+                                                                   and a binary bank of capaci-
+                                                                   tors. In this example a 5-bit
+                                                                   capacitor bank is selected
+                                                                   for a 5-bit AD Conversion.
+                                                                     It uses 3 phases, i.e. the
+                                                                   sample mode, the hold
+                                                                   mode and the bit cycling
+                                                                   phase.
+                                                                     The picture is repeated
+                                                                   three times, each time with
+                                                                   adjusted positions of the
+                                                                   switches.
+   In the sample mode, all bottom plates of the capacitors are connected to the input voltage
+V . All top plates are connected to the virtual ground of the opamp. All capacitors thus sample
+  in
+the input voltage V .
+                    in
+   The voltage V at the input of the opamp is therefore zero and so is the output voltage.
+                 x
+CMOS ADC and DAC principles                                                                  621
+
+  Note that such ADC is quite simple as it consists of one single opamp (comparator) and a
+capacitor bank and some logic. The total number of unit capacitors is only 2N. Its power
+consumption can be quite low, especially if only low-frequencies have to be processed (see Scott,
+JSSC July 2003, 1123–1129).
+  Because of the capacitor bank, the accuracy is limited by its matching, which is 10–12 bit,
+depending on the sizes of the capacitors (see Chapter 15). Its speed is limited by the speed of
+the opamp and the RC time constants of the switches, as in any switched-capacitor system (see
+Chapter 17).
+
+
+                                                                    2036
+                                                                    In the hold mode, the feed-
+                                                                    back loop around the
+                                                                    opamp is opened. As a
+                                                                    result, the voltage V at the
+                                                                                           x
+                                                                    input of the opamp can take
+                                                                    any value.
+                                                                       The bottom plates of the
+                                                                    capacitors are now all con-
+                                                                    nected to ground, pushing
+                                                                    V to −V .
+                                                                      x        in
+                                                                       At the same time, switch
+                                                                    S1 switches in V rather
+                                                                                        ref
+                                                                    than V .
+                                                                            in
+
+
+
+
+                                                           2037
+                                                           The successive approxima-
+                                                           tion algorithm now takes
+                                                           place.
+                                                              Each bit is now cycled
+                                                           through a similar compari-
+                                                           son sequence, in order to
+                                                           ﬁnd out the position of the
+                                                           input voltage on the binary
+                                                           scale. We start with the
+                                                           MSB by switching the
+                                                           bottom plate of the largest
+                                                           capacitor 16C to the refer-
+                                                           ence voltage (see slide). As
+                                                           the sum of all other capaci-
+                                                           tors 8C, 4C, 2C, ... equals
+                                                           16C, only half of the refer-
+ence voltage V is added to the −V voltage. The opamp input voltage V is illustrated, as
+               ref               in                                  x
+shown in this slide.
+622                                                                                   Chapter #20
+
+  If the V is larger than V /2, then V is negative. In this case, the SAR register stores a
+            in                 ref         x
+digital 1; switch b remains as shown.
+                     1
+  If, however, V is smaller than V /2 then V is positive. In this case the SAR register stores
+                  in                ref          x
+a digital 0; switch b is switched back; the bottom plate of capacitor 16C goes back to ground.
+                       1
+  The sequence is now repeated with switch b : the bottom plate of capacitor 8C is connected
+                                                2
+to V . As a result, an additional V /4 is added to V for comparison.
+     ref                            ref               x
+  This sequence is continued until all capacitors have been switched in, until all bits have been
+cycled through.
+
+                                                                     2038
+                                                                     Note that in such charge
+                                                                     redistribution ADC, the
+                                                                     input voltage V is com-
+                                                                                         in
+                                                                     pared with a series of
+                                                                     increasingly smaller frac-
+                                                                     tions of V .
+                                                                                ref
+                                                                        This algorithm can be
+                                                                     continued until the smallest
+                                                                     fraction of V , which is
+                                                                                     ref
+                                                                     V /2N has become smaller
+                                                                       ref
+                                                                     than the oﬀset of the opamp,
+                                                                     or smaller than the mis-
+                                                                     match error on the smallest
+                                                                     capacitors C.
+                                                                        This limits the resolution
+                                                                     to 10–12 bit.
+  An alternative consists of taking at each cycle, the diﬀerence between the input voltage and
+the fraction of the V obtained before, and multiplying it by two, to carry out a new comparison.
+                     ref
+This is called an algorithmic ADC.
+  It is discussed in more detail next.
+
+                                                                     2039
+                                                                     In an algorithmic ADC even
+                                                                     less circuitry is required.
+                                                                        It also contains a S/H as
+                                                                     well. An ampliﬁer with a
+                                                                     precise ampliﬁcation of two
+                                                                     is also included. It is used
+                                                                     to amplify the diﬀerence
+                                                                     between the input voltage
+                                                                     V and the fraction of the
+                                                                       in
+                                                                     reference voltage V /4.
+                                                                                          ref
+                                                                        A register keeps track of
+                                                                     the code generated by the
+                                                                     subsequent comparisons.
+                                                                        Since in each cycle, this
+                                                                     diﬀerence is ampliﬁed by 2,
+                                                                     there is now no need for a
+CMOS ADC and DAC principles                                                                     623
+
+binary capacitor bank or a binary set of fractions of the V .
+                                                           ref
+  We assume however, that the multiplication by two has an error which is smaller than an
+LSB. Some examples will be given when pipeline ADCs are discussed.
+  Normally such converters are all realized in a fully-diﬀerential way, in order to improve the
+accuracy.
+
+
+
+
+                                                                      2040
+                                                                      The fastest ADCs are
+                                                                      undoubtedly ﬂash convert-
+                                                                      ers, as shown in this slide.
+                                                                      The reason is that they pro-
+                                                                      cess the input voltage in par-
+                                                                      allel. Only one single clock
+                                                                      cycle is required. The previ-
+                                                                      ous ones process the bits in
+                                                                      series, and are therefore
+                                                                      slower.
+                                                                         A large number of input
+                                                                      comparators are used to
+                                                                      compare the input signal
+                                                                      with a (thermometer) frac-
+                                                                      tion of the reference voltage
+                                                                      V . The outputs of the
+                                                                        ref
+comparators generate a thermometer code, which is converted into binary code by an encoder.
+   The comparators are followed by NAND gates. Their outputs are all zero except for the one
+which sees a diﬀerence at its inputs, i.e. where the thermometer code changes from zero to one.
+   The main disadvantage of such an ADC is the large number of comparators required. For a
+6-bit ﬂash converter 26 or 64 comparators are required! This is why such converters have very
+limited resolution.
+   Moreover, the input voltage sees all comparators in parallel, which represents a very large
+input capacitance. It will take a lot of power to drive this converter.
+
+
+
+
+2041
+To give an idea of what ﬂash ADC’s have been realized, a plot is given with the ﬂash ADCs
+published in the JSSC.
+  Both the 6-bit and 8-bit examples, show a trend of increasing speed, as a result of the
+availability of ever deeper submicron CMOS technologies.
+624                                                                                    Chapter #20
+
+                                                                         Extrapolation shows that
+                                                                      by 2008, the 8 bit ﬂash
+                                                                      ADCs will probably reach 1
+                                                                      GS/s and the 6-bit ones 12
+                                                                      GS/s, which is quite impres-
+                                                                      sive indeed!
+
+
+
+
+                                                                     2042
+                                                                     In order to reduce the
+                                                                     number of comparators in a
+                                                                     ﬂash converter, two ﬂash
+                                                                     converters can be selected,
+                                                                     with lower resolution.
+                                                                       This is called a sub-rang-
+                                                                     ing or two-step ADC and is
+                                                                     shown in this slide for an
+                                                                     8-bit converter.
+                                                                       Two 4-bit ﬂash ADC’s are
+                                                                     used instead of a single 8-bit
+                                                                     ADC. The number of com-
+                                                                     parators is reduced from 256
+                                                                     to two times 16 or 32, plus
+                                                                     a DAC. The power con-
+                                                                     sumption will be smaller,
+but the input capacitances will also be smaller. Indeed only 16 input capacitances are in parallel
+at the input.
+   It works as follows. The ﬁrst 4-bit ﬂash ADC gives the ﬁrst four MSBs. The resulting
+quantization error is obtained by taking the diﬀerence of the input voltage and the analog value
+of a 4-bit DAC connected to the ﬁrst 4-bit ADC. This diﬀerence is multiplied by 16 to make it
+easier for the second 4-bit ADC, which then provides the four LSBs.
+   Such a two-step ADC takes more clock cycles than a single ﬂash ADC. It has more latency.
+Moreover, both 4-bit ADCs must have 8-bit accuracy. Digital correction can be used to alleviate
+this problem.
+
+2043
+To further reduce the number of input comparators, interpolation and folding can be used.
+Interpolation is discussed ﬁrst.
+CMOS ADC and DAC principles                                                                      625
+
+                                                                          Interpolating converters
+                                                                       use analog preprocessing.
+                                                                       They have ampliﬁers at their
+                                                                       inputs, which are linear near
+                                                                       the threshold of the latches,
+                                                                       but which saturate on both
+                                                                       ends. In the linear region the
+                                                                       gain is typically ten. The
+                                                                       actual value is not that
+                                                                       important as long as the
+                                                                       crossover point is accurate.
+                                                                       Low oﬀset is important
+                                                                       indeed.
+                                                                          The transfer characteristic
+                                                                       of the top ampliﬁer crosses
+                                                                       the latch threshold at volt-
+                                                                       age Vref1 because its second
+input is connected to Vref1. The latch now changes state at Vref1. This also applies to the
+bottom ampliﬁer. Its transfer characteristic crosses the latch threshold at voltage Vref2 because
+its second input is connected to Vref2. The latch now changes state at Vref2.
+   The outputs of the ampliﬁers are averaged out by four equal resistors. The transfer characteristic
+for the latch tin the middle will be the average of the two previous transfer characteristics. It is
+the bold line in the middle. It crosses the latch threshold at a voltage which is exactly halfway
+between Vref1 and Vref2. The latch in the middle thus changes state at this voltage halfway
+between Vref1 and Vref2.
+   As a result, three latches are required and three levels are detected, but only two input
+ampliﬁers are needed. This is the result of interpolation.
+
+
+                                                                 2044
+                                                                 A more elaborate example is
+                                                                 shown in this slide.
+                                                                    Again, linear ampliﬁer are
+                                                                 used at the inputs, which
+                                                                 saturate.
+                                                                    Resistors are connected
+                                                                 between the outputs of the
+                                                                 ampliﬁers to create thresh-
+                                                                 old voltages for the latches,
+                                                                 which lie in between the ref-
+                                                                 erence voltages 0 V, 0.25 V,
+                                                                 0.5 V, 0.75 V and 1 V. Four
+                                                                 resistors are inserted. As a
+                                                                 result, three out of four
+                                                                 ampliﬁers can be left out.
+                                                                    This results in consider-
+able savings in power consumption and especially input capacitance.
+  The actual operation is discussed next.
+626                                                                                       Chapter #20
+
+                                                                        2045
+                                                                        The bottom part of the con-
+                                                                        verter of the previous slide
+                                                                        is repeated, together with
+                                                                        the transfer characteristics.
+                                                                           The transfer characteristic
+                                                                        of the bottom ampliﬁer
+                                                                        (voltage V ) crosses the
+                                                                                     1
+                                                                        latch threshold at 0.25 V
+                                                                        because its positive input is
+                                                                        connected to 0.25 V. Latch
+                                                                        4 now changes state at
+                                                                        0.25 V. This also applies to
+                                                                        the next ampliﬁer with
+                                                                        output V . Its transfer char-
+                                                                                  2
+                                                                        acteristic crosses the latch
+                                                                        threshold at 0.5 V because
+its positive input is connected to 0.5 V. Latch 8 therefore changes state at 0.5 V.
+   The outputs of the ampliﬁers are averaged out by four equal resistors. The transfer characteris-
+tics for the latches 5, 6 and 7 are between V =0.25 V and V =0.5 V cross the latch threshold
+                                                 1               2
+at equal distances at voltages V =0.3125 V, V =0.375 V and V =0.4375 V. In this way three
+                                   2a              2b                2c
+more reference voltages are generated without the use of preampliﬁers.
+   At high frequencies, the latches which are directly connected to the preampliﬁers such as latch
+4, 8, ..., are driven at a lower impedance and are therefore faster. The ones in between such as
+2, 6, ... have a larger series resistance at their input and are therefore slower. Series resistance
+has to be added to the inputs of latches 1, 3, 4, 5, 7, 8, to equalize the input delays.
+
+
+
+                                                                     2046
+                                                                     Averaging the output volt-
+                                                                     ages of the preampliﬁers was
+                                                                     previously carried out with
+                                                                     resistors, but can also be
+                                                                     carried out with capacitors
+                                                                     or with current sources.
+                                                                        A simple example of aver-
+                                                                     aging with current sources is
+                                                                     shown in this slide.
+                                                                        The output currents I
+                                                                                                    1
+                                                                     and I are interpolated by
+                                                                            2
+                                                                     three. Indeed, when the
+                                                                     additional currents I and
+                                                                                               2a
+                                                                     I are generated (as given
+                                                                      2b
+                                                                     in this slide), perfect interpo-
+                                                                     lation is achieved.
+  As a result, the number of input ampliﬁers is divided by three, and so is the input capacitance.
+CMOS ADC and DAC principles                                                                     627
+
+                                                                      2047
+                                                                      A more elaborate example
+                                                                      of interpolation by means of
+                                                                      current sources is given in
+                                                                      this slide.
+                                                                         It is clear that the number
+                                                                      of transistors connected at
+                                                                      the node of each current
+                                                                      mirror increases if the inter-
+                                                                      polation is increased. This
+                                                                      reduces the speed at which
+                                                                      such ADC can work, as
+                                                                      shown next.
+
+
+
+
+                                                                      2048
+                                                                      More interpolation, to save
+                                                                      more ampliﬁers and to fur-
+                                                                      ther reduce the input capa-
+                                                                      citance,      increases    the
+                                                                      capacitance C           at the
+                                                                                       mirror
+                                                                      inner node of the current
+                                                                      mirrors. As a result, the
+                                                                      maximum frequency at
+                                                                      which the interpolation can
+                                                                      be carried out decreases.
+                                                                         An example is given in
+                                                                      this slide of the node capaci-
+                                                                      tance and resulting −3 dB
+                                                                      frequency for an interpola-
+                                                                      tor realized in 0.5 mm
+                                                                      CMOS.
+                                                                         A compromise is to be
+                                                                      taken.
+
+
+2049
+Interpolation allows to reduce the number of preampliﬁers and the input capacitance, the number
+of latches being the same, however. Folding can be used to reduce the number of latches. Most
+often interpolation is used in combination with folding to reduce both preampliﬁers and latches,
+which leads to a more drastic reduction in power consumption.
+   The principle of folding is illustrated in this slide.
+   Again, a preampliﬁer is used, but a diﬀerent one, however. It folds the input signal in a number
+of voltage or folding regions. In this example, there are eight folding regions. The folding rate is
+628                                                                                     Chapter #20
+
+                                                                    therefore eight. The output
+                                                                    voltage of the folding circuit
+                                                                    is the same for eight diﬀerent
+                                                                    values of the input voltage
+                                                                       vin. A separate MSB ADC
+                                                                    is required to discover in
+                                                                    which of the eight folding
+                                                                    regions the input voltage v
+                                                                                                  in
+                                                                    is actually present. This is a
+                                                                    3-bit ADC in this example.
+                                                                       The LSBs are the deter-
+                                                                    mined by a ﬁne ADC, which
+                                                                    is the same for all eight fold-
+                                                                    ing regions. The number
+                                                                    of comparators is used
+                                                                    drastically.
+                                                                       We will see later that the
+folding circuit is made up of as many diﬀerential pairs as the folding rate indicates. The input
+capacitance is not decreased! This is why interpolation is usually added, to reduce the input
+capacitance.
+   A more detailed example of a 4-bit folding ADC is given next.
+
+                                                                      2050
+                                                                      In this example there are 4
+                                                                      folding regions. A 2-bit
+                                                                      MSB ADC is thus required
+                                                                      to indicate in which folding
+                                                                      region is the input voltage
+                                                                      V .
+                                                                        in
+                                                                         Four folding circuits
+                                                                      (blocks) are required, each
+                                                                      followed by a latch. Only
+                                                                      four latches are thus re-
+                                                                      quired, rather than 16 for a
+                                                                      4-bit ﬂash ADC.
+                                                                         The folding transfer char-
+                                                                      acteristic is given for each
+                                                                      folding circuit, giving output
+                                                                      voltages V , V , V and V .
+                                                                                  1 2 3           3
+They all look similar; they are merely shifted over V /4.
+                                                       in
+   The 2 LSBs are obtained as follows. If the input voltage V starts increasing from zero, voltage
+                                                             in
+V is the ﬁrst one to cause a change of state (at 1/16 V), changing the output of its latch to go
+  4
+from 0000 to 0001. At 2/16 V, also V causes a change of stage, changing 0001 into 0011. In this
+                                     3
+way, a thermometer code is generated until 1111 is obtained, at the end of the ﬁrst folding region.
+   When V increases further beyond 4/16 V, voltage V is the ﬁrst one to cause a change of
+            in                                             4
+state (at 5/16 V), changing the output of its latch to go from 1111 to 1110. At 6/16 V, also V
+                                                                                                  3
+causes a change of stage, changing 1110 into 1100. As a result, a thermometer code is generated,
+but in reverse order.
+CMOS ADC and DAC principles                                                                        629
+
+   When V increases beyond 9/16 V, the same code is generated as when it crossed 1/16 V,
+            in
+i.e. 0001 and so on. The same LSBs are thus generated.
+
+                                                                         2051
+                                                                         Such a folding block is usu-
+                                                                         ally realized by means of a
+                                                                         number of diﬀerential pairs
+                                                                         in parallel, the outputs of
+                                                                         some of which are also con-
+                                                                         nected in parallel.
+                                                                            An example of a folding
+                                                                         block with folding rate 4 is
+                                                                         shown in this slide in bipolar
+                                                                         technology.
+                                                                            All four diﬀerential pairs
+                                                                         are connected in parallel at
+                                                                         the input. The appropriate
+                                                                         outputs are connected two
+                                                                         by two. Four equidistant ref-
+                                                                         erences are connected to the
+inputs. They set the inversion points of the transfer characteristics of the diﬀerential pairs and
+hence determine the four folding regions.
+   Note that the input sees four diﬀerential pairs in parallel. This is why folding does not decrease
+the input capacitance. Each folding block has as many diﬀerential pairs in parallel as the folding
+rate indicates. The input capacitance is the same as for a ﬂash ADC.
+   Note also that the output frequency of a folding block is at a higher frequency than the input
+voltage. This establishes the maximum frequency of operation.
+   Finally, the 2-bit MSB ADC is easily realized with a circuit similar to the one in this slide. As
+reference voltages 4/16 V, 8/16 V, 12/16 V and 16/16 V have to be taken. The two MSBs are
+available at the output of the second diﬀerential pair and at the V terminal in this slide.
+                                                                        out
+                                                                        2052
+                                                                        The only way to reduce the
+                                                                        input capacitance is to
+                                                                        involve interpolation.
+                                                                           Application of interpola-
+                                                                        tion by two to the previous
+                                                                        4-bit folding ADC yields the
+                                                                        system shown in this slide.
+                                                                           In this way, an 8-bit ADC
+                                                                        has been realized for a
+                                                                        150 MHz input signal con-
+                                                                        suming only 0.8 W in
+                                                                        bipolar technology (Van
+                                                                        Valburg). Four folding
+                                                                        blocks are used, each with
+                                                                        a folding rate of eight.
+                                                                        Interpolation is done each
+630                                                                                       Chapter #20
+
+time with four resistors. The zero crossings are now at 1/256 V intervals, with a 1 V reference
+voltage.
+
+
+
+
+                                                                        2053
+                                                                        A pipelined converter is a
+                                                                        pipeline of ADC stages, each
+                                                                        providing n bits. One such
+                                                                                      k
+                                                                        ADC stage is shown in this
+                                                                        slide (on top). It is a similar
+                                                                        algorithmic conversion as
+                                                                        before.
+                                                                           After a sample-and-hold
+                                                                        operation, the input signal is
+                                                                        converted into n bits. The
+                                                                                           k
+                                                                        quantization error (or resi-
+                                                                        due) is obtained after a DAC
+                                                                        conversion, by taking the
+                                                                        diﬀerence with the input
+                                                                        signal itself. This diﬀerence
+                                                                        is then multiplied by a factor
+of 2nk to be submitted to the next stage.
+   A single-bit pipelined ADC converter is a converter with as many stages as bits, each stage
+doing a 1-bit conversion, starting with the MSB. Such a stage is shown in this slide (at the
+bottom). The ADC is now just a comparator. The DAC is merely a switch from the reference
+voltage. The ampliﬁer has now a gain of two.
+   It is clear that the weakness is the ampliﬁer. This is why a single-bit pipelined ADC is preferred.
+It is fairly easy to realize an ampliﬁer with a precise gain of two, as will be shown later.
+   Nevertheless, the resolution is normally limited to about 12 bits. Digital correction allows the
+resolution to be expanded to 15 bits.
+   In order to speed up the conversion, the ﬁrst stage starts immediately converting the next
+sample, after completion of the ﬁrst one. This applies to the other stages as well, as shown in
+the next slide.
+
+
+
+
+2054
+In this block diagram a converter stage, as shown in the previous slide, is called a Digital
+approximator DAPRX. It thus carries out the conversion, starting with a S/H and ending up
+with an ampliﬁer.
+  Each clock sample a new sample can be introduced to this ADC. It still takes N clock samples
+however to complete a conversion. The latency is thus N, but the processing rate is one sample
+per clock cycle.
+CMOS ADC and DAC principles                             631
+
+                                They are used especially
+                              for low area and low power
+                              consumption, with limited
+                              resolution. Typical values
+                              are 12 bit up to 50 MS/s.
+
+
+
+
+                              2055
+                              An eﬃcient realization of
+                              the ADC/DAC and gain of
+                              two (for 1 bit per stage) can
+                              be carried out by use of a
+                              multiplying DAC.
+                                 The output voltage of the
+                              DAC must be subtracted
+                              from the residue of the pre-
+                              vious stage, after multiplica-
+                              tion by two. All these
+                              functions can be easily
+                              integrated     with     high-
+                              precision in a switched-
+                              capacitors circuit shown
+                              next.
+632                                                                                    Chapter #20
+
+                                                                      2056
+                                                                      This circuit is shown twice,
+                                                                      once for phase 1 (in red) and
+                                                                      once for phase 2 (in blue).
+                                                                      Two capacitors are used Cf
+                                                                      and Cs and several switches,
+                                                                      closing on phase 1 or on
+                                                                      phase 2.
+                                                                         When the phase 1
+                                                                      switches are closed, both
+                                                                      capacitors are in parallel.
+                                                                      They sample the input volt-
+                                                                      ages Vres(i) which is the
+                                                                      output of the previous stage.
+
+
+
+
+                                                                    2057
+                                                                    On phase 2, the capacitors
+                                                                    are switched in as for an
+                                                                    inverting ampliﬁer with gain
+                                                                    Cs/Cf. The output voltage
+                                                                    Vres(i+1) will be the sum
+                                                                    of the voltage initially stored
+                                                                    on Cf, which is Vres(i), plus
+                                                                    the result of the ampliﬁca-
+                                                                    tion by Cs/Cf, which is
+                                                                    Cs/Cf times the voltage
+                                                                    diﬀerence Vres(i)−VDAC.
+                                                                       When both capacitors Cf
+                                                                    and Cs are made equal, the
+                                                                    gain is two. As a result,
+                                                                    Vres(I) is multiplied by two
+                                                                    and VDAC is subtracted.
+The precision can be quite high because matching two equal capacitors can be fairly easily
+achieved. For better matching they have to be made as large as possible.
+  Some other factors limit the sizes of the capacitors however, as shown next.
+CMOS ADC and DAC principles                                                                    633
+
+                                                                    2058
+                                                                    The capacitors are better
+                                                                    matched when they are
+                                                                    made larger. Also the error
+                                                                    as a result of ﬁnite gain
+                                                                    improves somewhat. How-
+                                                                    ever, larger capacitors cause
+                                                                    the settling time to increase.
+                                                                       A compromise is neces-
+                                                                    sary. This is illustrated for a
+                                                                    high-speed pipelined con-
+                                                                    verter in 0.25 mm CMOS
+                                                                    technology. The sampling
+                                                                    frequency is 400 MHz.
+                                                                    The gain block has a
+                                                                    transconductance of 20 mS.
+                                                                    Capacitors of about 0.4 pF
+                                                                    have been selected.
+
+                                                                    2059
+                                                                    A good way of compareing
+                                                                    ADCs is to check how many
+                                                                    clock cycles are required to
+                                                                    carry out the conversion.
+                                                                    Power consumption is not
+                                                                    considered here.
+                                                                       It is clear that only two
+                                                                    ADC’s need one single clock
+                                                                    period. They are clearly the
+                                                                    fastest ones. They are the
+                                                                    ﬂash converter and the pipe-
+                                                                    line converter. This is not
+                                                                    quite true for the latter one
+                                                                    as one byte is only available
+                                                                    after one cycle in continuous
+                                                                    operation.
+   Moreover, their throughput is independent of the resolution.
+   This is not true for the other, which all exhibit some relationship with the resolution. The
+worst one is a serial converter in which each voltage is converted into all bits before the next
+is started.
+   The others are in between (i.e. successive approximation and sigma delta ones). Since they can
+be realized with very little power, they often oﬀer the best compromise between speed and
+resolution.
+
+2060
+Speed and resolution are actually linked to the power consumption. Their relation is even ﬁxed
+for a certain CMOS technology.
+634                                                                                    Chapter #20
+
+                                                                         If resolution is linked to
+                                                                      the accuracy, as determined
+                                                                      by matching, or the error,
+                                                                      then     we    recall    from
+                                                                      Chapter 15 on oﬀset, that
+                                                                      this error is inversely pro-
+                                                                      portional to the area WL of
+                                                                      the MOST.
+                                                                         On the other hand, the
+                                                                      transistor width W is pro-
+                                                                      portional to the current or
+                                                                      the power consumption.
+                                                                      Also the channel length L is
+                                                                      inversely proportional to
+                                                                      the speed. As a result, for a
+                                                                      certain CMOS technology,
+                                                                      the speed accuracy over
+power ratio is about constant.
+   Before we calculate this constant, let us ﬁrst of all, try to better understand what this means.
+If this is true, then the realization of an ADC at higher frequency always requires more power.
+Also, a higher resolution always requires more power.
+
+
+                                                                  2061
+                                                                  Let us try to ﬁnd the value
+                                                                  of this constant so that real
+                                                                  numbers can be used to pre-
+                                                                  dict this relation between
+                                                                  resolution, speed and power.
+                                                                     If we take mismatch in
+                                                                  threshold voltage as the
+                                                                  main culprit for the lack of
+                                                                  accuracy, the A gives the
+                                                                                   VT
+                                                                  relation between error and
+                                                                  area WL (see Chapter 15).
+                                                                     As a dynamic range, the
+                                                                  ratio is taken of the powers
+                                                                  of the signal and this error
+                                                                  is due to mismatch.
+                                                                     The power consumption
+depends on the speed and the capacitances to be charges. This latter capacitance depends on
+area as well.
+  Finally, the power consumption can be written in terms of all preceding parameters. It is
+plotted in the next slide.
+  Before we investigage, however, this exercise is repeated for noise as an error rather than
+mismatch.
+  The resulting expression is given as well.
+  Both are now plotted.
+CMOS ADC and DAC principles                                                                      635
+
+                                                                     2062
+                                                                     The power consumption is
+                                                                     plotted for an ADC for a
+                                                                     certain input signal fre-
+                                                                     quency, versus dynamic
+                                                                     range.
+                                                                        The bottom line is the one
+                                                                     for noise as a source of error.
+                                                                     The other ones are for mis-
+                                                                     match, for two diﬀerent
+                                                                     technologies 0.7 and 0.5 mm
+                                                                     CMOS.
+                                                                        All the dots on top corre-
+                                                                     spond with ADCs published
+                                                                     in the JSSC.
+                                                                        It is clear that these ﬁrst-
+                                                                     order estimates of the power
+for a certain dynamic range and frequency, are still far away for most realizations.
+  It is also clear however, that mismatch line is a lot closer to the realizations than the noise
+curve. This means that mismatch as a source of error is a more realistic approximation of what
+can be achieved other than the noise.
+  Also, these curves allow to estimate beforehand what power consumption is to be expected
+whenever an ADC is to be realized with a certain resolution and speed.
+
+
+                                                                         2063
+                                                                         Another way to see how
+                                                                         physical limitations come in
+                                                                         trying to beat the power-
+                                                                         resolution-speed barrier, a
+                                                                         more general plot is shown
+                                                                         in this slide.
+                                                                            It shows that at low fre-
+                                                                         quencies, thermal noise
+                                                                         establishes a limit to what
+                                                                         SNR can be obtained (red).
+                                                                         The lower curve of the two
+                                                                         is for a resistance of 2 kV.
+                                                                            At higher frequencies
+                                                                         however, aperture uncer-
+                                                                         tainty of the sampling comes
+                                                                         in (blue). This is mainly
+jitter of the clocks. The lower curve of the three is for a jitter of 1 ps.
+   At really high frequencies other ambiguities show up (green). They have to do with the
+uncertainty of the regenerative switching of the comparator. The left curve is for a 50 GHz clock.
+   At the highest frequencies Heisenberg comes in (black). This is still far out, however.
+   All the realizations (red dots) are still fairly far away from these physical limits. Remember
+however that between the noise curve and the dots, a mismatch curve has to be added.
+636                    Chapter #20
+
+      2064
+      Above are the references
+      given which have been used
+      throughout this Chapter.
+      Many ﬁgures have been
+      used from the ﬁrst reference.
+      All of them have contrib-
+      uted to this Chapter how-
+      ever, in one sense or
+      another.
+         The most general intro-
+      duction is given by the last
+      reference.
+
+
+
+
+      2065
+      This Chapter has given an
+      overview of the diﬀerent
+      types of DAC’s and Nyquist
+      ADCs. The operating prin-
+      ciples have mainly been dis-
+      cussed. Some of the major
+      compromises have been
+      introduced.
+         Oversampling ADCs are
+      discussed next. The focus is
+      on low-power realizations.
+

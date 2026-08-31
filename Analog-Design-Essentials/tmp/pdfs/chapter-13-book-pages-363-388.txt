@@ -1,0 +1,1273 @@
+                                                                   131
+                                                                   Feedback is used in almost
+                                                                   all analog ampliﬁers and
+                                                                   ﬁlters. A thorough under-
+                                                                   standing is therefore a
+                                                                   necessity for whoever wants
+                                                                   to build up insight in the
+                                                                   art of analog circuit design.
+                                                                   This understanding can
+                                                                   be gradually developed by
+                                                                   reviewing the principles and
+                                                                   by applying them to the four
+                                                                   basic types of feedback.
+                                                                      Many publications and
+                                                                   books are devoted to feed-
+                                                                   back. Most of them origi-
+                                                                   nate from circuit theory,
+however. They inevitably start from the description of the ampliﬁer and the feedback network
+by means of matrices. This very formal approach is not always necessary. In most cases, the
+concepts of open and closed-loop gain and of the loop gain are suﬃcient to obtain the most
+important speciﬁcations such as the closed-loop gain, the bandwidth and the input-and output
+impedances. For the impedance at an inner node, the rule of Blackman is necessary. On the
+other hand, most designers could not care less about the inner nodes. Therefore, Blackman is
+omitted. The simplest possible approach is envisaged here to learn all about feedback.
+  In this Chapter, we focus ﬁrst on voltage and transconductance ampliﬁers. The next chapter
+will introduce transimpedance and current ampliﬁers.
+
+
+                                                                      132
+                                                                         First of all, we want to
+                                                                      learn about the deﬁnitions.
+                                                                      For example, what is the
+                                                                      actual loop gain? For large
+                                                                      values of the loop gain, it is
+                                                                      the ratio of the open-loop
+                                                                      gain and the closed-loop
+                                                                      gain, or simply the diﬀer-
+                                                                      ence if we use dB. For exam-
+                                                                      ple, an operational ampliﬁer
+                                                                      (shortened to opamp) with
+                                                                      an open-loop gain of 85 dB,
+                                                                      which is used in a negative
+                                                                      feedback loop resulting in a
+                                                                      gain of 10 or 20 dB, has a
+                                                                      loop gain of 65 dB.
+  This loop gain is the gain by which the characteristics of the ampliﬁer are improved such as
+the precision of the gain. It also reduces the noise and the distortion, but above all it improves
+the bandwidth a great deal.
+
+                                                363
+364                                                                                      Chapter #13
+
+   We will look into these phenomena at a later stage. We ﬁrst want to examine the four cases
+of feedback. The input can be connected in parallel (shunt) or in series, giving rise to four
+diﬀerent cases.
+   In this Chapter we will focus on voltage and transconductance ampliﬁers. Both types of
+feedback circuits take voltages at the input.
+
+
+
+                                                                       133
+                                                                       An ideal feedback loop
+                                                                       consists of a unidirectional
+                                                                       ampliﬁer (from left to right)
+                                                                       and a unidirectional feed-
+                                                                       back circuit (from right to
+                                                                       left). This ampliﬁer usually
+                                                                       consists of a few transistors
+                                                                       or even a full operational
+                                                                       ampliﬁer. As a result it pro-
+                                                                       vides a lot of gain.
+                                                                          The feedback circuit usu-
+                                                                       ally consists of a few passive
+                                                                       devices. They will set the
+                                                                       closed-loop gain as shown
+                                                                       next.
+                                                                          Two equations describe
+the operation of this feedback circuit. The error voltage v is the diﬀerence between the actual
+                                                             e
+input voltage v and the feedback voltage Hv . It is ampliﬁed towards the output itself by G.
+                in                               out
+   The closed-loop gain is then easily extracted from the two equations. Its numerator is simply
+the gain G itself. The denominator however, is 1+GH. The quantity GH is called the loop gain
+LG. It is the gain, going around in the loop. Since the gain G is always quite large, the loop
+gain is also quite large. As a result the closed-loop gain can easily be approximated by 1/H.
+   This is the reason why H usually consists of passive devices such as resistors or capacitors.
+Their ratio can be made quite accurate. As a result, the feedback ampliﬁer has a closed-loop
+gain which is reasonably accurate, whereas the open-loop gain G can vary a lot depending on
+transistor parameters, temperature, etc. Feedback is thus the most important technique to realize
+ampliﬁers with accurate gain.
+
+
+
+134
+One of the simplest cases of feedback is an operational ampliﬁer with a resistor from the output
+to the input. Of course, the feedback resistor has to be connected to the negative input. Otherwise
+the loop gain would build up an ever-increasing output voltage, only to stop at the positive
+supply voltage. Stable feedback is always negative feedback.
+  This is a case of shunt (or parallel) feedback at both input and output. Output shunt feedback
+means that the output terminal is in parallel with the feedback element terminal. This is also the
+case at the input.
+  The gain of the ampliﬁer itself is A , which is also quite large, between 10.000 and 1.000.000.
+                                        0
+This is also the loop gain LG, as will be calculated on the next slide.
+Feedback voltage and transconductance ampliﬁers                                                365
+
+                                                                         The     output    voltage
+                                                                      simply equals the input cur-
+                                                                      rent into the feedback resis-
+                                                                      tor. The closed-loop gain is
+                                                                      simply R . It is therefore
+                                                                                F
+                                                                      a transresistance ampliﬁer
+                                                                      with gain R .
+                                                                                   F
+                                                                         The input and output
+                                                                      resistances are both aﬀected
+                                                                      by the feedback. In the case
+                                                                      of shunt feedback, the resis-
+                                                                      tance decreases by an
+                                                                      amount equal to the loop
+                                                                      gain LG, or actually 1+LG.
+
+
+
+
+                                                                     135
+                                                                     It is clear that the loop gain
+                                                                     LG is the most important
+                                                                     characteristic of a feedback
+                                                                     ampliﬁer. Therefore, its
+                                                                     value must be calculated
+                                                                     ﬁrst.
+                                                                        The loop gain LG is cal-
+                                                                     culated by breaking the loop
+                                                                     and by calculating the gain,
+                                                                     going around the loop. The
+                                                                     DC conditions must be
+                                                                     maintained, only the AC
+                                                                     loop is broken.
+                                                                        Ideally it makes no
+                                                                     diﬀerence where the loop
+                                                                     is broken. The loop gain
+should be independent of where the loop is broken. Therefore, we try to ﬁnd an easy place, a
+place where the calculations are easy. This is the case for any connection where the diﬀerence
+between the resistance, left and right are the largest.
+   In the example in this slide, the output resistance of the operational ampliﬁer is quite low,
+certainly a lot lower than resistor R . Therefore, we break in between. We apply a voltage source
+                                     F
+(as the output resistance of the opamp was low) and we calculate the voltage going around the
+loop. This gives a value A . However, the voltage on both sides of the resistor R are the same
+                            0                                                       F
+as there is no current ﬂowing through it.
+   What happened to the input current source? Since we have applied another input source v ,
+                                                                                                 IN
+we must remove the input current source (called the independent source). For calculating the
+loop gain, we replace an independent current source by its internal resistance (which is inﬁnity).
+Independent voltage sources are replaced by their internal resistance as well, which is just about
+zero or a short-circuit.
+366                                                                                        Chapter #13
+
+                                                                        136
+                                                                        The gain calculated in this
+                                                                        way is therefore the loop
+                                                                        gain LG or also called the
+                                                                        return ratio.
+                                                                           To illustrate that it does
+                                                                        not make any diﬀerence
+                                                                        where the loop is broken, we
+                                                                        calculate the loop gain LG
+                                                                        again. This time the loop
+                                                                        is broken between the
+                                                                        feedback resistor R and
+                                                                                               F
+                                                                        the input terminal of the
+                                                                        opamp. This is an even
+                                                                        better place than before as
+                                                                        the input resistance of an
+                                                                        opamp is just about inﬁnity,
+and a lot larger than that resistor R .
+                                     F
+  It is clear that we ﬁnd the same value of the loop gain LG. It is again equal to the gain of
+the operational ampliﬁer itself A .
+                                  0
+
+
+
+
+                                                                          137
+                                                                          The ampliﬁer does not need
+                                                                          to be a full operational
+                                                                          ampliﬁer, with lots of gain.
+                                                                          A simple transistor ampliﬁer
+                                                                          can do it as well. Here the
+                                                                          opamp is replaced by a
+                                                                          single-stage ampliﬁer fol-
+                                                                          lowed by a source follower.
+                                                                             The open-loop gain is
+                                                                          simply the gain of that input
+                                                                          transistor as a source fol-
+                                                                          lower provides a gain of
+                                                                          unity only.
+                                                                             This is also the loop gain
+                                                                          as easily seen. We can still
+                                                                          break the loop where we
+want. The output resistance is a bit higher now, i.e. 1/g , which is still a lot smaller than R .
+                                                          m2                                        F
+   The closed-loop gain is usually the easiest one to calculate. It is still R as for the ﬁrst feedback
+                                                                              F
+ampliﬁer and it is still a transresistance ampliﬁer. In other words, it converts an input current
+into an output voltage with high accuracy, here with value R .
+                                                                  F
+Feedback voltage and transconductance ampliﬁers                                                 367
+
+                                                                  138
+                                                                  Using bipolar transistors
+                                                                  instead of MOSTs changes
+                                                                  the input resistance con-
+                                                                  siderably. Now that the
+                                                                  input resistance of the bi-
+                                                                  polar transistor is only r ,
+                                                                                              p
+                                                                  instead of inﬁnity for a
+                                                                  MOST. As a result, the loop
+                                                                  gain will no longer be the
+                                                                  same as the feedback resis-
+                                                                  tor may be comparable to
+                                                                  that resistance r .
+                                                                                   p
+                                                                     The closed-loop gain is
+                                                                  still the same however, i.e.
+                                                                  R .
+                                                                    F
+                                                                     To calculate the loop gain
+LG we can break the loop between the emitter of transistor Q2 and resistor R as we did before.
+                                                                             F
+There is a better place however, as shown next.
+
+
+
+
+                                                                      139
+                                                                      To ﬁnd this better place to
+                                                                      break the loop, we have to
+                                                                      draw the small-signal sche-
+                                                                      matic. Now it becomes clear
+                                                                      that right in between the
+                                                                      base terminal of transistor
+                                                                      Q1 and its voltage-con-
+                                                                      trolled current source is an
+                                                                      excellent place to break the
+                                                                      loop. We therefore exploit
+                                                                      the fact that the input resis-
+                                                                      tor r of transistor Q1 is
+                                                                            p1
+                                                                      physically separated from
+                                                                      the current source g v in
+                                                                                           m1 IN
+                                                                      the small-signal equivalent
+                                                                      circuit. They are only linked
+by means of an equation which only provides a non-physical connection.
+   The loop-gain is then readily calculated. It shows that at the input, we ﬁnd a resistive divider
+of r with R , which reduces the loop gain somewhat.
+    p1       F
+368                                                                                     Chapter #13
+
+                                                                      1310
+                                                                      If we feed back the output
+                                                                      voltage in series with the
+                                                                      input, we obtain a series-
+                                                                      shunt feedback loop. In its
+                                                                      simplest case, the output is
+                                                                      directly connected to the
+                                                                      input, yielding a gain of
+                                                                      unity. For an opamp with
+                                                                      high gain, the diﬀerence
+                                                                      between the terminals is
+                                                                      approximately zero, what-
+                                                                      ever the output may be. This
+                                                                      circuit is called a buﬀer
+                                                                      ampliﬁer as it can deliver a
+                                                                      lot of current without loss in
+                                                                      voltage gain.
+  More often however, a few resistors are used to set the gain at a precise value. The gain is
+positive as the output is in phase with the input. It is therefore a non-inverting ampliﬁer. Since
+the input is directly connected to the Gate of a MOST, the input current is zero and the input
+resistance inﬁnity. No current ﬂows through the input voltage source (or input sensor).
+  Later we will prove that the input resistance goes up because of the series feedback at the
+input. Parallel or shunt feedback always causes the resistance to go down. The output resistance
+therefore goes down. This feedback causes this ampliﬁer to behave as a voltage-to-voltage
+ampliﬁer. Indeed, the voltage is sensed at the input, without drawing current. At the output, the
+ampliﬁer behaves as a voltage source. Series-shunt feedback turns ampliﬁers in ideal voltage-to-
+voltage ampliﬁers with precise voltage gain!
+
+                                                                      1311
+                                                                      In order to ﬁgure out how
+                                                                      much the input and output
+                                                                      resistances change, we have
+                                                                      to ﬁnd the loop gain ﬁrst.
+                                                                      For this purpose, we try to
+                                                                      ﬁnd an easy place to break
+                                                                      the loop. Outputs of op-
+                                                                      amps generally have low
+                                                                      output resistances already
+                                                                      without feedback. Breaking
+                                                                      the loop right after the
+                                                                      output is thus a good choice.
+                                                                      Of course we could also
+                                                                      break the loop right before
+                                                                      the minus input of the
+                                                                      opamp, as we see an inﬁnite
+resistance into the ampliﬁer.
+  The voltage gain around the loop is then easily found. It is attenuated ﬁrst by the resistor
+ratio, followed by the total open-loop gain A of the opamp.
+                                             0
+Feedback voltage and transconductance ampliﬁers                                                369
+
+  As a result, the input resistance, which was already quite high, increases even more. The output
+resistance decreases by the same amount.
+
+                                                                     1312
+                                                                     Let us now try to obtain
+                                                                     some better insight in why
+                                                                     series feedback increases the
+                                                                     resistance and shunt feed-
+                                                                     back decreases it. Also, how
+                                                                     can we try to remember
+                                                                     this?
+                                                                       All four combinations are
+                                                                     shown in this slide. At the
+                                                                     input, a transistor is shown
+                                                                     to see how exactly the feed-
+                                                                     back resistors are con-
+                                                                     nected. In all cases some
+                                                                     more gain is added in the
+                                                                     loop by means of gain
+                                                                     block A.
+                                                                       In the ﬁrst case of input
+shunt feedback, a cascode transistor is used at the input. The input source is connected at the
+same node as the feedback resistor R . As a result, we will expect the input resistance to go
+                                       F
+down. The same applies to the shunt output at the right.
+  For input series feedback, the input signal source is not at the same node as the feedback
+resistor. Actually, a feedback voltage is added in series with the transistor input voltage. The
+input resistance is now expected to increase.
+
+                                                                     1313
+                                                                     Indeed, shunt feedback,
+                                                                     shown here at the output of
+                                                                     an ampliﬁer, causes the
+                                                                     output current to increase.
+                                                                     This output current i       is
+                                                                                            OUT
+                                                                     the current ﬂowing through
+                                                                     some output load, not
+                                                                     shown in this diagram.
+                                                                        This output current i
+                                                                                               OUT
+                                                                     splits up towards the ampli-
+                                                                     ﬁer i      and towards the
+                                                                            TT
+                                                                     feedback resistor i . The
+                                                                                          F
+                                                                     total output current will be
+                                                                     larger than without feed-
+                                                                     back. As a result, the ratio
+                                                                     v     /i   , which is the
+                                                                       OUT OUT
+                                                                     output resistance R     , will
+                                                                                         OUT
+                                                                     decrease.
+370                                                                                    Chapter #13
+
+                                                                     1314
+                                                                     In the same way, series feed-
+                                                                     back, shown here at the
+                                                                     input of an ampliﬁer, causes
+                                                                     the input voltage to in-
+                                                                     crease. This input voltage
+                                                                     v is the total voltage from
+                                                                       IN
+                                                                     gate to ground. It is the sum
+                                                                     of the actual transistor v
+                                                                                                 GS
+                                                                     and the voltage v across the
+                                                                                       S
+                                                                     feedback resistor R .
+                                                                                          S
+                                                                         The total input voltage
+                                                                     will therefore be larger than
+                                                                     without feedback. As a
+                                                                     result, the ratio v /i ,
+                                                                                             IN IN
+                                                                     which is the input resistance
+                                                                     R , will increase by the
+                                                                        IN
+                                                                     amount of loop gain real-
+                                                                     ized by the feedback loop.
+
+
+                                                                     1315
+                                                                     The diﬀerent kinds of feed-
+                                                                     back give rise to diﬀerent
+                                                                     kinds of ampliﬁers. We have
+                                                                     already seen that series-
+                                                                     shunt feedback provides an
+                                                                     ampliﬁer with high pre-
+                                                                     cision in voltage gain A .
+                                                                                              V
+                                                                        In a similar way, a shunt-
+                                                                     shunt feedback ampliﬁer
+                                                                     generates an accurate trans-
+                                                                     resistance gain A . Both
+                                                                                         R
+                                                                     input and output resistances
+                                                                     will decrease. The input can
+                                                                     easily be driven by means of
+                                                                     an input current source. The
+                                                                     output behaves as a volt-
+                                                                     age source.
+   In order to make a good current ampliﬁer, we will have to apply shunt-series feedback. The
+input resistance is lowered to be able to allow the input current to ﬂow. The output resistance
+is quite high, as for any current source.
+   Finally, for a transconductance ampliﬁer, we will need to use series-series feedback.
+   Why do we need all these diﬀerent kinds of ampliﬁers?
+Feedback voltage and transconductance ampliﬁers                                               371
+
+                                                                    1316
+                                                                    Shunt feedback will be used
+                                                                    when we want to decrease
+                                                                    the impedance level of an
+                                                                    interconnection     between
+                                                                    two circuit blocks. Such
+                                                                    interconnects can pick up a
+                                                                    lot of parasitic capacitance.
+                                                                    This causes a severe reduc-
+                                                                    tion in bandwidth when the
+                                                                    interconnect is at too high
+                                                                    an impedance level.
+                                                                       On the contrary, in an
+                                                                    operational ampliﬁer we
+                                                                    want to create a low-fre-
+                                                                    quency dominant pole by
+                                                                    means of one single capaci-
+tance. Series feedback is a great help in increasing the node impedance.
+  Also sometimes a real current source must be built. For example, to carry out an impedance
+measurement we need to apply a precise current and to measure the voltage generated across it.
+As a result, we need to generate a circuit with high output impedance and a precise current.
+Output series feedback is ideal for this kind of application.
+
+
+                                                                    1317
+                                                                    At the input, it is mainly the
+                                                                    kind of sensor which deter-
+                                                                    mines whether we need a
+                                                                    voltage input or a current
+                                                                    sensing input. A dynamic
+                                                                    microphone for example,
+                                                                    behaves as a voltage source:
+                                                                    it has a small internal resis-
+                                                                    tance. The voltage carries
+                                                                    the sensor information. We
+                                                                    need therefore, to measure
+                                                                    the voltage at the input. We
+                                                                    also need a high input resis-
+                                                                    tance or series feedback at
+                                                                    the input. This also applies
+                                                                    to a Wheatstone bridge with
+pressure sensors, and to thermisters.
+   On the other hand, if we have a capacitive pressure sensor or accelerometer, or a photodiode,
+then we need a current ampliﬁer. They all have a small capacitor as an internal impedance, quite
+often as low as 10 pF. Its impedance is quite high at low frequencies. It is the current which
+carries the sensor information. We need a current measurement, or shunt feedback at the input.
+If we want a voltage output, we will have to take a shunt-shunt feedback ampliﬁer.
+372                                                                                    Chapter #13
+
+                                                                    1318
+                                                                       Let us now discuss series-
+                                                                    shunt feedback in more
+                                                                    detail. It is a kind of ampli-
+                                                                    ﬁer which provides an
+                                                                    accurate voltage-to-voltage
+                                                                    conversion, as in preampli-
+                                                                    ﬁers for pressure sensors.
+                                                                       They are evidently called
+                                                                    voltage ampliﬁers.
+                                                                       This time we will assume
+                                                                    a more general case, i.e. the
+                                                                    input impedance is not
+                                                                    inﬁnite any more but has a
+                                                                    limited value. Also, the
+                                                                    output resistance is no
+                                                                    longer zero.
+  We want to calculate again the loop gain, the closed and open-loop gains, and ﬁnally the
+input and output resistances.
+  Afterwards, series-series feedback will be discussed. They will measure a voltage and provide
+an output current. This is why they are called transconductance ampliﬁers. They share the high
+input resistance with voltage ampliﬁers. Both have series feedback at the input.
+
+
+                                                                      1319
+                                                                      A general-purpose ampli-
+                                                                      ﬁer is shown in this slide,
+                                                                      with series-shunt feedback
+                                                                      around it. The ampliﬁer has
+                                                                      a lot of gain A . It is mod-
+                                                                                       0
+                                                                      eled by a voltage controlled
+                                                                      voltage source A v . Its
+                                                                                            0 IN
+                                                                      input resistance R is high
+                                                                                           NP
+                                                                      but not inﬁnite. It is cer-
+                                                                      tainly larger than resistor
+                                                                      R .
+                                                                        1
+                                                                         Its output resistance R is
+                                                                                                  O
+                                                                      small but not zero.
+                                                                         Feedback resistor R is a
+                                                                                                2
+                                                                      lot larger than R .
+                                                                                         O
+                                                                         The closed-loop gain is
+                                                                      evidently the ratio of the
+two resistors, as indicated in this slide.
+  The input resistance will increase as a result of the feedback. It is now quasi inﬁnite.
+  The output resistance will decrease as a result of the feedback. It is now quasi zero.
+  What are the actual values?
+Feedback voltage and transconductance ampliﬁers                                                 373
+
+                                                                     1320
+                                                                     To obtain the actual values
+                                                                     we have to ﬁnd the loop
+                                                                     gain LG ﬁrst.
+                                                                         The loop is broken at the
+                                                                     output of the opamp. The
+                                                                     input voltage v is set to
+                                                                                         IN
+                                                                     zero.
+                                                                         The loop gain LG is the
+                                                                     ratio of the output voltage
+                                                                     v          to the input voltage
+                                                                       OUTLG
+                                                                     v      . It is easily found to
+                                                                       INLG
+                                                                     be the open loop gain A
+                                                                                                   0
+                                                                     divided by the closed-loop
+                                                                     gain A .
+                                                                              v
+                                                                         The loop gain LG is now
+                                                                     quite large indeed, since A
+                                                                                                   0
+                                                                     is so large.
+
+
+                                                                     1321
+                                                                     The input resistance R is
+                                                                                               IN
+                                                                     now the open-loop input
+                                                                     resistance R       multiplied
+                                                                                   INOL
+                                                                     by the loop gain LG.
+                                                                        The open-loop input
+                                                                     resistance R       is simply
+                                                                                   INOL
+                                                                     the sum of the large input
+                                                                     resistor R and the feed-
+                                                                                NP
+                                                                     back resistors in parallel.
+                                                                     Output resistance R is
+                                                                                              O
+                                                                     small and therefore negligi-
+                                                                     ble with respect to the
+                                                                     others.
+                                                                        This input resistance
+                                                                     R      is about inﬁnity for a
+                                                                       INOL
+                                                                     MOST ampliﬁer but not for
+a bipolar one. Application of series feedback will make the closed-loop input resistance R near
+                                                                                           IN
+inﬁnity for a bipolar ampliﬁer.
+  Note that for the calculation of the open-loop input resistance, the eﬀect of the feedback must
+be eliminated. This is easily done by setting the gain A to zero.
+                                                        0
+374                                                                                       Chapter #13
+
+                                                                   1322
+                                                                   The output resistance R
+                                                                                              OUT
+                                                                   is the open-loop output
+                                                                   resistance R           divided
+                                                                                 OUTOL
+                                                                   by the loop gain LG.
+                                                                      The open-loop output
+                                                                   resistance R       is the par-
+                                                                                OUTOL
+                                                                   allel combination of the
+                                                                   small output resistor R and
+                                                                                            O
+                                                                   the feedback resistors in
+                                                                   series. Since output resis-
+                                                                   tance R is small, the eﬀect
+                                                                           O
+                                                                   of the feedback resistors is
+                                                                   negligible.
+                                                                      Application of shunt feed-
+                                                                   back will make the closed-
+                                                                   loop output resistance R
+                                                                                              OUT
+                                                                   nearly zero.
+ Note that for the calculation of the open-loop output resistance, the eﬀect of the feedback
+must be eliminated. This is again done by setting the gain A to zero.
+                                                            0
+
+
+
+                                                                       1323
+                                                                       A popular series-shunt feed-
+                                                                       back ampliﬁer is shown in
+                                                                       this slide. It contains only a
+                                                                       few transistors. It has two
+                                                                       ampliﬁers M1 and M2 and
+                                                                       a source follower. It is called
+                                                                       a series-shunt feedback pair.
+                                                                       The source follower does
+                                                                       not seem to count and yet it
+                                                                       provides a lot more loop
+                                                                       gain as we will ﬁnd out next.
+                                                                          Note that a pMOST is
+                                                                       used as a second ampliﬁer
+                                                                       as it provides easier DC
+                                                                       biasing. Indeed the Sources
+                                                                       of transistors M1 and M3
+are at nearly equal DC voltage levels. Transistor M2 must now provide a lower DC voltage at
+the output than at the input. This is a lot easier with a pMOST than with an nMOST.
+   Note also that the feedback resistor is usually larger than 1/g to make sure that all the
+                                                                     m1
+feedback current coming from R ﬂows into the transistor, in order to increase the loop gain.
+                                  2
+   This is not always obvious however, as shown next. We need to know more about the input
+resistance at the Source of transistor M1. After all, transistor M1 behaves as a cascode transistor
+for the feedback current. What then is its input resistance?
+   This is reviewed on the next slide.
+Feedback voltage and transconductance ampliﬁers                                               375
+
+                                                                  1324
+                                                                  Input transistor M1 behaves
+                                                                  as a cascode transistor
+                                                                  indeed, for the feedback cur-
+                                                                  rent. Its input resistance is
+                                                                  calculated in all possible
+                                                                  cases of Source resistance R
+                                                                                               1
+                                                                  (or current source) and all
+                                                                  possible cases of load resis-
+                                                                  tor R (or current source).
+                                                                         L
+                                                                     It is clear that the feed-
+                                                                  back current can only ﬂow
+                                                                  into the Source if the cas-
+                                                                  code input resistance R is
+                                                                                           IN
+                                                                  small (which is 1/g ). This
+                                                                                      m1
+                                                                  is the case when a small load
+                                                                  resistor R is used.
+                                                                             L
+  When a current source is used as a load then input resistance R is high. The question is,
+                                                                   IN
+what would the output voltage of that transistor would be? We need to know, to be able to ﬁnd
+the loop gain.
+
+
+
+                                                                   1325
+                                                                   In order to be able to ﬁnd
+                                                                   the loop gain, we must ﬁrst
+                                                                   of all, ﬁnd the output volt-
+                                                                   age v       at the Drain of
+                                                                          OUT
+                                                                   input transistor M1, as a
+                                                                   result of an input voltage v
+                                                                                                IN
+                                                                   applied to the feedback
+                                                                   transistors, as shown in
+                                                                   this slide.
+                                                                      Again, four cases can be
+                                                                   distinguished.
+                                                                      When a small load resis-
+                                                                   tor R is used, the gain is
+                                                                          L
+                                                                   easily found to be the ratio
+                                                                   of the two resistors R and
+                                                                                           L
+                                                                   R . It is usually not very
+                                                                     L
+                                                                   large!
+  This gain is much larger however, when a current source is used as a load. Then the gain of
+the input transistor M1 comes in.
+  This is not unexpected. A current source as a load usually provides higher gains!
+376                                                                                     Chapter #13
+
+                                                                       1326
+                                                                       Now we are in a situation
+                                                                       that we can easily calculate
+                                                                       the loop gain.
+                                                                          When a current source
+                                                                       is used in the ﬁrst stage,
+                                                                       the loop gain includes the
+                                                                       eﬀect of the potentiometric
+                                                                       divider with resistors R and
+                                                                                               1
+                                                                       R , followed by transistor
+                                                                         2
+                                                                       M1, which is g r .
+                                                                                               m1 o1
+                                                                       Transistor M1 acts as an
+                                                                       ampliﬁer for the input
+                                                                       signal, but as a cascode for
+                                                                       the feedback signal.
+                                                                          This gain is much larger,
+                                                                       when a current source is
+used as a load (right). Then the gains of both transistor M1 and M2 occur in the loop gain LG.
+It is now much larger indeed!
+   The input and output resistances are now easily found.
+   Even without feedback, the input resistance is already inﬁnity. If some Gate current is present,
+then the input resistance is lower, as for a bipolar transistor ampliﬁer (see later).
+   The output resistance without feedback is just 1/g . Indeed resistor R is usually a lot larger
+                                                       m3                    2
+and can therefore be neglected.
+   With feedback, this resistor 1/g must be divided by the loop gain. The closed-loop output
+                                   m3
+resistance R     is nearly zero.
+             OUT
+
+
+
+                                                                      1327
+                                                                      We can again easily calcu-
+                                                                      late the loop gain LG.
+                                                                         When a small load resis-
+                                                                      tor R is used (left), the gain
+                                                                            L
+                                                                      is easily found to be the ratio
+                                                                      of the two resistors R and
+                                                                                               L
+                                                                      R , multiplied by the gain
+                                                                        L
+                                                                      of transistor M2. For a two-
+                                                                      stage ampliﬁer, this is not
+                                                                      high at all!
+                                                                         The gain is again large,
+                                                                      when a current source is
+                                                                      used as a load (right). Then
+                                                                      the gains of both transistors
+                                                                      M1 and M2 occur in the
+                                                                      loop gain LG. It is therefore
+                                                                      much larger indeed!
+Feedback voltage and transconductance ampliﬁers                                                   377
+
+                                                                        1328
+                                                                        An important question
+                                                                        is,what do we need that
+                                                                        Source follower for? After all
+                                                                        it takes a lot of current and
+                                                                        it only provides a voltage
+                                                                        gain of unity!
+                                                                            The diﬀerence is that the
+                                                                        feedback resistor R is not
+                                                                                              2
+                                                                        now any more larger than
+                                                                        the output resistance of the
+                                                                        output transistor. Resistor
+                                                                        R may very well be com-
+                                                                           2
+                                                                        parable to output resistance
+                                                                        r . As a result an additional
+                                                                         o2
+                                                                        resistive divider comes in, as
+                                                                        clearly shown by the expres-
+                                                                        sion of the LG.
+   The loop gain is smaller than with a Source follower by a ratio of about
+(R +R +r )/(R +R ). It all depends on what the ratio is of R to r . For a small R , the loss
+   1    2 o2        1    2                                          2     o2                2
+in loop gain is considerable.
+   In this case, the output is called to be loaded. Feedback resistor R loads the output of the
+                                                                             2
+ampliﬁer. It forms a resistive divider with the output resistance r . As a result the LG is
+                                                                          o2
+decreased.
+   The closed-loop output resistance R      is calculated as before. The resulting value is somewhat
+                                        OUT
+larger but still close to zero.
+
+
+
+                                                                        1329
+                                                                        The loop gain LG is even
+                                                                        lower when a resistive load
+                                                                        is used for the second ampli-
+                                                                        ﬁer M2, rather than a cur-
+                                                                        rent source. There is an even
+                                                                        stronger resistive division at
+                                                                        the output than before.
+                                                                           The result depends on the
+                                                                        relative sizes of the feedback
+                                                                        resistor R and resistances
+                                                                                    2
+                                                                        R and r .
+                                                                          3       o2
+                                                                           The output resistance
+                                                                        R      is a little bit smaller
+                                                                          OUT
+                                                                        than before as no current
+                                                                        source is used to load tran-
+                                                                        sistor M2 but a resistor R .
+                                                                                                     3
+378                                                                                      Chapter #13
+
+                                                                     1330
+                                                                     When a bipolar transistor is
+                                                                     used at the input, then the
+                                                                     input resistance is no longer
+                                                                     inﬁnity. Because of the series
+                                                                     feedback at the input, it is
+                                                                     increased by the loop gain
+                                                                     LG but not inﬁnity. This is
+                                                                     why the input resistance
+                                                                     loads the source resistance
+                                                                     R . In the circuit in this slide
+                                                                       S
+                                                                     a source resistor R has been
+                                                                                         S
+                                                                     added. This input loading is
+                                                                     only present when the in-
+                                                                     put voltage source has an
+                                                                     internal source resistance
+                                                                     R , which is comparable to
+                                                                       S
+                                                                     the input resistance R .
+                                                                                              IN
+   In addition, this source resistance R forms a low-pass ﬁlter with the input
+                                        S
+   capacitance of this ampliﬁer. The input resistance without feedback R      is easily found as it
+                                                                         INOL
+is a single-transistor ampliﬁer with emitter degeneration. The emitter resistor is about R in
+                                                                                                 1
+parallel with R .
+                2
+   The output resistance is quite small as calculated before. An output capacitive load would
+cause an output pole at fairly high frequencies.
+
+
+                                                                    1331
+                                                                    A practical realization with
+                                                                    only bipolar transistors is
+                                                                    shown in this slide. All cur-
+                                                                    rent sources are substituted
+                                                                    by resistors. This circuit can
+                                                                    also be realized easily with
+                                                                    discrete components on a
+                                                                    printed circuit board.
+                                                                       Since each stage gives a
+                                                                    higher DC voltage at the
+                                                                    output, the second stage
+                                                                    must be either a PNP tran-
+                                                                    sistor or a NPN transistor
+                                                                    with an emitter resistor R .
+                                                                                                 D
+                                                                    To avoid the reduction in
+                                                                    gain of this resistor, a large
+capacitance C is placed across it. This resistor does not come in for the gain calculations. This
+                D
+is true for all frequencies higher than g /(2pC ).
+                                         m2     D
+   The expressions of the loop gain, input and output resistances are all very much as before.
+They are all a bit more complicated because a bipolar transistor has a ﬁnite input resistance r ,
+                                                                                                 p
+which shows up in most of the expressions.
+Feedback voltage and transconductance ampliﬁers                                                 379
+
+                                                                      1332
+                                                                      Let us now discuss series-
+                                                                      series feedback in more
+                                                                      detail. It is a type of ampli-
+                                                                      ﬁer which provides an accu-
+                                                                      rate voltage-to-current con-
+                                                                      version. The main diﬀerence
+                                                                      with the voltage ampliﬁers
+                                                                      is that they put out a current
+                                                                      rather than a voltage. Both
+                                                                      input and output resistances
+                                                                      are high. They are evident-
+                                                                      ly called transconductance
+                                                                      ampliﬁers.
+                                                                         Such high output imped-
+                                                                      ance is mainly used to drive
+                                                                      a variable impedance, for
+example to carry out an impedance measurement. It also provides current sources to bias any
+analog circuit by means of current mirrors.
+   A single-transistor ampliﬁer is also a transconductor. It has a high input resistance and a
+current output, which is fairly precise. Its transconductance is slightly low, however. An opera-
+tional ampliﬁer without output stage also behaves as a transconductor. Its transconductance is
+very high but not very precise. Feedback is used to obtain both, a fairly high and precise
+transconductance or voltage-to-current converter.
+   Again we want to calculate the loop gain, the closed and open-loop gains, and ﬁnally the
+input and output resistances.
+
+
+                                                                  1333
+                                                                  An accurate transconductor
+                                                                  is shown in this slide. The
+                                                                  output current is provided
+                                                                  by a MOST which is driven
+                                                                  by an opamp. It is accu-
+                                                                  rately linked to the input
+                                                                  voltage v      by the three
+                                                                             IN
+                                                                  resistors used. Indeed, the
+                                                                  closed loop gain A , which
+                                                                                       G
+                                                                  is nothing else than i    /v ,
+                                                                                         OUT IN
+                                                                  only contains resistor ratios
+                                                                  and the absolute value of
+                                                                  one resistor R !
+                                                                                 E12
+                                                                     The loop gain LG itself
+                                                                  and the open loop gain
+                                                                  A      both contain the gain
+                                                                    GOL
+of the opamp A . However, this gain does not occur in the closed loop gain A !
+              0                                                               G
+380                     Chapter #13
+
+      1334
+      The input resistance of this
+      converter is evidently inﬁn-
+      ity as no Gate current is
+      ﬂowing.
+         The output resistance is
+      increased by the loop gain
+      LG. The open-loop output
+      resistance R         is easily
+                   OUTOL
+      obtained for a single-transis-
+      tor ampliﬁer with Source
+      resistor R . It is therefore
+                E
+      already quite high. It is
+      increased even more by the
+      feedback action.
+
+
+
+
+      1335
+      The addition of a load resis-
+      tor R , converts this trans-
+            L
+      conductor into a voltage
+      ampliﬁer again, with very
+      accurate gain A .
+                       v
+        This gain only depends on
+      resistor ratios, and can be
+      accurately set.
+        The output resistance
+      towards the Drain of the
+      output transistor is quite
+      high. As a result, the output
+      resistance seen at the output
+      of the whole ampliﬁer is
+      mainly load resistor R .
+                              L
+Feedback voltage and transconductance ampliﬁers                                                381
+
+                                                                      1336
+                                                                      The gain resistors R and R
+                                                                                          1       2
+                                                                      can be left out in the previ-
+                                                                      ous transconductor, result-
+                                                                      ing into the simpler one
+                                                                      shown in this slide. It is
+                                                                      probably the simplest way
+                                                                      to convert a voltage into a
+                                                                      current, with high accuracy.
+                                                                        The     voltage-to-current
+                                                                      conversion only depends on
+                                                                      resistor R .
+                                                                                E
+                                                                        The input resistance is
+                                                                      again high and so is the
+                                                                      output resistance.
+                                                                        This circuit now acts as
+                                                                      an ideal current generator.
+
+
+
+                                                                     1337
+                                                                     The precise transconductor
+                                                                     analyzed before, has two
+                                                                     outputs, one at the Drain as
+                                                                     before, but also one at the
+                                                                     Source of the output transis-
+                                                                     tor. What is the diﬀerence?
+                                                                        The ﬁrst diﬀerence is that
+                                                                     these two outputs have
+                                                                     opposite polarities. Also, the
+                                                                     loop gain is the same for
+                                                                     both, but not the actual
+                                                                     closed-loop voltage gains.
+                                                                     The ﬁrst one A , at the
+                                                                                       v1
+                                                                     Drain, is larger.
+                                                                        The output resistances are
+                                                                     also very diﬀerent. The
+second one R      , at the Source, is much smaller, because it is only of the order of magnitude
+             OUT2
+of 1/g and it involves the loop gain LG. Connection of a capacitive load at the second output
+      m
+would give a pole at high frequencies only.
+382                                                                                Chapter #13
+
+                                                                 1338
+                                                                 A transistor realization of
+                                                                 the last circuit is shown in
+                                                                 this slide. Two transistors
+                                                                 M1 and M2 are used to real-
+                                                                 ize the operational ampli-
+                                                                 ﬁer. A pMOST is used as a
+                                                                 second stage to provide
+                                                                 downwards level shifting.
+                                                                    The     expressions    are
+                                                                 exactly as before. The
+                                                                 closed-loop gains A and
+                                                                                        v1
+                                                                 A are exactly the same as
+                                                                   v2
+                                                                 before.
+                                                                    Now the gain A of the
+                                                                                      0
+                                                                 opamp has to be substituted
+                                                                 by the gains of the two tran-
+sistors. Each transistor provides a gain g r , as indicated. The loop gain LG depends on
+                                            m o
+both gains.
+   The input-and output-resistances are as before.
+
+
+                                                                  1339
+                                                                  Substitution of the load cur-
+                                                                  rent source of the input
+                                                                  transistor by a load resistor
+                                                                  R , reduces the loop gain
+                                                                    L
+                                                                  LG somewhat. The gain of
+                                                                  the input transistor is not
+                                                                  fully exploited any more.
+                                                                  However, the closed-loop
+                                                                  gains A       and A       are
+                                                                            v1          v2
+                                                                  exactly the same as before.
+                                                                     Input and output imped-
+                                                                  ances are the same as well.
+Feedback voltage and transconductance ampliﬁers                                                    383
+
+                                                                   1340
+                                                                   Substitution of all current
+                                                                   sources by resistors provides
+                                                                   this well-known feedback
+                                                                   ampliﬁer with a triple gain
+                                                                   stage if the Drain of Q3 is
+                                                                   taken as an output.
+                                                                      This is an ampliﬁer which
+                                                                   is easy to realize with dis-
+                                                                   crete components, especially
+                                                                   with bipolar transistors.
+                                                                      The closed-loop gain A
+                                                                                                v
+                                                                   is as before.
+                                                                      The loop gain is also sim-
+                                                                   ilar as before. The resistive
+                                                                   division at each node has to
+                                                                   be taken into account.
+  The input resistance R is not inﬁnity as a bipolar transistor is used at the input. It is quite
+                        IN
+high however, because of the feedback action. The output resistance R            is mainly load
+                                                                            OUT
+resistor R .
+          L3
+
+                                                                        1341
+                                                                        Series-series feedback is also
+                                                                        possible on a single-transis-
+                                                                        tor ampliﬁer. However, it is
+                                                                        not so easy to distinguish
+                                                                        the closed and open-loop
+                                                                        gains and the loop gain.
+                                                                        This is also called local
+                                                                        feedback.
+                                                                           The      transconductance
+                                                                        and voltage gain are more
+                                                                        accurate, the more g R is
+                                                                                              m E
+                                                                        larger than unity. This
+                                                                        requires a large DC voltage
+                                                                        drop across emitter resistor
+                                                                        R , however!
+                                                                          E
+                                                                           The loop gain LG and the
+input resistance are not all that large either.
+   The output resistance r looking into the Collector of the transistor is not all that large either.
+                            oL
+The output resistance R         is thus a parallel combination of both the load resistor R and the
+                           OUT                                                               L
+transistor output resistance r .
+                                 oL
+   As a consequence, both input and output loading occur, i.e. the source resistance R interacts
+                                                                                            S
+with the input resistance R . Also the load resistor R interacts with the transistor output
+                               IN                              L
+resistance r .
+            oL
+   This circuit is far from an ideal-feedback circuit. It is better to be analyzed by straight analysis
+using the two laws of Kirchoﬀ.
+384                                                             Chapter #13
+
+                                              1342
+                                              The previous series-feed-
+                                              back single-transistor ampli-
+                                              ﬁer can easily be realized in
+                                              a diﬀerential conﬁguration.
+                                              Again, the larger the emitter
+                                              resistors R, the better the
+                                              feedback works. To avoid
+                                              the large DC voltage drops
+                                              across the resistors, the cir-
+                                              cuit on the right is preferred.
+                                                 This latter circuit pro-
+                                              vides the same gains, but no
+                                              DC current ﬂows through
+                                              the emitter resistors. It can
+                                              be used at lower supply volt-
+                                              ages. Its noise performance
+is slightly worse, however (see Chapter 4).
+
+
+
+
+                                              1343
+                                              The feedback resistors can
+                                              be made tunable by replac-
+                                              ing them by forward biased
+                                              diode-connected transistors
+                                              M2, as shown in this slide.
+                                                 Each transistor M2 car-
+                                              ries a DC current I /2. It
+                                                                  tune
+                                              acts as a feedback resistor
+                                              for transistor M1 with
+                                              value 1/g .
+                                                         m2
+                                                 The      transconductance
+                                              can now be set by setting
+                                              current I . This current
+                                                         tune
+                                              must always be larger than
+                                              2I      however.
+                                                 bias
+Feedback voltage and transconductance ampliﬁers                                                  385
+
+                                                                        1344
+                                                                        More loop gain can be
+                                                                        obtained by insertion of
+                                                                        more transistors in the feed-
+                                                                        back loop.
+                                                                           On the left, only one more
+                                                                        transistor is included in the
+                                                                        feedback loop. Moreover,
+                                                                        this conﬁguration allows an
+                                                                        elegant way to take the
+                                                                        output currents. Indeed, the
+                                                                        additional transistors form
+                                                                        current mirrors with the
+                                                                        output transistors.
+                                                                           Even more loop gain is
+                                                                        available if full opamps are
+                                                                        inserted in the feedback
+loops as shown on the right. This is clearly the most accurate way to convert a diﬀerential input
+voltage into a diﬀerential output current.
+   At high frequencies, however, the opamp does not provide all that much gain. At high
+frequencies the left circuit is now preferred, although it is less accurate.
+
+
+                                                                       1345
+                                                                       Such a single-transistor
+                                                                       transconductor is easily
+                                                                       modiﬁed to make a low-pass
+                                                                       ﬁlter. A capacitor C is
+                                                                                              L
+                                                                       connected between the
+                                                                       diﬀerential outputs.
+                                                                          In this way a ﬁrst-order
+                                                                       pole is obtained with fre-
+                                                                       quency f , which creates
+                                                                                 p
+                                                                       a −20 dB/decade roll-oﬀ
+                                                                       starting at the pole fre-
+                                                                       quency.
+386                                                                                     Chapter #13
+
+                                                                      1346
+                                                                      In a similar way, a ﬁrst-
+                                                                      order zero can be created,
+                                                                      by putting a capacitor C in
+                                                                                                 E
+                                                                      parallel with the resistor R .
+                                                                                                   E
+                                                                      The characteristic frequency
+                                                                      is now f . At this frequency,
+                                                                               z
+                                                                      the gain starts going up with
+                                                                      a slope of 20 dB/decade.
+
+
+
+
+                                                                       1347
+                                                                       The single-transistor ampli-
+                                                                       ﬁer with local feedback can
+                                                                       also provide two outputs as
+                                                                       shown in this slide.
+                                                                          The output at the
+                                                                       Collector provides non-
+                                                                       ideal series-series feedback
+                                                                       as discussed in this slide.
+                                                                          The output at the Emitter,
+                                                                       however, is the output of an
+                                                                       Emitter follower. Its gain
+                                                                       A is unity and its output
+                                                                         v2
+                                                                       resistance R      is small.
+                                                                                    OUT2
+                                                                          Emitter and Source fol-
+                                                                       lowers do use feedback.
+                                                                       They provide an accurate
+voltage gain, which is closer to unity the larger the loop gain is. They also provide a reduced
+output resistance.
+   Clearly, all this applies to a MOST single-transistor ampliﬁer with local feedback. The gain
+at the Source is unity again, at least if the bulk eﬀect does not come in. The output resistance
+is the same as for a bipolar transistor with inﬁnite beta. It is simply 1/g .
+                                                                            m
+Feedback voltage and transconductance ampliﬁers                            387
+
+                                                  1348
+                                                  In this Chapter the four
+                                                  types of feedback have been
+                                                  introduced and compared.
+                                                     Both types of series feed-
+                                                  back at the input have been
+                                                  discussed in detail. For a
+                                                  number of circuit realiza-
+                                                  tions the expressions of the
+                                                  loop gain, input and out-
+                                                  put impedance have been
+                                                  derived.
+                                                     In the following Chapter,
+                                                  the focus is on circuits with
+                                                  shunt feedback at the input.
+

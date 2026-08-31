@@ -1,0 +1,1487 @@
+                                                                        031
+                                                                        All analog circuits are built
+                                                                        up by use of a very limited
+                                                                        number of elementary build-
+                                                                        ing blocks. Thorough know-
+                                                                        ledge of these simple blocks
+                                                                        is therefore essential in
+                                                                        obtaining insight into more
+                                                                        complicated circuit sche-
+                                                                        matics. This is why they are
+                                                                        considered separately and
+                                                                        analyzed in great detail.
+                                                                           We now have a complete
+                                                                        knowledge of single-transis-
+                                                                        tor circuits. Now we will
+                                                                        concentrate on the study
+                                                                        of current mirrors and
+                                                                        diﬀerential pair. These form
+                                                                        the cornerstone of all
+                                                                        analog design.
+
+
+
+
+                                                                       032
+                                                                       A current mirror, in its sim-
+                                                                       plest form, is illustrated on
+                                                                       the left. A diﬀerential pair is
+                                                                       shown on the right.
+                                                                          A current mirror is actu-
+                                                                       ally a combination of a
+                                                                       diode-connected transistor
+                                                                       followed by a single-transis-
+                                                                       tor ampliﬁer. The ﬁrst one
+                                                                       converts the input current
+                                                                       into a voltage whereas the
+                                                                       latter one converts the volt-
+                                                                       age into a current.
+                                                                          The current ratio will
+                                                                       be quite accurate, simply
+                                                                       because the non-linearity of
+the diode-connected MOST is compensated by the non-linearity of the amplifying MOST.
+   If the ratio of their W/L’s is B, then the current ratio is also B. Indeed, these MOSTs have
+the same V and hence V −V . This ratio is the current gain.
+             GS             GS     T
+   A diﬀerential pair consists of two equal transistors, which are both operating as single-
+transistor ampliﬁers. The input voltage is diﬀerential now, as is the output voltage.
+   We consider the current mirror ﬁrst.
+
+                                                 89
+90                                                                                     Chapter #3
+
+                                                                    033
+                                                                    We begin with the current
+                                                                    mirror ﬁrst because it is
+                                                                    a simpler circuit to under-
+                                                                    stand.
+                                                                       Later on we will discuss
+                                                                    the diﬀerential pair as a ﬁrst
+                                                                    full-diﬀerential ampliﬁer. It
+                                                                    will be followed by many
+                                                                    more diﬀerential ampliﬁers.
+                                                                    We need them because they
+                                                                    are insensitive to substrate
+                                                                    noise and ground bounces.
+                                                                    They are therefore necessary
+                                                                    in all mixed-signal design,
+                                                                    where analog circuits are
+                                                                    added on the substrate as
+                                                                    digital systems.
+
+
+                                                                    034
+                                                                    The input of a current
+                                                                    mirror consists of a diode-
+                                                                    connected transistor.
+                                                                      Connecting Collector to
+                                                                    Base in a bipolar transistor,
+                                                                    gives us a real base-emitter
+                                                                    diode. In a MOST however,
+                                                                    there is no Gate-Source
+                                                                    diode. However, connecting
+                                                                    the Drain to the Gate pro-
+                                                                    vides us with something
+                                                                    similar.
+                                                                      Indeed,     the    current
+                                                                    voltage characteristic is
+                                                                    obtained by shifting the
+                                                                    curve, separating the linear
+and the saturation region, which is at V =V −V , to the right by V .
+                                         DS     GS   T                  T
+  As a result, we can use the current-voltage characteristic of a MOST in saturation. The
+resulting curve is very nonlinear, however. It resembles somewhat, a diode characteristic.
+  We will use this simple circuit to convert current to voltage.
+
+
+035
+Addition of a single-transistor ampliﬁer to the diode connected MOST, yields a current mirror.
+The ampliﬁer compensates the nonlinearity of the diode to provide a perfectly linear current
+ratio B.
+  This circuit will be utilized for both biasing and for wideband current ampliﬁcation.
+DiVerential voltage and current ampliﬁers                                                           91
+
+                                                                             In practice, the current
+                                                                          ratio is not that accurate.
+                                                                          Indeed, both transistor may
+                                                                          not operate at the same v
+                                                                                                     DS
+                                                                          voltage. A diﬀerence in v
+                                                                                                     DS
+                                                                          will give a diﬀerence in cur-
+                                                                          rent, as the i −v charac-
+                                                                                        DS DS
+                                                                          teristic is not that ﬂat.
+                                                                             This diﬀerence is easily
+                                                                          calculated. It is related to
+                                                                          the Early voltage and hence
+                                                                          to the channel length L .
+                                                                                                     2
+                                                                          The larger the channel
+                                                                          length, the ﬂatter the curve
+                                                                          and the smaller the current
+                                                                          diﬀerence will be.
+                                                                             It is diﬃcult to make that
+v        voltage diﬀerence zero. This is why we resort to circuit techniques.
+    DS
+
+
+                                                                      036
+                                                                      Now let us focus on how to
+                                                                      make the current diﬀerence
+                                                                      zero. For this purpose we
+                                                                      have to add two transistors
+                                                                      M3 and M4, which have as
+                                                                      main goal to make the volt-
+                                                                      ages v across the current
+                                                                             DS
+                                                                      mirror devices M1 and M2
+                                                                      as equal as possible. We
+                                                                      have two realizations.
+                                                                         The left one consists of
+                                                                      a voltage divider by means
+                                                                      of two diode connected
+                                                                      transistors M1 and M3,
+                                                                      connected to a cascoded
+                                                                      ampliﬁer M2 and M4.
+   Transistors M4 and M2 have the same W/L ratio as M2 and M1, which is B. Since M1 and
+M2 have the same V , transistors M3 and M4 must have the same V as well. The currents
+                      GS                                                  GS
+through M3 and M4 have the same ratio B as their W/L ratios. As a result the voltages v
+                                                                                                DS1
+and v     must also be the same. The current ratio will therefore be quite accurate.
+      DS2
+   A similar reasoning is valid for the current mirror on the right. There is one major diﬀerence
+however. The circuit on the right is a feedback ampliﬁer with loop gain T. Since all time constants
+in that loop are of the same order of magnitude, they create a system with several poles. As a
+result, peaking can occur in the current transfer characteristic.
+   An important disadvantage of both current mirrors, is that their minimum output voltage
+(compliance voltage) is quite high! As a result they cannot be used in low-voltage applications!
+92                                                                                      Chapter #3
+
+                                                                     037
+                                                                     For low supply voltages, this
+                                                                     current mirror is an ideal
+                                                                     choice!
+                                                                        This is actually a conven-
+                                                                     tional two-transistor current
+                                                                     mirror, in which two cas-
+                                                                     codes M3 and M4 have been
+                                                                     added. We ﬁnd the same
+                                                                     advantages as in both previ-
+                                                                     ous current mirrors:
+                                                                     1. Both voltages v        and
+                                                                                           DS1
+                                                                        v are equal resulting in
+                                                                         DS2
+                                                                        an accurate current ratio
+                                                                     2. The output resistance is
+                                                                        very high as for any cas-
+                                                                        code conﬁguration
+We now have a considerable advantage in that we can set the biasing voltage such that only 0.2
+Volt is left across M2 and M4, keeping both of them in saturation! For a V of 0.7 V, the V
+                                                                               T                GS
+is about 0.9 V. Hence V must be about 1.1 V.
+                         B
+   The compliance voltage V         is thus now reduced from 1.1 V to 0.4 V, which is a signiﬁcant
+                             OUTmin
+diﬀerence.
+   This is also a disadvantage, we now need an external biasing voltage V .
+                                                                            B
+
+                                                                      038
+                                                                      Two examples are given
+                                                                      of the low-voltage current
+                                                                      mirror described previously.
+                                                                      Both of them use cascodes.
+                                                                      Both of them provide feed-
+                                                                      back from the Drain of tran-
+                                                                      sistor M3 to the Gates of
+                                                                      current-mirror devices M1
+                                                                      and M2. Both of them pro-
+                                                                      vide a large output imped-
+                                                                      ance and allow a large
+                                                                      output voltage swing.
+                                                                         On the left, an example is
+                                                                      given of how to provide the
+                                                                      biasing voltage V of the
+                                                                                          B
+                                                                      cascode devices. It is clear
+that transistor M5 must have a much smaller W/L so that its V is about 0.2 V larger than
+                                                                    GS
+that of cascode transistors M3 and M4. We need about 0.2 V as a V for both current mirror
+                                                                        DS
+devices M1 and M2. A good value for the parameter is approximately 5.
+   The current mirror on the right is simply the low-voltage current mirror given previously, in
+which gain-boosting is applied to the cascode transistors. It allows the same output swing as the
+circuit on the left but the output impedance is even higher.
+DiVerential voltage and current ampliﬁers                                                       93
+
+                                                                    039
+                                                                    If the compliance voltage of
+                                                                    0.4 V is still too high, one
+                                                                    single output transistor can
+                                                                    be used.
+                                                                       An opamp is then used to
+                                                                    provide feedback around
+                                                                    the input device M1. Its
+                                                                    drain voltage is then only
+                                                                    0.2 V, which is a lot less than
+                                                                    the 0.9 V in a conventional
+                                                                    current mirror (for a V of
+                                                                                                T
+                                                                    0.7 V).
+                                                                       The output impedance is
+                                                                    not very high. It is simply
+                                                                    the output resistance of the
+                                                                    output transistor M2.
+                                                                       There are better uses for
+                                                                    an opamp as shown next.
+
+
+
+                                                                    0310
+                                                                    Two current mirrors are
+                                                                    shown which exploit the
+                                                                    opamp for both purposes,
+                                                                    i.e. to reduce the compliance
+                                                                    voltage as much as possible
+                                                                    and also to increase the
+                                                                    output resistance as much
+                                                                    as possible. Both of them
+                                                                    are derived from the 4-
+                                                                    transistor current source
+                                                                    described previously.
+                                                                       The diﬀerence is that an
+                                                                    opamp is either added to the
+                                                                    left cascode or to the right
+                                                                    cascode.
+                                                                       On the right one, it is
+fairly easy to see that gain boosting is applied to the right cascode, increasing the output
+resistance by the gain of that opamp.
+   It is not so obvious that the compliance voltage can be as low as a few tens of mV’s. Indeed
+the gain of the feedback loop is so high, due to the opamp, that the transistors M1 and M2 can
+enter the linear region. Moreover cascode transistor M4 can also enter the linear region. The
+output resistance will be reduced but the opamp provides suﬃcient gain to compensate for this
+loss in output resistance.
+94                                                                                         Chapter #3
+
+                                                                      0311
+                                                                      All MOST current sources
+                                                                      can be duplicated with bipo-
+                                                                      lar transistors. Historically,
+                                                                      the bipolar ones were devel-
+                                                                      oped ﬁrst and the MOST
+                                                                      circuits were copies of the
+                                                                      bipolar ones.
+                                                                         The ﬁrst one is very con-
+                                                                      ventional current mirror.
+                                                                         The second one uses
+                                                                      series resistors to set the cur-
+                                                                      rent ratio’s to the resistor
+                                                                      ratio, instead of the transis-
+                                                                      tor ratio. It is easier to make
+                                                                      a current ratio more accu-
+                                                                      rate (see Chapter 12).
+   In MOST current mirrors there is no need to include in series resistors, as increasing the
+V −V values has the same eﬀect (see next Chapter).
+  GS     T
+   Moreover, the output resistance is increased by use of the series resistors.
+   The third circuit is not a current mirror but a current reference. Indeed, leaving out one of
+the two resistors, and taking M2 a factor B larger than M1, provides an output current that is
+independent of the input current, at least if we use another current mirror on top to ensure that
+i =i . This will all be repeated in Chapter 13.
+ out   in
+
+
+
+
+                                                                       0312
+                                                                       One additional problem is
+                                                                       encountered with bipolar
+                                                                       transistors: they carry a base
+                                                                       current i .
+                                                                                B
+                                                                          These base currents are
+                                                                       both subtracted from the
+                                                                       input current source. The
+                                                                       error between output and
+                                                                       input current is thus about
+                                                                       2/b. We assume resistor R to
+                                                                       be really large.
+                                                                          Addition of another tran-
+                                                                       sistor M3 reduces this error
+                                                                       by the another beta. Even
+                                                                       for small beta values, this
+                                                                       error can be made small.
+  The role of this resistor is then more clear. It increases the current in transistor M3. This will
+increase its beta somewhat. Indeed, in some older bipolar technologies, the beta drops rapidly
+DiVerential voltage and current ampliﬁers                                                       95
+
+for small collector currents. In BiCMOS technologies however, the processing is a lot cleaner.
+The beta hardly drops at low currents and this resistor can then be omitted.
+  In a BiCMOS technology, a MOST could be used for transistor M3. Its Gate current is zero
+and so would be the current error. We have to be careful however with the M1, M3 feedback
+loop. If we reduce the capacitance C     too much, by replacing it with a small MOST, we may
+                                     BE3
+ﬁnd some peaking in the current transfer function, as a result of too many poles too close
+together! A pole-zero position diagram of the current gain with C       as a variable is the best
+                                                                    BE3
+way to study this phenomenon.
+
+
+
+
+                                                                      0313
+                                                                      The same techniques can be
+                                                                      used as before to make the
+                                                                      current diﬀerence zero. Two
+                                                                      transistors M3 and M4 are
+                                                                      added, which have as a ﬁrst
+                                                                      objective to make the volt-
+                                                                      ages v across the current
+                                                                             CE
+                                                                      mirror devices M1 and M2
+                                                                      as equal as possible. We
+                                                                      have again two realizations.
+                                                                         The left one is a passive
+                                                                      circuit as it consists of a
+                                                                      voltage divider utilizing two
+                                                                      diode connected transistors
+                                                                      M1 and M3, connected to a
+                                                                      cascoded ampliﬁer M2 and
+                                                                      M4.
+   Transistors M4 and M2 have the same W/L ratio as M2 and M1, which is B. Transistors M3
+and M4 must have the same V because their currents have the same ratio B. As a result, the
+                                 BE
+voltages v     and v     must also be the same. The current ratio will therefore be quite accurate.
+           CE1       CE2
+   The same is true for the current mirror on the right. It is an active circuit however. It is a
+feedback ampliﬁer with loop gain T. Multiple poles occur, leading to peaking in the current
+transfer characteristic.
+   An important disadvantage of both current mirrors, is again that their minimum output
+voltage (compliance voltage) is quite high! As a result they cannot be used in low-voltage
+applications! One of the low-voltage current mirrors should be used!
+96                                                                                       Chapter #3
+
+                                                             0314
+                                                             Let us now have a closer
+                                                             look at the high-frequency
+                                                             performance.
+                                                                The most important
+                                                             capacitances are shown
+                                                             explicitly. The C of tran-
+                                                                               GS
+                                                             sistor M2 is obviously B
+                                                             times larger than the one of
+                                                             transistor M1. This is why
+                                                             the total capacitance at the
+                                                             inner node is C .
+                                                                             G
+                                                                Again we assume C        to
+                                                                                     DS1
+                                                             be very similar in size to
+                                                             C . As a result, the band-
+                                                               GS
+                                                             width of this current ampli-
+                                                             ﬁer, with current gain B, is
+                                                             again a fraction of f .
+                                                                                  T
+  If we design the two MOSTs with large V −V and smallest possible channel length L, then
+                                         GS T
+a very high bandwidth can be expected.
+
+
+
+                                                                       0315
+                                                                       Such a current mirror or
+                                                                       ampliﬁer can also cause
+                                                                       capacitance multiplication
+                                                                       by the Miller eﬀect, very
+                                                                       much as a voltage ampliﬁer
+                                                                       causes capacitance multi-
+                                                                       plication.
+                                                                          The Miller capacitance is
+                                                                       C , and is connected from
+                                                                         M
+                                                                       the voltage output, realized
+                                                                       by means of a load resistor,
+                                                                       and the middle point.
+                                                                          The current gain is again
+                                                                       B. The input resistance is
+                                                                       again 1/g . It serves as a
+                                                                                  m1
+                                                                       source resistor       for the
+                                                                                          RS
+                                                                       amplifying transistor.
+     For the calculation of the capacitance multiplication, we simplify the circuit, as shown next.
+
+
+
+0316
+The bandwidth denoted by f       is now readily calculated.
+                            –3dB
+  It clearly shows that capacitance C is indeed multiplied by the voltage gain A . This latter
+                                      M                                         v2
+gain is also determined by current gain factor B.
+DiVerential voltage and current ampliﬁers                                                          97
+
+                                                                          There is also a zero as for
+                                                                       the voltage Miller eﬀect (see
+                                                                       Chapter 2). This zero occurs
+                                                                       at real high frequencies
+                                                                       however and is usually
+                                                                       negligible.
+                                                                          This phenomenon is
+                                                                       called the current Miller
+                                                                       eﬀect. It will be used to real-
+                                                                       ize large capacitances on a
+                                                                       chip. A well known applica-
+                                                                       tion is the compensation of
+                                                                       operational ampliﬁers (see
+                                                                       Chapter 5).
+
+
+
+
+                                                                      0317
+                                                                      The second and more im-
+                                                                      portant two-transistor ele-
+                                                                      mentary circuit is a diﬀer-
+                                                                      ential pair. Actually, it is
+                                                                      two single-transistor ampli-
+                                                                      ﬁers in parallel, in order to
+                                                                      reject disturbing common-
+                                                                      mode signals. It will thus
+                                                                      be the basis for all fully-
+                                                                      diﬀerential circuits.
+                                                                         In mixed-signal circuitry,
+                                                                      only fully-diﬀerential cir-
+                                                                      cuits can be allowed, in
+                                                                      order to reject ground noise,
+                                                                      supply line spikes, etc.
+                                                                         First of all, wee start with
+a simple diﬀerential pair. Addition of two load resistors yields a voltage diﬀerential ampliﬁer
+
+
+0318
+In such a voltage diﬀerential ampliﬁer, two equal transistors are used and two equal load
+resistors. We will never be able to make these transistors exactly identical. Small diﬀerences will
+always exist. They will give rise to mismatch, oﬀset, etc. This will be discussed in Chapter 12. In
+this chapter we will always assume that the transistors are exactly the same and so are the
+resistors.
+  Such an ampliﬁer is biased by a DC current source I .
+                                                          B
+  There are two input voltages and two output voltages. The input voltages are referred to
+ground. This is only possible if two supply lines are used, for example V at −5 V and V at
+                                                                            SS               DD
+98                                                                                       Chapter #3
+
+                                                                    5 V. This total supply volt-
+                                                                    age of 10 V can also be used
+                                                                    as a single supply voltage
+                                                                    with respect to ground. In
+                                                                    this case however, the inputs
+                                                                    voltages must be referred
+                                                                    to a DC reference voltage,
+                                                                    somewhere between 10 V
+                                                                    and ground. Actually, this
+                                                                    has now become common.
+                                                                    Supply voltages are used
+                                                                    such as 1.8 and 2.5 V,
+                                                                    depending on the technol-
+                                                                    ogy. An internal reference
+                                                                    must then be derived, for
+                                                                    example 1 V, to make sure
+                                                                    that the input devices are
+                                                                    properly biased.
+  Whatever the input voltages are, we will redeﬁne them, to gain insight into the operation of
+this circuit. We deﬁne the diﬀerential input voltage and the common-mode or average input
+voltage, as shown.
+  The same is true for the two output voltages.
+  We will be interested mainly in the diﬀerential output/input voltages!
+
+
+                                                                       0319
+                                                                       Let us ﬁrst have a closer
+                                                                       look at the DC operation.
+                                                                          When both input voltages
+                                                                       are zero, then both transis-
+                                                                       tors have exactly the same
+                                                                       v . They must now have
+                                                                        GS
+                                                                       the same current. Since the
+                                                                       sum of the currents is always
+                                                                       I , each transistor must
+                                                                        B
+                                                                       carry a DC current I /2.
+                                                                                              B
+                                                                          Since both load resistors
+                                                                       are the same, the voltages
+                                                                       across them must be the
+                                                                       same as well. The diﬀer-
+                                                                       ential voltage is therefore
+                                                                       zero.
+     As could be expected, zero diﬀerential input voltage gives zero diﬀerential output voltage.
+
+
+0320
+When we now apply a diﬀerential input voltage, divided equally over both inputs, both input
+voltages are the same in amplitude, but opposite in sign.
+DiVerential voltage and current ampliﬁers                                                           99
+
+                                                                       If we assume that the left
+                                                                    gate voltage increases, then
+                                                                    the left transistor current
+                                                                    also increases. The right
+                                                                    transistor current must
+                                                                    decrease by the same
+                                                                    amount, as the sum of the
+                                                                    currents is still I .
+                                                                                       B
+                                                                       This increase in current is
+                                                                    the AC current or rather the
+                                                                    circular current. It is added
+                                                                    to the current I /2 on the
+                                                                                       B
+                                                                    left and subtracted on the
+                                                                    right. It ﬂows as indicated
+                                                                    by the arrow.
+                                                                       This circular current will
+                                                                    now be converted into a
+diﬀerential output voltage v . Indeed, the circular current ﬂows through both load resistors and
+                            od
+develops v .
+           od
+   The gain is now easily calculated. The circular current depends on the input voltage by the
+transconductance. The output voltage v depends simply on this current.
+                                          od
+   Note that there are several ‘‘factors of two’’ involved.
+   The resulting expression of the voltage gain is exactly the same as for a single-transistor
+ampliﬁer.
+   Note also that the AC current circles around through both transistors and load resistors. It
+does not ﬂow through the supply lines!
+
+
+                                                                        0321
+                                                                        The resulting voltage gain
+                                                                        has indeed exactly the same
+                                                                        expression as for a single-
+                                                                        transistor ampliﬁer. The
+                                                                        transconductance is now
+                                                                        only half however, as the
+                                                                        current per transistor is only
+                                                                        half (for equal V −V ).
+                                                                                           GS     T
+                                                                           The main advantage of
+                                                                        this stage is that this voltage
+                                                                        gain is completely decou-
+                                                                        pled from the supply line
+                                                                        and ground disturbances.
+                                                                        Indeed, noise on the positive
+                                                                        supply is also present on
+                                                                        both output voltages to
+ground. It is cancelled out from the diﬀerential output voltage. The power-supply rejection ratio
+will thus be very high. This is in eﬀect, the ratio of two gains, the gain from power supply to the
+output and the gain from input to output.
+100                                                                                      Chapter #3
+
+  The same is true for the negative supply V . The same is also true for the ground. Ground
+                                              SS
+noise, caused by digital circuits on the same substrate, will be added to both inputs and will
+thus be rejected by the diﬀerential input. As a result the CMRR (Common-mode Rejection
+Ratio) will be high. All these factors, PSRR and CMRR will be discussed in more detail in
+Chapter 12.
+  A diﬀerential pair is therefore nothing more than a single-transistor ampliﬁer, carried out in
+a diﬀerential way, in order to be able to cope with common-mode disturbances.
+
+
+
+                                                                    0322
+                                                                    The output voltage versus
+                                                                    input voltage is illustrated in
+                                                                    this slide.
+                                                                       For small input voltages,
+                                                                    the gain is simply g R . It
+                                                                                           m L
+                                                                    is the slope of the character-
+                                                                    istic around zero.
+                                                                       For larger input voltages,
+                                                                    the output level saturates to
+                                                                    a voltage R I . For even
+                                                                                  L B
+                                                                    larger input voltages the
+                                                                    output voltage is constant.
+                                                                    The curve in between is
+                                                                    actually a parabola, desc-
+                                                                    ribed by the equation on the
+                                                                    previous slide.
+   For small input voltages, the factor under the square root is simply unity. What remains in
+that expression is simply g .
+                           m
+   For an input voltage equal to √2(V −V ) the top of the parabola is reached. The tangent
+                                        GS   T
+at this point provides a very smooth transition to a constant output voltage.
+   It is clear that V −V is the parameter that controls both the g and the range. For a small
+                     GS  T                                          m
+V −V , the gain is high (with a steep slope) but the range is small. For RF receivers a large
+  GS      T
+V −V is preferred; the range is wide but the gain is small. Moreover, a large V −V , provides
+  GS      T                                                                     GS      T
+a highfrequency response.
+
+
+
+0323
+Bipolar transistors have an even lower V −V , or speciﬁcally kT/q. The gain is thus very high
+                                          GS    T
+but the range very small. For small input voltages, the gain is again g R . It is the slope of the
+                                                                        m L
+characteristic around zero.
+  For larger input voltages, the output level saturates again to a voltage R I . For even larger
+                                                                              L B
+input voltages the output voltage is constant. The curve in between consists of exponentials such
+that a smooth transition is guaranteed. The actual curve will be calculated on the next slide.
+  It is clear that there is no way to control both the g and the range. They are always set by
+                                                        m
+kT/q. The only way to change this ratio is to insert emitter resistors. The larger the resistor, the
+wider the range but the smaller the small-signal gain becomes.
+DiVerential voltage and current ampliﬁers                                                      101
+
+
+
+
+                                                                     0324
+                                                                     When larger input signals
+                                                                     are applied, an increasing
+                                                                     amount of current ﬂows on
+                                                                     one side. For a very large
+                                                                     input signal (as for a digital
+                                                                     input drive) all current ﬂows
+                                                                     in one transistor and the
+                                                                     other ones is oﬀ. In this case
+                                                                     the maximum output volt-
+                                                                     age is reached, i.e. R I . The
+                                                                                           L B
+                                                                     diﬀerential pair therefore
+                                                                     also behaves as a limiter,
+                                                                     when overdriven.
+                                                                        In this case we can no
+                                                                     longer use the transconduct-
+                                                                     ance, we have to use the full
+current expressions. Taking into account that
+– the input voltage v is applied between both v ’s and that
+                       Id                            GS
+– the sum of the currents is still I ,
+                                    B
+we can fairly easily ﬁnd the diﬀerential output current i , which is twice the Drain current in
+                                                            Od
+one transistor. The diﬀerential output voltage is then this current multiplied by R .
+                                                                                     L
+  It is clear that the output voltage is fairly nonlinear, as shown next. We ﬁrstly want to derive
+the transfer characteristic of a diﬀerential pair, for comparison purposes.
+102                                                                                       Chapter #3
+
+                                                                       0325
+                                                                       For a diﬀerential pair with
+                                                                       bipolar transistors, a similar
+                                                                       reasoning can be applied.
+                                                                       For a large input signal (as
+                                                                       for a digital input drive) all
+                                                                       current ﬂows in one transis-
+                                                                       tor and the other ones is oﬀ.
+                                                                       The maximum output volt-
+                                                                       age is reached, i.e. R I . The
+                                                                                             L B
+                                                                       diﬀerential pair therefore
+                                                                       behaves as a limiter, when
+                                                                       overdriven.
+                                                                          In this case we have to
+                                                                       use the full current expres-
+                                                                       sion. Taking into account
+                                                                       that
+– the input voltage is applied between both v ’s and that
+                                                BE
+– the sum of the currents is still I ,
+                                    B
+   we can fairly easily ﬁnd the diﬀerential output current i , which is twice the Collector current
+                                                            Od
+in one transistor. This expression consists of exponentials. It is clear that this diﬀerential output
+current i is very nonlinear, as shown next.
+         Od
+
+
+
+                                                                      0326
+                                                                      The diﬀerential output cur-
+                                                                      rent i is plotted for both a
+                                                                            Od
+                                                                      MOST diﬀerential pair
+                                                                      (with V −V =0.2 V) and
+                                                                               GS    T
+                                                                      for a bipolar diﬀerential
+                                                                      pair.
+                                                                          For a MOST diﬀerential
+                                                                      pair, it is clear that this
+                                                                      curve is only valid up until
+                                                                      v =√2(V −V ) which is
+                                                                        Id        GS     T
+                                                                      about 0.283 V in this exam-
+                                                                      ple. For larger values of v ,
+                                                                                                 Id
+                                                                      i =I . For small values of
+                                                                       Od B
+                                                                      the input voltage, the slope
+                                                                      is the transconductance g .
+                                                                                                 m
+                                                                          For a bipolar diﬀerential
+pair, the eﬀect of the exponentials is clearly seen. The diﬀerential output current i reaches its
+                                                                                       Od
+ﬁnal value within 1% after about 6 times kT/q or 0.14 V.
+   If we consider a MOST in moderate inversion with a V −V =52 mV, as for a bipolar
+                                                               GS     T
+transistor, then the transconductances would be the same. The diﬀerential output current in the
+MOST pair then reaches its maximum value I already at √2×52#70 mV, which is 70 mV
+                                                  B
+earlier than the −1% point of a bipolar diﬀerential pair!
+DiVerential voltage and current ampliﬁers                                                       103
+
+                                                                      0327
+                                                                      The problem with the previ-
+                                                                      ous diﬀerential ampliﬁer is
+                                                                      that the gain g R is quite
+                                                                                       m L
+                                                                      small. We need larger values
+                                                                      of load resistor to increase
+                                                                      this gain. For small supply
+                                                                      voltages this is not possible.
+                                                                         Sometimes resistors are
+                                                                      used, when they need to be
+                                                                      trimmed to reduce the eﬀect
+                                                                      of mismatch. See Chapter 12
+                                                                      for more details.
+                                                                         A ﬁrst solution may be to
+                                                                      use the output resistance of
+                                                                      a MOST as a load, as shown
+                                                                      in this slide. The gain
+increases to g r , which is all a single transistor can provide.
+               m DS
+   We could also put in cascodes, as shown previously.
+   We will now see two more techniques to enhance the gain. They are current cancellation and
+bootstrapping.
+   Before we go into detail, we have noticed that the circuit in this slide is not possible from the
+view of biasing. Both voltage V and current I intend to provide biasing currents to the
+                                   B                B
+amplifying devices M1. This is not possible. We will have to apply common-mode feedback as
+explained in Chapter 9.
+   Finally, note that the input devices are pMOSTs, and that their Bulks are connected to their
+n-well. This is the most common input stage conﬁguration in a n-well CMOS process. Connecting
+Bulk to Source improves the matching of the input devices, as will be explained in Chapter 12.
+Note that the Bulk connections are not always shown!
+
+
+                                                                      0328
+                                                                      If large-valued resistors are
+                                                                      available, another self-bias-
+                                                                      ing load can be found. It is
+                                                                      shown in this slide.
+                                                                         Actually, a virtual ground
+                                                                      is realized between both
+                                                                      transistors. This point does
+                                                                      not carry any AC signal.
+                                                                         The output resistance will
+                                                                      thus be twice what is seen
+                                                                      on either side. It is thus
+                                                                      twice resistor R in parallel
+                                                                      with the output resistance
+                                                                      r or r of the transistor.
+                                                                       DS      o
+                                                                         It is not as high as previ-
+                                                                      ous. Moreover, we need to
+104                                                                                   Chapter #3
+
+be able to identify large resistors in a MOST process. This may be the case in an analog CMOS
+process but certainly not in a digital one.
+
+
+
+                                                                    0329
+                                                                    Application of this load to a
+                                                                    diﬀerential pair, gives the
+                                                                    high-gain ampliﬁer shown
+                                                                    in this slide.
+                                                                       It is clear that the
+                                                                    diﬀerential output signals
+                                                                    are cancelled out at the
+                                                                    common-Gate point of the
+                                                                    transistors M2. The self-
+                                                                    biasing is actually a case of
+                                                                    common-mode feedback, as
+                                                                    explained in Chapter 8.
+                                                                       The gain is moderately
+                                                                    high.
+                                                                       There is no biasing prob-
+                                                                    lem. Current source I
+                                                                                                B
+                                                                    determines all currents.
+
+
+
+                                                                  0330
+                                                                  Even more gain can be
+                                                                  obtained by current can-
+                                                                  cellation
+                                                                     For this purpose, we need
+                                                                  to take diﬀerential diode-
+                                                                  connected MOSTs. Two of
+                                                                  them provide a diﬀerential
+                                                                  small-signal resistance of
+                                                                  2/g .
+                                                                      m
+                                                                     Cross coupling them cre-
+                                                                  ates a positive feedback
+                                                                  ampliﬁer with two stages. As
+                                                                  a result the diﬀerential resis-
+                                                                  tance becomes negative or
+                                                                  −2/g .
+                                                                        m
+                                                                     This negative resistance is
+easily controlled through the current. It is often used in oscillators, RF voltage-controlled
+oscillators and in wideband ampliﬁers.
+DiVerential voltage and current ampliﬁers                             105
+
+                                            0331
+                                            Connection of a set of posi-
+                                            tive diode resistances with
+                                            negative ones, allows the
+                                            realization of any resistance
+                                            between 1/g and inﬁnity.
+                                                         m
+                                               Making all devices the
+                                            same cancels the AC current
+                                            in this circuit, causing the
+                                            diﬀerential to be very high
+                                            (inﬁnity if matching is
+                                            perfect).
+                                               It is therefore an ideal
+                                            load for a diﬀerential
+                                            ampliﬁer.
+
+
+
+
+                                            0332
+                                            Such high-gain ampliﬁer is
+                                            shown in this slide. All load
+                                            MOSTs M2 and M3 have
+                                            equal size. Their transcon-
+                                            ductances are now also
+                                            equal. As a result they
+                                            exhibit quasi-inﬁnite resis-
+                                            tance to the input devices,
+                                            resulting in large voltage
+                                            gains.
+                                               The biasing problem is
+                                            also solved. Only I sets the
+                                                               B
+                                            currents. This load is said to
+                                            be self-biasing.
+106                      Chapter #3
+
+      0333
+      The input impedance of a
+      diﬀerential pair is two times
+      the input impedance of a
+      single transistor. This means
+      that the input resistance
+      must be doubled, as in a
+      bipolar transistor pair on
+      the right. The input capaci-
+      tance must be halved,
+      however.
+
+
+
+
+      0334
+      In order to conclude this
+      section on diﬀerential volt-
+      age ampliﬁers, a few simple
+      circuits are added playing
+      with capacitances.
+         Obviously      the    load
+      capacitance C generates a
+                      L
+      low-pass ﬁlter characteristic.
+      The pole time constant is
+      two times RC .
+                     L
+         Since this is a ﬁrst-order
+      ﬁlter, the slope is 20 dB/
+      decade.
+DiVerential voltage and current ampliﬁers                                                  107
+
+                                                                   0335
+                                                                   Connecting that capaci-
+                                                                   tance C between both
+                                                                   sources, yields a high-pass
+                                                                   characteristic.
+                                                                     The pole time-constant
+                                                                   is at g /2C because the
+                                                                           m
+                                                                   capacitance sees two resist-
+                                                                   ances 1/g in series in order
+                                                                            m
+                                                                   to reach ground.
+                                                                     Again the slope is 20 dB/
+                                                                   decade.
+                                                                     The actual calculation of
+                                                                   this gain characteristic is
+                                                                   described in the next slide.
+
+
+
+
+                                                                 0336
+                                                                 The calculation of the gain
+                                                                 characteristics of a diﬀer-
+                                                                 ential ampliﬁer can always
+                                                                 performed on the ‘‘diﬀeren-
+                                                                 tial half circuit’’.
+                                                                    For this purpose, all
+                                                                 bridge elements have to be
+                                                                 multiplied or divided by
+                                                                 two. For example capaci-
+                                                                 tance C must be multiplied
+                                                                 by 2. A resistor would have
+                                                                 to be divided by 2!
+                                                                    Also, both the input and
+                                                                 output voltage are halved,
+                                                                 by halving the circuit itself.
+                                                                    The gain is now easily cal-
+culated. Impedance Z provides feedback by means of feedback factor 1+g Z. Substitution of Z
+                                                                        m
+by 1/Cs or 1/Cjv then provides the ﬁnal gain expression.
+108                                                                                   Chapter #3
+
+                                                                   0337
+                                                                   Now that we have a good
+                                                                   understanding of current
+                                                                   mirrors and voltage pairs,
+                                                                   let us combine them in
+                                                                   diﬀerential voltage and cur-
+                                                                   rent ampliﬁers.
+                                                                      All subsequent circuits
+                                                                   are actually combinations
+                                                                   of current mirrors and
+                                                                   diﬀerential pairs, with as
+                                                                   the primary requirement, to
+                                                                   increase the gain but also
+                                                                   to convert the diﬀerential
+                                                                   output in a single-ended
+                                                                   one. This is necessary to
+                                                                   avoid diﬀerential pairs in a
+                                                                   second stage of an ampliﬁer.
+  Most opamps will indeed use just a single-transistor ampliﬁer as a second stage. The simplest
+ampliﬁer usually provides the widest bandwidth. A single transistor is hard to beat!
+
+
+                                                                    0338
+                                                                    The ampliﬁer in this slide is
+                                                                    called an OTA. It consists of
+                                                                    one diﬀerential pair loaded
+                                                                    by a simple current mirror.
+                                                                    It has thus one single
+                                                                    output indeed.
+                                                                       On the left, the DC cur-
+                                                                    rent ﬂows are shown. The
+                                                                    width of the arrow corres-
+                                                                    ponds to the size of the cur-
+                                                                    rent. The current source I
+                                                                                               DD
+                                                                    is divided by two over both
+                                                                    input devices, and is taken
+                                                                    up by the negative supply.
+                                                                    Obviously, both supply cur-
+                                                                    rents are the same, as no
+current can escape. Indeed, no current can escape at the output!
+  On the right, the currents are shown when an input voltage is applied. This voltage is such
+that the current in M1 increases, causing a decrease by the same amount in the other transistor
+M2. The current source receives this larger current in M3 and forces the same current through M4.
+  At the output there is a big diﬀerence between what is oﬀered by M2 and what is required by
+M4. This diﬀerence is the output current. It ﬂows through the load impedance Z , and causes
+                                                                                     L
+an output voltage.
+  Again the supply currents and the current through load Z must add up correctly, to keep
+                                                                L
+Kirchoﬀ happy!
+DiVerential voltage and current ampliﬁers                                                        109
+
+                                                                       0339
+                                                                       The same current ﬂows are
+                                                                       given for this inverted OTA.
+                                                                          An input voltage of sev-
+                                                                       eral mV’s will cause a
+                                                                       diﬀerence in current in the
+                                                                       input devices. The current in
+                                                                       T1 is 74% of the total cur-
+                                                                       rent in the current source,
+                                                                       leaving 26% for the other
+                                                                       transistor T2. This diﬀer-
+                                                                       ence in current has pre-
+                                                                       viously been called circular
+                                                                       current. It is thus 24% of the
+                                                                       current of the DC current
+                                                                       source or 48% of the DC
+                                                                       transistor current!
+   This current of 74% ﬂows through three devices, whereas the fourth transistor T2 only carries
+26%. This is a very asymmetrical gain stage indeed. This is a result of the single-ended nature
+of this circuit.
+   The current through the load is then the diﬀerence between 74% of T4 and 26% of T2, which
+is 48%. The load resistance converts this current into an output voltage.
+   Normally there is no load resistor. It actually consists of the two output resistances r of the
+                                                                                             DS
+transistors T2 and T4 in parallel.
+
+
+                                                                    0340
+                                                                    The gain is now easily
+                                                                    calculated.
+                                                                       If we denote the output
+                                                                    resistance by R , which is
+                                                                                     out
+                                                                    again the parallel combina-
+                                                                    tion of the two output resist-
+                                                                    ances r of the transistors
+                                                                             DS
+                                                                    T2 and T4, then the gain is
+                                                                    simply g R .
+                                                                              m1 out
+                                                                       The bandwidth is cause
+                                                                    by the output capacitance
+                                                                    and the same resistance
+                                                                    R .
+                                                                      out
+                                                                       As a result, the GBW
+                                                                    is again the same as for
+                                                                    a single-transistor ampliﬁer.
+Indeed, this is a single-stage ampliﬁer because only one single high-impedance point can be
+distinguished, i.e. at the output. All other nodes are on the 1/g impedance level.
+                                                                 m
+  The gain is not very high however. We could use cascodes to increase the gain. Gain boosting
+and current cancellation have also been discussed. We will now introduce a fourth technique to
+enhance gain, bootstrapping.
+110                                                                                     Chapter #3
+
+                                                                   0341
+                                                                   Bootstrapping has actually
+                                                                   been introduced to nullify
+                                                                   the eﬀect of the input
+                                                                   capacitance of a coax cable
+                                                                   in front of a preampliﬁer.
+                                                                      Indeed the second buﬀer
+                                                                   A2 will ensure that the outer
+                                                                   screen of the coax cable is
+                                                                   at the same potential as the
+                                                                   inner conductor. As a result
+                                                                   there is no voltage diﬀerence
+                                                                   between inner and outer
+                                                                   wire of that cable. Its capaci-
+                                                                   tance (of up to 1pF/cm) is
+                                                                   thus nulliﬁed. The capaci-
+                                                                   tance of the cable is ‘‘boot-
+                                                                   strapped out’’.
+  The input capacitance is either quite small or the input impedance is exceedingly high!
+
+                                                                      0342
+                                                                      This buﬀer has a very high
+                                                                      input impedance, despite the
+                                                                      biasing resistors R and R .
+                                                                                          1       2
+                                                                      It is often used to measure
+                                                                      bio-impedances. For safety,
+                                                                      a coupling capacitor has
+                                                                      to be used. Biasing resistors
+                                                                      are thus needed to deﬁne
+                                                                      the DC conditions of the
+                                                                      opamp. The+input is now
+                                                                      at ground and so is the
+                                                                      output.
+                                                                         These resistors would also
+                                                                      draw AC current, which is
+                                                                      not allowed. For this pur-
+                                                                      pose resistor R is boot-
+                                                                                        1
+strapped out by use of feedback capacitor C .
+                                              F
+   For suﬃcient high gain in the opamp, the output follows the input voltage. The voltage across
+resistor R is approximately zero. It is thus bootstrapped out. It presents a resistance of inﬁnity.
+           1
+This phenomenon starts where capacitance C starts to take eﬀect, which is at the zero fre-
+                                                F
+quency f .
+         z
+   In practice however the gain of the opamp is limited. Its gain decreases towards the GBW.
+As a consequence, the input impedance will not continue to rise. It settles around the frequency
+halfway between f and the GBW (on a logarithmic scale).
+                  2
+   For example, if two resistors are taken of 1 MV and a capacitor C of 0.1 mF, the zero
+                                                                            F
+frequency f is 0.8 Hz and the peak frequency occurs at 1.3 kHz for a GBW of 1 MHz. At this
+             z
+point Z is about 1.6 GV.
+        IN
+DiVerential voltage and current ampliﬁers                                                    111
+
+                                                                   0343
+                                                                   Bootstrapping has been
+                                                                   introduced to increase the
+                                                                   input impedance of biopo-
+                                                                   tential preampliﬁers.
+                                                                      Both opamps A1 and A2
+                                                                   form an instrumentation
+                                                                   ampliﬁer with the three
+                                                                   resistors R (twice) and R .
+                                                                               1               2
+                                                                   Its gain is set to a precise
+                                                                   value of 2R /R by these
+                                                                                 1 2
+                                                                   resistors.
+                                                                      Moreover, the input
+                                                                   impedances, at the + termi-
+                                                                   nals of the opamps are very
+                                                                   high. This is necessary not
+                                                                   to draw any current from
+                                                                   the electrodes (sensors).
+  The input sensors are always decoupled from the opamp inputs by means of capacitors C .
+                                                                                              IN
+However, the + inputs of the opamps must be biased at a particular voltage. This is done by
+means of the resistors R /R . As a result the average output voltage is set by the biasing
+                           3 4
+voltage V .
+           B
+  The input impedance is reduced considerably by these resistors R /R . This why the bootstrap
+                                                                  3 4
+capacitances C are added. They bootstrap the resistors R . Because of the feedback action of
+                B                                         3
+the opamp, the voltage across resistor R is nearly the same. It looks like a resistor with value
+                                        3
+inﬁnity. It is bootstrapped out.
+  The input impedance is then exceedingly high!
+
+                                                                    0344
+                                                                    In a similar way, a load
+                                                                    resistor R of an ampliﬁer
+                                                                    can be bootstrapped out, in
+                                                                    order to make its eﬀective
+                                                                    value much higher, also
+                                                                    rendering the voltage gain
+                                                                    much higher. An example is
+                                                                    given in this slide.
+                                                                       The ampliﬁer simply con-
+                                                                    sists of transistor Q1, fol-
+                                                                    lowed by an emitter follower
+                                                                    with transistor Q2. Its volt-
+                                                                    age gain would normally be
+                                                                    g R. Depending on the
+                                                                      m1
+                                                                    actual DC current, this gain
+                                                                    is not all that high.
+  Load resistor R is not connected to the supply voltage however, but to another emitter follower
+Q3, which is connected to the output voltage over three diode connected transistors, each
+carrying about 0.6 V. The DC voltage across resistor R is thus also about 0.6 V.
+112                                                                                     Chapter #3
+
+  However, the AC voltage at the output of emitter follower Q3 is about the same as the actual
+output voltage v     , which is the same as the AC voltage at the collector of the input transistor
+                 OUT
+Q1. There is now no AC voltage across resistor R. It is bootstrapped out. It appears to be
+inﬁnitely high. As a result the voltage gain is quite high.
+
+                                                                    0345
+                                                                    In a similar way, transistor
+                                                                    M5 bootstraps out the
+                                                                    output resistance of transis-
+                                                                    tor M4 such that only r is
+                                                                                              o2
+                                                                    left in the gain expression.
+                                                                       Transistor M5 actually
+                                                                    functions as a source fol-
+                                                                    lower. Its gain approximates
+                                                                    to unity, as for the buﬀer
+                                                                    A2 in the previous slide.
+                                                                    Transistor M5 sees thus the
+                                                                    same AC voltage at Drain
+                                                                    and Source. As a result, its
+                                                                    output resistance r is boot-
+                                                                                        o4
+                                                                    strapped out.
+                                                                       In order to really increase
+the gain, we would have to add cascodes in series with transistors M1 and M2, or design them
+with large channel lengths.
+  Note that this gain enhancement technique does not aﬀect the GBW, as we have seen before
+with all gain enhancement techniques.
+  Bootstrapping is a fourth technique for gain enhancement. In practice we will use combinations
+of all these four techniques. We will need them as we go deeper and deeper into deep sub-
+micron CMOS!
+
+                                                                      0346
+                                                                      A practical example of this
+                                                                      bootstrapping technique is
+                                                                      shown in this slide. It uses
+                                                                      bipolar transistors. This
+                                                                      example was published a
+                                                                      long time ago. Since the beta
+                                                                      is an additional parameter
+                                                                      in a bipolar transistor, it
+                                                                      also appears in the gain
+                                                                      expressions.
+                                                                         Note that the output
+                                                                      impedance,     which     was
+                                                                      already low because we are
+                                                                      dealing with an emitter fol-
+                                                                      lower, is reduced further. It
+                                                                      is now quite low. This is an
+ideal situation in view of the need to develop the next stage.
+DiVerential voltage and current ampliﬁers                                                        113
+
+                                                                       0347
+                                                                       After we have discussed the
+                                                                       OTA, which is in eﬀect
+                                                                       a single-ended diﬀerential
+                                                                       voltage ampliﬁer, we focus
+                                                                       on the most used single-
+                                                                       ended diﬀerential current
+                                                                       ampliﬁer.
+                                                                          It is derived from a con-
+                                                                       ventional current mirror, to
+                                                                       which a cascode is added.
+                                                                          This quite easy as the
+                                                                       V of the input MOST M1
+                                                                         GS1
+                                                                       is fairly large, for example
+                                                                       0.7 V if V =0.5 V. This
+                                                                                     T
+                                                                       gives us plenty of room for
+                                                                       cascodes. One single cas-
+code requires only 0.2 V! It is realized by means of transistor M3.
+   This additional cascode does not change anything in the current mirror. The diode-connected
+transistor will be more accurate as more feedback loop gain is now available.
+   The two input current sources, one for DC denoted by I and one for AC i , will be mirrored
+                                                            B               in
+just as in the situation without cascode.
+
+
+
+                                                                        0348
+                                                                        The addition of this cascode
+                                                                        creates an additional node
+                                                                        however. This node is more
+                                                                        attractive as an input than
+                                                                        the original one.
+                                                                           The reason is that the
+                                                                        impedance at this point is
+                                                                        g r times lower than at
+                                                                         m3 o3
+                                                                        the original input. This is a
+                                                                        result of the feedback loop.
+                                                                        This factor is the additional
+                                                                        loop gain as a result of the
+                                                                        addition of the cascode.
+                                                                           Therefore, the input sig-
+                                                                        nal current source is led
+                                                                        to the Source of the cascode,
+rather than to its Drain. It is easier to realize an ideal current source when the input impedance
+is smaller. Moreover, the input capacitance at this point will be smaller.
+   Note that the input signal current ﬂows through M1, as there is no outlet through M3. This
+current is then mirrored by the current mirror M1-M2.
+114                                                                                      Chapter #3
+
+                                                                       0349
+                                                                       Addition of another cascode
+                                                                       by means of M4, leads to the
+                                                                       current diﬀerential ampliﬁer
+                                                                       in this slide.
+                                                                          This allows for the appli-
+                                                                       cation of another input cur-
+                                                                       rent i , which ﬂows to the
+                                                                             2
+                                                                       output through M4.The
+                                                                       output current contains the
+                                                                       diﬀerential input current,
+                                                                       superimposed on the DC
+                                                                       biasing current I .
+                                                                                        B
+                                                                          The input impedances for
+                                                                       the input currents, are not
+                                                                       the same. For current i , the
+                                                                                              1
+                                                                       input impedance is quite
+small whereas for input current i , it will depend on the load impedance. For a small load
+                                  2
+impedance, the input resistance will be 1/g .
+                                           m4
+  This is probably the most used current diﬀerential ampliﬁer. It will be used in many operational
+ampliﬁers to convert the diﬀerential output signal to a single-ended one.
+
+
+                                                                      0350
+                                                                      This same current diﬀeren-
+                                                                      tial ampliﬁer can easily be
+                                                                      expanded to a four input
+                                                                      current ampliﬁer.
+                                                                         It is suﬃcient to add an
+                                                                      AC signal to the current
+                                                                      sources i and i . In this way
+                                                                                3    4
+                                                                      a current diﬀerence-diﬀer-
+                                                                      ence ampliﬁer can be built
+                                                                      or any other multiple-input
+                                                                      analog processing block up
+                                                                      to high frequencies.
+                                                                         Note that only the output
+                                                                      impedance is high. All other
+                                                                      nodes are at 1/g level or
+                                                                                         m
+                                                                      below.
+
+
+0351
+An important additional advantage of this current diﬀerential ampliﬁer is that it can operate at
+very low supply voltages. This is shown in this slide for a 1 V supply voltage.
+  For a V of 0.7 V, the V −V has to be deceased to 0.15 V rather than 0.2 V, to be able to
+          T                GS    T
+cope with a supply voltage of 1 V. Indeed all V values are then 0.85 V. This gives plenty of
+                                                 GS
+headroom for the input current sources.
+DiVerential voltage and current ampliﬁers                            115
+
+                                               Note that the Gates of the
+                                            cascodes M3 and M4 are
+                                            now at ground, which is the
+                                            lowest voltage available.
+                                               The maximum output
+                                            voltage V         is 0.7 V as
+                                                       outmax
+                                            we need at least 0.15 V V
+                                                                       DS
+                                            per transistor.
+                                               It is clear that for deep
+                                            submicron CMOS, where
+                                            the V decreases to as little
+                                                   T
+                                            as 0.3 V, the supply voltage
+                                            can be as low as 0.6 V. Quite
+                                            a low value indeed!!
+
+
+
+
+                                            0352
+                                            This concludes the Chapter
+                                            on two-transistor circuits
+                                            such as current mirrors and
+                                            diﬀerential pairs. They have
+                                            been used to build up the
+                                            most common voltage and
+                                            current diﬀerential ampli-
+                                            ﬁers    with    single-ended
+                                            output. We will use them
+                                            routinely in the operational
+                                            ampliﬁers.
+                                                                      041
+                                                                      Before we go into more
+                                                                      detail in opamp design, we
+                                                                      want to know more about
+                                                                      the limits of operation. At
+                                                                      the low end this is noise,
+                                                                      whereas at the high end it is
+                                                                      distortion. This latter topic
+                                                                      is discussed in Chapter 15.
+                                                                      We now want to learn more
+                                                                      about noise.
+
+
+
+
+                                                                      042
+                                                                      Every ampliﬁer has noise.
+                                                                      When we apply a small-
+                                                                      signal input to an ampliﬁer,
+                                                                      then the output signal is an
+                                                                      accurate replica of the input,
+                                                                      but ampliﬁed. The output is
+                                                                      proportional to the input, at
+                                                                      least in the middle range.
+                                                                         When we increase the
+                                                                      input signal amplitude, the
+                                                                      output amplitude levels oﬀ.
+                                                                      We generate distortion. The
+                                                                      higher we increase the in-
+                                                                      put the ﬂatter the response
+                                                                      becomes and the more dis-
+                                                                      tortion is generated. In most
+systems we can allow something like 0.1% distortion. In some audio ampliﬁers and
+high-performance analog-to-digital converters we would want rather less than 0.001%
+distortion!!
+   When we decrease the signal amplitude, it gets lost in noise. The Signal-to-Noise Ratio (SNR)
+is the highest possible range of input signals we can obtain regardless of distortion.
+   The Signal-to-Noise-and-Distortion Ratio (SNDR) on the other hand, limits this SNR to a
+certain amount of distortion. Above the 0.1% SNDR is shown, for which the distortion is limited
+to 0.1%. Clearly the SNDR is always smaller than the SNR.
+
+
+
+
+                                                117
+118                                                                                  Chapter #4
+
+                                                                   043
+                                                                   We will ﬁrstly examine how
+                                                                   we can describe noise. After
+                                                                   all, this is a quantity that
+                                                                   comes as a power, not a
+                                                                   voltage or current!
+                                                                      Then we will discuss all
+                                                                   circuits that we have seen
+                                                                   hitherto from the point of
+                                                                   view of noise performance.
+                                                                      The main points will be
+                                                                   how to optimize noise per-
+                                                                   formance. For a resistive
+                                                                   input source, we will opti-
+                                                                   mize the current ﬂowing.
+                                                                   For a capacitive input
+                                                                   source, we will perform
+                                                                   what is called ‘‘capacitive
+                                                                   noise matching’’.
+
+
+
+                                                                044
+                                                                Noise is an arbitrary signal.
+                                                                We never know what to ex-
+                                                                pect next. The signal ampli-
+                                                                tude is unpredictable. As a
+                                                                result there is a Gaussian
+                                                                spreading around zero and
+                                                                the average value is zero.
+                                                                Also, all possible pulses
+                                                                seem to be present, i.e. sharp
+                                                                ones and wide ones.
+                                                                  In order to be able to
+                                                                describe noise we have to
+                                                                take the power of the noise.
+                                                                For this purpose, we square
+                                                                the voltage or we rectify the
+                                                                voltage as shown in this
+slide. The average versus time is now the average noise power. It is clearly not zero but it
+averages out the peaks over a speciﬁc amount of time.
+
+
+
+045
+Fourier has explained how to convert any signal versus time into a signal versus frequency. For
+noise, we obtain a curve which consists of two regions:
+– The region of white noise is ﬂat and extends to very high frequencies (1013 Hz).
+
