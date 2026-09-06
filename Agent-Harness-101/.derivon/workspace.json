@@ -1,5 +1,5 @@
 {
-  "schema": "derivon.authoring/v0.3.0",
+  "schema": "derivon.workspace/v1",
   "document": {
     "description": "授权来源：https://my.feishu.cn/wiki/L082wubkdie8uMkRUjgceKYQnIe；范围：根节点的 15 篇直接子文档；语言：中文；目标读者：具备基础 LLM 与软件工程知识、初次系统学习 Agent Harness 的技术读者；工作区类型：新建导入。",
     "title": "Agent Harness 101"
@@ -4825,8 +4825,5 @@
         }
       }
     ]
-  },
-  "view": {
-    "replacements": []
   }
 }
