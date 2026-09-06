@@ -10,7 +10,6 @@
         "id": "agent-harness",
         "data": {
           "document": "docs/concept-agent-harness",
-          "format": "markdown",
           "label": "Agent Harness"
         }
       },
@@ -18,7 +17,6 @@
         "id": "agent-loop",
         "data": {
           "document": "docs/concept-agent-loop",
-          "format": "markdown",
           "label": "Agent Loop"
         }
       },
@@ -26,7 +24,6 @@
         "id": "tool-layer",
         "data": {
           "document": "docs/concept-tool-layer",
-          "format": "markdown",
           "label": "Tool Layer"
         }
       },
@@ -34,7 +31,6 @@
         "id": "context-layer",
         "data": {
           "document": "docs/concept-context-layer",
-          "format": "markdown",
           "label": "Context Layer"
         }
       },
@@ -42,7 +38,6 @@
         "id": "system-prompt",
         "data": {
           "document": "docs/concept-system-prompt",
-          "format": "markdown",
           "label": "System Prompt"
         }
       },
@@ -50,7 +45,6 @@
         "id": "hook",
         "data": {
           "document": "docs/concept-hook",
-          "format": "markdown",
           "label": "Hook"
         }
       },
@@ -58,7 +52,6 @@
         "id": "tool-schema",
         "data": {
           "document": "docs/concept-tool-schema",
-          "format": "markdown",
           "label": "Tool Schema"
         }
       },
@@ -66,7 +59,6 @@
         "id": "tool-call",
         "data": {
           "document": "docs/concept-tool-call",
-          "format": "markdown",
           "label": "Tool Call"
         }
       },
@@ -74,7 +66,6 @@
         "id": "tool-result",
         "data": {
           "document": "docs/concept-tool-result",
-          "format": "markdown",
           "label": "Tool Result"
         }
       },
@@ -82,7 +73,6 @@
         "id": "active-halting",
         "data": {
           "document": "docs/concept-active-halting",
-          "format": "markdown",
           "label": "主动停机"
         }
       },
@@ -90,7 +80,6 @@
         "id": "react-loop",
         "data": {
           "document": "docs/concept-react-loop",
-          "format": "markdown",
           "label": "ReAct Loop"
         }
       },
@@ -98,7 +87,6 @@
         "id": "same-turn-tool-batch",
         "data": {
           "document": "docs/concept-same-turn-tool-batch",
-          "format": "markdown",
           "label": "同轮多工具调用"
         }
       },
@@ -106,7 +94,6 @@
         "id": "parallel-tool-execution",
         "data": {
           "document": "docs/concept-parallel-tool-execution",
-          "format": "markdown",
           "label": "并行工具执行"
         }
       },
@@ -114,7 +101,6 @@
         "id": "multiround-react",
         "data": {
           "document": "docs/concept-multiround-react",
-          "format": "markdown",
           "label": "多轮 ReAct"
         }
       },
@@ -122,7 +108,6 @@
         "id": "workflow-agent",
         "data": {
           "document": "docs/concept-workflow-agent",
-          "format": "markdown",
           "label": "Workflow Agent"
         }
       },
@@ -130,7 +115,6 @@
         "id": "web-search",
         "data": {
           "document": "docs/concept-web-search",
-          "format": "markdown",
           "label": "Web Search 工具"
         }
       },
@@ -138,7 +122,6 @@
         "id": "web-fetch",
         "data": {
           "document": "docs/concept-web-fetch",
-          "format": "markdown",
           "label": "Web Fetch 工具"
         }
       },
@@ -146,7 +129,6 @@
         "id": "deep-research",
         "data": {
           "document": "docs/concept-deep-research",
-          "format": "markdown",
           "label": "Deep Research Agent"
         }
       },
@@ -154,7 +136,6 @@
         "id": "todo-state",
         "data": {
           "document": "docs/concept-todo-state",
-          "format": "markdown",
           "label": "TODO 状态"
         }
       },
@@ -162,7 +143,6 @@
         "id": "plan-then-act",
         "data": {
           "document": "docs/concept-plan-then-act",
-          "format": "markdown",
           "label": "Plan-then-Act"
         }
       },
@@ -170,7 +150,6 @@
         "id": "preplan-briefing",
         "data": {
           "document": "docs/concept-preplan-briefing",
-          "format": "markdown",
           "label": "Plan 前置 Briefing"
         }
       },
@@ -178,7 +157,6 @@
         "id": "nudge",
         "data": {
           "document": "docs/concept-nudge",
-          "format": "markdown",
           "label": "Nudge"
         }
       },
@@ -186,7 +164,6 @@
         "id": "reliable-plan-execution",
         "data": {
           "document": "docs/concept-reliable-plan-execution",
-          "format": "markdown",
           "label": "稳定的计划执行"
         }
       },
@@ -194,7 +171,6 @@
         "id": "coding-toolset",
         "data": {
           "document": "docs/concept-coding-toolset",
-          "format": "markdown",
           "label": "Coding Agent 工具集"
         }
       },
@@ -202,7 +178,6 @@
         "id": "coding-agent",
         "data": {
           "document": "docs/concept-coding-agent",
-          "format": "markdown",
           "label": "Coding Agent"
         }
       },
@@ -210,7 +185,6 @@
         "id": "context-window",
         "data": {
           "document": "docs/concept-context-window",
-          "format": "markdown",
           "label": "Context Window"
         }
       },
@@ -218,7 +192,6 @@
         "id": "large-tool-payload",
         "data": {
           "document": "docs/concept-large-tool-payload",
-          "format": "markdown",
           "label": "大体积工具负载"
         }
       },
@@ -226,7 +199,6 @@
         "id": "filesystem-indirection",
         "data": {
           "document": "docs/concept-filesystem-indirection",
-          "format": "markdown",
           "label": "文件系统间接引用"
         }
       },
@@ -234,7 +206,6 @@
         "id": "context-offloading",
         "data": {
           "document": "docs/concept-context-offloading",
-          "format": "markdown",
           "label": "Context Offloading"
         }
       },
@@ -242,7 +213,6 @@
         "id": "context-compression",
         "data": {
           "document": "docs/concept-context-compression",
-          "format": "markdown",
           "label": "Context Compression"
         }
       },
@@ -250,7 +220,6 @@
         "id": "skill-metadata-catalog",
         "data": {
           "document": "docs/concept-skill-metadata-catalog",
-          "format": "markdown",
           "label": "Skill 元数据目录"
         }
       },
@@ -258,7 +227,6 @@
         "id": "skill-body",
         "data": {
           "document": "docs/concept-skill-body",
-          "format": "markdown",
           "label": "Skill 正文"
         }
       },
@@ -266,7 +234,6 @@
         "id": "progressive-disclosure",
         "data": {
           "document": "docs/concept-progressive-disclosure",
-          "format": "markdown",
           "label": "渐进式披露"
         }
       },
@@ -274,7 +241,6 @@
         "id": "skill",
         "data": {
           "document": "docs/concept-skill",
-          "format": "markdown",
           "label": "Skill"
         }
       },
@@ -282,7 +248,6 @@
         "id": "tracing",
         "data": {
           "document": "docs/concept-tracing",
-          "format": "markdown",
           "label": "Tracing"
         }
       },
@@ -290,7 +255,6 @@
         "id": "evals",
         "data": {
           "document": "docs/concept-evals",
-          "format": "markdown",
           "label": "Evals"
         }
       },
@@ -298,7 +262,6 @@
         "id": "feedback-loop",
         "data": {
           "document": "docs/concept-feedback-loop",
-          "format": "markdown",
           "label": "Feedback Loop"
         }
       },
@@ -306,7 +269,6 @@
         "id": "self-evolving-harness",
         "data": {
           "document": "docs/concept-self-evolving-harness",
-          "format": "markdown",
           "label": "Self-evolving Harness"
         }
       },
@@ -314,7 +276,6 @@
         "id": "orthogonal-harness-layering",
         "data": {
           "document": "docs/concept-orthogonal-harness-layering",
-          "format": "markdown",
           "label": "Harness 的正交分层"
         }
       },
@@ -322,7 +283,6 @@
         "id": "foundation-model",
         "data": {
           "document": "docs/concept-foundation-model",
-          "format": "markdown",
           "label": "Foundation Model"
         }
       },
@@ -330,7 +290,6 @@
         "id": "agent-system",
         "data": {
           "document": "docs/concept-agent-system",
-          "format": "markdown",
           "label": "Agent 系统"
         }
       },
@@ -338,7 +297,6 @@
         "id": "harness-engineering",
         "data": {
           "document": "docs/concept-harness-engineering",
-          "format": "markdown",
           "label": "Harness Engineering"
         }
       },
@@ -346,7 +304,6 @@
         "id": "same-model-harness-variance",
         "data": {
           "document": "docs/concept-same-model-harness-variance",
-          "format": "markdown",
           "label": "同模型 Harness 表现差异"
         }
       },
@@ -354,7 +311,6 @@
         "id": "configuration-first-diagnosis",
         "data": {
           "document": "docs/concept-configuration-first-diagnosis",
-          "format": "markdown",
           "label": "配置优先诊断"
         }
       },
@@ -362,7 +318,6 @@
         "id": "specific-failure-evidence",
         "data": {
           "document": "docs/concept-specific-failure-evidence",
-          "format": "markdown",
           "label": "具体失败证据"
         }
       },
@@ -370,7 +325,6 @@
         "id": "model-capability-retest",
         "data": {
           "document": "docs/concept-model-capability-retest",
-          "format": "markdown",
           "label": "模型能力复测"
         }
       },
@@ -378,7 +332,6 @@
         "id": "harness-rule-ratchet",
         "data": {
           "document": "docs/concept-harness-rule-ratchet",
-          "format": "markdown",
           "label": "Harness 规则棘轮"
         }
       },
@@ -386,7 +339,6 @@
         "id": "layered-defense",
         "data": {
           "document": "docs/concept-layered-defense",
-          "format": "markdown",
           "label": "分层防线"
         }
       },
@@ -394,7 +346,6 @@
         "id": "behavior-driven-harness-design",
         "data": {
           "document": "docs/concept-behavior-driven-harness-design",
-          "format": "markdown",
           "label": "行为驱动的 Harness 设计"
         }
       },
@@ -402,7 +353,6 @@
         "id": "filesystem-persistence",
         "data": {
           "document": "docs/concept-filesystem-persistence",
-          "format": "markdown",
           "label": "文件系统持久状态"
         }
       },
@@ -410,7 +360,6 @@
         "id": "git-versioning",
         "data": {
           "document": "docs/concept-git-versioning",
-          "format": "markdown",
           "label": "Git 状态版本化"
         }
       },
@@ -418,7 +367,6 @@
         "id": "shell-execution",
         "data": {
           "document": "docs/concept-shell-execution",
-          "format": "markdown",
           "label": "Shell 执行"
         }
       },
@@ -426,7 +374,6 @@
         "id": "sandbox",
         "data": {
           "document": "docs/concept-sandbox",
-          "format": "markdown",
           "label": "Sandbox"
         }
       },
@@ -434,7 +381,6 @@
         "id": "safe-general-execution",
         "data": {
           "document": "docs/concept-safe-general-execution",
-          "format": "markdown",
           "label": "受控的通用执行"
         }
       },
@@ -442,7 +388,6 @@
         "id": "cross-session-memory",
         "data": {
           "document": "docs/concept-cross-session-memory",
-          "format": "markdown",
           "label": "跨会话记忆"
         }
       },
@@ -450,7 +395,6 @@
         "id": "success-silent-failure-loud",
         "data": {
           "document": "docs/concept-success-silent-failure-loud",
-          "format": "markdown",
           "label": "成功静默，失败喧哗"
         }
       },
@@ -458,7 +402,6 @@
         "id": "long-horizon-execution",
         "data": {
           "document": "docs/concept-long-horizon-execution",
-          "format": "markdown",
           "label": "Long-horizon Execution"
         }
       },
@@ -466,7 +409,6 @@
         "id": "session-reset",
         "data": {
           "document": "docs/concept-session-reset",
-          "format": "markdown",
           "label": "Session Reset"
         }
       },
@@ -474,7 +416,6 @@
         "id": "handoff-file",
         "data": {
           "document": "docs/concept-handoff-file",
-          "format": "markdown",
           "label": "Handoff 文件"
         }
       },
@@ -482,7 +423,6 @@
         "id": "ralph-loop",
         "data": {
           "document": "docs/concept-ralph-loop",
-          "format": "markdown",
           "label": "Ralph Loop"
         }
       },
@@ -490,7 +430,6 @@
         "id": "planner-role",
         "data": {
           "document": "docs/concept-planner-role",
-          "format": "markdown",
           "label": "Planner 角色"
         }
       },
@@ -498,7 +437,6 @@
         "id": "generator-role",
         "data": {
           "document": "docs/concept-generator-role",
-          "format": "markdown",
           "label": "Generator 角色"
         }
       },
@@ -506,7 +444,6 @@
         "id": "evaluator-role",
         "data": {
           "document": "docs/concept-evaluator-role",
-          "format": "markdown",
           "label": "Evaluator 角色"
         }
       },
@@ -514,7 +451,6 @@
         "id": "completion-contract",
         "data": {
           "document": "docs/concept-completion-contract",
-          "format": "markdown",
           "label": "完成合同"
         }
       },
@@ -522,7 +458,6 @@
         "id": "separated-agent-governance",
         "data": {
           "document": "docs/concept-separated-agent-governance",
-          "format": "markdown",
           "label": "分离式 Agent 治理"
         }
       },
@@ -530,7 +465,6 @@
         "id": "harness-as-a-service",
         "data": {
           "document": "docs/concept-harness-as-a-service",
-          "format": "markdown",
           "label": "Harness-as-a-Service"
         }
       },
@@ -538,7 +472,6 @@
         "id": "harness-boundary-migration",
         "data": {
           "document": "docs/concept-harness-boundary-migration",
-          "format": "markdown",
           "label": "Harness 边界迁移"
         }
       },
@@ -546,7 +479,6 @@
         "id": "harness-pattern-convergence",
         "data": {
           "document": "docs/concept-harness-pattern-convergence",
-          "format": "markdown",
           "label": "Harness 模式收敛"
         }
       },
@@ -554,7 +486,6 @@
         "id": "dynamic-harness-compilation",
         "data": {
           "document": "docs/concept-dynamic-harness-compilation",
-          "format": "markdown",
           "label": "动态 Harness 编译"
         }
       },
@@ -562,7 +493,6 @@
         "id": "capability-discipline-complementarity",
         "data": {
           "document": "docs/concept-capability-discipline-complementarity",
-          "format": "markdown",
           "label": "能力与纪律的互补"
         }
       },
@@ -570,7 +500,6 @@
         "id": "manual-agent-loop",
         "data": {
           "document": "docs/concept-manual-agent-loop",
-          "format": "markdown",
           "label": "手工 Agent 循环"
         }
       },
@@ -578,7 +507,6 @@
         "id": "loop-engineering",
         "data": {
           "document": "docs/concept-loop-engineering",
-          "format": "markdown",
           "label": "Loop Engineering"
         }
       },
@@ -586,7 +514,6 @@
         "id": "self-prompting",
         "data": {
           "document": "docs/concept-self-prompting",
-          "format": "markdown",
           "label": "Self-prompting"
         }
       },
@@ -594,7 +521,6 @@
         "id": "human-goal-ownership",
         "data": {
           "document": "docs/concept-human-goal-ownership",
-          "format": "markdown",
           "label": "人类目标所有权"
         }
       },
@@ -602,7 +528,6 @@
         "id": "discovery-phase",
         "data": {
           "document": "docs/concept-discovery-phase",
-          "format": "markdown",
           "label": "Discovery 阶段"
         }
       },
@@ -610,7 +535,6 @@
         "id": "execution-phase",
         "data": {
           "document": "docs/concept-execution-phase",
-          "format": "markdown",
           "label": "Execute 阶段"
         }
       },
@@ -618,7 +542,6 @@
         "id": "verification-phase",
         "data": {
           "document": "docs/concept-verification-phase",
-          "format": "markdown",
           "label": "Verify 阶段"
         }
       },
@@ -626,7 +549,6 @@
         "id": "goal-directed-loop-cycle",
         "data": {
           "document": "docs/concept-goal-directed-loop-cycle",
-          "format": "markdown",
           "label": "目标驱动的循环周期"
         }
       },
@@ -634,7 +556,6 @@
         "id": "orchestrator",
         "data": {
           "document": "docs/concept-orchestrator",
-          "format": "markdown",
           "label": "Orchestrator"
         }
       },
@@ -642,7 +563,6 @@
         "id": "sub-agent",
         "data": {
           "document": "docs/concept-sub-agent",
-          "format": "markdown",
           "label": "Sub-Agent"
         }
       },
@@ -650,7 +570,6 @@
         "id": "fan-out",
         "data": {
           "document": "docs/concept-fan-out",
-          "format": "markdown",
           "label": "Fan-out"
         }
       },
@@ -658,7 +577,6 @@
         "id": "fan-in",
         "data": {
           "document": "docs/concept-fan-in",
-          "format": "markdown",
           "label": "Fan-in"
         }
       },
@@ -666,7 +584,6 @@
         "id": "parallel-agent-orchestration",
         "data": {
           "document": "docs/concept-parallel-agent-orchestration",
-          "format": "markdown",
           "label": "并行 Agent 编排"
         }
       },
@@ -674,7 +591,6 @@
         "id": "open-ended-goal",
         "data": {
           "document": "docs/concept-open-ended-goal",
-          "format": "markdown",
           "label": "开放目标"
         }
       },
@@ -682,7 +598,6 @@
         "id": "agent-self-direction",
         "data": {
           "document": "docs/concept-agent-self-direction",
-          "format": "markdown",
           "label": "Agent 自主选向"
         }
       },
@@ -690,7 +605,6 @@
         "id": "budget-cap",
         "data": {
           "document": "docs/concept-budget-cap",
-          "format": "markdown",
           "label": "外部预算上限"
         }
       },
@@ -698,7 +612,6 @@
         "id": "open-loop",
         "data": {
           "document": "docs/concept-open-loop",
-          "format": "markdown",
           "label": "Open Loop"
         }
       },
@@ -706,7 +619,6 @@
         "id": "bounded-goal",
         "data": {
           "document": "docs/concept-bounded-goal",
-          "format": "markdown",
           "label": "有界目标"
         }
       },
@@ -714,7 +626,6 @@
         "id": "acceptance-criteria",
         "data": {
           "document": "docs/concept-acceptance-criteria",
-          "format": "markdown",
           "label": "Acceptance Criteria"
         }
       },
@@ -722,7 +633,6 @@
         "id": "machine-checkable-signal",
         "data": {
           "document": "docs/concept-machine-checkable-signal",
-          "format": "markdown",
           "label": "机器可判定信号"
         }
       },
@@ -730,7 +640,6 @@
         "id": "deterministic-verification",
         "data": {
           "document": "docs/concept-deterministic-verification",
-          "format": "markdown",
           "label": "确定性验证"
         }
       },
@@ -738,7 +647,6 @@
         "id": "closed-loop",
         "data": {
           "document": "docs/concept-closed-loop",
-          "format": "markdown",
           "label": "Closed Loop"
         }
       },
@@ -746,7 +654,6 @@
         "id": "loop-condition",
         "data": {
           "document": "docs/concept-loop-condition",
-          "format": "markdown",
           "label": "循环条件"
         }
       },
@@ -754,7 +661,6 @@
         "id": "loop-prompt",
         "data": {
           "document": "docs/concept-loop-prompt",
-          "format": "markdown",
           "label": "Loop Prompt"
         }
       },
@@ -762,7 +668,6 @@
         "id": "periodic-trigger",
         "data": {
           "document": "docs/concept-periodic-trigger",
-          "format": "markdown",
           "label": "周期触发"
         }
       },
@@ -770,7 +675,6 @@
         "id": "recurring-agent-loop",
         "data": {
           "document": "docs/concept-recurring-agent-loop",
-          "format": "markdown",
           "label": "周期性 Agent Loop"
         }
       },
@@ -778,7 +682,6 @@
         "id": "human-in-the-loop",
         "data": {
           "document": "docs/concept-human-in-the-loop",
-          "format": "markdown",
           "label": "Human-in-the-loop"
         }
       },
@@ -786,7 +689,6 @@
         "id": "uncertain-agent-judgment",
         "data": {
           "document": "docs/concept-uncertain-agent-judgment",
-          "format": "markdown",
           "label": "不确定的 Agent 判断"
         }
       },
@@ -794,7 +696,6 @@
         "id": "review-gated-output",
         "data": {
           "document": "docs/concept-review-gated-output",
-          "format": "markdown",
           "label": "人工审核闸门"
         }
       },
@@ -802,7 +703,6 @@
         "id": "relevance-threshold",
         "data": {
           "document": "docs/concept-relevance-threshold",
-          "format": "markdown",
           "label": "相关度阈值"
         }
       },
@@ -810,7 +710,6 @@
         "id": "historical-deduplication",
         "data": {
           "document": "docs/concept-historical-deduplication",
-          "format": "markdown",
           "label": "历史去重"
         }
       },
@@ -818,7 +717,6 @@
         "id": "low-noise-recurring-output",
         "data": {
           "document": "docs/concept-low-noise-recurring-output",
-          "format": "markdown",
           "label": "低噪声周期产出"
         }
       },
@@ -826,7 +724,6 @@
         "id": "runtime-instruction-following-burden",
         "data": {
           "document": "docs/concept-runtime-instruction-following-burden",
-          "format": "markdown",
           "label": "运行时 Instruction Following 负担"
         }
       },
@@ -834,7 +731,6 @@
         "id": "workflow-script",
         "data": {
           "document": "docs/concept-workflow-script",
-          "format": "markdown",
           "label": "Workflow Script"
         }
       },
@@ -842,7 +738,6 @@
         "id": "workflow-generation",
         "data": {
           "document": "docs/concept-workflow-generation",
-          "format": "markdown",
           "label": "Workflow 生成"
         }
       },
@@ -850,7 +745,6 @@
         "id": "code-control-flow",
         "data": {
           "document": "docs/concept-code-control-flow",
-          "format": "markdown",
           "label": "代码控制流"
         }
       },
@@ -858,7 +752,6 @@
         "id": "explicit-llm-call-site",
         "data": {
           "document": "docs/concept-explicit-llm-call-site",
-          "format": "markdown",
           "label": "显式 LLM 调用点"
         }
       },
@@ -866,7 +759,6 @@
         "id": "code-orchestrated-llm",
         "data": {
           "document": "docs/concept-code-orchestrated-llm",
-          "format": "markdown",
           "label": "代码编排 LLM"
         }
       },
@@ -874,7 +766,6 @@
         "id": "dynamic-workflow",
         "data": {
           "document": "docs/concept-dynamic-workflow",
-          "format": "markdown",
           "label": "Dynamic Workflow"
         }
       },
@@ -882,7 +773,6 @@
         "id": "agent-call",
         "data": {
           "document": "docs/concept-agent-call",
-          "format": "markdown",
           "label": "agent() 调用"
         }
       },
@@ -890,7 +780,6 @@
         "id": "verification-prompt",
         "data": {
           "document": "docs/concept-verification-prompt",
-          "format": "markdown",
           "label": "Verification Prompt"
         }
       },
@@ -898,7 +787,6 @@
         "id": "verified-agent-call",
         "data": {
           "document": "docs/concept-verified-agent-call",
-          "format": "markdown",
           "label": "自验证 agent() 调用"
         }
       },
@@ -906,7 +794,6 @@
         "id": "llm-as-a-judge",
         "data": {
           "document": "docs/concept-llm-as-a-judge",
-          "format": "markdown",
           "label": "LLM-as-a-Judge"
         }
       },
@@ -914,7 +801,6 @@
         "id": "assert-gate",
         "data": {
           "document": "docs/concept-assert-gate",
-          "format": "markdown",
           "label": "assert() 判断闸门"
         }
       },
@@ -922,7 +808,6 @@
         "id": "workflow-trigger",
         "data": {
           "document": "docs/concept-workflow-trigger",
-          "format": "markdown",
           "label": "Workflow Trigger"
         }
       },
@@ -930,7 +815,6 @@
         "id": "workflow-state",
         "data": {
           "document": "docs/concept-workflow-state",
-          "format": "markdown",
           "label": "Workflow State"
         }
       },
@@ -938,7 +822,6 @@
         "id": "worker-role",
         "data": {
           "document": "docs/concept-worker-role",
-          "format": "markdown",
           "label": "Worker 角色"
         }
       },
@@ -946,7 +829,6 @@
         "id": "workflow-loop",
         "data": {
           "document": "docs/concept-workflow-loop",
-          "format": "markdown",
           "label": "Workflow 循环"
         }
       },
@@ -954,7 +836,6 @@
         "id": "conditional-branch",
         "data": {
           "document": "docs/concept-conditional-branch",
-          "format": "markdown",
           "label": "条件分支"
         }
       },
@@ -962,7 +843,6 @@
         "id": "workflow-resumption",
         "data": {
           "document": "docs/concept-workflow-resumption",
-          "format": "markdown",
           "label": "Workflow 续跑"
         }
       },
@@ -970,7 +850,6 @@
         "id": "workflow-repeatability",
         "data": {
           "document": "docs/concept-workflow-repeatability",
-          "format": "markdown",
           "label": "Workflow 可重复性"
         }
       },
@@ -978,7 +857,6 @@
         "id": "deterministic-replay",
         "data": {
           "document": "docs/concept-deterministic-replay",
-          "format": "markdown",
           "label": "确定性重放"
         }
       },
@@ -986,7 +864,6 @@
         "id": "phase-progress",
         "data": {
           "document": "docs/concept-phase-progress",
-          "format": "markdown",
           "label": "Phase Progress"
         }
       },
@@ -994,7 +871,6 @@
         "id": "structured-logging",
         "data": {
           "document": "docs/concept-structured-logging",
-          "format": "markdown",
           "label": "Structured Logging"
         }
       },
@@ -1002,7 +878,6 @@
         "id": "workflow-observability",
         "data": {
           "document": "docs/concept-workflow-observability",
-          "format": "markdown",
           "label": "Workflow 可观测性"
         }
       },
@@ -1010,7 +885,6 @@
         "id": "workflow-initiated-question",
         "data": {
           "document": "docs/concept-workflow-initiated-question",
-          "format": "markdown",
           "label": "Workflow 主动询问"
         }
       },
@@ -1018,7 +892,6 @@
         "id": "steering-inbox",
         "data": {
           "document": "docs/concept-steering-inbox",
-          "format": "markdown",
           "label": "Steering Inbox"
         }
       },
@@ -1026,7 +899,6 @@
         "id": "workflow-intervention",
         "data": {
           "document": "docs/concept-workflow-intervention",
-          "format": "markdown",
           "label": "Workflow 人工介入"
         }
       },
@@ -1034,7 +906,6 @@
         "id": "controllable-workflow",
         "data": {
           "document": "docs/concept-controllable-workflow",
-          "format": "markdown",
           "label": "可控 Workflow"
         }
       },
@@ -1042,7 +913,6 @@
         "id": "workflow-validation-risk",
         "data": {
           "document": "docs/concept-workflow-validation-risk",
-          "format": "markdown",
           "label": "Workflow 验证风险"
         }
       },
@@ -1050,7 +920,6 @@
         "id": "deep-research-workflow",
         "data": {
           "document": "docs/concept-deep-research-workflow",
-          "format": "markdown",
           "label": "Deep Research Workflow"
         }
       },
@@ -1058,7 +927,6 @@
         "id": "mature-workflow-checklist",
         "data": {
           "document": "docs/concept-mature-workflow-checklist",
-          "format": "markdown",
           "label": "成熟 Workflow 检查表"
         }
       },
@@ -1066,7 +934,6 @@
         "id": "predefined-workflow",
         "data": {
           "document": "docs/concept-predefined-workflow",
-          "format": "markdown",
           "label": "预定义 Workflow"
         }
       },
@@ -1074,7 +941,6 @@
         "id": "workflow-runtime",
         "data": {
           "document": "docs/concept-workflow-runtime",
-          "format": "markdown",
           "label": "Workflow Runtime"
         }
       },
@@ -1082,7 +948,6 @@
         "id": "workflow-host-api",
         "data": {
           "document": "docs/concept-workflow-host-api",
-          "format": "markdown",
           "label": "Workflow 宿主 API"
         }
       },
@@ -1090,7 +955,6 @@
         "id": "runtime-portability",
         "data": {
           "document": "docs/concept-runtime-portability",
-          "format": "markdown",
           "label": "Runtime 可移植性"
         }
       },
@@ -1098,7 +962,6 @@
         "id": "runtime-agnostic-agent-boundary",
         "data": {
           "document": "docs/concept-runtime-agnostic-agent-boundary",
-          "format": "markdown",
           "label": "Runtime 无关的 Agent 边界"
         }
       },
@@ -1106,7 +969,6 @@
         "id": "workflow-metadata",
         "data": {
           "document": "docs/concept-workflow-metadata",
-          "format": "markdown",
           "label": "Workflow Metadata"
         }
       },
@@ -1114,7 +976,6 @@
         "id": "workflow-arguments",
         "data": {
           "document": "docs/concept-workflow-arguments",
-          "format": "markdown",
           "label": "Workflow Arguments"
         }
       },
@@ -1122,7 +983,6 @@
         "id": "json-schema-contract",
         "data": {
           "document": "docs/concept-json-schema-contract",
-          "format": "markdown",
           "label": "JSON Schema 输出契约"
         }
       },
@@ -1130,7 +990,6 @@
         "id": "structured-output",
         "data": {
           "document": "docs/concept-structured-output",
-          "format": "markdown",
           "label": "Structured Output"
         }
       },
@@ -1138,7 +997,6 @@
         "id": "cross-item-decision",
         "data": {
           "document": "docs/concept-cross-item-decision",
-          "format": "markdown",
           "label": "跨项决策"
         }
       },
@@ -1146,7 +1004,6 @@
         "id": "item-local-progression",
         "data": {
           "document": "docs/concept-item-local-progression",
-          "format": "markdown",
           "label": "Item 局部推进"
         }
       },
@@ -1154,7 +1011,6 @@
         "id": "parallel-barrier",
         "data": {
           "document": "docs/concept-parallel-barrier",
-          "format": "markdown",
           "label": "Parallel Barrier"
         }
       },
@@ -1162,7 +1018,6 @@
         "id": "item-pipeline",
         "data": {
           "document": "docs/concept-item-pipeline",
-          "format": "markdown",
           "label": "Item Pipeline"
         }
       },
@@ -1170,7 +1025,6 @@
         "id": "workflow-runner",
         "data": {
           "document": "docs/concept-workflow-runner",
-          "format": "markdown",
           "label": "Workflow Runner"
         }
       },
@@ -1178,7 +1032,6 @@
         "id": "jsonl-event-stream",
         "data": {
           "document": "docs/concept-jsonl-event-stream",
-          "format": "markdown",
           "label": "JSONL Event Stream"
         }
       },
@@ -1186,7 +1039,6 @@
         "id": "global-event-sequence",
         "data": {
           "document": "docs/concept-global-event-sequence",
-          "format": "markdown",
           "label": "全局事件序列"
         }
       },
@@ -1194,7 +1046,6 @@
         "id": "embeddable-workflow-execution",
         "data": {
           "document": "docs/concept-embeddable-workflow-execution",
-          "format": "markdown",
           "label": "可嵌入 Workflow 执行"
         }
       },
@@ -1202,7 +1053,6 @@
         "id": "agent-result-journal",
         "data": {
           "document": "docs/concept-agent-result-journal",
-          "format": "markdown",
           "label": "Agent Result Journal"
         }
       },
@@ -1210,7 +1060,6 @@
         "id": "input-matched-result-cache",
         "data": {
           "document": "docs/concept-input-matched-result-cache",
-          "format": "markdown",
           "label": "输入匹配的结果缓存"
         }
       },
@@ -1218,7 +1067,6 @@
         "id": "journaled-replay",
         "data": {
           "document": "docs/concept-journaled-replay",
-          "format": "markdown",
           "label": "Journaled Replay"
         }
       },
@@ -1226,7 +1074,6 @@
         "id": "same-session-resume",
         "data": {
           "document": "docs/concept-same-session-resume",
-          "format": "markdown",
           "label": "同会话恢复"
         }
       },
@@ -1234,7 +1081,6 @@
         "id": "unfinished-agent-reexecution",
         "data": {
           "document": "docs/concept-unfinished-agent-reexecution",
-          "format": "markdown",
           "label": "未完成 Agent 重跑"
         }
       },
@@ -1242,7 +1088,6 @@
         "id": "side-effect-recovery-gap",
         "data": {
           "document": "docs/concept-side-effect-recovery-gap",
-          "format": "markdown",
           "label": "副作用恢复缺口"
         }
       },
@@ -1250,7 +1095,6 @@
         "id": "idempotent-agent-unit",
         "data": {
           "document": "docs/concept-idempotent-agent-unit",
-          "format": "markdown",
           "label": "幂等 Agent 单元"
         }
       },
@@ -1258,7 +1102,6 @@
         "id": "worktree-isolation",
         "data": {
           "document": "docs/concept-worktree-isolation",
-          "format": "markdown",
           "label": "Worktree 隔离"
         }
       },
@@ -1266,7 +1109,6 @@
         "id": "desired-state-prompt",
         "data": {
           "document": "docs/concept-desired-state-prompt",
-          "format": "markdown",
           "label": "目标状态 Prompt"
         }
       },
@@ -1274,7 +1116,6 @@
         "id": "read-write-phase-separation",
         "data": {
           "document": "docs/concept-read-write-phase-separation",
-          "format": "markdown",
           "label": "读写 Phase 分离"
         }
       },
@@ -1282,7 +1123,6 @@
         "id": "business-idempotency-key",
         "data": {
           "document": "docs/concept-business-idempotency-key",
-          "format": "markdown",
           "label": "业务幂等键"
         }
       },
@@ -1290,7 +1130,6 @@
         "id": "recoverable-workflow",
         "data": {
           "document": "docs/concept-recoverable-workflow",
-          "format": "markdown",
           "label": "可恢复 Workflow"
         }
       },
@@ -1298,7 +1137,6 @@
         "id": "coordination-cost",
         "data": {
           "document": "docs/concept-coordination-cost",
-          "format": "markdown",
           "label": "Workflow 协调成本"
         }
       },
@@ -1306,7 +1144,6 @@
         "id": "bounded-agent-stage",
         "data": {
           "document": "docs/concept-bounded-agent-stage",
-          "format": "markdown",
           "label": "有边界的 Agent 阶段"
         }
       },
@@ -1314,7 +1151,6 @@
         "id": "model-tiering",
         "data": {
           "document": "docs/concept-model-tiering",
-          "format": "markdown",
           "label": "模型分层"
         }
       },
@@ -1322,7 +1158,6 @@
         "id": "cost-aware-workflow",
         "data": {
           "document": "docs/concept-cost-aware-workflow",
-          "format": "markdown",
           "label": "成本感知 Workflow"
         }
       },
@@ -1330,7 +1165,6 @@
         "id": "testable-orchestration",
         "data": {
           "document": "docs/concept-testable-orchestration",
-          "format": "markdown",
           "label": "可测试编排"
         }
       },
@@ -1338,7 +1172,6 @@
         "id": "agent-version-drifting",
         "data": {
           "document": "docs/concept-agent-version-drifting",
-          "format": "markdown",
           "label": "Agent Version Drifting"
         }
       },
@@ -1346,7 +1179,6 @@
         "id": "historical-behavior-trace",
         "data": {
           "document": "docs/concept-historical-behavior-trace",
-          "format": "markdown",
           "label": "历史行为轨迹"
         }
       },
@@ -1354,7 +1186,6 @@
         "id": "implicit-few-shot",
         "data": {
           "document": "docs/concept-implicit-few-shot",
-          "format": "markdown",
           "label": "隐式 Few-shot"
         }
       },
@@ -1362,7 +1193,6 @@
         "id": "context-inertia",
         "data": {
           "document": "docs/concept-context-inertia",
-          "format": "markdown",
           "label": "Context 惯性"
         }
       },
@@ -1370,7 +1200,6 @@
         "id": "breaking-contract-change",
         "data": {
           "document": "docs/concept-breaking-contract-change",
-          "format": "markdown",
           "label": "破坏性契约变更"
         }
       },
@@ -1378,7 +1207,6 @@
         "id": "current-contract-authority",
         "data": {
           "document": "docs/concept-current-contract-authority",
-          "format": "markdown",
           "label": "当前契约权威"
         }
       },
@@ -1386,7 +1214,6 @@
         "id": "version-boundary",
         "data": {
           "document": "docs/concept-version-boundary",
-          "format": "markdown",
           "label": "Version Boundary"
         }
       },
@@ -1394,7 +1221,6 @@
         "id": "version-boundary-reminder",
         "data": {
           "document": "docs/concept-version-boundary-reminder",
-          "format": "markdown",
           "label": "Version Boundary Reminder"
         }
       },
@@ -1402,7 +1228,6 @@
         "id": "contract-delta",
         "data": {
           "document": "docs/concept-contract-delta",
-          "format": "markdown",
           "label": "契约 Delta"
         }
       },
@@ -1410,7 +1235,6 @@
         "id": "reminder-tag-semantics",
         "data": {
           "document": "docs/concept-reminder-tag-semantics",
-          "format": "markdown",
           "label": "Reminder Tag 语义"
         }
       },
@@ -1418,7 +1242,6 @@
         "id": "message-authority",
         "data": {
           "document": "docs/concept-message-authority",
-          "format": "markdown",
           "label": "消息权限来源"
         }
       },
@@ -1426,7 +1249,6 @@
         "id": "version-boundary-injection",
         "data": {
           "document": "docs/concept-version-boundary-injection",
-          "format": "markdown",
           "label": "Version Boundary 注入时机"
         }
       },
@@ -1434,7 +1256,6 @@
         "id": "version-fingerprint",
         "data": {
           "document": "docs/concept-version-fingerprint",
-          "format": "markdown",
           "label": "版本指纹"
         }
       },
@@ -1442,7 +1263,6 @@
         "id": "minimal-ab-observation",
         "data": {
           "document": "docs/concept-minimal-ab-observation",
-          "format": "markdown",
           "label": "最小 A/B 观察"
         }
       },
@@ -1450,7 +1270,6 @@
         "id": "version-migration-evidence",
         "data": {
           "document": "docs/concept-version-migration-evidence",
-          "format": "markdown",
           "label": "版本迁移证据"
         }
       },
@@ -1458,7 +1277,6 @@
         "id": "prompt-version-drift",
         "data": {
           "document": "docs/concept-prompt-version-drift",
-          "format": "markdown",
           "label": "Prompt Version Drift"
         }
       },
@@ -1466,7 +1284,6 @@
         "id": "model-runtime-drift",
         "data": {
           "document": "docs/concept-model-runtime-drift",
-          "format": "markdown",
           "label": "Model Runtime Drift"
         }
       },
@@ -1474,7 +1291,6 @@
         "id": "compatibility-first-migration",
         "data": {
           "document": "docs/concept-compatibility-first-migration",
-          "format": "markdown",
           "label": "兼容优先迁移"
         }
       },
@@ -1482,7 +1298,6 @@
         "id": "side-by-side-versioning",
         "data": {
           "document": "docs/concept-side-by-side-versioning",
-          "format": "markdown",
           "label": "并行版本隔离"
         }
       },
@@ -1490,7 +1305,6 @@
         "id": "migration-validation-retry",
         "data": {
           "document": "docs/concept-migration-validation-retry",
-          "format": "markdown",
           "label": "迁移校验重试"
         }
       },
@@ -1498,7 +1312,6 @@
         "id": "safe-agent-version-migration",
         "data": {
           "document": "docs/concept-safe-agent-version-migration",
-          "format": "markdown",
           "label": "安全 Agent 版本迁移"
         }
       },
@@ -1506,7 +1319,6 @@
         "id": "tool-name",
         "data": {
           "document": "docs/concept-tool-name",
-          "format": "markdown",
           "label": "Tool Name"
         }
       },
@@ -1514,7 +1326,6 @@
         "id": "tool-use-boundary-description",
         "data": {
           "document": "docs/concept-tool-use-boundary-description",
-          "format": "markdown",
           "label": "Tool 使用边界描述"
         }
       },
@@ -1522,7 +1333,6 @@
         "id": "tool-result-contract",
         "data": {
           "document": "docs/concept-tool-result-contract",
-          "format": "markdown",
           "label": "Tool Result 契约"
         }
       },
@@ -1530,7 +1340,6 @@
         "id": "tool-definition-contract",
         "data": {
           "document": "docs/concept-tool-definition-contract",
-          "format": "markdown",
           "label": "Tool Definition 契约"
         }
       },
@@ -1538,7 +1347,6 @@
         "id": "external-information-gap",
         "data": {
           "document": "docs/concept-external-information-gap",
-          "format": "markdown",
           "label": "外部信息缺口"
         }
       },
@@ -1546,7 +1354,6 @@
         "id": "harness-tool-execution",
         "data": {
           "document": "docs/concept-harness-tool-execution",
-          "format": "markdown",
           "label": "Harness Tool 执行"
         }
       },
@@ -1554,7 +1361,6 @@
         "id": "tool-call-round-trip",
         "data": {
           "document": "docs/concept-tool-call-round-trip",
-          "format": "markdown",
           "label": "Tool Call 往返"
         }
       },
@@ -1562,7 +1368,6 @@
         "id": "tool-call-id-binding",
         "data": {
           "document": "docs/concept-tool-call-id-binding",
-          "format": "markdown",
           "label": "Tool Call ID 绑定"
         }
       },
@@ -1570,7 +1375,6 @@
         "id": "structured-tools-protocol",
         "data": {
           "document": "docs/concept-structured-tools-protocol",
-          "format": "markdown",
           "label": "结构化 Tools 协议"
         }
       },
@@ -1578,7 +1382,6 @@
         "id": "action-text-format",
         "data": {
           "document": "docs/concept-action-text-format",
-          "format": "markdown",
           "label": "Action 文本格式"
         }
       },
@@ -1586,7 +1389,6 @@
         "id": "tool-output-parser",
         "data": {
           "document": "docs/concept-tool-output-parser",
-          "format": "markdown",
           "label": "Tool 输出解析器"
         }
       },
@@ -1594,7 +1396,6 @@
         "id": "prompt-tool-protocol",
         "data": {
           "document": "docs/concept-prompt-tool-protocol",
-          "format": "markdown",
           "label": "Prompt Tool 协议"
         }
       },
@@ -1602,7 +1403,6 @@
         "id": "strict-schema-generation",
         "data": {
           "document": "docs/concept-strict-schema-generation",
-          "format": "markdown",
           "label": "Strict Schema Generation"
         }
       },
@@ -1610,7 +1410,6 @@
         "id": "semantic-tool-choice",
         "data": {
           "document": "docs/concept-semantic-tool-choice",
-          "format": "markdown",
           "label": "语义 Tool 选择"
         }
       },
@@ -1618,7 +1417,6 @@
         "id": "action-oriented-tool-name",
         "data": {
           "document": "docs/concept-action-oriented-tool-name",
-          "format": "markdown",
           "label": "动作式 Tool 命名"
         }
       },
@@ -1626,7 +1424,6 @@
         "id": "narrow-parameter-schema",
         "data": {
           "document": "docs/concept-narrow-parameter-schema",
-          "format": "markdown",
           "label": "收窄参数 Schema"
         }
       },
@@ -1634,7 +1431,6 @@
         "id": "nonoverlapping-tool-responsibility",
         "data": {
           "document": "docs/concept-nonoverlapping-tool-responsibility",
-          "format": "markdown",
           "label": "非重叠 Tool 职责"
         }
       },
@@ -1642,7 +1438,6 @@
         "id": "tool-contract-quality",
         "data": {
           "document": "docs/concept-tool-contract-quality",
-          "format": "markdown",
           "label": "Tool 契约质量"
         }
       },
@@ -1650,7 +1445,6 @@
         "id": "transcript-driven-tool-tuning",
         "data": {
           "document": "docs/concept-transcript-driven-tool-tuning",
-          "format": "markdown",
           "label": "Transcript 驱动的 Tool 调优"
         }
       },
@@ -1658,7 +1452,6 @@
         "id": "tool-grounded-agent-loop",
         "data": {
           "document": "docs/concept-tool-grounded-agent-loop",
-          "format": "markdown",
           "label": "Tool Grounded Agent Loop"
         }
       },
@@ -1666,7 +1459,6 @@
         "id": "company-brain",
         "data": {
           "document": "docs/concept-company-brain",
-          "format": "markdown",
           "label": "Company Brain"
         }
       },
@@ -1674,7 +1466,6 @@
         "id": "organizational-memory",
         "data": {
           "document": "docs/concept-organizational-memory",
-          "format": "markdown",
           "label": "Organizational Memory"
         }
       },
@@ -1682,7 +1473,6 @@
         "id": "memory-substrate",
         "data": {
           "document": "docs/concept-memory-substrate",
-          "format": "markdown",
           "label": "Memory Substrate"
         }
       },
@@ -1690,7 +1480,6 @@
         "id": "retrieval-relevance",
         "data": {
           "document": "docs/concept-retrieval-relevance",
-          "format": "markdown",
           "label": "Retrieval 相关性"
         }
       },
@@ -1698,7 +1487,6 @@
         "id": "organizational-meaning",
         "data": {
           "document": "docs/concept-organizational-meaning",
-          "format": "markdown",
           "label": "组织语义"
         }
       },
@@ -1706,7 +1494,6 @@
         "id": "factual-memory",
         "data": {
           "document": "docs/concept-factual-memory",
-          "format": "markdown",
           "label": "Factual Memory"
         }
       },
@@ -1714,7 +1501,6 @@
         "id": "interaction-memory",
         "data": {
           "document": "docs/concept-interaction-memory",
-          "format": "markdown",
           "label": "Interaction Memory"
         }
       },
@@ -1722,7 +1508,6 @@
         "id": "action-memory",
         "data": {
           "document": "docs/concept-action-memory",
-          "format": "markdown",
           "label": "Action Memory"
         }
       },
@@ -1730,7 +1515,6 @@
         "id": "provenance",
         "data": {
           "document": "docs/concept-provenance",
-          "format": "markdown",
           "label": "Provenance"
         }
       },
@@ -1738,7 +1522,6 @@
         "id": "memory-owner",
         "data": {
           "document": "docs/concept-memory-owner",
-          "format": "markdown",
           "label": "Memory Owner"
         }
       },
@@ -1746,7 +1529,6 @@
         "id": "memory-timestamp",
         "data": {
           "document": "docs/concept-memory-timestamp",
-          "format": "markdown",
           "label": "Memory Timestamp"
         }
       },
@@ -1754,7 +1536,6 @@
         "id": "memory-permission",
         "data": {
           "document": "docs/concept-memory-permission",
-          "format": "markdown",
           "label": "Memory Permission"
         }
       },
@@ -1762,7 +1543,6 @@
         "id": "memory-freshness",
         "data": {
           "document": "docs/concept-memory-freshness",
-          "format": "markdown",
           "label": "Memory Freshness"
         }
       },
@@ -1770,7 +1550,6 @@
         "id": "memory-confidence",
         "data": {
           "document": "docs/concept-memory-confidence",
-          "format": "markdown",
           "label": "Memory Confidence"
         }
       },
@@ -1778,7 +1557,6 @@
         "id": "semantic-file-system",
         "data": {
           "document": "docs/concept-semantic-file-system",
-          "format": "markdown",
           "label": "Semantic File System"
         }
       },
@@ -1786,7 +1564,6 @@
         "id": "context-graph",
         "data": {
           "document": "docs/concept-context-graph",
-          "format": "markdown",
           "label": "Context Graph"
         }
       },
@@ -1794,7 +1571,6 @@
         "id": "graph-expansion",
         "data": {
           "document": "docs/concept-graph-expansion",
-          "format": "markdown",
           "label": "Graph Expansion"
         }
       },
@@ -1802,7 +1578,6 @@
         "id": "organizational-ontology",
         "data": {
           "document": "docs/concept-organizational-ontology",
-          "format": "markdown",
           "label": "组织 Ontology"
         }
       },
@@ -1810,7 +1585,6 @@
         "id": "decision-rationale",
         "data": {
           "document": "docs/concept-decision-rationale",
-          "format": "markdown",
           "label": "决策理由"
         }
       },
@@ -1818,7 +1592,6 @@
         "id": "dissenting-view",
         "data": {
           "document": "docs/concept-dissenting-view",
-          "format": "markdown",
           "label": "Dissenting View"
         }
       },
@@ -1826,7 +1599,6 @@
         "id": "append-only-event-log",
         "data": {
           "document": "docs/concept-append-only-event-log",
-          "format": "markdown",
           "label": "Append-only Event Log"
         }
       },
@@ -1834,7 +1606,6 @@
         "id": "extracted-claim",
         "data": {
           "document": "docs/concept-extracted-claim",
-          "format": "markdown",
           "label": "Extracted Claim"
         }
       },
@@ -1842,7 +1613,6 @@
         "id": "claim-lifecycle",
         "data": {
           "document": "docs/concept-claim-lifecycle",
-          "format": "markdown",
           "label": "Claim Lifecycle"
         }
       },
@@ -1850,7 +1620,6 @@
         "id": "replayable-memory-ingestion",
         "data": {
           "document": "docs/concept-replayable-memory-ingestion",
-          "format": "markdown",
           "label": "可回放记忆摄取"
         }
       },
@@ -1858,7 +1627,6 @@
         "id": "embedding-retrieval",
         "data": {
           "document": "docs/concept-embedding-retrieval",
-          "format": "markdown",
           "label": "Embedding Retrieval"
         }
       },
@@ -1866,7 +1634,6 @@
         "id": "hybrid-memory-retrieval",
         "data": {
           "document": "docs/concept-hybrid-memory-retrieval",
-          "format": "markdown",
           "label": "混合记忆检索"
         }
       },
@@ -1874,7 +1641,6 @@
         "id": "policy-layer",
         "data": {
           "document": "docs/concept-policy-layer",
-          "format": "markdown",
           "label": "Memory Policy Layer"
         }
       },
@@ -1882,7 +1648,6 @@
         "id": "action-router",
         "data": {
           "document": "docs/concept-action-router",
-          "format": "markdown",
           "label": "Action Router"
         }
       },
@@ -1890,7 +1655,6 @@
         "id": "trust-curve",
         "data": {
           "document": "docs/concept-trust-curve",
-          "format": "markdown",
           "label": "Trust Curve"
         }
       },
@@ -1898,7 +1662,6 @@
         "id": "graduated-action-automation",
         "data": {
           "document": "docs/concept-graduated-action-automation",
-          "format": "markdown",
           "label": "渐进式行动自动化"
         }
       },
@@ -1906,7 +1669,6 @@
         "id": "context-residency-cost",
         "data": {
           "document": "docs/concept-context-residency-cost",
-          "format": "markdown",
           "label": "Context 驻留成本"
         }
       },
@@ -1914,7 +1676,6 @@
         "id": "cumulative-context-area",
         "data": {
           "document": "docs/concept-cumulative-context-area",
-          "format": "markdown",
           "label": "累积 Context 面积"
         }
       },
@@ -1922,7 +1683,6 @@
         "id": "recoverable-context-occupancy",
         "data": {
           "document": "docs/concept-recoverable-context-occupancy",
-          "format": "markdown",
           "label": "可回收 Context 占用"
         }
       },
@@ -1930,7 +1690,6 @@
         "id": "generation-time-offloading",
         "data": {
           "document": "docs/concept-generation-time-offloading",
-          "format": "markdown",
           "label": "生成时主动卸载"
         }
       },
@@ -1938,7 +1697,6 @@
         "id": "historical-tool-result-reclamation",
         "data": {
           "document": "docs/concept-historical-tool-result-reclamation",
-          "format": "markdown",
           "label": "历史 Tool Result 回收"
         }
       },
@@ -1946,7 +1704,6 @@
         "id": "retroactive-message-rewriting",
         "data": {
           "document": "docs/concept-retroactive-message-rewriting",
-          "format": "markdown",
           "label": "追溯式消息改写"
         }
       },
@@ -1954,7 +1711,6 @@
         "id": "stable-reread-source",
         "data": {
           "document": "docs/concept-stable-reread-source",
-          "format": "markdown",
           "label": "稳定可重读数据源"
         }
       },
@@ -1962,7 +1718,6 @@
         "id": "offloading-lifecycle",
         "data": {
           "document": "docs/concept-offloading-lifecycle",
-          "format": "markdown",
           "label": "Offloading 生命周期"
         }
       },
@@ -1970,7 +1725,6 @@
         "id": "tool-argument-audit-trace",
         "data": {
           "document": "docs/concept-tool-argument-audit-trace",
-          "format": "markdown",
           "label": "Tool 参数审计轨迹"
         }
       },
@@ -1978,7 +1732,6 @@
         "id": "argument-side-offloading",
         "data": {
           "document": "docs/concept-argument-side-offloading",
-          "format": "markdown",
           "label": "参数侧 Offloading"
         }
       },
@@ -1986,7 +1739,6 @@
         "id": "result-side-offloading",
         "data": {
           "document": "docs/concept-result-side-offloading",
-          "format": "markdown",
           "label": "结果侧 Offloading"
         }
       },
@@ -1994,7 +1746,6 @@
         "id": "offloading-eligibility",
         "data": {
           "document": "docs/concept-offloading-eligibility",
-          "format": "markdown",
           "label": "Offloading 候选资格"
         }
       },
@@ -2002,7 +1753,6 @@
         "id": "compression-trigger-policy",
         "data": {
           "document": "docs/concept-compression-trigger-policy",
-          "format": "markdown",
           "label": "Compression 触发策略"
         }
       },
@@ -2010,7 +1760,6 @@
         "id": "reserved-context-budget",
         "data": {
           "document": "docs/concept-reserved-context-budget",
-          "format": "markdown",
           "label": "Context 预留预算"
         }
       },
@@ -2018,7 +1767,6 @@
         "id": "soft-context-limit",
         "data": {
           "document": "docs/concept-soft-context-limit",
-          "format": "markdown",
           "label": "Soft Context Limit"
         }
       },
@@ -2026,7 +1774,6 @@
         "id": "lossless-soft-compaction",
         "data": {
           "document": "docs/concept-lossless-soft-compaction",
-          "format": "markdown",
           "label": "无损 Soft Compaction"
         }
       },
@@ -2034,7 +1781,6 @@
         "id": "lossy-hard-compaction",
         "data": {
           "document": "docs/concept-lossy-hard-compaction",
-          "format": "markdown",
           "label": "有损 Hard Compaction"
         }
       },
@@ -2042,7 +1788,6 @@
         "id": "multi-level-compaction",
         "data": {
           "document": "docs/concept-multi-level-compaction",
-          "format": "markdown",
           "label": "多级 Compaction"
         }
       },
@@ -2050,7 +1795,6 @@
         "id": "prompt-prefix-stability",
         "data": {
           "document": "docs/concept-prompt-prefix-stability",
-          "format": "markdown",
           "label": "Prompt 前缀稳定性"
         }
       },
@@ -2058,7 +1802,6 @@
         "id": "long-horizon-offloading-gain",
         "data": {
           "document": "docs/concept-long-horizon-offloading-gain",
-          "format": "markdown",
           "label": "Offloading 长程净收益"
         }
       },
@@ -2066,7 +1809,6 @@
         "id": "predictive-offloading",
         "data": {
           "document": "docs/concept-predictive-offloading",
-          "format": "markdown",
           "label": "预测式 Offloading"
         }
       },
@@ -2074,7 +1816,6 @@
         "id": "microcompact",
         "data": {
           "document": "docs/concept-microcompact",
-          "format": "markdown",
           "label": "Microcompact"
         }
       },
@@ -2082,7 +1823,6 @@
         "id": "api-request-preprocessing-hook",
         "data": {
           "document": "docs/concept-api-request-preprocessing-hook",
-          "format": "markdown",
           "label": "API 请求预处理 Hook"
         }
       },
@@ -2090,7 +1830,6 @@
         "id": "zero-llm-compaction",
         "data": {
           "document": "docs/concept-zero-llm-compaction",
-          "format": "markdown",
           "label": "Zero-LLM Compaction"
         }
       },
@@ -2098,7 +1837,6 @@
         "id": "compaction-candidate-pool",
         "data": {
           "document": "docs/concept-compaction-candidate-pool",
-          "format": "markdown",
           "label": "Compaction 候选池"
         }
       },
@@ -2106,7 +1844,6 @@
         "id": "recent-tool-result-protection",
         "data": {
           "document": "docs/concept-recent-tool-result-protection",
-          "format": "markdown",
           "label": "近期 Tool Result 保护"
         }
       },
@@ -2114,7 +1851,6 @@
         "id": "cache-edits",
         "data": {
           "document": "docs/concept-cache-edits",
-          "format": "markdown",
           "label": "cache_edits"
         }
       },
@@ -2122,7 +1858,6 @@
         "id": "server-side-cache-view",
         "data": {
           "document": "docs/concept-server-side-cache-view",
-          "format": "markdown",
           "label": "服务端 Cache 视图"
         }
       },
@@ -2130,7 +1865,6 @@
         "id": "cache-break-expectation",
         "data": {
           "document": "docs/concept-cache-break-expectation",
-          "format": "markdown",
           "label": "Cache Break 预期修正"
         }
       },
@@ -2138,7 +1872,6 @@
         "id": "hot-path-cache-edit",
         "data": {
           "document": "docs/concept-hot-path-cache-edit",
-          "format": "markdown",
           "label": "热路径 Cache Edit"
         }
       },
@@ -2146,7 +1879,6 @@
         "id": "main-thread-cache-edit-scope",
         "data": {
           "document": "docs/concept-main-thread-cache-edit-scope",
-          "format": "markdown",
           "label": "Main Thread Cache Edit 范围"
         }
       },
@@ -2154,7 +1886,6 @@
         "id": "idle-gap-trigger",
         "data": {
           "document": "docs/concept-idle-gap-trigger",
-          "format": "markdown",
           "label": "Idle Gap Trigger"
         }
       },
@@ -2162,7 +1893,6 @@
         "id": "cold-start-local-rewrite",
         "data": {
           "document": "docs/concept-cold-start-local-rewrite",
-          "format": "markdown",
           "label": "冷启动本地改写"
         }
       },
@@ -2170,7 +1900,6 @@
         "id": "thinking-block",
         "data": {
           "document": "docs/concept-thinking-block",
-          "format": "markdown",
           "label": "Thinking Block"
         }
       },
@@ -2178,7 +1907,6 @@
         "id": "thinking-block-reclamation",
         "data": {
           "document": "docs/concept-thinking-block-reclamation",
-          "format": "markdown",
           "label": "Thinking Block 回收"
         }
       },
@@ -2186,7 +1914,6 @@
         "id": "autocompact",
         "data": {
           "document": "docs/concept-autocompact",
-          "format": "markdown",
           "label": "Autocompact"
         }
       },
@@ -2194,7 +1921,6 @@
         "id": "fullcompact",
         "data": {
           "document": "docs/concept-fullcompact",
-          "format": "markdown",
           "label": "Fullcompact"
         }
       },
@@ -2202,7 +1928,6 @@
         "id": "fullcompact-failure",
         "data": {
           "document": "docs/concept-fullcompact-failure",
-          "format": "markdown",
           "label": "Fullcompact 失败"
         }
       },
@@ -2210,7 +1935,6 @@
         "id": "compaction-circuit-breaker",
         "data": {
           "document": "docs/concept-compaction-circuit-breaker",
-          "format": "markdown",
           "label": "Compaction Circuit Breaker"
         }
       },
@@ -2218,7 +1942,6 @@
         "id": "cost-ordered-compaction-cascade",
         "data": {
           "document": "docs/concept-cost-ordered-compaction-cascade",
-          "format": "markdown",
           "label": "成本有序 Compaction 级联"
         }
       },
@@ -2226,7 +1949,6 @@
         "id": "harness-api-protocol-codesign",
         "data": {
           "document": "docs/concept-harness-api-protocol-codesign",
-          "format": "markdown",
           "label": "Harness-API 协议共建"
         }
       },
@@ -2234,7 +1956,6 @@
         "id": "agent-file-system",
         "data": {
           "document": "docs/concept-agent-file-system",
-          "format": "markdown",
           "label": "Agent File System"
         }
       },
@@ -2242,7 +1963,6 @@
         "id": "unified-addressable-io",
         "data": {
           "document": "docs/concept-unified-addressable-io",
-          "format": "markdown",
           "label": "统一可寻址 I/O"
         }
       },
@@ -2250,7 +1970,6 @@
         "id": "sandbox-overprovisioning-cost",
         "data": {
           "document": "docs/concept-sandbox-overprovisioning-cost",
-          "format": "markdown",
           "label": "Sandbox 过度配置成本"
         }
       },
@@ -2258,7 +1977,6 @@
         "id": "agent-io-minimum",
         "data": {
           "document": "docs/concept-agent-io-minimum",
-          "format": "markdown",
           "label": "Agent I/O 最小公分母"
         }
       },
@@ -2266,7 +1984,6 @@
         "id": "afs-path-namespace",
         "data": {
           "document": "docs/concept-afs-path-namespace",
-          "format": "markdown",
           "label": "AFS 路径命名空间"
         }
       },
@@ -2274,7 +1991,6 @@
         "id": "afs-user-namespace",
         "data": {
           "document": "docs/concept-afs-user-namespace",
-          "format": "markdown",
           "label": "AFS User Namespace"
         }
       },
@@ -2282,7 +1998,6 @@
         "id": "afs-public-namespace",
         "data": {
           "document": "docs/concept-afs-public-namespace",
-          "format": "markdown",
           "label": "AFS Public Namespace"
         }
       },
@@ -2290,7 +2005,6 @@
         "id": "afs-session-namespace",
         "data": {
           "document": "docs/concept-afs-session-namespace",
-          "format": "markdown",
           "label": "AFS Session Namespace"
         }
       },
@@ -2298,7 +2012,6 @@
         "id": "agentfs-service",
         "data": {
           "document": "docs/concept-agentfs-service",
-          "format": "markdown",
           "label": "AgentFSService"
         }
       },
@@ -2306,7 +2019,6 @@
         "id": "afs-provider",
         "data": {
           "document": "docs/concept-afs-provider",
-          "format": "markdown",
           "label": "AFS Provider"
         }
       },
@@ -2314,7 +2026,6 @@
         "id": "longest-prefix-dispatch",
         "data": {
           "document": "docs/concept-longest-prefix-dispatch",
-          "format": "markdown",
           "label": "最长路径前缀派发"
         }
       },
@@ -2322,7 +2033,6 @@
         "id": "provider-capability-protocol",
         "data": {
           "document": "docs/concept-provider-capability-protocol",
-          "format": "markdown",
           "label": "Provider 能力协议"
         }
       },
@@ -2330,7 +2040,6 @@
         "id": "mount-time-capability-discovery",
         "data": {
           "document": "docs/concept-mount-time-capability-discovery",
-          "format": "markdown",
           "label": "挂载时能力发现"
         }
       },
@@ -2338,7 +2047,6 @@
         "id": "afs-client",
         "data": {
           "document": "docs/concept-afs-client",
-          "format": "markdown",
           "label": "AFSClient"
         }
       },
@@ -2346,7 +2054,6 @@
         "id": "identity-context-injection",
         "data": {
           "document": "docs/concept-identity-context-injection",
-          "format": "markdown",
           "label": "身份上下文注入"
         }
       },
@@ -2354,7 +2061,6 @@
         "id": "normalized-provider-error",
         "data": {
           "document": "docs/concept-normalized-provider-error",
-          "format": "markdown",
           "label": "Provider 错误归一化"
         }
       },
@@ -2362,7 +2068,6 @@
         "id": "afs-sandbox-layering",
         "data": {
           "document": "docs/concept-afs-sandbox-layering",
-          "format": "markdown",
           "label": "AFS-Sandbox 分层"
         }
       },
@@ -2370,7 +2075,6 @@
         "id": "execution-capability-tier",
         "data": {
           "document": "docs/concept-execution-capability-tier",
-          "format": "markdown",
           "label": "执行能力分档"
         }
       },
@@ -2378,7 +2082,6 @@
         "id": "afs-provider-ecosystem",
         "data": {
           "document": "docs/concept-afs-provider-ecosystem",
-          "format": "markdown",
           "label": "AFS Provider 生态"
         }
       },
@@ -2386,7 +2089,6 @@
         "id": "temporal-file-interface",
         "data": {
           "document": "docs/concept-temporal-file-interface",
-          "format": "markdown",
           "label": "时间型文件接口"
         }
       },
@@ -2394,7 +2096,6 @@
         "id": "managed-agent-runtime",
         "data": {
           "document": "docs/concept-managed-agent-runtime",
-          "format": "markdown",
           "label": "Managed Agent Runtime"
         }
       },
@@ -2402,7 +2103,6 @@
         "id": "managed-agent-toolset",
         "data": {
           "document": "docs/concept-managed-agent-toolset",
-          "format": "markdown",
           "label": "Managed Agent Toolset"
         }
       },
@@ -2410,7 +2110,6 @@
         "id": "toolset-registration-policy",
         "data": {
           "document": "docs/concept-toolset-registration-policy",
-          "format": "markdown",
           "label": "Toolset 注册策略"
         }
       },
@@ -2418,7 +2117,6 @@
         "id": "tool-permission-gate",
         "data": {
           "document": "docs/concept-tool-permission-gate",
-          "format": "markdown",
           "label": "Tool Permission Gate"
         }
       },
@@ -2426,7 +2124,6 @@
         "id": "glob-tool",
         "data": {
           "document": "docs/concept-glob-tool",
-          "format": "markdown",
           "label": "Glob 工具"
         }
       },
@@ -2434,7 +2131,6 @@
         "id": "grep-tool",
         "data": {
           "document": "docs/concept-grep-tool",
-          "format": "markdown",
           "label": "Grep 工具"
         }
       },
@@ -2442,7 +2138,6 @@
         "id": "read-tool",
         "data": {
           "document": "docs/concept-read-tool",
-          "format": "markdown",
           "label": "Read 工具"
         }
       },
@@ -2450,7 +2145,6 @@
         "id": "write-tool",
         "data": {
           "document": "docs/concept-write-tool",
-          "format": "markdown",
           "label": "Write 工具"
         }
       },
@@ -2458,7 +2152,6 @@
         "id": "edit-tool",
         "data": {
           "document": "docs/concept-edit-tool",
-          "format": "markdown",
           "label": "Edit 工具"
         }
       },
@@ -2466,7 +2159,6 @@
         "id": "exact-match-edit",
         "data": {
           "document": "docs/concept-exact-match-edit",
-          "format": "markdown",
           "label": "精确匹配编辑"
         }
       },
@@ -2474,7 +2166,6 @@
         "id": "read-before-write",
         "data": {
           "document": "docs/concept-read-before-write",
-          "format": "markdown",
           "label": "写前读取"
         }
       },
@@ -2482,7 +2173,6 @@
         "id": "localized-edit-safety",
         "data": {
           "document": "docs/concept-localized-edit-safety",
-          "format": "markdown",
           "label": "局部编辑安全性"
         }
       },
@@ -2490,7 +2180,6 @@
         "id": "coding-tool-workflow",
         "data": {
           "document": "docs/concept-coding-tool-workflow",
-          "format": "markdown",
           "label": "Coding Tool Workflow"
         }
       },
@@ -2498,7 +2187,6 @@
         "id": "tool-execution-ownership",
         "data": {
           "document": "docs/concept-tool-execution-ownership",
-          "format": "markdown",
           "label": "Tool 执行所有权"
         }
       },
@@ -2506,7 +2194,6 @@
         "id": "persistent-shell-session",
         "data": {
           "document": "docs/concept-persistent-shell-session",
-          "format": "markdown",
           "label": "Persistent Shell Session"
         }
       },
@@ -2514,7 +2201,6 @@
         "id": "prompt-fragment",
         "data": {
           "document": "docs/concept-prompt-fragment",
-          "format": "markdown",
           "label": "Prompt Fragment"
         }
       },
@@ -2522,7 +2208,6 @@
         "id": "prompt-module-addressability",
         "data": {
           "document": "docs/concept-prompt-module-addressability",
-          "format": "markdown",
           "label": "Prompt 模块可寻址性"
         }
       },
@@ -2530,7 +2215,6 @@
         "id": "modular-prompt-assembly",
         "data": {
           "document": "docs/concept-modular-prompt-assembly",
-          "format": "markdown",
           "label": "模块化 Prompt 装配"
         }
       },
@@ -2538,7 +2222,6 @@
         "id": "memory-summary",
         "data": {
           "document": "docs/concept-memory-summary",
-          "format": "markdown",
           "label": "用户记忆 Summary"
         }
       },
@@ -2546,7 +2229,6 @@
         "id": "memory-slot",
         "data": {
           "document": "docs/concept-memory-slot",
-          "format": "markdown",
           "label": "Memory Slot"
         }
       },
@@ -2554,7 +2236,6 @@
         "id": "memory-application-policy",
         "data": {
           "document": "docs/concept-memory-application-policy",
-          "format": "markdown",
           "label": "Memory Application Policy"
         }
       },
@@ -2562,7 +2243,6 @@
         "id": "memory-user-edit",
         "data": {
           "document": "docs/concept-memory-user-edit",
-          "format": "markdown",
           "label": "Memory User Edit"
         }
       },
@@ -2570,7 +2250,6 @@
         "id": "past-chat-retrieval",
         "data": {
           "document": "docs/concept-past-chat-retrieval",
-          "format": "markdown",
           "label": "Past Chat Retrieval"
         }
       },
@@ -2578,7 +2257,6 @@
         "id": "personalized-memory-feature",
         "data": {
           "document": "docs/concept-personalized-memory-feature",
-          "format": "markdown",
           "label": "Personalized Memory Feature"
         }
       },
@@ -2586,7 +2264,6 @@
         "id": "memory-relationship-boundary",
         "data": {
           "document": "docs/concept-memory-relationship-boundary",
-          "format": "markdown",
           "label": "Memory Relationship Boundary"
         }
       },
@@ -2594,7 +2271,6 @@
         "id": "instruction-authenticity-check",
         "data": {
           "document": "docs/concept-instruction-authenticity-check",
-          "format": "markdown",
           "label": "指令真实性检查"
         }
       },
@@ -2602,7 +2278,6 @@
         "id": "runtime-prompt-defense",
         "data": {
           "document": "docs/concept-runtime-prompt-defense",
-          "format": "markdown",
           "label": "Runtime Prompt Defense"
         }
       },
@@ -2610,7 +2285,6 @@
         "id": "harness-plugin",
         "data": {
           "document": "docs/concept-harness-plugin",
-          "format": "markdown",
           "label": "Harness Plugin"
         }
       },
@@ -2618,7 +2292,6 @@
         "id": "plugin-manifest",
         "data": {
           "document": "docs/concept-plugin-manifest",
-          "format": "markdown",
           "label": "Plugin Manifest"
         }
       },
@@ -2626,7 +2299,6 @@
         "id": "plugin-audit-surface",
         "data": {
           "document": "docs/concept-plugin-audit-surface",
-          "format": "markdown",
           "label": "Plugin Audit Surface"
         }
       },
@@ -2634,7 +2306,6 @@
         "id": "shallow-agent",
         "data": {
           "document": "docs/concept-shallow-agent",
-          "format": "markdown",
           "label": "Shallow Agent"
         }
       },
@@ -2642,7 +2313,6 @@
         "id": "deep-agent",
         "data": {
           "document": "docs/concept-deep-agent",
-          "format": "markdown",
           "label": "Deep Agent"
         }
       },
@@ -2650,7 +2320,6 @@
         "id": "context-entropy",
         "data": {
           "document": "docs/concept-context-entropy",
-          "format": "markdown",
           "label": "Context Entropy"
         }
       },
@@ -2658,7 +2327,6 @@
         "id": "subagent-context-isolation",
         "data": {
           "document": "docs/concept-subagent-context-isolation",
-          "format": "markdown",
           "label": "Sub-Agent Context Isolation"
         }
       },
@@ -2666,7 +2334,6 @@
         "id": "agent-middleware",
         "data": {
           "document": "docs/concept-agent-middleware",
-          "format": "markdown",
           "label": "Agent Middleware"
         }
       },
@@ -2674,7 +2341,6 @@
         "id": "node-style-hook",
         "data": {
           "document": "docs/concept-node-style-hook",
-          "format": "markdown",
           "label": "Node-Style Hook"
         }
       },
@@ -2682,7 +2348,6 @@
         "id": "wrap-style-hook",
         "data": {
           "document": "docs/concept-wrap-style-hook",
-          "format": "markdown",
           "label": "Wrap-Style Hook"
         }
       },
@@ -2690,7 +2355,6 @@
         "id": "transient-request-modification",
         "data": {
           "document": "docs/concept-transient-request-modification",
-          "format": "markdown",
           "label": "临时 Request 修改"
         }
       },
@@ -2698,7 +2362,6 @@
         "id": "middleware-onion-order",
         "data": {
           "document": "docs/concept-middleware-onion-order",
-          "format": "markdown",
           "label": "Middleware 洋葱顺序"
         }
       },
@@ -2706,7 +2369,6 @@
         "id": "strict-memory-write-discipline",
         "data": {
           "document": "docs/concept-strict-memory-write-discipline",
-          "format": "markdown",
           "label": "严格 Memory 写入纪律"
         }
       },
@@ -2714,7 +2376,6 @@
         "id": "self-skeptical-memory",
         "data": {
           "document": "docs/concept-self-skeptical-memory",
-          "format": "markdown",
           "label": "自我怀疑式 Memory"
         }
       },
@@ -2722,7 +2383,6 @@
         "id": "autonomous-daemon-agent",
         "data": {
           "document": "docs/concept-autonomous-daemon-agent",
-          "format": "markdown",
           "label": "Autonomous Daemon Agent"
         }
       },
@@ -2730,7 +2390,6 @@
         "id": "event-driven-agent-trigger",
         "data": {
           "document": "docs/concept-event-driven-agent-trigger",
-          "format": "markdown",
           "label": "事件驱动 Agent Trigger"
         }
       },
@@ -2738,7 +2397,6 @@
         "id": "memory-consolidation",
         "data": {
           "document": "docs/concept-memory-consolidation",
-          "format": "markdown",
           "label": "Memory Consolidation"
         }
       },
@@ -2746,7 +2404,6 @@
         "id": "cloud-planning-offload",
         "data": {
           "document": "docs/concept-cloud-planning-offload",
-          "format": "markdown",
           "label": "Cloud Planning Offload"
         }
       },
@@ -2754,7 +2411,6 @@
         "id": "agent-install-contract",
         "data": {
           "document": "docs/concept-agent-install-contract",
-          "format": "markdown",
           "label": "Agent Install Contract"
         }
       },
@@ -2762,7 +2418,6 @@
         "id": "human-oriented-readme",
         "data": {
           "document": "docs/concept-human-oriented-readme",
-          "format": "markdown",
           "label": "Human-Oriented README"
         }
       },
@@ -2770,7 +2425,6 @@
         "id": "machine-executable-document",
         "data": {
           "document": "docs/concept-machine-executable-document",
-          "format": "markdown",
           "label": "Machine-Executable Document"
         }
       },
@@ -2778,7 +2432,6 @@
         "id": "reader-specific-documentation",
         "data": {
           "document": "docs/concept-reader-specific-documentation",
-          "format": "markdown",
           "label": "Reader-Specific Documentation"
         }
       },
@@ -2786,7 +2439,6 @@
         "id": "install-goal",
         "data": {
           "document": "docs/concept-install-goal",
-          "format": "markdown",
           "label": "Install Goal"
         }
       },
@@ -2794,7 +2446,6 @@
         "id": "install-success-criteria",
         "data": {
           "document": "docs/concept-install-success-criteria",
-          "format": "markdown",
           "label": "Install Success Criteria"
         }
       },
@@ -2802,7 +2453,6 @@
         "id": "install-operating-rules",
         "data": {
           "document": "docs/concept-install-operating-rules",
-          "format": "markdown",
           "label": "Install Operating Rules"
         }
       },
@@ -2810,7 +2460,6 @@
         "id": "installation-decision-tree",
         "data": {
           "document": "docs/concept-installation-decision-tree",
-          "format": "markdown",
           "label": "Installation Decision Tree"
         }
       },
@@ -2818,7 +2467,6 @@
         "id": "install-todo-state",
         "data": {
           "document": "docs/concept-install-todo-state",
-          "format": "markdown",
           "label": "Install TODO State"
         }
       },
@@ -2826,7 +2474,6 @@
         "id": "setup-boundary",
         "data": {
           "document": "docs/concept-setup-boundary",
-          "format": "markdown",
           "label": "Setup Boundary"
         }
       },
@@ -2834,7 +2481,6 @@
         "id": "idempotent-installation",
         "data": {
           "document": "docs/concept-idempotent-installation",
-          "format": "markdown",
           "label": "Idempotent Installation"
         }
       },
@@ -2842,7 +2488,6 @@
         "id": "secret-noninspection",
         "data": {
           "document": "docs/concept-secret-noninspection",
-          "format": "markdown",
           "label": "Secret Non-Inspection"
         }
       },
@@ -2850,7 +2495,6 @@
         "id": "install-contract-trial-run",
         "data": {
           "document": "docs/concept-install-contract-trial-run",
-          "format": "markdown",
           "label": "Install Contract Trial Run"
         }
       },
@@ -2858,7 +2502,6 @@
         "id": "install-contract-refinement",
         "data": {
           "document": "docs/concept-install-contract-refinement",
-          "format": "markdown",
           "label": "Install Contract Refinement"
         }
       }
@@ -2874,8 +2517,7 @@
         ],
         "head": "agent-harness",
         "data": {
-          "document": "docs/derivation-build-harness-core",
-          "format": "markdown"
+          "document": "docs/derivation-build-harness-core"
         }
       },
       {
@@ -2889,8 +2531,7 @@
         ],
         "head": "react-loop",
         "data": {
-          "document": "docs/derivation-construct-react-protocol",
-          "format": "markdown"
+          "document": "docs/derivation-construct-react-protocol"
         }
       },
       {
@@ -2901,8 +2542,7 @@
         ],
         "head": "parallel-tool-execution",
         "data": {
-          "document": "docs/derivation-enable-parallel-tools",
-          "format": "markdown"
+          "document": "docs/derivation-enable-parallel-tools"
         }
       },
       {
@@ -2913,8 +2553,7 @@
         ],
         "head": "multiround-react",
         "data": {
-          "document": "docs/derivation-repeat-react",
-          "format": "markdown"
+          "document": "docs/derivation-repeat-react"
         }
       },
       {
@@ -2927,8 +2566,7 @@
         ],
         "head": "deep-research",
         "data": {
-          "document": "docs/derivation-compose-deep-research",
-          "format": "markdown"
+          "document": "docs/derivation-compose-deep-research"
         }
       },
       {
@@ -2940,8 +2578,7 @@
         ],
         "head": "plan-then-act",
         "data": {
-          "document": "docs/derivation-add-todo-planning",
-          "format": "markdown"
+          "document": "docs/derivation-add-todo-planning"
         }
       },
       {
@@ -2954,8 +2591,7 @@
         ],
         "head": "reliable-plan-execution",
         "data": {
-          "document": "docs/derivation-stabilize-plan",
-          "format": "markdown"
+          "document": "docs/derivation-stabilize-plan"
         }
       },
       {
@@ -2967,8 +2603,7 @@
         ],
         "head": "coding-agent",
         "data": {
-          "document": "docs/derivation-specialize-coding-agent",
-          "format": "markdown"
+          "document": "docs/derivation-specialize-coding-agent"
         }
       },
       {
@@ -2981,8 +2616,7 @@
         ],
         "head": "context-offloading",
         "data": {
-          "document": "docs/derivation-offload-large-payloads",
-          "format": "markdown"
+          "document": "docs/derivation-offload-large-payloads"
         }
       },
       {
@@ -2996,8 +2630,7 @@
         ],
         "head": "skill",
         "data": {
-          "document": "docs/derivation-assemble-skill-loading",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-skill-loading"
         }
       },
       {
@@ -3010,8 +2643,7 @@
         ],
         "head": "self-evolving-harness",
         "data": {
-          "document": "docs/derivation-close-self-evolution-loop",
-          "format": "markdown"
+          "document": "docs/derivation-close-self-evolution-loop"
         }
       },
       {
@@ -3026,8 +2658,7 @@
         ],
         "head": "orthogonal-harness-layering",
         "data": {
-          "document": "docs/derivation-infer-orthogonal-layering",
-          "format": "markdown"
+          "document": "docs/derivation-infer-orthogonal-layering"
         }
       },
       {
@@ -3039,8 +2670,7 @@
         ],
         "head": "agent-system",
         "data": {
-          "document": "docs/derivation-compose-agent-system",
-          "format": "markdown"
+          "document": "docs/derivation-compose-agent-system"
         }
       },
       {
@@ -3053,8 +2683,7 @@
         ],
         "head": "harness-engineering",
         "data": {
-          "document": "docs/derivation-practice-harness-engineering",
-          "format": "markdown"
+          "document": "docs/derivation-practice-harness-engineering"
         }
       },
       {
@@ -3065,8 +2694,7 @@
         ],
         "head": "configuration-first-diagnosis",
         "data": {
-          "document": "docs/derivation-prioritize-configuration-diagnosis",
-          "format": "markdown"
+          "document": "docs/derivation-prioritize-configuration-diagnosis"
         }
       },
       {
@@ -3078,8 +2706,7 @@
         ],
         "head": "harness-rule-ratchet",
         "data": {
-          "document": "docs/derivation-ratchet-rules",
-          "format": "markdown"
+          "document": "docs/derivation-ratchet-rules"
         }
       },
       {
@@ -3090,8 +2717,7 @@
         ],
         "head": "behavior-driven-harness-design",
         "data": {
-          "document": "docs/derivation-derive-behavior-driven-design",
-          "format": "markdown"
+          "document": "docs/derivation-derive-behavior-driven-design"
         }
       },
       {
@@ -3104,8 +2730,7 @@
         ],
         "head": "layered-defense",
         "data": {
-          "document": "docs/derivation-harden-with-layered-defense",
-          "format": "markdown"
+          "document": "docs/derivation-harden-with-layered-defense"
         }
       },
       {
@@ -3117,8 +2742,7 @@
         ],
         "head": "cross-session-memory",
         "data": {
-          "document": "docs/derivation-persist-cross-session-memory",
-          "format": "markdown"
+          "document": "docs/derivation-persist-cross-session-memory"
         }
       },
       {
@@ -3130,8 +2754,7 @@
         ],
         "head": "safe-general-execution",
         "data": {
-          "document": "docs/derivation-sandbox-shell-execution",
-          "format": "markdown"
+          "document": "docs/derivation-sandbox-shell-execution"
         }
       },
       {
@@ -3144,8 +2767,7 @@
         ],
         "head": "ralph-loop",
         "data": {
-          "document": "docs/derivation-run-ralph-loop",
-          "format": "markdown"
+          "document": "docs/derivation-run-ralph-loop"
         }
       },
       {
@@ -3159,8 +2781,7 @@
         ],
         "head": "separated-agent-governance",
         "data": {
-          "document": "docs/derivation-separate-agent-governance",
-          "format": "markdown"
+          "document": "docs/derivation-separate-agent-governance"
         }
       },
       {
@@ -3171,8 +2792,7 @@
         ],
         "head": "harness-as-a-service",
         "data": {
-          "document": "docs/derivation-package-haas",
-          "format": "markdown"
+          "document": "docs/derivation-package-haas"
         }
       },
       {
@@ -3184,8 +2804,7 @@
         ],
         "head": "harness-boundary-migration",
         "data": {
-          "document": "docs/derivation-move-harness-boundary",
-          "format": "markdown"
+          "document": "docs/derivation-move-harness-boundary"
         }
       },
       {
@@ -3197,8 +2816,7 @@
         ],
         "head": "capability-discipline-complementarity",
         "data": {
-          "document": "docs/derivation-combine-skill-hook",
-          "format": "markdown"
+          "document": "docs/derivation-combine-skill-hook"
         }
       },
       {
@@ -3212,8 +2830,7 @@
         ],
         "head": "loop-engineering",
         "data": {
-          "document": "docs/derivation-automate-loop-executor",
-          "format": "markdown"
+          "document": "docs/derivation-automate-loop-executor"
         }
       },
       {
@@ -3229,8 +2846,7 @@
         ],
         "head": "goal-directed-loop-cycle",
         "data": {
-          "document": "docs/derivation-assemble-goal-cycle",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-goal-cycle"
         }
       },
       {
@@ -3244,8 +2860,7 @@
         ],
         "head": "parallel-agent-orchestration",
         "data": {
-          "document": "docs/derivation-coordinate-parallel-agents",
-          "format": "markdown"
+          "document": "docs/derivation-coordinate-parallel-agents"
         }
       },
       {
@@ -3258,8 +2873,7 @@
         ],
         "head": "open-loop",
         "data": {
-          "document": "docs/derivation-compose-open-loop",
-          "format": "markdown"
+          "document": "docs/derivation-compose-open-loop"
         }
       },
       {
@@ -3271,8 +2885,7 @@
         ],
         "head": "deterministic-verification",
         "data": {
-          "document": "docs/derivation-build-deterministic-verification",
-          "format": "markdown"
+          "document": "docs/derivation-build-deterministic-verification"
         }
       },
       {
@@ -3285,8 +2898,7 @@
         ],
         "head": "closed-loop",
         "data": {
-          "document": "docs/derivation-compose-closed-loop",
-          "format": "markdown"
+          "document": "docs/derivation-compose-closed-loop"
         }
       },
       {
@@ -3299,8 +2911,7 @@
         ],
         "head": "loop-prompt",
         "data": {
-          "document": "docs/derivation-write-loop-prompt",
-          "format": "markdown"
+          "document": "docs/derivation-write-loop-prompt"
         }
       },
       {
@@ -3314,8 +2925,7 @@
         ],
         "head": "recurring-agent-loop",
         "data": {
-          "document": "docs/derivation-run-recurring-loop",
-          "format": "markdown"
+          "document": "docs/derivation-run-recurring-loop"
         }
       },
       {
@@ -3327,8 +2937,7 @@
         ],
         "head": "review-gated-output",
         "data": {
-          "document": "docs/derivation-gate-uncertain-output",
-          "format": "markdown"
+          "document": "docs/derivation-gate-uncertain-output"
         }
       },
       {
@@ -3340,8 +2949,7 @@
         ],
         "head": "low-noise-recurring-output",
         "data": {
-          "document": "docs/derivation-filter-recurring-output",
-          "format": "markdown"
+          "document": "docs/derivation-filter-recurring-output"
         }
       },
       {
@@ -3353,8 +2961,7 @@
         ],
         "head": "code-orchestrated-llm",
         "data": {
-          "document": "docs/derivation-orchestrate-llm-with-code",
-          "format": "markdown"
+          "document": "docs/derivation-orchestrate-llm-with-code"
         }
       },
       {
@@ -3367,8 +2974,7 @@
         ],
         "head": "dynamic-workflow",
         "data": {
-          "document": "docs/derivation-compile-dynamic-workflow",
-          "format": "markdown"
+          "document": "docs/derivation-compile-dynamic-workflow"
         }
       },
       {
@@ -3381,8 +2987,7 @@
         ],
         "head": "verified-agent-call",
         "data": {
-          "document": "docs/derivation-internalize-agent-verification",
-          "format": "markdown"
+          "document": "docs/derivation-internalize-agent-verification"
         }
       },
       {
@@ -3393,8 +2998,7 @@
         ],
         "head": "assert-gate",
         "data": {
-          "document": "docs/derivation-build-assert-gate",
-          "format": "markdown"
+          "document": "docs/derivation-build-assert-gate"
         }
       },
       {
@@ -3405,8 +3009,7 @@
         ],
         "head": "workflow-resumption",
         "data": {
-          "document": "docs/derivation-resume-externalized-workflow",
-          "format": "markdown"
+          "document": "docs/derivation-resume-externalized-workflow"
         }
       },
       {
@@ -3418,8 +3021,7 @@
         ],
         "head": "deterministic-replay",
         "data": {
-          "document": "docs/derivation-enable-deterministic-replay",
-          "format": "markdown"
+          "document": "docs/derivation-enable-deterministic-replay"
         }
       },
       {
@@ -3431,8 +3033,7 @@
         ],
         "head": "workflow-repeatability",
         "data": {
-          "document": "docs/derivation-derive-workflow-repeatability",
-          "format": "markdown"
+          "document": "docs/derivation-derive-workflow-repeatability"
         }
       },
       {
@@ -3444,8 +3045,7 @@
         ],
         "head": "workflow-observability",
         "data": {
-          "document": "docs/derivation-expose-workflow-progress",
-          "format": "markdown"
+          "document": "docs/derivation-expose-workflow-progress"
         }
       },
       {
@@ -3458,8 +3058,7 @@
         ],
         "head": "workflow-intervention",
         "data": {
-          "document": "docs/derivation-enable-workflow-intervention",
-          "format": "markdown"
+          "document": "docs/derivation-enable-workflow-intervention"
         }
       },
       {
@@ -3471,8 +3070,7 @@
         ],
         "head": "controllable-workflow",
         "data": {
-          "document": "docs/derivation-make-workflow-controllable",
-          "format": "markdown"
+          "document": "docs/derivation-make-workflow-controllable"
         }
       },
       {
@@ -3488,8 +3086,7 @@
         ],
         "head": "deep-research-workflow",
         "data": {
-          "document": "docs/derivation-compose-deep-research-workflow",
-          "format": "markdown"
+          "document": "docs/derivation-compose-deep-research-workflow"
         }
       },
       {
@@ -3508,8 +3105,7 @@
         ],
         "head": "mature-workflow-checklist",
         "data": {
-          "document": "docs/derivation-assemble-mature-workflow-checklist",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-mature-workflow-checklist"
         }
       },
       {
@@ -3522,8 +3118,7 @@
         ],
         "head": "dynamic-workflow",
         "data": {
-          "document": "docs/derivation-execute-dynamic-workflow-runtime",
-          "format": "markdown"
+          "document": "docs/derivation-execute-dynamic-workflow-runtime"
         }
       },
       {
@@ -3535,8 +3130,7 @@
         ],
         "head": "runtime-portability",
         "data": {
-          "document": "docs/derivation-define-portable-runtime-boundary",
-          "format": "markdown"
+          "document": "docs/derivation-define-portable-runtime-boundary"
         }
       },
       {
@@ -3550,8 +3144,7 @@
         ],
         "head": "agent-call",
         "data": {
-          "document": "docs/derivation-implement-agent-call-as-react-loop",
-          "format": "markdown"
+          "document": "docs/derivation-implement-agent-call-as-react-loop"
         }
       },
       {
@@ -3564,8 +3157,7 @@
         ],
         "head": "structured-output",
         "data": {
-          "document": "docs/derivation-enforce-structured-output",
-          "format": "markdown"
+          "document": "docs/derivation-enforce-structured-output"
         }
       },
       {
@@ -3578,8 +3170,7 @@
         ],
         "head": "parallel-barrier",
         "data": {
-          "document": "docs/derivation-select-parallel-barrier",
-          "format": "markdown"
+          "document": "docs/derivation-select-parallel-barrier"
         }
       },
       {
@@ -3591,8 +3182,7 @@
         ],
         "head": "item-pipeline",
         "data": {
-          "document": "docs/derivation-build-item-pipeline",
-          "format": "markdown"
+          "document": "docs/derivation-build-item-pipeline"
         }
       },
       {
@@ -3605,8 +3195,7 @@
         ],
         "head": "embeddable-workflow-execution",
         "data": {
-          "document": "docs/derivation-embed-workflow-execution",
-          "format": "markdown"
+          "document": "docs/derivation-embed-workflow-execution"
         }
       },
       {
@@ -3620,8 +3209,7 @@
         ],
         "head": "journaled-replay",
         "data": {
-          "document": "docs/derivation-assemble-journaled-replay",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-journaled-replay"
         }
       },
       {
@@ -3632,8 +3220,7 @@
         ],
         "head": "side-effect-recovery-gap",
         "data": {
-          "document": "docs/derivation-infer-side-effect-recovery-gap",
-          "format": "markdown"
+          "document": "docs/derivation-infer-side-effect-recovery-gap"
         }
       },
       {
@@ -3650,8 +3237,7 @@
         ],
         "head": "recoverable-workflow",
         "data": {
-          "document": "docs/derivation-construct-recoverable-workflow",
-          "format": "markdown"
+          "document": "docs/derivation-construct-recoverable-workflow"
         }
       },
       {
@@ -3663,8 +3249,7 @@
         ],
         "head": "bounded-agent-stage",
         "data": {
-          "document": "docs/derivation-bound-agent-stage",
-          "format": "markdown"
+          "document": "docs/derivation-bound-agent-stage"
         }
       },
       {
@@ -3677,8 +3262,7 @@
         ],
         "head": "cost-aware-workflow",
         "data": {
-          "document": "docs/derivation-tier-workflow-models",
-          "format": "markdown"
+          "document": "docs/derivation-tier-workflow-models"
         }
       },
       {
@@ -3692,8 +3276,7 @@
         ],
         "head": "testable-orchestration",
         "data": {
-          "document": "docs/derivation-make-orchestration-testable",
-          "format": "markdown"
+          "document": "docs/derivation-make-orchestration-testable"
         }
       },
       {
@@ -3706,8 +3289,7 @@
         ],
         "head": "agent-version-drifting",
         "data": {
-          "document": "docs/derivation-derive-agent-version-drifting",
-          "format": "markdown"
+          "document": "docs/derivation-derive-agent-version-drifting"
         }
       },
       {
@@ -3722,8 +3304,7 @@
         ],
         "head": "version-boundary-reminder",
         "data": {
-          "document": "docs/derivation-construct-version-boundary-reminder",
-          "format": "markdown"
+          "document": "docs/derivation-construct-version-boundary-reminder"
         }
       },
       {
@@ -3734,8 +3315,7 @@
         ],
         "head": "version-boundary",
         "data": {
-          "document": "docs/derivation-mark-version-boundary",
-          "format": "markdown"
+          "document": "docs/derivation-mark-version-boundary"
         }
       },
       {
@@ -3747,8 +3327,7 @@
         ],
         "head": "version-migration-evidence",
         "data": {
-          "document": "docs/derivation-build-version-migration-evidence",
-          "format": "markdown"
+          "document": "docs/derivation-build-version-migration-evidence"
         }
       },
       {
@@ -3763,8 +3342,7 @@
         ],
         "head": "safe-agent-version-migration",
         "data": {
-          "document": "docs/derivation-compose-safe-agent-version-migration",
-          "format": "markdown"
+          "document": "docs/derivation-compose-safe-agent-version-migration"
         }
       },
       {
@@ -3778,8 +3356,7 @@
         ],
         "head": "tool-definition-contract",
         "data": {
-          "document": "docs/derivation-assemble-tool-definition-contract",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-tool-definition-contract"
         }
       },
       {
@@ -3791,8 +3368,7 @@
         ],
         "head": "tool-call",
         "data": {
-          "document": "docs/derivation-select-tool-for-information-gap",
-          "format": "markdown"
+          "document": "docs/derivation-select-tool-for-information-gap"
         }
       },
       {
@@ -3805,8 +3381,7 @@
         ],
         "head": "tool-call-round-trip",
         "data": {
-          "document": "docs/derivation-execute-tool-call-round-trip",
-          "format": "markdown"
+          "document": "docs/derivation-execute-tool-call-round-trip"
         }
       },
       {
@@ -3820,8 +3395,7 @@
         ],
         "head": "structured-tools-protocol",
         "data": {
-          "document": "docs/derivation-structure-tools-protocol",
-          "format": "markdown"
+          "document": "docs/derivation-structure-tools-protocol"
         }
       },
       {
@@ -3834,8 +3408,7 @@
         ],
         "head": "prompt-tool-protocol",
         "data": {
-          "document": "docs/derivation-emulate-tools-with-prompt-protocol",
-          "format": "markdown"
+          "document": "docs/derivation-emulate-tools-with-prompt-protocol"
         }
       },
       {
@@ -3850,8 +3423,7 @@
         ],
         "head": "tool-contract-quality",
         "data": {
-          "document": "docs/derivation-construct-tool-contract-quality",
-          "format": "markdown"
+          "document": "docs/derivation-construct-tool-contract-quality"
         }
       },
       {
@@ -3864,8 +3436,7 @@
         ],
         "head": "transcript-driven-tool-tuning",
         "data": {
-          "document": "docs/derivation-tune-tools-from-transcripts",
-          "format": "markdown"
+          "document": "docs/derivation-tune-tools-from-transcripts"
         }
       },
       {
@@ -3877,8 +3448,7 @@
         ],
         "head": "tool-grounded-agent-loop",
         "data": {
-          "document": "docs/derivation-build-tool-grounded-agent-loop",
-          "format": "markdown"
+          "document": "docs/derivation-build-tool-grounded-agent-loop"
         }
       },
       {
@@ -3890,8 +3460,7 @@
         ],
         "head": "organizational-memory",
         "data": {
-          "document": "docs/derivation-distinguish-organizational-memory",
-          "format": "markdown"
+          "document": "docs/derivation-distinguish-organizational-memory"
         }
       },
       {
@@ -3904,8 +3473,7 @@
         ],
         "head": "company-brain",
         "data": {
-          "document": "docs/derivation-compose-company-brain",
-          "format": "markdown"
+          "document": "docs/derivation-compose-company-brain"
         }
       },
       {
@@ -3922,8 +3490,7 @@
         ],
         "head": "factual-memory",
         "data": {
-          "document": "docs/derivation-construct-factual-memory",
-          "format": "markdown"
+          "document": "docs/derivation-construct-factual-memory"
         }
       },
       {
@@ -3937,8 +3504,7 @@
         ],
         "head": "interaction-memory",
         "data": {
-          "document": "docs/derivation-construct-interaction-memory",
-          "format": "markdown"
+          "document": "docs/derivation-construct-interaction-memory"
         }
       },
       {
@@ -3952,8 +3518,7 @@
         ],
         "head": "action-memory",
         "data": {
-          "document": "docs/derivation-coordinate-action-memory",
-          "format": "markdown"
+          "document": "docs/derivation-coordinate-action-memory"
         }
       },
       {
@@ -3966,8 +3531,7 @@
         ],
         "head": "replayable-memory-ingestion",
         "data": {
-          "document": "docs/derivation-build-replayable-memory-ingestion",
-          "format": "markdown"
+          "document": "docs/derivation-build-replayable-memory-ingestion"
         }
       },
       {
@@ -3980,8 +3544,7 @@
         ],
         "head": "hybrid-memory-retrieval",
         "data": {
-          "document": "docs/derivation-build-hybrid-memory-retrieval",
-          "format": "markdown"
+          "document": "docs/derivation-build-hybrid-memory-retrieval"
         }
       },
       {
@@ -3994,8 +3557,7 @@
         ],
         "head": "memory-substrate",
         "data": {
-          "document": "docs/derivation-assemble-memory-substrate",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-memory-substrate"
         }
       },
       {
@@ -4008,8 +3570,7 @@
         ],
         "head": "graduated-action-automation",
         "data": {
-          "document": "docs/derivation-graduate-action-automation",
-          "format": "markdown"
+          "document": "docs/derivation-graduate-action-automation"
         }
       },
       {
@@ -4021,8 +3582,7 @@
         ],
         "head": "context-residency-cost",
         "data": {
-          "document": "docs/derivation-derive-context-residency-cost",
-          "format": "markdown"
+          "document": "docs/derivation-derive-context-residency-cost"
         }
       },
       {
@@ -4034,8 +3594,7 @@
         ],
         "head": "cumulative-context-area",
         "data": {
-          "document": "docs/derivation-derive-cumulative-context-area",
-          "format": "markdown"
+          "document": "docs/derivation-derive-cumulative-context-area"
         }
       },
       {
@@ -4047,8 +3606,7 @@
         ],
         "head": "offloading-eligibility",
         "data": {
-          "document": "docs/derivation-qualify-offloading-by-reread",
-          "format": "markdown"
+          "document": "docs/derivation-qualify-offloading-by-reread"
         }
       },
       {
@@ -4060,8 +3618,7 @@
         ],
         "head": "offloading-eligibility",
         "data": {
-          "document": "docs/derivation-qualify-offloading-by-snapshot",
-          "format": "markdown"
+          "document": "docs/derivation-qualify-offloading-by-snapshot"
         }
       },
       {
@@ -4074,8 +3631,7 @@
         ],
         "head": "generation-time-offloading",
         "data": {
-          "document": "docs/derivation-preemptively-offload-generated-results",
-          "format": "markdown"
+          "document": "docs/derivation-preemptively-offload-generated-results"
         }
       },
       {
@@ -4088,8 +3644,7 @@
         ],
         "head": "result-side-offloading",
         "data": {
-          "document": "docs/derivation-select-result-side-offloading",
-          "format": "markdown"
+          "document": "docs/derivation-select-result-side-offloading"
         }
       },
       {
@@ -4102,8 +3657,7 @@
         ],
         "head": "historical-tool-result-reclamation",
         "data": {
-          "document": "docs/derivation-reclaim-historical-tool-results",
-          "format": "markdown"
+          "document": "docs/derivation-reclaim-historical-tool-results"
         }
       },
       {
@@ -4115,8 +3669,7 @@
         ],
         "head": "offloading-lifecycle",
         "data": {
-          "document": "docs/derivation-assemble-offloading-lifecycle",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-offloading-lifecycle"
         }
       },
       {
@@ -4129,8 +3682,7 @@
         ],
         "head": "argument-side-offloading",
         "data": {
-          "document": "docs/derivation-select-argument-side-offloading",
-          "format": "markdown"
+          "document": "docs/derivation-select-argument-side-offloading"
         }
       },
       {
@@ -4142,8 +3694,7 @@
         ],
         "head": "lossless-soft-compaction",
         "data": {
-          "document": "docs/derivation-derive-lossless-soft-compaction",
-          "format": "markdown"
+          "document": "docs/derivation-derive-lossless-soft-compaction"
         }
       },
       {
@@ -4157,8 +3708,7 @@
         ],
         "head": "compression-trigger-policy",
         "data": {
-          "document": "docs/derivation-design-compression-trigger-policy",
-          "format": "markdown"
+          "document": "docs/derivation-design-compression-trigger-policy"
         }
       },
       {
@@ -4171,8 +3721,7 @@
         ],
         "head": "multi-level-compaction",
         "data": {
-          "document": "docs/derivation-compose-multi-level-compaction",
-          "format": "markdown"
+          "document": "docs/derivation-compose-multi-level-compaction"
         }
       },
       {
@@ -4185,8 +3734,7 @@
         ],
         "head": "long-horizon-offloading-gain",
         "data": {
-          "document": "docs/derivation-derive-long-horizon-offloading-gain",
-          "format": "markdown"
+          "document": "docs/derivation-derive-long-horizon-offloading-gain"
         }
       },
       {
@@ -4200,8 +3748,7 @@
         ],
         "head": "microcompact",
         "data": {
-          "document": "docs/derivation-build-microcompact-preprocessor",
-          "format": "markdown"
+          "document": "docs/derivation-build-microcompact-preprocessor"
         }
       },
       {
@@ -4214,8 +3761,7 @@
         ],
         "head": "hot-path-cache-edit",
         "data": {
-          "document": "docs/derivation-execute-hot-path-cache-edit",
-          "format": "markdown"
+          "document": "docs/derivation-execute-hot-path-cache-edit"
         }
       },
       {
@@ -4228,8 +3774,7 @@
         ],
         "head": "main-thread-cache-edit-scope",
         "data": {
-          "document": "docs/derivation-scope-cache-edits-to-main-thread",
-          "format": "markdown"
+          "document": "docs/derivation-scope-cache-edits-to-main-thread"
         }
       },
       {
@@ -4241,8 +3786,7 @@
         ],
         "head": "thinking-block-reclamation",
         "data": {
-          "document": "docs/derivation-reclaim-old-thinking-blocks",
-          "format": "markdown"
+          "document": "docs/derivation-reclaim-old-thinking-blocks"
         }
       },
       {
@@ -4255,8 +3799,7 @@
         ],
         "head": "cold-start-local-rewrite",
         "data": {
-          "document": "docs/derivation-execute-cold-start-rewrite",
-          "format": "markdown"
+          "document": "docs/derivation-execute-cold-start-rewrite"
         }
       },
       {
@@ -4269,8 +3812,7 @@
         ],
         "head": "cost-ordered-compaction-cascade",
         "data": {
-          "document": "docs/derivation-order-compaction-cascade",
-          "format": "markdown"
+          "document": "docs/derivation-order-compaction-cascade"
         }
       },
       {
@@ -4282,8 +3824,7 @@
         ],
         "head": "compaction-circuit-breaker",
         "data": {
-          "document": "docs/derivation-break-fullcompact-failure-loop",
-          "format": "markdown"
+          "document": "docs/derivation-break-fullcompact-failure-loop"
         }
       },
       {
@@ -4295,8 +3836,7 @@
         ],
         "head": "harness-api-protocol-codesign",
         "data": {
-          "document": "docs/derivation-codesign-context-edit-protocol",
-          "format": "markdown"
+          "document": "docs/derivation-codesign-context-edit-protocol"
         }
       },
       {
@@ -4309,8 +3849,7 @@
         ],
         "head": "multi-level-compaction",
         "data": {
-          "document": "docs/derivation-refine-multi-level-compaction",
-          "format": "markdown"
+          "document": "docs/derivation-refine-multi-level-compaction"
         }
       },
       {
@@ -4322,8 +3861,7 @@
         ],
         "head": "agent-io-minimum",
         "data": {
-          "document": "docs/derivation-infer-agent-io-minimum",
-          "format": "markdown"
+          "document": "docs/derivation-infer-agent-io-minimum"
         }
       },
       {
@@ -4336,8 +3874,7 @@
         ],
         "head": "afs-path-namespace",
         "data": {
-          "document": "docs/derivation-compose-afs-path-namespace",
-          "format": "markdown"
+          "document": "docs/derivation-compose-afs-path-namespace"
         }
       },
       {
@@ -4349,8 +3886,7 @@
         ],
         "head": "identity-context-injection",
         "data": {
-          "document": "docs/derivation-inject-afs-identity-context",
-          "format": "markdown"
+          "document": "docs/derivation-inject-afs-identity-context"
         }
       },
       {
@@ -4363,8 +3899,7 @@
         ],
         "head": "agentfs-service",
         "data": {
-          "document": "docs/derivation-build-agentfs-service",
-          "format": "markdown"
+          "document": "docs/derivation-build-agentfs-service"
         }
       },
       {
@@ -4376,8 +3911,7 @@
         ],
         "head": "mount-time-capability-discovery",
         "data": {
-          "document": "docs/derivation-discover-provider-capabilities",
-          "format": "markdown"
+          "document": "docs/derivation-discover-provider-capabilities"
         }
       },
       {
@@ -4389,8 +3923,7 @@
         ],
         "head": "normalized-provider-error",
         "data": {
-          "document": "docs/derivation-normalize-provider-errors",
-          "format": "markdown"
+          "document": "docs/derivation-normalize-provider-errors"
         }
       },
       {
@@ -4405,8 +3938,7 @@
         ],
         "head": "agent-file-system",
         "data": {
-          "document": "docs/derivation-assemble-agent-file-system",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-agent-file-system"
         }
       },
       {
@@ -4418,8 +3950,7 @@
         ],
         "head": "afs-sandbox-layering",
         "data": {
-          "document": "docs/derivation-layer-afs-with-sandbox",
-          "format": "markdown"
+          "document": "docs/derivation-layer-afs-with-sandbox"
         }
       },
       {
@@ -4432,8 +3963,7 @@
         ],
         "head": "execution-capability-tier",
         "data": {
-          "document": "docs/derivation-select-execution-capability-tier",
-          "format": "markdown"
+          "document": "docs/derivation-select-execution-capability-tier"
         }
       },
       {
@@ -4445,8 +3975,7 @@
         ],
         "head": "afs-provider-ecosystem",
         "data": {
-          "document": "docs/derivation-grow-afs-provider-ecosystem",
-          "format": "markdown"
+          "document": "docs/derivation-grow-afs-provider-ecosystem"
         }
       },
       {
@@ -4464,8 +3993,7 @@
         ],
         "head": "managed-agent-toolset",
         "data": {
-          "document": "docs/derivation-assemble-managed-agent-toolset",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-managed-agent-toolset"
         }
       },
       {
@@ -4477,8 +4005,7 @@
         ],
         "head": "managed-agent-toolset",
         "data": {
-          "document": "docs/derivation-configure-managed-toolset",
-          "format": "markdown"
+          "document": "docs/derivation-configure-managed-toolset"
         }
       },
       {
@@ -4490,8 +4017,7 @@
         ],
         "head": "edit-tool",
         "data": {
-          "document": "docs/derivation-build-exact-match-edit",
-          "format": "markdown"
+          "document": "docs/derivation-build-exact-match-edit"
         }
       },
       {
@@ -4503,8 +4029,7 @@
         ],
         "head": "localized-edit-safety",
         "data": {
-          "document": "docs/derivation-derive-localized-edit-safety",
-          "format": "markdown"
+          "document": "docs/derivation-derive-localized-edit-safety"
         }
       },
       {
@@ -4519,8 +4044,7 @@
         ],
         "head": "coding-tool-workflow",
         "data": {
-          "document": "docs/derivation-compose-coding-tool-workflow",
-          "format": "markdown"
+          "document": "docs/derivation-compose-coding-tool-workflow"
         }
       },
       {
@@ -4532,8 +4056,7 @@
         ],
         "head": "tool-execution-ownership",
         "data": {
-          "document": "docs/derivation-assign-managed-tool-execution",
-          "format": "markdown"
+          "document": "docs/derivation-assign-managed-tool-execution"
         }
       },
       {
@@ -4545,8 +4068,7 @@
         ],
         "head": "prompt-module-addressability",
         "data": {
-          "document": "docs/derivation-address-prompt-modules",
-          "format": "markdown"
+          "document": "docs/derivation-address-prompt-modules"
         }
       },
       {
@@ -4559,8 +4081,7 @@
         ],
         "head": "modular-prompt-assembly",
         "data": {
-          "document": "docs/derivation-assemble-modular-prompt",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-modular-prompt"
         }
       },
       {
@@ -4573,8 +4094,7 @@
         ],
         "head": "progressive-disclosure",
         "data": {
-          "document": "docs/derivation-disclose-memory-progressively",
-          "format": "markdown"
+          "document": "docs/derivation-disclose-memory-progressively"
         }
       },
       {
@@ -4590,8 +4110,7 @@
         ],
         "head": "personalized-memory-feature",
         "data": {
-          "document": "docs/derivation-assemble-personalized-memory",
-          "format": "markdown"
+          "document": "docs/derivation-assemble-personalized-memory"
         }
       },
       {
@@ -4604,8 +4123,7 @@
         ],
         "head": "runtime-prompt-defense",
         "data": {
-          "document": "docs/derivation-defend-runtime-prompt",
-          "format": "markdown"
+          "document": "docs/derivation-defend-runtime-prompt"
         }
       },
       {
@@ -4619,8 +4137,7 @@
         ],
         "head": "harness-plugin",
         "data": {
-          "document": "docs/derivation-compose-harness-plugin",
-          "format": "markdown"
+          "document": "docs/derivation-compose-harness-plugin"
         }
       },
       {
@@ -4633,8 +4150,7 @@
         ],
         "head": "plugin-audit-surface",
         "data": {
-          "document": "docs/derivation-audit-plugin-surfaces",
-          "format": "markdown"
+          "document": "docs/derivation-audit-plugin-surfaces"
         }
       },
       {
@@ -4649,8 +4165,7 @@
         ],
         "head": "deep-agent",
         "data": {
-          "document": "docs/derivation-deepen-agent-loop",
-          "format": "markdown"
+          "document": "docs/derivation-deepen-agent-loop"
         }
       },
       {
@@ -4663,8 +4178,7 @@
         ],
         "head": "subagent-context-isolation",
         "data": {
-          "document": "docs/derivation-isolate-subagent-context",
-          "format": "markdown"
+          "document": "docs/derivation-isolate-subagent-context"
         }
       },
       {
@@ -4677,8 +4191,7 @@
         ],
         "head": "agent-middleware",
         "data": {
-          "document": "docs/derivation-compose-agent-middleware",
-          "format": "markdown"
+          "document": "docs/derivation-compose-agent-middleware"
         }
       },
       {
@@ -4690,8 +4203,7 @@
         ],
         "head": "hook",
         "data": {
-          "document": "docs/derivation-order-agent-middleware",
-          "format": "markdown"
+          "document": "docs/derivation-order-agent-middleware"
         }
       },
       {
@@ -4704,8 +4216,7 @@
         ],
         "head": "strict-memory-write-discipline",
         "data": {
-          "document": "docs/derivation-discipline-memory-writes",
-          "format": "markdown"
+          "document": "docs/derivation-discipline-memory-writes"
         }
       },
       {
@@ -4719,8 +4230,7 @@
         ],
         "head": "autonomous-daemon-agent",
         "data": {
-          "document": "docs/derivation-build-autonomous-daemon-agent",
-          "format": "markdown"
+          "document": "docs/derivation-build-autonomous-daemon-agent"
         }
       },
       {
@@ -4733,8 +4243,7 @@
         ],
         "head": "cloud-planning-offload",
         "data": {
-          "document": "docs/derivation-offload-cloud-planning",
-          "format": "markdown"
+          "document": "docs/derivation-offload-cloud-planning"
         }
       },
       {
@@ -4746,8 +4255,7 @@
         ],
         "head": "reader-specific-documentation",
         "data": {
-          "document": "docs/derivation-split-reader-specific-documentation",
-          "format": "markdown"
+          "document": "docs/derivation-split-reader-specific-documentation"
         }
       },
       {
@@ -4763,8 +4271,7 @@
         ],
         "head": "agent-install-contract",
         "data": {
-          "document": "docs/derivation-compose-agent-install-contract",
-          "format": "markdown"
+          "document": "docs/derivation-compose-agent-install-contract"
         }
       },
       {
@@ -4778,8 +4285,7 @@
         ],
         "head": "agent-install-contract",
         "data": {
-          "document": "docs/derivation-bound-safe-agent-installation",
-          "format": "markdown"
+          "document": "docs/derivation-bound-safe-agent-installation"
         }
       },
       {
@@ -4792,8 +4298,7 @@
         ],
         "head": "idempotent-installation",
         "data": {
-          "document": "docs/derivation-make-installation-idempotent",
-          "format": "markdown"
+          "document": "docs/derivation-make-installation-idempotent"
         }
       },
       {
@@ -4806,8 +4311,7 @@
         ],
         "head": "install-contract-refinement",
         "data": {
-          "document": "docs/derivation-refine-install-contract-from-trials",
-          "format": "markdown"
+          "document": "docs/derivation-refine-install-contract-from-trials"
         }
       },
       {
@@ -4820,8 +4324,7 @@
         ],
         "head": "machine-executable-document",
         "data": {
-          "document": "docs/derivation-derive-machine-executable-document",
-          "format": "markdown"
+          "document": "docs/derivation-derive-machine-executable-document"
         }
       }
     ]
