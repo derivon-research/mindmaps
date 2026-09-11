@@ -1,5 +1,6 @@
 {
   "schema": "derivon.workspace/v1",
+  "id": "analog-design-essentials",
   "document": {
     "description": "来源：Willy M. C. Sansen, Analog Design Essentials, Springer, 2006（用户提供并授权用于本项目）。目标范围：完整导入第 1-24 章；语言：中文；受众：具备基础电路与晶体管知识的模拟集成电路初学设计者。方法：以手算简化模型建立尺寸、电流与性能的因果关系，再用精确 CAD 模型验证。当前已导入：第 1-24 章。",
     "title": "Analog Design Essentials 中文知识图谱"

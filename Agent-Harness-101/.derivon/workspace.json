@@ -1,5 +1,6 @@
 {
   "schema": "derivon.workspace/v1",
+  "id": "agent-harness-101",
   "document": {
     "description": "授权来源：https://my.feishu.cn/wiki/L082wubkdie8uMkRUjgceKYQnIe；范围：根节点的 15 篇直接子文档；语言：中文；目标读者：具备基础 LLM 与软件工程知识、初次系统学习 Agent Harness 的技术读者；工作区类型：新建导入。",
     "title": "Agent Harness 101"
@@ -2504,12 +2505,19 @@
           "document": "docs/concept-install-contract-refinement",
           "label": "Install Contract Refinement"
         }
+      },
+      {
+        "id": "c-mhy8de",
+        "data": {
+          "label": "New",
+          "document": "docs/concept-mhy8de"
+        }
       }
     ],
     "hyperedges": [
       {
         "id": "build-harness-core",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "agent-loop",
           "tool-layer",
@@ -2536,7 +2544,7 @@
       },
       {
         "id": "enable-parallel-tools",
-        "weight": 1.0,
+        "weight": 1,
         "tails": [
           "same-turn-tool-batch"
         ],
@@ -2596,7 +2604,7 @@
       },
       {
         "id": "specialize-coding-agent",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "multiround-react",
           "coding-toolset"
@@ -2608,7 +2616,7 @@
       },
       {
         "id": "offload-large-payloads",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "large-tool-payload",
           "filesystem-indirection",
@@ -2648,7 +2656,7 @@
       },
       {
         "id": "infer-orthogonal-layering",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "react-loop",
           "plan-then-act",
@@ -2663,7 +2671,7 @@
       },
       {
         "id": "compose-agent-system",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "foundation-model",
           "agent-harness"
@@ -2675,7 +2683,7 @@
       },
       {
         "id": "practice-harness-engineering",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "agent-harness",
           "tracing",
@@ -2699,7 +2707,7 @@
       },
       {
         "id": "ratchet-rules",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "specific-failure-evidence",
           "model-capability-retest"
@@ -2711,7 +2719,7 @@
       },
       {
         "id": "derive-behavior-driven-design",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "specific-failure-evidence"
         ],
@@ -2747,7 +2755,7 @@
       },
       {
         "id": "sandbox-shell-execution",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "shell-execution",
           "sandbox"
@@ -2772,7 +2780,7 @@
       },
       {
         "id": "separate-agent-governance",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "planner-role",
           "generator-role",
@@ -2809,7 +2817,7 @@
       },
       {
         "id": "combine-skill-hook",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "skill",
           "hook"
@@ -2821,7 +2829,7 @@
       },
       {
         "id": "automate-loop-executor",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "manual-agent-loop",
           "self-prompting",
@@ -2835,7 +2843,7 @@
       },
       {
         "id": "assemble-goal-cycle",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "human-goal-ownership",
           "discovery-phase",
@@ -2851,7 +2859,7 @@
       },
       {
         "id": "coordinate-parallel-agents",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "orchestrator",
           "sub-agent",
@@ -2865,7 +2873,7 @@
       },
       {
         "id": "compose-open-loop",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "open-ended-goal",
           "agent-self-direction",
@@ -2878,7 +2886,7 @@
       },
       {
         "id": "build-deterministic-verification",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "acceptance-criteria",
           "machine-checkable-signal"
@@ -2890,7 +2898,7 @@
       },
       {
         "id": "compose-closed-loop",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "bounded-goal",
           "deterministic-verification",
@@ -2916,7 +2924,7 @@
       },
       {
         "id": "run-recurring-loop",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "periodic-trigger",
           "cross-session-memory",
@@ -2930,7 +2938,7 @@
       },
       {
         "id": "gate-uncertain-output",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "uncertain-agent-judgment",
           "human-in-the-loop"
@@ -2942,7 +2950,7 @@
       },
       {
         "id": "filter-recurring-output",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "relevance-threshold",
           "historical-deduplication"
@@ -2979,7 +2987,7 @@
       },
       {
         "id": "internalize-agent-verification",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "agent-call",
           "verification-prompt",
@@ -2992,7 +3000,7 @@
       },
       {
         "id": "build-assert-gate",
-        "weight": 1.0,
+        "weight": 1,
         "tails": [
           "llm-as-a-judge"
         ],
@@ -3026,7 +3034,7 @@
       },
       {
         "id": "derive-workflow-repeatability",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "workflow-script",
           "deterministic-replay"
@@ -3063,7 +3071,7 @@
       },
       {
         "id": "make-workflow-controllable",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "workflow-observability",
           "workflow-intervention"
@@ -3091,7 +3099,7 @@
       },
       {
         "id": "assemble-mature-workflow-checklist",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "workflow-trigger",
           "planner-role",
@@ -3110,7 +3118,7 @@
       },
       {
         "id": "execute-dynamic-workflow-runtime",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "workflow-script",
           "workflow-runtime",
@@ -3123,7 +3131,7 @@
       },
       {
         "id": "define-portable-runtime-boundary",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "workflow-host-api",
           "runtime-agnostic-agent-boundary"
@@ -3175,7 +3183,7 @@
       },
       {
         "id": "build-item-pipeline",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "item-local-progression",
           "code-control-flow"
@@ -3200,7 +3208,7 @@
       },
       {
         "id": "assemble-journaled-replay",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "agent-result-journal",
           "input-matched-result-cache",
@@ -3242,7 +3250,7 @@
       },
       {
         "id": "bound-agent-stage",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "structured-output",
           "acceptance-criteria"
@@ -3254,7 +3262,7 @@
       },
       {
         "id": "tier-workflow-models",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "workflow-generation",
           "bounded-agent-stage",
@@ -3281,7 +3289,7 @@
       },
       {
         "id": "derive-agent-version-drifting",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "historical-behavior-trace",
           "implicit-few-shot",
@@ -3309,7 +3317,7 @@
       },
       {
         "id": "mark-version-boundary",
-        "weight": 1.0,
+        "weight": 1,
         "tails": [
           "version-boundary-reminder"
         ],
@@ -3320,7 +3328,7 @@
       },
       {
         "id": "build-version-migration-evidence",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "minimal-ab-observation",
           "evals"
@@ -3332,7 +3340,7 @@
       },
       {
         "id": "compose-safe-agent-version-migration",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "compatibility-first-migration",
           "side-by-side-versioning",
@@ -3347,7 +3355,7 @@
       },
       {
         "id": "assemble-tool-definition-contract",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "tool-name",
           "tool-use-boundary-description",
@@ -3386,7 +3394,7 @@
       },
       {
         "id": "structure-tools-protocol",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "tool-definition-contract",
           "tool-call",
@@ -3400,7 +3408,7 @@
       },
       {
         "id": "emulate-tools-with-prompt-protocol",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "system-prompt",
           "action-text-format",
@@ -3413,7 +3421,7 @@
       },
       {
         "id": "construct-tool-contract-quality",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "action-oriented-tool-name",
           "tool-use-boundary-description",
@@ -3441,7 +3449,7 @@
       },
       {
         "id": "build-tool-grounded-agent-loop",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "tool-call-round-trip",
           "react-loop"
@@ -3465,7 +3473,7 @@
       },
       {
         "id": "compose-company-brain",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "factual-memory",
           "interaction-memory",
@@ -3495,7 +3503,7 @@
       },
       {
         "id": "construct-interaction-memory",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "organizational-ontology",
           "decision-rationale",
@@ -3509,7 +3517,7 @@
       },
       {
         "id": "coordinate-action-memory",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "factual-memory",
           "interaction-memory",
@@ -3523,7 +3531,7 @@
       },
       {
         "id": "build-replayable-memory-ingestion",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "append-only-event-log",
           "extracted-claim",
@@ -3536,7 +3544,7 @@
       },
       {
         "id": "build-hybrid-memory-retrieval",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "embedding-retrieval",
           "graph-expansion",
@@ -3575,7 +3583,7 @@
       },
       {
         "id": "derive-context-residency-cost",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "large-tool-payload",
           "context-window"
@@ -3599,7 +3607,7 @@
       },
       {
         "id": "qualify-offloading-by-reread",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "large-tool-payload",
           "stable-reread-source"
@@ -3623,7 +3631,7 @@
       },
       {
         "id": "preemptively-offload-generated-results",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "tool-result",
           "offloading-eligibility",
@@ -3649,7 +3657,7 @@
       },
       {
         "id": "reclaim-historical-tool-results",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "result-side-offloading",
           "retroactive-message-rewriting",
@@ -3662,7 +3670,7 @@
       },
       {
         "id": "assemble-offloading-lifecycle",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "generation-time-offloading",
           "historical-tool-result-reclamation"
@@ -3674,7 +3682,7 @@
       },
       {
         "id": "select-argument-side-offloading",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "tool-call",
           "tool-argument-audit-trace",
@@ -3687,7 +3695,7 @@
       },
       {
         "id": "derive-lossless-soft-compaction",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "recoverable-context-occupancy",
           "retroactive-message-rewriting"
@@ -3699,7 +3707,7 @@
       },
       {
         "id": "design-compression-trigger-policy",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "context-window",
           "reserved-context-budget",
@@ -3713,7 +3721,7 @@
       },
       {
         "id": "compose-multi-level-compaction",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "compression-trigger-policy",
           "lossless-soft-compaction",
@@ -3739,7 +3747,7 @@
       },
       {
         "id": "build-microcompact-preprocessor",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "api-request-preprocessing-hook",
           "zero-llm-compaction",
@@ -3766,7 +3774,7 @@
       },
       {
         "id": "scope-cache-edits-to-main-thread",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "sub-agent",
           "cache-edits",
@@ -3791,7 +3799,7 @@
       },
       {
         "id": "execute-cold-start-rewrite",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "idle-gap-trigger",
           "retroactive-message-rewriting",
@@ -3804,7 +3812,7 @@
       },
       {
         "id": "order-compaction-cascade",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "microcompact",
           "autocompact",
@@ -3817,7 +3825,7 @@
       },
       {
         "id": "break-fullcompact-failure-loop",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "fullcompact",
           "fullcompact-failure"
@@ -3879,7 +3887,7 @@
       },
       {
         "id": "inject-afs-identity-context",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "afs-client",
           "afs-path-namespace"
@@ -3904,7 +3912,7 @@
       },
       {
         "id": "discover-provider-capabilities",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "afs-provider",
           "provider-capability-protocol"
@@ -3916,7 +3924,7 @@
       },
       {
         "id": "normalize-provider-errors",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "afs-provider",
           "tool-result-contract"
@@ -3943,7 +3951,7 @@
       },
       {
         "id": "layer-afs-with-sandbox",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "agent-file-system",
           "sandbox"
@@ -3955,7 +3963,7 @@
       },
       {
         "id": "select-execution-capability-tier",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "agent-io-minimum",
           "safe-general-execution",
@@ -3980,7 +3988,7 @@
       },
       {
         "id": "assemble-managed-agent-toolset",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "web-search",
           "web-fetch",
@@ -4010,7 +4018,7 @@
       },
       {
         "id": "build-exact-match-edit",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "exact-match-edit",
           "write-tool"
@@ -4022,7 +4030,7 @@
       },
       {
         "id": "derive-localized-edit-safety",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "read-before-write",
           "exact-match-edit"
@@ -4034,7 +4042,7 @@
       },
       {
         "id": "compose-coding-tool-workflow",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "glob-tool",
           "grep-tool",
@@ -4049,7 +4057,7 @@
       },
       {
         "id": "assign-managed-tool-execution",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "managed-agent-runtime",
           "harness-tool-execution"
@@ -4061,7 +4069,7 @@
       },
       {
         "id": "address-prompt-modules",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "prompt-fragment",
           "system-prompt"
@@ -4073,7 +4081,7 @@
       },
       {
         "id": "assemble-modular-prompt",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "prompt-fragment",
           "prompt-module-addressability",
@@ -4086,7 +4094,7 @@
       },
       {
         "id": "disclose-memory-progressively",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "memory-summary",
           "past-chat-retrieval",
@@ -4128,7 +4136,7 @@
       },
       {
         "id": "compose-harness-plugin",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "prompt-fragment",
           "tool-definition-contract",
@@ -4142,7 +4150,7 @@
       },
       {
         "id": "audit-plugin-surfaces",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "harness-plugin",
           "plugin-manifest",
@@ -4155,7 +4163,7 @@
       },
       {
         "id": "deepen-agent-loop",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "agent-loop",
           "plan-then-act",
@@ -4170,7 +4178,7 @@
       },
       {
         "id": "isolate-subagent-context",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "sub-agent",
           "fan-in",
@@ -4196,7 +4204,7 @@
       },
       {
         "id": "order-agent-middleware",
-        "weight": 2.0,
+        "weight": 2,
         "tails": [
           "agent-middleware",
           "middleware-onion-order"
@@ -4208,7 +4216,7 @@
       },
       {
         "id": "discipline-memory-writes",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "filesystem-persistence",
           "deterministic-verification",
@@ -4221,7 +4229,7 @@
       },
       {
         "id": "build-autonomous-daemon-agent",
-        "weight": 4.0,
+        "weight": 4,
         "tails": [
           "recurring-agent-loop",
           "event-driven-agent-trigger",
@@ -4235,7 +4243,7 @@
       },
       {
         "id": "offload-cloud-planning",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "planner-role",
           "sub-agent",
@@ -4290,7 +4298,7 @@
       },
       {
         "id": "make-installation-idempotent",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "desired-state-prompt",
           "read-before-write",
@@ -4303,7 +4311,7 @@
       },
       {
         "id": "refine-install-contract-from-trials",
-        "weight": 3.0,
+        "weight": 3,
         "tails": [
           "install-contract-trial-run",
           "specific-failure-evidence",

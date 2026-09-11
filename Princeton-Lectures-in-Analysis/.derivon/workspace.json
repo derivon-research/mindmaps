@@ -1,5 +1,6 @@
 {
   "schema": "derivon.workspace/v1",
+  "id": "princeton-lectures-in-analysis",
   "document": {
     "description": "当前已导入：第一卷《Fourier Analysis》第 1–8 章及“Integration”附录（书页 1–297；PDF 物理页 18–314）；第二卷《Complex Analysis》第 1–10 章及 Appendix A–B（书页 1–364；PDF 物理页 346–709）；第三卷《Real Analysis》第 1–7 章（全卷正文，书页 1–388；PDF 物理页 746–1133）；第四卷《Functional Analysis》第 1–8 章（全卷正文，书页 1–408；PDF 物理页 1167–1574）。",
     "title": "Princeton Lectures in Analysis（中文导读图谱）"
