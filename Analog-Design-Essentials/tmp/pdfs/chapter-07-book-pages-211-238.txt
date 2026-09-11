@@ -1,0 +1,1370 @@
+                                                                   071
+                                                                   The list of diﬀerent opera-
+                                                                   tional ampliﬁers is endless.
+                                                                   And yet it is possible to
+                                                                   classify them in a limited
+                                                                   number of important cate-
+                                                                   gories. Examples are sym-
+                                                                   metrical opamps and folded
+                                                                   cascodes. They are being
+                                                                   reused and redesigned con-
+                                                                   tinuously. They are the
+                                                                   kings of the list of important
+                                                                   ampliﬁers.
+                                                                      Many other opamps can
+                                                                   be included in this list
+                                                                   because they highlight some
+                                                                   cleverness in design or
+because they excel in performance.
+  In this Chapter, a review is given on many important opamp circuits. In many cases the design
+compromises are discussed, together with their limits in terms of speed or noise or some other
+speciﬁcations.
+
+
+
+
+                                                                   072
+                                                                   In this Chapter the trade
+                                                                   oﬀs     between        standard
+                                                                   CMOS and BiCMOS are
+                                                                   also discussed. This is why
+                                                                   some known schematics are
+                                                                   also included.
+                                                                      Most of the discussion is
+                                                                   on the symmetrical OTA
+                                                                   and the folded cascode OTA
+                                                                   as they are so often used.
+                                                                      Finally, a list of published
+                                                                   opamps are discussed to
+                                                                   show that the design prin-
+                                                                   ciples are applicable to most
+                                                                   of them.
+                                                                      We recall the simplest
+                                                                   diﬀerential voltage ampliﬁer
+                                                                   that we have observed.
+
+
+
+
+                                             211
+212                                                                                    Chapter #7
+
+                                                                   073
+                                                                   This single-stage CMOS
+                                                                   OTA is well known.
+                                                                      Because it has a simple
+                                                                   conﬁguration means that it
+                                                                   can be used up to really high
+                                                                   frequencies. Its only possible
+                                                                   second pole is negligible
+                                                                   because of two reasons. it
+                                                                   occurs at values related to f
+                                                                                                 T
+                                                                   and secondly because this
+                                                                   node is on the other side of
+                                                                   the output. For a single-
+                                                                   ended ampliﬁer this means
+                                                                   that this second pole is fol-
+                                                                   lowed by a zero at twice the
+                                                                   frequency. As a result, it is
+                                                                   negligible.
+
+
+
+
+                                                                   074
+                                                                   Even if we connected a large
+                                                                   external capacitance at node
+                                                                   2, we would still ﬁnd half
+                                                                   of the circular current,
+                                                                   generated by M1 and M2,
+                                                                   through the output load.
+                                                                      Whatever the size of the
+                                                                   capacitor is, we always
+                                                                   retain half of the current
+                                                                   through the output load.
+                                                                   This factor of two can only
+                                                                   be explained by a pole-zero
+                                                                   doublet with spreading two.
+                                                                   Its eﬀect on the phase
+                                                                   margin is therefore margin-
+                                                                   ally small.
+  Each time we have a single-ended ampliﬁer, the capacitances on the other side than the output,
+will therefore be negligible for the Phase Margin.
+Important opamp conﬁgurations                                                           213
+
+                                                          075
+                                                          The gain of such a voltage
+                                                          ampliﬁer is rather limited as
+                                                          the gain per transistor can
+                                                          be quite small for nanome-
+                                                          ter MOST devices.
+                                                             This is why cascodes are
+                                                          better added. Four cascode
+                                                          MOSTs are added M5–8 in
+                                                          series with the input devices
+                                                          and current mirror, as
+                                                          shown in this slide. Note
+                                                          that cascode M7 is included
+                                                          in the feedback loop around
+                                                          transistor M3, which allows
+                                                          a larger output swing.
+                                                             This is called the tele-
+scopic CMOS OTA. The impedance at the output node increases considerably, but not the
+GBW, as shown next.
+  Obviously the power consumption does not increase.
+
+
+
+
+                                                              076
+                                                              Without cascodes, the gain
+                                                              is moderate. With cascodes
+                                                              however, the gain is in-
+                                                              creased, but only at low
+                                                              frequencies.
+                                                                 Cascode transistors are
+                                                              now mainly used for more
+                                                              gain at low frequencies, for
+                                                              example for lower distortion
+                                                              at low frequencies.
+                                                                 Another ‘‘hat’’ can be put
+                                                              on top of this characteristic
+                                                              by application of gain
+                                                              boosting to the cascode
+                                                              transistors M6 and M8.
+                                                                 For deep submicron or
+nanometer CMOS this has always become a necessity, as the gain per transistor has become
+less than 10.
+214                                                                                     Chapter #7
+
+                                                                      077
+                                                                      A two-stage ampliﬁer such
+                                                                      as the CMOS Miller OTA
+                                                                      needs more power to reach
+                                                                      similar values of GBW,
+                                                                      compared to a single-stage
+                                                                      ampliﬁer.
+                                                                        BiCMOS can now be
+                                                                      considered to save power.
+                                                                        The design plans have
+                                                                      been previously discussed.
+                                                                      They will be applied.
+
+
+
+
+                                                                      078
+                                                                      A Miller OTA in CMOS
+                                                                      technologies has been dis-
+                                                                      cussed in great detail. The
+                                                                      two governing expressions
+                                                                      are listed for the last time.
+                                                                      They are dealing with the
+                                                                      GBW and with the non-
+                                                                      dominant pole.
+                                                                         In each design plan, it is
+                                                                      always better to start with
+                                                                      the highest frequencies ﬁrst,
+                                                                      which here is the non-domi-
+                                                                      nant pole.
+                                                                         Decisions about g and
+                                                                                            m6
+                                                                      C are always ﬁrst, as
+                                                                        c
+                                                                      explained before.
+
+
+
+079
+Can BiCMOS provide additional advantages?
+   A typical BiCMOS realization of a Miller OTA is shown in this slide.
+   The second stage uses a bipolar transistor as its g is the same as for a MOST but with 4
+                                                         m
+times less DC current. Since the current in the second stage is by far the larger one, big savings
+in power consumption are achieved.
+   The input resistance of a bipolar transistor is too small, however. It reduces the resistance at
+node 1 considerably, such that there is little gain left (if any) in the ﬁrst stage.
+Important opamp conﬁgurations                                                                 215
+
+                                                                        This is why we need an
+                                                                     Emitter follower between
+                                                                     the ﬁrst stage and the input
+                                                                     transistor of the second
+                                                                     stage. It is realized with
+                                                                     transistor M9. The input
+                                                                     resistance is now beta times
+                                                                     higher and hopefully com-
+                                                                     parable to the output resis-
+                                                                     tance of the ﬁrst stage.
+                                                                        This Emitter follower
+                                                                     raises the DC voltage at
+                                                                     node 1 by one more V . As
+                                                                                            BE
+                                                                     a result, node 1 is about 2
+                                                                     V ’s or 1.3 V higher than
+                                                                       BE
+                                                                     V .
+                                                                       SS
+                                                                        In order to establish the
+same DC voltage at the other node 2, we use the three-transistor bipolar current mirror, explained
+in Chapter 2. Now both nodes 1 and 2 present similar DC voltages to the input pair, improving
+matching.
+
+
+
+                                                                     0710
+                                                                     One of the most used OTA’s
+                                                                     is the symmetrical OTA. It
+                                                                     is more symmetrical than
+                                                                     the Miller OTA. As a result,
+                                                                     matching is improved which
+                                                                     provides better oﬀset and
+                                                                     CMRR speciﬁcations (see
+                                                                     Chapter 15).
+
+
+
+
+0711
+A symmetrical OTA consists of one diﬀerential pair and three current mirrors. The input
+diﬀerential pair is loaded with two equal current mirrors, which provide a current gain B. It is
+sometimes called a load-compensated OTA as both loads are now the same.
+  In the case of a single-ended output we need another current mirror with gain 1 to reach this
+216                                                                                Chapter #7
+
+                                                                output. In the case of two
+                                                                outputs (in the next
+                                                                Chapter), we do not need
+                                                                this current mirror any
+                                                                more. This analysis is car-
+                                                                ried out for a single-ended
+                                                                output.
+                                                                   It is clear that this OTA
+                                                                is symmetrical. The input
+                                                                devices see exactly the same
+                                                                DC voltage and load imped-
+                                                                ance. This is about the best
+                                                                that can be achieved with
+                                                                respect to matching.
+                                                                   Moreover, there is some
+                                                                extra gain, by current factor
+                                                                B. How far can we go with
+                                                                B?
+
+
+                                                                0712
+                                                                The gain at low frequencies
+                                                                is easily calculated. Indeed,
+                                                                the circular current, gener-
+                                                                ated by the input devices, is
+                                                                ampliﬁed by B and ﬂows in
+                                                                the output load.
+                                                                   The output resistance R
+                                                                                            n4
+                                                                at node 4 is quite high.
+                                                                Actually it is the only high
+                                                                resistance in the circuit. All
+                                                                other nodes are at the 1/g
+                                                                                            m
+                                                                level. As a result, this is a
+                                                                single-stage ampliﬁer: there
+                                                                is only one high-resistance
+                                                                node, one single node where
+                                                                the gain is large, where the
+swing is large, and ultimately where the dominant pole is formed.
+  The voltage gain at low frequencies is now easily obtained.
+  The bandwidth is created at the same output node. The GBW is the product. It is the same
+as for a single-transistor ampliﬁer but multiplied by current factor B.
+  Increasing B increases the GBW.
+  How far can we go with B?
+
+
+0713
+However, all other nodes create non-dominant poles. Since we ﬁnd three other nodes 1, 2 and
+5, do we have three non-dominant poles?
+Important opamp conﬁgurations                                                                   217
+
+                                                                      The answer is negative.
+                                                                   We will see that only one
+                                                                   non-dominant pole is play-
+                                                                   ing a role. It is the one at
+                                                                   nodes 1 and 2.
+                                                                      How can the non-domi-
+                                                                   nant pole at node 1 be the
+                                                                   same as at node 2? Actually,
+                                                                   for a diﬀerential output volt-
+                                                                   age, it is fairly easy to show
+                                                                   that these nodes together
+                                                                   form just one pole (see next
+                                                                   slide).
+                                                                      As a result, the non-domi-
+                                                                   nant pole is determined by
+                                                                   the resistance 1/g and all
+                                                                                        m4
+                                                                   capacitances connected to
+that node. They are listed in this slide. As a very crude approximation, we take them all to be
+the same, except for the current mirror. At node 1, transistor M6 oﬀers an input capacitance
+which is B times larger than for transistor M4.
+  Finally, the non-dominant pole frequency can be rewritten in terms of f and current factor
+                                                                            T
+B. The larger B, the lower the non-dominant pole. This expression therefore provides the limit
+on B.
+
+
+                                                                     0714
+                                                                     For a diﬀerential output,
+                                                                     two transistors to ground
+                                                                     provide only a ﬁrst-order
+                                                                     characteristic – there is only
+                                                                     one single pole.
+                                                                        This is obvious for the cir-
+                                                                     cuit on the left. Since there
+                                                                     is only one capacitance, only
+                                                                     one pole can emerge.
+                                                                        However, this circuit can
+                                                                     easily be converted to the
+                                                                     circuit on the right. We take
+                                                                     two capacitances in series
+                                                                     with double the value and
+                                                                     then ground the node
+                                                                     between both capacitances.
+This is how the circuit on the right is derived from the ﬁrst one. For AC they are exactly the
+same. They have the same pole!
+  To make it slightly more intriguing, we could wonder what happens if there is some asymmetry.
+For example, if one capacitance is slightly larger than the other one, how can it create a pole
+with the same value?
+  In this case, we ﬁnd two poles, but we also ﬁnd a zero inbetween, to ensure a ﬁrst-order roll-oﬀ.
+218                                                                                    Chapter #7
+
+  The net result is that for a diﬀerential output, these two nodes establish one single pole
+only!
+
+                                                                    0715
+                                                                    How about the pole at
+                                                                    node 5?
+                                                                       Remember that this is a
+                                                                    node at the other side of a
+                                                                    single-ended ampliﬁer. Each
+                                                                    time we have a single-ended
+                                                                    ampliﬁer, the capacitances
+                                                                    on the other side than the
+                                                                    output, will be negligible for
+                                                                    the Phase Margin.
+                                                                       Indeed,    a    pole-zero
+                                                                    doublet is created by the
+                                                                    capacitances at this node 5.
+                                                                    Its spreading is only 2. As a
+                                                                    result, the eﬀect on the
+                                                                    Phase Margin is now
+                                                                    negligible.
+  Despite the fact that we have three nodes at the 1/g     level, we only have one single non-
+                                                       m
+dominant pole!
+
+                                                                    0716
+                                                                    As an example, let us design
+                                                                    a CMOS symmetrical OTA
+                                                                    for a GBW of 200 MHz and
+                                                                    2 pF load capacitance.
+                                                                       The expressions of the
+                                                                    GBW and f are repeated.
+                                                                                nd
+                                                                       Obviously, for wide-band
+                                                                    performance, we have to
+                                                                    take a high-speed transistor
+                                                                    for M4 and M6. This means
+                                                                    that this current ampliﬁer
+                                                                    (or mirror) devices have
+                                                                    to be designed for large
+                                                                    V −V and small L.
+                                                                      GS    T
+                                                                       Some values have been
+                                                                    selected, depending on the
+CMOS process available. The resulting f is about 5 GHz.
+                                        T
+  The maximum value of B is found by equating f to 3×GBW. The value of B is therefore 5.
+                                                 nd
+Many designers use between 3 and 5.
+  The input transconductance is now easily obtained from the GBW. It is g =0.5 mS, which
+                                                                         m1
+requires about 50 mA. The total current consumption is now 0.6 mA.
+  The FOM of this ampliﬁer is 670 MHzpF/mA, which is quite good, indeed!
+Important opamp conﬁgurations                                                                  219
+
+                                                                       0717
+                                                                       Can BiCMOS provide sim-
+                                                                       ilar power savings as for a
+                                                                       Miller OTA?
+                                                                          The answer is negative.
+                                                                          The current sources are
+                                                                       the only candidates to be
+                                                                       implemented in bipolar. The
+                                                                       input devices are better
+                                                                       MOSTs. They provide less
+                                                                       input biasing current and
+                                                                       higher Slew Rate.
+                                                                          There are two considera-
+                                                                       tions:
+                                                                       1. The npn transistors cer-
+                                                                          tainly have a higher g
+                                                                                                  m
+                                                                          but this advantage is not
+   really exploited in a current mirror. They also have a higher f , at least within a particular
+                                                                     T
+   BiCMOS process. They may not have a higher f however, than the nMOSTs in a more
+                                                        T
+   advanced standard CMOS process, oﬀered at the same time.
+2. Bipolar transistors have a relatively large collector-substrate capacitance C . As a result, the
+                                                                                 CS
+   parasitic capacitance at nodes 1 and 2 are probably a lot larger than those given by f .
+                                                                                           T
+As a conclusion, a BiCMOS symmetrical OTA is probably not faster than a CMOS equivalent.
+For the same GBW it probably does not draw less current than the CMOS.
+
+
+
+                                                                   0718
+                                                                   The previous symmetrical
+                                                                   OTA’s all had too little gain.
+                                                                   Cascodes are now added to
+                                                                   increase the gain. Gain
+                                                                   boosting could even be
+                                                                   applied to the output cas-
+                                                                   codes M10 and M12 to
+                                                                   boost the gain even more.
+                                                                     Note that cascodes are
+                                                                   added on both sides, to
+                                                                   preserve symmetry. Also
+                                                                   note that a current mirror
+                                                                   is taken (with M7–M10)
+                                                                   which allows a large output
+                                                                   swing. Indeed the output
+                                                                   voltage can swing to within
+0.4 V of the supply voltage, without transistors M8/M10 or M6/M12 entering the linear region.
+   The insertion of cascodes increases the gain but not the GBW. The cascodes only increase the
+gain at low frequencies, as previously shown. Moreover, the gain at low frequencies can be
+increased even more by application of gain boosting to the cascodes M10 and M12. This is a
+220                                                                                    Chapter #7
+
+general practice for nanometer CMOS where the gain per transistor has become quite small, i.e.
+less than 10.
+
+
+                                                                     0719
+                                                                     A two-stage Miller opera-
+                                                                     tional ampliﬁer is easily
+                                                                     built by means of a symmet-
+                                                                     rical OTA as a ﬁrst stage, as
+                                                                     shown in this slide.
+                                                                        Its GBW also includes C
+                                                                                                 c
+                                                                     and B.
+                                                                        The compensation cap-
+                                                                     acitance C is obviously not
+                                                                                 c
+                                                                     connected directly from
+                                                                     Drain to Gate, but takes a
+                                                                     path through cascode tran-
+                                                                     sistor M10 to avoid the pos-
+                                                                     itive zero.
+                                                                        As a result, the current
+                                                                     through the output stage
+                                                                     M11/M12 can be taken
+                                                                     smaller, saving power.
+
+
+                                                                     0720
+                                                                     An earlier realization of
+                                                                     such a symmetrical OTA is
+                                                                     shown in this slide. It is a
+                                                                     bipolar realization.
+                                                                       The current mirrors are
+                                                                     quite elaborate, to obtain
+                                                                     precise current mirroring
+                                                                     and good matching.
+                                                                       The speciﬁcations obvi-
+                                                                     ously depend on the actual
+                                                                     DC      currents     ﬂowing.
+                                                                     Actually, this circuit block
+                                                                     can be tuned to any value of
+                                                                     GBW by modifying the cur-
+                                                                     rent through Q3. The non-
+                                                                     dominant pole tracks the
+                                                                     GBW.
+
+
+0721
+Another way to increase the gain is by current starving.
+   This is actually a fully-diﬀerential symmetrical OTA. As no cascodes are used, the voltage gain
+is very modest.
+Important opamp conﬁgurations                                                               221
+
+                                                                      However, the addition of
+                                                                   two DC current sources
+                                                                   with values KI increases
+                                                                                    1
+                                                                   the gain considerably. A
+                                                                   typical value for k is 0.8.
+                                                                      In this case, 80% of the
+                                                                   DC current provided by the
+                                                                   input transistors M1 is
+                                                                   taken away by the DC cur-
+                                                                   rent sources. Only 20% of
+                                                                   the DC current, together
+                                                                   with the signal current is
+                                                                   injected into the transistors
+                                                                   M2 of the current mirrors.
+                                                                      Because the DC currents
+                                                                   in the output transistors M3
+                                                                   are also lower, the output
+resistances are higher and so is the voltage gain.
+  This technique cannot be pushed too far as mismatch will occur. Moreover, the resistance at
+the inner node of the current mirrors determines the non-dominant pole. It cannot be increased
+too much.
+
+
+
+                                                                   0722
+                                                                   The other ‘‘most used’’ oper-
+                                                                   ational    transconductance
+                                                                   ampliﬁer is the folded cas-
+                                                                   code OTA.
+                                                                      Many designers limit
+                                                                   themselves to folded cas-
+                                                                   code OTA’s only. It is there-
+                                                                   fore important to ﬁgure out
+                                                                   what exactly the advantages
+                                                                   and disadvantages are. Also,
+                                                                   which design plan delivers
+                                                                   the best performance in
+                                                                   terms of power consump-
+                                                                   tion, noise, etc.
+
+
+
+
+0723
+A folded cascode OTA consists of an input diﬀerential pair, two cascodes and one current mirror.
+The latter current mirror will not be necessary when we have two outputs, as explained in the
+next Chapter.
+222                                                                                       Chapter #7
+
+                                                                          It is a high-swing current
+                                                                       mirror again.
+                                                                          This circuit is as symmet-
+                                                                       rical as the symmetrical
+                                                                       OTA as both input devices
+                                                                       see exactly the same DC
+                                                                       voltage and impedance, at
+                                                                       nodes 1 and 2.
+                                                                          The output is again the
+                                                                       only point at high resis-
+                                                                       tance. Indeed all other
+                                                                       nodes are at 1/g level. It is
+                                                                                         m
+                                                                       again a single-stage ampli-
+                                                                       ﬁer, despite its complexity.
+
+
+
+
+                                                                         0724
+                                                                         Let us ﬁrst examine how
+                                                                         the DC operation actually
+                                                                         works.
+                                                                           The input devices are
+                                                                         biased by a current source
+                                                                         (with M9) at for example
+                                                                         100 mA. Both input devices
+                                                                         carry 50 mA.
+                                                                           At node 2, transistor M11
+                                                                         draws 100 mA. The diﬀer-
+                                                                         ence between this current
+                                                                         and what is coming from
+                                                                         M1, is then pulled from cas-
+                                                                         code transistor M4.
+                                                                           This     current     ﬂows
+                                                                         through both cascode tran-
+sistors. The current source on top mirrors this current. There is no way that DC current could
+ﬂow out, even if the output node would be connected to ground.
+   Normally, all currents in the input and cascode devices are the same, i.e. 50 mA. This is not a
+necessity but is certainly the best way to avoid all kinds of artifacts, such as asymmetrical swing,
+Slew-Rate, etc.
+
+
+
+0725
+The small-signal operation is easily understood.
+  The input transistors create a circular current, which ﬂows through the cascode transistors to
+the high-impedance node. The output resistance at node 4 is again R .
+                                                                     n4
+Important opamp conﬁgurations                                                                 223
+
+                                                                The voltage gain at low
+                                                             frequencies is now easily
+                                                             obtained. Note that this
+                                                             gain is high because cas-
+                                                             codes are used. Gain boost-
+                                                             ing could be applied to the
+                                                             cascodes M4 and M8 to
+                                                             increase the gain even
+                                                             further.
+                                                                The bandwidth is created
+                                                             at the same output node.
+                                                             The GBW is the product. It
+                                                             is exactly the same as for
+                                                             a single-transistor ampliﬁer.
+                                                             Of course, the input trans-
+                                                             concuctance is smaller here,
+                                                             as only half of the current
+                                                             ﬂows in the input stage.
+  What is the advantage of this folded OTA? It consumes twice the current of a telescopic
+cascode stage!
+
+
+
+                                                                    0726
+                                                                    In order to ﬁnd the advan-
+                                                                    tages of a folded cascode
+                                                                    OTA, we have to verify the
+                                                                    high-frequency
+                                                                    performance.
+                                                                       The non-dominant pole is
+                                                                    created at the nodes 1 and
+                                                                    2. They form together one
+                                                                    single non-dominant pole.
+                                                                    The resistance at node 1 is
+                                                                    1/g and the capacitance at
+                                                                       m3
+                                                                    this node is C . It is a sum
+                                                                                  n1
+                                                                    of three small capacitances,
+                                                                    which are all similar in size.
+                                                                       The non-dominant pole
+                                                                    occurs at about one third of
+f . This is a very high frequency indeed. The GBW can therefore be quite high.
+ T
+   This is the ﬁrst advantage of a folded OTA.
+   Finally, note that the current mirror with transistors M5-M8 can also be used. Remember,
+however, that this current source requires more than 1 V to keep all transistors in saturation.
+This is the loss in output swing at each supply line. The previous current mirror is a lot better
+for low-voltage applications.
+224                                                                                   Chapter #7
+
+                                                                   0727
+                                                                   The capacitances at the top
+                                                                   nodes 5, 6 and 7 also cause
+                                                                   non-dominant poles. They
+                                                                   are followed by zeros how-
+                                                                   ever, at double the fre-
+                                                                   quency. Indeed, each time
+                                                                   we have a single-ended
+                                                                   ampliﬁer, the capacitances
+                                                                   on the other side than the
+                                                                   output, will be negligible for
+                                                                   the Phase Margin.
+                                                                     As a conclusion, this OTA
+                                                                   has only one single non-
+                                                                   dominant pole. It is fairly
+                                                                   easy to design. It also has
+                                                                   the advantage that it is
+                                                                   very fast.
+
+
+                                                                   0728
+                                                                   Would a BiCMOS folded
+                                                                   OTA be even faster?
+                                                                      The only good position
+                                                                   for bipolar transistors to be
+                                                                   plugged in, is as cascode
+                                                                   devices. Indeed, this is where
+                                                                   we need the highest-speed
+                                                                   devices. The non-dominant
+                                                                   pole at nodes 1 and 2 are
+                                                                   linked to the f of the cas-
+                                                                                  T
+                                                                   codes. This is higher than
+                                                                   the f of the nMOST f
+                                                                         T                      T
+                                                                   within a particular
+                                                                      BiCMOS         technology.
+                                                                   Remember that this is not
+                                                                   necessarily higher than for
+nMOSTs in a more recent standard CMOS technology.
+  Never use bipolar devices for the transistors M10 and M11 in the DC current sources. Their
+collector-substrate capacitances would reduce the non-dominant pole at nodes 1 and 2 too much!
+
+
+0729
+The second important advantage of a folded cascode OTA is that the input transistors can
+operate with their Gates beyond the supply lines. The common-mode input voltage range can
+include one of the supply rails!
+  In the circuit in this slide, the pMOST devices at the input still operate when the Gates are
+connected to ground, or even below ground. The V values of the input transistors are easily
+                                                    GS
+Important opamp conﬁgurations                                                                  225
+
+                                                                      0.9 V (for V =0.7 V), which
+                                                                                   T
+                                                                      is more than suﬃcient to
+                                                                      accommodate the V         and
+                                                                                            DS1
+                                                                      V      .
+                                                                        DS10
+                                                                         If V is about 0.2 V and
+                                                                               DS1
+                                                                      V      =0.5 V, then the input
+                                                                        DS10
+                                                                      transistors can still operate
+                                                                      with their gates at 0.2 V
+                                                                      below ground!
+                                                                         A folded cascode opamp
+                                                                      include the ground rail. This
+                                                                      is why they have been often
+                                                                      used for single-supply sys-
+                                                                      tems such as automotive
+                                                                      applications before, but now
+                                                                      also for all mixed-signal
+                                                                      applications, in which the
+processors use only one single supply line.
+  Moreover, connecting two folded cascodes in parallel, one with pMOSTs at the input and
+another one with nMOSTs at the input, allows coverage of the full rail-to-rail range. This is
+how rail-to-rail input opamps are put together! These are discussed in Chapter 11.
+
+
+
+
+                                                                      0730
+                                                                      The folded cascode OTA is
+                                                                      also an excellent ﬁrst stage
+                                                                      for a two-stage Miller
+                                                                      CMOS OTA. As usual the
+                                                                      second stage is just one
+                                                                      single transistor with active
+                                                                      load.
+                                                                         As a result, the GBW is
+                                                                      set by g      and C . Now
+                                                                                m1         c
+                                                                      there are two nondominant
+                                                                      poles, however. The lower-
+                                                                      frequency one is normally at
+                                                                      the output. The other, at
+                                                                      nodes 1 and 2 are usually at
+                                                                      the highest frequency.
+                                                                         Because of the second
+stage, the output swing can be rail-to-rail. Indeed, even when the output voltage is very close to
+the positive supply voltage, and the output transistor M12 enters the linear region, and loses its
+gain, there is still suﬃcient gain remaining in the ﬁrst stage to suppress the distortion.
+226                                                                                    Chapter #7
+
+                                                                     0731
+                                                                     For sake of comparison, the
+                                                                     conventional folded cascode
+                                                                     OTA is repeated.
+                                                                        The top current mirror
+                                                                     M5-M8 can also be real-
+                                                                     ized in a diﬀerent way, as
+                                                                     shown next.
+
+
+
+
+                                                                     0732
+                                                                     In this alternative folded
+                                                                     cascode OTA, the current
+                                                                     mirroring is carried out
+                                                                     around      the     cascodes
+                                                                     themselves.
+                                                                       Indeed, transistors M3/
+                                                                     M4 are also the cascodes
+                                                                     in the diﬀerential current
+                                                                     ampliﬁer formed by M3/
+                                                                     M4 and M10/M11. Such
+                                                                     an ampliﬁer provides the
+                                                                     diﬀerence between the input
+                                                                     currents, as explained in
+                                                                     Chapter 2. These input cur-
+                                                                     rents are the same in ampli-
+                                                                     tude but opposite in
+phase, as they come directly from the input pair.
+   The output current in the load capacitance is simply g v .
+                                                          m1 ind
+   Let us try to discover what the diﬀerences are with the previous conventional folded cascode
+OTA.
+   Clearly, the gain and output impedance are the same. The number of biasing lines is one less
+as M5–6 and M9 can share the same Gate line.
+   The main diﬀerence however, is in the impedance seen by the input transistors. In the
+conventional folded cascode, the input devices see exactly the same impedance. In the alternative
+conﬁguration, transistor M1 sees 1/g but transistor M2 sees 1/g divided by the gain of
+                                      m4                              m3
+transistor M3 or g r . This is much smaller!
+                    m3 o3
+   The alternative folded cascode OTA is therefore a bit less symmetrical. This will be visible in
+the higher-order poles and zeros, which are of less concern to us!
+Important opamp conﬁgurations                                                                  227
+
+                                                                     0733
+                                                                     For sake of comparison, a
+                                                                     short table is given listing
+                                                                     the main advantages and
+                                                                     disadvantages.
+                                                                        The four-transistor single-
+                                                                     stage voltage diﬀerential
+                                                                     ampliﬁer is the ﬁrst on the
+                                                                     list. It is followed by a sym-
+                                                                     metrical CMOS OTA. Then
+                                                                     we have two cascode CMOS
+                                                                     OTA’s. Finally, a two-stage
+                                                                     Miller CMOS OTA is
+                                                                     added.
+                                                                        It is clear that the Miller
+                                                                     CMOS OTA takes the high-
+                                                                     est power consumption. The
+best one is a telescopic cascode.
+  For high output swing, the telescopic cascode OTA is the worst one. The best are the Miller
+CMOS OTA and the symmetrical one, at least if no cascodes are used!
+  The symmetrical OTA is the worst for noise, however.
+  This shows that even for as few as three speciﬁcations, not one single ampliﬁer can be called
+the best. Many designers prefer a folded cascode OTA, which is certainly a good compromise.
+
+
+                                                                    0734
+                                                                    Many more opamp conﬁg-
+                                                                    urations can be added. They
+                                                                    are all included in
+                                                                       this list because they have
+                                                                    some peculiarity which is
+                                                                    worth investigating. We will
+                                                                    always try to recognize the
+                                                                    design principles which we
+                                                                    have studied before. We will
+                                                                    try to ﬁnd out whether one
+                                                                    single or two stages are
+                                                                    used. We want to know
+                                                                    which trick has been used to
+                                                                    abolish the positive zero.
+                                                                    Also, we want to recognize
+                                                                    the structure of a symmetri-
+                                                                    cal or folded cascode, etc.
+  Some of these are fully-diﬀerential. This means that they have two outputs and require
+common-mode feedback. This will be explained in the next Chapter, however. We focus here on
+their circuit conﬁguration, without being aﬀected by their diﬀerential nature.
+228                                                                                     Chapter #7
+
+                                                                     0735
+                                                                     The ﬁrst one in the list is an
+                                                                     OTA which works on a
+                                                                     mere 1 V supply voltage.
+                                                                       Moreover, this OTA can
+                                                                     be switched in and out. To
+                                                                     verify the operation, we
+                                                                     must close all four (blue)
+                                                                     switches.
+                                                                       Clearly,   a    two-stage
+                                                                     Miller CMOS OTA emerges,
+                                                                     with a folded-cascode as a
+                                                                     ﬁrst stage. Because of the
+                                                                     low supply voltage, transis-
+                                                                     tor M8 does not have a cas-
+                                                                     code. The gain will there-
+                                                                     fore not be that high. A
+second stage provides a good remedy, however.
+   Obviously, the compensation capacitance CC does not connect Drain to Gate directly around
+output transistor M10. It takes a path through cascode device M6, in order to avoid a positive
+zero.
+   Finally, note that the common-mode input voltage range is just about zero. Indeed the sum
+of V     and V     is about 1 V. The Gates of the input devices can only operate around zero.
+     DS1       GS3
+   On the other hand, the average output voltage will be 0.5 V to maximize the output swing.
+As a consequence, the output can never be directly connected to the input, to make a buﬀer for
+example. A level shifter over 0.5 V will have to be inserted between output and input.
+
+
+
+                                                                     0736
+                                                                     A very conventional two-
+                                                                     stage Miller opamp with
+                                                                     bipolar transistors is shown
+                                                                     in this slide. It can be used
+                                                                     for supply voltages down
+                                                                     to ±1.5 V.
+                                                                        Each       high-impedance
+                                                                     point is indicated by means
+                                                                     of a red dot. It is clearly a
+                                                                     two-stage ampliﬁer with a
+                                                                     class AB output stage.
+                                                                        The GBW is obviously
+                                                                     determined by the input
+                                                                     transconductance and the
+                                                                     30 pF compensation capaci-
+                                                                     tance. Bipolar transistors
+have suﬃcient transconductance not to have problems with positive zeros.
+  With bipolar transistors, an emitter follower is required between input and second stage. This
+Important opamp conﬁgurations                                                                 229
+
+transistor is T5. A level shifter T6 then follows to reduce the voltage to about 0.7 V, the V of
+                                                                                             BE
+transistor T8. This level shifter is also required to reach this low supply voltage.
+   In the input stage, series resistors of 10 kV are used to increase the Slew-Rate.
+   The output stage consists of two emitter followers. As a consequence twice a V of about
+                                                                                      BE
+0.7 V is lost in the output swing. For such large supply voltages, we do not mind so much. For
+smaller supply voltages or larger output swings we must use two Collector-to-collector output
+devices, as we have previously seen in most opamps.
+   Diodes T13/T14 are used to set the quiescent current in the output devices.
+
+
+                                                                    0737
+                                                                    An attempt to raise the
+                                                                    transconductance of MOSTs
+                                                                    to higher values is shown
+                                                                    here.
+                                                                       It starts with inserting a
+                                                                    series resistor. This is obvi-
+                                                                    ously going to decrease the
+                                                                    transconductance.
+                                                                       It can increase the
+                                                                    transconsuctance, provided
+                                                                    we can make the resistor
+                                                                    negative. For example, if we
+                                                                    can make g R =0.8, then
+                                                                                   m S
+                                                                    g will be 5 times g .
+                                                                     mR                    m
+                                                                       It is too diﬃcult, however,
+                                                                    to match a g to a resistor
+                                                                                    m
+                                                                    R to obtain an accurate
+                                                                      S
+                                                                    value of, for example, 0.8.
+
+
+                                                                    0738
+                                                                    This matching is quite feasi-
+                                                                    ble provided we take two
+                                                                    nMOST devices, the bottom
+                                                                    of which is connected as a
+                                                                    diode. Since both carry
+                                                                    equal DC currents, the g
+                                                                                                m
+                                                                    ratio is now the square root
+                                                                    of the W/L ratio, or the
+                                                                    V −V ratio, and this can
+                                                                      GS     T
+                                                                    be made quite accurate.
+                                                                       Moreover, a negative
+                                                                    resistance is easily realized
+                                                                    in diﬀerential form, as
+                                                                    shown in this slide.
+                                                                       If we can make a layout
+                                                                    with a W/L ratio of 0.5, for
+230                                                                                    Chapter #7
+
+example, then the g ratio is 0.71 and the transconductance goes up by a factor of about 3. We
+                   m
+could push this a bit more of course!
+  A full OTA realization is shown next.
+
+
+
+                                                                   0739
+                                                                   This is clearly a symmet-
+                                                                   rical CMOS OTA, with a
+                                                                   B factor of three. The
+                                                                   input devices have negative
+                                                                   series resistances to increase
+                                                                   the input transconductance.
+                                                                   Two more transistors M5
+                                                                   and M6 are added to avoid
+                                                                   latch-up of the input stage.
+                                                                   After all, negative resistors
+                                                                   are used in oscillators, in
+                                                                   comparators, in ﬂip-ﬂops,
+                                                                   etc., because they are regen-
+                                                                   erative. They may cause
+                                                                   latch-up when overdriven.
+                                                                   Transistors M5 and M6
+                                                                   have to prevent this.
+   Such an Operational Transconductor Ampliﬁer is also called Transconductor, because it allows
+larger input voltages with low distortion.
+
+
+
+                                                                    0740
+                                                                    Another        transconductor
+                                                                    with high-speed capability is
+                                                                    shown in this slide.
+                                                                       It is little more than a
+                                                                    diﬀerential single-stage volt-
+                                                                    age ampliﬁer with cascodes.
+                                                                       However, the input tran-
+                                                                    sistors operate in the linear
+                                                                    region. This is achieved on
+                                                                    purpose to avoid distortion,
+                                                                    when driven with large
+                                                                    input signal levels.
+                                                                       Indeed, in the linear
+                                                                    region the current is propor-
+                                                                    tional to V , not to V 2.
+                                                                                  GS          GS
+                                                                    As a result, the transcon-
+ductance is constant provided V can be kept constant.
+                                DS
+  This is achieved by ﬁxing the voltage across resistor R by means of a constant current I .
+                                                         D                                D
+  Obviously, the transconductance in the linear region is smaller than in saturation. Lower
+Important opamp conﬁgurations                                                                   231
+
+distortion always goes together with lower gain though! Feedback does this too, exchanging
+gain for low distortion.
+  In order to boost the high-frequency performance, two small capacitances are added by means
+of transistors M5 and M6. They are added to compensate the input capacitances C of the
+                                                                                     GS
+input transistors. They are connected to nodes at opposite polarity. For a size of about one
+third, compensation can be achieved. This is why they are drawn smaller!
+
+
+
+                                                                     0741
+                                                                     This is the ﬁrst fully rail-to-
+                                                                     rail ampliﬁer that we will
+                                                                     discuss, is shown in this
+                                                                     slide. It provides rail-to-rail
+                                                                     capability at both the input
+                                                                     and the output. It can be
+                                                                     connected in unity gain as a
+                                                                     buﬀer. It has a class AB
+                                                                     output stage to be able to
+                                                                     provide large output cur-
+                                                                     rents indeed.
+                                                                        At the input two folded
+                                                                     cascode stages are con-
+                                                                     nected in parallel. The
+                                                                     common-mode input range
+                                                                     thus includes both supply
+                                                                     lines.
+   Their outputs are applied to two diﬀerential current ampliﬁers, ending up at the Gates of the
+two large output devices. These devices are the output stage.
+   We have a two-stage Miller opamp. The compensation capacitances are clearly distinguished.
+However, they connect directly Drain to Gate. Perhaps it is better to ﬁnd a path through one
+of the cascodes. For example C may be better connected to the source of M14!
+                                  c2
+   The Gates of the output transistors are at very high impedance. It may not appear like that
+because these nodes are also connected to two Sources of transistors MA3 and MA4. Sources
+suggest impedance levels of 1/g . This is not the case here however, as these two transistors are
+                                  m
+bootstrapped out. This is explained later.
+   The rail-to-rail input stage can cause large variations in GBW, however. This is examined ﬁrst.
+
+
+
+0742
+Indeed, for common-mode or average input signals in the middle, both input stages are in
+operation. The total transconductance is now the sum of the transconductances of the nMOSTs
+and pMOSTs at the input.
+  For higher common-mode input signals however, the pMOSTs are shut oﬀ. The transconduct-
+ance is now only half. The same is true for low common-mode input signals. The total transcon-
+ductance has a bell shape versus the input common-mode input voltage, as shown in this slide,
+and so does the GBW.
+  This gives a lot of distortion.
+232                                                                                      Chapter #7
+
+                                                                         Some circuitry has to be
+                                                                      added to equalize the trans-
+                                                                      conductance over the full
+                                                                      common-mode input range.
+                                                                      In other words, for low
+                                                                      common-mode input volt-
+                                                                      ages, we need to double
+                                                                      the transconductance of the
+                                                                      pMOSTs; for high voltages,
+                                                                      we need to double the
+                                                                      transconductances of the
+                                                                      nMOSTs.
+                                                                         Various circuits can be
+                                                                      devised to carry out such a
+                                                                      task. One of these is
+                                                                      explained next. The others
+                                                                      are discussed in Chapter 11.
+
+
+                                                                        0743
+                                                                        The input stage of the rail-
+                                                                        to-rail opamp is repeated in
+                                                                        this slide.
+                                                                          The current which ﬂows
+                                                                        in a branch is indicated by
+                                                                        the thickness of line. The
+                                                                        input circuit is repeated
+                                                                        twice, once for a common-
+                                                                        mode input voltage halfway
+                                                                        the supply voltages. The
+                                                                        other is the situation when
+                                                                        the inputs are connected to
+                                                                        the positive supply.
+                                                                          When the inputs are half-
+                                                                        way the supply voltage, the
+                                                                        DC currents through all
+input devices are equal (and about 5 mA). However the DC current source for the pMOST
+diﬀerential pair carries a current of 20 mA. Indeed, half of this current ﬂows through a cascode
+MN3 to a current mirror which serves the nMOST diﬀerential pair.
+   When the input voltage goes up, towards the positive supply voltage, then the V of this
+                                                                                           GS
+cascode transistor MN3 is increased, such that it takes the full 20 mA. As a result, the nMOST
+diﬀerential pair receives the full 20 mA. On the other hand, the pMOST diﬀerential pair is left
+without DC current.
+   As a consequence, the current in the nMOST pair is multiplied by 2. This is not suﬃcient if
+the input devices work in saturation. This is suﬃcient if the input devices work in the weak
+inversion region. Doubling the current then doubles the transconductance.
+   The sizes of the input devices are so large that the input devices are more likely going to work
+in weak inversion. After all, the GBW is only 14 MHz, which is quite feasible in weak inversion.
+Important opamp conﬁgurations                                                                   233
+
+                                                                       0744
+                                                                       For high gain, the output
+                                                                       impedance of the ﬁrst stage
+                                                                       or the Gates of the output
+                                                                       transistors have to be at
+                                                                       very high impedance. It may
+                                                                       not appear like that because
+                                                                       these nodes are connected to
+                                                                       two Sources, of transistors
+                                                                       MA3 and MA4. Sources
+                                                                       suggest impedance levels of
+                                                                       1/g . This is not the case
+                                                                          m
+                                                                       here however, as shown
+                                                                       next.
+                                                                          The output stage is
+                                                                       repeated three times. The
+                                                                       ﬁrst one is simply copied
+from the overall circuit diagram. In the second one, the output resistance of the ﬁrst stage is
+represented by R . In the third one, the two transistors in parallel are substituted by an
+                    in
+impedance called Z.
+   It is now easy to calculate the gain of this ampliﬁer. The input stage provides a conversion of
+g . The total gain also includes the transconductance of the output devices g         . Impedance Z
+  m1                                                                              mA1
+is not part of it. The reason is that the impedance Z is bootstrapped out.
+   We see on the third diagram, that the currents coming from the input stage have the same
+phase and therefore drive the output transistors with the same phase as well. This is typical for
+a class-AB stage. Both transistors have to be driven in phase to turn one output transistor and
+the other one oﬀ.
+   As a result, the voltages at the Gates of the output devices are nearly the same in amplitude.
+No AC voltage appears across the impedance Z. It does not carry any AC current. It looks like
+an inﬁnite impedance and it is bootstrapped out.
+
+                                                                      0745
+                                                                      What is the purpose then of
+                                                                      these two transistors MA3
+                                                                      and MA4 when they do not
+                                                                      play a role for the gain?
+                                                                         They are there to set the
+                                                                      quiescent current in the
+                                                                      output transistors.
+                                                                         The output transistor
+                                                                      MA2 forms with transistor
+                                                                      MA4 a translinear loop with
+                                                                      transistors MA9 and MA10.
+                                                                      The sum of their V ’s are
+                                                                                            GS
+                                                                      the same as spelled out in
+                                                                      this slide.
+                                                                         The DC currents in three
+                                                                      of these four devices are con-
+234                                                                                     Chapter #7
+
+stant and set by DC current sources to be 4 –5 mA. As a result, the DC current through the
+forth one (MA2) is also set to be constant.
+   All four transistors have the same V and K∞ . The ratio of the DC current through output
+                                        T      p
+transistor MA2 is now about 100 times the current in MA4.
+   This is an easy way of controling the DC current in a class-AB stage, as will be explained in
+more detail in Chapter 12.
+
+
+                                                                      0746
+                                                                      An even more symmetrical
+                                                                      folded cascode OTA than
+                                                                      the folded cascode OTA is
+                                                                      shown in this slide.
+                                                                         The Drain of each input
+                                                                      transistor sees exactly the
+                                                                      same impedance, even at the
+                                                                      highest frequencies.
+                                                                         At each Drain the circular
+                                                                      current i is split up in two
+                                                                      equal parts i/2. One part
+                                                                      goes directly to the output,
+                                                                      whereas the other is mir-
+                                                                      rored ﬁrst.
+                                                                         Because of this perfect
+                                                                      matching at high frequen-
+cies, this ampliﬁer has a perfect cancellation of higher order poles and zeros. As a result, it has
+a much higher CMRR. Moreover, the Slew Rate is perfectly symmetrical.
+   It is therefore an ideal building block for higher frequencies.
+
+
+                                                                   0747
+                                                                   Another bipolar opamp is
+                                                                   also capable of taking input
+                                                                   voltages below ground.
+                                                                   Remember that this is an
+                                                                   advantage of a folded
+                                                                   cascode.
+                                                                      This input diﬀerential
+                                                                   pair is preceded by two
+                                                                   Emitter followers. As a
+                                                                   result the inputs can go
+                                                                   below ground. For V ’s of
+                                                                                           BE
+                                                                   0.6 V, and V ’s of 0.1 V, we
+                                                                                CE
+                                                                   see that the inputs can go
+                                                                   0.5 V below ground.
+                                                                      This is an opamp which
+                                                                   is suited very well for single-
+supply applications such as most of the automotive applications, etc.
+Important opamp conﬁgurations                                                                   235
+
+   Moreover, this opamp takes very little power. As a consequence, the GBW is fairly low.
+   The noise is very high, however. The reasons are that the currents are small but especially
+that emitter followers are used at the input. They do not give voltage gain. As a result, all six
+transistors of the input stage contribute to the equivalent input noise.
+
+                                                                       0748
+                                                                       A two-stage bipolar opamp
+                                                                       with JFETs at the input is
+                                                                       shown in this slide.
+                                                                          JFETs behave as MOSTs
+                                                                       but with larger input cur-
+                                                                       rents. Actually, their input
+                                                                       currents are leakage cur-
+                                                                       rents, because of the reverse
+                                                                       biased input pn junctions.
+                                                                       They are much smaller
+                                                                       than for bipolar transistors
+                                                                       though. Also, their thresh-
+                                                                       old voltages are negative.
+                                                                       They are depletion devices
+                                                                       rather than enhancement
+                                                                       devices such as MOSTs.
+They conduct at zero V . Also, their threshold voltage, called pinch-oﬀ voltage V , is usually
+                           GS                                                           P
+several Volts.
+   These p-channel JFETs substitute the pnp transistors which were originally in this circuit.
+After all, this is just a two-stage operational ampliﬁer with Miller compensation. With bipolar
+transistors at the input however, the Slew Rate is too small. JFETs have been used instead to
+increase the Slew Rate.
+   They also give very little 1/f noise, which is an additional advantage for low-frequency circuits
+such as high-performance audio ampliﬁers.
+
+                                                                      0749
+                                                                      This is a two-stage opamp
+                                                                      which has been the work-
+                                                                      horse for all discrete analog
+                                                                      electronics over decades of
+                                                                      years.
+                                                                         The only diﬀerence with
+                                                                      any two-stage Miller com-
+                                                                      pensated opamp is the
+                                                                      input stage.
+                                                                         Lateral pnp transistors
+                                                                      have a low beta and cannot
+                                                                      be used as input transistors.
+                                                                      On the other hand, we deﬁ-
+                                                                      nitely want to use high-
+                                                                      speed npn transistors in the
+                                                                      second stage to shift the
+236                                                                                     Chapter #7
+
+non-dominant pole to high frequencies. As a result, the current mirror in the input stage must
+be realized by means of npn devices as well.
+  This is why non transistors are used at the input. They give small input base currents. These
+input npn’s are now put in series with lateral pnp’s, to be able to drive the npn current mirror.
+  Since all input transistors carry the same current, they all have the same transconductance.
+The input transconductance is now reduced by two to g /2. This is only a small loss.
+                                                          m1
+  The pnp transistors in the input stage are biased by a common-mode feedback loop. Indeed,
+this loop is closed over the input devices and the current mirror Q8/Q9. This loop desensitizes
+the DC currents of the input devices from the pnp beta’s.
+  However, the performance of this bipolar opamp is rather moderate.
+
+
+
+
+                                                                     0750
+                                                                     A high performance bipolar
+                                                                     opamp is shown in this slide.
+                                                                        It is again a two-stage
+                                                                     opamp as suggested by the
+                                                                     red dots. Its GBW is moder-
+                                                                     ate but its gain is very high.
+                                                                     Its oﬀset is trimmed to very
+                                                                     low values.
+                                                                        This is achieved by using
+                                                                     resistive loads in the ﬁrst
+                                                                     stage. These resistors can
+                                                                     be trimmed by laser or
+                                                                     other techniques, to very
+                                                                     small values, improving the
+                                                                     Common-mode Rejection
+                                                                     Ratio considerably (see
+                                                                     Chapter 15).
+  The resistors in the input stage are not as good as active loads, however. They lead to lower
+gain. This is why a second stage is used with very high gain.
+  This second stage consists of a diﬀerential voltage ampliﬁer, to which an emitter follower has
+been added, as explained next.
+
+
+
+
+0751
+The second stage of this ampliﬁer is taken separately. It consists indeed of a diﬀerential voltage
+ampliﬁer, to which an Emitter follower has been added, as shown in this slide.
+  This Emitter follower M3 bootstraps out the output resistor r of transistor M2. As a result,
+                                                                  o2
+only the output resistance of the input pnp plays a role for the gain. They are lateral devices in
+which the output resistance can be made as large as needed.
+  Moreover, the output impedance R will also be smaller.
+                                      out
+Important opamp conﬁgurations                              237
+
+                                    An accurate analysis
+                                shows that the gain is actu-
+                                ally multiplied by the beta
+                                b of transistor M3.
+                                  3
+                                    This is an attractive tech-
+                                nique to boost the gain.
+                                Since the gain becomes
+                                smaller for smaller channel
+                                lengths, all possible gain-
+                                boosting techniques will
+                                become necessary. Boot-
+                                strapping resistances to high
+                                values is certainly among
+                                them.
+
+
+
+
+                                0752
+                                In this Chapter, a wide vari-
+                                ety of possible operational
+                                ampliﬁers have been
+                                   discussed. Most design
+                                eﬀort has gone to the sym-
+                                metrical ampliﬁer and the
+                                folded cascode.
+                                   However, most of them
+                                have a single-ended output.
+                                They cannot be used in a
+                                mixed-signal environment.
+                                For this purpose, they must
+                                be fully diﬀerential. They
+                                must have two outputs, as
+                                introduced in the next
+                                Chapter.
+

@@ -1,0 +1,1652 @@
+                                                                       171
+                                                                       Filters at low frequencies,
+                                                                       such as for speech and bio-
+                                                                       medical signals, require
+                                                                       large time constants. They
+                                                                       can be realized either with
+                                                                       large capacitors or with
+                                                                       large resistors. None of
+                                                                       them can easily be integ-
+                                                                       rated, however.
+                                                                          Switched      capacitors
+                                                                       behave like resistors with
+                                                                       large values. As a result,
+                                                                       they allow integration of
+                                                                       low-frequency ﬁlters with-
+                                                                       out external components.
+                                                                       They have created a revolu-
+tion in the realization of integrated low-pass ﬁlters for these applications.
+   For this purpose, the capacitors have to be switched in and out at a clock frequency, which
+is much higher than the ﬁlter frequencies.
+   Many questions arise, such as how the switching aﬀects the ﬁlter characteristic, how much
+higher the clock frequency must be compared to the ﬁlter frequency, and ﬁnally, what kind of
+dynamic range can be achieved with such ﬁlter.
+   These questions are answered in this Chapter.
+
+
+
+                                                                     172
+                                                                     First of all, we will have a
+                                                                     look at the principle of a
+                                                                     switched capacitor. The
+                                                                     main ingredients of such a
+                                                                     circuit block are capacitors,
+                                                                     switches and opamps.
+                                                                        Integrator and full ﬁrst-
+                                                                     and second-order ﬁlters are
+                                                                     looked at next.
+                                                                        Finally, some opamp
+                                                                     speciﬁcations are discussed
+                                                                     which are typical for
+                                                                     switched-capacitor circuits.
+                                                                        To conclude, a compari-
+                                                                     son is made with switched-
+                                                                     current ﬁlters. The equiva-
+lence of a switched-capacitor with a resistor is explained ﬁrst.
+
+
+
+
+                                               485
+486                                                                                      Chapter #17
+
+                                                                       173
+                                                                       Switching a capacitor in and
+                                                                       out at the rate of a high-
+                                                                       frequency clock passes a
+                                                                       charge, which is peaked.
+                                                                          Indeed, a clock is taken
+                                                                       with frequency f , which has
+                                                                                       c
+                                                                       two non-overlapping phases
+                                                                       W1 and W2, which are both
+                                                                       somewhat smaller than half
+                                                                       the period T .
+                                                                                    c
+                                                                          Charging capacitor C to
+                                                                       voltage V during phase W1
+                                                                                 1
+                                                                       and discharging capacitor
+                                                                       C to voltage V during
+                                                                                          2
+                                                                       phase W2, passes a charge
+                                                                       C(V −V ) from the input
+                                                                            1   2
+to the output terminal during period T .
+                                          c
+   The current which ﬂows out of the output terminal is peaked, as it only ﬂows at the beginning
+of phase W2. Its average however, I , can be regarded as an average current ﬂowing from the
+                                     av
+input to the output terminal, as a result of the voltage diﬀerence V −V . It can be regarded as
+                                                                    1    2
+a current ﬂowing between a voltage V −V because of a resistor R.
+                                         1   2
+   A switched capacitor now behaves as a resistor, provided averages are taken. This is true for
+low frequencies which are very low compared to the clock frequency.
+   The equivalent resistance R is 1/f C. It can be increased in size for small values of clock
+                                       c
+frequency and capacitor. For 100 kHz and 1 pF we already ﬁnd a resistance of 10 MV, a value
+which is impossible to integrate otherwise.
+
+
+
+                                                                       174
+                                                                       Take as an example, this
+                                                                       low-pass ﬁlter. The low-fre-
+                                                                       quency gain A is a ratio of
+                                                                                      v0
+                                                                       resistors, which can be made
+                                                                       quite accurately.
+                                                                          The cut-oﬀ frequency
+                                                                       f      however depends on a
+                                                                         −3dB
+                                                                       product of a resistor R and
+                                                                                               2
+                                                                       the capacitor C. There is no
+                                                                       way that this product R C
+                                                                                                  2
+                                                                       can be realized in an accu-
+                                                                       rate way. Errors of more
+                                                                       than 20% cannot be
+                                                                       avoided.
+                                                                          Substitution of this resis-
+                                                                       tor R by its switched-
+                                                                               2
+capacitor equivalent, will involve ratios only, which are easily realized with great accuracy.
+Switched-capacitor ﬁlters                                                                       487
+
+                                                                      175
+                                                                      Substitution of all resistors
+                                                                      by switched capacitors
+                                                                      yields a circuit with only
+                                                                      capacitors and switches, and
+                                                                      an opamp.
+                                                                          Substitution of all R’s in
+                                                                      the expressions gives only
+                                                                      C’s. The low-frequency gain
+                                                                      A is now a ratio of capaci-
+                                                                         v0
+                                                                      tors, which can be made
+                                                                      even more accurate, than a
+                                                                      ratio of resistors.
+                                                                          The cut-oﬀ frequency
+                                                                      f       now depends on a
+                                                                        −3dB
+                                                                      ratio of capacitors as well,
+                                                                      and on the absolute value of
+clock frequency f . This latter frequency is normally derived from a crystal oscillator and is very
+                  c
+accurate indeed (see Chapter 22). The ratio of capacitors can be made quite accurate as well.
+The larger we make the capacitors in area the better the matching will be (see Chapter 15).
+Values of less than 0.2% can be reached.
+   As a result, a fully integratable low-pass ﬁlter can be realized at low frequencies. There are
+only two drawbacks. It can only function at signal frequencies much lower than the clock
+frequency. Moreover the ratio of the signal frequency to the clock frequency is determined by a
+capacitor ratio. Large values of this ratio are not easy to realize. The signal frequency cannot
+thus allowed to be too large but not too small either!
+   Finally, note how the charges ﬂow in this circuit. On phase 1 the input voltage is stored on
+C . On phase 2 the node goes back to zero as it is connected to the input of the opamp. All the
+  1
+charge of C is now transferred to capacitor C , which changes the output voltage accordingly.
+             1                                   2
+The charge is conserved and hence C V =C V            .
+                                       1 IN     2 OUT
+                                                                      176
+                                                                      As an example, a 4th order
+                                                                      LC ladder ﬁlter is shown
+                                                                      with its switched-capacitor
+                                                                      equivalent. There is an
+                                                                      opamp with switched capac-
+                                                                      itors all around. Opamp
+                                                                      OA5 is just an output buﬀer.
+                                                                         Note that this ﬁlter in-
+                                                                      volves only capacitor ratios.
+                                                                      The smallest one has to be
+                                                                      chosen. In this example, it is
+                                                                      0.5 pF. The smaller this min-
+                                                                      imum capacitor or unit
+                                                                      capacitor is chosen, the
+                                                                      more parasitic capacitances
+                                                                      will cause errors in the
+488                                                                                 Chapter #17
+
+capacitor ratios. Nowadays, unit capacitors of 0.2–0.25 pF are common for errors of the order
+of 0.05%.
+   Also, the opamps only drive small capacitors, which are diﬀerent however in phase 1 compared
+with phase 2. The largerst has to be taken into account when designing such an opamp.
+   The smaller the capacitors however, the lower the power consumption.
+
+
+
+
+                                                                  177
+                                                                  Moreover, the layout of
+                                                                  such a switched-capacitor
+                                                                  ﬁlter can be made quite reg-
+                                                                  ular. All opamps are on one
+                                                                  side, the capacitors are on
+                                                                  the other side and the
+                                                                  switches in the middle.
+                                                                     Quite often, all opamps
+                                                                  are made equal, which may
+                                                                  not be the best solution for
+                                                                  minimum power consump-
+                                                                  tion, but which saves
+                                                                  design time.
+                                                                     The capacitors are always
+                                                                  made up of capacitor banks,
+                                                                  using an integer number of
+equal unit capacitors. These have to be laid out for optimum matching.
+  Let us have a closer look now at these capacitors and switches.
+
+
+
+
+                                                                   178
+                                                                   In present day technology,
+                                                                   many types of capacitors are
+                                                                   available. Switched-capaci-
+                                                                   tor ﬁlters started oﬀ with
+                                                                   MOS capacitances. This is
+                                                                   why they are discussed ﬁrst.
+Switched-capacitor ﬁlters                                                                         489
+
+                                                                        179
+                                                                        A MOS capacitor is formed
+                                                                        between the top metal plate
+                                                                        (or gate poly) and the
+                                                                        source/drain diﬀusion. The
+                                                                        thin gate oxide serves as
+                                                                        a dielectricum. Values are
+                                                                        given in this slide for a 0.35
+                                                                        micron CMOS technology.
+                                                                        Its gate oxide thickness
+                                                                        is about 1/50 or 7 nm.
+                                                                        This gives a C              of
+                                                                                               ox
+                                                                        5×10−7 F/cm2 or 5 fF/mm2
+                                                                        (see Chapter 1).
+                                                                           The n+ plate has a lot of
+                                                                        resistance however, which
+                                                                        gives a lot of noise and even
+                                                                        some voltage dependence.
+   It is much better to substitute the bottom layer by a highly doped poly layer. This capacitor
+is more linear.
+   Nowadays, many metal layers are available on top of the silicon structure. Any pair can be
+selected to be used as capacitors. Two criteria have to be fulﬁlled, however. The dielectricum
+must be of high quality and its thickness must be reproducible. This is why the technology ﬁle
+usually suggest which pair of metal layers are best used for capacitors and what is the capacitor
+per unit square.
+   For each integrated capacitor, the bottom plate has a parasitic capacitance C to the underlying
+                                                                                  p
+layer. For the capacitor on the left, this is the junction capacitance to the substrate. For the one
+on the right, this parasitic capacitance is between the poly layer and the substrate. This parasitic
+capacitance is relatively large. It must be taken into account in the design of such a ﬁlter.
+
+                                                                        1710
+                                                                        Matching these capacitors is
+                                                                        of the utmost importance to
+                                                                        achieve accurate ﬁlter fre-
+                                                                        quencies. Matching capaci-
+                                                                        tances has been discussed in
+                                                                        great detail in Chapter 15.
+                                                                        The most important conclu-
+                                                                        sions are repeated here.
+                                                                           The only way to achieve
+                                                                        good matching between two
+                                                                        or more capacitors is to use
+                                                                        integer ratios of unit capaci-
+                                                                        tors. They must all have the
+                                                                        same shape, or area to
+                                                                        perimeter ratio. They must
+                                                                        be laid out in centroide
+                                                                        form.
+490                                                                                     Chapter #17
+
+  For example, a ratio of 4 is obtained by putting Cap1 in the middle of 4 capacitors Cap2.
+They now all have the same value.
+  Moreover, the larger the unit capacitor is, the better the matching is, as shown next.
+
+
+
+
+                                                                      1711
+                                                                      The random sigma or
+                                                                      spreading decreases for
+                                                                      increasing capacitor size, as
+                                                                      shown in this slide. The
+                                                                      actual values have to be
+                                                                      checked for each diﬀerent
+                                                                      CMOS technology how-
+                                                                      ever. It is clear that 0.2% is
+                                                                      not diﬃcult to achieve. For
+                                                                      areas larger than 50×50
+                                                                      micrometer, 0.05% is feasi-
+                                                                      ble as well.
+                                                                        The slope of this curve
+                                                                      depends on the ratio of local
+                                                                      versus global errors. This is
+                                                                      why it is hard to predict. It
+is preferable to be measured on an extensive number of samples.
+
+
+
+
+                                                                      1712
+                                                                      Nowadays, many metal
+                                                                      layers have become avail-
+                                                                      able. They can be used as
+                                                                      horizontal capacitances or
+                                                                      as vertical capacitances.
+                                                                         In horizontal capaci-
+                                                                      tances (left), the odd-order
+                                                                      plates are connected in par-
+                                                                      allel to one terminal, and the
+                                                                      even order ones to the other
+                                                                      terminal. Typical values of
+                                                                      the capacitance value ob-
+                                                                      tained are much smaller
+                                                                      than what can be obtained
+                                                                      with the Gate-oxide capaci-
+                                                                      tance. Their breakdown
+voltage is higher, however. Matching is also good, depending on size.
+   Vertical capacitances have also become available (right). The lateral-capacitance value is even
+larger than on the left. Moreover they are available in purely digital CMOS technologies.
+Switched-capacitor ﬁlters                                                                       491
+
+However, the matching is not as good as for MIM horizontal capacitances (0.5% versus 0.2%,
+respectively).
+
+
+                                                                      1713
+                                                                      Now that we know what
+                                                                      capacitors are available and
+                                                                      what matching can be
+                                                                      expected, let us have a look
+                                                                      at what switches can be
+                                                                      used. Clearly, a MOST acts
+                                                                      as an ideal switch, as
+                                                                      shown next.
+
+
+
+
+                                                                       1714
+                                                                       A switch, which is closed on
+                                                                       clock phase W1, is a nMOST
+                                                                       which conducts on this
+                                                                       phase. This means that its
+                                                                       Gate is at a high voltage V
+                                                                                                   h
+                                                                       with respect to ground. As a
+                                                                       result, its V is high and its
+                                                                                      GS
+                                                                       V      is fairly small. This
+                                                                         DS
+                                                                       MOST is now in the linear
+                                                                       region and behaves as a
+                                                                       resistor with value R . Its
+                                                                                              on
+                                                                       expression is taken from
+                                                                       Chapter 1 and repeated in
+                                                                       this slide.
+                                                                          For a zero input signal
+                                                                       voltage V , the Source on
+                                                                                   sign
+the right hand side of the MOST is also zero. In this case, the V −V of the nMOST is V −V .
+                                                                 GS     T                    h    T
+This is the largest possible drive voltage. Its R has therefore the smallest possible value.
+                                                 on
+  For larger input signals, the V −V values decrease and the R increases. This is illustrated
+                                  GS    T                           on
+for a small switch of 2/0.7 micrometer. For an input signal of about 2.3 V, the V −V becomes
+                                                                                      GS  T
+zero and the R becomes very large. The MOST does not act any more as a switch! The drive
+                on
+voltage is insuﬃcient. The clock voltage V is not suﬃciently large to turn on the switch! For
+                                              h
+such input voltages the clock voltage V must be larger than 3 V!
+                                          h
+  The maximum signal voltage that can be switched is therefore V −V .
+                                                                     h      T
+492                                                                                    Chapter #17
+
+                                                                      1715
+                                                                      In order to be able to switch
+                                                                      in a larger input voltage, a
+                                                                      second transistor must be
+                                                                      added, which is a PMOST.
+                                                                      It is driven by the opposite
+                                                                      clock phase. This is the
+                                                                      lowest voltage available,
+                                                                      which is usually ground.
+                                                                         The nMOST will conduct
+                                                                      for lower input voltages,
+                                                                      whereas the pMOST will
+                                                                      conduct for larger input
+                                                                      voltages. This parallel con-
+                                                                      nection will thus always
+                                                                      have a low R over the
+                                                                                      on
+                                                                      whole range of input volt-
+ages, from zero to supply voltage V .
+                                    DD
+  This double switch, also called transmission gate, is a good solution for large input voltages.
+However, it does not work for small supply voltages.
+  For small supply voltages, none of the two MOSTs can conduct. For example, if the minimum
+voltage V is taken to be the same as the threshold voltage V , or 0.7 V, then the minimum
+          GS                                                     T
+supply voltage is about 1.4 V.
+
+
+
+                                                                     1716
+                                                                     For a large input voltage,
+                                                                     the total on-resistance is
+                                                                     the parallel combination of
+                                                                     both. These values of R
+                                                                                                 on
+                                                                     have been calculated for the
+                                                                     same data as before.
+                                                                        It is clear that the maxi-
+                                                                     mum value of R is about
+                                                                                        on
+                                                                     8 kV, whatever the input
+                                                                     signal is, between zero and
+                                                                     3 V. For small input volt-
+                                                                     ages, the R is even less
+                                                                                   on
+                                                                     than 2 kV.
+                                                                        In most cases, the
+                                                                     designer knows what the
+                                                                     input range will be. It covers
+the whole supply voltage range. In most cases, it is suﬃcient to take one switch only, a nMOST
+one for low input voltages or a pMOST one for high input voltages.
+Switched-capacitor ﬁlters                                                                   493
+
+                                                                1717
+                                                                Plotting the conductance of
+                                                                the switches shows clearly
+                                                                where the switches conduct
+                                                                and where they do not.
+                                                                   For low input voltages,
+                                                                only the nMOST conducts.
+                                                                For an input signal larger
+                                                                than V , the pMOST starts
+                                                                       Tp
+                                                                conducting. For a high
+                                                                supply voltages, there is a
+                                                                large region in the middle
+                                                                where both conduct. For an
+                                                                input signal larger than
+                                                                V −V , the nMOST
+                                                                  DD     Tn
+                                                                stops conducting.
+                                                                   For small supply voltages,
+there is obviously a region in the middle where none of the MOSTs conduct. The minimum
+supply voltage would thus be the sum of V and V .
+                                          Tn      Tp
+  How can switches be made to work in the middle if the supply voltage is really small?
+
+
+
+                                                                    1718
+                                                                    The same message is given
+                                                                    when the total on-resistance
+                                                                    is plotted rather than the
+                                                                    conductance. In this exam-
+                                                                    ple, both V ’s are close to
+                                                                                 T
+                                                                    0.9 V. Their sum is about
+                                                                    1.8 V.
+                                                                       For a large supply volt-
+                                                                    age, the on-resistance is
+                                                                    always small. For a supply
+                                                                    voltage which is a little
+                                                                    larger than the sum of the
+                                                                    two threshold voltages, the
+                                                                    switches do not conduct any
+                                                                    more in the middle. The on
+                                                                    resistance is too high to be
+                                                                    of use for a switch.
+  For large on-resistances, the time constant becomes too long. It takes too much time to fully
+charge the capacitances, as shown next.
+
+
+
+1719
+In such a switch-capacitor ﬁlter, we always assume that the charge is fully transferred from one
+capacitor to the other. Otherwise, the gain accuracy would be lost.
+494                                                                                   Chapter #17
+
+                                                                       It takes time however, to
+                                                                    fully charge a capacitor. In
+                                                                    theory it takes an inﬁnite
+                                                                    time. In practice however a
+                                                                    limited number of time con-
+                                                                    stants is suﬃcient.
+                                                                       Charging a capacitor C
+                                                                    by means of a constant resis-
+                                                                    tor gives an exponential
+                                                                    time response as shown in
+                                                                    this slide. The time required
+                                                                    to reach the ﬁnal value
+                                                                    within an error of 0.1% is
+                                                                    called the 0.1% settling time
+                                                                    t . For 0.1% it is the time
+                                                                     s
+                                                                    constant times ln(1000) or
+                                                                    6.9 or about 7. It takes
+about 7 times the time constant before the ﬁnal value is reached within 0.1%. This is a
+considerable amount of time.
+  For low kT/C noise, larger capacitors will be used and this time will be even longer. For small
+switches (W=2L) the on resistances are of the order of 10 kV, this time will be longer as well.
+Half the clock period must now be at least 7 times this time constant. There is therefore a
+minimum length of clock period and thus a maximum value of clock frequency, as discussed next.
+  Finally, note that the R increases because the V of the MOST decreases when the voltage
+                          on                        GS
+comes up. The actual time constant will be even larger. Only a circuit simulator can give
+accurate values.
+
+
+                                                                    1720
+                                                                    The maximum clock fre-
+                                                                    quency also sets the maxi-
+                                                                    mum signal frequency, as
+                                                                    the clock frequency must
+                                                                    always be much larger than
+                                                                    the signal frequency. The
+                                                                    error which occurs when the
+                                                                    clock frequency is not
+                                                                    suﬃciently large, will be cal-
+                                                                    culated later.
+                                                                       We now need to know on
+                                                                    what maximum clock fre-
+                                                                    quencies can be achieved.
+                                                                       A small switch is taken
+                                                                    with a R of 10 kV. The
+                                                                              on
+                                                                    capacitor is 1 pF. For an
+error of 0.1% the settling time is 70 ns and minimum period 140 ns. This corresponds to a clock
+frequency f     of 7 MHz.
+            max
+   As a consequence, if we need higher clocks than about 10 MHz, the switches must have to be
+Switched-capacitor ﬁlters                                                                        495
+
+made larger (larger W/L) or the capacitor smaller. Minimum unit capacitors are about 0.2 pF.
+However, if some gain is required, the other capacitor will be larger.
+  Larger switches store more charge and will give rise to other side eﬀects, which will be
+discussed later.
+  It can be concluded that switched-capacitor ﬁlters do not easily work which clocks beyond a
+few tens of MHz.
+
+                                                                      1721
+                                                                      There is also a minimum fre-
+                                                                      quency of operation.
+                                                                         MOST       Sources      and
+                                                                      Drains form junctions with
+                                                                      respect to the substrate (or
+                                                                      well). They leak. At room
+                                                                      temperature these leakage
+                                                                      currents are small but they
+                                                                      increase drastically at higher
+                                                                      temperatures.     Remember
+                                                                      that nowadays the Gate
+                                                                      leaks as well, but this is left
+                                                                      beyond consideration!
+                                                                         As a result, the charge
+                                                                      stored on a capacitor slowly
+                                                                      disappears. The voltage
+slowly decreases. It ‘‘droops’’. The droop rate dV /dt is given in this slide.
+                                                   C
+   If a 100 mV signal amplitude is taken, which we can allow to droop by 1% or 1 mV. Then
+the maximum half period is about 2 dt. At room temperature the minimum clock frequency f
+                                                                                                 cmin
+is then about 4 Hz. This increases to 4 kHz at 125°C.
+   It will be diﬃcult to realize switched-capacitor ﬁlters at very low frequencies, unless leakage
+can be better controlled or the temperature lowered!
+
+                                                                       1722
+                                                                       Another       problem    with
+                                                                       MOST switches is that the
+                                                                       terminals are connected by
+                                                                       parasitic capacitances. In a
+                                                                       MOST they are the overlap
+                                                                       capacitances. The larger the
+                                                                       widths (for smaller R ),
+                                                                                                 on
+                                                                       the larger the overlap
+                                                                       capacitors.
+                                                                          The clock pulses are par-
+                                                                       tially injected in the signal
+                                                                       path. Indeed, the overlap
+                                                                       capacitor C         forms a
+                                                                                       ovl
+                                                                       capacitive divider with the
+                                                                       storage capacitor
+                                                                          C. if C is about 1 fF and
+                                                                                 ovl
+496                                                                                     Chapter #17
+
+C is 1 pF, then about 0.1% of the clock pulse is injected in the signal path. For a clock of 3 V,
+this is a 3 mV error signal in the signal path. This gives a contribution at the clock frequency
+and its harmonics! It does not aﬀect the lower frequency bands, however.
+  The charge itself, transferred by C , is of the order of fC. It is quite small but not negligible.
+                                     ovl
+                                                                     1723
+                                                                     Moreover, a MOST, which
+                                                                     is switched on, contains a
+                                                                     mobile charge Q in the
+                                                                                       m
+                                                                     channel (inversion layer),
+                                                                     which disappears when the
+                                                                     MOST is switched oﬀ. The
+                                                                     charge    is   redistributed
+                                                                     towards both ends.
+                                                                        This charge disappears
+                                                                     towards the Source side and
+                                                                     towards the Drain side
+                                                                     depending on the relative
+                                                                     impedances seen. If the
+                                                                     capacitances on both sides
+                                                                     are the same, then half the
+                                                                     charge goes left and half
+                                                                     right.
+  A ﬁrst-order calculation shows that this charge is also of the order of magnitude of fC. For a
+1 pF storage capacitor, it also causes mV’s error.
+  This error depends on the signal and causes distortion.
+  A rule of thumb says that per pF storage capacitor, about 10 mV error can be expected as a
+result of clock injection and charge redistribution.
+  This is a lot. Let us see what circuit techniques can be used to reduce these errors. Making
+everything fully diﬀerential is certainly one way to reduce these errors.
+
+                                                                      1724
+                                                                      Using a double switch is a
+                                                                      possible remedy for clock
+                                                                      injection (see left). When the
+                                                                      nMOST receives a posi-
+                                                                      tively going clock pulse
+                                                                      at its Gate, the pMOST
+                                                                      receives a negatively going
+                                                                      clock pulse at its Gate. The
+                                                                      eﬀects can cancel, provided
+                                                                      the overlap capacitances
+                                                                      match. Charge redistribu-
+                                                                      tion is reduced as well as the
+                                                                      electrons of the nMOS
+                                                                      recombining with the holes
+                                                                      of the pMOST.
+                                                                         The addition of a dummy
+Switched-capacitor ﬁlters                                                                       497
+
+switch with speciﬁc dimensions (W/L) can help as well (see right). When the nMOST in the
+signal patch is switched out, its charge is taken up by the dummy nMOST switch, which is
+switched in. It is only half the size because we assume that the capacitances on both ends are
+the same. The same applies to the charge of the pMOSTs.
+   Clock skew (delay in time) and diﬀerent rise and fall times may render the charge compensation
+incomplete but these are only second-order eﬀects. The main diﬃculty with the dummy switch
+is that the relative impedances (capacitors) must be known on both ends. If not, addition of a
+dummy switch may make things worse!
+   Let us have a closer look at this compensation technique.
+
+
+                                                                       1725
+                                                                       This graph shows what frac-
+                                                                       tion of the charge DQ/Q
+                                                                       charge goes left and right,
+                                                                       when a MOST switch is
+                                                                       switched out. The capaci-
+                                                                       tance at the input is C and
+                                                                                               i
+                                                                       at the output C.
+                                                                          On the horizontal axis, a
+                                                                       parameter is used which
+                                                                       includes the steepness of the
+                                                                       clock pulses or simply the
+                                                                       clock speed. It is normalized
+                                                                       by means of some transistor
+                                                                       parameters. High speed
+                                                                       clocks are on the left,
+                                                                       whereas slow clocks are on
+                                                                       the right.
+   It shows that for high-speed clocks (small B), the charge redistribution is always the same at
+both ends. Half of the charge goes left, and half right, irrespective of what the input and output
+capacitors are. Dummies are therefore better used.
+   The picture is very diﬀerent if the clock has slow edges (B large). In this case, the charge has
+time to ﬁnd out what the capacitances (impedances) are on both sides and obviously ﬂows
+towards the highest capacitance (lowest impedance).
+   For a large C /C ratio, all the charge ﬂows to the output and dummies are required with
+                  i
+equally sized transistors. When C equals C, then half the charge ﬂows to the output and a
+                                     i
+dummy MOST is required of half the size. For a small C /C ratio, no charge ﬂows to the output
+                                                            i
+and a dummy is better not to be used.
+   In practice, however, the situation is not as clear cut. It is diﬃcult then to ﬁnd out the right
+size of the dummy.
+
+
+1726
+It has become clear from the above discussion that overlap capacitances must be as small as
+possible. On top of that, some more parasitic capacitances have to be added.
+   For example, in the layout on the left, the poly Gate lines cross the Source and Drain lines.
+The crossing areas (black) give coupling capacitances to be added to the overlap capacitances.
+498                    Chapter #17
+
+      The clock feedthrough will
+      now be increased. Such
+      layout is thus better
+      avoided.
+         The best that can be
+      achieved is to use as small a
+      MOST switch as possible, as
+      shown in the middle. The
+      overlap capacitances are
+      also as small as possible as
+      they scale with the widths of
+      the MOSTs.
+         On the right, an example
+      is given on the use of metal
+      shields between the clock
+      lines and the actual MOSTs,
+      reducing the coupling cap-
+      acitances.
+
+
+
+      1727
+      Now that we know what
+      capacitors can be used and
+      what switches, let us ﬁnd out
+      what performance can be
+      expected from the ﬁlter
+      blocks themselves. Let us
+      ﬁnd out what happens when
+      the signal frequencies are
+      not all that much smaller
+      than the clock frequencies.
+        A simple inverter is
+      taken ﬁrst.
+Switched-capacitor ﬁlters                                                                    499
+
+                                                                    1728
+                                                                    An analog signal is con-
+                                                                    tinuous in amplitude and in
+                                                                    time (on top). When it is
+                                                                    switched in and out at the
+                                                                    rate of a clock frequency f
+                                                                                                c
+                                                                    (represented by a pulse train
+                                                                    in the middle), it becomes
+                                                                    discontinuous in time (at the
+                                                                    bottom). It is only available
+                                                                    when the clock is high. It is
+                                                                    a sampled analog signal.
+                                                                       These signals are shown
+                                                                    versus time. As Fourier has
+                                                                    explained, they have an
+                                                                    equivalent representation
+                                                                    versus frequency, as shown
+                                                                    next.
+
+
+
+                                                                    1729
+                                                                    The bandwidth of the
+                                                                    analog signal is limited. Its
+                                                                    spectral content is limited
+                                                                    to f .
+                                                                        s
+                                                                       When this signal is
+                                                                    sampled by clock frequency
+                                                                    f , it is actually multiplied
+                                                                     c
+                                                                    by this clock frequency. Its
+                                                                    spectrum appears as two
+                                                                    sidebands on both sides of
+                                                                    the clock frequency, as
+                                                                    shown in the middle.
+                                                                       Note that the signal
+                                                                    bands appear on all the har-
+                                                                    monics      of    the   clock
+                                                                    frequency.
+  Care has to be taken that the frequency bands do not overlap. This is called aliasing. To avoid
+overlap, the signal frequency f must be smaller than half the clock frequency f . This is called
+                                s                                                 c
+the Nyquist criterion.
+  When the signal bandwidth f is too large, aliasing occurs (at the bottom), the information in
+                                  s
+the overlap frequency band does not know to which band it belongs. It is lost. Aliasing must be
+avoided at all cost. To achieve this, a low-pass ﬁlter is applied before sampling. This ﬁlter is
+normally a passive ﬁlter. It is called an anti-aliasing ﬁlter.
+500                                                                                       Chapter #17
+
+                                                                        1730
+                                                                        To avoid aliasing, an anti-
+                                                                        aliasing ﬁlter is required
+                                                                        with a low-pass characteris-
+                                                                        tic to make sure that no
+                                                                        high-frequency content is
+                                                                        present in the input signal
+                                                                        beyond f /2.
+                                                                                 c
+                                                                           Some distance must be
+                                                                        kept between f and f −f so
+                                                                                       s      c s
+                                                                        that a ﬁrst or second-order
+                                                                        ﬁlter is suﬃcient. Steep ﬁl-
+                                                                        ters require many compo-
+                                                                        nents and are diﬃcult to
+                                                                        match. Remember, that pas-
+                                                                        sive ﬁlters are usually used
+                                                                        to avoid distortion. Higher-
+                                                                        order anti-aliasing ﬁlters are
+                                                                        to be avoided.
+
+
+                                                                         1731
+                                                                         The order of the ﬁlter and
+                                                                         the amount of attenuation
+                                                                         are related as given in this
+                                                                         slide. Normally, a ﬁrst-order
+                                                                         ﬁlter (N=1) is preferred.
+                                                                            Such a sampled ﬁlter has
+                                                                         therefore the following
+                                                                         building blocks. The analog
+                                                                         signal is applied to a anti-
+                                                                         aliasing ﬁlter. It is sampled
+                                                                         by switches. A sampled-data
+                                                                         ﬁlter is applied, which
+                                                                         has the advantage that no
+                                                                         external components are
+                                                                         required. A clock is neces-
+                                                                         sary, however.
+   The output signal is then applied to a sample-and-hold circuit, to make it continuous in time.
+Another low-pass ﬁlter is then applied to ﬁlter out the clock frequency. It is called a reconstruction
+ﬁlter. A pure analog signal results. The same expressions are valid.
+   Nowadays, the input signal is ﬁltered and kept in sampled form to be applied to a Analog-
+to-digital converter, and then eventually to a DSP block.
+   After all this signal processing, it is applied to a Digital-to-analog converter, the last block of
+which is a reconstruction low-pass ﬁlter.
+Switched-capacitor ﬁlters                                                                     501
+
+                                                                     1732
+                                                                     In analog systems, the sig-
+                                                                     nals are best represented by
+                                                                     their Laplace transforms
+                                                                     with variable s which is the
+                                                                     complex frequency jv. The
+                                                                     best way to describe transfer
+                                                                     functions is the use of the
+                                                                     Laplace transform. An
+                                                                     example is given of a ﬁrst-
+                                                                     order low-pass ﬁlter with
+                                                                     time constant RC. It is easy
+                                                                     to transform this expression
+                                                                     back to frequency by simple
+                                                                     substitution of s by jv.
+                                                                       In sampled data systems,
+                                                                     the signals are best repre-
+sented by their z-transforms. Indeed the only accurate way to describe transfer functions is the
+use of z-transforms. A delay of one single clock pulse then corresponds to a multiplication by
+z−1. A few elementary characteristics of z-transforms are given in this slide.
+  It is easy to transform an expression in z back to frequency by substitution of z by exp( jvT )
+                                                                                                c
+or exp(2pjf/f ). Since the signal frequency f is much smaller than the clock frequency f , this
+              c                                                                             c
+exponential can be developed into a power series, as shown in this slide. It is suﬃcient to keep
+the ﬁrst few terms.
+
+
+                                                                    1733
+                                                                    In order to ﬁnd the transfer
+                                                                    characteristic of a sampled-
+                                                                    data ﬁlter in z, charge con-
+                                                                    servation is used. There are
+                                                                    other more formal tech-
+                                                                    niques (see Laker-Sansen,
+                                                                    McGrawHill 1994), but
+                                                                    charge conservation is the
+                                                                    easiest one, although it may
+                                                                    not always work.
+                                                                       An example is given of a
+                                                                    simple integrator.
+                                                                       An analog integrator has
+                                                                    a transfer characteristic,
+                                                                    which is well known, as
+                                                                    shown on the top left. What
+is now the transfer characteristic of the sampled-data inverter shown on top right? The resistor
+has been substituted by its sampled-data equivalent and called aC.
+   In order to ﬁnd the transfer characteristic in z, charge conservation is applied. This means
+that we add up the charges on the capacitors in phase 1, and equate it to the charges in phase
+2. Indeed, charges cannot disappear as currents cannot disappear (laws of Kirchoﬀ ).
+502                                                                                       Chapter #17
+
+   For this purpose, a clock pulse of phase 2 is considered at time t . Note also,this time actually
+                                                                        n
+corresponds to the end of the clock pulse, when all charge has been fully transferred. One period
+earlier, the clock pulse of phase 2 occurs at t     . The other phase (phase 1) then occurs at t
+                                                n−1                                              n−1/2
+at the end.
+   The charge on capacitance aC during phase 1 is denoted by Q and is given in this slide. It
+                                                                      aC1
+is available at time t       . The charge on capacitor C is given by Q As switch 2 is open during
+                       n−1/2                                             C1.
+phase 1, we can as well take this charge at time t          as at time t     .
+                                                      n−1/2              n−1
+
+                                                                    1734
+                                                                    When switch 2 is closed (on
+                                                                    phase 2), capacitor aC
+                                                                    is fully discharged as the
+                                                                    minus input of the opamp
+                                                                    goes to zero because of
+                                                                    the feedback. The gain is
+                                                                    assumed to be suﬃciently
+                                                                    high to reduce the diﬀer-
+                                                                    ential input zero, whatever
+                                                                    appears at the output.
+                                                                       In this phase 2, the charge
+                                                                    on capacitor ac C is zero
+                                                                    and the charge on capacitor
+                                                                    C changes to Q .
+                                                                                     C2
+                                                                       Noting that the sum of
+                                                                    the charges in phase 1,
+equals the sum of the charges in phase 2, gives the charge conservation equation. Note that this
+equation links the output voltage to the input voltage. The voltages appear at diﬀerent times,
+however. In this form, this equation cannot be solved.
+
+                                                                      1735
+                                                                      The charge conservation
+                                                                      equation is copied on top.
+                                                                      All voltages are now con-
+                                                                      verted into z-transforms.
+                                                                      One delay corresponds to
+                                                                      z−1.
+                                                                         The gain V /V is now
+                                                                                     out in
+                                                                      readily written. It shows
+                                                                      that the gain equals a, the
+                                                                      ratio of the two capacitors,
+                                                                      multiplied by a factor in z.
+                                                                         To see what this factor
+                                                                      means in the frequency
+                                                                      domain, z is substituted by
+                                                                      exp( jvT ). For frequencies
+                                                                               c
+                                                                      much lower than the clock
+frequency f , this exponential can be developed into a power series, which can be cut oﬀ after jvT .
+           c                                                                                      c
+Switched-capacitor ﬁlters                                                                         503
+
+  The resulting gain is exactly the same as for a purely analog integrator, provided the time
+constant T /a.
+           c
+  This is approximation however, for low frequencies. For higher frequencies, an error is made,
+discussed next.
+
+
+
+                                                                      1736
+                                                                      To ﬁnd out what the transfer
+                                                                      characteristic is for all
+                                                                      frequencies, the original
+                                                                      expression H(z) in z is
+                                                                      taken again.
+                                                                         The exponentials can be
+                                                                      rewritten in terms of vT /2.
+                                                                                                c
+                                                                      They can be combined in a
+                                                                      sine function.
+                                                                         The same expression of an
+                                                                      integrator is obtained, but
+                                                                      multiplied by a sin(x)/x
+                                                                      function. This function is the
+                                                                      error functional which is
+                                                                      typical for all sampling of
+                                                                      analog signals.
+  This function is calculated on the next slide. A rule of thumb is that for a frequency one tenth
+of the clock frequency, the error is about one tenth of a percent. This error grows with the
+square of the frequency, as shown on the next slide.
+
+
+
+                                                                     1737
+                                                                     The sin(x)/x function is
+                                                                     easily calculated, as shown
+                                                                     in this slide. It starts at 1 for
+                                                                     small x and goes through
+                                                                     zero at x=p=3.14.
+                                                                        For small values of x, the
+                                                                     sine function can be repre-
+                                                                     sented by a power series and
+                                                                     cut oﬀ after the ﬁrst two
+                                                                     terms.
+                                                                        For x=0.1, the function
+                                                                     drops to 0.3% below unity.
+                                                                     For x=0.05 as on the previ-
+                                                                     ous slide, the function drops
+                                                                     to 0.08% below unity. This
+                                                                     is taken to be about 0.1%.
+   Note also that this function changes with x2. The errors decrease rapidly for smaller values of
+x. For example, for an error of 0.05% the value is about 0.04. An error of 0.05% is a typical
+504                                                                                     Chapter #17
+
+value used in the design of SC ﬁlters. It leads to dynamic ranges of about 70 dB, as will be
+shown later.
+
+
+                                                                      1738
+                                                                      In this switched-capacitor
+                                                                      realization of a resistor, par-
+                                                                      asitic capacitances play an
+                                                                      important      role.    These
+                                                                      capacitors cannot therefore
+                                                                      be made small, which
+                                                                      leads to excessive power
+                                                                      consumption.
+                                                                         This is why a stray-insen-
+                                                                      sitive equivalent is better
+                                                                      used.
+                                                                         This is discussed next.
+
+
+
+
+                                                                    1739
+                                                                    Each capacitor has a para-
+                                                                    sitic capacitor from the
+                                                                    bottom plate to the under-
+                                                                    lying       conductor     (sub-
+                                                                    strate, ...). For capacitor aC,
+                                                                    this bottom plate is obvi-
+                                                                    ously connected to ground,
+                                                                    where it is shorted out.
+                                                                       For capacitor C however,
+                                                                    it is not so clear. If the
+                                                                    bottom plate is connected to
+                                                                    the minus input of the
+                                                                    opamp (green), then the
+                                                                    minus node picks up sub-
+                                                                    strate noise more easily,
+                                                                    which is bad for the PSRR.
+  If on the other hand, the bottom plate is connected to the output of the opamp (blue), then
+the load capacitance increases by this amount, increasing the power consumption. Yet, the latter
+solution is usually preferred.
+Switched-capacitor ﬁlters                                                                     505
+
+                                                                  1740
+                                                                  Moreover, the Source and
+                                                                  Drain junction capacitances
+                                                                  of the switches have to be
+                                                                  added to capacitor aC.
+                                                                    The Source capacitor of
+                                                                  switch 1 and the Drain
+                                                                  capacitor of switch 2 are
+                                                                  shown in this slide (green).
+                                                                  Together, they can easily
+                                                                  give an error on aC of 5 to
+                                                                  10%.
+                                                                    Remember that a Source
+                                                                  junction capacitance is of
+                                                                  the same order of magnitude
+                                                                  as the C , which is about
+                                                                           GS
+                                                                  kW (with k#2 fF/mm) for
+minimum-L transistors. For a W#5 mm, such a Source junction capacitor is about 10 fF.
+  A better alternative is to make capacitor aC ﬂoating, as shown next.
+
+
+
+
+                                                                     1741
+                                                                     Capacitor aC is now ﬂoat-
+                                                                     ing. Two more switches are
+                                                                     necessary. However, the
+                                                                     ratio a will be insensitive
+                                                                     to the parasitic junction
+                                                                     capacitances.
+                                                                        Similar functions are car-
+                                                                     ried out during the two
+                                                                     phases. During phase 1,
+                                                                     capacitor aC is charged to
+                                                                     the input voltage. During
+                                                                     phase 2, this capacitor aC is
+                                                                     discharged to zero, forcing
+                                                                     its charge towards C.
+                                                                        Let us now see how the
+                                                                     parasitic junction capaci-
+tances of all four switches come in. If they do not, the gain A is accurately equal to a.
+                                                               v
+  The operation of this SC integrator is illustrated even better by showing the circuit ﬁrst with
+the clocks closed on phase 1, and then on 2.
+506                                                                                    Chapter #17
+
+                                                                     1742
+                                                                     Note that in phase 1, the left
+                                                                     side of capacitor aC is
+                                                                     charged positively. Its right
+                                                                     side is negative. During
+                                                                     phase 2 it will be applied to
+                                                                     an inverting ampliﬁer con-
+                                                                     ﬁguration. We will there-
+                                                                     fore have a non-inverting
+                                                                     integrator.
+
+
+
+
+                                                                     1743
+                                                                     In phase 2, the voltage
+                                                                     across aC is applied to the
+                                                                     inverting ampliﬁer, generat-
+                                                                     ing the voltage gain of a.
+                                                                        Capacitor aC is now fully
+                                                                     discharged provided the
+                                                                     gain of the opamp is suﬃ-
+                                                                     ciently high and no oﬀset is
+                                                                     present.
+
+
+
+
+1744
+Let us now see how the parasitic junction capacitances of all four switches come in.
+   The full integrator is shown on top, with the parasitic capacitances C .
+                                                                         p
+   The situation is depicted during clock phase 1. The opamp is not connected and is now left out.
+   The parasitic capacitor C on the left of aC is driven by the output of the previous stage. It
+                              p
+is a low-impedance point which easily charge this capacitor without aﬀecting the voltage across
+aC. As a result, it does not aﬀect charge Q .
+                                            aC
+Switched-capacitor ﬁlters                                                                       507
+
+                                                                         The parasitic capacitor C
+                                                                                                   p
+                                                                      on the right of aC is shunted
+                                                                      to ground. As a result, it
+                                                                      does not aﬀect charge Q
+                                                                                                  aC
+                                                                      either.
+                                                                         The parasitic capaci-
+                                                                      tances have no inﬂuence on
+                                                                      the charge on capacitor aC.
+                                                                      This latter capacitance aC
+                                                                      can therefore be smaller
+                                                                      without loosing accuracy.
+                                                                      Typical values are 0.2 to
+                                                                      0.25 pF.
+
+
+
+
+                                                                      1745
+                                                                      The full integrator is again
+                                                                      shown on top.
+                                                                         The situation is now
+                                                                      depicted     during     clock
+                                                                      phase 2.
+                                                                         The parasitic capacitor C
+                                                                                                   p
+                                                                      on the left of aC is shunted
+                                                                      to ground. Its charge
+                                                                      obtained during phase 1,
+                                                                      disappears to ground. As a
+                                                                      result, it does not aﬀect
+                                                                      charge on any capacitor.
+                                                                         The parasitic capacitor C
+                                                                                                   p
+                                                                      on the right of aC is now
+                                                                      connected to the minus
+                                                                      input of the opamp. It is a
+low-impedance point because of the parallel feedback. It is called the ‘‘virtual ground’’. As a
+result, it does not aﬀect charges an any capacitor either. Of course, this only holds if the gain of
+the opamp is suﬃciently high.
+  The parasitic capacitances have therefore no inﬂuence on the charge on capacitor aC or C.
+Only charge Q has been transferred. The capacitors can now be chosen smaller without loosing
+                aC
+accuracy. In this way, power can be saved.
+508                                                                                      Chapter #17
+
+                                                                       1746
+                                                                       Now that we know how to
+                                                                       construct a switched-capaci-
+                                                                       tor integrator, let us investi-
+                                                                       gate     at    some      more
+                                                                       complicated ﬁlter structures.
+                                                                         Simple low-pass ﬁlters
+                                                                       come ﬁrst.
+
+
+
+
+                                                                       1747
+                                                                       Let us ﬁrst investigate
+                                                                       some variations on the
+                                                                       integrators.
+                                                                          Switches are now also
+                                                                       connected to the output.
+                                                                       They are actually the input
+                                                                       switches of the next stage.
+                                                                       They determine on which
+                                                                       switch the output becomes
+                                                                       available. The delay through
+                                                                       the inverter is obviously
+                                                                       aﬀected by them.
+                                                                          All the integrators in this
+                                                                       slide have only a single
+                                                                       capacitance in the feedback
+                                                                       loop. This is why they are
+called ‘‘loss-less’’. They do not have a resister in the feedback loop which would ‘‘dampen’’ the
+integration.
+   The top integrator with output on phase 1, has been discussed before. It has a non-inverting
+gain C /C , and half a clock delay.
+        1 2
+   However, when the output is sampled on phase 2, another half cock delay is added. The gain
+is again C /C , but the delay is now a full clock period.
+            1 2
+   In the bottom integrator, the two switches at the input have been interchanged. In clock phase
+2, the well-known inverting ampliﬁer conﬁguration appears. It has gain C /C and no delay.
+                                                                                1 2
+Taking the output on phase 1, adds half a clock period delay.
+Switched-capacitor ﬁlters                              509
+
+                            1748
+                            Addition of a switched resis-
+                            tor, with capacitor C2,
+                            across integration capacitor
+                            C, dampens the integration.
+                            It forms a ﬁrst-order low-
+                            pass ﬁlter.
+                               The gain at low frequen-
+                            cies is non-inverting and
+                            equals C /C . The pole of
+                                        1 2
+                            this ﬁlter (or the bandwidth)
+                            is a fraction of the clock fre-
+                            quency f , depending on the
+                                      c
+                            ratio C /C .
+                                    1 2
+                               Many more ﬁlters can be
+                            constructed in this way.
+
+
+
+
+                            1749
+                            Two more examples are
+                            given in this slide.
+                               Both are ﬁrst-order low-
+                            pass ﬁlters. Both have the
+                            same gain and cut-oﬀ fre-
+                            quency. The top one is non-
+                            inverting however, because
+                            of the diﬀerent switch
+                               arrangement. Some more
+                            complicated ﬁlter conﬁgu-
+                            rations will be discussed
+                            later.
+510                                                                                 Chapter #17
+
+                                                                  1750
+                                                                  As the input signal is stored
+                                                                  and ampliﬁed in the next
+                                                                  clock phase, the oﬀset volt-
+                                                                  age can also be stored and
+                                                                  subtracted in the next phase.
+                                                                  In this way, the oﬀset of the
+                                                                  opamp can be cancelled out.
+                                                                     An example of such a can-
+                                                                  cellation circuit is shown in
+                                                                  this slide.
+                                                                     If the oﬀset v were zero
+                                                                                    os
+                                                                  then it is clear that the gain
+                                                                  is accurately zero. In the
+                                                                  presence of an oﬀset voltage
+                                                                  v , we want to discover
+                                                                    os
+                                                                  how much of this oﬀset is
+                                                                  measured at the output.
+                                                                     For this purpose, charge
+                                                                  conservation is applied.
+
+
+
+                                                                 1751
+                                                                 The same circuit is shown
+                                                                 twice, once during clock
+                                                                 phase 1 (on the left) and
+                                                                 once during clock phase 2
+                                                                 (on the right).
+                                                                    In both clock phases, the
+                                                                 charges are written on both
+                                                                 capacitors aC and C. The
+                                                                 equation of the sum of
+                                                                 the charges, shows that the
+                                                                 oﬀset voltage v cancels
+                                                                                    os
+                                                                 altogether.     Indeed,    it
+                                                                 appears in all terms. As a
+                                                                 result it cancels out.
+                                                                    This technique is also
+                                                                 used to cancel the 1/f noise
+of MOST ampliﬁers. At very low frequencies, 1/f noise resembles oﬀset. It is now cancelled out
+at the cost of a small increase of the thermal noise.
+Switched-capacitor ﬁlters                                                                     511
+
+                                                                   1752
+                                                                   More complicated ﬁlters
+                                                                   can also be constructed.
+                                                                     They can basically be
+                                                                   divided into ladder ﬁlters
+                                                                   and biquads.
+                                                                     Only a few examples are
+                                                                   given here. For a more
+                                                                   detailed    treatment       the
+                                                                   reader is referred to the ref-
+                                                                   erences in this slide, the last
+                                                                   one of which is the most
+                                                                   up-to-date.
+
+
+
+
+                                                                 1753
+                                                                 One example of a ladder
+                                                                 ﬁlter is shown in this slide.
+                                                                 It has been shown at the
+                                                                 beginning of this Chapter.
+                                                                    Ladder ﬁlters have the
+                                                                 advantage that they are rel-
+                                                                 atively insensitive to errors
+                                                                 in the coeﬃcients, or the
+                                                                 actual component values.
+                                                                 They are normally of odd
+                                                                 order although even-order
+                                                                 ones are possible as well.
+                                                                    This is a single-ended one.
+                                                                 Nowadays, preference is
+                                                                 given to fully-diﬀerential
+                                                                 ones to reject substrate
+                                                                 noise.
+  The power consumption is about 50 mW per pole. Values down to 25 mW have also been
+achieved. This is only possible however, if class AB opamps are used in both the input AND
+output stages.
+512                                                                                    Chapter #17
+
+                                                                     1754
+                                                                     An alternative circuit con-
+                                                                     ﬁguration is a biquadratic
+                                                                     ﬁlter. It is a second-order
+                                                                     ﬁlter conﬁguration with
+                                                                     local and overall feedback.
+                                                                     It contains two operational
+                                                                     ampliﬁers, as shown in this
+                                                                     slide.
+                                                                        The transfer characteristic
+                                                                     is of second-order in both
+                                                                     the numerator and denomi-
+                                                                     nator. It has two poles and
+                                                                     zeros. Filter design consists
+                                                                     of positioning the poles
+                                                                     and zeros accordingly. The
+                                                                     reader is referred to the
+general references on the introductory slide.
+  For higher-order ﬁlters, several biquads can be cascaded.
+  Finally, note that the C’s in the expression refer to capacitor ratios. The unit capacitance has
+to be selected. It is usually around 0.25 pF.
+  Nowadays, such ﬁlters are realized in a fulyl-diﬀerential version to reject substrate noise.
+
+
+
+                                                                     1755
+                                                                     Finally, we have to have a
+                                                                     look at the speciﬁcations of
+                                                                     the opamps used in such
+                                                                     switched-capacitor ﬁlters.
+                                                                     After all, they take most of
+                                                                     the power consumption.
+                                                                        They are necessary to
+                                                                     guarantee      full   charge
+                                                                     transfer from the input
+                                                                     (sampling) capacitor to the
+                                                                     output (integration) capaci-
+                                                                     tor. They need therefore
+                                                                     high gain and low oﬀset.
+                                                                     Moreover, they have to
+                                                                     settle to within 0.05% in as
+                                                                     short a time as possible, to
+allow use of high-frequency clocks.
+   This is now discussed in more detail.
+Switched-capacitor ﬁlters                                                                   513
+
+                                                                    1756
+                                                                    When feedback is used
+                                                                    around an operational
+                                                                    ampliﬁer with gain-band-
+                                                                    width product GBW, the
+                                                                    closed-loop gain A is the
+                                                                                        c0
+                                                                    inverse of the feedback
+                                                                    factor a. This is the ratio
+                                                                    between the bandwidth BW
+                                                                    and the GBW.
+                                                                       The loop gain T is then
+                                                                    the diﬀerence (in dB)
+                                                                    between the open-loop gain
+                                                                    A and the closed-loop gain
+                                                                      0
+                                                                    A . It is also given by aA .
+                                                                      c0                      0
+                                                                       The loop gain T will
+                                                                    determine the accuracy at
+low frequency or the static accuracy.
+   The bandwidth will determine the settling time.
+   For example, take a closed-loop gain of 5, which corresponds to a=0.2. For A =104, the loop
+                                                                                0
+gain is 2000 or 66 dB. If the GBW=1 MHz, then the BW is 0.2 MHz. Also, the dominant pole
+f is at 100 Hz. At this frequency, the loop gain starts decreasing, to become unity at 0.2 MHz.
+ d
+
+
+
+                                                                   1757
+                                                                   The static accuracy e for a
+                                                                                           S
+                                                                   step input with amplitude
+                                                                   V , is now given by the
+                                                                     step
+                                                                   inverse of the loop gain or
+                                                                   by the inverse of aA .
+                                                                                         0
+                                                                      For a minimum static
+                                                                   accuracy e , there is a mini-
+                                                                              S
+                                                                   mum amount of gain A
+                                                                                               0
+                                                                   required. For example, for
+                                                                   e =0.05% we need a loop
+                                                                    S
+                                                                   gain of the inverse or 2000.
+                                                                   For a closed-loop gain of 5
+                                                                   (a=0.2) the open-loop gain
+                                                                   A must be 104.
+                                                                     0
+                                                                      Since open-loop gains are
+                                                                   not accurately known, a
+safety factor has to be included of 3–5. The open-loop gain must therefore be 3×104 or 90 dB.
+514                                                                                Chapter #17
+
+                                                                 1758
+                                                                 It takes a time t , which
+                                                                                     s
+                                                                 includes a number of time
+                                                                 constants, before the expo-
+                                                                 nential of the voltage across
+                                                                 the output capacitor reaches
+                                                                 its ﬁnal value. For a devia-
+                                                                 tion of 0.1%, approximately
+                                                                 7 time constants are
+                                                                 required. This deviation is
+                                                                 called the dynamic error e .
+                                                                                             D
+                                                                 A typical value is again
+                                                                 0.05%.
+                                                                    The time constant itself is
+                                                                 1/(2pBW) in which the BW
+                                                                 equals aGBW. For a single-
+                                                                 stage opamp the GBW is
+determined by the load capacitances, as given in this slide.
+   The maximum value of settling time t is half the clock period, which is the inverse of the
+                                          s
+clock frequency f .
+                 c
+   A minimum value is now required for the GBW. The corresponding time constant must be
+suﬃciently small to be able to reach settling with suﬃcient dynamic accuracy within half a
+clock period.
+   The expression is given in this slide.
+   For example, the term ln(1/e ) is about 7 for 0.1% but 7.6 for 0.05%. For a=0.2, the GBW
+                                D
+must be about 12 times f . If a were unity, then 2.4 times f would be suﬃcient. This is where
+                          c                                  c
+the rule of thumb is coming from that the GBW must be 2–3 times the clock frequency f .
+                                                                                        c
+
+
+                                                                 1759
+                                                                 Static and dynamic accu-
+                                                                 racy is one concern, noise
+                                                                 is another.
+                                                                    Because of the switching,
+                                                                 noise is increased in the low-
+                                                                 frequency band, as shown
+                                                                 next.
+Switched-capacitor ﬁlters                                                                     515
+
+                                                                    1760
+                                                                    Because the GBW is always
+                                                                    larger than the clock fre-
+                                                                    quency f , the noise is folded
+                                                                             c
+                                                                    back towards the lowest fre-
+                                                                    quency band. Actually, this
+                                                                    is a heavy case of aliasing.
+                                                                       The total integrated noise
+                                                                    of an opamp with load
+                                                                    capacitance C (or compen-
+                                                                    sation capacitance for a
+                                                                    two-stage opamp) is close to
+                                                                    kT/C (see Chapter 4).
+                                                                       The integrated input
+                                                                    noise voltage power has to
+                                                                    be multiplied by the ratio of
+                                                                    the GBW to the clock fre-
+quency as shown in this slide. For a GBW which is about 3 times f , this gives a multiplication
+                                                                    c
+factor of 6 for the noise power or about 2.5 for the noise voltage.
+   For less noise, larger capacitors must be used. Also, minimum values of GBW must be used.
+
+
+
+                                                                     1761
+                                                                     Now that switched-capaci-
+                                                                     tor techniques have been
+                                                                     discussed, switched-current
+                                                                     circuits are added for sake
+                                                                     of comparison. They use
+                                                                     currents     rather    than
+                                                                     voltages.
+516                                                                                    Chapter #17
+
+                                                                   1762
+                                                                   Indeed, when a switch is
+                                                                   added to a current mirror as
+                                                                   shown in this slide, the oper-
+                                                                   ation is exactly as in a cur-
+                                                                   rent mirror when the switch
+                                                                   is closed. For equal transis-
+                                                                   tor sizes, the output current
+                                                                   I     equals the input cur-
+                                                                     out
+                                                                   rent I .
+                                                                          in
+                                                                       When the switch opens
+                                                                   however, capacitance C
+                                                                                              GS2
+                                                                   holds the voltage at the
+                                                                   Gate of M2. As a result, the
+                                                                   output current I       contin-
+                                                                                     out
+                                                                   ues to ﬂow, independent of
+                                                                   what happens at the input.
+   This stage has memory. It generates a delay of half a clock period. It can thus be used as a
+ﬁlter in a similar way as a switched-capacitor block acts as a memory and generates delay.
+   Such a ﬁlter is shown next.
+
+
+
+
+                                                                     1763
+                                                                     Two switched-current mir-
+                                                                     rors with feedback yield a
+                                                                     low-pass ﬁlter, as shown in
+                                                                     this slide.
+                                                                        The output current i
+                                                                                                out
+                                                                     equals K times the feedback
+                                                                     current i .
+                                                                               f
+                                                                        On clock phase 2, the
+                                                                     feedback current i is the
+                                                                                           f
+                                                                     sum of the input current,
+                                                                     applied half a clock period
+                                                                     earlier and the feedback cur-
+                                                                     rent, applied a full clock
+                                                                     period earlier.
+                                                                        The current gain is more
+                                                                     easily found. It has the same
+expression in z as a switched-capacitor low-pass ﬁlter. The gain is K and the delay is half a
+clock period.
+   The diﬀerence with a switched-capacitor ﬁlter is that currents are used, rather than voltages.
+The advantage of this ﬁlter is that no capacitors are added. The transistor capacitances are used.
+This type of ﬁlter may be more compatible with a digital CMOS process.
+   Another example is given next.
+Switched-capacitor ﬁlters                                                                   517
+
+                                                                   1764
+                                                                   In this ﬁlter more is done
+                                                                   with less transistors. A
+                                                                   number of second-order
+                                                                   eﬀects can be avoided.
+                                                                      Judicious playing with
+                                                                   transistor size ratios allows
+                                                                   construction of fairly soph-
+                                                                   isticated ﬁlter character-
+                                                                   istics.
+                                                                      The actual derivation is
+                                                                   left as an exercise for the
+                                                                   reader.
+
+
+
+
+                                                                   1765
+                                                                   A comparison between
+                                                                   switched-capacitor      and
+                                                                   switched-current ﬁlters is
+                                                                   now imperative.
+                                                                      In a switched-capacitor
+                                                                   ﬁlter a charge is stored on
+                                                                   a capacitor. The signal is
+                                                                   therefore a voltage. The
+                                                                   accuracy depends on the full
+                                                                   charge transfer from one
+                                                                   capacitor to another. This
+                                                                   also depends on the match-
+                                                                   ing of these two capacitors.
+                                                                      Mismatch, clock injection
+                                                                   and charge distribution
+                                                                   limit the dynamic range to
+about 70 dB without excessive precautions.
+   In a switched-current ﬁlter a charge is a result of a current ﬂowing during a certain amount
+of time, determined by the clock period. The signal is a current. The accuracy depends on the
+matching of transistor sizes.
+   Mismatch, clock injection and charge distribution limit the dynamic range to about 50 dB
+without excessive precautions.
+   The main diﬀerence is that in a switched-current ﬁlter the charge transfer is less accurate
+because of the worse mismatch between transistors than between capacitors. The main advantage
+of switched-current ﬁlters is that they reach higher frequencies because they do not use opamps,
+just current-mirrors.
+   It is clear that such a comparison can only be of ﬁrst-order. A full comparison would take a
+full workshop.
+518                                                                        Chapter #17
+
+ Another comparison between all important ﬁlter types will be given at the end of
+Chapter 19.
+
+
+                                                         1766
+                                                         In this Chapter switched-
+                                                         capacitor techniques have
+                                                         been introduced. Consider-
+                                                         able attention is paid to the
+                                                         capacitors, switches and
+                                                         opamps required to build
+                                                         such ﬁlters.
+                                                            Also the limitations are
+                                                         discussed such as mismatch,
+                                                         clock injection, charge redis-
+                                                         tribution and noise.
+                                                            Finally a short compari-
+                                                         son with switched-current
+                                                         ﬁlters is given.
+                                                            Several more types of ﬁl-
+                                                         ters are available on silicon.
+                                                         Continuous-time ﬁlters are
+                                                         next.
+

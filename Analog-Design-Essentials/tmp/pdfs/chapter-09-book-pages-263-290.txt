@@ -1,0 +1,1384 @@
+                                                                091
+                                                                In many applications, oper-
+                                                                ational     ampliﬁers      are
+                                                                required which have three
+                                                                stages. For example, class
+                                                                AB ampliﬁers have an
+                                                                output stage which provide
+                                                                little gain but a lot of cur-
+                                                                rent. The ﬁrst two stages are
+                                                                now needed to provide gain.
+                                                                   Also, when the supply
+                                                                voltage is less than 1 V,
+                                                                more stages are required as
+                                                                cascoding is no longer
+                                                                possible.
+                                                                   In this Chapter, the prin-
+                                                                ciples are discussed to stabi-
+lize three-stage ampliﬁers. Moreover, circuit principles are devised to reduce the power
+consumption.
+
+
+
+
+                                                                   092
+                                                                   With three stages, stability
+                                                                   is less obvious than two
+                                                                   stages. This is why the ﬁrst
+                                                                   topic in this Chapter is
+                                                                   devoted to stability require-
+                                                                   ments. A speciﬁc design pro-
+                                                                   cedure has to be followed to
+                                                                   ensure stability with mini-
+                                                                   mum power consumption.
+                                                                      Nested-Miller designs are
+                                                                   discussed next. They have
+                                                                   been used for some time
+                                                                   now. However, they suﬀer
+                                                                   from excessive power con-
+                                                                   sumption in the output
+                                                                   stage.
+   This is why several low-power designs are introduced and compared. They allow power savings
+of up to 40 times. They are therefore useful for low-power and portable systems.
+
+
+
+
+                                              263
+264                                                                                     Chapter #9
+
+                                                                      093
+                                                                      The main reason for more
+                                                                      than two stages is gain.
+                                                                      Despite the availability of
+                                                                      gain boosting, bootstrap-
+                                                                      ping, etc. to increase the
+                                                                      gain, quite often the supply
+                                                                      voltage is just too low. In
+                                                                      this case, three stages or
+                                                                      more may be required.
+                                                                         For small channel lengths,
+                                                                      the gain per transistor,
+                                                                      which is g r , has become
+                                                                                 m o
+                                                                      quite small. For example, for
+                                                                      130 nm CMOS, less than
+                                                                      about 15 (or 24 dB) per
+                                                                      transistor can be expected.
+For large gains, three or more stages are therefore required.
+  This is certainly true if a small resistor or large capacitance must be driven. In this case, the
+output stage provides little gain. Two more stages are then required to drive the output stage
+with a lot of gain.
+  For very low supply voltages less than 1 V, cascoding is no longer possible because of the
+reduced output swings. Cascading is then required, as shown next.
+
+
+
+
+                                                                      094
+                                                                      Both a cascode stage and a
+                                                                      cascaded stage provide the
+                                                                      same gain because both cir-
+                                                                      cuits have the same number
+                                                                      of transistors in the signal
+                                                                      path. However, the latter
+                                                                      one takes more current.
+                                                                        Only current sources are
+                                                                      used here as ideal loads.
+                                                                      Despite the larger current,
+                                                                      the cascade stage can pro-
+                                                                      vide a rail-to-rail output
+                                                                      swing, which may be very
+                                                                      desirable for low supply
+                                                                      voltages.
+                                                                        The speed is not higher
+                                                                      however, as shown next.
+Design of multistage operational ampliﬁers                                                   265
+
+                                                                    095
+                                                                    Addition of the same load
+                                                                    capacitance C , shows that
+                                                                                   L
+                                                                    the GBW of the cascode
+                                                                    stage     simply    depends
+                                                                    directly on this capacitance.
+                                                                       A cascaded ampliﬁer
+                                                                    however, has two stages. A
+                                                                    compensation capacitance is
+                                                                    thus required to provide
+                                                                    pole splitting for stability.
+                                                                    As a consequence the output
+                                                                    pole g /C will have to be
+                                                                           m2 L
+                                                                    two to three times larger
+                                                                    than the GBW. More cur-
+                                                                    rent will therefore be con-
+                                                                    sumed. In general, addition
+of capacitances leads to additional current consumption.
+   As said before, the cascaded stage allows a rail-to-rail output swing, which is a considerable
+advantage.
+
+
+
+
+                                                                    096
+                                                                    In order to create a feel-
+                                                                    ing on how a three-stage
+                                                                    ampliﬁer     is   stabilized,
+                                                                    the principles are reviewed
+                                                                    for a single-and two-stage
+                                                                    ampliﬁer.
+                                                                      A single-stage ampliﬁer
+                                                                    has only one single high-
+                                                                    impedance point at the
+                                                                    output. The output capaci-
+                                                                    tance C determines the
+                                                                             L
+                                                                    GBW.
+                                                                      In the case of variable
+                                                                    load capacitances, as in
+                                                                    switched-capacitor ﬁlters,
+                                                                    we do not want the GBW
+to depend on the load. A two-stage opamp is then better used.
+266                                                                                    Chapter #9
+
+                                                                   097
+                                                                   A two-stage ampliﬁer has
+                                                                   two high-impedance points.
+                                                                   They need to be connected
+                                                                   by a compensation capaci-
+                                                                   tance C to provide pole
+                                                                            c
+                                                                   splitting and to generate a
+                                                                   dominant pole. The GBW is
+                                                                   therefore determined by this
+                                                                   compensation capacitance
+                                                                   C.
+                                                                     c
+                                                                      For stability, the non-
+                                                                   dominant pole is now deter-
+                                                                   mined by the load capaci-
+                                                                   tance C . It must be
+                                                                              L
+                                                                   suﬃciently large compared
+                                                                   to the GBW, to provide a
+suﬃcient phase margin. A ratio of three is taken for a phase margin of about 70°.
+  Since we have two stages, we have two time constants. They are the ones for the GBW and
+the one for the non-dominant pole. The latter one is the output time constant. It is the output
+g divided by the load capacitance C . It is normally set at two to three times the GBW
+ m3                                    L
+depending on the phase margin required.
+
+
+
+
+                                                                    098
+                                                                    We now have three stages,
+                                                                    we can expect three time
+                                                                    constants. They will be the
+                                                                    ones for the GBW and now
+                                                                    for two non-dominant poles.
+                                                                      Since three high-imped-
+                                                                    ance points are present, two
+                                                                    compensation capacitances
+                                                                    are required for stability.
+                                                                    Both are connected to the
+                                                                    output. This is called nested-
+                                                                    Miller compensation.
+                                                                      Indeed the GBW has the
+                                                                    same expression as before.
+                                                                    The reason is that the com-
+                                                                    pensation capacitance con-
+nects the output to the output of the input transistor. It shunts both transistors M2 and M3.
+Transistor M2 is a kind of driver for transistor M3. Together they form the output stage.
+  The output time constant is the same as well. It is again the output g divided by the load
+                                                                          m3
+capacitance C , exactly as for a two-stage ampliﬁer.
+              L
+Design of multistage operational ampliﬁers                                                   267
+
+  The middle stage now brings in another time constant, also given by its g divided by its
+                                                                             m2
+own output capacitance C .
+                           D
+  As a result, we ﬁnd two non-dominant poles. Both have to be positioned suﬃciently far beyond
+the GBW, such that together they provide a reasonable phase margin. Ratio’s of 3 and 5 have
+been taken in this slide. Why these values is shown next.
+
+
+
+
+                                                                     099
+                                                                     The curves for equal phase
+                                                                     margin PM for diﬀerent
+                                                                     combinations of the two
+                                                                     non-dominant poles are
+                                                                     shown in this slide. The
+                                                                     (circle) frequencies of the
+                                                                     non-dominant poles are
+                                                                     scaled by one of the GBW.
+                                                                        It is clear that for a PM
+                                                                     of 60°, one non-dominant
+                                                                     pole has to be positioned at
+                                                                     3 times the GBW and the
+                                                                     other one at 5 times the
+                                                                     GBW (see dot). Obviously,
+                                                                     all other combinations of
+                                                                     the same (blue) curve pro-
+vide the same PM of 60°. This means that all these combinations give about the same amount
+of peaking in the transient response. Ratio’s of 3.5 and 4 are therefore perfectly acceptable.
+Ratio’s of 2.5 and 7 would also be acceptable but positioning a non-dominant pole at 7 times
+the GBW would probably require too much power. This combination is better avoided.
+   It is also clear that a PM of about 60° is suﬃciently high, even if a bit of peaking occurs. A
+PM of 70° would require non-dominant poles at too high frequencies, and would consume too
+much power.
+   Many designers take an even higher risk by requiring a PM of only 50°. In this case, the
+transient response is really on the edge of peaking. The non-dominant poles can then be
+positioned at 2 and 4 times the GBW only (see dot)! This is called the Butterworth response. It
+provides a maximally ﬂat response once the feedback loop is closed towards unity gain. It is
+often used for the design of three-stage ampliﬁers although it may not yield the lowest power
+consumption.
+268                                                                                   Chapter #9
+
+                                                                   0910
+                                                                   The positions of the two
+                                                                   non-dominant poles deter-
+                                                                   mine the open-loop re-
+                                                                   sponse as sketched in this
+                                                                   slide. How is the closed-loop
+                                                                   response for unity gain?
+                                                                      The expression of the
+                                                                   open-loop gain A is approx-
+                                                                   imated in this slide. The
+                                                                   dominant pole at v is situ-
+                                                                                        d
+                                                                   ated somewhere at low fre-
+                                                                   quencies. We concentrate on
+                                                                   the frequency region around
+                                                                   the GBW. Therefore, v is
+                                                                                             d
+                                                                   not visible. Moreover it is
+                                                                   left out of the expressions
+                                                                   forsimpliﬁcation.
+   The non-dominant poles are at (circle) frequencies v and v . The GBW occurs at unity gain
+                                                       1     2
+or at (circle) frequency v . The ratios of the non-dominant poles to the GBW are parameters
+                          UG
+p and q. Values of 3 and 5 have been used before for a phase margin of 60°.
+   When the loop is closed towards unity gain, the expression of the gain A is now of third
+                                                                              1
+order. Three poles occur quite close together, one at the GBW and two more at slightly higher
+frequencies
+   What are the best values of p and q for a smooth response in closed-loop?
+
+
+
+                                                                 0911
+                                                                 For values of p and q of
+                                                                 3 and 5, the situation is
+                                                                 sketched in this slide in the
+                                                                 complex plane (or polar
+                                                                 diagram).
+                                                                    In open loop, the domi-
+                                                                 nant pole and two non-
+                                                                 dominant poles are all on
+                                                                 the real axis. All poles are
+                                                                 negative. A stable system
+                                                                 thus results.
+                                                                    When the loop is closed,
+                                                                 the root locus shows where
+                                                                 the poles end up. The two
+                                                                 ﬁrst poles v and v form
+                                                                               d       1
+                                                                 complex poles, with reso-
+nant frequency at v , whereas the third one v moves to higher frequencies, to v at about 6
+                   r                         2                                   nd
+times the open-loop GBW.
+  The complex poles have a resonant frequency v at about 1.6 times the open-loop GBW. They
+                                               r
+Design of multistage operational ampliﬁers                                                   269
+
+are complex with a real part about equal to the GBW and a real part of about 1.2 times the GBW.
+  This shows clearly that even with real non-dominant poles in an open loop, complex poles
+usually result in a closed loop.
+
+
+
+                                                                   0912
+                                                                   A plot of the gain A1 in
+                                                                   unity-gain is shown in this
+                                                                   slide. It is merely the ampli-
+                                                                   tude of the expression given
+                                                                   in this slide.
+                                                                      It is clear that a very ﬂat
+                                                                   response is obtained indeed.
+                                                                   This is why this combina-
+                                                                   tion of non-dominant poles
+                                                                   is chosen by many designers.
+                                                                   They can go a bit further
+                                                                   however, as shown next.
+                                                                      Note also that only a
+                                                                   fraction of the open-loop
+                                                                   GBW is available in closed
+                                                                   loop. The −3 dB point now
+                                                                   occurs at about 0.3 times the
+                                                                   GBW only.
+
+
+
+                                                                   0913
+                                                                   Taking a lower phase
+                                                                   margin of only 50°, with two
+                                                                   non-dominant poles at 2
+                                                                   and 4 times the GBW yields
+                                                                   a little bit of peaking. It
+                                                                   is about 10% or 0.8 dB.
+                                                                   However, the curve drops
+                                                                   even faster. The −3 dB
+                                                                   point is reached at about
+                                                                   0.24 times the open-loop
+                                                                   GBW.
+                                                                      The main advantage of
+                                                                   this response is that the non-
+                                                                   dominant poles occur at
+                                                                   lower frequencies, such that
+                                                                   the power consumption may
+be lower. However, a little bit of peaking is the price to pay!
+  We can still go a little bit further. We could allow complex poles already in open loop. The
+power consumption could then be less, as these poles are closer to the GBW than before.
+Obviously, we will ﬁnd complex poles in the closed-loop response as well!
+270                                                                                    Chapter #9
+
+                                                                     0914
+                                                                     The expression is given for
+                                                                     the open-loop gain of a
+                                                                     three-pole opamp. Again the
+                                                                     dominant pole is left out
+                                                                     because it occurs at very low
+                                                                     frequencies.
+                                                                        However, the two non-
+                                                                     dominant poles are now
+                                                                     complex. They are charac-
+                                                                     terized by a resonant fre-
+                                                                     quency v         and by a
+                                                                                  n
+                                                                     damping factor f (or Q=
+                                                                     1/2f). This resonant fre-
+                                                                     quency is at a ratio p of
+                                                                     the GBW.
+                                                                        It is clear that we again
+have two parameters, this time not two real non-dominant poles but one pair of complex poles.
+The parameters are now not p and q but p and f.
+  In a unity-gain closed loop, the expression of the gain A is easily obtained. It is obviously of
+                                                           1
+third order.
+  The question now is, what is the best choice of the two parameters p and f to ensure a
+maximally ﬂat response?
+
+
+
+
+                                                                     0915
+                                                                     In order to illustrate how
+                                                                     these two parameters play
+                                                                     towards     the    frequency
+                                                                     response, several values of
+                                                                     damping factor f are tried
+                                                                     out for equal distance p of
+                                                                     the resonant frequency to
+                                                                     the GBW.
+                                                                        Perhaps the chosen values
+                                                                     of p and f seem to be a bit
+                                                                     awkward. A few slides later,
+                                                                     it will become clear why
+                                                                     these have been selected.
+                                                                        One thing is obvious. The
+                                                                     damping is too low. A huge
+                                                                     peak occurs, even beyond
+the vertical scale. As we have kept the same scale for all examples, the peak exceeds the scale.
+  The damping must therefore be increased in order to ﬂatten the response.
+Design of multistage operational ampliﬁers                                                     271
+
+                                                                    0916
+                                                                    Increasing the damping
+                                                                    factor f reduces the peaking.
+                                                                    At this value of f the peak-
+                                                                    ing is about the same as the
+                                                                    low-frequency value of the
+                                                                    gain. There is a dip of about
+                                                                    10%, which could be accept-
+                                                                    able depending on the
+                                                                    application.
+                                                                       Because of the peaking,
+                                                                    the −3dB frequency (at a
+                                                                    value of 0.707) is slightly
+                                                                    larger. It occurs at about
+                                                                    0.43 times the open-loop
+                                                                    GBW.
+                                                                       Let us now increase the
+damping even more. Several values of f are now tried, until a very ﬂat response is obtained. Thy
+are collected on the next slide.
+
+
+
+
+                                                                     0917
+                                                                     The responses are sketched
+                                                                     for diﬀerent values of damp-
+                                                                     ing factors f. The one for f=
+                                                                     0.44 is repeated for refer-
+                                                                     ence. Values are taken of 0.5,
+                                                                     0.6 and ﬁnally of 0.71.
+                                                                        It is clear that the curve
+                                                                     for f=0.71 (actually 1/√2) a
+                                                                     maximally ﬂat response is
+                                                                     obtained. This is the third-
+                                                                     order Butterworth response.
+                                                                     It occurs for a p factor of
+                                                                     2√2 and a f of 1/√2. In an
+                                                                     open loop, the non-domi-
+                                                                     nant poles are already com-
+                                                                     plex. They are certainly
+                                                                     complex in a closed loop.
+  This positioning of non-dominant is quite popular with designers of three-stage ampliﬁers.
+The non-dominant poles are at relatively low frequencies. The power consumption is relatively
+small.
+  It is now clear why a p factor of 2.828 has been chosen. It is exactly the p factor required for
+a third-order maximally ﬂat Butterworth response.
+  Finally, note that the maximally ﬂat response leads to a −3 dB frequency, which is somewhat
+lower than before. It is now about 0.3 times the open-loop GBW.
+272                      Chapter #9
+
+      0918
+      The complex plane corre-
+      sponding to this situation, is
+      sketched in this slide. The
+      poles are only shown in
+      closed loop.
+         All poles lie on a semicir-
+      cle. The resulting −3 dB fre-
+      quency is half this pole
+      frequency v , which is obvi-
+                   c
+      ously related to the open-
+      loop GBW.
+         This response will now
+      be used to compare several
+      three-stage opamp conﬁg-
+      urations.
+
+
+
+
+      0919
+      Now that we know how to
+      stabilize a three-stage ampli-
+      ﬁer, that we know how to
+      choose the two variables p
+      and q, or even better p and
+      f – we use this procedure to
+      design such an ampliﬁer.
+         However, there are sev-
+      eral conﬁgurations. We
+      will start with the conven-
+      tional Nested Miller Com-
+      pensation (NMC) and then
+      gradually add other branch-
+      es such as feedforward,
+      multi-path branches, etc.
+Design of multistage operational ampliﬁers                                                     273
+
+                                                                     0920
+                                                                     When we focus on conﬁgu-
+                                                                     rations, we have to make a
+                                                                     decision ﬁrst on which non-
+                                                                     inverting ampliﬁer to use.
+                                                                        Indeed, the second stage
+                                                                     of a three-stage ampliﬁer is
+                                                                     normally single-ended, as
+                                                                     the output stage is single-
+                                                                     ended as well.
+                                                                        However, a single-transis-
+                                                                     tor ampliﬁer is always
+                                                                     inverting. It cannot be used
+                                                                     as a second-stage of a three-
+                                                                     stage ampliﬁer. Otherwise
+                                                                     compensation capacitance
+                                                                     C would provide positive
+                                                                       c1
+                                                                     feedback!
+  It is clear that such a non-inverting ampliﬁer is not required in a two-stage ampliﬁer, only in
+a three-stage ampliﬁer.
+  There are two possible solutions. The original one is shown next.
+
+
+
+
+                                                                     0921
+                                                                     In this three stage ampliﬁer,
+                                                                     which is fully realized
+                                                                     in bipolar technology, a
+                                                                     diﬀerential pair is used as a
+                                                                     second stage. The output
+                                                                     ‘‘on the other side’’ is non-
+                                                                     inverting indeed.
+                                                                        The other functions of the
+                                                                     three stages are easily recog-
+                                                                     nized. The nested compen-
+                                                                     sation capacitances are
+                                                                     14 pF and 10 pF respec-
+                                                                     tively. The ﬁrst one deter-
+                                                                     mines the GBW.
+                                                                        An alternative is shown
+                                                                     next.
+274                                                                                  Chapter #9
+
+                                                                   0922
+                                                                   After all, a current mirror
+                                                                   iscapable of providing a
+                                                                   non-inverting gain. Both a
+                                                                   diﬀerential pair and a cur-
+                                                                   rent mirror are elementary
+                                                                   circuit blocks.
+                                                                      If all transistors carry
+                                                                   equal DC currents, then the
+                                                                   power consumption is the
+                                                                   same as well.
+                                                                      Both are simple and can
+                                                                   provide gain up to high fre-
+                                                                   quencies. It is not clear
+                                                                   which one to prefer!
+                                                                      Perhaps      the  current
+                                                                   mirror has a slight edge as
+it is the circuit block with the highest bandwidth.
+   A comparative study will be carried out to be able to ﬁnd out what the diﬀerence really is!
+
+
+
+
+                                                                   0923
+                                                                   More sophisticated current
+                                                                   mirrors can be used as well.
+                                                                   In the second one, only
+                                                                   nMOST devices are used. It
+                                                                   most probably has a larger
+                                                                   bandwidth than the ﬁrst
+                                                                   one. However, it consumes
+                                                                   50% more current!
+                                                                     Would the increase in
+                                                                   bandwidth be oﬀset by
+                                                                   the increase in power con-
+                                                                   sumption?
+                                                                     Probably, the diﬀerence
+                                                                   between both is minor.
+Design of multistage operational ampliﬁers                                                     275
+
+                                                                    0924
+                                                                    In this original realization, a
+                                                                    diﬀerential pair is used as a
+                                                                    second stage. Only MOSTs
+                                                                    are now used, rather than
+                                                                    bipolar transistors.
+                                                                       The two compensation
+                                                                    capacitances are easily
+                                                                    found.
+                                                                       As this circuit originates
+                                                                    from a bipolar version of
+                                                                    Huijsing, it is denoted by
+                                                                    ‘‘Huijsing’’.
+
+
+
+
+                                                                    0925
+                                                                    The only diﬀerence between
+                                                                    the previous ampliﬁer and
+                                                                    this one is the use of a cur-
+                                                                    rent mirror as a second
+                                                                    stage. The input and output
+                                                                    stage are the same. Also the
+                                                                    load capacitance and the
+                                                                    currents are the same.
+                                                                       The only question is
+                                                                    therefore, which one of these
+                                                                    ampliﬁers can achieve a
+                                                                    higher GBW. This will obvi-
+                                                                    ously depend on the non-
+                                                                    dominant poles associated
+                                                                    with the second stage.
+                                                                       This ampliﬁer is denoted
+by a ‘‘nested Miller’’ although both of them are nested Miller ampliﬁers.
+276                                                                                  Chapter #9
+
+                                                                   0926
+                                                                   Both ampliﬁers have been
+                                                                   designed for the same load
+                                                                   capacitance.    They     are
+                                                                   designed for diﬀerent values
+                                                                   of the GBW, using a
+                                                                   Butterworth     3rd order
+                                                                   response. Afterwards they
+                                                                   are optimized somewhat by
+                                                                   means of a few additional
+                                                                   simulations.
+                                                                     The curves give the values
+                                                                   of the transconductances of
+                                                                   the three stages. The cur-
+                                                                   rents are proportional to
+                                                                   them, depending on the
+                                                                   chosen values of VGS-VT.
+   These curves show that there is only a minor diﬀerence between both ampliﬁers. The main
+diﬀerence is found at higher frequencies. For values of the GBW around 100 MHz, the opamp
+with a diﬀerential pair as a second stage has more diﬃculty in reaching this 100 MHz than the
+one with a current mirror. This shows that the latter approach is more advantageous for higher
+frequencies.
+
+
+
+                                                                   0927
+                                                                   Now several more NMC
+                                                                   opamps will be discussed.
+                                                                      For sake of comparison,
+                                                                   the conventional three-stage
+                                                                   NMC ampliﬁer is repeated.
+                                                                      Its main disadvantage is
+                                                                   the current consumption of
+                                                                   the output stage. Indeed,
+                                                                   compensation capacitance
+                                                                   C shunts the output stage.
+                                                                     m2
+                                                                   Its gain is now reduced
+                                                                   at     higher    frequencies.
+                                                                   Therefore,     transconduct-
+                                                                   ance g must be enlarged
+                                                                           m3
+                                                                   to ensure pole splitting.
+                                                                      The design procedure is
+                                                                   repeated next.
+Design of multistage operational ampliﬁers                                                     277
+
+                                                                     0928
+                                                                     In an open loop, three poles
+                                                                     occur and two zeros. They
+                                                                     are given on the right.
+                                                                        The open-loop gain A is
+                                                                                               dc
+                                                                     large because three stages
+                                                                     are present. The resistance
+                                                                     of each node I to ground is
+                                                                     denoted by R .
+                                                                                   i
+                                                                        The capacitance of each
+                                                                     node to ground is small.
+                                                                     Actually, the minimum the
+                                                                     compensation capacitances
+                                                                     are taken to be at least three
+                                                                     times larger than those par-
+                                                                     asitic node capacitances.
+                                                                     This is why the node capaci-
+tances do not show up in the approximate expressions in this slide.
+  The dominant pole is caused by the Miller eﬀect of the overall compensation capacitance C .
+                                                                                           m1
+  The GBW is determined by this capacitance C and the input transconductance.
+                                                m1
+  The design procedure is given next.
+
+
+
+
+                                                                     0929
+                                                                     We can normally assume
+                                                                     that the transconductances
+                                                                     increase towards the output.
+                                                                     For a 3rd-order Butterworth
+                                                                     response, the two non-domi-
+                                                                     nant poles v and v have
+                                                                                   1        2
+                                                                     to be put at 2 and 4 times
+                                                                     the GBW.
+                                                                        Both zeros are usually
+                                                                     negligible. Note that one of
+                                                                     them is in the right half of
+                                                                     the complex plane.
+                                                                        Note that we still have to
+                                                                     solve a system of three equa-
+                                                                     tions (for the GBW, v and
+                                                                                              1
+                                                                     v ) and ﬁve variables.
+                                                                       2
+  Normally, the two compensation capacitances are chosen. The ﬁrst one C can be chosen as
+                                                                              m1
+small as possible, i.e. at least three times the node capacitance at the output of the ﬁrst stage
+but not so small that the input noise is too high.
+  The other capacitance C can also be chosen as small as possible, i.e. at least three times the
+                             m2
+node capacitance at the output of the second stage.
+  Minimum values of these compensation capacitances are always chosen to reduce the power
+278                                                                                  Chapter #9
+
+consumption as much as possible. Of course, if noise is an important speciﬁcation, then these
+capacitances may have to be increased, increasing the power consumption. As expected, low
+noise always leads to larger power consumption.
+  Designers often take C and C to be the same and give them a low value. This is clearly
+                          m1      m2
+never an optimum design!
+
+
+
+
+                                                                 0930
+                                                                 This three-stage conﬁgura-
+                                                                 tion has nested Miller com-
+                                                                 pensation with additional
+                                                                 Gm blocks for realizing
+                                                                 two feedforward paths. If
+                                                                 their transconductances are
+                                                                 chosen to be the same as
+                                                                 their corresponding stage
+                                                                 transconductances then both
+                                                                 zeros’ are cancelled out.
+                                                                    The two resulting non-
+                                                                 dominant poles are then the
+                                                                 same as for a conventional
+                                                                 NMC ampliﬁer.
+                                                                    Little is gained in terms of
+                                                                 power consumption.
+
+
+
+
+                                                                0931
+                                                                One single feedforward path
+                                                                can be used as well. Its
+                                                                transconductance g       how-
+                                                                                     mf2
+                                                                ever, equals the transcon-
+                                                                ductance g of the output
+                                                                             m3
+                                                                stage. It is used to generate
+                                                                a zero v in the left half of
+                                                                          z
+                                                                the complex plane, to cancel
+                                                                out a non-dominant pole.
+                                                                It therefore increases the
+                                                                phase margin.
+                                                                   If g >g , then the non-
+                                                                       m3 m2
+                                                                dominant poles can be
+                                                                approximated as shown in
+                                                                this slide.
+                                                                   On the other hand, the
+power consumption is also increased, as the feedforward stage and the output stage take the
+largest currents.
+Design of multistage operational ampliﬁers                                                     279
+
+                                                                  0932
+                                                                  Another compensation tech-
+                                                                  nique is the multi-path
+                                                                  nested Miller, shown in
+                                                                  this slide.
+                                                                    The feedforward stage
+                                                                  now bridges the input and
+                                                                  the second stage. It is not
+                                                                  connected to the output.
+                                                                    This feedforward stage is
+                                                                  used to generate a zero v
+                                                                                             z
+                                                                  in the left half of the com-
+                                                                  plex plane, to cancel out a
+                                                                  non-dominant pole. It there-
+                                                                  fore increases the phase
+                                                                  margin.
+                                                                    If g >g , then the non-
+                                                                        m3 m2
+                                                                  dominant poles can be
+approximated as shown in this slide. They are the same as for a conventional NMC ampliﬁer.
+
+
+
+
+                                                                   0933
+                                                                   For sake of comparison all
+                                                                   previous ampliﬁers are
+                                                                   listed in a table. They are
+                                                                   preceded by a single-stage
+                                                                   and a two-stage Miller
+                                                                   ampliﬁer.
+                                                                      All of them have a com-
+                                                                   parable phase margin except
+                                                                   for the single-stage ampli-
+                                                                   ﬁer. The resulting GBW for
+                                                                   a 3rd-order Butterworth
+                                                                   design is also listed as a frac-
+                                                                   tion of the output time con-
+                                                                   stant g /C .
+                                                                           m3 L
+                                                                      The next column shows
+                                                                   what GBW can be expected,
+compared to a single-stage ampliﬁer. The conventional NMC ampliﬁer only achieves about 1/4
+of what a single stage can achieve.
+   When compared to a NMC ampliﬁer (in the last column), it is clear that both last ampliﬁers
+which use a single feedforward stage do better in terms of power consumption.
+   However, the improvement is at best a factor of 2.
+   This is why we will now concentrate on three-stage ampliﬁers, which provide much better
+current savings.
+280                                                                                    Chapter #9
+
+                                                                    0934
+                                                                    For really low power con-
+                                                                    sumption, other conﬁgura-
+                                                                    tions must be found. They
+                                                                    will all try to generate extra
+                                                                    zeros in the left half of the
+                                                                    complex plane, in order to
+                                                                    cancel one of the non-domi-
+                                                                    nant poles, without how-
+                                                                    ever, taking too much extra
+                                                                    power consumption.
+                                                                       Three conﬁgurations will
+                                                                    be discussed. The last two
+                                                                    achieve considerable sav-
+                                                                    ings in power consumption,
+                                                                    beyond that which can be
+                                                                    achieved with a single stage.
+
+
+
+
+                                                                   0935
+                                                                   The ﬁrst conﬁguration is
+                                                                   close to the NGCC shown
+                                                                   previously. It also uses two
+                                                                   feedforward stages. The only
+                                                                   diﬀerence with the NGCC
+                                                                   ampliﬁer is the nulling resis-
+                                                                   tor R       in series with
+                                                                           n2
+                                                                   the second compensation
+                                                                   capacitance. This is a well
+                                                                   known technique of generat-
+                                                                   ing a zero in the left-half-
+                                                                   plane, at least when this
+                                                                   resistor R is made larger
+                                                                              n2
+                                                                   than 1/g (see Chapter 4).
+                                                                            m3
+                                                                      Again, the feedforward
+                                                                   stages are used to cancel out
+the zero’s. This time, however, transconductance g     is made larger in order to generate left-
+                                                   mf0
+hand zeros. As a result, the complex non-dominant poles are made to cancel with a pair of
+complex left-hand zero’s.
+  For a 3rd-order Butterworth realization, this gives a GBW which is 6.8 times larger than a
+NMC realization with the same load capacitance and power consumption.
+Design of multistage operational ampliﬁers                                                    281
+
+                                                                    0936
+                                                                    A circuit realization of the
+                                                                    NGRNMC ampliﬁer is
+                                                                    shown in this slide.
+                                                                       The input stage is a folded
+                                                                    cascode. Current mirrors
+                                                                    are used as noninverting
+                                                                    ampliﬁers.
+                                                                       Current mirror M27/M17
+                                                                    is used to set accurately the
+                                                                    value of g . Also, current
+                                                                               mf0
+                                                                    mirror M33/M34 is used to
+                                                                    set g .
+                                                                         mf1
+                                                                       This latter feedforward
+                                                                    stage is also used for better
+                                                                    large-signal performance. It
+                                                                    increases the Slew Rate of
+the output stage drastically. The output stage is now biased as a class-AB stage. The quiescent
+current is set accurately by transistor M34. However, he maximum output currents are a lot larger.
+  The Slew Rate will now be limited by the DC current of the ﬁrst stage into compensation
+capacitance C .
+                m1
+
+
+
+
+                                                                     0937
+                                                                     A second low-power nested
+                                                                     Miller compensation tech-
+                                                                     nique uses positive feed-
+                                                                     back with capacitance C
+                                                                                                m2
+                                                                     around the second-stage. Its
+                                                                     purpose is again to intro-
+                                                                     duce a left-hand zero in
+                                                                     order to cancel out one of
+                                                                     the nondominant poles.
+                                                                        A single feedforward stage
+                                                                     is used to turn the output
+                                                                     stage into a class-AB stage.
+                                                                     In this way the Slew Rate
+                                                                     will be limited by the DC
+                                                                     current in the ﬁrst stage.
+282                                                                                   Chapter #9
+
+                                                                   0938
+                                                                   The approximate expression
+                                                                   of the open-loop gain is
+                                                                   given in this slide. As
+                                                                   expected, three poles show
+                                                                   up and two zero’s. The
+                                                                   GBW is the same as for any
+                                                                   three-stage ampliﬁer with an
+                                                                   overall Miller capacitance
+                                                                   C .
+                                                                     m1
+                                                                     Note, however, that the
+                                                                   ﬁrst non-dominant pole
+                                                                   coincides with the ﬁrst zero.
+                                                                   They now cancel each other.
+                                                                     For stability, transcon-
+                                                                   ductance g        must be
+                                                                                m3
+                                                                   suﬃciently large or compen-
+                                                                   sation capacitance C .
+                                                                                             m1
+Relatively large values are used for C to avoid excessive power consumption.
+                                      m1
+   For a 3rd-order Butterworth realization, this PFC conﬁguration gives a GBW which is about
+6 times larger than a NMC realization with the same load capacitance and power consumption.
+
+
+
+
+                                                                    0939
+                                                                    A circuit realization is
+                                                                    shown in this slide. Again, a
+                                                                    folded cascode is used at the
+                                                                    input. A current mirror is
+                                                                    used as a second stage. The
+                                                                    compensation capacitances
+                                                                    are easily identiﬁed.
+                                                                       The Gate of output tran-
+                                                                    sistor is connected to the
+                                                                    output of the ﬁrst stage,
+                                                                    turning the output stage
+                                                                    into a class-AB ampliﬁer.
+                                                                    This greatly improves the
+                                                                    Slew Rate as it is now lim-
+                                                                    ited by the total DC current
+                                                                    in the input stage into com-
+                                                                    pensation capacitance C .
+                                                                                             m1
+Design of multistage operational ampliﬁers                                                 283
+
+                                                                  0940
+                                                                  Another low-power three-
+                                                                  stage ampliﬁer is shown in
+                                                                  this slide. Again the second
+                                                                  compensation capacitance
+                                                                  C     is taken away from
+                                                                    m2
+                                                                  shunting the output stage. It
+                                                                  is used as capacitance C ,
+                                                                                             a
+                                                                  which is driven by its own
+                                                                  driver with transconduct-
+                                                                  ance g . This driver is
+                                                                           ma
+                                                                  an AC boosting ampliﬁer
+                                                                  towards the second node of
+                                                                  the ampliﬁer, whence its
+                                                                  name.
+                                                                     The main purpose is
+                                                                  again not to shunt the
+output stage and to generate a left-hand zero to compensate one of the non-dominant poles. In
+this way the power consumption is expected to be less than a single-stage ampliﬁer with the
+same GBW and C .
+                  L
+  An important additional design parameter is A . It is the gain of the additional ampliﬁer
+                                                   2h
+when C acts as a short, or at high frequencies.
+       a
+
+
+
+
+                                                                   0941
+                                                                   The expression of the open-
+                                                                   loop gain A is given in this
+                                                                               v
+                                                                   slide. Now we have 4 poles
+                                                                   and 3 zero’s. The ﬁrst non-
+                                                                   dominant pole v coincides
+                                                                                    1
+                                                                   with the ﬁrst zero however,
+                                                                   and will be cancelled out.
+                                                                   Moreover, the next non-
+                                                                   dominant pole v increases
+                                                                                    2
+                                                                   with gain A . Increasing
+                                                                                 2h
+                                                                   this gain shifts this non-
+                                                                   dominant pole to higher fre-
+                                                                   quencies, allowing a higher
+                                                                   GBW as well.
+284                                                                                       Chapter #9
+
+                                                                    0942
+                                                                    First, for stability, we posi-
+                                                                    tion the three non-dominant
+                                                                    poles in an increasing order
+                                                                    of magnitude. The non-
+                                                                    dominant pole v is thus the
+                                                                                        3
+                                                                    highest one. This is possible
+                                                                    as capacitance C is a small
+                                                                                         2
+                                                                    parasitic node capacitance.
+                                                                    Moreover, resistance R
+                                                                                                    a
+                                                                    cannot be made too large. It
+                                                                    will be realized by means of
+                                                                    a diode-connected MOST.
+                                                                       In this case, it is clear that
+                                                                    the ﬁrst non-dominant pole
+                                                                    v cancels the ﬁrst zero. The
+                                                                      1
+                                                                    other zero’s are negligible.
+  The design itself starts by positioning the ﬁrst non-dominant pole v at two times the GBW,
+                                                                        2
+as before for a maximally-ﬂat 3rd-order Butterworth characteristic.
+  The result is a considerable savings in power. Indeed the GBW is a factor 17 times larger than
+for a NMC ampliﬁer with the same load capacitance and power consumption.
+
+
+
+                                                                  0943
+                                                                  A possible circuit realization
+                                                                  of a ACBC ampliﬁer is
+                                                                  shown in this slide. As usual,
+                                                                  it starts with a folded cas-
+                                                                  code, with a current mirror
+                                                                  as a second stage. The
+                                                                  output stage is made class
+                                                                  AB by connecting the Gate
+                                                                  of transistor M30 to the
+                                                                  output of the ﬁrst stage. This
+                                                                  greatly increases the output
+                                                                  Slew Rate as well.
+                                                                     The gain boosting stage
+                                                                  consists of transistors Ma
+                                                                  and Ma1. The gain is fairly
+                                                                  precise. For a GBW of
+2 MHz and a C of 500 pF, this gain A is about 9 with a C of 3 pF. Compensation capacitance
+                L                      2h                 a
+C itself is 10 pF and the total current consumption 160 mA. The current through M11 is 18 mA
+  m
+and through M30 about 100 mA. The second stage has only 5 mA in each branch!
+Design of multistage operational ampliﬁers                                                       285
+
+                                                                      0944
+                                                                      These transient measure-
+                                                                      ment results show how
+                                                                      important it is to have the
+                                                                      feedforward with class-AB
+                                                                      stage combination at the
+                                                                      output.
+                                                                         For a square input wave-
+                                                                      form, the output waveforms
+                                                                      are displayed for the Gate of
+                                                                      M30 connected to a DC
+                                                                      biasing point (ACBC) and
+                                                                      then for the Gate connected
+                                                                      to the output of the ﬁrst
+                                                                      stage (ACBC ), labeled with
+                                                                                     F
+                                                                      F of Feedforward.
+                                                                         In the latter case, the Slew
+                                                                      Rate is much higher and the
+                                                                      rise time is much shorter.
+
+
+
+
+                                                                      0945
+                                                                      A ﬁnal example of a low-
+                                                                      power three stage ampliﬁer
+                                                                      is the TCFC ampliﬁer. It
+                                                                      stands for Transconduct-
+                                                                      ance with Capacitance
+                                                                      Feedback Compensation.
+                                                                      The internal compensation
+                                                                      capacitance does not short
+                                                                      the second stage. It is fed
+                                                                      back through a transcon-
+                                                                      ductance gmt. This is a cas-
+                                                                      code or current buﬀer, it has
+                                                                      a low input resistance Rt=
+                                                                      1/gmt and a high output
+                                                                      resistance.
+                                                                         The characteristic vari-
+able is ratio k , which can be set quite accurately as it is a ratio of two transconductances of
+               t
+pMOST transistors. Typical values are 2–3.
+  Again, a feedforward block is used with transconductance gmf to cancel out a zero and to
+provide class AB biasing in the output stage. This transconductance gmf is close to gm3 of the
+output stage.
+286                                                                                        Chapter #9
+
+                                                                 0946
+                                                                 The expression of the open-
+                                                                 loop gain is given in this
+                                                                 slide. Again, we ﬁnd 4 poles
+                                                                 and 3 zero’s. The GBW is
+                                                                 the same as for any three-
+                                                                 stage ampliﬁer. The second
+                                                                 non-dominant pole v coin-
+                                                                                      2
+                                                                 cides with the ﬁrst zero
+                                                                 which occurs twice. One of
+                                                                 them is now cancelled out.
+                                                                 The other zero v will be
+                                                                                    2
+                                                                 used to improve the phase
+                                                                 margin.
+                                                                    The right-hand zero v
+                                                                                            4
+                                                                 contains the GBW. This
+                                                                 zero is always a lot higher
+                                                                 than the GBW, by factor k
+                                                                                            t
+and by the ratio’s C /C and g /g , which are both quite high. Indeed, compensation
+                      m2 2          m3 m1
+capacitance C is always chosen larger than the parasitic node capacitance C .
+              m2                                                            2
+  This right-hand zero v is negligible.
+                         4
+  The stability conditions are discussed next.
+
+
+                                                                       0947
+                                                                       For stability, we need to
+                                                                       have the third non-domi-
+                                                                       nant pole v larger than the
+                                                                                    2
+                                                                       ﬁrst one v . This is always
+                                                                                   1
+                                                                       the case since k is larger
+                                                                                          t
+                                                                       than unity. In the design
+                                                                       example later on, a value of
+                                                                       k is taken of two.
+                                                                         t
+                                                                           The main stability condi-
+                                                                       tion speciﬁes that the second
+                                                                       non-dominant pole v must
+                                                                                              3
+                                                                       be larger than the GBW.
+                                                                       This is easily satisﬁed as the
+                                                                       ratio’s C /C and g /g
+                                                                                 m2 2         m3 m1
+                                                                       are large indeed. This circuit
+                                                                       is therefore easy to stabilize!
+   The most important non-dominant pole is v . For a 3rd-order Butterworth characteristic this
+                                                 1
+pole is positioned at 2 times the v (or the GBW).
+                                     UG
+   As discussed on the previous slide, the right-half-plane zero v is a lot larger than the GBW
+                                                                    4
+and can now be neglected. The only zero left is a zero v in the left half of the complex plane.
+                                                            2
+It is only a little (actually (1+ k )/k or 1.5 times in this design) larger than the non-dominant
+                                    t t
+pole. It is therefore ideally positioned to improve the phase margin.
+   The resulting ratio in GBW compared to a conventional NMC ampliﬁer is quite impressive.
+Design of multistage operational ampliﬁers                                                 287
+
+                                                                  0948
+                                                                  A circuit realization is
+                                                                  shown in this slide.
+                                                                     As usual, it starts with a
+                                                                  folded cascode. A current
+                                                                  mirror is used as a second
+                                                                  stage. Output transistor
+                                                                  M32 is driven by the output
+                                                                  of the ﬁrst stage. The output
+                                                                  stage operates in class AB.
+                                                                  Hence, it does not limit the
+                                                                  Slew Rate. The Slew Rate
+                                                                  will now be determined by
+                                                                  the DC current of the ﬁrst
+                                                                  stage and compensation
+                                                                  capacitance Cm1.
+                                                                     The cascode is series with
+compensation capacitance Cm2 is realized with transistor M26. Its transconductance is twice
+the transconductance of transistor M21, which is the amplifying transistor of the second stage.
+Indeed, current mirror M24/M25 ensures a current ratio of two. Factor k is fairly precisely two
+                                                                        t
+as well.
+
+
+
+                                                                   0949
+                                                                   As many diﬀerent conﬁgu-
+                                                                   rations have been discussed,
+                                                                   they have to be compared
+                                                                   with some kind of Figure
+                                                                   of Merit.
+                                                                      Such a Figure of Merit
+                                                                   normally includes the power
+                                                                   dissipation for a certain
+                                                                   GBW and load capacitance.
+                                                                   However, two diﬀerent
+                                                                   FOMs exist. One of them
+                                                                   takes into account the
+                                                                   actual power dissipation in
+                                                                   mW, whereas the other one
+                                                                   takes only the current into
+                                                                   account. The diﬀerence is
+                                                                   the supply voltage used.
+288                                                                                   Chapter #9
+
+                                                                    0950
+                                                                    Such a comparison has been
+                                                                    made based on experimental
+                                                                    results only.
+                                                                      In this layout, several
+                                                                    opamps can be distin-
+                                                                    guished, among which is the
+                                                                    TCFC one. They all have
+                                                                    similar sizes, as the load
+                                                                    capacitances were 150 pF
+                                                                    for all of them. The technol-
+                                                                    ogy was 0.35 mm CMOS.
+                                                                      The comparison is better
+                                                                    carried out in a Table as
+                                                                    shown next.
+
+
+
+
+                                                                    0951
+                                                                    For this purpose the several
+                                                                    three-stage opamps have
+                                                                    been put in categories. All
+                                                                    possible Figures-of-Merit
+                                                                    have been added. Not only
+                                                                    a choice is made between
+                                                                    the current (mA) or the
+                                                                    power (mW) consumption.
+                                                                    Another alternative is to use
+                                                                    either the GBW, which is a
+                                                                    quality factor for small sig-
+                                                                    nals, or the Slew Rate, which
+                                                                    is more important for large-
+                                                                    signal operation, such as in
+                                                                    switched-capacitor circuits.
+                                                                       The ﬁrst category uses no
+compensation capacitance. It is clear that this is not the way to go!
+  The second category is the most used one. It lists all the NMC varieties. Several of them have
+been discussed in this Chapter. The FOMs are reasonably good. The best one is the multi-path
+opamp MNMC. However, its Slew Rate is not so good, because no feedforward stage is used to
+turn the output stage into a class-AB stage.
+  The addition of nulling resistances in series with the compensation capacitance does not
+increase the FOM a lot.
+  Real improvements are only achieved once left-hand-plane zero’s can be generated, which
+compensate the main non-dominant pole. This is the case when positive feedback is used (PFC)
+or damping-factor control (DFCFC). This is even more the case when a AC boosting ampliﬁer
+Design of multistage operational ampliﬁers                                                   289
+
+is used (ACBC) or additional transconductance blocks, as in Active feedback compensation
+(AFC) and especially transconductance and capacitances compensation (TCFC). The results
+are obvious.
+
+
+
+
+                                                                   0952
+                                                                   The transient responses of
+                                                                   these ampliﬁers are related
+                                                                   to the pole-zero positions
+                                                                   but not always in a straight-
+                                                                   forward way. The responses
+                                                                   of three ampliﬁers are given
+                                                                   in this slide for the same
+                                                                   GBW and load capacitance.
+                                                                   They also use the same 3rd-
+                                                                   order    Butterworth      fre-
+                                                                   quency response and the
+                                                                   same compensation capaci-
+                                                                   tances. As a result, the cur-
+                                                                   rent in the NMC is a lot
+                                                                   larger than in the other two,
+                                                                   as discussed before.
+  The time responses show that the NMC and PFC ampliﬁer show some overshoot, whereas
+the TCFC ampliﬁer does not. This is a result of small diﬀerences in the pole-zero positions.
+
+
+
+
+                                                                    0953
+                                                                    All important references are
+                                                                    collected here. Most of them
+                                                                    are from the IEEE Journal
+                                                                    of Solid-State Circuits. A
+                                                                    few are from the Trans-
+                                                                    actions on Circuits and
+                                                                    Systems and also from the
+                                                                    Custom Integrated Circuits
+                                                                    Conference.
+290                                                                                    Chapter #9
+
+
+
+                                                                     0954
+                                                                     As a conclusion, this
+                                                                     Chapter has been devoted
+                                                                     to three-stage operational
+                                                                     ampliﬁers.      Considerable
+                                                                     attention has been paid to
+                                                                     the stability of such ampli-
+                                                                     ﬁers. At least two zero’s are
+                                                                     always generated, in addi-
+                                                                     tion to three poles.
+                                                                        Conventional Miller com-
+                                                                     pensation is discussed next,
+                                                                     followed by several deriva-
+                                                                     tives. Their main disadvan-
+                                                                     tage is the power consump-
+                                                                     tion in the third stage.
+  To reduce power consumption, several more conﬁgurations are discussed. They all have 4
+poles and 3 zero’s. They all exploit the cancellation eﬀect of one non-dominant pole by a zero.
+Moreover, they all position a left-hand-plane zero close to the next non-dominant pole. In this
+way, the power consumption can be reduced considerably. In the best case (in a TCFC ampliﬁer)
+the power consumption can be reduced by up to a factor of 40, compared to a conventional
+Nested Miller Compensation ampliﬁer.
+      101
+      Instead of voltages, currents
+      can be used at the inputs as
+      well. They lead to current-
+      input ampliﬁers.
+        They are discussed in this
+      Chapter.
+
+
+
+
+      102
+      First of all, full operational
+      ampliﬁers are discussed,
+      after which some more con-
+      ﬁgurations are following.
+         In this class, transresis-
+      tance ampliﬁers can be
+      added as well. They are dis-
+      cussed in Chapter 14 how-
+      ever, on shunt-series feed-
+      back at the input.
+         As a result this is a fairly
+      short Chapter.
+
+
+
+
+291
+

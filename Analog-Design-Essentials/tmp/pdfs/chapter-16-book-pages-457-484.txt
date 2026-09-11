@@ -1,0 +1,1367 @@
+                                                                 161
+                                                                 Bandgap references are
+                                                                 directly derived from the
+                                                                 bandgap of silicon. This is
+                                                                 why they provide the only
+                                                                 real voltage reference, which
+                                                                 is available. It is about 1.2 V.
+                                                                    A current reference does
+                                                                 not actually exist. They are
+                                                                 derived from the bandgap
+                                                                 voltage references and one
+                                                                 or two resistors.
+                                                                    In this Chapter, we will
+                                                                 see how a voltage reference
+                                                                 can be realized, the absolute
+                                                                 value of which is highly
+                                                                 accurate. Moreover, its tem-
+perature coeﬃcient can be reduced to ppm’s per degree Celsius. As a consequence, they can be
+used over very large temperature ranges.
+
+
+
+                                                                      162
+                                                                      First of all, we have to look
+                                                                      at what voltage references
+                                                                      are actually used for.
+                                                                         They are used in Analog-
+                                                                      to-digital converters. They
+                                                                      can also be used in both
+                                                                      voltage and current regula-
+                                                                      tors. Both schematics are
+                                                                      given.
+                                                                         A voltage regulator locks
+                                                                      the output voltage to the ref-
+                                                                      erence voltage by use of a
+                                                                      resistor ratio. Actually it is
+                                                                      a two-stage feedback ampli-
+                                                                      ﬁer, with the reference volt-
+                                                                      age V as an input. The ﬁrst
+                                                                            ref
+stage is the opamp, whereas the second stage is a source follower. This follower can deliver a
+large current to the load, depending on its W/L ratio.
+   The load is not shown. It is usually a combination of resistances and capacitances, which can
+vary over a very wide range, depending on the current drawn from the regulator.
+   The supply voltage V usually contains a ripple, which will be suppressed by the regulator.
+                         DD
+The accuracy of the output voltage depends on the accuracy of the resistor ratio and the absolute
+accuracy of the reference voltage. This resistor ratio can have a smaller error than 0.1% (see
+Chapter 15), if they are large in area. The ﬁnal accuracy will therefore depend on the absolute
+error of the reference voltage. We will see that this can also be 0.1%!
+
+                                                457
+458                                                                                   Chapter #16
+
+                                                                   163
+                                                                   A current regulator is easily
+                                                                   derived from a voltage
+                                                                   reference.
+                                                                      A single-ended version is
+                                                                   shown on the left; a
+                                                                   diﬀerential one on the right.
+                                                                      In both cases, the refer-
+                                                                   ence voltage is converted
+                                                                   into a current by use of an
+                                                                   opamp and a resistor. The
+                                                                   absolute accuracy of the
+                                                                   output current will depend
+                                                                   on both the absolute accura-
+                                                                   cies of the voltage reference
+                                                                   and of the resistor. The
+                                                                   latter one is by far the worst.
+  In the section on current references, several examples are given of which resistances can be
+used. However, the absolute accuracy will always be a problem.
+
+
+                                                                  164
+                                                                  The physics of a bipolar
+                                                                  transistor is reviewed to
+                                                                  examine where the absolute
+                                                                  accuracy and temperature
+                                                                  coeﬃcient are coming from.
+                                                                  A correction circuit is added
+                                                                  to equalize the output volt-
+                                                                  age over temperature.
+                                                                     Several realizations are
+                                                                  now discussed in both bipo-
+                                                                  lar and CMOS technologies.
+                                                                     For supply voltages below
+                                                                  1 V, it is still possible to use
+                                                                  the same principle, but some
+                                                                  more resistors must be
+                                                                  added.
+  Finally, a current reference is derived from the bandgap reference, by proper use of a few
+resistances.
+
+
+165
+A bandgap reference voltage uses a bipolar transistor, connected as a diode. Its current-voltage
+expression is then quite accurately given by the exponential. A real pn-junction may have a
+coeﬃcient of 1.05–1.1 in front of the kT/q; a bipolar-transistor connected as a diode does not.
+  For a constant-current drive, this diode exhibits a large dependence on temperature. It is
+about −2 mV/°C. We intend to reduce this value to less than 1/1000th!
+Bandgap and current reference circuits                                                         459
+
+                                                                        In order to do so we need
+                                                                     an expression of the current
+                                                                     in which the temperature is
+                                                                     shown explicitly. The volt-
+                                                                     age V is the diode voltage
+                                                                           g0
+                                                                     at zero absolute temper-
+                                                                     ature (Kelvin). It depends
+                                                                     on temperature by itself.
+                                                                     The values are given for a
+                                                                     reference temperature T of
+                                                                                              r
+                                                                     323 K or 50°C. This has
+                                                                     been chosen to be the
+                                                                     middle of the temperature
+                                                                     range of interest. This is
+                                                                     from 0 to 100°C.
+                                                                        For this range, the values
+                                                                     given in this slide are good
+empirical approximations. Parameter g is about 4. Then the actual value of V is about 1.156 V
+                                                                               g0
+(kT /q is about 28 mV).
+    r
+  If we want the current to be dependent on the temperature by exponent m, then the base-
+emitter voltage V can be written as shown in this slide. A linear dependence on the temperature
+                 BE
+emerges with slope l, and a correction factor c(T), called the curvature.
+
+
+                                                                     166
+                                                                     A new zero-temperature
+                                                                     V      emerges, which is the
+                                                                        g00
+                                                                     extrapolated      value,   as
+                                                                     shown in this slide. It is
+                                                                     always larger than V . For
+                                                                                            g0
+                                                                     a constant current (m=0),
+                                                                     its value is about 1.268 V.
+                                                                         It is also clear that the
+                                                                     curvature is a complicated
+                                                                     function of temperature but
+                                                                     very much resembles a
+                                                                     second-order function, a
+                                                                     parabola. Its largest value is
+                                                                     a zero Kelvin, and is 112 mV
+                                                                     if m=0. It is even smaller if
+                                                                     we allow the current to have
+                                                                     a larger value of m.
+  This curvature is sketched separately on the next slide.
+
+
+167
+From this sketch it is clear that this curvature is not always important.
+  For a current, which is independent of temperature (m=0), the curvature correction is only
+460                                                                                     Chapter #16
+
+                                                                       about 5 mV, on 50°C dis-
+                                                                       tance from the reference
+                                                                       temperature T (which is
+                                                                                       r
+                                                                       300 K in this example). This
+                                                                       is of the same order of mag-
+                                                                       nitude of mismatch. It is
+                                                                       therefore negligible if the
+                                                                       temperature range is not all
+                                                                       that large.
+                                                                          If we allow the current to
+                                                                       have a positive temperature
+                                                                       coeﬃcient (m=1), then this
+                                                                       curvature correction is even
+                                                                       smaller. This is the case if
+                                                                       we need the (bipolar transis-
+                                                                       tor) transconductance g to
+                                                                                                m
+                                                                       be independent of temper-
+                                                                       ature, for example.
+   Since, for many applications, the curvature term is negligible, let us concentrate on the linear
+term with coeﬃcient l.
+
+
+                                                                     168
+                                                                     For a constant current, the
+                                                                     voltage V         across the
+                                                                                   BE
+                                                                     diode-connected transistor
+                                                                     decreases with temperature
+                                                                     in a linear way with slope
+                                                                     coeﬃcient l. Its value is
+                                                                     about −2 mV/°C.
+                                                                        If we now ﬁnd a way
+                                                                     to add a voltage V to
+                                                                                              C
+                                                                     this diode voltage V ,
+                                                                                                 BE
+                                                                     which is Proportional To
+                                                                     the Absolute Temperature
+                                                                     (PTAT) with the same slope
+                                                                     l, then we obtain a reference
+                                                                     voltage V which is inde-
+                                                                                 ref
+                                                                     pendent of temperature.
+Moreover, we will ﬁnd that this reference voltage is the bandgap voltage itself. It provides a high
+absolute accuracy!
+   Since both V and V are of similar size, the reference voltage will be around 1.2 V. Since it
+                BE        C
+is diﬃcult to predict the actual voltage V , we will need to trim the added voltage V such that
+                                          BE                                            C
+the reference voltage is constant around our reference temperature T . This is the same as saying
+                                                                     r
+that we will need to trim the added voltage V such that the curvature is symmetrical with
+                                                  C
+respect to the reference temperature T .
+                                        r
+Bandgap and current reference circuits                                                         461
+
+                                                                      169
+                                                                      Now let us build a voltage
+                                                                      reference with this diode.
+                                                                         We need to generate a cir-
+                                                                      cuit which provides a volt-
+                                                                      age V which is PTAT.
+                                                                            C
+                                                                         Such a circuit is shown in
+                                                                      this slide. It consists of a
+                                                                      bipolar transistor current
+                                                                      mirror. Transistor Q2 is
+                                                                      much larger (by a factor r)
+                                                                      than transistor Q1 such that
+                                                                      its V      is smaller. This
+                                                                            BE
+                                                                      diﬀerence in voltage DV is
+                                                                                               BE
+                                                                      taken up by a resistor R .
+                                                                                                 2
+                                                                         The equations show that
+                                                                      the voltage across R is
+                                                                                               2
+PTAT. The current through it is also PTAT. Obviously, this is only true if transistor R has a
+                                                                                             2
+negligible temperature coeﬃcient.
+   Note also that both transistor currents I are made equal.
+                                              C
+   For example, if r=10, then DV is about 60 mV. For a resistor of R =2 kV, the currents
+                                     BE                                      2
+are 30 mA.
+   Clearly this current must fall in the region where the exponential current voltage relationship
+is precisely exponential, for both transistors. The current density of the smaller transistor Q1 is
+much higher, which may cause some mismatch problems.
+
+
+                                                                   1610
+                                                                   Remember that both tran-
+                                                                   sistor currents I must be
+                                                                                     C
+                                                                   made equal. This can be
+                                                                   achieved by another current
+                                                                   mirror on top. Moreover,
+                                                                   this pnp current mirror can
+                                                                   be used to add another cur-
+                                                                   rent ratio n.
+                                                                      The result is that now
+                                                                   both DV and the currents
+                                                                            BE
+                                                                   are PTAT, with a factor nr.
+                                                                   The added voltage V is
+                                                                                            C
+                                                                   then easily found to be
+                                                                   PTAT and proportional to
+                                                                   a resistor ratio, which can
+                                                                   now be accurately attained.
+  The reference voltage is now the sum of both. It can be trimmed by adjusting resistor R . The
+                                                                                         1
+resulting value will be around 1.2 V.
+  Two more speciﬁcations are important in such a bandgap reference. The ﬁrst one is the output
+impedance. It indicates if current can be pulled out from the reference. For this purpose an
+462                                                                                       Chapter #16
+
+emitter follower is usually added, or an additional current mirror, as illustrated in the realizations
+later on.
+   The other characteristic is the output noise. Since this reference voltage is probably used to
+bias a number of circuits, its output noise risks entering the circuitry. This has to be avoided.
+
+                                                                       1611
+                                                                       The main question with
+                                                                       respect to noise, is whether
+                                                                       to use large currents with
+                                                                       small resistors or vice-versa.
+                                                                          The expressions for the
+                                                                       current and the added volt-
+                                                                       age V are repeated in this
+                                                                              C
+                                                                       slide. Parameter A is intro-
+                                                                       duced to shorten the writ-
+                                                                       ing. It is about 0.12 V,
+                                                                       corresponding to a nr pro-
+                                                                       duct of 100.
+                                                                          The voltage V is still
+                                                                                           C
+                                                                       about 0.6 V.
+                                                                          The main noise sources
+                                                                       are the two npn transistors
+Q1 and Q2, and the two resistors R and R . The noise contributions of the resistors dominate
+                                      1       2
+because they are larger than the 1/g values of the transistors.
+                                      m
+  The noise of the top transistors Q4 and Q5 can be neglected by proper choice of their V −V
+                                                                                             GS     T
+or by addition of series resistors.
+  It is clear that by choosing larger currents, the resistors must be smaller. Is this advantageous
+for the output noise voltage?
+
+                                                                        1612
+                                                                        The equivalent input noise
+                                                                        voltage due to the two resis-
+                                                                        tors is given in this slide.
+                                                                           The voltage noise of resis-
+                                                                        tor R appears directly in
+                                                                               1
+                                                                        series with the output. The
+                                                                        noise of the other resistor R
+                                                                                                     2
+                                                                        is transformed towards the
+                                                                        output by the resistor ratio
+                                                                        and factor n. Its contribution
+                                                                        to the output is a lot larger
+                                                                        than that of resistor R .
+                                                                                                 1
+                                                                           Actually, the noise of R
+                                                                                                     2
+                                                                        is ampliﬁed to the output
+                                                                        whereas the noise of R is
+                                                                                                   1
+                                                                        not.
+  How can the output noise then be minimized?
+Bandgap and current reference circuits                                                            463
+
+                                                                        1613
+                                                                        If we neglect the noise of R
+                                                                                                     1
+                                                                        and only focus on the noise
+                                                                        generated by R , we ﬁnd
+                                                                                          2
+                                                                        that only two parameters
+                                                                        play a role. We ﬁnd that V
+                                                                                                    C
+                                                                        is always about 0.6 V.
+                                                                           The ﬁrst one is I . The
+                                                                                             C2
+                                                                        larger we make the current
+                                                                        I , the smaller resistor R
+                                                                         C2                          2
+                                                                        becomes, and the smaller its
+                                                                        noise at the output.
+                                                                           The other parameter is
+                                                                        DV . A large voltage
+                                                                            BE
+                                                                        diﬀerence DV will require
+                                                                                       BE
+                                                                        a large value of r, but will
+                                                                        reduce the output noise.
+With this respect, it is better to use a large value of r, than a large value of n.
+
+
+
+
+                                                                        1614
+                                                                        Now that the principles are
+                                                                        known, let us have a look at
+                                                                        how they are implemented
+                                                                        in bipolar technologies.
+464                                                                                  Chapter #16
+
+                                                                   1615
+                                                                   One of the problems of
+                                                                   bipolar current mirrors is
+                                                                   that some of the precision
+                                                                   is lost because of base
+                                                                   currents and output resist-
+                                                                   ances. Moreover, mismatch
+                                                                   between the bipolar device
+                                                                   sizes leads to oﬀset, and
+                                                                   causes error voltages. In this
+                                                                   realization, these errors are
+                                                                   avoided. The pnp current
+                                                                   mirrors on top are is series
+                                                                   with npn devices. Also, a
+                                                                   double reference voltage is
+                                                                   taken to reduce the eﬀect of
+                                                                   mismatch. Its output volt-
+                                                                   age is therefore about 2.4 V.
+
+                                                                   1616
+                                                                   Such a bandgap reference
+                                                                   based on two current mir-
+                                                                   rors has two operating
+                                                                   points. A zero current is also
+                                                                   perfectly possible. This cir-
+                                                                   cuit does not start by itself.
+                                                                     The two operating points
+                                                                   are found by plotting the
+                                                                   two currents versus the
+                                                                   common voltage V . The
+                                                                                       BE1
+                                                                   current of transistor Q2 is
+                                                                   more linear as it has a feed-
+                                                                   back resistor R .
+                                                                                   2
+                                                                     The top current mirror
+                                                                   has unity gain. The operat-
+
+ing points are now found at the crossings of the lines.
+  Zero current works as well as the required operating point.
+  Startup circuits are therefore required.
+
+1617
+A few simple startup circuits are shown in this slide.
+   A capacitance at the base of the pnp current mirror draws a current when the supply voltage
+is switched on. This current ﬂows through the pnp transistors and starts injecting a current in
+the bottom npn transistors as well, biasing up the bandgap reference circuit.
+   However, if for some other reason the current drops to zero, then the supply voltage has to
+be switched on and oﬀ again.
+Bandgap and current reference circuits                                                          465
+
+                                                                         The other circuit is better
+                                                                      with this respect. When the
+                                                                      supply voltage is switched
+                                                                      on, diode D is forward
+                                                                                       2
+                                                                      biased, drawing current
+                                                                      through the pnp transistors,
+                                                                      and biasing up the total cir-
+                                                                      cuit. However, the current
+                                                                      also starts ﬂowing through
+                                                                      resistor R .The voltage
+                                                                                  start
+                                                                      across this resistor increases
+                                                                      until about 0.7 V below the
+                                                                      supply voltage. Diode D is
+                                                                                                 2
+                                                                      then reverse biased, and dis-
+                                                                      connected from the actual
+                                                                      bandgap circuit. In this way
+
+the currents in the bandgap are not disturbed.
+   A similar arrangement with diodes is shown below.
+   The startup circuit below left is diﬀerent. When the supply voltage is turned on, transistor Q4
+starts drawing current, biasing up the bandgap reference. This circuit on its turn drives Q3,
+which switches Q4 oﬀ again. As a result transistor Q4 does not inﬂuence the current balance in
+the bandgap circuit.
+
+
+                                                                      1618
+                                                                      One of the ﬁrst bandgap ref-
+                                                                      erences is shown in this
+                                                                      slide.
+                                                                         The PTAT current gener-
+                                                                      ator Q1-Q2-R2 provides a
+                                                                      PTAT voltage across resis-
+                                                                      tor R1. This voltage is added
+                                                                      to the V     of transistor Q1,
+                                                                               BE1
+                                                                      towards a bandgap refer-
+                                                                      ence voltage indeed.
+                                                                         Again, the output imped-
+                                                                      ance is low, because an emit-
+                                                                      ter follower is used to close
+                                                                      the feedback loop at the
+                                                                      output.
+
+
+
+1619
+An all-npn realization of a bandgap circuit is given in this slide. It is less simple but highly
+symmetrical. Many error terms as a result of too low beta’s, output resistances, etc. are cancelled.
+  A ratio of 100 is used between the sizes of Q3 and Q4, giving a fairly large DV (of about
+                                                                                       BE
+466                                                                                    Chapter #16
+
+                                                                     120 mV). This is good for
+                                                                     low sensitivity to oﬀset and
+                                                                     noise. The currents are indi-
+                                                                     cated for RU=6 kV.
+                                                                        The currents in both tran-
+                                                                     sistors are kept the same
+                                                                     because of the equal feed-
+                                                                     back networks Q1-R1-Q5
+                                                                     and Q2-R2-Q7. The emit-
+                                                                     ters of Q5 and Q7 are there-
+                                                                     fore at the same voltage,
+                                                                     which is the bandgap volt-
+                                                                     age. Indeed, resistor R6 can
+                                                                     here be tuned to provide the
+                                                                     exact bandgap voltage of
+                                                                     1.22 V. What is also obvi-
+                                                                     ously is the sum of the V
+                                                                                                BE
+of transistor Q6 and the voltage V across resistor R6.
+                                   C
+   A low output impedance is obtained because of the use of emitter followers and feedback.
+   The curvature can be compensated by putting a resistor RU across Q6 and addition of another
+emitter follower at the output, which lowers the output voltage to about 0.4 V (not shown).
+
+
+
+                                                                  1620
+                                                                  Operational ampliﬁers can
+                                                                  provide much more loop
+                                                                  gain than a transistor pair.
+                                                                     In this bandgap reference,
+                                                                  the opamp ﬁnds an out-
+                                                                  put voltage such that
+                                                                  the diﬀerential input zero
+                                                                  becomes zero. If the resistors
+                                                                  R are chosen such that they
+                                                                  take up about 0.6 V, then
+                                                                  the output voltage is about
+                                                                  1.2 V. The output imped-
+                                                                  ance is obviously very low,
+                                                                  at least at low frequencies.
+                                                                     The same applies to the
+                                                                  bandgap reference on the
+right. Its PSRR is worse however because transistors are used, with their collectors connected
+to the power supply.
+
+
+
+1621
+What is the absolute tolerance that can be obtained with such a bandgap reference?
+  For the circuit in this slide, the current and reference voltage are copied from before.
+Bandgap and current reference circuits                                                          467
+
+                                                                         Two terms can be distin-
+                                                                      guished. The ﬁrst one is V .
+                                                                                                BE
+                                                                      The second term is ADV .
+                                                                                                BE
+                                                                      This takes the ﬁrst term on
+                                                                      this slide.
+                                                                         Taking the total deriva-
+                                                                      tive yields three terms, the
+                                                                      ﬁrst one of which is the
+                                                                      smallest. The other two are
+                                                                      comparable. When we add
+                                                                      them we ﬁnd about 13 mV
+                                                                      error, for the numbers given.
+                                                                         This error is PTAT how-
+                                                                      ever, and can be trimmed
+                                                                      away.
+
+
+
+
+                                                                       1622
+                                                                       Now we take the total deriv-
+                                                                       ative of the second term.
+                                                                          The percentages are now
+                                                                       smaller but the scaling
+                                                                       factor is V      rather than
+                                                                                    BE
+                                                                       kT/q. The absolute value is
+                                                                       therefore of the same order
+                                                                       of magnitude. It is 11 mV for
+                                                                       the numbers given.
+                                                                          When we add both values
+                                                                       we obtain 24 mV, which is
+                                                                       about 2% of the bandgap
+                                                                       reference voltage. It is PTAT
+                                                                       gain and can therefore be
+                                                                       trimmed by adjusting A for
+                                                                       example.
+  From this analysis, it is clear that the curvature is smaller than the error. Only if trimming is
+applied, must the curvature be compensated.
+  Also, the oﬀset of the opamp has not been taken into account. It has the same eﬀect as a
+diﬀerence in V of the two transistors. However, this oﬀset can be avoided by using chopper
+               BE
+ampliﬁers.
+
+
+
+1623
+Operational ampliﬁers can provide much more loop gain than a transistor pair.
+  In this bandgap reference, the opamp ﬁnds an output voltage such that the diﬀerential input
+zero becomes zero. If the resistors R are chosen such that they take up about 0.6 V, then the
+468                                                                                 Chapter #16
+
+                                                                   output voltage is about
+                                                                   1.2 V. The output imped-
+                                                                   ance is obviously very low,
+                                                                   at least at low frequencies.
+                                                                      The same applies to the
+                                                                   bandgap reference on the
+                                                                   right. Its PSRR is worse
+                                                                   however, because transistors
+                                                                   are used, with their collec-
+                                                                   tors connected to the
+                                                                   power supply.
+
+
+
+
+                                                                   1624
+                                                                   Curvature correction is
+                                                                   always possible, if needed.
+                                                                   It is always based on tak-
+                                                                   ing two references with a
+                                                                   diﬀerent curvature. We have
+                                                                   seen before that the curva-
+                                                                   ture for a current which is
+                                                                   independent of temperature
+                                                                   (m=0) is larger than for
+                                                                   a PTAT current (m=1).
+                                                                   The ratio of the correspond-
+                                                                   ing nonlinearity is about
+                                                                   g/(g−1). This ratio is actu-
+                                                                   ally independent of the cur-
+                                                                   rent levels used.
+                                                                      A weighted addition of
+the output voltages then allows perfect compensation of the curvature. Curvature compensation
+is also possible in another way, as shown next.
+Bandgap and current reference circuits                                                         469
+
+                                                                     1625
+                                                                     Another way to provide cur-
+                                                                     vature compensation is
+                                                                     shown in this slide.
+                                                                        Currents with three dif-
+                                                                     ferent temperature coeﬃ-
+                                                                     cients are available. The
+                                                                     total current I is indepen-
+                                                                                     B
+                                                                     dent on temperature.
+                                                                        The expression shows
+                                                                     that the reference voltage can
+                                                                     also be made independent of
+                                                                     temperature. Because it is
+                                                                     a combination of currents
+                                                                     with diﬀerent m’s and diﬀer-
+                                                                     ent curvature, it can be
+                                                                     made independent of curva-
+                                                                     ture as well.
+
+
+
+                                                                    1626
+                                                                    Another way to apply cur-
+                                                                    vature correction is to inject
+                                                                    a parabolic current. It has
+                                                                    become clear from the
+                                                                    earlier slides that the curva-
+                                                                    ture error has a very strong
+                                                                    parabolic shape.
+                                                                      Injection of a current with
+                                                                    an inverse parabolic shape
+                                                                    must be able to correct the
+                                                                    curvature.
+                                                                      The derivation of a para-
+                                                                    bolic or second-order cur-
+                                                                    rent is carried out by means
+                                                                    of the translinear circuit on
+                                                                    the left. All transistors work
+in the weak-inversion region where they have exponential current-voltage relationships. The sum
+of V ’s therefore translates in a product of currents. This technique is also used to bias the
+     GS
+output transistors of many class-AB stages (see Chapter 12).
+   A small fraction of the second-order PTAT current is then added to the bandgap voltage. This
+will now require a second trimming.
+470                                                                                     Chapter #16
+
+                                                                      1627
+                                                                      The realization of bandgap
+                                                                      reference voltages are not so
+                                                                      obvious in CMOS technol-
+                                                                      ogy. A bandgap voltage is
+                                                                      essentially connected to a pn
+                                                                      diode or rather to a diode
+                                                                      connected transistor. This
+                                                                      device must have a exponen-
+                                                                      tial and reproducible cur-
+                                                                      rent-voltage characteristic.
+                                                                         Such a device is not easily
+                                                                      found in a CMOS technol-
+                                                                      ogy.
+
+
+
+
+                                                                     1628
+                                                                     In a n-well technology, both
+                                                                     lateral npn and pnp transis-
+                                                                     tors are easily found. They
+                                                                     have very low beta’s, how-
+                                                                     ever. Moreover, the expo-
+                                                                     nential current voltage
+                                                                     characteristic is limited to a
+                                                                     narrow range of currents.
+                                                                        On the other hand, the
+                                                                     vertical or substrate pnp
+                                                                     transistor can also be used .
+                                                                     Its base is the n-well and its
+                                                                     collector is the common
+                                                                     p-substrate. As a conse-
+                                                                     quence, all their collectors
+                                                                     are connected together.
+They cannot be used in a circuit unless the collector is connected to ground.
+  Their beta’s are reasonable and their output resistances are very high.
+
+
+
+1629
+Two realizations are shown in this slide.
+  The collectors are connected to the substrate.
+  It is obvious that both circuits are only possible in a n-well CMOS technology. This is no
+problem, as most CMOS technologies are n-well indeed.
+  The same advantages apply as for the bipolar equivalents.
+Bandgap and current reference circuits                                                           471
+
+                                                                         There is one important
+                                                                      diﬀerence however. CMOS
+                                                                      opamps have a larger oﬀset.
+                                                                      This means that they are
+                                                                      only self-starting if the oﬀset
+                                                                      is right. Moreover, the oﬀset
+                                                                      gives a much larger error in
+                                                                      the current equalization and
+                                                                      therefore in the output
+                                                                      voltage.
+                                                                         The circuit on the right
+                                                                      has again a worse PSRR.
+
+
+
+
+                                                                     1630
+                                                                     A practical example of a
+                                                                     bandgap reference is shown
+                                                                     in this slide. The output
+                                                                     voltage is trimmed to 1.2 V,
+                                                                     with a variation of maxi-
+                                                                     mum 20 mV. The temper-
+                                                                     ature coeﬃcient is only
+                                                                     4000 ppm or 0.4% over a
+                                                                     very    wide     temperature
+                                                                     range, or 20 ppm/°C.
+                                                                        The PTAT current is gen-
+                                                                     erated by transistors Q1/Q2
+                                                                     and resistor R      . Resistors
+                                                                                    PTAT
+                                                                     R and R are equal and
+                                                                       1         2
+                                                                     generate the output voltage,
+                                                                     together with R        , which
+                                                                                       TRIM
+                                                                     is trimmed.
+   The operational ampliﬁer is a folded cascode, with M1/M2 as input devices and the Drains
+of M3B/M4B (point PDII) as output. They operate in weak inversion and are now quite large
+to suppress oﬀset and 1/f noise. It is a two-stage ampliﬁer. A compensation capacitance is
+therefore required.
+   The startup circuit is on the left. It includes a Power-Down function. The Drain of transistor
+M7 (point PDII) biases the ampliﬁer and the bandgap reference. There are two inverters between
+this point and PD, by means of transistors M8/M9 and M6/M7. When PD is high. The output
+of the ﬁrst inverter is low (point PDI) and the output of the next inverter is high (point PDII).
+All pMOSTs connected at this point are thus oﬀ and so is the opamp and bandgap. The output
+is low.
+472                                                                               Chapter #16
+
+  When PD is low, point PDI is high and PDII is low, biasing all the pMOSTs. The output is
+regulated by the opamp. Current mirror M2C/M2D and resistor R4 clamp this situation even
+when PD disappears.
+
+
+
+
+                                                              1631
+                                                              In order to improve the
+                                                              Power-Supply-Rejection
+                                                              Ratio, an internal voltage
+                                                              regulator can be used, as
+                                                              shown in this slide.
+                                                                 The bandgap reference
+                                                              itself is easily recognized on
+                                                              the left.
+                                                                 The goal of the regulator
+                                                              is to ensure that nodes 1 and
+                                                              2 are at exactly the same
+                                                              voltage. In this way, the
+                                                              PSRR is greatly improved.
+                                                                 For this purpose, a two-
+                                                              stage opamp is used with
+                                                              M5 as an input transistor
+and M9 as a second stage. As a result, the VREG is adjusted for maximum equality of the
+voltages at nodes 1 and 2. Clearly, M5 must be matched to M1.
+  The PSRR is then −95 dB at 1 kHz and still −40 dB at 1 MHz.
+
+
+
+
+                                                                 1632
+                                                                 Sometimes a voltage refer-
+                                                                 ence is required which is
+                                                                 not referred to ground or
+                                                                 supply voltage. It is ﬂoat-
+                                                                 ing. This necessitates a
+                                                                 full-diﬀerential opamp, as
+                                                                 shown in this slide.
+                                                                    The principle is shown on
+                                                                 the left. Two pairs of sub-
+                                                                 strate pnp’s are used to gen-
+                                                                 erate a double bandgap
+                                                                 voltage of about 2.4 V on
+                                                                 the right. For this purpose,
+                                                                 transistors Q1 and Q2 must
+                                                                 be biased by a PTAT cur-
+                                                                 rent, which is not shown
+                                                                 here.
+Bandgap and current reference circuits                                                        473
+
+                                                                   1633
+                                                                   It is possible to realize a
+                                                                   bandgap reference without
+                                                                   resistors. Actually, diﬀerent
+                                                                   sizes of MOSTs are used to
+                                                                   amplify diﬀerences between
+                                                                   diode voltages.
+                                                                      Two diodes are present. A
+                                                                   ten times larger current is
+                                                                   pushed through the eight
+                                                                   times smaller diode D to
+                                                                                            2
+                                                                   develop a voltage diﬀerence
+                                                                   DV , which is PTAT. This
+                                                                       D
+                                                                   diﬀerence is then ampliﬁed
+                                                                   by a diﬀerential pair M3/
+                                                                   M4 and mirrored to the
+                                                                   output by M7/M5. Another
+diﬀerential pair M1/M2 then converts this current into a voltage again.
+  The output voltage is a result of many scaling factors A, B and G such that an appropriate
+PTAT voltage is added to the voltage across diode D .
+                                                     2
+  The output voltage is little less than 1.12 V with a variation of only 9 mV over a 70°C
+temperature range.
+
+
+
+                                                                     1634
+                                                                     Mismatch between the two
+                                                                     transistors of the PTAT cell
+                                                                     is still a problem. This is
+                                                                     why it is better to use the
+                                                                     same transistor, provided it
+                                                                     can be switched in and out.
+                                                                        During phase 1 of the
+                                                                     switches, the pnp transistors
+                                                                     carries current I only. The
+                                                                                      B2
+                                                                     ampliﬁer is in unity gain.
+                                                                     The output voltage is there-
+                                                                     fore V only.
+                                                                             BE
+                                                                        During phase 2 of the
+                                                                     switches, all switches are
+                                                                     open. All voltages are now
+                                                                     on hold.
+  During phase 3 of the switches, the pnp transistor carries a current I +I . The transistor
+                                                                           B1 B2
+now increases its V by DV . Moreover, the opamp has now a gain, set by the two capacitors.
+                    BE       BE
+This DV is therefore ampliﬁed and added to the output voltage held before.
+        BE
+  As a result, the total output voltage is the bandgap reference voltage.
+474                                                                                   Chapter #16
+
+                                                                     1635
+                                                                     It is clear that a MOST in
+                                                                     weak inversion has an expo-
+                                                                     nential current-voltage rela-
+                                                                     tion, which is nearly as good
+                                                                     as that of a bipolar transis-
+                                                                     tor. In this way the bipolar
+                                                                     bandgap references can
+                                                                     probably be duplicated in
+                                                                     CMOS.
+                                                                        There are some important
+                                                                     diﬀerences, however. First of
+                                                                     all, for weak inversion the
+                                                                     currents are small and the
+                                                                     resistors are large, which is
+                                                                     bad for noise.
+                                                                        Also, MOST have larger
+oﬀset voltages. The errors are therefore larger as well.
+   Also, the coeﬃcient I does not have the same temperature coeﬃcient as in bipolar. It is less
+                        DS0
+reproducible.
+   Finally, the exponential of this MOST in weak inversion contains a factor n, which contains
+a depletion capacitance, which is voltage dependent. Its value is therefore not very reproduc-
+ible either.
+   It is now clear that with MOSTs in weak inversion, the same precision can be obtained as
+with bipolar transistors.
+
+
+                                                                     1636
+                                                                     As bandgap reference volt-
+                                                                     ages are always 1.2 V, we
+                                                                     can wonder how to achieve
+                                                                     a reference voltage with
+                                                                     value below 1 V.
+                                                                        Indeed, the only physical
+                                                                     constant available is this
+                                                                     bandgap voltage. How can
+                                                                     the properties of this band-
+                                                                     gap voltage be exploited at
+                                                                     lower supply voltages?
+                                                                        The answer will lie in the
+                                                                     conversion of this bandgap
+                                                                     reference voltage into cur-
+                                                                     rents, which are then
+                                                                     summed up to lower output
+reference voltages. The requirement on the supply voltage will be that we need at least one single
+V and some mV’s. We can bias the bipolar transistor at very low currents, which may yield
+  BE
+V values down to 0.5 V. In this case, a minimum supply voltage could be reached of the same
+  BE
+order of magnitude.
+Bandgap and current reference circuits                                                        475
+
+                                                                      1637
+                                                                      The principle of a sub-1 V
+                                                                      bandgap reference is given
+                                                                      in this slide. The reference
+                                                                      voltage is about 0.5 V.
+                                                                         As a pure CMOS technol-
+                                                                      ogy is used, only vertical
+                                                                      pnp’s can be used. They are
+                                                                      all represented by diodes.
+                                                                         The operational ampliﬁer
+                                                                      has suﬃcient gain to equal-
+                                                                      ize voltages Va and Vb.
+                                                                      It is a two-stage ampliﬁer
+                                                                      with C2 as a compensation
+                                                                      capacitance. Note that this
+                                                                      is not a Miller capacitance.
+                                                                      Also, all pMOSTs carry
+                                                                      equal currents.
+  Since the voltages Va and Vb are the same, the currents from these nodes to ground must be
+the same as well. The current through R is therefore PTAT, whereas the current through R is
+                                         3                                                     2
+simply V /R . The sum of these two currents is also ﬂowing through the output pMOST. The
+         BE 2
+value of R then sets the output voltage.
+           4
+  The input diﬀerential pair of the opamp does not allow really low supply voltages, however.
+This limits the supply voltage to 2V +V          . For a V of about 0.5 V this is about 1.6 V! The
+                                    GS     DSsat          T
+opamp is now the limiting factor.
+
+
+
+                                                                    1638
+                                                                    In this realization, an
+                                                                    opamp is used which oper-
+                                                                    ates on supply voltages
+                                                                    below 1 V. As a result, a real
+                                                                    sub-1V bandgap reference
+                                                                    emerges. BiCMOS is used,
+                                                                    however, rather than stan-
+                                                                    dard CMOS.
+                                                                       The principle is similar to
+                                                                    the one previously men-
+                                                                    tioned. The opamp equal-
+                                                                    izes its input voltages by use
+                                                                    of feedback. This voltage is
+                                                                    simply V . All pMOSTs
+                                                                                BE
+                                                                    have again equal currents.
+                                                                       The current through resis-
+tor R is thus PTAT. It is added to a current V /R . This sum also ﬂows through the output
+      0                                          BE 2
+transistor. Resistor R then sets the output reference voltage, which is here about 0.54 V.
+                      3
+   Recently, a full CMOS version has been added by the same authors (Cabrini, ESSCIRC 2005)
+476                                                                                  Chapter #16
+
+with 7 ppm/°C over −50°C to 160°C consuming only 26 mW at 1 V supply voltage. A folded
+cascode is then used as an opamp.
+
+
+
+
+                                                                    1639
+                                                                    The BiCMOS opamp which
+                                                                    operates at a supply voltage
+                                                                    below 1 V is shown in this
+                                                                    slide.
+                                                                       It uses a pseudo-diﬀer-
+                                                                    ential input stage. This is
+                                                                    easy, as the input voltages
+                                                                    are connected to the V ’s
+                                                                                              BE
+                                                                    of the bandgap. Actually,
+                                                                    the input transistors form
+                                                                    current mirrors with the
+                                                                    diode connected npn tran-
+                                                                    sistors of the bandgap refer-
+                                                                    ence. The currents are now
+                                                                    well deﬁned!
+                                                                       The outputs of the input
+transistors lead to the output through one or two current mirrors. It is therefore a single-stage
+opamp. The gain is moderate, but the dominant pole is high, as indicated by the GBW.
+   The minimum supply voltage is V +V          . For a V of about 0.5 V this is only about 0.9 V.
+                                    GS   DSsat          T
+
+
+
+                                                                  1640
+                                                                  The startup circuit is added
+                                                                  in this slide.
+                                                                     When the supply voltage
+                                                                  is turned up, the resistor
+                                                                  does not yet carry any cur-
+                                                                  rent, and turns on transistor
+                                                                  M . This also turns on the
+                                                                     S
+                                                                  bandgap reference.
+                                                                     The npn current mirror
+                                                                  then starts conducting and
+                                                                  turns on the pMOST cur-
+                                                                  rent mirror, the Gates of
+                                                                  which are always set at a
+                                                                  biasing voltage V .The
+                                                                                         B
+                                                                  resistor now carries a large
+                                                                  current, such that the Gate
+of M is close to the supply voltage. Transistor M is turned oﬀ again. It does not inﬂuence the
+     S                                           S
+current balance in the bandgap reference.
+Bandgap and current reference circuits                                                        477
+
+                                                                    1641
+                                                                    Curvature compensation is
+                                                                    now possible.
+                                                                       For this purpose, a diode
+                                                                    is added and two resistors
+                                                                    R and R . They generate
+                                                                      4        5
+                                                                    a term which subtracts the
+                                                                    V of a junction with con-
+                                                                      BE
+                                                                    stant current from the V
+                                                                                                BE
+                                                                    of a junction with the PTAT
+                                                                    current. This term is the cur-
+                                                                    vature correction. Its value
+                                                                    is set by the two resistors.
+                                                                       In this way, the curvature
+                                                                    error is reduced from
+                                                                    0.8 mV to 0.3 mV, over
+                                                                    80°C.
+
+
+
+
+                                                                  1642
+                                                                  In this realization another
+                                                                  opamp is used which oper-
+                                                                  ates on supply voltages
+                                                                  below 1 V. A real sub-1 V
+                                                                  bandgap reference again
+                                                                  emerges. Standard CMOS is
+                                                                  used this time.
+                                                                     The principle is similar as
+                                                                  before. The opamp equalizes
+                                                                  its input voltages by use of
+                                                                  feedback. This voltage is
+                                                                  simply V . All pMOSTs
+                                                                            BE
+                                                                  have again equal currents.
+                                                                     The current through resis-
+                                                                  tor R is PTAT. It is added
+                                                                        1
+                                                                  to a current V /(R +R ).
+                                                                                BE 2a       2b
+This sum also ﬂows through the output transistor. Resistor R then sets the output reference
+                                                              3
+voltage, which here is about 0.6 V.
+  As an opamp, a folded cascode is used. Indeed, its input voltage range includes the ground.
+Also, a symmetrical OTA can be used provided low voltage current mirrors are used.
+  Several solutions are now possible, provided an opamp can be designed, operating at the right
+input voltage range.
+478                                                                                   Chapter #16
+
+                                                                    1643
+                                                                    To derive a current reference
+                                                                    from a bandgap voltage ref-
+                                                                    erence, requires a resistor.
+                                                                       Most of the uncertainty
+                                                                    on the current will depend
+                                                                    on this resistor. Also, the
+                                                                    temperature coeﬃcient of
+                                                                    the resistor will play a role.
+
+
+
+
+                                                                    1644
+                                                                    The most accurate way to
+                                                                    convert a voltage into a cur-
+                                                                    rent is the use of an opamp.
+                                                                       The reference voltage is
+                                                                    imposed across the resistor.
+                                                                    The output current is
+                                                                    exactly the same as the cur-
+                                                                    rent through this resistor.
+                                                                       The main error is caused
+                                                                    by the oﬀset of the opamp.
+                                                                       The temperature coeﬃ-
+                                                                    cient is determined by the
+                                                                    temperature coeﬃcients of
+                                                                    the bandgap reference and
+                                                                    that of the resistor. One
+                                                                    could be made to com-
+pensate the other, depending on the application.
+
+
+
+1645
+The temperature coeﬃcient of a resistor strongly depends on the doping level used. Only
+integrated resistors in silicon are considered.
+   Highly-doped resistors, with small sheet resistivities, have a small temperature dependence.
+   This is shown in this slide for n-regions. Resistivity strongly depends on the mobility of the
+carriers. Examples are emitter regions, but also drain- and source regions in CMOS technologies.
+   Lowly-doped resistors depend very strongly on temperature. For example the n-well resistor
+Bandgap and current reference circuits                                                       479
+
+                                                                    has a strong temperature
+                                                                    coeﬃcient. Also, some ion-
+                                                                    implanted resistors with
+                                                                    high resistivity (1–2 kV/
+                                                                    square) have high temper-
+                                                                    ature coeﬃcients, depending
+                                                                    a bit on the annealing used.
+                                                                      Base resistances are some-
+                                                                    where in between, depend-
+                                                                    ing on the technology used.
+                                                                      Also the K∞ factor in
+                                                                    the MOST current-voltage
+                                                                    expression contains the
+                                                                    mobility. It decreases to
+                                                                    some extent with temper-
+                                                                    ature. A typical value is
+                                                                    K∞~T−1.5.
+
+
+
+                                                                    1646
+                                                                    For precise conversion of a
+                                                                    bandgap reference voltage
+                                                                    to a current, the circuit in
+                                                                    this slide can be used. A
+                                                                    bandgap voltage of 1.25 V is
+                                                                    applied to the input.
+                                                                       The same bandgap volt-
+                                                                    age appears at the emitter of
+                                                                    Q and across resistor R .
+                                                                      2                        1
+                                                                    The current through Q is
+                                                                                             2
+                                                                    therefore independent of
+                                                                    temperature.
+                                                                       The voltage at the emitter
+                                                                    of Q and across resistor R
+                                                                         3                      2
+                                                                    is PTAT, as it is a bandgap
+                                                                    voltage minus a V . The
+                                                                                         BE
+current through Q is also PTAT.
+                   3
+  Both currents are added and generate a voltage across R , which drives the output transistors.
+                                                           4
+Current feedback is applied through M5.
+  Transistor M6 cancels the threshold voltage of the output devices. In this way, resistor R
+                                                                                               3
+does not play a role for the precision. Transistor M6 is driven by M4 and M7. Its Gate acts as
+a virtual ground for the voltage-to-current conversion.
+  Transistors M6 and M8 are shown double to indicate that they are large and well matched
+by means of centroide layout, etc. (see Chapter 15).
+480                                                                                      Chapter #16
+
+                                                                       1647
+                                                                       A current reference can also
+                                                                       be realized without resistors.
+                                                                       Actually, the resistive chan-
+                                                                       nel of a MOST will be
+                                                                       used instead.
+                                                                         It consists of current mir-
+                                                                       rors top-to-top. With size
+                                                                       ratios a and b. The nMOST
+                                                                       current mirror has an oﬀset
+                                                                       voltage V . In this way, the
+                                                                                  2
+                                                                       only biasing points possible
+                                                                       are at zero and at reference
+                                                                       current I . Note that the
+                                                                                 ref
+                                                                       bulk eﬀect of the nMOSTs
+                                                                       does not come in!
+                                                                         The actual expression is
+given. It depends on this oﬀset voltage V , on the ratios a and b, on the size W /L and especially
+                                         2                                       1 1
+K∞ which contains the mobility. Needless to say that the latter one is the worst one for high
+precision.
+   Moreover, the K∞ factor has a negative temperature exponent of about −1.5. If we can make
+V PTAT; then about −0.5 is left as the temperature exponent for the current. This is accept-
+  2
+able indeed!
+   How can a PTAT oﬀset voltage V be realized by means of MOSTs? A value of about 0.32 V
+                                      2
+can be realized as follows.
+
+
+                                                                   1648
+                                                                   A fairly easy way to realize
+                                                                   the oﬀset voltage V2 of the
+                                                                   previous slide is to use
+                                                                   MOSTs in weak inversion.
+                                                                      In the same way, as for a
+                                                                   bipolar PTAT cell, two
+                                                                   MOSTs are taken in weak
+                                                                   inversion with common
+                                                                   Gate (on the right). The
+                                                                   lower one T serves as a
+                                                                                  9a
+                                                                   resistor for the upper one,
+                                                                   however T . This is only
+                                                                               9b
+                                                                   possible if the upper one is
+                                                                   made larger, such that its
+                                                                   V is smaller. The voltage
+                                                                     GS
+                                                                   diﬀerence in V , or the
+                                                                                     GS
+voltage across T , denoted by V , is then again PTAT. Parameter S is W/L. Voltage V is about
+                9a               o                                                     o
+64 mV for the values given. It only depends on W/L ratio’s and n.
+  Five such cells in series then yield a reference voltage of 320 mV. This is large enough to
+suppress the eﬀect of mismatches. A spreading on the current can be as low as 5%!
+Bandgap and current reference circuits                                                          481
+
+                                                                     1649
+                                                                     An accurate current refer-
+                                                                     ence can be realized without
+                                                                     resistor if switched capaci-
+                                                                     tors are used. We now know
+                                                                     that a precise resistor can be
+                                                                     realized by means of a
+                                                                     switched-capacitor equiva-
+                                                                     lent. This is used in the cir-
+                                                                     cuit in this slide.
+                                                                        When the switches are
+                                                                     closed as shown, the refer-
+                                                                     ence voltage is stored on
+                                                                     capacitor C . Its charge is
+                                                                                   1
+                                                                     then V C .
+                                                                             ref 1
+                                                                        During this same time,
+                                                                     which lasts half a clock cycle
+T /2, the current through T3 is discharging C , which has the same size as C . This current
+  c                                               2                                 1
+through T3 is equal to the reference current I .
+                                               ref
+    Note that both a positive and negative supply is used!
+    When the switches are closed in the other way, the charges on C and C are made equal by
+                                                                     1        2
+the integrator A1 with capacitor C . If not, the integrator adjusts the current through T1, T2
+                                     3
+and T3, which also equals the I .
+                                ref
+    The charges on C and C are equal in steady-state. The eﬀective resistor is exactly as expected
+                    1       2
+for a switched-capacitor equivalent.
+    The current is now very precise, as it only depends on a crystal oscillator clock and the
+absolute value of a capacitor. This is a lot more precise than the absolute value of a resistor!
+
+
+
+                                                                      1650
+                                                                      Both voltage and current
+                                                                      references have been dis-
+                                                                      cussed now. Both can be
+                                                                      used in voltage and current
+                                                                      regulators. Only one more
+                                                                      kind of regulator will be dis-
+                                                                      cussed here. It is a feedback
+                                                                      circuit with variable load.
+                                                                      As a consequence the design
+                                                                      is not straightforward.
+482                                                                                   Chapter #16
+
+                                                                   1651
+                                                                   Both kind of regulators are
+                                                                   shown in this slide.
+                                                                      The left one uses the
+                                                                   output transistor in source-
+                                                                   follower conﬁguration, the
+                                                                   right one as an ampliﬁer. As
+                                                                   a consequence the right one
+                                                                   has one more stage in the
+                                                                   feedback loop. It is therefore
+                                                                   much more prone to
+                                                                   instability.
+                                                                      It is preferred however,
+                                                                   because the voltage drop
+                                                                   across the output device can
+                                                                   be smaller. Hence, the power
+                                                                   dissipation is smaller.
+  The stability problem is even worse noticing that the load impedance can vary greatly. Output
+currents can vary over three or more orders of magnitude. The equivalent load resistors vary as
+much. The transconductance of the output transistor varies a lot as well. Remember that the
+non-dominant pole is determined by this transconductance.
+  The compensation devices will have to cover a wide range of output loads. The only way
+to avoid very large compensation capacitances is to try compensation schemas which track
+the load.
+
+
+
+                                                                     1652
+                                                                     In this Chapter, all impor-
+                                                                     tant aspects of bandgap and
+                                                                     current references have been
+                                                                     covered. Bandgap references
+                                                                     have been discussed in great
+                                                                     detail, in both bipolar and
+                                                                     CMOS technologies.
+                                                                       They can be made to
+                                                                     operate below 1 V supply
+                                                                     voltage.
+                                                                       Current references are
+                                                                     actually non-existing. Either
+                                                                     discrete or MOST channel
+                                                                     resistances are required
+                                                                     for the voltage-current con-
+                                                                     version.
+  Finally, we have to remember that these references are required in ADCs but also in voltage
+and current regulators. The stability of these feedback loops is not always as obvious.
+Bandgap and current reference circuits                             483
+
+                                         1653
+                                         Only the most important
+                                         references are collected here.
+                                         They are in alphabetical
+                                         order.
+                                            Historically,     however,
+                                         Widlar came ﬁrst followed
+                                         by Kuijk and Brokaw.
+                                         Gilbert and Meijer soon
+                                         followed.
+                                            Many more references
+                                         can be found in the IEEE
+                                         Journal     of     Solid-State
+                                         Circuits. They are left to be
+                                         explored by the reader.
+

@@ -1,0 +1,2072 @@
+                                                                    021
+                                                                    All analog circuits are built
+                                                                    up by means of a limit-
+                                                                    ed number of elementary
+                                                                    building blocks. Thorough
+                                                                    knowledge of these blocks is
+                                                                    therefore essential to obtain
+                                                                    insight into more compli-
+                                                                    cated circuit schematics.
+                                                                    This is why they are consid-
+                                                                    ered separately and ana-
+                                                                    lyzed in great detail. Several
+                                                                    overview slides are added so
+                                                                    as not to lose the context
+                                                                    out of sight.
+
+
+
+
+                                                                    022
+                                                                    In all analog electronics, an
+                                                                    operational ampliﬁer is the
+                                                                    most versatile circuit block.
+                                                                    It consists of a diﬀerential
+                                                                    input and a single output.
+                                                                    Its gain is very large. It is
+                                                                    normally used in a feedback
+                                                                    loop. A simple realization is
+                                                                    shown in this slide.
+                                                                       Such an operational
+                                                                    ampliﬁer, usually shortened
+                                                                    to opamp, contains several
+                                                                    elementary building blocks.
+                                                                    In the ﬁrst stage we can
+                                                                    identify a diﬀerential pair
+                                                                    loaded by a current mirror.
+The second stage is little more than a single-transistor ampliﬁer, with a DC current source as
+load, which is also part of a current mirror.
+  These elementary building blocks will now be studied in great detail.
+
+
+
+023
+After all, only a few elementary circuit blocks can be identiﬁed. One single transistor can be
+used as an ampliﬁer, a source follower or a cascode. Moreover, gain boosting can be applied to
+a cascode, which is little more than a cascode combined with an ampliﬁer. Obviously a MOST
+can also be used as a switch.
+
+                                               51
+52                                                                                     Chapter #2
+
+                                                                       With two transistors two
+                                                                    more conﬁgurations can be
+                                                                    identiﬁed. They are the
+                                                                    diﬀerential pair and the cur-
+                                                                    rent mirror. Combined, they
+                                                                    give rise to a full four-tran-
+                                                                    sistor diﬀerential voltage
+                                                                    and current ampliﬁer. One
+                                                                    version of this diﬀerential
+                                                                    current ampliﬁer has as
+                                                                    many as four inputs, which
+                                                                    makes it a very versatile
+                                                                    building block indeed.
+                                                                       We start with an ampli-
+                                                                    ﬁer, using only one single
+                                                                    transistor.
+
+
+                                                                    024
+                                                                    A single-transistor ampliﬁer
+                                                                    is biased by a voltage source
+                                                                    V , on which a small-signal
+                                                                      IN
+                                                                    input voltage v is superim-
+                                                                                    in
+                                                                    posed. Biasing will be dis-
+                                                                    cussed later.
+                                                                       However, it is important
+                                                                    to note that an ampliﬁer is
+                                                                    normally loaded by a DC
+                                                                    current source. In this way
+                                                                    the maximum gain can be
+                                                                    obtained. Indeed, an ideal
+                                                                    current source has an inﬁ-
+                                                                    nite output resistance. It is
+                                                                    therefore not visible in the
+                                                                    small-signal equivalent cir-
+                                                                    cuit, shown on the right.
+   The voltage gain A is easily found by this equivalent circuit. It is g r . Both parameters
+                        v                                                 m DS
+depend on the current, however. As a result, the gain A becomes independent of the current. It
+                                                       v
+depends not only on a technological parameter V but also on two parameters, which can be
+                                                   E
+chosen by the designer. They are V −V and channel length L.
+                                     GS   T
+   It is obvious that for large gain A , we must choose V −V as small as possible and L as
+                                      v                  GS    T
+large as possible.
+
+025
+These are really important conclusions. Large gain A can only be achieved by choosing large
+                                                      v
+channel length L and by making V −V as small as possible.
+                                    GS    T
+  As a result, the minimum channel length is never used in an analog ampliﬁer. Usually we limit
+the value of L to at least 4–5 times the minimum value.
+Ampliﬁers, source followers and cascodes                                                            53
+
+                                                                       Also, we take the take the
+                                                                    value of V −V as small
+                                                                                GS     T
+                                                                    as possible. A typical value
+                                                                    is 0.15–0.2 V. We cannot go
+                                                                    much lower as we then end
+                                                                    up in the weak inversion
+                                                                    region. The absolute value
+                                                                    of the current and the trans-
+                                                                    conductance then become
+                                                                    so small that the noise
+                                                                    becomes too large. Noise
+                                                                    will be explained in detail in
+                                                                    Chapter 3.
+                                                                       Small values of the cur-
+                                                                    rent inevitably lead to larger
+                                                                    noise and smaller signal-
+                                                                    to-noise ratios (SNR). For
+SNR values below 40 dB, weak inversion can be used. Sensor interface and biomedical preampli-
+ﬁers are comfortable with this. Communication ampliﬁers usually require more than 70 dB SNR.
+As a result we have to stay in the region between weak and strong inversion. A value of V −V
+                                                                                          GS     T
+between 0.15 V and 0.2 V is therefore a good compromise.
+
+
+                                                                       026
+                                                                       Deep submicron CMOS
+                                                                       devices provide less and less
+                                                                       voltage     gain     however.
+                                                                       Indeed for a relatively large
+                                                                       channel length of 2.5 mm
+                                                                       (and a V =4 V/mm) the V L
+                                                                                 E                  E
+                                                                       factor is about 10 V, which
+                                                                       yields a gain of 100, using a
+                                                                       V −V =0.2 V.
+                                                                         GS     T
+                                                                          For a minimum channel
+                                                                       length of 90 nm however,
+                                                                       parameter V does not
+                                                                                      E
+                                                                       change all that much, and
+                                                                       the voltage gain is now only
+                                                                       3.6!! In practice it is a little
+                                                                       bit more, but not much, i.e.
+about 6. As a result we will have to devise all possible tricks to enhance the gain. Cascodes oﬀer
+such capability, and gain boosting, as explained later in this chapter.
+  Even with a voltage gain of 100, three stages would be needed to obtain a voltage gain of 106,
+as is common in operational ampliﬁers. A bipolar transistor can provide the same gain in only
+two stages.
+  Indeed in a bipolar transistor, the input voltage is scaled to kT/q rather than to (V −V )/2.
+                                                                                          GS     T
+We now gain a factor of about 4! The other reason for larger gain is the slightly higher value of
+the V parameter.
+      E
+54                                                                                        Chapter #2
+
+                                                                       027
+                                                                       At higher frequencies, the
+                                                                       voltage gain will fall oﬀ as a
+                                                                       result of all capacitances.
+                                                                       There are three positions
+                                                                       where a capacitance can
+                                                                       occur. Normally the load
+                                                                       capacitance is the largest
+                                                                       one, as it consists of all
+                                                                       interconnect capacitance to
+                                                                       the next stage and the feed-
+                                                                       back capacitances applied
+                                                                       (as in switched-capacitance
+                                                                       ﬁlters).
+                                                                          Here only a load capaci-
+                                                                       tance C is present. The low
+                                                                                L
+                                                                       frequency gain A is as
+                                                                                           v0
+before. The pole frequency, at which the gain starts decreasing is called the bandwidth BW or
+the −3dB frequency. It is simply determined by the output RC time constant.
+   The product of the low-frequency gain and the bandwidth is called the Gain-Bandwidth
+product GBW. It is by far the most important quality factor of an ampliﬁer. Actually it is the
+most important speciﬁcation of an ampliﬁer. Later on we will compare ampliﬁers by means of
+a Figure of Merit (FOM), which quotes how much GBW can be obtained for a certain load
+capacitance and power consumption.
+   The GBW itself is readily obtained. It only depends on the transistor transconductance and
+the load capacitance, not on the output resistance. We will see that this expression is valid for
+all possible single-stage ampliﬁers. It is therefore a very important expression!
+
+
+                                                                    028
+                                                                    To have a better view on
+                                                                    how the frequencies BW and
+                                                                    GBW are related to the low-
+                                                                    frequency gain, a Bode dia-
+                                                                    gram is included.
+                                                                       Such a Bode diagram
+                                                                    consists of two diagrams,
+                                                                    both versus frequency on a
+                                                                    logarithmic scale. The top
+                                                                    one shows the logarithm of
+                                                                    the amplitude of the gain,
+                                                                    denoted by |A |. The bottom
+                                                                                    v
+                                                                    one plots the phase of the
+                                                                    gain A .
+                                                                            v
+                                                                       It is clear that the GBW
+                                                                    is indeed the product of A
+                                                                                               v0
+and the BW. At the BW itself, the phase shift is −45°. At higher frequencies however, the phase
+shift increases to −90°.
+Ampliﬁers, source followers and cascodes                                                55
+
+                                                              029
+                                                              As an exercise, let us design
+                                                              a single-transistor ampliﬁer
+                                                              for a GBW=100 MHz and
+                                                              a C =3 pF.
+                                                                  L
+                                                                 The technology is shown
+                                                              in this slide. The minimum
+                                                              channel length is 0.5 mm.
+                                                              The required g is readily
+                                                                               m
+                                                              calculated to be about 2 mS
+                                                              (or 2 mMhos).
+                                                                 We choose V −V =
+                                                                                  GS    T
+                                                              0.2 V. This transconduct-
+                                                              ance of 2 mS thus requires
+                                                              0.2 mA current. Using the
+                                                              current expression in strong
+                                                              inversion yields W/L=100.
+ We choose L#4×L =2 mm, to obtain some gain.
+                     min
+ As a result W=200 mm.
+ The FOM is 1500 MHzpF/mA, which is not bad! After all only one transistor is involved!!
+Most opamps later on will have FOMs between 100 and 200, at least the better ones!
+
+
+
+                                                              0210
+                                                              If no load capacitance is
+                                                              present, but a large input
+                                                              capacitance C , then the
+                                                                             GS
+                                                              bandwidth is determined at
+                                                              the input. This is also true
+                                                              for many sensor and bio-
+                                                              medical preampliﬁers where
+                                                              the source resistance can be
+                                                              quite high (>1 MV).
+                                                                 In this case, the BW is
+                                                              simply given by the RC pro-
+                                                              duct at the input.
+                                                                 The GBW on the other
+                                                              hand, is not as simple as
+                                                              before. Many transistor
+                                                              parameters now play a role.
+Some of them can be bundled in the high-frequency parameter f .
+                                                              T
+  For high-frequency performance, it is not suﬃcient however to make f large. Rather the
+                                                                          T
+product f r must be optimized, which is a technological challenge indeed!
+         T DS
+  The channel length does not seem to play a role; both W and V −V must be made small!!!
+                                                                GS   T
+All surprising results indeed!
+56                                                                                     Chapter #2
+
+                                                                  0211
+                                                                  Finally, the third and ﬁnal
+                                                                  possible addition of a single
+                                                                  capacitance to this circuit, is
+                                                                  shown in this slide. It is a
+                                                                  feedback capacitance C
+                                                                                                F
+                                                                  from output to input. It
+                                                                  is also called a Miller
+                                                                  capacitance.
+                                                                     Since this capacitance is
+                                                                  connected from output to
+                                                                  input, it gives the same time
+                                                                  constant with the source
+                                                                  resistor at the input, as
+                                                                  a capacitance C , but
+                                                                                       GS
+                                                                  multiplied by the gain A .
+                                                                                             v0
+                                                                  Indeed the output has a
+signal amplitude which is A times larger than the input. Seen at the input, the capacitance C
+                           v0                                                                   F
+also seems to be A times larger.
+                  v0
+   The GBW is now completely independent of any transistor parameters. This is expected!
+Indeed with feedback, the gain becomes independent of the ampliﬁer parameters, and only
+dependent on the external feedback elements.
+
+
+
+                                                                    0212
+                                                                    The same conclusions can
+                                                                    be better visualized, in the
+                                                                    diagram in this slide. The
+                                                                    bandwidth is determined by
+                                                                    the same time constant with
+                                                                    the source resistor at the
+                                                                    input, as a capacitance C ,
+                                                                                             GS
+                                                                    but multiplied by the gain
+                                                                    A .
+                                                                      v0
+                                                                       This Miller eﬀect only
+                                                                    applies to the impedance
+                                                                    seen at the input. It is not
+                                                                    valid for the impedance at
+                                                                    the output.
+Ampliﬁers, source followers and cascodes                                                           57
+
+                                                                       0213
+                                                                       Actually, a Miller capaci-
+                                                                       tance also causes a zero in
+                                                                       the transfer characteristic.
+                                                                          A full small-signal analy-
+                                                                       sis reveals that the pole (the
+                                                                       BW) is followed by a zero
+                                                                       at high frequencies. It is a
+                                                                       positive zero. It occurs at
+                                                                       the right hand side of the
+                                                                       polar diagram. It causes a
+                                                                       −180° phase shift at higher
+                                                                       frequencies.
+                                                                          A −180° phase shift
+                                                                       would also be caused by a
+                                                                       second pole. We come to the
+                                                                       remarkable result that a
+single capacitance can cause the same phase shift as two poles. Normally only one single pole
+is attributed per capacitance. This is a truly exceptional situation indeed.
+
+
+                                                                       0214
+                                                                       Quite often, local series feed-
+                                                                       back is applied to a single-
+                                                                       transistor ampliﬁer, by
+                                                                       means of a resistor R . In
+                                                                                                 S
+                                                                       principle, the eﬀect of this
+                                                                       resistor can be calculated by
+                                                                       common feedback theory
+                                                                       (see Chapter 13). The so
+                                                                       called loop gain is then
+                                                                       (1+g R ). It aﬀects all
+                                                                              m S
+                                                                       other circuit speciﬁcations.
+                                                                       It is a very simple case how-
+                                                                       ever, which allows us to cal-
+                                                                       culate all these eﬀects
+                                                                       directly.
+                                                                          The transconductance is
+reduced by this loop gain. For large resistors, the transconductance is reduced to 1/R . It is
+                                                                                              S
+independent of the current in contrast with g .
+                                                m
+   A major eﬀect is that the output resistance increases drastically. Indeed, it goes up by the
+same loop gain. An easy way to remember this expression is to take the series resistor R ,
+                                                                                                    S
+multiplied by the intrinsic transistor gain itself g R .
+                                                    m DS
+   This increased output resistance will be used to increase the gain!
+   The input capacitance is decreased by the feedback. The larger the resistor R , the smaller the
+                                                                                    S
+input capacitance. If R were replaced by a DC current source, the input capacitance would be
+                        S
+negligible. Actually, the gain would be negligible as well. This is a source follower, as discussed
+later.
+58                                                                                      Chapter #2
+
+  The main problem of R is its noise. This is why in low-noise RF circuits, an inductor is
+                       S
+used instead.
+
+
+
+
+                                                                   0215
+                                                                   Inductors and capacitances
+                                                                   do not give noise, at least
+                                                                   not as long as their series
+                                                                   loss resistance is zero. Only
+                                                                   resistances give noise among
+                                                                   the passives!
+                                                                      Inserting an inductor
+                                                                   makes both the trans-
+                                                                   conductance and the out-
+                                                                   put resistance frequency
+                                                                   dependent.
+                                                                      The input impedance Z
+                                                                                              inL
+                                                                   however, which was capaci-
+                                                                   tive without series R or L,
+                                                                   becomes now purely resis-
+                                                                   tive with value g L /C or
+                                                                                     m S GS
+L v . Indeed, the input capacitance C is tuned out by the inductor. Its input resistance can
+  S T                                  GS
+be easily designed to be 50 V to match an incoming 50 V transmission line (cable, antenna, etc.).
+In this way, a very-high-frequency low-noise ampliﬁer can be designed (see Chapter 23).
+
+
+
+
+                                                                    0216
+                                                                    An easy way to realize such
+                                                                    a series feedback resistor is
+                                                                    to use a nMOST in the
+                                                                    linear region. This is only
+                                                                    possible however, if its V
+                                                                                                 DS2
+                                                                    is quite small, between 100
+                                                                    and 200 mV. This is also the
+                                                                    diﬀerence between the V ’s
+                                                                                                GS
+                                                                    of the two transistors.
+                                                                       It is not that easy to track
+                                                                    the parameters of both tran-
+                                                                    sistors. Indeed, MOST M1
+                                                                    works in saturation, involv-
+                                                                    ing parameter K∞, whereas
+                                                                    transistor M2 operates as a
+                                                                    resistor, with parameter KP.
+                                                                    They diﬀer by parameter n,
+                                                                    which is always uncertain.
+Ampliﬁers, source followers and cascodes                                                      59
+
+                                                                   0217
+                                                                   Parallel feedback can be
+                                                                   applied to a single transistor
+                                                                   as well, which results in a
+                                                                   diode-connected transistor.
+                                                                      Connecting collector to
+                                                                   base in a bipolar transistor,
+                                                                   gives us a real base-emitter
+                                                                   diode. In a MOST however,
+                                                                   there is no gate-source
+                                                                   diode. And yet, connecting
+                                                                   the drain to the gate gives
+                                                                   us something similar.
+                                                                      Indeed the current volt-
+                                                                   age characteristic is ob-
+                                                                   tained by shifting the curve,
+                                                                   separating the linear and
+the saturation region, which is at V =V −V , to the right by V .
+                                     DS   GS    T                 T
+  As a result, we can indeed use the current-voltage characteristic of a MOST in saturation.
+The resulting curve is very nonlinear however. It resembles somewhat, a diode characteristic.
+  We will use this simple circuit to convert current to voltage.
+
+
+
+                                                                    0218
+                                                                    If we add a small-signal cur-
+                                                                    rent to the DC current, then
+                                                                    we ﬁnd the small-signal
+                                                                    equivalent circuit, as shown.
+                                                                       The small-signal resis-
+                                                                    tance r is then 1/g in par-
+                                                                            ds           m
+                                                                    allel with the transistor
+                                                                    output resistance r . Since
+                                                                                         DS
+                                                                    the latter one is always sig-
+                                                                    niﬁcantly larger than 1/g ,
+                                                                                               m
+                                                                    it can be simpliﬁed to 1/g
+                                                                                                m
+                                                                    itself.
+                                                                       The small-signal resis-
+                                                                    tance of a diode connected
+                                                                    MOST is thus always 1/g ,
+                                                                                               m
+                                                                    very much as for a bipolar
+                                                                    transistor.
+
+
+
+0219
+At high frequencies, this voltage-to-current converter performs quite well.
+  Indeed adding the C and C , which are the two most important capacitances of a MOST,
+                       GS        DS
+60                                                                                       Chapter #2
+
+                                                                      yields a bandwidth BW,
+                                                                      which is quite high. This
+                                                                      BW is determined by 1/g
+                                                                                                m
+                                                                      and the sum of the two
+                                                                      capacitances. These capaci-
+                                                                      tances are very similar in
+                                                                      size however. They have
+                                                                      been taken to be equal in
+                                                                      size.
+                                                                         The bandwidth is thus
+                                                                      well approximated by f /2.
+                                                                                            T
+                                                                         For a high bandwidth, we
+                                                                      must therefore design a
+                                                                      transistor with high f ,
+                                                                                                T
+                                                                      which requires a large
+                                                                      V −V        and minimum
+                                                                        GS    T
+                                                                      channel length L.
+
+
+
+                                                                      0220
+                                                                      As a load for this ampliﬁer,
+                                                                      a resistor can be used. In
+                                                                      this case however, the gain
+                                                                      is very low, somewhere
+                                                                      between 3 and 5, depending
+                                                                      on the supply voltage.
+                                                                          Suitable resistors are not
+                                                                      always available. In a digital
+                                                                      CMOS process, none of
+                                                                      them can provide reason-
+                                                                      ably large resistance values.
+                                                                      This is why many circuit
+                                                                      schematics have been pro-
+                                                                      posed, using MOSTs as
+                                                                      loads. One of them is shown
+                                                                      in this slide.
+   It uses a nMOST connected as a diode. Its small-signal resistance is thus 1/g . The gain is
+                                                                                     m2
+the ratio of the transconductances. It is small but fairly accurate as it is mainly set by the ratio
+of the transistor sizes.
+   Its main advantage is that no pMOSTs are used. This ampliﬁer can achieve high bandwidths,
+also because the output impedance is quite small!
+   Its main disadvantage is that the DC output voltage is connected to the supply line over the
+V . Because of the body eﬀect of transistor M2, this DC output voltage is not well deﬁned.
+  GS2
+The biasing of the next stage may suﬀer from this.
+Ampliﬁers, source followers and cascodes                                                       61
+
+                                                                   0221
+                                                                   A better solution for the
+                                                                   biasing is shown in this slide.
+                                                                   There is a DC input voltage
+                                                                   which gives rise to an equal
+                                                                   DC output voltage. In this
+                                                                   case the current is divided
+                                                                   over both transistors and
+                                                                   the gain is accurately given
+                                                                   by the transistor size ratio
+                                                                   or the V −V ratio’s.
+                                                                            GS     T
+                                                                      An additional advantage
+                                                                   is that the circuit can easily
+                                                                   be put in series with many
+                                                                   more similar stages. This
+                                                                   may be needed because the
+                                                                   gain is small. A transistor
+ratio of 25 gives only a gain of 5. For larger gains, several more stages like this have to be
+cascaded.
+  The body eﬀect does not apply a role any more as all bulk contacts are grounded.
+  Again only nMOSTs are used for higher frequency performance.
+  The main drawback of this ampliﬁer solution is that the current consumption is twice that of
+the previous circuit. However, it is quite often used as a wideband ampliﬁer, in optical receiv-
+ers, etc.
+
+
+
+                                                                    0222
+                                                                    The question arises which
+                                                                    ampliﬁer would be better,
+                                                                    the ﬁrst one or the second,
+                                                                    where the same current is
+                                                                    used but now with transistor
+                                                                    M2 in parallel with M1?
+                                                                      Clearly in the second
+                                                                    ampliﬁer, the output resis-
+                                                                    tance is higher and so is the
+                                                                    gain. Accordingly, the band-
+                                                                    width will be smaller.
+                                                                      Let us have a closer look
+                                                                    at this ampliﬁer. Normally
+                                                                    the current source is realized
+                                                                    by means of another transis-
+                                                                    tor, a pMOST device, the
+gate of which is connected to a voltage reference, which sets all DC currents.
+  We still have two possibilities as shown next.
+62                                                                                        Chapter #2
+
+                                                                       0223
+                                                                       The ﬁrst ampliﬁer has a con-
+                                                                       stant DC current as the gate
+                                                                       of current source transistor
+                                                                       M2 is connected to a DC
+                                                                       reference. At low frequen-
+                                                                       cies, the load capacitance C
+                                                                                                    L
+                                                                       does not apply. In this case,
+                                                                       the DC current through
+                                                                       transistors M1 and M2 does
+                                                                       not change with the signal
+                                                                       level. It is by deﬁnition a
+                                                                       class A ampliﬁer.
+                                                                          The result is very diﬀerent
+                                                                       if we connect and drive both
+                                                                       gates together. Depending
+                                                                       on the input signal level, the
+currents in both transistors varies greatly. It is a class AB ampliﬁer.
+  Actually, this ampliﬁer is used for both digital and analog input signals.
+
+
+
+                                                                   0224
+                                                                   Indeed, this is the well
+                                                                   known digital inverter.
+                                                                   When the input goes high
+                                                                   (from a digital 0 to 1), the
+                                                                   output goes low, and vice-
+                                                                   versa. In both cases, no
+                                                                   current can ﬂow. This is
+                                                                   the main advantage of this
+                                                                   digital inverter. It only con-
+                                                                   sumes power during switch-
+                                                                   ing. Many millions can now
+                                                                   be integrated on a single sili-
+                                                                   con chip, without excessive
+                                                                   heat dissipation.
+                                                                      As an analog ampliﬁer,
+                                                                   the input biasing voltage is
+such that the output voltage sits at an acceptable value between the supply voltage V and
+                                                                                          DD
+ground. A small-signal input voltage is then ampliﬁed (and inverted) to the output.
+  This is examined in more detail next.
+
+
+
+0225
+In order to establish the actual transfer curve and the transistor currents, we have to realize that
+both transistors always carry the same DC current. Indeed, no DC current can escape through
+the capacitance. This is also true for AC currents at low frequencies.
+Ampliﬁers, source followers and cascodes                                                           63
+
+                                                                         Also, note that the sum of
+                                                                      the V ’s is V , and that
+                                                                             DS        DD
+                                                                      the sum of the V ’s is also
+                                                                                          GS
+                                                                      V . For a low input volt-
+                                                                        DD
+                                                                      age, the V     is also low and
+                                                                                 GSn
+                                                                      the V     is high. In this case,
+                                                                            GSp
+                                                                      the nMOST is oﬀ and the
+                                                                      pMOST is on. The crossing
+                                                                      point of their I −V
+                                                                                             DS     DS
+                                                                      curves is thus at point 1.
+                                                                      Indeed the pMOST is
+                                                                      biased as a small resistor,
+                                                                      and the output voltage is the
+                                                                      same as the supply voltage.
+                                                                         Increasing the input volt-
+                                                                      age will cause the crossing
+                                                                      point to shift from point 1,
+to 2, and so on, all the way to point 7. At this latter point the pMOST is oﬀ and the nMOST
+has a large V , but small V . It is in the linear region and so behaves as a small resistor. The
+             GS              DS
+output voltage is now zero. The transistor currents are zero as well.
+   When the input voltage is about halfway, the transistor current ﬂows, and the output voltage
+is about halfway as well. This is point 4. This is the normal biasing for this circuit as an analog
+ampliﬁer.
+
+
+                                                                     0226
+                                                                     The transfer characteristic is
+                                                                     now easily reconstructed. It
+                                                                     is a plot of the output volt-
+                                                                     age versus input voltage.
+                                                                     For each input voltage, the
+                                                                     output voltage is found by
+                                                                     the points 1 to 7 and added
+                                                                     to the plot. The correspond-
+                                                                     ing transistor current is
+                                                                     added underneath.
+                                                                        It is clear that no current
+                                                                     ﬂows in the points 1 and 7,
+                                                                     when the output is at a digi-
+                                                                     tal ‘‘1’’ or ‘‘0’’.
+                                                                        The current reaches its
+                                                                     maximum in the middle.
+This current is denoted by I        . The analog ampliﬁer is always biased in this point. It is its
+                             DSA
+quiescent current.
+  The exact calculation of the whole transfer characteristic is not that easy. It is only easy in
+the extreme points 1, 4 and 7. This exact calculation is better left to a circuit simulator such
+as SPICE.
+  We now concentrate on this ampliﬁer, biased in the middle point 4.
+64                                                                                         Chapter #2
+
+                                                                       0227
+                                                                       We ﬁrstly have to determine
+                                                                       the exact biasing. We nor-
+                                                                       mally require the output
+                                                                       voltage to be half the supply
+                                                                       voltage, when the input volt-
+                                                                       age is half the supply volt-
+                                                                       age. It does not have to be
+                                                                       like that, but this is a better
+                                                                       way, for example, if several
+                                                                       of these stages have to
+                                                                       cascaded.
+                                                                          In this case, both transis-
+                                                                       tors have the same V ,
+                                                                                                   GS
+                                                                       which is V /2. They also
+                                                                                    DD
+                                                                       have the same current. This
+                                                                       is only possible if their W/L
+values are inversely proportional to their K∞ values. Since K∞ is usually twice as large as K∞ ,
+                                                                n                                   p
+the pMOST transistor has usually twice the W/L value compared to the nMOST.
+  The expression of the transistor current is then easily obtained, with V substituted by V /2.
+                                                                            GS                   DD
+
+
+                                                                       0228
+                                                                       In order to obtain the
+                                                                       expression of the voltage
+                                                                       gain, we need to draw the
+                                                                       small-signal equivalent cir-
+                                                                       cuit of this ampliﬁer. Note
+                                                                       that the supply voltage is
+                                                                       always AC ground. Also
+                                                                       note that both transistors
+                                                                       have equal small-signal
+                                                                       models and even equal
+                                                                       transconductances.
+                                                                          It is clear from this small-
+                                                                       signal circuit, that both
+                                                                       transistors are actually in
+                                                                       parallel, for small-signal
+                                                                       operation (for DC operation
+or biasing they are in series). They provide equal contributions to the small-signal output current
+and to the gain. The total transconductance is thus twice the transconductance of a single
+transistor.
+
+
+
+0229
+In order to calculate the gain at low frequencies, we need to know the output resistance. It is
+the parallel combination of both output resistances. This is highest when both resistances are
+Ampliﬁers, source followers and cascodes                                                       65
+
+                                                                    equal. This is why normally
+                                                                    both V L products are also
+                                                                            E
+                                                                    made the same. The total
+                                                                    output resistance is then
+                                                                    r /2, also written as 2/g .
+                                                                     DS                        DS
+                                                                       The voltage gain is then
+                                                                    simply given by the product
+                                                                    of the total transconduct-
+                                                                    ance with the total output
+                                                                    resistance, which is g /g .
+                                                                                            m DS
+                                                                    This can easily be rewritten
+                                                                    as shown in this slide.
+                                                                       Note that the current is
+                                                                    not included, a result which
+                                                                    we had found already for a
+                                                                    single-transistor ampliﬁer.
+                                                                    This is not surprising as here
+we have two transistors in parallel, for small-signal operation.
+   Also note, that the voltage gain goes up when the supply voltage goes down. An optimum
+supply voltage is thus found where the V values are about 0.2 V. This supply voltage is thus
+                                           GS
+2(V +0.2), which is 1.1 V for a V of 0.35 V. In deep submicron CMOS this is quite a reasonable
+     T                             T
+value indeed!
+   If the supply voltage is larger, only small values of the gain are possible. More complicated
+circuits are then needed to enhance the voltage gain. Cascodes can be used for example, and
+gain-boosting, but also bootstrapping and current-cancellation and -starving techniques.
+
+
+
+                                                                    0230
+                                                                    We can also leave the output
+                                                                    resistance in the expression
+                                                                    of the gain. This makes it a
+                                                                    bit easier to see how this
+                                                                    same output resistance
+                                                                    determines the output pole
+                                                                    or the bandwidth.
+                                                                       Moreover, this output
+                                                                    resistance drops out in the
+                                                                    calculation of the GBW.
+                                                                    This was also the case for a
+                                                                    single-transistor ampliﬁer.
+                                                                    However the GBW is now
+                                                                    twice as high as we have
+                                                                    double the transconduct-
+                                                                    ance of one single transistor.
+  This circuit is therefore a simple case of current reuse.
+  The GBW is again the most important speciﬁcation. It indicates how much voltage gain can
+be expected at any frequency. It depends on the current, though transconductance g .
+                                                                                  m
+66                                                                                       Chapter #2
+
+                                                                     0231
+                                                                     The BW and GBW are
+                                                                     easily determined since
+                                                                     there is only one large
+                                                                     capacitor at the output. If
+                                                                     this load capacitor is
+                                                                     smaller, then the transistor
+                                                                     capacitances start to apply.
+                                                                        For example, if the source
+                                                                     resistor R is large, then
+                                                                                 S
+                                                                     clearly the input capacitance
+                                                                     2C     will cause an addi-
+                                                                        GS
+                                                                     tional      time     constant
+                                                                     2R C , which will generate
+                                                                        S GS
+                                                                     another pole. This is called
+                                                                     the non-dominant pole.
+                                                                        This latter non-dominant
+pole can even become dominant if R is very large, or more importantly, if the R C product
+                                      S                                             S GSt
+is larger than r C . This is easily calculated from the small-signal equivalent circuit.
+                DS L
+   In this case, the GBW is determined by the R C product. As was already the case for a
+                                                   S GS
+single-transistor ampliﬁer, the GBW now depends on the f and a resistor ratio.
+                                                           T
+
+                                                                      0232
+                                                                      It is also possible that the
+                                                                      Miller eﬀect is present. For
+                                                                      example if R is large, and
+                                                                                     S
+                                                                      the gain is large, then
+                                                                      2C A may be larger than
+                                                                         DGt v
+                                                                      2C . The non-dominant
+                                                                         GS
+                                                                      pole is then determined
+                                                                      by the time constant
+                                                                      2R C A .
+                                                                         S DGt v
+                                                                         This latter non-dominant
+                                                                      pole can even become domi-
+                                                                      nant if R or C       is very
+                                                                                 S     DGt
+                                                                      large. In order to see this,
+                                                                      we have to derive the full
+                                                                      expression of the gain, from
+                                                                      the small-signal equivalent
+circuit. It is given in this slide. It has two poles and one zero.
+   The dominant pole is at the output, at least whilst C        is small. The best way to show this,
+                                                            DGt
+is to verify a pole-zero position diagram with C          as a variable. This is nothing more than
+                                                      DGt
+bilogarithmic diagram of the poles and zeros versus parameter C . It is asymptotic to show
+                                                                       DGt
+clearly the positions of all break points. More details on such diagram are given in slide N0536
+of Chapter 5.
+   The dominant pole frequency f is clearly determined by the output time constant. For higher
+                                      d
+values of C       than C /(g R ), the Miller eﬀect dominates.
+              DGt        L m S
+Ampliﬁers, source followers and cascodes                                                     67
+
+  The non-dominant pole f is at higher frequencies.
+                            nd
+  The positive zero f is at very high frequencies.
+                     z
+
+
+
+                                                                    0233
+                                                                    The Miller eﬀect is domi-
+                                                                    nant if R is very large, or
+                                                                               S
+                                                                    more importantly, if the
+                                                                    R C       product is larger
+                                                                      S DGt
+                                                                    than 1(2pGBW). This is
+                                                                    also easily calculated from
+                                                                    the small-signal equivalent
+                                                                    circuit, or from the expres-
+                                                                    sion of the gain.
+                                                                       In this case, the GBW is
+                                                                    determined by the R C
+                                                                                          S DGt
+                                                                    product, as was already the
+                                                                    case for a single-transistor
+                                                                    ampliﬁer with only a Miller
+                                                                    capacitance. Indeed, only
+                                                                    the feedback elements will
+then determine the GBW, not the transistor parameters.
+
+
+
+
+                                                                  0234
+                                                                  This same small-signal
+                                                                  ampliﬁer also behaves as a
+                                                                  class-AB ampliﬁer for large
+                                                                  input signals. This is especi-
+                                                                  ally needed to drive larger
+                                                                  load capacitances.
+                                                                     Switching the input volt-
+                                                                  age from low to high, will
+                                                                  cause the nMOST current
+                                                                  i to be much larger than
+                                                                   C1
+                                                                  the quiescent current I .
+                                                                                            DSA
+                                                                  At this point the pMOST
+                                                                  current i has become very
+                                                                           C2
+                                                                  small. The current i in the
+                                                                                        L
+                                                                  load capacitance will now
+                                                                  be nearly equal to the
+nMOST current i and will be large, discharging that load capacitance quite fast.
+                  C1
+  This is only one of the simplest class-AB ampliﬁers however, with lot of disadvantages. One
+of the most notable disadvantages is that the currents strongly depend on the supply voltage.
+Better ones are discussed in Chapter 12.
+68                                                                                        Chapter #2
+
+                                                                       0235
+                                                                       Up till now, only ampliﬁers
+                                                                       have been discussed. There
+                                                                       are two more functions that
+                                                                       can be carried out by means
+                                                                       of a single-transistor. They
+                                                                       are a source-follower and a
+                                                                       cascode.
+                                                                         Of course we can still use
+                                                                       a transistor as a switch, as
+                                                                       we will do in Chapter 14 on
+                                                                       Switched-capacitor ﬁlters.
+
+
+
+
+                                                                       0236
+                                                                       A good overview of all the
+                                                                       single-transistor stages is
+                                                                       given in this slide.
+                                                                          The ﬁrst one, the ampli-
+                                                                       ﬁer, is also called common-
+                                                                       source stage. It converts an
+                                                                       input voltage into an output
+                                                                       current, by means of trans-
+                                                                       conductance g . The bias-
+                                                                                       m
+                                                                       ing is done by means of a
+                                                                       voltage source V at the
+                                                                                            B
+                                                                       input, which is the V .
+                                                                                              GS
+                                                                          The other two stages are
+                                                                       called respectively a Source
+                                                                       follower and Cascode. They
+                                                                       have the same biasing setup.
+Both are biased by a DC current source I . Their V         then adjusts itself such that the current
+                                             B           GS
+can ﬂow eﬀectively.
+   In a Source follower the small-signal input voltage is applied at the Gate. The output is at
+the Source. Since the current is kept constant by the current source, the V is also constant. As
+                                                                               GS
+a result any small-signal variation at the input will give rise to an equal small-signal at the
+output. The voltage gain is therefore unity. This is why a Source follower is also called a
+Voltage buﬀer.
+   It is a buﬀer because its input resistance is inﬁnity but its output resistance is only 1/g . This
+                                                                                              m
+stage will now be used to transfer a voltage in an accurate way from a high impedance to a
+lower one. This is required for microphone ampliﬁers, biopotential preampliﬁers, etc. Their
+internal impedances can be many hundreds of MV’s!
+Ampliﬁers, source followers and cascodes                                                      69
+
+                                                                    0237
+                                                                    An nMOST source follower
+                                                                    is sketched in this slide.
+                                                                    Note that ﬁrstly we connect
+                                                                    the Bulk contact to the
+                                                                    Source. This is only possible
+                                                                    in a p-well CMOS technol-
+                                                                    ogy. In a n-well CMOS
+                                                                    technology, which is a lot
+                                                                    more prevalent, we would
+                                                                    have to take a pMOS source
+                                                                    follower. Otherwise we can-
+                                                                    not connect the Bulk to the
+                                                                    Source.
+                                                                       For a DC current source
+                                                                    I , the resultant V is easily
+                                                                     B                 GS
+                                                                    found from the current
+                                                                    expression. The DC output
+voltage will now be the DC gate voltage V minus this V value. We can try to optimize this
+                                            B             GS
+value of V for the largest possible output swing. Quite often, a Source follower has to handle
+            B
+only small signals. When used in the output stage of a power ampliﬁer however, the optimization
+of the output swing is a deﬁnite requirement, as will be explained in Chapter 12 on class AB
+ampliﬁers.
+  It is clear that as long as V is constant, the output follows the input for small signals. The
+                               GS
+gain is therefore unity.
+  Moreover, substitution of the MOST by its small-signal model, readily shows that the output
+resistance is 1/g . We can usually neglect r with respect to 1/g , obviously depending on the
+                 m                          DS                   m
+values of V −V and channel length L.
+             GS    T
+                                                                0238
+                                                                In a nMOST source fol-
+                                                                lower in a n-well CMOS
+                                                                technology, the Bulk can
+                                                                never be connected to the
+                                                                Source. As a result, the
+                                                                MOST has a V voltage,
+                                                                                  BS
+                                                                which is actually the output
+                                                                voltage V      . Consequent-
+                                                                           OUT
+                                                                ly, the V is no longer con-
+                                                                         GS
+                                                                stant. It receives a small-
+                                                                signal contribution, which is
+                                                                not zero.
+                                                                   If we now use the expres-
+                                                                sion of the V as a function
+                                                                              T
+                                                                of V (shown in this slide),
+                                                                      BS
+                                                                we obtain a nonlinear
+expression of V     versus V . Parameter c shows up, which represents the body eﬀect or the
+                OUT         IN
+parasitic JFET.
+70                                                                                          Chapter #2
+
+   Taking the derivative of V       versus V yields the small-signal gain. Surprisingly this gain is
+                              OUT           IN
+very simple, just 1/n. Since n is a rather unpredictable value, so is the gain. It is certainly smaller
+than unity, somewhere between 0.6 and 0.8.
+   The output impedance is then somewhat smaller as it is now the parallel combination of 1/g
+                                                                                                      m
+and 1/g . This shows clearly that at the output we see the MOST and the parasitic JFET
+        mB
+in parallel.
+
+
+                                                                        0239
+                                                                        The nonlinearity of the
+                                                                        expression of V         versus
+                                                                                           OUT
+                                                                        V is clearly visible in the
+                                                                          IN
+                                                                        transfer characteristic.
+                                                                           If the Bulk can be con-
+                                                                        nected to the Source (c=0)
+                                                                        then the slope of the charac-
+                                                                        teristic is unity: the Source
+                                                                        follower has a unity gain.
+                                                                           If however, the Bulk is
+                                                                        connected to ground (c>0)
+                                                                        then clearly the curve is very
+                                                                        nonlinear. A lot of distor-
+                                                                        tion is then generated. In
+                                                                        addition, it is not clear what
+                                                                        the gain is, as the slope
+depends on the DC biasing voltages.
+   It is preferable that this stage is never used. In a n-well CMOS process, only pMOST source
+followers can be used, provided their Bulk is connected to the Source.
+
+
+                                                                        0240
+                                                                        A Source follower is an ideal
+                                                                        buﬀer in the sense that it
+                                                                        translates an input voltage
+                                                                        unattenuated (if the Bulk is
+                                                                        connected to the Source)
+                                                                        from an inﬁnite impedance
+                                                                        at the input to a mere 1/g
+                                                                                                    m
+                                                                        to the output.
+                                                                           This is not true for its
+                                                                        bipolar equivalent, an emit-
+                                                                        ter follower.
+                                                                           A bipolar transistor has
+                                                                        Base current. As a result it
+                                                                        has a ﬁnite input resistance
+                                                                        (r ). This causes an addi-
+                                                                          p
+                                                                        tional term in the expression
+of the output resistance. This term is the sum of all the resistances, seen at the input, divided by
+Ampliﬁers, source followers and cascodes                                                        71
+
+b+1 or simply b. A bipolar transistor only provides a limited amount of isolation between input
+and output, which is about b. The higher the beta the better the isolation. A MOST, which has
+a beta of inﬁnity also provides inﬁnite isolation.
+   The same is true for the input resistance. It can never be inﬁnite, as for a MOST source
+follower. It will be the resistance seen at the emitter, multiplied by the beta. This may be
+insuﬃcient for some preampliﬁers (microphone, etc). This is why, quite often, a few emitter
+followers are cascaded.
+
+
+
+                                                                    0241
+                                                                    At     higher     frequencies,
+                                                                    a source follower looses
+                                                                    its     buﬀer     capabilities.
+                                                                    Moreover, it can show
+                                                                    peaking.
+                                                                        Indeed, including all three
+                                                                    transistor capacitances in
+                                                                    the small-signal model,
+                                                                    yields an expression for the
+                                                                    gain which is quite compli-
+                                                                    cated. The best way to
+                                                                    explore this, is to draw a
+                                                                    pole-zero position diagram,
+                                                                    with one particular parame-
+                                                                    ter as a variable. Here the
+                                                                    transconductance is chosen,
+as it depends directly on the current. The current stands for the power consumption.
+  Two poles can be extracted from the roots of the denominator. One zero is also present.
+  In the middle, a hatched region emerges, where the lines of f and f cross. In this region the
+                                                                d     nd
+poles are complex. They cause peaking in the Bode diagram.
+  It is clear that there is an optimum current for such a Source-follower that is actually quite
+small. For very low currents, the f (or bandwidth) is too small, and increases with the current.
+                                    d
+For higher currents, complex poles develop and for even higher currents the bandwidth ceases
+to increase. The optimum is thus at the bottom point of the complex pole region. Let us ﬁnd
+the corresponding current.
+
+
+
+0242
+The value of the transconductance, which goes through the middle of the complex-pole region
+is denoted by g . It is given in this slide. It depends on the source resistor and the capacitance
+               mr
+C from gate to ground. Adding capacitance to the gate allows us to reduce the transconductance
+  DG
+or current where the peak is the worst.
+   The width of that region is given by Dg . It can be made small by increasing
+                                                     mr
+indeed the capacitance C at the gate. This is called ‘‘compensating the source follower’’. What
+                         DG
+actually happens is that a low-pass ﬁlter is added before the source follower, avoiding complex
+poles to appear.
+72                                                                                     Chapter #2
+
+                                                                       The actual value of g at
+                                                                                             mr
+                                                                    the bottom of the hatched
+                                                                    region is then simply g
+                                                                                                mr
+                                                                    divided by the square root
+                                                                    of Dg .
+                                                                          mr
+                                                                       Another point of interest
+                                                                    is the crossing point of the
+                                                                    nondominant pole with the
+                                                                    zero (blue). At this point, we
+                                                                    obtain a pure ﬁrst-order
+                                                                    roll-oﬀ, albeit with a lower
+                                                                    dominant pole. The corre-
+                                                                    sponding transconductance
+                                                                    is denoted by g . It only
+                                                                                      mu
+                                                                    depends on the source
+                                                                    resistor.
+
+
+
+                                                                    0243
+                                                                    The output impedance of a
+                                                                    source follower, also shows
+                                                                    this region of complex poles.
+                                                                    for a particular current.
+                                                                    Indeed the pole-zero posi-
+                                                                    tion diagram of the output
+                                                                    impedance, with the trans-
+                                                                    conductance as a parameter,
+                                                                    shows that around g ,
+                                                                                              mr
+                                                                    complex poles occur, lead-
+                                                                    ing to peaking in the Bode
+                                                                    diagram. The current corre-
+                                                                    sponding to this g , is
+                                                                                           mr
+                                                                    therefore to be avoided.
+                                                                       However, another kind of
+                                                                    peaking occurs. In fact, the
+zero occurs at lower frequencies than both poles. As a result, for large currents, the output
+impedance ﬁrst rises, before it decreases. It is inductive!
+   A perfect ﬁrst-order characteristic can be obtained by tuning the current to realize g . This
+                                                                                         mu
+is the transconductance where the zero cancels out the ﬁrst pole. A wide band source follower
+at low current results. The output impedance is then resistive up to high frequencies, and
+equals 1/g .
+           mu
+   This value of g depends mainly on the source resistance. For small resistances, the current
+                  mu
+can be become excessive. In this case, the Source follower can probably be omitted altogether.
+
+0244
+Both kinds of peaking are even more pronounced in an emitter follower. Indeed, the pole-zero
+position diagram of the output impedance, with the transconductance as a parameter, shows
+Ampliﬁers, source followers and cascodes                                                       73
+
+                                                                     that around g         complex
+                                                                                       mr
+                                                                     poles occur again, leading to
+                                                                     severe peaking in the Bode
+                                                                     diagram. The current corre-
+                                                                     sponding to this g should
+                                                                                          mr
+                                                                     be avoided.
+                                                                        Again the zero occurs at
+                                                                     lower frequencies than both
+                                                                     poles. As a result, for large
+                                                                     currents, the output imped-
+                                                                     ance ﬁrst rises before it
+                                                                     levels oﬀ and then decreases.
+                                                                     It is severely inductive!
+                                                                        Again a perfect ﬁrst-order
+                                                                     characteristic      can    be
+                                                                     obtained by tuning the cur-
+                                                                     rent to realize g . This is
+                                                                                        mu
+the transconductance where the zero cancels out the ﬁrst pole. A wide band source follower at
+low current results with an output impedance which is resistive up tol high frequencies, and with
+value 1/g .
+         mu
+  Especially for bipolar transistor emitter followers, a buﬀer with purely resistive output imped-
+ance up to high frequencies is of added value in RF circuits, for example to be connected to a
+50 V transmission line.
+  This value of g depends mainly on the source resistance. For small resistances, the current
+                  mu
+may become excessive.
+
+
+                                                                     0245
+                                                                     The      inductive     output
+                                                                     impedance of both source
+                                                                     and emitter followers can be
+                                                                     used wherever an inductor
+                                                                     is required. They have been
+                                                                     used in oscillators but also
+                                                                     to add a bit of peaking
+                                                                     to an ampliﬁer, to compen-
+                                                                     sate for an early roll-oﬀ
+                                                                     because of all the transistor
+                                                                     capacitances.
+                                                                        In its simplest form, such
+                                                                     output inductor can be
+                                                                     obtained by a source fol-
+                                                                     lower with high source resis-
+                                                                     tor R and biased at a large
+                                                                           S
+DC current I . The inductor has a value given in this slide.
+              B
+  The output impedance is only inductive for frequencies between f /(g R ) and f itself. The
+                                                                          T m S       T
+quality factor of this inductor is low however, as its series resistor is R itself.
+                                                                           S
+  At low frequencies the output resistance is obviously 1/g . For higher frequencies, capacitance
+                                                             m
+74                                                                                        Chapter #2
+
+C acts as a short, As a result the output resistance gradually becomes R . When R is larger
+  GS                                                                     S         S
+than 1/g , the output impedance must therefore rise, which causes the output impedance to be
+        m
+inductive. Obviously, if R were equal to 1/g , the output impedance would be resistive up to
+                          S                 m
+very high frequencies.
+   The output impedance is thus inductive because R is much larger than 1/g .
+                                                    S                       m
+
+                                                                       0246
+                                                                       Many other circuits are pos-
+                                                                       sible to realize this high
+                                                                       value of source resistor R .
+                                                                                                    S
+                                                                       A diode connected MOST
+                                                                       can be taken, as in the cir-
+                                                                       cuit in the middle. The
+                                                                       source resistor then has the
+                                                                       value R =1/g .
+                                                                                 S    mp
+                                                                          The preferred circuit is on
+                                                                       the right. This is a feedback
+                                                                       circuit, in which the drain of
+                                                                       the pMOST is still shorted
+                                                                       to its gate, over a nMOST
+                                                                       source follower. As a result,
+                                                                       the source resistor R still
+                                                                                               S
+                                                                       equals 1/g .
+                                                                                   mp
+   The advantage of the latter circuit is that the voltage drop across is lower than for the middle
+circuit. It is only V . This is obviously important for deep submicron CMOS circuits, where
+                     DSn
+the supply voltage is little over 1 V.
+
+                                                                  0247
+                                                                  A good example of a wide-
+                                                                  band (diﬀerential) ampliﬁer
+                                                                  is shown in this slide. The
+                                                                  capacitances     from    the
+                                                                  output terminals to ground
+                                                                  cause a reduction in band-
+                                                                  width. Adding resistors in
+                                                                  the bases of the top bipolar
+                                                                  transistors T , causes their
+                                                                                2
+                                                                  output impedances to be
+                                                                  inductive, with value L. As
+                                                                  a result, peaking occurs,
+                                                                  increasing the bandwidth.
+                                                                  This bandwidth increase can
+                                                                  thus be tuned by means of
+                                                                  these base resistors.
+  The gain itself is simply given by the ratio of the two transconductances. Its value is low,
+which is typical for wideband ampliﬁers, e.g. for the transimpedance input ampliﬁer of an
+optical receiver.
+Ampliﬁers, source followers and cascodes                                                          75
+
+                                                                   0248
+                                                                   With a single transistor, we
+                                                                   can make ampliﬁers, source
+                                                                   followers and also cascodes.
+                                                                   If we do not consider tran-
+                                                                   sistors used as switches,
+                                                                   we now have the third and
+                                                                   last single-transistor circuit
+                                                                   possible.
+                                                                      Later, we will combine
+                                                                   these     three    elementary
+                                                                   single-transistor transistors
+                                                                   to two or three elementary
+                                                                   two-transistor circuits.
+                                                                      Most analog circuits are
+                                                                   built up by means of these
+                                                                   single-and two transistor
+circuits. A thorough understanding of these elementary blocks is therefore of vital importance.
+
+
+
+                                                                       0249
+                                                                       Once more, an overview of
+                                                                       the three single-transistor
+                                                                       stages is given in this slide.
+                                                                          The ﬁrst one, the ampli-
+                                                                       ﬁer, converts an input volt-
+                                                                       age into an output current,
+                                                                       by means of transconduct-
+                                                                       ance g .
+                                                                              m
+                                                                          The second stage is a
+                                                                       source follower. It is biased
+                                                                       by a DC current source I .
+                                                                                                    B
+                                                                       The voltage gain is unity.
+                                                                       This is why a source fol-
+                                                                       lower is called a voltage
+                                                                       buﬀer.
+                                                                          The third stage is a cas-
+code. It is also biased by a DC current source I . A small-signal input current is superimposed
+                                                  B
+on the source current. The output is at the drain. Since no current can escape, the current gain
+is not unity. This is why a cascode is also called a current buﬀer.
+   It is a buﬀer because its input resistance is small but its output resistance is high. This stage
+will therefore be used to transfer a current accurately from a low impedance to a higher one.
+This is required for current output sensors, such a photodiodes and potentiostatic sensors. Their
+internal impedances can be hundreds of MV’s, and we need an impedance converter to reduce
+values!
+   Note that the input impedance of a cascode is the same as the output impedance of a source
+follower!
+76                                                                                       Chapter #2
+
+                                                                    0250
+                                                                    Most often, the output cur-
+                                                                    rent of a cascode is con-
+                                                                    verted into a voltage by
+                                                                    means of a resistance R .
+                                                                                                L
+                                                                    We thus obtain a current-
+                                                                    to-voltage converter or
+                                                                    transresistance      ampliﬁer.
+                                                                    The higher the resistance R
+                                                                                                 L
+                                                                    the higher the gain, since the
+                                                                    transresistance v /i =A
+                                                                                        out in   R
+                                                                    is simply R itself. This is
+                                                                                   L
+                                                                    true whilst R is not too
+                                                                                     L
+                                                                    high.
+                                                                        For not too high values of
+                                                                    R , the input resistance
+                                                                       L
+                                                                    v /i =R is then low, or
+                                                                      in in     in
+                                                                    simply 1/g .
+                                                                                m
+  We will try to make the value of R as high as possible, in order to achieve a high gain. This
+                                     L
+can be done by cascoding a few transistors as a load. The question then is, what will the gain be?
+  Indeed, for very high values of R , it is not clear what the gain will be. For example, for
+                                    L
+inﬁnite R , the current i cannot ﬂow any more. What can the ratio v /i be?
+         L               in                                              out in
+
+                                                                      0251
+                                                                      The only possible way to
+                                                                      respect the laws of Kirchoﬀ,
+                                                                      is to add either an output
+                                                                      resistance to the input cur-
+                                                                      rent source or to limit the
+                                                                      load resistor to ﬁnite values.
+                                                                      Let us see what happens
+                                                                      when we make the load
+                                                                      resistor inﬁnity and we add
+                                                                      an output resistance R in
+                                                                                               B
+                                                                      parallel with the input cur-
+                                                                      rent source. Moreover, we
+                                                                      separate the output resistor
+                                                                      r from the transistor itself,
+                                                                       DS
+                                                                      to determine where the cur-
+                                                                      rents are actually ﬂowing.
+   Two currents are now calculated, the current i in the transistor itself and the current through
+                                                 ds
+the load resistor i .
+                   L
+   This latter current i is constant as imposed by the input current source. However, if R is
+                        L                                                                       L
+larger than a speciﬁc value R , then this current has to go to zero!
+                               Lc
+   The transistor current i on the other hand, increases with the load resistor, to become
+                            ds
+constant once R is larger than R . The transistor thus ampliﬁes the input current to fairly
+                  L                 Lc
+large values! Normally, g R is much larger than unity!
+                          m B
+Ampliﬁers, source followers and cascodes                                                          77
+
+  Note that R contains all the parameters involved, the ones of the transistor such as g and
+             Lc                                                                         m
+r but also R . It contains the actual gain g r of the transistor itself.
+ DS          B                              m DS
+
+                                                                      0252
+                                                                      Let us now look again at the
+                                                                      actual transresistance A
+                                                                                                    R
+                                                                      and at the input resistance
+                                                                      R .
+                                                                        in
+                                                                         For very large values
+                                                                      of the load resistor, A
+                                                                                                    R
+                                                                      becomes R itself. The gain
+                                                                                  Lc
+                                                                      A includes the gain of the
+                                                                        R
+                                                                      transistor g r , and is
+                                                                                     m DS
+                                                                      therefore quite high. It is the
+                                                                      highest transresistance gain
+                                                                      that can be achieved by
+                                                                      a single-transistor cascode.
+                                                                      For that purpose, the load
+                                                                      resistor must be larger than
+                                                                      that very same transresis-
+                                                                      tance R .
+                                                                               Lc
+  For these large load resistances, the input resistance of the transistor itself becomes inﬁnity.
+This is expected as the load resistor is also inﬁnity – no current can pass through the transistor.
+  The resistance seen by the input current source thus becomes resistor R , which is actually its
+                                                                             B
+output resistance. It is thus by no means small, as suggested by the 1/g low load resistances.
+                                                                           m
+
+                                                                     0253
+                                                                     Substituting the input cur-
+                                                                     rent source by another tran-
+                                                                     sistor, yields the two-
+                                                                     transistor cascode, shown at
+                                                                     the right. Since a transistor
+                                                                     acts as a current source,
+                                                                     with output resistor r ,
+                                                                                               DS
+                                                                     it can take the place of
+                                                                     the input current source
+                                                                     with output resistor R . The
+                                                                                            B
+                                                                     maximum gain (for very
+                                                                     large resistive load) is this
+                                                                     given in this slide,
+                                                                        This shows that the total
+                                                                     voltage gain now equals the
+                                                                     product of the gains of both
+                                                                     transistors.
+   Obviously this is a result of the increase of the output resistance. For one single transistor
+(left), this output impedance is only r but for a transistor with another r in its Source (right),
+                                       DS1                                  DS
+it is r g r , as shown in this slide.
+       DS1 m2 DS2
+78                                                                                       Chapter #2
+
+   The larger the output impedance, the larger the gain.
+   Putting a cascode on top of a single-transistor ampliﬁer is one of the most common design
+techniques to increase the gain. It will be used whenever we require more gain!
+   Other gain techniques will be gain boosting, bootstrapping and current cancellation and
+starving schemes.
+
+                                                                     0254
+                                                                     Now that we know that a
+                                                                     cascode enhances the gain
+                                                                     considerably, we would like
+                                                                     to know up tol what fre-
+                                                                     quencies, a cascode manages
+                                                                     to do this.
+                                                                        When the output capaci-
+                                                                     tance is the main capaci-
+                                                                     tance, the GBW is as given
+                                                                     in this slide.
+                                                                        The Bandwidth for both
+                                                                     cases must be diﬀerent, as
+                                                                     the output resistances diﬀer
+                                                                     widely.
+                                                                        The GBW is the same for
+                                                                     both, however.
+  Indeed, in the case with a cascode, the gain is much larger but the bandwidth is equally lower.
+The GBW is thus the same. This is shown next.
+
+                                                                     0255
+                                                                     It is clear that a cascode
+                                                                     enhances the gain at low
+                                                                     frequencies.
+                                                                        Compared to a single-
+                                                                     stage ampliﬁer, the gain at
+                                                                     low frequencies is as large as
+                                                                     the bandwidth is smaller. As
+                                                                     a result the GBW is the
+                                                                     same.
+                                                                        This is only true if the
+                                                                     load resistance is very high.
+                                                                     In some wideband ampliﬁ-
+                                                                     ers, the load resistor is small,
+                                                                     e.g. 50 V. In this case, the
+                                                                     output resistance and the
+                                                                     bandwidth are the same for
+both. The gain is also the same, but quite small, as is the GBW.
+   In analog integrated circuits we normally use DC current sources as loads, in order to increase
+the gain. Therefore, we can conclude that such cascode stages only enhance the gain at low
+frequencies!
+Ampliﬁers, source followers and cascodes                                                     79
+
+                                                                   0256
+                                                                   For cascode ampliﬁers with
+                                                                   a DC current source as load,
+                                                                   the gain is quite large. The
+                                                                   gain across the input tran-
+                                                                   sistor is also large. The
+                                                                   impedance at the point
+                                                                   between both transistors is
+                                                                   the output resistance r (or
+                                                                                          DS1
+                                                                   r ). The gain from the input
+                                                                    o1
+                                                                   to the middle point is thus
+                                                                   g r , which is the gain of
+                                                                    m1 DS1
+                                                                   transistor M1. The Miller
+                                                                   eﬀect of M1 can thus also
+                                                                   play a role, especially when
+                                                                   source resistor R is higher.
+                                                                                     S
+                                                                   The question is, which pole
+is now dominant, the one caused by C or the one caused by C ?
+                                         L                        M
+   Substitution of the transistors by their small-signal models (with g and r ), and calculation
+                                                                       m     DS
+of the total gain A , yields a second-order equation, the roots of which are easily found. They
+                    v
+are the two poles. They are plotted in a pole-zero position diagram with R as a variable as
+                                                                               S
+shown in this slide.
+   For low values of R , the load capacitance C is obviously dominant. This dominant-pole
+                         S                          L
+frequency f is simply determined by the load capacitance and the output resistance r g r
+            d                                                                           o2 m2 o1
+or A r . There is a nondominant pole however at f , caused by time constant R C !
+     v2 o1                                              nd                         S M
+   For high values of R however, the Miller eﬀect of this capacitance C dominates. The
+                           S                                                   M
+dominant pole frequency f now decreases with increasing resistor R .
+                             d                                         S
+   The cross-over value of R is R . It is in the order of tens of MV’s as C is normally much
+                               S    St                                      SL
+larger than C , which is marginally more than C .
+              M                                     DG
+
+                                                                   0257
+                                                                   Another small capacitance
+                                                                   may also play a role.
+                                                                   Capacitance C from the
+                                                                                    m
+                                                                   middle point to ground con-
+                                                                   sists of C and C . They
+                                                                              DS1     GS2
+                                                                   are not that small. Do they
+                                                                   create a pole of importance?
+                                                                      Again, we have only two
+                                                                   capacitances, that yields a
+                                                                   second-order equation, the
+                                                                   roots of which give two
+                                                                   poles. They are plotted in a
+                                                                   pole-zero position diagram
+                                                                   with C as a variable as
+                                                                            m
+                                                                   shown in this slide.
+                                                                      For low values of C , the
+                                                                                          m
+80                                                                                      Chapter #2
+
+load capacitance C is obviously dominant again. Again, there is a non-dominant pole at f ,
+                     L                                                                     nd
+caused by time constant C /g . If g is similar to g , then this non-dominant pole is a lot
+                            m m2      m2              m1
+higher than the GBW, as C is deﬁnitely a lot larger than C .
+                             L                             m
+  For high values of C however, the time constant r C takes over. This is never likely to
+                         m                            o1 m
+occur, as for this region C must be larger than A C , which is a very high capacitance indeed.
+                           m                     v2 L
+
+
+
+                                                                    0258
+                                                                    Ideal DC current sources do
+                                                                    not exist, however. They
+                                                                    have to be realized by means
+                                                                    of transistors. Such a real-
+                                                                    ization is shown in this slide.
+                                                                    MOSTs M3 and M4 are
+                                                                    used in series to give a DC
+                                                                    current source with an high
+                                                                    output resistance.
+                                                                       If the output resistance of
+                                                                    transistors M1/M2 is about
+                                                                    the same as the output resis-
+                                                                    tance of transistors M3/M4,
+                                                                    then the total output resis-
+                                                                    tance R       is about half of
+                                                                              out
+                                                                    that.
+  The bandwidth is obviously determined by the load capacitance. The GBW is then the same
+as for a single-transistor ampliﬁer.
+  This cascode conﬁguration is called the Telescopic cascode, as all transistors are in series
+between supply line and ground.
+  The main disadvantage of this cascode is that all transistors must be kept in the saturation
+region. This means that the minimum voltage v across each transistor is about V −V . If
+                                                 DS                                     GS    T
+we take V −V #0.2 V, we ﬁnd that the maximum output voltage cannot be higher than the
+           GS     T
+supply voltage minus 0.4 V, and cannot be lower than 0.4 V. The maximum swing is thus 0.8 V
+lower than the supply voltage. This is a major loss for low supply voltages!
+
+
+
+0259
+A folded cascode is used more often, because it has some advantages when used as a diﬀerential
+circuit (see Chapter 8). It is called ‘‘folded’’ because the cascode transistor is now a pMOST
+rather than a nMOST. The small-signal current i , which is determined by the input transistor
+                                                    ds1
+M1, now ﬂows upwards rather than downwards through the cascode transistor M2.
+   Normally the biasing current I is equally split up over the two transistors, so that the DC
+                                   B1
+currents in both transistors are the same. The two current swings are also the same.
+   All other speciﬁcations such as the gain, the bandwidth and the GBW, are the same as for a
+telescopic cascode. Note, however, that the current consumption is twice that of a telescopic
+cascode.
+   Moreover, the maximum output voltage swing is about the same. If we realize the current
+Ampliﬁers, source followers and cascodes                                                       81
+
+                                                                     source I with one single
+                                                                               B1
+                                                                     MOST and the current
+                                                                     source I with two MOSTs
+                                                                              B2
+                                                                     in series, then the maximum
+                                                                     output swing is again 0.8 V
+                                                                     smaller than the supply
+                                                                     voltage.
+                                                                        We now ﬁnd a good argu-
+                                                                     ment to use a folded cascode
+                                                                     rather than a telescopic one.
+                                                                     Twice the current consump-
+                                                                     tion for a folded cascode is
+                                                                     a real drawback!!
+
+
+
+
+                                                                     0260
+                                                                     Note also that we are deal-
+                                                                     ing here with a cascode, not
+                                                                     a cascade ampliﬁer. Such a
+                                                                     cascade ampliﬁer simply
+                                                                     consists of two consecutive
+                                                                     single-stage ampliﬁers.
+                                                                        The voltage gains are
+                                                                     equal but the bandwidths
+                                                                     and GBW are very diﬀerent.
+                                                                        Moreover, the power dis-
+                                                                     sipation of a cascade or two-
+                                                                     stage ampliﬁer is much
+                                                                     higher.
+
+
+
+
+0261
+Indeed a cascode is actually a single-stage ampliﬁer with gain enhancement (at low frequencies).
+This means that one single node is at high impedance. This is the node where the gain is realized
+and where the signal swing is large. This is also evident from the node where the load capacitance
+determines the dominant pole.
+  In such a single-stage ampliﬁer the GBW is always determined by that load capacitance and
+the input transconductance.
+  A cascade ampliﬁer is actually a two stage ampliﬁer. This means that two nodes in that circuit
+are at high impedance. This also means that there are two nodes where the capacitance to
+ground gives a pole. Two poles can create stability problems. This problem can be eliminated
+82                                                                                     Chapter #2
+
+                                                                   by adding a Miller capaci-
+                                                                   tance across the second
+                                                                   stage, as explained in
+                                                                   Chapter 5. It is called a com-
+                                                                   pensation capacitance C .
+                                                                                              c
+                                                                      In such a two-stage
+                                                                   ampliﬁer the GBW is always
+                                                                   determined by that compen-
+                                                                   sation capacitance and the
+                                                                   input transconductance.
+                                                                      Obviously, any addition
+                                                                   of capacitance usually in-
+                                                                   creases the power consump-
+                                                                   tion. From this point of
+                                                                   view, a single-stage ampliﬁer
+                                                                   is usually better. One excep-
+                                                                   tion may be the output
+swing. If only one transistor is used for the current source I , then the output swing is only
+                                                              B2
+0.4 V less than the supply voltage.
+
+
+
+
+                                                                   0262
+                                                                   For deep submicron CMOS
+                                                                   the gain contributed by two
+                                                                   transistors may not be
+                                                                   suﬃcient. For MOSTs with
+                                                                   gate lengths of 90 nm and
+                                                                   less the gain of one single
+                                                                   transistor is less than 10!
+                                                                      To obtain more gain,
+                                                                   feedback can be applied
+                                                                   around the cascode transis-
+                                                                   tor. It is then called a regu-
+                                                                   lated cascode (Hosticka,
+                                                                   Sackinger). This is also
+                                                                   called gain boosting (Bult).
+                                                                      This feedback is actually
+                                                                   parallel-series feedback (see
+Chapter 8), causing the output impedance to rise by the amount of feedback gain. The gain goes
+up by the same amount.
+  If we realize that feedback ampliﬁer by just one transistor M3, the gain of that transistor is
+added to the total gain.
+  An additional advantage of that feedback ampliﬁer is that the impedance in the middle (at
+the gate of M3) is reduced by the same feedback gain.
+Ampliﬁers, source followers and cascodes                                                         83
+
+                                                                   0263
+                                                                   Note, however, that gain
+                                                                   boosting adds another gain
+                                                                   enhancement at low fre-
+                                                                   quencies. It does not alter
+                                                                   the GBW.
+                                                                      It is therefore good to
+                                                                   compare the performance of
+                                                                   a regulated cascode, as cas-
+                                                                   code and a single-stage
+                                                                   ampliﬁer. All of them have
+                                                                   the same GBW but widely
+                                                                   diﬀerent gains and band-
+                                                                   widths.
+                                                                      Clearly, if this ampliﬁer is
+                                                                   to be only used at high fre-
+                                                                   quencies, then there is no
+                                                                   need for cascodes!
+   Regulated cascodes will always be used whenever we have to combine high GBW with high
+gain. For high-frequency performance we need to use high V −V and minimum channel
+                                                                GS    T
+length, which inevitably leads to lower gains. By means of gain boosting we have a circuit trick,
+by which we can increase the gain.
+
+
+
+                                                                      0264
+                                                                      It is obvious that the gain
+                                                                      boosting ampliﬁer, which
+                                                                      was just one transistor
+                                                                      before, can be replaced by a
+                                                                      full operational ampliﬁer
+                                                                      with large gain A . Its non-
+                                                                                         gb
+                                                                      inverting input is connected
+                                                                      to a biasing voltage V . The
+                                                                                              B
+                                                                      feedback loop will ensure
+                                                                      that the voltage at the
+                                                                      source of transistor M2 is
+                                                                      kept as constant as possible.
+                                                                         In this case, full gain is
+                                                                      added on top of the gain
+                                                                      characteristic of the cascode.
+                                                                      Obviously, this is only
+required if real high gains are required at real low frequencies. This is the case, for example, in
+low-distortion ampliﬁers at audio frequencies and below.
+   However, the design of such a gain boosting stage is not trivial. It has its own gain A ,
+                                                                                                 gb
+bandwidth BW , and hence GBW . We have to make sure that the GBW coincides exactly
+                 gb                    gb
+with the BW of the original cascode ampliﬁer, if not a pole-zero doublet occurs. Such a doublet
+is lethal for the settling time of that ampliﬁer, as explained next.
+84                                                                                     Chapter #2
+
+                                                                    0265
+                                                                    If a pole-zero doublet occurs
+                                                                    in the middle of the Bode
+                                                                    diagram, then the settling
+                                                                    time is ruined.
+                                                                       The settling is the time
+                                                                    required to reach the ﬁnal
+                                                                    value of the output voltage,
+                                                                    within a certain error. For
+                                                                    example, when we take an
+                                                                    opamp with unity-gain feed-
+                                                                    back, then the bandwidth
+                                                                    BW coincides with the
+                                                                    GBW. When we apply a
+                                                                    step waveform to that
+                                                                    ampliﬁer, we expect the
+                                                                    output to follow with a time
+constant 1/(2pGBW), as described by an exponential.
+  To reach a settling time of 0.1%, we need to wait ln(1000) or 6.9 times this time constant.
+  When we have a pole-zero doublet at fairly low frequencies f , with a large spreading Df ,
+                                                                pz                            pz
+then an additional exponential shows up in the time response, with a much larger time constant
+1/(2pf ).
+      pz
+  It will take much more time to reach the ﬁnal output voltage within 0.1%. The 0.1% settling
+time is much longer.
+  In all switching applications, such as switched-capacitor ﬁlters, the settling time determines
+what is the minimum width of the clock pulses. It determines the maximum frequency of such a
+system (see Chapter 14). In such systems, pole-zero doublets must be avoided at all cost!
+
+
+                                                                    0266
+                                                                    Finally, an overview is given
+                                                                    of all three single-transistor
+                                                                    stages. Their gains, input-
+                                                                    and output impedances are
+                                                                    added under all diﬀerent cir-
+                                                                    cumstances of source and
+                                                                    load impedance.
+                                                                       Remember that there are
+                                                                    three of them. The transcon-
+                                                                    ductance controls the volt-
+                                                                    age-to-current gain in an
+                                                                    ampliﬁer.
+                                                                       A source follower has
+                                                                    unity voltage gain but low
+                                                                    output resistance.
+                                                                       The cascode has unity
+                                                                    current gain but high output
+                                                                    resistance.
+Ampliﬁers, source followers and cascodes                              85
+
+                                           0267
+                                           The gains of a single-transis-
+                                           tor ampliﬁer and a cascode
+                                           are given in this slide. The
+                                           input and output imped-
+                                           ances are also added.
+                                             It is clear that the input
+                                           impedance is always inﬁnity.
+                                           The output impedance is
+                                           resistive as no capacitances
+                                           are included. It diﬀers
+                                           widely depending on the
+                                           actual circuit conﬁguration.
+
+
+
+
+                                           0268
+                                           The same can be done for a
+                                           bipolar transistor. The beta
+                                           of the bipolar transistor is
+                                           always assumed to be much
+                                           larger than unity.
+                                              However, the input im-
+                                           pedances are no more at
+                                           inﬁnity. They involve r and
+                                                                   p
+                                           base resistance r .
+                                                            B
+                                              The output impedances
+                                           are also very diﬀerent.
+86                     Chapter #2
+
+     0269
+     For a MOST cascode, the
+     gains, the input and output
+     impedances are calculated
+     as well, again without
+     capacitances.
+       As a gain, the output
+     voltage is taken versus in-
+     put current. The results are
+     very diﬀerent depending on
+     whether the input current
+     source has an inﬁnite output
+     resistance or an output
+     resistance R .
+                  B
+
+
+
+
+     0270
+     Finally, the gains, input and
+     output impedances are
+     given for a bipolar transis-
+     tor cascode.
+       They are clearly even
+     more important than with
+     a MOST.
+Ampliﬁers, source followers and cascodes                                87
+
+                                           0271
+                                           All calculations have been
+                                           carried out by substituting
+                                           the transistor by its small-
+                                           signal equivalent circuit
+                                           (with only g and r ), and
+                                                          m         o
+                                           solving the Kirchoﬀ equa-
+                                           tions. An example is given
+                                           in this slide. It is the deriva-
+                                           tion of the transresistance
+                                           (output voltage to input cur-
+                                           rent ratio) of a MOST
+                                           cascode.
+                                              Note that a DC current
+                                           source can simply be omit-
+                                           ted in the small-signal
+                                           equivalent circuit whereas a
+                                           DC voltage source is simply
+                                           a short.
+
+
+
+                                           0272
+                                           Now that we know nearly
+                                           everything about the three
+                                           single-transistor conﬁgura-
+                                           tions, it is time to have a
+                                           look at the elementary two-
+                                           transistor conﬁgurations.
+                                              The ﬁrst one is a current
+                                           mirror, this is followed by a
+                                           diﬀerential pair.
+                                              Most of the analog
+                                           electronics can be built up
+                                           by means of these two ele-
+                                           mentary circuits.
+                                                                        031
+                                                                        All analog circuits are built
+                                                                        up by use of a very limited
+                                                                        number of elementary build-
+                                                                        ing blocks. Thorough know-
+                                                                        ledge of these simple blocks
+                                                                        is therefore essential in
+                                                                        obtaining insight into more
+                                                                        complicated circuit sche-
+                                                                        matics. This is why they are
+                                                                        considered separately and
+                                                                        analyzed in great detail.
+                                                                           We now have a complete
+                                                                        knowledge of single-transis-
+                                                                        tor circuits. Now we will
+                                                                        concentrate on the study
+                                                                        of current mirrors and
+                                                                        diﬀerential pair. These form
+                                                                        the cornerstone of all
+                                                                        analog design.
+
+
+
+
+                                                                       032
+                                                                       A current mirror, in its sim-
+                                                                       plest form, is illustrated on
+                                                                       the left. A diﬀerential pair is
+                                                                       shown on the right.
+                                                                          A current mirror is actu-
+                                                                       ally a combination of a
+                                                                       diode-connected transistor
+                                                                       followed by a single-transis-
+                                                                       tor ampliﬁer. The ﬁrst one
+                                                                       converts the input current
+                                                                       into a voltage whereas the
+                                                                       latter one converts the volt-
+                                                                       age into a current.
+                                                                          The current ratio will
+                                                                       be quite accurate, simply
+                                                                       because the non-linearity of
+the diode-connected MOST is compensated by the non-linearity of the amplifying MOST.
+   If the ratio of their W/L’s is B, then the current ratio is also B. Indeed, these MOSTs have
+the same V and hence V −V . This ratio is the current gain.
+             GS             GS     T
+   A diﬀerential pair consists of two equal transistors, which are both operating as single-
+transistor ampliﬁers. The input voltage is diﬀerential now, as is the output voltage.
+   We consider the current mirror ﬁrst.
+
+                                                 89
+

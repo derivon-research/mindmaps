@@ -1,0 +1,1698 @@
+                                                                    221
+                                                                    Oscillators are required as
+                                                                    references of frequency. All
+                                                                    clocks are for (micro)proces-
+                                                                    sors but all timing circuits
+                                                                    also need a clock.
+                                                                       The highest precision is
+                                                                    obtained by using a crystal
+                                                                    as a reference. Without a lot
+                                                                    of eﬀort, 0.1% precision is
+                                                                    easily achieved.
+                                                                       This is why we start this
+                                                                    chapter with crystal oscilla-
+                                                                    tors. It will be shown that
+                                                                    only one single transistor is
+                                                                    required to make a crystal
+                                                                    oscillator.
+
+
+                                                                    222
+                                                                    Before this oscillator is
+                                                                    designed, we have to review
+                                                                    the oscillation conditions.
+                                                                       After this we will have a
+                                                                    look at what the electrical
+                                                                    model is of such a crystal.
+                                                                    It can now be used to
+                                                                    construct a single-transistor
+                                                                    oscillator with minimum
+                                                                    power consumption.
+                                                                       Both MOST and bipolar
+                                                                    transistors can be used to
+                                                                    realize     this  kind      of
+                                                                    oscillator.
+                                                                       Finally, the principles of
+                                                                    oscillation can be extended
+to construct other types of oscillators, such as VCO’s, etc.
+
+
+223
+An oscillator is a kind of feedback ampliﬁer. The signal that is fed back is exactly what the
+ampliﬁer requires, to sustain oscillation. Its input is now zero.
+   This is called the Barkhausen criterion.
+   The ampliﬁer has a gain A( jv) which depends on frequency. Also, the feedback block has an
+attenuation F( jv) which is frequency dependent. The loop gain F( jv)A( jv) must be large enough
+so that the signal v which is fed back, exactly equals v , which is required.
+                     f                                    e
+   As a consequence, the loop gain must be slightly larger than unity in amplitude and its
+phase zero.
+
+                                               677
+678                                                                                      Chapter #22
+
+                                                                          This means that A( jv)
+                                                                       must be an ampliﬁer if F( jv)
+                                                                       is an attenuator. This also
+                                                                       means that F( jv) must be
+                                                                       inductive if A( jv) is capaci-
+                                                                       tive. All ampliﬁers that we
+                                                                       have seen contain capaci-
+                                                                       tances. As a consequence,
+                                                                       we are looking for an induc-
+                                                                       tor for F( jv).
+                                                                          Clearly, these two condi-
+                                                                       tions are a result of the com-
+                                                                       plex nature of both A( jv)
+                                                                       and F( jv). Complex num-
+                                                                       bers are always pairs of
+                                                                       numbers!
+
+
+
+                                                                      224
+                                                                      Another way to write the
+                                                                      Barkhausen criterion is
+                                                                      given by the split analysis.
+                                                                         The ampliﬁer is now rep-
+                                                                      resented by the impedance
+                                                                      Z         and the feedback ele-
+                                                                        circuit
+                                                                      ment by the resonator
+                                                                      impedance.
+                                                                         As the circuit maintains
+                                                                      oscillation by itself, no cur-
+                                                                      rent is needed from outside.
+                                                                      Its total input admittance is
+                                                                      zero. The sum of the imped-
+                                                                      ances must also be zero.
+                                                                         The Barkhausen criterion
+                                                                      can now be stated as given
+by the two expressions in this slide. Rather than the amplitude and phase, the Real and Imaginary
+parts are used now. They are obviously related as reminded in the Appendix.
+  We will see later, that the ﬁrst expression determines the minimum gain required, and the
+other the actual frequency of oscillation.
+Design of crystal oscillators                                                                   679
+
+                                                                      225
+                                                                      Now that the conditions for
+                                                                      oscillation are understood,
+                                                                      let us ﬁnd inductors to form
+                                                                      a feedback loop with capaci-
+                                                                      tive ampliﬁers. We know
+                                                                      that they can form an oscil-
+                                                                      lator together.
+                                                                         The ﬁrst inductor we will
+                                                                      use is the one embedded in
+                                                                      a crystal.
+
+
+
+
+                                                                       226
+                                                                       A crystal consists of a plate
+                                                                       of piezoresistive material
+                                                                       with a certain thickness d.
+                                                                       Piezoresistive       material
+                                                                       allows exchange of mechan-
+                                                                       ical and electrical energy.
+                                                                       Examples are quartz and
+                                                                       ZnO and some nitrides.
+                                                                       Application of a mechanical
+                                                                       pressure to it, generates a
+                                                                       voltage across it and vice
+                                                                       versa.
+                                                                          This exchange of energy
+                                                                       is particularly eﬃcient at
+                                                                       one particular frequency,
+                                                                       called the resonant fre-
+quency f . This frequency is inversely proportional to the thickness of the quartz. Values of
+          s
+100 kHz to 40–50 MHz are commonly fabricated. For higher values, the quartz becomes too
+thin and fragile.
+   Around this resonant frequency the electrical model of this crystal is a series resonant LRC
+circuit, the resonant frequency of which is f . It is damped by the series resistor R , which causes
+                                             s                                       s
+the quality factor Q to be ﬁnite. All relevant expressions are given in this slide.
+   Note that at resonance, the impedance of the inductor equals that of the capacitance. Actually,
+at resonance the series RLC circuit is just R , itself. The inductor L and capacitor C cancel
+                                                 s                       s                  s
+each other.
+   In addition to this series RLC circuit, which represents the electro-mechanical operation of
+the crystal, a plate capacitance C has to be added. It is the capacitance between the two plates
+                                   p
+680                                                                                    Chapter #22
+
+used to contact the crystal, with the dielectric constant of quartz (4.5 times larger than air). It
+includes the package and mounting capacitances as well.
+
+                                                                     227
+                                                                     For example, a crystal of
+                                                                     10.00 MHz can be modeled
+                                                                     by a series LRC with an
+                                                                     inductance of about 10 mH
+                                                                     in series with 26 fF and a
+                                                                     damping resistor of 5 V.
+                                                                     Note that the inductors are
+                                                                     fairly large and the capaci-
+                                                                     tors very small. A rule of
+                                                                     thumb says that they are
+                                                                     about 1/200 to 1/250 of the
+                                                                     package capacitance C .
+                                                                                                  p
+                                                                     Plate or package capaci-
+                                                                     tances are always of the
+                                                                     order of magnitude of pF’s.
+                                                                     The series capacitance C is
+                                                                                                s
+                                                                     always in the fF range.
+   The resistors are very small because the quality factors Q are so high, of the order of 105!
+   It is clear that the package capacitance C also forms a parallel resonant circuit with L . We
+                                             p                                              s
+have both a series and a parallel resonant circuit!
+   We will try to make an oscillator at the series resonant frequency f however, as this is the
+                                                                         s
+internal crystal frequency, independent of the package or mounting.
+
+                                                                 228
+                                                                 To recall what series and
+                                                                 parallel resonance means,
+                                                                 both are sketched in this
+                                                                 slide.
+                                                                    Both have the same
+                                                                 expression for the resonant
+                                                                 frequency f .
+                                                                             r
+                                                                    The impedances versus
+                                                                 frequency      look    very,
+                                                                 diﬀerent however.
+                                                                    A series resonant circuit
+                                                                 has a sharp null at reso-
+                                                                 nance. At resonance the
+                                                                 impedance is reduced to the
+                                                                 resistor R. The crystal is
+                                                                 purely resistive.
+                                                                    For frequencies lower
+than f , the impedance of the capacitor increases and therefore determines the current. The
+      r
+impedance is capacitive, and the phase becomes −90°. For higher frequencies, the impedance
+Design of crystal oscillators                                                                   681
+
+turns inductive, and its phase 90°.
+   A parallel resonant circuit has a sharp peak at resonance. At resonance, the impedance is
+limited by the resistor R. The crystal is again purely resistive.
+   For frequencies lower than f , the impedance of the inductor decreases and therefore determines
+                               r
+the current. The impedance is inductive, and the phase becomes 90°. For higher frequencies, the
+impedance turns capacitive, and its phase −90°. This is exactly the opposite compared to a
+series resonant circuit.
+
+
+                                                                      229
+                                                                      Let us now return to the
+                                                                      crystal and plot its imped-
+                                                                      ance versus frequency. It is
+                                                                      given in this slide.
+                                                                         It is clearly described by
+                                                                      a third-order expression and
+                                                                      is plotted below.
+                                                                         In general it shows the
+                                                                      impedance of the package
+                                                                      capacitor C . It decreases
+                                                                                    p
+                                                                      with frequency indeed.
+                                                                         Around the resonant fre-
+                                                                      quency, we notice a null and
+                                                                      a peak however, very close
+                                                                      together. The null comes
+                                                                      ﬁrst and will represent the
+series resonance with resonant frequency f , whereas the peak will represent the parallel resonance.
+                                          s
+  Let us zoom in, in this region.
+
+
+                                                                      2210
+                                                                      Now the resonant frequen-
+                                                                      cies are easily distinguished.
+                                                                      The series resonant fre-
+                                                                      quency f is the smaller one.
+                                                                               s
+                                                                         The values have actually
+                                                                      been calculated for the crys-
+                                                                      tal given.
+                                                                         The top diagram shows
+                                                                      the amplitude, whereas the
+                                                                      bottom one shows the
+                                                                      phase.
+                                                                         The crystal behaves as a
+                                                                      capacitor at the left of the
+                                                                      series resonant frequency f
+                                                                                                   s
+                                                                      and at the right of the paral-
+                                                                      lel resonant frequency f as
+                                                                                                p
+                                                                      explained before.
+682                                                                                        Chapter #22
+
+   However, between both resonant frequencies the crystal behaves as an inductor. The transitions
+are very steep because the quality factor is so high. The crystal now behaves as an inductor from
+the series resonant frequency f to the parallel resonant frequency f .
+                                 s                                     p
+   We will use this inductor to make an oscillator together with a capacitive ampliﬁer. We want
+this oscillator to operate as close as possible to the series resonant frequency f as this is the
+                                                                                      s
+frequency which is the closest to the internal electromechanical operation of the crystal. Moreover,
+it is the frequency which is the least dependent on the package and mounting capacitances,
+which are hard to predict.
+   We will see however, that it is impossible to make an oscillator at the series resonant frequency
+f . It would take inﬁnite current! We will try to be as close as possible however, depending on
+ s
+the current that we are allowed to use. This will be the only free design choice!
+
+
+
+                                                                        2211
+                                                                        The actual expressions of
+                                                                        the series resonant fre-
+                                                                        quency f and the parallel
+                                                                                  s
+                                                                        resonant frequency f are
+                                                                                                  p
+                                                                        given in this slide. The series
+                                                                        one is as described in this
+                                                                        slide. The parallel resonant
+                                                                        frequency f on the other
+                                                                                     p
+                                                                        hand is determined by both
+                                                                        capacitances in series, as
+                                                                        clearly found by inspection
+                                                                        of the model. This frequency
+                                                                        is always somewhat larger
+                                                                        than the series one. If we
+                                                                        ﬁnd that C is about 200
+                                                                                      p
+                                                                        times larger than C , then
+                                                                                                s
+v 2 is approximately 0.5% larger than v 2. Also, v is now about 0.25% larger than v .
+  p                                        s          p                                       s
+   The impedance of the series RLC circuit can now be described as given in this slide. We will
+rewrite this impedance now after introduction of the pulling factor p.
+   This pulling factor p is the dimensionless parameter which says how far the actual operating
+frequency is from the series resonance frequency f .
+                                                    s
+   Introduction of this factor p and of the frequency f , gives another expression of the impedance
+                                                        s
+of the series RLC circuit. It says that this impedance is a resistor R in series with an inductor.
+                                                                        s
+This inductor is larger the more we deviate from series resonance. We will use this simple model
+to ﬁnd the oscillation condition of the oscillator.
+
+
+
+2212
+The terms series or parallel resonance are often attributed to the circuit conﬁguration. We will
+see that this is wrong, however!
+   Series and parallel resonance have only to do with the operating point of the oscillator.
+   For zero or very small pulling factor p, the operating point is close to f . In this case, we
+                                                                                s
+clearly have a series oscillator. For a fairly large p, the operating point is close to f . We will
+                                                                                         p
+Design of crystal oscillators                                                                     683
+
+                                                                      call this a parallel oscillator,
+                                                                      although C is still 200 times
+                                                                                   s
+                                                                      more important than C for
+                                                                                                 p
+                                                                      the determination of the
+                                                                      oscillation frequency.
+                                                                         The point in the middle is
+                                                                      the crossover value f ,
+                                                                                                    m
+                                                                      between series and parallel
+                                                                      resonance. Since at f we
+                                                                                                p
+                                                                      had a pulling factor p of
+                                                                      about 0.25%, the point in
+                                                                      the middle must have a pull-
+                                                                      ing factor of about half or
+                                                                      0.125%.
+                                                                         We can now conclude
+                                                                      that the pulling factor p
+                                                                      must be less than about
+0.1%, to have a oscillator with good stability and predictability!
+
+
+                                                                2213
+                                                                Let us now apply the oscilla-
+                                                                tion condition to the combi-
+                                                                nation of a single-transistor
+                                                                ampliﬁer, which is capaci-
+                                                                tive, and a crystal, which is
+                                                                inductive.
+                                                                   The main question is,
+                                                                which circuit components to
+                                                                use to set the pulling factor
+                                                                at suﬃciently low values.
+                                                                   Clearly one single transis-
+                                                                tor can provide suﬃcient
+                                                                gain to carry out this task.
+                                                                For a diﬀerential operation
+                                                                we would need two transis-
+                                                                tors. Obviously if one trans-
+istor can do it, many more transistors can also do it. Many transistor oscillators now exist.
+There is only one single-transistor oscillator, however.
+
+
+2214
+This circuit is shown on top. The crystal is connected between Drain and Gate to provide gain.
+The biasing components are omitted.
+  This basic single-transistor oscillator gives rise to three diﬀerent oscillator circuits depending
+on which node is connected to ground. The output terminals obviously also depend on which
+node is connected to ground.
+  In the Pierce oscillator, the source is grounded such that the transistor seems to function as
+684                                                                                     Chapter #22
+
+                                                                    an ampliﬁer. At resonance,
+                                                                    the crystal behaves as a
+                                                                    small resistor. The voltages
+                                                                    at the Drain and at the Gate
+                                                                    are almost identical. The
+                                                                    output can therefore be
+                                                                    taken either at the Gate or
+                                                                    at the Drain.
+                                                                       In the Colpitts oscillator,
+                                                                    the Gate is grounded. The
+                                                                    crystal is also grounded. It
+                                                                    is a single-pin oscillator with
+                                                                    the crystal connected to the
+                                                                    Drain. The transistor looks
+                                                                    more like a source follower.
+                                                                    The output can only be
+                                                                    taken at the Source. Indeed
+the Drain only carries a very small signal as it is connected to ground by the crystal, which
+behaves as a small resistor.
+  In the third oscillator, the Drain is grounded. It is a single-pin oscillator with the crystal
+connected to the Gate. The transistor looks more like a cascode. The output can only be taken
+at the Source again. The Gate is connected to ground by the crystal, which behaves as a small
+resistor. The current output can also be taken by insertion of a current mirror in the Drain to
+ground connection.
+
+
+
+                                                                      2215
+                                                                      The analysis of the oscilla-
+                                                                      tion condition now applies
+                                                                      to all three conﬁgurations.
+                                                                         For this purpose, the
+                                                                      package capacitance C is
+                                                                                               p
+                                                                      included in capacitance C .
+                                                                                                  3
+                                                                      The transistor capacitance
+                                                                      C is included in C and
+                                                                        GS                   1
+                                                                      the total output capacitance
+                                                                      is C .
+                                                                           2
+                                                                         What value of g          is
+                                                                                              m
+                                                                      required     for   sustained
+                                                                      oscillation?
+                                                                         We carry out a split
+                                                                      analysis with the crystal on
+                                                                      one side and the circuit with
+all three capacitances on the other side.
+   Barkhausen requires the sum of both impedances to be zero, which can be written in both the
+Real and Imaginary part.
+   Since the Real part of the crystal impedance is only R , we ﬁnd that the circuit must present
+                                                         s
+Design of crystal oscillators                                                                      685
+
+a negative resistance Re(Z ) equal to −R . This will yield a minimum value of transconduct-
+                            c                s
+ance g .
+       m
+  Also, the imaginary part of the crystal must equal the negative Imaginary part of the circuit
+Im(Z ). Since this is an inductor, the circuit must present a capacitance, as expected. This
+     c
+expression will yield the actual oscillation frequency or the pulling factor p.
+
+
+                                                                        2216
+                                                                        To avoid having to solve
+                                                                        complicated expressions, we
+                                                                        resort to a graphical
+                                                                        method. The impedance Z
+                                                                                                      c
+                                                                        presented by the circuit is
+                                                                        plotted      in     the   polar
+                                                                        diagram.
+                                                                           It is a half circle (see
+                                                                        Appendix Polar diagrams)
+                                                                        which       starts    on    the
+                                                                        Imaginary axis for zero g
+                                                                                                      m
+                                                                        and ends up on the same
+                                                                        axis for inﬁnite g . Where
+                                                                                              m
+                                                                        this half circle intersects the
+                                                                        line of −R , the ﬁrst
+                                                                                          s
+                                                                        Barkhausen oscillation con-
+dition is satisﬁed. Indeed, in this point A, the circuit presents a negative resistance −R , which
+                                                                                                s
+exactly compensates the damping resistor R of the crystal. Oscillation is therefore guaranteed.
+                                                s
+   Moreover, the second Barkhausen condition teaches us that in point A, the Imaginary part
+gives the pulling factor and therefore the actual frequency. This Imaginary part is very close
+however, to the Imaginary part at zero g . This latter one is easily calculated as it is a combination
+                                          m
+of capacitances (see Appendix Polar diagrams).
+   Stable oscillation is achieved for a well deﬁned crossing point A. The circle must be large,
+which now requires a small capacitor C .
+                                           3
+   For a small pulling factor p, we need to have large capacitors C and C . They are usually
+                                                                         1        2
+taken at the same. Large capacitors C will require a large current, however. This is the
+                                            1,2
+compromise to be taken!
+
+
+2217
+A numerical example is shown in this slide. Also, the expressions of the pulling factor p and
+                                                                                          A
+the transconductance g at point A are added (see Appendix Polar diagrams).
+                        mA
+   Capacitance C is taken to be as small as possible. It cannot be smaller than the crystal
+                  3
+package capacitance, however!
+   The circle has a diameter of 12 kV. For zero g , the Imaginary part is −4 kV. Point A is
+                                                  m
+actually much closer to the Imaginary axis than drawn, since R is relatively small.
+                                                                s
+   At point A, the transconductance g is 11 mS, and increases along the half circle to inﬁnity.
+                                      mA
+It is obviously proportional to the damping resistor R , and also to the square of capacitor C
+                                                      s                                        1
+(=C ) and the series resonance frequency. The realization of a GHz oscillator will require a
+      2
+large current!
+686                                                                                 Chapter #22
+
+                                                                      The pulling factor p is
+                                                                                           A
+                                                                   about C /C . It can only be
+                                                                           s 1
+                                                                   made small by increasing
+                                                                   C , which increases g con-
+                                                                     1                  mA
+                                                                   siderably indeed.
+                                                                      The choice of C (=C ) is
+                                                                                     1     2
+                                                                   the only design choice to be
+                                                                   made. It sets at the same
+                                                                   time the pulling factor and
+                                                                   the current consumption.
+
+
+
+
+                                                                   2218
+                                                                   What amplitude can now be
+                                                                   expected from such an oscil-
+                                                                   lator? Remember that the
+                                                                   amplitude at the Gate and
+                                                                   Drain (with the Source as
+                                                                   reference) are just about
+                                                                   equal, as Gate and Drain
+                                                                   are nearly shorted together
+                                                                   by a small resistor R .
+                                                                                        s
+                                                                      The Gate voltage is
+                                                                   related to the Drain current
+                                                                   by the transconductance.
+                                                                   Separating DC and AC
+                                                                   components gives an expres-
+                                                                   sion, in which the peak-
+                                                                   to-average current ratio
+I /I     appears and the V −V .
+ ds DSA                     GS   T
+   This ratio depends on how much the transistor is overdriven. For large overdrive or large
+oscillation amplitude, the current is very nonlinear. This ratio can now be fairly large.
+   The transistor must certainly be designed for large V −V . This is a problem for bipolar
+                                                           GS    T
+circuits unless some emitter resistors are inserted. Also, weak inversion operation yields only
+small signal voltages.
+Design of crystal oscillators                                                                   687
+
+                                                                      2219
+                                                                      The startup time constant is
+                                                                      determined by the inductor
+                                                                      and by the negative resis-
+                                                                      tance, seen by it. The mini-
+                                                                      mum time constant is
+                                                                      obtained for the maximum
+                                                                      resistance Re(Z ) at g       .
+                                                                                       c      mmax
+                                                                      This is the radius of the
+                                                                      half circle.
+                                                                         Substitution of the induc-
+                                                                      tance yields an expression
+                                                                      which shows that the
+                                                                      startup time constant is
+                                                                      about 400 periods. We have
+                                                                      assumed that the minimum
+                                                                      C     equals the package
+                                                                        3
+capacitance, which is about 200 times C .
+                                          s
+  In order to reach quiescent operation (within 5%), about 3 time constants are required or
+1200 periods. A crystal oscillator is therefore a very slow starter!
+  This is the same as saying that crystal oscillators have very high quality factors!
+
+
+                                                                    2220
+                                                                    The power dissipation in the
+                                                                    transistor and in the crystal
+                                                                    depend to a large extent on
+                                                                    the values of the capacitors
+                                                                    chosen.
+                                                                       For capacitors C in the
+                                                                                          1
+                                                                    order of magnitude of pF’s,
+                                                                    the currents are quite small.
+                                                                    The power dissipation is
+                                                                    then quite small and no self
+                                                                    heating is expected.
+                                                                       Only when large values of
+                                                                    C are selected, to be as
+                                                                      1
+                                                                    close as possible to the series
+                                                                    resonance frequency, the
+                                                                    currents rise with the square
+of the capacitance value. The power dissipation then rises quickly as well.
+688                                                                                       Chapter #22
+
+                                                                        2221
+                                                                        From the discussion, it is
+                                                                        easy to derive a design
+                                                                        procedure.
+                                                                          A crystal is characterized
+                                                                        by its two resonance fre-
+                                                                        quencies, the series resistor
+                                                                        and the package capaci-
+                                                                        tance, which are all easily
+                                                                        measured. We ﬁrst choose
+                                                                        the capacitor C as small as
+                                                                                        3
+                                                                        possible.   Obviously,      it
+                                                                        cannot be smaller than the
+                                                                        package capacitance C .
+                                                                                                p
+                                                                          We now have to select a
+                                                                        value for 2C =C =C as a
+                                                                                    L     1    2
+                                                                        compromise to reduce the
+pulling factor and to avoid too much power consumption.
+
+
+
+
+                                                                       2222
+                                                                       The required transconduct-
+                                                                       ance     is      then    easily
+                                                                       calculated.
+                                                                          As a starting value we
+                                                                       take about ten times more
+                                                                       transconductance.
+                                                                          The V −V will deter-
+                                                                                 GS      T
+                                                                       mine the current itself and
+                                                                       the output amplitude. A
+                                                                       large value is selected.
+                                                                          Finally, if we want to con-
+                                                                       nect the Gate of the oscilla-
+                                                                       tor to a biasing voltage over
+                                                                       a resistor R , we have to
+                                                                                      B
+                                                                       make sure that the addi-
+                                                                       tional damping due to this
+resistor is negligible. It must be suﬃciently large. This expression is taken from Ref. Vittoz (see
+slide 15).
+Design of crystal oscillators                                                                 689
+
+                                                                    2223
+                                                                    Let us now consider how
+                                                                    these three types of ground-
+                                                                    ing    can    be     realized.
+                                                                    Attention is paid to biasing
+                                                                    as well.
+                                                                       Simple discrete realiza-
+                                                                    tions are considered ﬁrst.
+
+
+
+
+                                                                    2224
+                                                                    A Pierce oscillator is best
+                                                                    biased by a current source
+                                                                    I and a Gate biasing resis-
+                                                                     B
+                                                                    tor V .
+                                                                          B
+                                                                       This current source is the
+                                                                    best guarantee that the cir-
+                                                                    cuit is isolated from the
+                                                                    supply line. Otherwise, the
+                                                                    oscillator will superimpose
+                                                                    spikes at the oscillation fre-
+                                                                    quency on all supply lines
+                                                                    connected to it.
+                                                                       A CMOS realization is
+                                                                    shown on the right. The
+                                                                    crystal is connected between
+                                                                    Drain and Gate, which
+makes it a Pierce oscillator. Also, the capacitances are indicated.
+  The current source I is set by an external current, which is determined by an Automatic-
+                        B
+Gain-Control system. Such a system measures the output signal and adjusts the DC current to
+keep the oscillator at point A.
+  The output signal is taken by duplicating the ampliﬁer transistor. In this way the load at the
+output cannot inﬂuence the oscillation condition.
+  One subtlety is capacitor C3. Actually, it is in parallel with capacitor C1 and smoothens
+somewhat the output current.
+690                                                                                  Chapter #22
+
+                                                                    2225
+                                                                    An example of a Colpitts
+                                                                    oscillator is shown in this
+                                                                    slide. Indeed it is a single-
+                                                                    pin oscillator with the crys-
+                                                                    tal connected to the Drain.
+                                                                       Again, it is biased by a
+                                                                    current source I to provide
+                                                                                     B
+                                                                    adequate isolation from the
+                                                                    supply line.
+                                                                       A discrete equivalent is
+                                                                    shown on the right. The cur-
+                                                                    rent source is replaced by a
+                                                                    ‘‘choke’’ or large inductor.
+                                                                    The capacitors are exactly
+                                                                    where they are expected.
+                                                                       The output voltage is
+taken at the Drain, as shown by most publications. It may not be the best place, however. At
+resonance, the crystal is a little more than a small resistor. The signal swing at the Drain is
+therefore quite small.
+  A better output node is the Source or Emitter, between capacitors C and C .
+                                                                        1       2
+
+
+
+                                                                     2226
+                                                                     The third type of oscillator
+                                                                     is shown in this slide. Some
+                                                                     more recent references are
+                                                                     added on these integrated
+                                                                     oscillators.
+                                                                        It is again a single-pin
+                                                                     oscillator but now with the
+                                                                     crystal connected to the
+                                                                     Gate.
+                                                                        The Source is now the
+                                                                     output. The transistor is
+                                                                     biased by a current source,
+                                                                     which is part of an
+                                                                     Automatic Gain Control
+                                                                     system, as will be discussed
+                                                                     later.
+  The output can also be taken by a current source inserted in the Drain. Since the Drain is
+grounded, this is a very elegant way to obtain an output signal without disturbing the oscilla-
+tor itself.
+  Both last oscillator types are single-pin oscillators. This means that the crystal is grounded.
+This may add more parasitic capacitance in parallel to the crystal however than in the Pierce
+oscillator. This is why Pierce is often preferred despite the fact that it requires two pins for
+the crystal.
+Design of crystal oscillators                                                                   691
+
+                                                                      2227
+                                                                      Let us now observe some
+                                                                      full   oscillator  circuits.
+                                                                      Circuitry is added to pro-
+                                                                      vide AGC but also to buﬀer
+                                                                      the output.
+
+
+
+
+                                                                    2228
+                                                                    A practical realization of a
+                                                                    Pierce oscillator is shown in
+                                                                    this slide.
+                                                                       Transistor M is the
+                                                                                       1
+                                                                    actual oscillator ampliﬁer.
+                                                                    The capacitors C and C
+                                                                                        1         2
+                                                                    are indicated. Capacitor C
+                                                                                                  c
+                                                                    is a coupling capacitor to
+                                                                    separate DC and AC. The
+                                                                    output is take at the left side
+                                                                    of the crystal.
+                                                                       The current is set by tran-
+                                                                    sistor M2, which is part of
+                                                                    an AGC system shown on
+                                                                    the next slide.
+                                                                       The biasing resistor R is
+                                                                                                B
+now represented by transistor M6. It is biased at zero V such that its resistance can be quite
+                                                         DS
+high although inaccurate. This is achieved by connecting two diodes to the Gate of M6. Both
+Source and Drain of M6 are at one single V below the supply voltage.
+                                             GS
+  The numerical values indicate that all capacitances are quite small in order to limit the power
+consumption to a minimum. All transistors work in weak inversion!
+
+
+2229
+The AGC circuit is now easily found. It is called an Amplitude Regulator.
+   The output of the oscillator, at the left of the crystal, is connected to the Q1 input of the AGC
+circuit, in series with a coupling capacitor C7. It is also connected to the Q1 input of the Output
+Ampliﬁer, towards a series of inverters.
+692                                                                                     Chapter #22
+
+                                                                       In the Amplitude Regul-
+                                                                    ator, the input Q1 drives the
+                                                                    Gate of transistor M3,
+                                                                    which operates somewhat as
+                                                                    a rectiﬁer. When a MOST is
+                                                                    overdriven, its average cur-
+                                                                    rent increases, which is a
+                                                                    measure for the input volt-
+                                                                    age amplitude.
+                                                                       This simple rectiﬁer is fol-
+                                                                    lowed by a low-pass ﬁlter
+                                                                    made up by capacitors C
+                                                                                                  4
+                                                                    and C and transistor M39.
+                                                                           5
+                                                                    This latter transistor oper-
+                                                                    ates as a large resistor
+                                                                    because its V is again zero.
+                                                                                  DS
+                                                                       The voltage at transistor
+M5 is now converted to a current, by use of resistor R7, and fed back to the oscillator transistor
+M1 by means of current mirror M6–M2.
+  The AGC loop works as follows. When no signal is present, the Gate voltage of M5 is fairly
+low and a large current is sent to M1. When the oscillation has come up, more current is ﬂowing
+through M3 such that the gate of M5 increases. As a result, the current in M3 decreases and so
+does the current in M1. In equilibrium, the AGC circuit maintains the minimum current for
+which oscillation is sustained, which corresponds with point A.
+
+
+
+                                                                      2230
+                                                                      Another practical oscillator
+                                                                      of the third type is shown in
+                                                                      this slide. It is a single-pin
+                                                                      oscillator, with the crystal
+                                                                      connected to the Gate.
+                                                                         The output current is
+                                                                      measured at the Drain of
+                                                                      transistor M1. The output
+                                                                      stage    is    a    wideband
+                                                                      ampliﬁer.
+                                                                         The AGC ampliﬁer is
+                                                                      shown at the right of the
+                                                                      output terminal. A diﬀer-
+                                                                      ential pair is used as a recti-
+                                                                      ﬁer with just one capacitor
+                                                                      as a low-pass ﬁlter. The
+output current is now sent to the oscillator transistor M1.
+  All numerical values are added to allow the reader to fully explore this circuit.
+Design of crystal oscillators                                                                 693
+
+                                                                    2231
+                                                                    A negative resistance can be
+                                                                    generated by a single tran-
+                                                                    sistor ampliﬁer but obvi-
+                                                                    ously also by a few more
+                                                                    transistors. One example is
+                                                                    given which uses CMOS as
+                                                                    a technology. Many more
+                                                                    will be discussed later, which
+                                                                    are realized in bipolar
+                                                                    technology.
+                                                                       In general, positive feed-
+                                                                    back always gives rise to
+                                                                    negative resistances. In the
+                                                                    example in this slide on the
+                                                                    left, the negative resistance,
+                                                                    because of the positive feed-
+back, must be suﬃciently large to compensate for the positive resistor in the crystal, to sustain
+oscillation. The minimum transconductance is obviously the same as before. However, this circuit
+is unstable for DC operation. A better realization is shown on the right.
+   At all frequencies, except around the crystal frequency, the negative feedback with g is
+                                                                                              m2
+dominant over the positive feedback with g . As a result, the circuit is stable. At the frequency
+                                            m1
+where the crystal oﬀers a large impedance, the positive feedback dominates and the oscillation
+is sustained.
+   If the design is such that g /C =g /C , and g =g , then the transconductance is again
+                               m1 1 m2 2            m1 m2
+given by the expression in this slide.
+
+
+                                                                     2232
+                                                                     The circuit realization is
+                                                                     shown in this slide. The two
+                                                                     g blocks are the two input
+                                                                       m
+                                                                     MOSTs of the diﬀerential
+                                                                     pair M1/M2. The capacitors
+                                                                     C and C are realized by
+                                                                       1        2
+                                                                     means of MOSTs.
+                                                                        The AGC is carried out
+                                                                     as follows. If the signal
+                                                                     amplitude at node 1 is small,
+                                                                     then diode D1 is always
+                                                                     reverse biased.
+                                                                        If the amplitude rises,
+                                                                     then the diode becomes for-
+                                                                     ward biased for the negative
+                                                                     tips of the sine wave. This
+threshold is set by the reference voltage at node 3.
+   Because of the forward biasing of diode D1, the voltage at node 3 is pulled down. The current
+in transistor M3 decreases. The transconductances g and g also decrease.
+                                                     m1       m2
+694                                                                                       Chapter #22
+
+  The capacitance of transistor M3 reduces the ripple at node 3.
+  A point of equilibrium is reached in this way, which depends on the voltage at node 3.
+
+
+
+
+                                                                        2233
+                                                                        Of course it is also possible
+                                                                        to realize crystal oscillators
+                                                                        by means of CMOS invert-
+                                                                        ers as ampliﬁers. A few
+                                                                        examples are given in this
+                                                                        slide. Since the gain is usu-
+                                                                        ally too high, resistors are
+                                                                        added to reduce the gain.
+                                                                        Moreover, resistors are
+                                                                        added in series with the out-
+                                                                        puts to limit the output cur-
+                                                                        rents. If not, large current
+                                                                        spikes are drawn from the
+                                                                        supply voltage, which causes
+                                                                        large voltage spikes on the
+                                                                        supply voltages. They prop-
+agate to all other circuits connected to the same supplies. As a result, the Power-supply-rejection-
+ratio is poor.
+  Moreover the gain setting is not so precise. The transistors are always largely overdriven. The
+oscillation frequency is thus not precise at all, despite the high quality factor of the crystal used.
+
+
+
+
+                                                                        2234
+                                                                        Crystal oscillators are easy
+                                                                        to design with bipolar tran-
+                                                                        sistors. Actually, the oldest
+                                                                        crystal oscillators have been
+                                                                        made with bipolar devices
+                                                                        as discrete devices on a
+                                                                        printed circuit board. They
+                                                                        usually consist of one single
+                                                                        transistor with ﬁxed biasing,
+                                                                        rather than with an AGC
+                                                                        circuit.
+Design of crystal oscillators                                                                   695
+
+                                                                      2235
+                                                                      A Pierce oscillator is best
+                                                                      biased by a current source
+                                                                      I and a Gate biasing resis-
+                                                                       B
+                                                                      tor V .
+                                                                            B
+                                                                         A current source is used
+                                                                      to isolate the circuit from
+                                                                      the supply line.
+                                                                         A discrete realization is
+                                                                      shown on the right. It uses
+                                                                      a bipolar transistor. The
+                                                                      crystal is connected between
+                                                                      collector and base, which
+                                                                      makes it a Pierce oscillator.
+                                                                      Also the capacitances are
+                                                                      indicated.
+                                                                         The current source is
+replaced by a large resistor R . A resistor is used in the emitter for thermal stabilization. The
+                                 L
+capacitor across it has to alleviate the gain reduction caused by the resistor.
+   The resistors R and R provide biasing to the base.
+                    1       2
+   It is clear that such a circuit can never be biased exactly at point A of the polar diagram. It
+has ﬁxed biasing at a transconductance which must be a lot larger than g , to always ensure
+                                                                              mA
+oscillation. As a result, the power consumption is never minimum and the oscillation frequency
+is not very precise.
+
+
+                                                                      2236
+                                                                      A Colpitts oscillator is again
+                                                                      shown in this slide. Indeed
+                                                                      it is a single-pin oscillator
+                                                                      with the crystal connected
+                                                                      to the Collector.
+                                                                          A discrete equivalent with
+                                                                      a bipolar transistor is shown
+                                                                      on the right. The current
+                                                                      source is replaced by a
+                                                                      ‘‘choke’’ or large inductor.
+                                                                      The capacitors are where
+                                                                      they are expected.
+                                                                          The output voltage is
+                                                                      taken at the Collector, as
+                                                                      shown by most publications.
+                                                                      This is not the best place
+however, as at resonance the crystal is little more than a small resistor. The signal swing at the
+Collector is therefore quite small.
+  A better output node is the Emitter, between capacitors C and C .
+                                                             1          2
+  The base is decoupled to ground to make it an AC ground. If not, the eﬀective transconductance
+would be reduced by the base resistances.
+696                                                                                       Chapter #22
+
+   A Heartley oscillator is very similar to this one. Both capacitances C and C are substituted
+                                                                         1     2
+by inductances, and the crystal operates in the capacitive region. Needless to say that the
+frequency region of operation is now much wider as the crystal has a much wider region where
+it behaves as a capacitance.
+
+
+
+
+                                                                        2237
+                                                                        The third type of oscillator
+                                                                        is again a single-pin oscilla-
+                                                                        tor but now with the crystal
+                                                                        connected to the Base.
+                                                                           The Emitter is now the
+                                                                        output. The transistor is
+                                                                        biased by a current source,
+                                                                        which is part of an
+                                                                        Automatic Gain Control
+                                                                        system.
+                                                                           The output can also be
+                                                                        taken by a current source
+                                                                        inserted in the Collector.
+                                                                        Since the Collector is
+                                                                        grounded, this is a very ele-
+                                                                        gant way to obtain an
+output signal without disturbing the oscillator feedback loop itself.
+
+
+
+
+                                                                      2238
+                                                                      Another example of the
+                                                                      same type of oscillator is
+                                                                      shown in this slide. It uses
+                                                                      high-speed SiCGe bipolar
+                                                                      transistors with f ’s up to
+                                                                                          T
+                                                                      200 GHz. As a result, the
+                                                                      oscillation frequency is
+                                                                      really high, nearly 100 GHz!
+                                                                         Instead of a crystal a
+                                                                      series LC circuit is used, the
+                                                                      capacitance of which con-
+                                                                      sists of several capacitances
+                                                                      in series. One of them in
+                                                                      transistor Q2 can be tuned
+                                                                      by an external DC voltage.
+                                                                         The output is taken again
+at the Collector, not to disturb the oscillation at the Base-Emitter nodes.
+Design of crystal oscillators                                                                      697
+
+                                                                      2239
+                                                                      In bipolar technology, many
+                                                                      more oscillators have been
+                                                                      realized. They all use several
+                                                                      transistors and they all aim
+                                                                      at the realization of a nega-
+                                                                      tive resistance by means of
+                                                                      positive feedback.
+                                                                          In the circuit in this slide,
+                                                                      transistor Q1 is a cascode,
+                                                                      which provides voltage gain
+                                                                      at its Collector. Transistor
+                                                                      Q2 is just an emitter fol-
+                                                                      lower, which provides the
+                                                                      current through the small
+                                                                      series resistor R of the crys-
+                                                                                        s
+                                                                      tal. The loop gain is there-
+                                                                      fore g R .
+                                                                              m1 L
+  As soon as R is larger than R , the oscillation builds up. This is a good feature of this
+                  L                  s
+oscillator. The signal amplitude is limited by the two diodes across the load resistor R .
+                                                                                            L
+  All three capacitors serve as (de)coupling capacitances. They are all large and present negligible
+impedances at the frequency of oscillation.
+
+                                                                    2240
+                                                                    Another bipolar crystal
+                                                                    oscillator is shown in this
+                                                                    slide. It is again a single-pin
+                                                                    oscillator. The positive feed-
+                                                                    back is easily recognizable.
+                                                                    Indeed, a cross-coupled
+                                                                    transistor pair presents a
+                                                                    negative       resistance    of
+                                                                    −2/g (see Chapter 2). This
+                                                                           m
+                                                                    resistance now compensates
+                                                                    the series resistance of the
+                                                                    crystal.
+                                                                       The output is nicely
+                                                                    buﬀered from the oscillation
+                                                                    circuit itself, by means of a
+                                                                    cascode.
+   The biasing is ﬁxed. The amplitude is limited by the Base-Emitter diodes of the cross-coupled
+transistor pair.
+
+2241
+Cross-coupling is used again in this high-frequency oscillator. This is a high frequency as the
+bipolar transistors have an f of only about 400 MHz.
+                             T
+  The crystal is replaced by a parallel LC tank. The oscillation frequency is now close to the
+698                                                                                  Chapter #22
+
+                                                                   parallel resonance frequency
+                                                                   of this tank.
+                                                                      Cross-coupling is used to
+                                                                   generate a negative imped-
+                                                                   ance to compensate the par-
+                                                                   allel resistance across the
+                                                                   tank. Emitter followers and
+                                                                   diodes are used to increase
+                                                                   the output swing. This
+                                                                   signal amplitude is also
+                                                                   increased by insertion of
+                                                                   emitter resistances of 500 V.
+                                                                   Their g R factor is about
+                                                                            m E
+                                                                   4. This is the answer of a
+                                                                   bipolar transistor to the
+                                                                   increase of the V −V in
+                                                                                      GS    T
+                                                                   a MOST.
+  The biasing of the input devices is ﬁxed. A safety margin must now be expected.
+
+
+                                                                    2242
+                                                                    Finally, some more oscilla-
+                                                                    tors are added.
+                                                                       They are not necessarily
+                                                                    crystal oscillators but other
+                                                                    types. Moreover, there are
+                                                                    quite often many more
+                                                                    transistors.
+                                                                       They have been added to
+                                                                    show that the principles dis-
+                                                                    cussed before, are still very
+                                                                    much applicable.
+
+
+
+
+2243
+This oscillator again uses an LC tank to set the oscillation frequency. The inductors are planar
+spiral inductors. The capacitances are diode capacitances. They can therefore be tuned by
+changing control voltage V . This is why they are called VCO’s. The tuning range must be large
+                            c
+enough to compensate for the variations on the inductor (20%).
+   For example, an inductor with about three windings, and with a hollow layout, is about 10 mm
+long. Its inductance is about 10 nH. With a diode capacitance of 1 pF, the oscillation frequency
+is about 1.6 GHz. Also, the minimum g is about 1 mS for a coil resistance R of 10 V (Q=
+                                        mA                                       L
+10). For a V −V of 0.5 V, this would require a transistor current of 0.25 mA.
+             GS    T
+Design of crystal oscillators                                                                    699
+
+                                                                          It is obvious that the GHz
+                                                                       range is easily achieved.
+                                                                       However, to go lower or
+                                                                       higher in frequency is a
+                                                                       problem.
+                                                                          One of the most impor-
+                                                                       tant speciﬁcations of such a
+                                                                       VCO is the phase noise.
+                                                                       This is mainly the thermal
+                                                                       noise of the transistors and
+                                                                       coil series resistors R , con-
+                                                                                               L
+                                                                       verted to sidebands of the
+                                                                       oscillation frequency. Since
+                                                                       this resistor R is linked to
+                                                                                        L
+                                                                       the transconductance g , it
+                                                                                                 mA
+                                                                       is the main parameter in the
+                                                                       expression of the phase
+noise. Actually, the term 4/3 is due to the transistor g .
+                                                        m
+  A rule of thumb for phase noise is −100 dBc/Hz at 100 kHz distance from the carrier. In this
+example it is about −120 dBc/Hz at 100 kHz.
+
+                                                                      2244
+                                                                      A diﬀerential version of
+                                                                      the single-transistor Pierce
+                                                                      oscillator is shown in this
+                                                                      slide.
+                                                                         For low frequencies, the
+                                                                      impedance of the capacitor
+                                                                      C is too large and no oscilla-
+                                                                      tion can build up. At high
+                                                                      frequencies, it acts as a short
+                                                                      and a negative impedance is
+                                                                      presented to the crystal.
+                                                                         The resistors have to be
+                                                                      suﬃciently high not to
+                                                                      dampen the oscillation.
+                                                                      They are better when re-
+                                                                      placed by current sources.
+  The current setting sources I are better driven by an AGC loop, which measures the output
+                                B
+voltages. If not, the currents may be set too high, resulting in larger deviations in frequency or
+distortion.
+
+2245
+Leaving out the crystal yields a relaxation oscillator. The frequency is now set by the currents
+I , capacitor C and the limiting voltage, which is here a V of a bipolar transistor. Actually, it
+ B                                                          BE
+is I /(4CV ). Square waveforms are obtained at the outputs but a triangular one across the
+    B      BE
+time setting capacitor C.
+700                                                                                Chapter #22
+
+                                                                    Needless to say that this
+                                                                 frequency is not all that
+                                                                 accurate and very temper-
+                                                                 ature dependent.
+                                                                    Many such relaxation
+                                                                 oscillators have been built
+                                                                 and published. This is one
+                                                                 of the earlier ones.
+                                                                    Its main advantage is its
+                                                                 tunability by means of cur-
+                                                                 rent I . This range is limited
+                                                                        B
+                                                                 however by the base cur-
+                                                                 rents of the emitter follower
+                                                                 transistors.     Substituting
+                                                                 them by MOST source fol-
+                                                                 lowers allows a current and
+                                                                 hence a frequency range of
+                                                                 over 8 decades!
+
+
+
+                                                                 2246
+                                                                 A low-frequency oscillator is
+                                                                 easily built by means of an
+                                                                 opamp. An example is given
+                                                                 in this slide.
+                                                                    Without capacitors we
+                                                                 would have negative feed-
+                                                                 back and no oscillation.
+                                                                 However, at the frequency
+                                                                 f , suﬃcient phase shift is
+                                                                  c
+                                                                 taken up by the RC circuit
+                                                                 to turn the negative feed-
+                                                                 back into positive feedback.
+                                                                 Barkhausen is satisﬁed pro-
+                                                                 vided there is suﬃcient gain
+                                                                 around the loop at this fre-
+                                                                 quency. The oscillation then
+builds up with a frequency of about 1.7f .
+                                        c
+  No amplitude limitation is shown. Two diodes could be added at the output to limit the
+output swing.
+
+
+
+2247
+A well-known oscillator with an opamp is the Wien bridge oscillator, shown in this slide. It
+consists of an opamp with a series and a parallel RC circuit around the feedback loop. Two
+more resistors 3R and R ensure a voltage gain of about 3.
+                 1      1
+Design of crystal oscillators                                                                    701
+
+                                                                         From the expression of
+                                                                      the loop gain, it is clear that
+                                                                      this circuit will oscillate at
+                                                                      the frequency f . The atten-
+                                                                                      osc
+                                                                      uation of 1/3 is compensated
+                                                                      by the voltage gain of 3.
+                                                                      Moreover, the phase shift
+                                                                      around the loop is zero at
+                                                                      this frequency.
+                                                                         Again     no     amplitude
+                                                                      limitation is added. Two
+                                                                      diodes could again be added
+                                                                      at the output to limit the
+                                                                      output swing.
+
+
+
+
+                                                                      2248
+                                                                      The same Wien bridge oscil-
+                                                                      lator can be used to build a
+                                                                      Voltage Controlled Crystal
+                                                                      oscillator.
+                                                                         Obviously, this is a con-
+                                                                      tradiction. Normally, a crys-
+                                                                      tal oscillator is used to ﬁx
+                                                                      the frequency with high
+                                                                      accuracy. A VCO on the
+                                                                      other hand is used to vary
+                                                                      the frequency over 20–30%.
+                                                                         However, sometimes, es-
+                                                                      pecially for timing purposes,
+                                                                      we want to set the crystal
+                                                                      frequency to an accurate
+                                                                      value which is slightly diﬀer-
+ent from the crystal frequency itself.
+   In this example, a resonator is used, which is similar to a crystal but with a lower Q factor,
+to set the frequency at exactly 460,00 kHz. The resonator has only 457 kHz. How do we solve
+this problem?
+   The resonator is part of the Wien bridge. The solution is therefore to add a parallel capacitance
+to the resonator to detune it. The oscillation will obviously take place much closer to parallel
+resonance than to series resonance. Changing the parallel capacitance is now an easy way to
+slightly change the oscillation frequency.
+   In order to be able to tune the frequency in both directions, we have to be able to add a
+capacitance DC, which can be both positive and negative. Moreover, we want to be able to
+control this capacitance value with a voltage or current.
+702                                                                                   Chapter #22
+
+                                                                    2249
+                                                                    How to realize a capaci-
+                                                                    tance that can be varied by
+                                                                    means of a voltage or
+                                                                    current?
+                                                                       The Miller eﬀect could be
+                                                                    used. An alternative is the
+                                                                    circuit in this slide. A diﬀer-
+                                                                    entiator with components
+                                                                    R and C is inserted in a
+                                                                      d         d
+                                                                    feedback loop with a vari-
+                                                                    able G block. The input
+                                                                             m
+                                                                    admittance is easily calcu-
+                                                                    lated. It is capacitance C ,
+                                                                                                 d
+                                                                    multiplied by G R . This
+                                                                                        m d
+                                                                    factor is about 25 in this
+                                                                    example. With 4 pF for C ,
+                                                                                                 d
+this allows a capacitance change DC of about 100 pF.
+  If G can now be made positive and negative, then we have a capacitance which is positive
+        m
+and negative.
+  Current I will be used to control the transconductance G from positive, through zero to
+             2                                            m
+negative values.
+
+
+
+                                                                    2250
+                                                                    To realize a transconduct-
+                                                                    ance G from positive to
+                                                                            m
+                                                                    negative values, a symmetri-
+                                                                    cal opamp is used, in which
+                                                                    the input stage is doubled.
+                                                                       Moreover, the two input
+                                                                    stages are cross-coupled.
+                                                                    When both input pairs have
+                                                                    the same biasing current,
+                                                                    nothing can come out. The
+                                                                    output currents cancel per-
+                                                                    fectly. If one current, for
+                                                                    example current I through
+                                                                                       1
+                                                                    MI1, is larger than I
+                                                                                                2
+                                                                    through MI2, then the
+                                                                    diﬀerential pair MT1/MT2
+provides a larger output current I , which ﬂows into the circuit.
+                                   o
+   If, on the other hand, current I is larger than I , than the output current changes polarity.
+                                   2                1
+As a consequence we can obtain positive and negative output currents by allowing changes to
+I with respect to I , as indicated in this slide.
+ 2                  1
+Design of crystal oscillators                             703
+
+                                2251
+                                The diﬀerentiator is made
+                                diﬀerential. It is little more
+                                than a pseudo-diﬀerential
+                                pair, to which the resistor
+                                R and capacitor C are
+                                  d                      d
+                                applied. With the values of
+                                R and C as given, a time
+                                  d         d
+                                constant is reached of about
+                                160 ns, which is less than the
+                                oscillation period of 348 ns.
+                                The time constants in the
+                                opamp itself are not negligi-
+                                ble however, and the picture
+                                is slightly more complicated.
+
+
+
+
+                                2252
+                                In this Chapter, the design
+                                of oscillators is discussed.
+                                   Crystal oscillators have
+                                been discussed in great
+                                detail, followed by VCO’s
+                                   and even Wien bridge
+                                oscillators. All of them obey
+                                the Barkhausen criteria
+                                however, which is the main
+                                theory behind them.
+704          Chapter #22
+
+      2253
+
+
+
+
+      2254
+Design of crystal oscillators                                                                705
+
+                                                                    2255
+                                                                    The complex plane is one
+                                                                    way to represent complex
+                                                                    numbers. After all, complex
+                                                                    numbers are numbers which
+                                                                    take up a position in a plane
+                                                                    rather than on a line. A
+                                                                    complex number always
+                                                                    contains two numbers. They
+                                                                    can be represented by
+                                                                    amplitude and phase, or by
+                                                                    Real and Imaginary part.
+                                                                       Impedances which con-
+                                                                    tain capacitors or inductors,
+                                                                    are also complex numbers.
+                                                                    Such impedances can now
+                                                                    be plotted versus frequency
+in Bode diagrams. There is one Bode diagram for the amplitude (or magnitude) and one for
+the phase.
+   Such impedance can also be plotted in the complex plane. It is now called a polar plot (in
+Electronics) or a Cole-Cole plot (in Biochemistry). These curves can then be labeled in terms of
+frequency, or any other parameter used.
+   To make the reader familiar with such polar plots, some simple examples are given.
+
+
+
+                                                                  2256
+                                                                  As a reminder to the reader,
+                                                                  the relationship is given
+                                                                  between amplitude and
+                                                                  phase on one hand, and the
+                                                                  Real and Imaginary part on
+                                                                  the other hand.
+                                                                    It is clear that complex
+                                                                  numbers are situated in a
+                                                                  plane. We always need two
+                                                                  numbers to know where
+                                                                  exactly they are.
+                                                                    We can choose however,
+                                                                  between amplitude and
+                                                                  phase or the Real and
+                                                                  Imaginary part!
+                                                                    For example, the complex
+number (4,3) has a Real part of 4 and an Imaginary part of 3. Its amplitude is 5 and its phase
+is 0.64 radians or about 37°.
+706                      Chapter #22
+
+      2257
+      A simple resistor R is just
+      one point on the Real axis.
+         A simple capacitor C is on
+      the negative part of the
+      Imaginary axis, depending
+      on the actual value of the
+      frequency. For a frequency
+      zero, it is inﬁnitely far away
+      but for a frequency inﬁnity,
+      it is in the zero of the axes.
+         A series combination of a
+      resistor R and a capacitor
+      C, is also a straight line, but
+      shifted over the Real axis by
+      an amount R. At the circular
+      frequency 1/RC, the point
+      (locus) is at 45° with respect
+      to the two axes.
+
+
+
+
+      2258
+      The same impedance can
+      also be plotted with resistor
+      R as a parameter, rather
+      than the frequency. A
+      diﬀerent locus results.
+         It shares the same point
+      at frequency 1/RC but is
+      now a horizontal line
+      through this point. For zero
+      resistor, it is on the axis, but
+      obviously goes to inﬁnity for
+      inﬁnite resistor.
+Design of crystal oscillators                                                                       707
+
+                                                                      2259
+                                                                      A parallel combination of a
+                                                                      resistor and a capacitor
+                                                                      gives an impedance which
+                                                                      yields a half circle in the
+                                                                      complex plane.
+                                                                         In the top one, the fre-
+                                                                      quency is used as a parame-
+                                                                      ter. For zero frequency, the
+                                                                      impedance of the capacitor
+                                                                      is inﬁnite and thus disap-
+                                                                      pears from the picture. The
+                                                                      impedance is now just a
+                                                                      resistor R.
+                                                                         For inﬁnite frequency, the
+                                                                      impedance is zero and there-
+                                                                      fore in the zero (or origin) of
+the axes. At circle frequency 1/RC, the locus is at 45° with respect to the two axes, or at the
+bottom of the circle.
+  If the resistor is taken as a parameter, a diﬀerent half circle is described by the impedance.
+They go through the same point at RCv=1. For zero resistor, the locus is at the origin of the
+axes. For inﬁnite resistor, we just have a capacitor, which is located on the Imaginary axis.
+
+
+
+                                                                       2260
+                                                                       Addition of a resistor r to
+                                                                       the parallel combination of
+                                                                       R and C, causes the half
+                                                                       circle to shift to the right,
+                                                                       over a distance r, at least if
+                                                                       the frequency is taken as a
+                                                                       parameter.
+                                                                          This is a well known polar
+                                                                       plot, as it is similar to the
+                                                                       input impedance of a bipo-
+                                                                       lar single-transistor ampli-
+                                                                       ﬁer. It is also called the circle
+                                                                       diagram.
+                                                                          Measurement of the input
+                                                                       impedance versus frequency,
+                                                                       allows tracing a circle
+through the data, which yields values for R, r and 1/RC.
+708                                                                               Chapter #22
+
+                                                                2261
+                                                                In a similar way, addition of
+                                                                a capacitor C to the paral-
+                                                                               2
+                                                                lel combination of R and C ,
+                                                                                             1
+                                                                causes the half circle to shift
+                                                                on the Imaginary axis, over
+                                                                a distance C , at least if
+                                                                               2
+                                                                the resistor is taken as a
+                                                                parameter.
+                                                                   For a zero resistor, we
+                                                                simply have capacitor C
+                                                                                              2
+                                                                left. For an inﬁnite resistor
+                                                                however, both capacitances
+                                                                are in series.
+                                                                   Again measurement of the
+                                                                input impedance versus fre-
+                                                                quency, allows tracing a
+circle through the data, which yields values for R, C and C .
+                                                     1     2
+
+
+
+                                                                2262
+                                                                The question now is, what
+                                                                is the locus of the input
+                                                                impedance Z with g as a
+                                                                              c       m
+                                                                parameter?
+                                                                   The approximate expres-
+                                                                sion is readily calculated
+                                                                and given in this slide. Also
+                                                                the values at zero and inﬁ-
+                                                                nite transconductance are
+                                                                easily found.
+                                                                   The corresponding polar
+                                                                diagram is given on the
+                                                                next slide.
+Design of crystal oscillators                                                                      709
+
+                                                                       2263
+                                                                       The polar plot of impedance
+                                                                       Z with g as a parameter,
+                                                                         c         m
+                                                                       is again a half circle. It is on
+                                                                       the left side of the Imaginary
+                                                                       axis however, because it
+                                                                       presents a negative Real
+                                                                       part.
+                                                                           For zero g , we simply
+                                                                                        m
+                                                                       have a combination of
+                                                                       the three capacitors. For
+                                                                       increasing g , the half circle
+                                                                                     m
+                                                                       is described until the locus
+                                                                       hits the imaginary axis
+                                                                       again, for inﬁnite g . The
+                                                                                               m
+                                                                       capacitor is now only C ,
+                                                                                                      3
+                                                                       however.
+   The diameter of the circle is easily derived from its two extremities.
+   When used for an oscillator, only one point is of importance, i.e. point A. It is the point where
+the negative Real part equals resistor R . The Imaginary Part Im in point A then yields the
+                                           s                          A
+pulling factor p. It is about the same as the Imaginary part Im for zero g . The line of constant
+                                                                0            m
+negative R is actually much closer to the Imaginary axis than sketched. Point A therefore nearly
+           s
+lies on the Imaginary axis!
+
+                                                                     2264
+                                                                     In order to ﬁnd the actual
+                                                                     value of g in point A, we
+                                                                                 mA
+                                                                     have to equate the Real part
+                                                                     of impedance Z to the resis-
+                                                                                        c
+                                                                     tor R itself.
+                                                                            s
+                                                                         For small values of R (=
+                                                                                                1
+                                                                     R ) the transconductance
+                                                                        2
+                                                                     g will be small. It can then
+                                                                       mA
+                                                                     be approximated as given in
+                                                                     this slide. It is in a frame as
+                                                                     it is the most basic expres-
+                                                                     sion of the required trans-
+                                                                     conductance of any single-
+                                                                     transistor      ampliﬁer.    It
+                                                                     shows why RF oscillators
+                                                                     require a large amount of
+                                                                     current!
+  From the same expression of Z , we can derive what is the expression of g               , which is
+                                   c                                                 mmax
+reached at the utmost left point of the circle. This is the point where the negative Real part is
+maximum.
+                                                                      231
+                                                                      Low-noise           ampliﬁers
+                                                                      (LNA’s) are the ﬁrst ampli-
+                                                                      ﬁers in receivers. They must
+                                                                      operate at the same high
+                                                                      frequencies as the carriers
+                                                                      themselves.     For    GSM,
+                                                                      CDMA, etc., these frequen-
+                                                                      cies are beyond 1 GHz,
+                                                                      reaching 5 GHz today. In
+                                                                      car electronics, frequencies
+                                                                      are reached beyond tens
+                                                                      of GHz.
+                                                                         Moreover, such an ampli-
+                                                                      ﬁer must be able to handle
+                                                                      very small signals close to
+                                                                      the noise level and at the
+same time very high signal levels, close to the transmitter antenna. Noise and distortion are both
+of importance at the same time.
+   Finally, the reception antenna is usually connected to the ampliﬁer over a transmission line,
+usually with 50 V characteristic impedance.
+   Such an ampliﬁer is full of compromises, despite its low count of transistors. Indeed, only a
+few MOSTs are normally used.
+   In this Chapter, these compromises will be discussed. Design equations and guide lines will
+be given and checked on their accuracy.
+
+
+                                                                     232
+                                                                     An example of such a
+                                                                     receiver is shown in this
+                                                                     slide.
+                                                                        The LNA is the ﬁrst
+                                                                     ampliﬁer. It is an RF ampli-
+                                                                     ﬁer followed by a mixer,
+                                                                     which translates the modu-
+                                                                     lation content to low fre-
+                                                                     quencies. After some ﬁlter-
+                                                                     ing, this signal is then con-
+                                                                     verted in digital form,
+                                                                     towards a DSP.
+                                                                        The mixer needs a local
+                                                                     oscillator, which is normally
+                                                                     derived from a phase-locked
+                                                                     loop (PLL). In this feedback
+                                                                     loop a VCO generates a fre-
+quency, which is locked to an external reference frequency Fref, after a divider by N.
+  It is clear that the LNA interacts with the antenna. This is why both the antenna output and
+LNA input must show a characteristic impedance, to avoid reﬂections. This is discussed next.
+
+                                               711
+

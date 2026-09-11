@@ -1,0 +1,235 @@
+{
+  "schema": "derivon.workspace/v1",
+  "id": "philosophy2cs",
+  "document": {
+    "description": "自顶向下重走一条主线：古希腊的直觉与几何，近代直觉领先于严格性，十九至二十世纪公理化与直觉的关系反转，可计算性边界的确立，直到计算机体系结构可以被推导而不是被默认。个人探索图，权重按学习者实际投入校准。",
+    "title": "从哲学到计算：直觉、公理与可计算性的主线"
+  },
+  "graph": {
+    "points": [
+      {
+        "id": "demonstrative-knowledge",
+        "data": {
+          "document": "docs/concept-demonstrative-knowledge",
+          "label": "论证性知识"
+        }
+      },
+      {
+        "id": "first-principle",
+        "data": {
+          "document": "docs/concept-first-principle",
+          "label": "第一原理"
+        }
+      },
+      {
+        "id": "euclid-deductive-system",
+        "data": {
+          "document": "docs/concept-euclid-deductive-system",
+          "label": "欧几里得《几何原本》的演绎体系"
+        }
+      },
+      {
+        "id": "intuition-warrants-axioms",
+        "data": {
+          "document": "docs/concept-intuition-warrants-axioms",
+          "label": "直觉的自明性作为公理的担保"
+        }
+      },
+      {
+        "id": "diagram-gaps-in-elements",
+        "data": {
+          "document": "docs/concept-diagram-gaps-in-elements",
+          "label": "《几何原本》的证明依赖公设未担保的图形事实"
+        }
+      },
+      {
+        "id": "proclus-fifth-should-be-proved",
+        "data": {
+          "document": "docs/concept-proclus-fifth-should-be-proved",
+          "label": "普罗克洛斯：第五公设应当被证明"
+        }
+      },
+      {
+        "id": "parallel-postulate-equivalents",
+        "data": {
+          "document": "docs/concept-parallel-postulate-equivalents",
+          "label": "每次证明平行公设的尝试都换入了一条等价假设"
+        }
+      },
+      {
+        "id": "saccheri-reductio-program",
+        "data": {
+          "document": "docs/concept-saccheri-reductio-program",
+          "label": "萨凯里纲领：假设第五公设为假，推到矛盾为止"
+        }
+      },
+      {
+        "id": "acute-hypothesis-consistent-body",
+        "data": {
+          "document": "docs/concept-acute-hypothesis-consistent-body",
+          "label": "锐角假设推不出矛盾，只推出一整套陌生而连贯的定理"
+        }
+      },
+      {
+        "id": "non-euclidean-geometry",
+        "data": {
+          "document": "docs/concept-non-euclidean-geometry",
+          "label": "非欧几何：锐角假设被当作一门独立几何来发展"
+        }
+      },
+      {
+        "id": "relative-consistency-by-model",
+        "data": {
+          "document": "docs/concept-relative-consistency-by-model",
+          "label": "相对相容性：模型把一个体系的无矛盾性归约到另一个体系"
+        }
+      },
+      {
+        "id": "intuition-loses-warrant",
+        "data": {
+          "document": "docs/concept-intuition-loses-warrant",
+          "label": "直觉不再能担保公理"
+        }
+      }
+    ],
+    "hyperedges": [
+      {
+        "id": "h-entry-demonstrative-knowledge",
+        "weight": 1,
+        "tails": [],
+        "head": "demonstrative-knowledge",
+        "data": {
+          "document": "docs/derivation-entry-demonstrative-knowledge"
+        }
+      },
+      {
+        "id": "h-regress-to-first-principle",
+        "weight": 3,
+        "tails": [
+          "demonstrative-knowledge"
+        ],
+        "head": "first-principle",
+        "data": {
+          "document": "docs/derivation-regress-to-first-principle"
+        }
+      },
+      {
+        "id": "h-elements-realizes-deductive-ideal",
+        "weight": 3,
+        "tails": [
+          "demonstrative-knowledge",
+          "first-principle"
+        ],
+        "head": "euclid-deductive-system",
+        "data": {
+          "document": "docs/derivation-elements-realizes-deductive-ideal"
+        }
+      },
+      {
+        "id": "h-postulates-need-a-warrant",
+        "weight": 2.5,
+        "tails": [
+          "first-principle",
+          "euclid-deductive-system"
+        ],
+        "head": "intuition-warrants-axioms",
+        "data": {
+          "document": "docs/derivation-postulates-need-a-warrant"
+        }
+      },
+      {
+        "id": "h-audit-prop1-licences",
+        "weight": 2.5,
+        "tails": [
+          "euclid-deductive-system",
+          "intuition-warrants-axioms"
+        ],
+        "head": "diagram-gaps-in-elements",
+        "data": {
+          "document": "docs/derivation-audit-prop1-licences"
+        }
+      },
+      {
+        "id": "h-fifth-postulate-lacks-self-evidence",
+        "weight": 2,
+        "tails": [
+          "euclid-deductive-system",
+          "intuition-warrants-axioms"
+        ],
+        "head": "proclus-fifth-should-be-proved",
+        "data": {
+          "document": "docs/derivation-fifth-postulate-lacks-self-evidence"
+        }
+      },
+      {
+        "id": "h-attempts-yield-equivalents",
+        "weight": 3,
+        "tails": [
+          "proclus-fifth-should-be-proved",
+          "first-principle"
+        ],
+        "head": "parallel-postulate-equivalents",
+        "data": {
+          "document": "docs/derivation-attempts-yield-equivalents"
+        }
+      },
+      {
+        "id": "h-turn-to-reductio",
+        "weight": 2.5,
+        "tails": [
+          "parallel-postulate-equivalents"
+        ],
+        "head": "saccheri-reductio-program",
+        "data": {
+          "document": "docs/derivation-turn-to-reductio"
+        }
+      },
+      {
+        "id": "h-acute-hypothesis-survives",
+        "weight": 3.5,
+        "tails": [
+          "saccheri-reductio-program"
+        ],
+        "head": "acute-hypothesis-consistent-body",
+        "data": {
+          "document": "docs/derivation-acute-hypothesis-survives"
+        }
+      },
+      {
+        "id": "h-treat-acute-as-geometry",
+        "weight": 3,
+        "tails": [
+          "acute-hypothesis-consistent-body"
+        ],
+        "head": "non-euclidean-geometry",
+        "data": {
+          "document": "docs/derivation-treat-acute-as-geometry"
+        }
+      },
+      {
+        "id": "h-model-translates-consistency",
+        "weight": 4,
+        "tails": [
+          "non-euclidean-geometry",
+          "euclid-deductive-system"
+        ],
+        "head": "relative-consistency-by-model",
+        "data": {
+          "document": "docs/derivation-model-translates-consistency"
+        }
+      },
+      {
+        "id": "h-warrant-reversed",
+        "weight": 3.5,
+        "tails": [
+          "relative-consistency-by-model",
+          "intuition-warrants-axioms"
+        ],
+        "head": "intuition-loses-warrant",
+        "data": {
+          "document": "docs/derivation-warrant-reversed"
+        }
+      }
+    ]
+  }
+}

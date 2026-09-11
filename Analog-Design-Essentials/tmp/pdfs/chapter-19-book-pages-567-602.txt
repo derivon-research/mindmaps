@@ -1,0 +1,1793 @@
+                                                                       191
+                                                                       An important class of ﬁlters
+                                                                       are continuous-time ﬁlters.
+                                                                       They are ﬁlters which don’t
+                                                                       use switches. They are used
+                                                                       mainly at high frequencies,
+                                                                       but also for a variety of
+                                                                       other applications.
+                                                                          Their biggest problem is
+                                                                       distortion. This is why this
+                                                                       Chapter follows the Chapter
+                                                                       on distortion.
+                                                                          The several ﬁlter types are
+                                                                       discussed ﬁrst. Considerable
+                                                                       attention    is    paid     to
+                                                                       transconductors with low
+                                                                       distortion.
+   Before sampling, anti-aliasing ﬁlters are required to limit the signal bandwidth. A preﬁlter is
+required, which has to be a continuous-time ﬁlter.
+   High-frequency ﬁlters are also usually continuous-time ﬁlters. In sampled-data ﬁlters, the clock
+frequencies must be higher than the highest signal frequencies. Exceedingly high clock frequencies
+would therefore be needed, consuming too much power.
+   In communications systems (CDMA, UWB, etc.), channel bandwidths reach values of up to
+5, 7 and even 10 MHz. Separation of these channels require thus many high-frequency ﬁlters.
+   Finally, high-frequency ﬁlters turn into low-frequency ﬁlters when the power consumption is
+reduced drastically. In portable applications, continuous-time ﬁlters also play an important role,
+even at low frequencies (e.g. sensor interfaces, ...).
+
+
+
+                                                                  192
+                                                                  However, continuous-time
+                                                                  ﬁlters have many problems.
+                                                                  The characteristic frequen-
+                                                                  cies are not very accurate. It
+                                                                  is diﬃcult to realize higher-
+                                                                  order ﬁlters which require
+                                                                  accurate matching of the
+                                                                  characteristic frequencies.
+                                                                  Tuning circuits will thus
+                                                                  have to be added, which
+                                                                  increase the power con-
+                                                                  sumption.
+                                                                     Linearity is also a prob-
+                                                                  lem. Filters are normally
+                                                                  speciﬁed for fairly large
+                                                                  input voltages. To reduce
+the distortion to below −60 dB, both feedback and cancellation techniques will be required.
+
+                                                567
+568                                                                                    Chapter #19
+
+  This is especially true at low supply voltages. The signal swings cannot be allowed to be
+smaller. Distortion reduction is now even more important!
+  Putting al these problems together, especially mismatch and distortion, means that it is diﬃcult
+to reach ﬁlters with high quality factors.
+
+
+
+                                                                      193
+                                                                      Possible solutions are pro-
+                                                                      vided by use of RC or
+                                                                      MOSFET-C ﬁlters. Most
+                                                                      attention will be paid to
+                                                                      Gm-C ﬁlters as they reach
+                                                                      the highest frequencies.
+                                                                         At the end of this
+                                                                      Chapter, a comparison is
+                                                                      given of the dynamic ranges
+                                                                      that can be expected for
+                                                                      diﬀerent frequency regions.
+
+
+
+
+                                                                     194
+                                                                     Active RC-ﬁlters are opera-
+                                                                     tional ampliﬁers with resis-
+                                                                     tors and capacitors in the
+                                                                     feedback loop.
+                                                                        If a low-noise opamp is
+                                                                     used, large Signal-to-Noise
+                                                                     ratios (SNR) can also be
+                                                                     achieved, large input signals
+                                                                     can be applied with very
+                                                                     little distortion. The Signal-
+                                                                     to-Noise-and        Distortion
+                                                                     ratio (SNDR) can also be
+                                                                     fairly high. Actually, these
+                                                                     ﬁlters are capable of the
+                                                                     highest SNDR values pos-
+                                                                     sible, depending on the
+                                                                     power consumption.
+   This is obviously only correct for the frequencies where the loop gain is high. These OTA-RC
+ﬁlters are not suitable for high frequencies.
+   Another disadvantage is that passive components are used, which usually have a low absolute
+Continuous-time ﬁlters                                                                        569
+
+accuracies. The absolute errors can be as high as 15 ... 20%. We will therefore need to tune the
+ﬁlter sections.
+   However, in such an OTA-RC ﬁlter no component can be tuned. The only way out is to use
+resistor or capacitor banks, as shown in this slide. For an 8-bitbinary bank of capacitances, the
+absolute error can be reduced to 0.4%.
+
+
+                                                                    195
+                                                                    Tuning is possible when the
+                                                                    resistors are substituted by
+                                                                    MOST devices. They are
+                                                                    used in the linear region (for
+                                                                    small V ) and can be repre-
+                                                                            DS
+                                                                    sented by their on-resistance
+                                                                    (see Chapter 1).
+                                                                       Changing the Gate volt-
+                                                                    age changes their on-resis-
+                                                                    tance, allowing tuning of the
+                                                                    ﬁlter RC time constants.
+
+
+
+
+                                                                    196
+                                                                    Such an on-resistance is
+                                                                    inversely proportional to
+                                                                    the Gate voltage.
+                                                                       It is very linear provided
+                                                                    the V is very small. For
+                                                                           DS
+                                                                    larger signal-swings how-
+                                                                    ever, this is no longer pos-
+                                                                    sible and distortion appears.
+                                                                       For larger values of V ,
+                                                                                               DS
+                                                                    the term in V       has to be
+                                                                                    DS2
+                                                                    included in the I −V
+                                                                                          DS    GS
+                                                                    characteristic. This leads to
+                                                                    second-order distortion.
+                                                                       The easiest way to avoid
+                                                                    this distortion is to adopt
+                                                                    diﬀerential structures.
+                                                                       Many conﬁgurations are
+                                                                    possible.
+570                                                                                     Chapter #19
+
+                                                                    197
+                                                                    Several examples of MOST
+                                                                    resistors are shown in this
+                                                                    slide.
+                                                                       The diﬀerential one (c)
+                                                                    allows the cancellation of
+                                                                    the even-order distortion.
+                                                                       Care must be taken to
+                                                                    connect the Bulks to the
+                                                                    Sources, which requires
+                                                                    extra wells. If this is not pos-
+                                                                    sible, additional distortion
+                                                                    will be generated.
+                                                                       Cancellation of odd-non-
+                                                                    linearities is also possible
+                                                                    by addition of cancellation
+                                                                    transistors (h), with diﬀerent
+sizes and driven by diﬀerent control voltages V . This is the conﬁguration most often used.
+                                                c2
+   It gives higher node capacitances, however. For high frequencies, the two transistor structure
+(c) may be preferred.
+
+
+                                                                    198
+                                                                    An example of a second-
+                                                                    order ﬁlter is shown in the
+                                                                    left top-corner. It contains
+                                                                    two capacitors indeed and
+                                                                    three opamps. It is single-
+                                                                    ended, however.
+                                                                       A diﬀerential version of
+                                                                    the same ﬁlter is shown
+                                                                    below. One opamp can be
+                                                                    left out as it only provides a
+                                                                    signal inversion. In a
+                                                                    diﬀerential circuit both
+                                                                    phases are always available.
+                                                                    It is suﬃcient to use two
+                                                                    opamps for a second-order
+                                                                    ﬁlter.
+  However, the opamps are now fully diﬀerential. They require common-mode feedback (see
+Chapter 8), which takes more power.
+  A MOSFET-C realization of the same ﬁlter is now shown on the right. All resistors have been
+replaced by MOSFETs. All their Gates are connected together towards control voltage V .
+                                                                                                 c
+Tuning of the resistors is thus possible and hence tuning of the ﬁlter frequency. A large tuning
+range also requires a large Voltage range, which may not be easy at low supply voltages.
+  Moreover, MOSFETs have a limited frequency range of operation, as explained next.
+Continuous-time ﬁlters                              571
+
+                         199
+                         Large values of the on-
+                         resistance R are required
+                                       on
+                         to realize ﬁlters at low fre-
+                         quencies. For example, for a
+                         ﬁlter at 4 kHz, an R is
+                                                  on
+                         required in the MVYs.
+                            For matching the smallest
+                         dimension, which is W in
+                         this case, cannot be much
+                         smaller than a few microme-
+                         ters. As a result, the channel
+                         length becomes extremely
+                         large, reducing the f to very
+                                               T
+                         low values. The MOST
+                         resistor turns into a trans-
+                         mission line with an un-
+                         predictable high-frequency
+                         characteristics.
+
+
+
+                         1910
+                         For example, take this LC
+                         ladder ﬁlter. It is known to
+                         be fairly insensitive to errors
+                         on the values of L and C.
+                         Except for the source resis-
+                         tor R and the load resistor
+                                1
+                         R , ﬁve branches can be
+                           7
+                         distinguished.
+                            Each node is connected to
+                         ground through a capacitor.
+                         It is therefore a low pass
+                         ﬁlter.
+                            Each branch will be rep-
+                         resented by an opamp with
+                         feedback elements, as shown
+                         next. The circuit must be
+                         converted into a diﬀerential
+                         structure ﬁrst!
+572                                                                                   Chapter #19
+
+                                                                    1911
+                                                                    A similar ﬁfth-order ladder
+                                                                    ﬁlter is shown in this slide.
+                                                                       It is a fully diﬀerential
+                                                                    ﬁlter indeed to cancel out
+                                                                    even-order distortion. All
+                                                                    capacitors are ﬁxed but the
+                                                                    MOST resistors can be
+                                                                    tuned by means of the con-
+                                                                    trol voltage at all the Gates.
+                                                                       A sixth opamp is used to
+                                                                    convert the single-ended
+                                                                    input into a diﬀerential one.
+
+
+
+
+                                                                    1912
+                                                                    These six opamps are easily
+                                                                    seen at the bottom of the
+                                                                    layout.
+                                                                      The bank of capacitors
+                                                                    takes the larger area,
+                                                                    because of better matching.
+                                                                    The area required for the
+                                                                    MOST resistors is quite
+                                                                    small.
+                                                                      The tuning circuitry takes
+                                                                    a rather large area. It is dis-
+                                                                    cussed next.
+
+
+
+
+1913
+The tuning circuit is a Phase-locked loop. It generates the ﬁlter control voltage V , as a result
+                                                                                    c
+of a feedback loop.
+   This loop consists of a Voltage-controlled oscillator (VCO), which generates a frequency
+(phase), which is compared to the reference frequency (phase) of the clock in the phase detector.
+The output of this phase detector, which is actually a multiplier, contains the sum and the
+diﬀerence of the input frequencies. The sum frequency is a high frequency and is ﬁltered out by
+the low-pass loop ﬁlter. The diﬀerence frequency is a slowly varying signal, which is fed back to
+the VCO. This is control frequency V indeed.
+                                      c
+   The VCO uses the same opamps as in the ﬁlter. Also, the capacitors and MOST resistors are
+Continuous-time ﬁlters                                                                             573
+
+                                                                         of the same order of magni-
+                                                                         tude as the ones in the ﬁlter,
+                                                                         for good matching. A con-
+                                                                         trol Voltage V is obtained
+                                                                                         c
+                                                                         which generates a VCO fre-
+                                                                         quency f , which is locked to
+                                                                                  c
+                                                                         the external clock frequency.
+                                                                         As a result, the ﬁlter fre-
+                                                                         quencies are also locked to
+                                                                         the external clock frequency.
+                                                                         This clock is most often a
+                                                                         crystal oscillator with high
+                                                                         accuracy (see Chapter 22).
+                                                                         The ﬁlter frequencies can be
+                                                                         expected to have similar
+                                                                         high accuracies.
+                                                                            The main disadvantage of
+such a tuning circuit is that a lot of additional circuitry is required and that the VCO frequency
+f is in the same region as the ﬁlter frequency. Leakage from the VCO to the signal path is thus
+ c
+hard to avoid. Other tuning schemes will be discussed later.
+
+
+                                                                  1914
+                                                                  Both active RC and
+                                                                  MOSFET-C ﬁlters employ
+                                                                  operational ampliﬁers. This
+                                                                  means that only at low fre-
+                                                                  quencies, the loop gain is
+                                                                  suﬃciently large to guaran-
+                                                                  tee accurate performance.
+                                                                     For high frequency ﬁlters,
+                                                                  the operational ampliﬁers
+                                                                  are reduced to their simplest
+                                                                  possible      conﬁgurations.
+                                                                  They only consist of diﬀer-
+                                                                  ential pairs, to which some
+                                                                  linearization     techniques
+                                                                  have been applied. They are
+                                                                  called             transcon-
+ductors or Gm blocks. Such ﬁlters are called GmC ﬁlters. They can provide the highest possible
+ﬁlter frequencies with reasonable quality factors.
+   First of all, some transconductor conﬁgurations are discussed, followed by some other
+tuning circuits.
+574                                                                                      Chapter #19
+
+                                                                    1915
+                                                                    GmC ﬁlters consist of Gm
+                                                                    blocks, which are not much
+                                                                    more      than      linearized
+                                                                    diﬀerential pairs and capaci-
+                                                                    tors. A second-order ﬁlter is
+                                                                    shown on the left. It is
+                                                                    single-ended.
+                                                                       To cancel out the even-
+                                                                    order harmonics, a diﬀer-
+                                                                    ential version is preferred. It
+                                                                    is shown on the right. They
+                                                                    take more power as the
+                                                                    output circuitry is doubled.
+                                                                    Moreover, common-mode
+                                                                    feedback is required to
+                                                                    set the common-mode or
+average output (and input) voltage levels. Even more power is therefore consumed.
+  They are now studied in more detail.
+
+
+
+                                                                        1916
+                                                                        Such a Gm block diﬀers
+                                                                        from an opamp in the sense
+                                                                        that it does not include an
+                                                                        output stage with low
+                                                                        output resistance. A Gm
+                                                                        block generates an output
+                                                                        current proportional to the
+                                                                        input voltage. Comparison
+                                                                        with an opamp is only pos-
+                                                                        sible provided an output
+                                                                        resistor R is added.
+                                                                                   L
+                                                                           A considerable advantage
+                                                                        of such a Gm block is that
+                                                                        its transconductance Gm
+                                                                        directly depends on the bias-
+                                                                        ing current I . If the input
+                                                                                     bias
+MOSTs work in strong inversion, the Gm is proportional to the square root of the current. If
+MOSTs are used in weak inversion however, or when bipolar transistors are used, then the Gm
+is directly proportional to the current.
+   The tuning is relatively easy. Because of their simplicity, these circuits are able to operate up
+to high frequencies.
+   The drawbacks are still the same, distortion and mismatch. Moreover, each node has a
+parasitic capacitance to ground, limiting the high frequency performance.
+Continuous-time ﬁlters                                                                        575
+
+                                                                    1917
+                                                                    Some simple ﬁlter structures
+                                                                    with Gm blocks are shown
+                                                                    in this slide.
+                                                                       Feedback from the output
+                                                                    to the minus input turns the
+                                                                    Gm block into a resistance
+                                                                    with value 1/g .
+                                                                                     m
+                                                                       Using a Gm block open
+                                                                    loop provides a pole deter-
+                                                                    mined by the output load
+                                                                    capacitance. This is actually
+                                                                    an integrator.
+                                                                       If a parallel RC circuit is
+                                                                    used as a load, then a volt-
+                                                                    age ampliﬁer is obtained
+                                                                    with gain g R and a pole
+                                                                                   m
+                                                                    with time constant RC.
+
+
+
+                                                                    1918
+                                                                    As a load a Gm block or
+                                                                    transconductor can be used
+                                                                    as well. The voltage gain is
+                                                                    now the ratio of the two
+                                                                    transconductances. The pole
+                                                                    is determined by g and the
+                                                                                      m2
+                                                                    capacitance C at the inter-
+                                                                    mediate node.
+                                                                       The GBW is obviously
+                                                                    determined by g and the
+                                                                                     m1
+                                                                    capacitance C at that inter-
+                                                                    mediate node.
+                                                                       This same structure can
+                                                                    better be realized in a
+                                                                    diﬀerential conﬁguration, as
+                                                                    shown next.
+
+
+
+1919
+A diﬀerential conﬁguration of a voltage ampliﬁer is shown in this slide. The gain is the ratio of
+the two transconductances. The pole is determined by g and the capacitance C at the
+                                                             m2                         L
+intermediate node.
+   In order to make sure this pole frequency is accurate, the parasitic capacitances C must be
+                                                                                      p
+negligible with respect to the load capacitance C . This limits the minimum value of C and the
+                                                 L                                     L
+upper value of the pole frequency.
+576                                                                                  Chapter #19
+
+                                                                       A more complicated ﬁlter
+                                                                    structure is shown below.
+                                                                    It is a second-order ﬁlter
+                                                                    which is biquadratic. This
+                                                                    means that both the numer-
+                                                                    ator and the denominator of
+                                                                    the transfer function are of
+                                                                    second-order. For this pur-
+                                                                    pose, two capacitances are
+                                                                    used and four transcon-
+                                                                    ductors.
+
+
+
+
+                                                                    1920
+                                                                    Such ﬁlters are usually
+                                                                    driven by an input voltage.
+                                                                    This is not necessary,
+                                                                    however.
+                                                                       As an example, let us take
+                                                                    the second-order GmC ﬁlter
+                                                                    shown in this slide. Moving
+                                                                    the input transconductor g
+                                                                                                1
+                                                                    towards the output, gives
+                                                                    the same transfer function
+                                                                    but for the current ratio
+                                                                    I /I , rather than for the
+                                                                     out in
+                                                                    voltage ratio V /V .
+                                                                                    out in
+                                                                       Voltage GmC ﬁlters can
+                                                                    easily be converted into cur-
+                                                                    rent GmC ﬁlters. However,
+we will see later that in general, current-mode ﬁlters have a lower SNR (by about 20 dB) than
+voltage-mode ﬁlters. This is why voltage mode ﬁlters are normally preferred.
+  Let us now investigate some important transconductor circuits.
+Continuous-time ﬁlters                                                                        577
+
+                                                                    1921
+                                                                    The simplest transconduc-
+                                                                    tor is evidently a diﬀerential
+                                                                    pair. Its Gm is simply the
+                                                                    transconductance of the
+                                                                    MOSTs.
+                                                                       Its distortion is quite
+                                                                    high, however. Its IM
+                                                                                                 3
+                                                                    is proportional to the rela-
+                                                                    tive current swing squared.
+                                                                    It can be reduced for
+                                                                    large values of V −V .
+                                                                                          GS    T
+                                                                    Exceedingly high values
+                                                                    are required, however, to
+                                                                    achieve low distortion for a
+                                                                    1 V input signal amplitude.
+                                                                       Additional feedback or
+                                                                    other tricks will therefore be
+                                                                    required to remedy this.
+
+
+                                                                    1922
+                                                                    To illustrate once more
+                                                                    what the diﬀerence is
+                                                                    between an ampliﬁer and a
+                                                                    transconductor, the transfer
+                                                                    curve is illustrated for sev-
+                                                                    eral of them.
+                                                                       An ampliﬁer has high
+                                                                    gain and a small input
+                                                                    range. A bipolar-transistor
+                                                                    ampliﬁer is a good example.
+                                                                       A transconductor has low
+                                                                    gain but a large input range.
+                                                                    A MOST ampliﬁer with
+                                                                    large V −V values and a
+                                                                            GS    T
+                                                                    bipolar-transistor ampliﬁer
+                                                                    with emitter resistors, are
+                                                                    good examples.
+   Real transconductors have an even larger input range. Their range is extended by means of
+linearization techniques such as local feedback and cross-coupling. They are now studied.
+578                                                                                     Chapter #19
+
+                                                                  1923
+                                                                  Both active RC and
+                                                                  MOSFET-C ﬁlters employ
+                                                                  operational ampliﬁers. This
+                                                                  means that only at low fre-
+                                                                  quencies, the loop gain is
+                                                                  suﬃciently large to guaran-
+                                                                  tee accurate performance.
+                                                                     For high frequency ﬁlt-
+                                                                  ers, the operational ampli-
+                                                                  ﬁers are reduced to their
+                                                                  simplest possible conﬁgura-
+                                                                  tions. They only consist of
+                                                                  diﬀerential pairs, to which
+                                                                  some linearization tech-
+                                                                  niques have been applied.
+                                                                  They are called transcon-
+ductors or Gm blocks. Such ﬁlters are called GmC ﬁlters. They can provide the highest possible
+ﬁlter frequencies with reasonable quality factors.
+   Firstly some transconductor conﬁgurations are discussed, followed by some other tuning
+circuits.
+
+
+
+                                                                      1924
+                                                                      Local feedback is an obvi-
+                                                                      ous technique to increase
+                                                                      the input range or reduce
+                                                                      the distortion (see previous
+                                                                      Chapter).
+                                                                         Two practical circuits are
+                                                                      shown in this slide. They are
+                                                                      equivalent for AC perfor-
+                                                                      mance but not for DC. In
+                                                                      the left case the DC currents
+                                                                      also ﬂow through the series
+                                                                      resistors R, but not in the
+                                                                      right case. More DC voltage
+                                                                      drop is thus required for the
+                                                                      left case. It is to be avoided
+                                                                      at low supply voltages.
+   Another diﬀerence is that, on the left, the two resistors R must be well matched. On the right
+the two current sources must also be well matched. Which one is easier depends on the area used.
+   Another diﬀerence is that the output capacitance of the current source is connected at a
+common-mode point on the left. On the right, these output capacitances will limit the high-
+frequency performance. A small capacitance across 2R may now be needed for compensation.
+   Both circuits have the same reduction in distortion. If more reduction is required, more loop
+gain is required, as shown next.
+Continuous-time ﬁlters                                                                         579
+
+                                                                      1925
+                                                                      For larger loop gain in the
+                                                                      feedback loop, the distor-
+                                                                      tion is lower and the input
+                                                                      range larger.
+                                                                         Local feedback is possible
+                                                                      by addition of only a few
+                                                                      transistors as shown on the
+                                                                      left. The input transistors
+                                                                      cannot have any AC current
+                                                                      as they have DC current
+                                                                      sources in both Drain and
+                                                                      Source. Only the pMOST
+                                                                      devices thus carry AC cur-
+                                                                      rent. This current is deter-
+                                                                      mined by the diﬀerential
+                                                                      input voltage which appears
+nearly unattenuated across transistor 2R. The output currents are then mirrored out.
+  This voltage-to-current conversion is even more accurate if a full operational ampliﬁer is
+inserted in the feedback loop, instead of just one single transistor. The loop gain now includes
+the open-loop gain of the operational ampliﬁer. The distortion will now be very small.
+  This is only true at low frequencies, however, as the open-loop gain of an opamp drops quite
+rapidly versus frequency. For high frequencies the circuit on the left may be preferable.
+
+
+
+                                                                      1926
+                                                                      The previous transconduc-
+                                                                      tors all have the disadvan-
+                                                                      tage that they cannot be
+                                                                      tuned. Their voltage-to-cur-
+                                                                      rent conversion is deter-
+                                                                      mined by the resistor.
+                                                                         The tuneability can be
+                                                                      greatly enhanced by inser-
+                                                                      tion of MOSTs as resistors
+                                                                      or even better by a bank of
+                                                                      MOSTs, which can be
+                                                                      switched in and out for
+                                                                      coarse tuning. Changing the
+                                                                      voltage V , then changes
+                                                                                tune
+                                                                      the on-resistance of the
+                                                                      MOST, for ﬁne tuning.
+580                                                                                     Chapter #19
+
+                                                                      1927
+                                                                      Rather than use MOSTs as
+                                                                      resistors, MOSTs can also
+                                                                      be used as diodes, as shown
+                                                                      in this slide.
+                                                                          The total resistance 2R
+                                                                      between the Sources of the
+                                                                      input transistors M1 is now
+                                                                      2/g for small signals. This
+                                                                           m2
+                                                                      value can be tuned by
+                                                                      changing the DC current 2
+                                                                      I      through the diode-con-
+                                                                        bias
+                                                                      nected MOSTs M2.
+                                                                          Evidently, for small I ,
+                                                                                                bias
+                                                                      the resistances are larger
+                                                                      and the distortion is
+                                                                      reduced. The gain is now
+smaller as well. This is the situation for large input signal amplitudes.
+  The reduction factor n simply depends on the g ratio and hence on the current ratio.
+                                                     m
+  The IP increases accordingly.
+         3
+  Actually, this is a circuit which has been around since the sixties with bipolar transistors. It
+was used for Automatic Gain Control in some receiver circuits.
+
+
+
+                                                                    1928
+                                                                    A better realization of a
+                                                                    transconductor which uses
+                                                                    MOSTs as resistances is
+                                                                    shown in this slide. It has
+                                                                    the advantage that no extra
+                                                                    current is consumed. Also,
+                                                                    no extra common-mode
+                                                                    node is added.
+                                                                       The reduction factor n is
+                                                                    determined by the ratios of
+                                                                    the sizes b /b of the
+                                                                                  1 2
+                                                                    nMOST       transistors.   It
+                                                                    appears in the total trans-
+                                                                    conductance g       but also
+                                                                                   mtot
+                                                                    in the IP .
+                                                                             3
+                                                                       The optimum ratio b /b
+                                                                                             1 2
+depends somewhat on the value of V −V chosen. For example, for a V −V of 0.27 V, the
+                                    GS1    T                              GS1    T
+optimum value of the ratio is about 6. The transconductance g      is then constant (within 1%)
+                                                              mtot
+for output currents within 80% of the biasing current I .
+                                                       bias
+Continuous-time ﬁlters                                                                       581
+
+                                                               1929
+                                                               The same linearization tech-
+                                                               nique can be applied to
+                                                               diode-connected transistors,
+                                                               to be used as loads of a
+                                                               diﬀerential pair or transcon-
+                                                               ductor. Transistors M3 are
+                                                               linearized indeed by appli-
+                                                               cation of linear transistors
+                                                               M2.
+                                                                  Again, the ratio of the
+                                                               transistor sizes determines
+                                                               factor n, which at the same
+                                                               time reduces the distortion
+                                                               and increases the diﬀerential
+                                                               resistor 2R     between the
+                                                                           ind
+                                                               Sources of the diode con-
+                                                               nected devices M3.
+  The total voltage gain A from the diﬀerential input v to the diﬀerential output v       also
+                          v                            id                            outd
+increases with factor n.
+
+
+
+                                                                  1930
+                                                                  A combination of both pre-
+                                                                  vious techniques leads to the
+                                                                  circuit shown in this slide. It
+                                                                  combines the advantages of
+                                                                  both of them and also the
+                                                                  disadvantages. The power
+                                                                  consumption is greatly in-
+                                                                  creased and so is the input
+                                                                  range.
+582                                                                                      Chapter #19
+
+                                                                      1931
+                                                                      On top of the two previous
+                                                                      techniques, cross-coupling
+                                                                      can also be added. As will
+                                                                      be shown later in this
+                                                                      Chapter, cross-coupling has
+                                                                      become an often used tech-
+                                                                      nique to reduce the distor-
+                                                                      tion, at the cost of a
+                                                                      reduction in output signal
+                                                                      amplitude.
+                                                                         The combination of these
+                                                                      three techniques probably
+                                                                      gives the largest possible
+                                                                      input voltage range, with-
+                                                                      out using an operational
+                                                                      ampliﬁer.
+  The high-frequency performance will be less than for the Krummenacher circuit, but the input
+range will be larger, for a certain amount of distortion. This is shown next.
+
+
+
+                                                                       1932
+                                                                       This diﬀerence in input
+                                                                       range is illustrated in this
+                                                                       slide.
+                                                                          The curve of Torrance is
+                                                                       ﬂattened by the feedback
+                                                                       resistances made up by the
+                                                                       diode-connected transistors.
+                                                                       The one of Krummenacher
+                                                                       realizes distortion cancella-
+                                                                       tion around 1 V and then
+                                                                                        ptp
+                                                                       increases greatly as the
+                                                                       Torrance curve.
+                                                                          The one of Silva however,
+                                                                       takes the best of both. For
+                                                                       low input voltages, it follows
+                                                                       the Torrance curve, whereas
+for high input voltages, it exploits distortion cancellation by both the Krummenacher technique
+and by cancellation. An input range of 2.5 V is quite large indeed.
+                                                ptp
+Continuous-time ﬁlters                                                                      583
+
+                                                                   1933
+                                                                   It is clear that from a meas-
+                                                                   urement about 0.1% HD
+                                                                                               3
+                                                                   can be achieved for as much
+                                                                   as 2.4 V input voltage.
+                                                                             ptp
+                                                                      For larger input voltages,
+                                                                   the distortion increases
+                                                                   rapidly, indicating that the
+                                                                   region of high distortion is
+                                                                   reached. Power series can
+                                                                   no longer be used to predict
+                                                                   the distortion levels.
+
+
+
+
+                                                                    1934
+                                                                    The lowest distortion can be
+                                                                    achieved by insertion of a
+                                                                    fully operational ampliﬁer
+                                                                    in the feedback loop. Fixed
+                                                                    resistors R/2 are used to
+                                                                    carry out the voltage-to-
+                                                                    current conversion. Small
+                                                                    capacitances are added in
+                                                                    parallel to boost this con-
+                                                                    version at higher frequen-
+                                                                    cies. This is necessary as
+                                                                    the operational ampliﬁers
+                                                                    have reduced gain at high
+                                                                    frequencies.
+                                                                       Tuning of the transcon-
+                                                                    ductance is possible by
+changing the control voltages VC1 and VC2, which control the load resistances M1 and M2.
+   This transconductor has actually the structure of a folded cascode. The outputs are taken at
+the Drains of the regulated cascode stages.
+   With this transconductor a 7th order fully-diﬀerential Chebyshev ﬁlter has been constructed.
+It is a bandpass ﬁlter which can be tuned from 165 to 505 kHz. The IM is less than −72 dB
+                                                                           3
+(at 300 kHz) increasing to less than 61 dB (at 600 kHz). The maximum dynamic range is 75 dB
+for 0.1% IM at 4 V input voltage. Such large input voltage is only possible with operational
+              3       ptp
+ampliﬁers in the feedback loop.
+   It was realized in 0.7 micron CMOS.
+584                                                                                   Chapter #19
+
+                                                                1935
+                                                                Both active RC and
+                                                                MOSFET-C ﬁlters employ
+                                                                operational ampliﬁers. This
+                                                                means that only at low
+                                                                frequencies, the loop gain
+                                                                is suﬃciently large to
+                                                                guarantee      an     accurate
+                                                                performance.
+                                                                   For high frequency ﬁlters,
+                                                                the operational ampliﬁers
+                                                                are reduced to their simplest
+                                                                possible      conﬁgurations.
+                                                                They only consist of
+                                                                diﬀerential pairs, to which
+                                                                some linearization tech-
+                                                                niques have been applied.
+Now some transconductor conﬁgurations are discussed, with parallel diﬀerential pairs.
+
+
+
+                                                                    1936
+                                                                    Rather than use feedback by
+                                                                    means of local series resis-
+                                                                    tors, diﬀerential pairs can be
+                                                                    put in parallel, as shown in
+                                                                    this slide. The goal is always
+                                                                    the same, i.e. to reduce the
+                                                                    distortion over a wider
+                                                                    input range.
+                                                                       An early example with
+                                                                    bipolar transistors is given
+                                                                    in this slide. Two diﬀerential
+                                                                    pairs are put in parallel,
+                                                                    with equal biasing currents
+                                                                    I . An oﬀset voltage V is
+                                                                     B                        GG
+                                                                    introduced to move the
+                                                                    transfer characteristic of the
+second diﬀerential pair over the input voltage axis, as shown next. Note that the output current
+i is the sum of the currents of transistors M1a and M2a. The current of this latter transistor
+ out
+M2a is much smaller than the current through M1a, because of the oﬀset voltage V . The sum
+                                                                                     GG
+has a smaller slope over a wider input voltage range. The best result is obtained for an oﬀset
+voltage of about 34 mV (Ref. Tanimoto).
+   This is explained in more detail next.
+Continuous-time ﬁlters                                                                            585
+
+                                                                       1937
+                                                                       The transfer characteristic
+                                                                       of a diﬀerential pair without
+                                                                       oﬀset is given by the expres-
+                                                                       sion in this slide and is rep-
+                                                                       resented by the dotted line.
+                                                                          For zero input voltage v
+                                                                                                    Id
+                                                                       the output collector current
+                                                                       is half the biasing current I .
+                                                                                                    B
+                                                                       For a larger input volt-
+                                                                       age, the collector current
+                                                                       increases until it equals all
+                                                                       the biasing current I .
+                                                                                              B
+                                                                          This curve was derived in
+                                                                       Chapter 3.
+                                                                          If an oﬀset voltage is
+                                                                       introduced V , then the
+                                                                                        GG
+whole curve shifts over the input voltage axis by exactly this amount V . As a result, the
+                                                                                GG
+current through transistor M1a has increased from 50% to about 80% and has decreased
+through transistor M2a from 50% to about 20%. The average is again 50%. The transfer
+characteristic is spread out over a larger range of input voltages however, as shown by the red line.
+  The transconductance is the slope of the current versus input voltage. The transconductance
+around zero input voltage has decreased. It is almost 36% smaller than if both diﬀerential pairs
+are put in parallel. The input range however, has increased from about 26 mV for one single
+                                                                                    ptp
+diﬀerential pair to about 78 mV for the same distortion. This is a factor of three better!
+                                  ptp
+  These oﬀset voltages are not easily introduced. They can be realized by means of resistors and
+DC current sources (Ref. Gilbert). An easier way is to use diﬀerent transistor sizes, as shown next.
+
+
+
+                                                                  1938
+                                                                  The goal is now to realize
+                                                                  an oﬀset voltage of about
+                                                                  34 mV between two bipolar
+                                                                  transistors, carrying equal
+                                                                  currents.
+                                                                     Use of the exponential
+                                                                  expression of the current I
+                                                                                              CE
+                                                                  versus V       shows that a
+                                                                             BE
+                                                                  ratio in I is required, or in
+                                                                            S
+                                                                  size, of about 3.7. For sim-
+                                                                  plicity, a factor of four is
+                                                                  usually taken. The circuit is
+                                                                  shown in this slide.
+                                                                     This circuit has been used
+                                                                  by many authors. Also a
+                                                                  MOST version has been
+around for quite some time. This will be shown after a few more bipolar realizations.
+586                                                                                   Chapter #19
+
+  Diﬀerent values of the biasing currents I can also be used, leading to diﬀerent values of n.
+                                             B
+This will be discussed in more detail for the MOST equivalent.
+
+
+                                                                    1939
+                                                                    The same principle can be
+                                                                    applied to more than two
+                                                                    diﬀerential pairs. Four of
+                                                                    them are placed in parallel
+                                                                    in order to increase the input
+                                                                    range. In this example, an
+                                                                    input range is obtained of
+                                                                    approximately 160 mV ,
+                                                                                               ptp
+                                                                    which is about ten times
+                                                                    larger than for a single
+                                                                    diﬀerential pair for the same
+                                                                    distortion (0.8% variation in
+                                                                    transconductance).
+                                                                       The transconductance is
+                                                                    reduced to about 35% of the
+                                                                    diﬀerential pair with the
+                                                                    same total current.
+
+
+                                                                   1940
+                                                                   The same input arrange-
+                                                                   ments are used for the two
+                                                                   parallel     transconductors
+                                                                   illustrated in this slide.
+                                                                   Again, a factor of n=4 is
+                                                                   taken for an equal biasing
+                                                                   currents I .
+                                                                              e
+                                                                      The resulting transcon-
+                                                                   ductance is now 36% less
+                                                                   than the transconductance
+                                                                   of a diﬀerential pair with the
+                                                                   same total current. The
+                                                                   input range is about three
+                                                                   times higher.
+                                                                      In order to increase the
+                                                                   gain, a negative resistance is
+introduced at the output to cancel out the output resistances. The negative resistance is about
+−2R (see Chapter 3).
+     c
+Continuous-time ﬁlters                                                                   587
+
+                                                           1941
+                                                           The same circuit is easily
+                                                           realized by means of
+                                                           MOSTs as shown in this
+                                                           slide. The optimum value of
+                                                           n however, depends on the
+                                                           square-law characteristic of
+                                                           the MOST. Also, diﬀerent
+                                                           biasing currents I are nor-
+                                                                               B
+                                                           mally used. Their ratio is a.
+                                                              Factor n is usually about
+                                                           5 for MOST. The values of
+                                                           the biasing currents and the
+                                                           V −V now have to be
+                                                             GS     T
+                                                           chosen accordingly, as given
+                                                           in this slide. For equal bias-
+                                                           ing currents (a=1) the ratio
+in the V −V value is about 2.24. Values of V −V can now be 0.2 V for transistors M1 and
+        GS     T                            GS T
+0.48 V for the inner devices M2.
+
+
+                                                              1942
+                                                              An example of such a real-
+                                                              ization is shown in this slide.
+                                                              The factor n is 5 indeed.
+                                                              Equal biasing currents are
+                                                              used.
+588                                                                                   Chapter #19
+
+                                                                   1943
+                                                                   Note that all previous
+                                                                   transconductors have their
+                                                                   outputs connected in a
+                                                                   diﬀerent way compared to
+                                                                   multipliers.
+                                                                      In multipliers which have
+                                                                   been common in bipolar
+                                                                   technologies since the six-
+                                                                   ties, the biasing currents I
+                                                                                                B1
+                                                                   and I are equal and all
+                                                                           B2
+                                                                   transistors have the same
+                                                                   size (or V −V ). As a
+                                                                                 GS   T
+                                                                   result, the diﬀerential output
+                                                                   current is always zero, even
+                                                                   for a non-zero input volt-
+                                                                   age v .
+                                                                          id
+  Only a diﬀerence in biasing current AND diﬀerential input voltage v can give a contribution
+                                                                       id
+to the output.
+  A similar conﬁguration is used to cancel out the third harmonic distortion, as shown in the
+previous Chapter. For a certain relationship, the two parameters a and v, the IM cancels out.
+                                                                                   3
+
+
+
+                                                                  1944
+                                                                  All previous transconduc-
+                                                                  tors use two (or more)
+                                                                  diﬀerential pairs to increase
+                                                                  the input voltage range.
+                                                                  Cross-coupling of the out-
+                                                                  put Drains allows lineariza-
+                                                                  tion of the total output cur-
+                                                                  rent, which leads to a
+                                                                  constant transconductance
+                                                                  over a wider input range.
+                                                                     Cross-coupling can also
+                                                                  be used in single diﬀerential
+                                                                  pairs to improve the input
+                                                                  range.
+                                                                     The ﬁrst example uses
+                                                                  MOSTs M3 as series resist-
+ances for the input transistors M1. These MOSTs M3 drive a cross-coupled pair which increases
+the input voltage range.
+  Another example is given next.
+Continuous-time ﬁlters                                                                         589
+
+                                                                      1945
+                                                                      In this transconductor,
+                                                                      cross-coupling is used but
+                                                                      also source-followers at
+                                                                         the input. The negative
+                                                                      resistance −1/g       created
+                                                                                        m2
+                                                                      by the transistors M2, is
+                                                                      subtracted from the positive
+                                                                      output resistance 1/g      of
+                                                                                              m1
+                                                                      the input source followers
+                                                                      M1, such that gain is
+                                                                      achieved at the Gates of the
+                                                                      transistors M2/M3. This
+                                                                      gain is given by ratio v /v .
+                                                                                               g id
+                                                                         The ratio of the transcon-
+                                                                      ductances g /g         is the
+                                                                                    m3 m2
+                                                                      same as the ratio of their
+W/L ratios as their V values are the same. The signal output current is therefore determined
+                         GS
+by the g , multiplied by that same gain factor.
+         m3
+  This transconductor has high gain and is at the same time very linear, because two V are
+                                                                                              GS
+put in series. Also, it has excellent high-frequency performance as only one node is added, i.e. at
+the output of the input Source followers. Remember, that output resistances of Source followers
+are usually 1/g and therefore low.
+                m
+
+
+
+                                                                      1946
+                                                                      Not all transconductors use
+                                                                      either feedback or cross-
+                                                                      coupling.    Some     others
+                                                                      exploit the inherent linear
+                                                                      relationship of a CMOS
+                                                                      inverter    ampliﬁer.   The
+                                                                      advantage is that they do
+                                                                      not add any more nodes.
+                                                                      They are capable of very-
+                                                                      high-frequency
+                                                                      performance.
+                                                                         A few examples are given
+                                                                      next.
+590                                                                                    Chapter #19
+
+                                                                1947
+                                                                Recall from Chapter 3 that
+                                                                a CMOS inverter ampliﬁer
+                                                                is very linear around the
+                                                                quiescent operating point Q.
+                                                                   From this region both
+                                                                transistors operate in satu-
+                                                                ration and exhibit the same
+                                                                square-law      relationship.
+                                                                This non-linearity cancels
+                                                                out.
+                                                                   The input range is now
+                                                                the supply voltage V
+                                                                                          DD
+                                                                minus the two threshold
+                                                                voltages V and V . It can
+                                                                           Tn       Tp
+                                                                be quite large. The linear
+                                                                output voltage range is the
+supply voltage V    minus the two threshold voltages V        (which is close to V −V )
+                 DD                                    DSsatn                        GS    T
+and V        .
+      DSsatp
+
+                                                                     1948
+                                                                     Two such inverter ampliﬁers
+                                                                     are used for diﬀerential
+                                                                     operation as shown in this
+                                                                     slide. Both a bipolar and a
+                                                                     CMOS version are shown.
+                                                                     The tuning is carried out by
+                                                                     current I.
+                                                                        In the bipolar one (on the
+                                                                     left) the common-mode cur-
+                                                                     rent through the diodes in
+                                                                     the middle is four times
+                                                                     larger than any other
+                                                                     inverter branch. It is a
+                                                                     diﬀerential circuit, as each
+                                                                     change of current in one
+                                                                     inverter causes the opposite
+                                                                     current in the other inverter.
+  The CMOS realization (on the right), is very similar. CMFB is used to avoid common-mode
+oﬀset caused by the mismatch between the top and bottom current sources I.
+  In both realizations, the equivalent input noise is quite low as only the four input transistors
+contribute to it.
+
+1949
+Similar CMOS inverters are used in the transconductor shown in this slide. It is a pseudo-
+diﬀerential realization as a change in current in one inverter does not cause an opposite change
+of current in the other inverter. They have to be driven in a diﬀerential way.
+Continuous-time ﬁlters                                                                          591
+
+                                                                      The diﬀerential resistive
+                                                                   load R         for the top
+                                                                             DM1
+                                                                   inverter Inv1 are the two
+                                                                   diode-connected MOSTs of
+                                                                   Inv5 and a contribution
+                                                                   from the output of the other
+                                                                   inverter     Inv2     through
+                                                                   inverter Inv6. If all g ’s are
+                                                                                          m
+                                                                   the same, this diﬀerential
+                                                                   resistive load is very large,
+                                                                   providing a very large
+                                                                   diﬀerential gain. The same
+                                                                   is true for the resistive
+                                                                   load R        of the bottom
+                                                                            DM2
+                                                                   inverter Inv2.
+                                                                      The average or common-
+                                                                   mode output resistance
+R     with respect to ground is low on the other hand. Indeed, R         equals the sum of the
+  CM1                                                               CM1
+transconductances of Inv5 and Inv6. This also applies to R .
+                                                           CM2
+   This transconductor has the advantage that the diﬀerential gain is high. It can be tuned by
+changing the supply voltages V . The common-mode gain is low however, because the common-
+                               dd
+mode output resistances are low. Parasitic capacitances at the output nodes are of little impor-
+tance. Moreover, this circuit has only an input and output node. It is capable of a very-high-
+frequency performance.
+
+
+
+                                                                      1950
+                                                                      A diﬀerent way of reducing
+                                                                      the distortion of a diﬀer-
+                                                                      ential pair and increasing
+                                                                      the input range is to bias the
+                                                                      input transistors themselves
+                                                                      in the linear region, as
+                                                                      shown in this slide.
+                                                                         For this purpose, the volt-
+                                                                      age V       across the input
+                                                                              DS1
+                                                                      MOSTs must be kept con-
+                                                                      stant. A typical value is
+                                                                      0.2 V.
+                                                                         The transconductance g
+                                                                                                   m
+                                                                      is then constant as well. It
+                                                                      can be tuned by changing
+                                                                      the value of V        or cur-
+                                                                                       DS1
+                                                                      rent I .
+                                                                             D
+  The circuit to keep V     constant is quite simple indeed. Biasing (or tuning) current I creates
+                        DS1                                                                D
+a constant voltage R I across resistor R . This voltage imposes the same voltage across the
+                     D D                    D
+input MOSTs, as all three bipolar transistors Q1, Q2 and QD have similar V values.
+                                                                                  BE
+592                                                                                         Chapter #19
+
+  The main disadvantage is that MOSTs in the linear region exhibit lower values of transconduct-
+ance. Local feedback by means of series resistance in the Source also reduces the transconduct-
+ance. It is not that obvious which way is more eﬃcient to reduce distortion or to increase the
+input voltage range.
+
+
+                                                                        1951
+                                                                        Indeed, a comparison of
+                                                                        both alternatives leads to
+                                                                        some more insight.
+                                                                          On the left, one side of the
+                                                                        input stage is depicted of the
+                                                                        previous transconductor. A
+                                                                        MOST is used as an input
+                                                                        device in the linear region,
+                                                                        to avoid distortion, at the
+                                                                        cost of reduced transcon-
+                                                                        ductance. Tuning is carried
+                                                                        out by changing the VDS
+                                                                        across the input MOST.
+                                                                          On the right side, the
+                                                                        input device is a (bipolar)
+                                                                        ampliﬁer with a series resis-
+tor in its Emitter to reduce the distortion and to increase the input voltage range. Tuning is now
+carried out by changing the value of the MOST Emitter resistance.
+   Which is better in the reduction of the distortion or in the extension of the input voltage range
+is not obvious.
+   The one on the left has certainly a larger tuning range.
+
+
+                                                                        1952
+                                                                        A pseudo-diﬀerential real-
+                                                                        ization     of     the     same
+                                                                        transconductor is shown in
+                                                                        this slide. The current
+                                                                        source is left out. As a result,
+                                                                        the minimum supply voltage
+                                                                        can be smaller by one V
+                                                                                                    DSsat
+                                                                        or about 0.2 V.
+                                                                           The disadvantage how-
+                                                                        ever, is that this circuit must
+                                                                        be driven in a diﬀerential
+                                                                        way. Moreover the average
+                                                                        (or common-mode) input
+                                                                        voltage determines the DC
+                                                                        currents in this circuit. The
+                                                                        common-mode biasing is
+imposed by the previous circuit, which is not shown here!
+Continuous-time ﬁlters                                                                      593
+
+                                                                   1953
+                                                                   Another example of a
+                                                                   transconductor which uses
+                                                                   MOSTs in the linear region
+                                                                   at the input is shown in this
+                                                                   slide. It also has a pseudo-
+                                                                   diﬀerential input.
+                                                                      The cascode biasing volt-
+                                                                   age V is suﬃciently low to
+                                                                          b
+                                                                   keep all input devices in the
+                                                                   linear region.
+                                                                      MOSTs in the linear
+                                                                   region are also used as feed-
+                                                                   back resistors across the
+                                                                   diﬀerential opamp. Tuning
+                                                                   is therefore carried out by
+                                                                   means of tuning voltage VN.
+
+
+
+                                                                   1954
+                                                                   All previous transconduc-
+                                                                   tors can be tuned by chang-
+                                                                   ing a biasing current or
+                                                                   voltage. This allows tuning
+                                                                   of the transconductance
+                                                                   such that the time constant
+                                                                   of the transconductor is
+                                                                   accurately determined. This
+                                                                   is the only way to be able to
+                                                                   realize higher-order ﬁlters.
+                                                                   Such circuits are discussed
+                                                                   next.
+
+
+
+
+1955
+Filters are constructed by putting a number of transconductors in series or in a feedback loop.
+At the beginning of this Section on Transconductors a good example is given of a biquad
+consisting of four transconductors.
+  The characteristic frequencies of such a ﬁlter are determined by the Gm/C ratios. In order to
+be able to match these frequencies, accurate values of Gm must be achieved. Indeed, accurate
+ratios of capacitances are already available (see Chapter 15). The ratios have to be realized
+between the load capacitances C of several Gm blocks. The parasitic capacitances C will render
+                                  L                                                 p
+these ratios less accurate. This is compensated however, by adjusting the Gm values.
+594                                                                                  Chapter #19
+
+                                                                      This accuracy can be
+                                                                   achieved by adding another
+                                                                   Gm block, which is matched
+                                                                   to the ones used in the ﬁlter,
+                                                                   this is tuned to a reference
+                                                                   by a tuning circuit. Such cir-
+                                                                   cuits will be described next.
+                                                                      It is clear however, that
+                                                                   besides the characteristic
+                                                                   frequency f , sometimes
+                                                                                 o
+                                                                   tuning is required of a qual-
+                                                                   ity factor Q as well. This can
+                                                                   be done in two ways, either
+                                                                   by adjusting the Gm of
+                                                                   the diode-connected block
+                                                                   (shown left) or by insertion
+                                                                   of a tunable damping resis-
+                                                                   tor R (shown right).
+  The latter one is called the Gm-RC ﬁlter. The resistor R must have high values and be tunable
+over a wide range.
+
+
+                                                              1956
+                                                              For sake of illustration, a
+                                                              ﬁlter is shown consisting of
+                                                              only two Gm blocks in a
+                                                              feedback loop.
+                                                                 It is clear that the reso-
+                                                              nant frequency f depends
+                                                                                 o
+                                                              on the g ’s and the capaci-
+                                                                        m
+                                                              tances, at least if the para-
+                                                              sitic capacitances do not
+                                                              come in yet.
+                                                                 Also, the Q factor
+                                                              depends on the ratio of con-
+                                                              ductances, as shown.
+                                                                 For a given set of small
+                                                              capacitances C and C , the
+                                                                              1       2
+                                                              frequency f can be tuned
+                                                                           o
+by adjusting g and g . Quality factor Q can then be tuned by adjusting the output conduc-
+               m1       m2
+tances g and g . Especially the former one g can be tuned as it is realized by a separate
+        2        o2                          2
+tunable resistor R, as shown next.
+Continuous-time ﬁlters                                                                           595
+
+                                                                       1957
+                                                                       One example of such a tun-
+                                                                       able resistor R is shown in
+                                                                       this slide.
+                                                                          The output resistance
+                                                                       R        is a ﬂoating (or
+                                                                         OUT
+                                                                       diﬀerential) resistance. It is
+                                                                       fairly high because is sees a
+                                                                       cascode of transistors M1
+                                                                       and M2, with feedback to
+                                                                       the gates of M1. The resis-
+                                                                       tance upwards is about
+                                                                       1/g . However, transistors
+                                                                           m1
+                                                                       M1 are in the linear region.
+                                                                       Their g         is therefore
+                                                                                   m1
+                                                                       KP W1/L V             .
+                                                                           1        1 DSsat1
+                                                                          It is tunable by means of
+control voltage V . Indeed, V          is simply V −V . The smaller V , the higher the output
+                    C           DSsat1             C    GS2                C
+resistance R     . Really high values of R      are obtained provided transistors M1 and M2 enter
+             OUT                            OUT
+the weak inversion region.
+  Downwards it sees the output of a current mirror, with small output conduct-
+ance.
+  Let us now concentrate on the tuning circuits themselves.
+
+
+                                                                     1958
+                                                                     In order to tune a transcon-
+                                                                     ductance g to an external
+                                                                                  m
+                                                                     resistor R, the circuit shown
+                                                                     in this slide can be used.
+                                                                        The transconductor uses
+                                                                     the resistor R in the feed-
+                                                                     back loop, this is driven by
+                                                                     a reference or biasing volt-
+                                                                     age V . It is followed by an
+                                                                           ref
+                                                                     integrator, the output of
+                                                                     which is the tuning voltage,
+                                                                     which adjusts the trans-
+                                                                     conductance g         of this
+                                                                                       m
+                                                                     transconductor and of all
+                                                                     other transconductor blocks
+                                                                     connected to it.
+  The integrator has suﬃcient gain to determine that its input voltage is always zero. As a result,
+the transconductance g is adjusted so that it equals 1/R.
+                       m
+  Resistors are not readily available, however. Switched capacitors can also be used, as shown
+next.
+596                                                                                     Chapter #19
+
+                                                                    1959
+                                                                    A switched-capacitor resis-
+                                                                    tor R is given by 1/Cf ,
+                                                                                                c
+                                                                    in which f is the clock
+                                                                                   c
+                                                                    frequency. As a result,
+                                                                    the transconductance g is
+                                                                                             m
+                                                                    adjusted such that it equals
+                                                                    Cf . In other words, the time
+                                                                       c
+                                                                    constant g /C is accurately
+                                                                                 m
+                                                                    locked to the clock fre-
+                                                                    quency, which can be made
+                                                                    very accurate indeed (for
+                                                                    example with a crystal
+                                                                    oscillator).
+                                                                       Obviously, some scaling
+                                                                    will have to be introduced
+                                                                    to be able to separate the
+ﬁlter frequency further from the clock frequency. The required accuracy is achieved, however.
+   Note also, that a low-pass ﬁlter is added at the output to suppress the ripple from the clock
+generator.
+
+
+
+                                                                     1960
+                                                                     An example of such a tuning
+                                                                     system is shown in this slide.
+                                                                     The Gm block to be tuned
+                                                                     is G . It is matched to all
+                                                                          mR
+                                                                     other Gm blocks in the
+                                                                     Bandpass Filter.
+                                                                        The switched-capacitor
+                                                                     resistor with capacitor C is
+                                                                                                R
+                                                                     a better version than the one
+                                                                     on the previous slide, as it is
+                                                                     less sensitive to parasitic
+                                                                     capacitances.
+                                                                        Everything is fully diﬀer-
+                                                                     ential to be insensitive to
+                                                                     disturbances on the ground
+                                                                     and supply lines.
+  This system used a clock of 1.5 MHz to tune ﬁlter frequencies between 150 and 800 kHz.
+These frequencies are still quite close, however. Indeed the capacitance C must be close to the
+                                                                           R
+capacitances used in the BPF for good matching.
+  A technique to separate the clock frequency from the ﬁlter frequencies is shown next.
+Continuous-time ﬁlters                                                                         597
+
+                                                                      1961
+                                                                      In order to lower the clock
+                                                                      frequency, compared to the
+                                                                      ﬁlter frequency, the circuit
+                                                                      in the slide can be used.
+                                                                         Two DC current sources
+                                                                      are used with ratio N. The
+                                                                      ﬁrst one generates a voltage
+                                                                      IB/gm across the capacitor
+                                                                      C. In the next phase current
+                                                                      IB/N discharges the capaci-
+                                                                      tor C to zero. In the steady
+                                                                      state condition, the charge
+                                                                      introduced in the ﬁrst phase
+                                                                      must equal the charge taken
+                                                                      away in the second phase.
+                                                                      Charge       balancing     is
+                                                                      achieved by the integrator.
+   As a result, the time constant g /C is accurately locked to the clock frequency f , but diﬀerent
+                                   m                                                 c
+by a factor N.
+   The main advantage of such a system is that the clock oscillator frequency can be positioned
+far away from the ﬁlter frequencies, such that it does not leak. Oscillator leakage is also the
+problem with PLL tuning. Charge balancing is therefore a better technique for tuning.
+
+
+
+                                                                      1962
+                                                                      A practical realization of
+                                                                      such a tuning system is
+                                                                      shown in this slide. It is a
+                                                                      diﬀerential realization for
+                                                                      better rejection of substrate
+                                                                      noise. The resistor in the
+                                                                      low-pass ﬁlter at the output
+                                                                      is a switched-capacitor real-
+                                                                      ization as well.
+                                                                         This was used for a band-
+                                                                      pass ﬁlter around 10.7 MHz
+                                                                      with N=148, such that the
+                                                                      clock is only at 450 kHz.
+                                                                      This is far removed from the
+                                                                      useful ﬁlter frequencies
+                                                                      indeed.
+598                                                                                       Chapter #19
+
+                                                                        1963
+                                                                        Tuning Q is much more
+                                                                        complicated and therefore
+                                                                        not used very often.
+                                                                          As explained before it can
+                                                                        be achieved by tuning a
+                                                                        resistor which is in parallel
+                                                                        with the ﬁlter load capaci-
+                                                                        tance C .
+                                                                                L
+                                                                          The problem is however,
+                                                                        how to measure the Q. For
+                                                                        this purpose, an under-
+                                                                        damped second-order sys-
+                                                                        tem is realized by means
+                                                                        of two Gm blocks. For low
+                                                                        Q its response is oscillatory.
+                                                                        Both the expression and the
+response versus time are given in this slide.
+  The oscillatory behavior can be detected by taking the diﬀerence between the envelop and the
+average output signal. The measurement has to be carried out with two diﬀerent time constants,
+one which provides the average, and one which takes the envelop.
+
+
+                                                                        1964
+                                                                        In this realization, two paths
+                                                                        lead to the diﬀerential
+                                                                        ampliﬁer AMP and low-
+                                                                        pass ﬁlter LPF at the
+                                                                        output. The top one has an
+                                                                        oscillatory behavior because
+                                                                        of low Q. The bottom one
+                                                                        has a Q close to unity, which
+                                                                        gives a ﬂat response. This
+                                                                        diﬀerence is ampliﬁed and
+                                                                        fed back over a low-pass
+                                                                        ﬁlter to the tunable resis-
+                                                                        tance R .
+                                                                                 tune
+
+
+
+
+1965
+For sake of comparison, three realizations for the same application are listed. They all aim at
+an IF ﬁlter for FM. The center frequency is 10.7 MHz and the passband is about 250 kHz. The
+ﬁrst is realized by a switched-capacitor techniques, the second uses RC components around
+opamps and the third uses Gm blocks such as diﬀerential pairs, capacitors and tunable resistors.
+  It is clear that the ﬁrst two realizations suﬀer from insuﬃcient gain at this fairly high frequency.
+Continuous-time ﬁlters                                                                           599
+
+                                                                       As a result, the distortion
+                                                                       increases and the dynamic
+                                                                       range decreases. This is
+                                                                       especially true for the SC
+                                                                       realization, where the DR
+                                                                       suﬀers from clock injection
+                                                                       and charge redistribution.
+                                                                          Moreover, the power con-
+                                                                       sumption of the Gm-RC
+                                                                       realization is better as
+                                                                       simple diﬀerential pairs pro-
+                                                                       vide much better perfor-
+                                                                       mance at high frequencies
+                                                                       than      full   operational
+                                                                       ampliﬁers.
+                                                                          It can be concluded that
+                                                                       from 10 MHz on Gm-C and
+Gm-RC ﬁlters are the best choice.
+ A more elaborate comparison follows at the end of this Chapter.
+
+                                                                     1966
+                                                                     As a ﬁnal example of fre-
+                                                                     quency and Q tuning, a 7th
+                                                                     order ﬁlter is discussed con-
+                                                                     sisting of three biquads and
+                                                                     one ﬁrst-order section. Such
+                                                                     a biquad is shown in this
+                                                                     slide. Its goal is accurate fre-
+                                                                     quency and phase behavior
+                                                                     at high frequencies (here
+                                                                     50 MHz).
+                                                                        In order to increase the
+                                                                     parasitic pole frequencies as
+                                                                     much as possible, no capaci-
+                                                                     tances have been added. The
+                                                                     node capacitance C consists
+                                                                     of the sum of all parasitic
+                                                                     node capacitances. In order
+to make sure that capacitance C is the same on both nodes, two dummy g blocks are added.
+                                                                               m
+Each node now sees three input capacitances (of blocks g , g and g ) and three output
+                                                            m1 m2            m3
+capacitances (also of blocks g , g and g ).
+                              m1 m2         m3
+   For high frequency performance, the g blocks consist of full-diﬀerential pairs with local
+                                           m
+CMFB. They have large V −V values (0.5 V) for low distortion.
+                           GS     T
+   The gain A , the characteristic frequency f and Q are readily obtained. Note that g * also
+              v                               o                                             m2
+includes the output conductances.
+   The Q factor can be tuned by tuning factor c, which is a ratio of two transconductances. The
+frequency f can be tuned by tuning the time constant t.
+           o
+   Two parameters c and constant t need a tuning system. This is discussed next.
+600                                                                                     Chapter #19
+
+                                                                     1967
+                                                                     This tuning system has
+                                                                     inputs V and kV . Ratio
+                                                                              ref         ref
+                                                                     k is very accurate as it is set
+                                                                     by resistor ratios (not
+                                                                     shown). Its output is the
+                                                                     current control of transcon-
+                                                                     ductor g , which is also
+                                                                               m1
+                                                                     used for all other ﬁlter
+                                                                     transconductors.
+                                                                        When all switches W
+                                                                                                   1
+                                                                     dash are closed, the input
+                                                                     voltage V             to the
+                                                                                  n+,n-
+                                                                     OTA_dif1 is 2V g /g *,
+                                                                                       ref m1 m2
+                                                                     which is actually 2V /c.
+                                                                                               ref
+                                                                     The input voltage to the
+                                                                     OTA_dif2 is 2kV . Both
+                                                                                          ref
+voltages experience the same ampliﬁcation as ampliﬁers OTA_dif1 and OTA_dif2 have the same
+gain g     . The diﬀerence is ampliﬁed and stored on capacitor C , which closes the feedback
+       OTA                                                         1
+loop and adjusts g such that this diﬀerence is zero. As a result, parameter c equals 1/k. It is
+                   m1
+set accurately by the value given to k.
+   For higher accuracy, an oﬀset calibration cycle is introduced. For this purpose, the switches
+W dash are open and switch W is closed. The oﬀset error voltage is stored on capacitor C and
+  1                             1                                                             2
+subtracted in the other phase.
+
+
+                                                                     1968
+                                                                     The system to tune the time
+                                                                     constants is shown in this
+                                                                     slide.
+                                                                        Actually, it does not tune
+                                                                     the absolute value of one
+                                                                     single time constant but
+                                                                     rather a ratio of time con-
+                                                                     stants. Indeed, for a higher-
+                                                                     order ﬁlter, the ratio of char-
+                                                                     acteristic frequencies must
+                                                                     be more accurate than the
+                                                                     absolute value of one single
+                                                                     time constant.
+                                                                        The ratio of time con-
+                                                                     stants t and t will be
+                                                                               1         2
+                                                                     locked to the ratio of c
+                                                                     values, which have been
+tuned by circuits as on a previous slide, and a constant k12, which is the ratio of the two
+integrating capacitors.
+   Again, a charge balancing feedback circuit is used with capacitor C to make the input of the
+                                                                       1
+diﬀerential ampliﬁer OTA_dif zero. Again, an oﬀset calibration cycle is added, using capacitor C .
+                                                                                                  2
+Continuous-time ﬁlters                                                                              601
+
+  The two voltages at the input of the OTA_dif are provided by two matched circuits, both are
+driven by V but with diﬀerent integration capacitors. The one at the top has C whereas the
+             ref                                                                           int
+one at the bottom has k12C .
+                              int
+  The voltage at the output of the ﬁrst g block on top is V                . It is actually 2V /c . This
+                                           m1                      n1+,n1–                     ref 1
+voltage is integrated over time t . As a result, the input voltage V         equals the expression given
+                                  1                                    1,int
+in this slide. In the same way, the voltage V           is derived for the block at the bottom. The
+                                                  2,int
+equation of both, as a result of the feedback loop, shows that indeed the ratio of the time
+constants is kept constant.
+  Despite the tuning circuits, the total power consumption of this CMOS realization is quite
+low. Moreover, no external trimming is required.
+
+
+                                                                         1969
+                                                                         Since several types of ﬁlters
+                                                                         have been introduced up till
+                                                                         now, a comparison in terms
+                                                                         of dynamic range and fre-
+                                                                         quency capability is manda-
+                                                                         tory. As a third axis the
+                                                                         power consumption could
+                                                                         be added. This is left to the
+                                                                         reader however.
+
+
+
+
+                                                                         1970
+                                                                         In this graph, a ﬁrst-order
+                                                                         comparison is carried out
+                                                                         between the diﬀerent types
+                                                                         of ﬁlters in terms of dynamic
+                                                                         range DR versus frequency.
+                                                                            For each type, the DR is
+                                                                         sketched versus frequency.
+                                                                         The main positive and nega-
+                                                                         tive points are listed on the
+                                                                         right.
+                                                                            At low frequencies, an
+                                                                         operational ampliﬁer with
+                                                                         RC’s in the feedback loop
+                                                                         oﬀers the highest dynamic
+                                                                         range. For higher power
+                                                                         consumption, even values
+602                                                                                    Chapter #19
+
+higher than 100 dB can be reached. The distortion is very low because of the high loop gain. At
+higher frequencies however, the loop gain decreases and the distortion increases. The DR already
+decreases at rather low frequencies. Moreover tuning is a problem.
+   Tuning is easy when the resistors are substituted by MOST resistors. The distortion is higher
+however. The DR can still be as high as 80 dB.
+   Switched-capacitor ﬁlters do not easily oﬀer more than about 70 dB dynamic range, because
+of clock injection and charge distributions. This is even worse at higher frequencies when settling
+has to be achieved in shorter time. Tunability is good, however.
+   Gm-C ﬁlters rarely achieve more than 60 dB because of distortion. They reach the highest
+frequencies however, because they use the simplest circuit conﬁgurations. They can be tuned
+with dedicated circuitry.
+   Finally, switched-current ﬁlters reach nearly the same DR as Gm-C ﬁlters and nearly the same
+high frequencies. Both are lower, however.
+
+
+                                                                   1971
+                                                                   In this Chapter, continuous-
+                                                                   time ﬁlters have been dis-
+                                                                   cussed. Considerable atten-
+                                                                   tion has gone to Gm-C
+                                                                   ﬁlters as they are capable of
+                                                                   a reasonable performance at
+                                                                   the higher frequencies.
+                                                                      At low frequencies how-
+                                                                   ever, OTA-RC ﬁlters pro-
+                                                                   vide the highest dynamic
+                                                                   range. The other types of
+                                                                   ﬁlters provide a perfor-
+                                                                   mance in between. This is
+                                                                   also true for switched-
+                                                                   capacitor ﬁlters.
+                                                                      The main disadvantage of
+Gm-C ﬁlters is that they need tuning circuitry and that they give more distortion. For dynamic
+ranges up to about 60 dB, however, they provide lower power consumption at higher frequencies.
+

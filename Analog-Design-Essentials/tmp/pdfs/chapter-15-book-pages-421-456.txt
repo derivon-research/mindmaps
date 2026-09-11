@@ -1,0 +1,1758 @@
+                                                                    151
+                                                                    The main limitation to
+                                                                    precision in analog integ-
+                                                                    rated circuits is established
+                                                                    by noise and mismatch.
+                                                                    Actually, the smaller the
+                                                                    channel lengths become, the
+                                                                    more severe is the mismatch
+                                                                    and this becomes the domi-
+                                                                    nant limitation in precision.
+                                                                       Mismatch is the main
+                                                                    reason for high oﬀset and
+                                                                    low CMRR (Common-
+                                                                    mode rejection ratio). It is
+                                                                    also the main reason for low
+                                                                    PSRR (Power-supply rejec-
+                                                                    tion ratio).
+  In this Chapter we will investigate the relationship between mismatch and these speciﬁcations.
+Moreover, we will try to ﬁnd out how to modify the layout of a circuit to improve mismatch
+and hence to lower the oﬀset. This will be done for both CMOS and bipolar technologies.
+
+
+
+                                                                         152
+                                                                         First of all, we start by a few
+                                                                         deﬁnitions. What is actually
+                                                                         oﬀset and what is CMRR?
+                                                                           They can be caused by
+                                                                         random eﬀects but also by
+                                                                         systematic errors in design.
+                                                                           We now focus on how
+                                                                         these phenomena behave at
+                                                                         higher frequencies.
+                                                                           Probably the most impor-
+                                                                         tant part of this Chapter is
+                                                                         the list of design rules for
+                                                                         good design.
+                                                                           Finally, the diﬀerences are
+                                                                         highlighted between CMOS
+                                                                         and bipolar design.
+
+
+
+153
+When a single-ended opamp is taken with zero diﬀerential input voltage, its output voltage
+should be zero, whatever the gain is. In practice, this is not the case. The output voltage is not zero.
+  The oﬀset voltage v is now by deﬁnition the diﬀerential input voltage that is required to
+                       os
+make the output voltage zero. Since it is a diﬀerential input voltage it can be inserted in either
+
+                                                 421
+422                                                                                      Chapter #15
+
+                                                                       one of the two input termi-
+                                                                       nals. In this example, the
+                                                                       oﬀset voltage is inserted in
+                                                                       the plus terminal. When
+                                                                       shifted to the minus termi-
+                                                                       nal it has the same value but
+                                                                       opposite sign.
+                                                                          It is usually a few mV’s
+                                                                       for a bipolar ampliﬁer. For
+                                                                       a CMOS ampliﬁer it can be
+                                                                       up to ten times larger!
+                                                                          What causes this oﬀset
+                                                                       voltage? Random eﬀects can
+                                                                       play a role, but also system-
+                                                                       atic ones.
+
+
+
+
+                                                                 154
+                                                                 The oﬀset can cause large
+                                                                 errors in high-gain opamp
+                                                                 conﬁgurations.
+                                                                    In the example in this
+                                                                 slide, a small DC voltage is
+                                                                 ampliﬁed coming from a
+                                                                 thermocouple. A gain of
+                                                                 1000 is expected. For an
+                                                                 input voltage this would
+                                                                 give an output voltage of
+                                                                 −1 V.
+                                                                    The output voltage is only
+                                                                 −596 mV however. An
+                                                                 oﬀset voltage of 4 mV leaves
+                                                                 only 6 mV as a voltage
+                                                                 across the resistor R . The
+                                                                                       S
+                                                                 voltage across resistor R is
+                                                                                           F
+now 100 times higher, which is 600 mV leading to the output voltage shown.
+  This oﬀset causes a large error in gain!
+
+
+
+
+155
+This oﬀset causes an error in this ADC (analog-to-digital converter) as well. In this ﬂash converter,
+the input voltage V is compared with a voltage which is divided from a reference voltage V .
+                    in                                                                            ref
+The comparators indicate at which tap of the reference voltage the input voltage is located.
+OVset and CMRR: random and systematic                                                        423
+
+                                                                       Obviously, when these
+                                                                    comparators have an oﬀset
+                                                                    voltage they may give an
+                                                                    erroneous result. The yield
+                                                                    of such an ADC will depend
+                                                                    on the oﬀsets present. The
+                                                                    graph on the right shows
+                                                                    that an 8-bit ADC can be
+                                                                    expected to provide a yield
+                                                                    of only 60%, if the oﬀset is
+                                                                    about 2 mV.
+                                                                       As a consequence, the
+                                                                    oﬀset severely limits the
+                                                                    resolution of the ADC’s if a
+                                                                    high yield is required, which
+                                                                    is usually the case!
+
+
+
+
+                                                                    156
+                                                                    This oﬀset is caused by mis-
+                                                                    matches between transistors
+                                                                    which have been laid out
+                                                                    equal.
+                                                                       When a large number
+                                                                    such as 10,000 equal transis-
+                                                                    tors are evaluated, their
+                                                                    threshold voltage V are
+                                                                                           T
+                                                                    measured, and their K∞
+                                                                    values, etc. When the
+                                                                    number of transistors are
+                                                                    plotted versus the actual V
+                                                                                                T
+                                                                    values, a diagram is
+                                                                    obtained as shown in this
+                                                                    slide.
+                                                                       Normally, it shows a
+                                                                    Gaussian distribution with
+an average and a spreading or sigma. For a Gaussian distribution, only about 0.5% of the
+transistors have a V more than three sigma’s away from the average.
+                     T
+   Several models have shown that this sigma is inversely proportional to the square root of the
+area WL of the transistor. The proportionality constant A on itself, depends on the technology
+                                                          VT
+used. For smaller channel lengths L, the oxide thickness t (#L/50) decreases but the doping
+                                                           ox
+levels increase. Parameter N is the doping level of the substrate underneath the transistor. For
+                            B
+a nMOST in 0.5 mm CMOS, A is about 10 mVmm. For a MOST of 20×0.13 mm the sigma
+                                VT
+would be about 6.2 mV.
+   For a pMOST, the A is about 50% higher, mainly because of the higher substrate doping
+                        VT
+level in a n-well CMOS technology.
+424                                                                                    Chapter #15
+
+                                                                    157
+                                                                    In order to illustrate this
+                                                                    dependency on size, a meas-
+                                                                    urement curve is shown in
+                                                                    this slide. The smaller sizes
+                                                                    are on the right of the hori-
+                                                                    zontal axis.
+                                                                       It is clear that for smaller
+                                                                    sizes the spreading is larger
+                                                                    as well.
+                                                                       The slope on the other
+                                                                    hand, corresponds to a A
+                                                                                                 VT
+                                                                    factor of about 12 mVmm.
+                                                                    This is for a 0.7 micrometer
+                                                                    CMOS technology, which
+                                                                    has an oxide thickness of
+                                                                    about 700/50 or 14 nm. As
+a rule of thumb, the value of the A factor in mVmm can be taken to be about the same as the
+                                     VT
+oxide thickness in nm. This is shown on the next slide.
+Note also that the layout style does not make all that much diﬀerence. Whether a ﬁnger layout
+is used or an interdigitated one seems to be unimportant. Only the total gate area WL is
+important.
+   It is also clear that this curve goes through zero. This would mean that for even very small
+channel lengths, the oxide thickness would decrease accordingly and therefore the factor A .
+                                                                                               VT
+Whether nanometer CMOS processing develops in this way still has to be seen, however.
+
+                                                                  158
+                                                                  The value of the A factor
+                                                                                       VT
+                                                                  in mVmm can (as shown
+                                                                  here) be taken to be the
+                                                                  same as the oxide thickness
+                                                                  in nm. Each star corres-
+                                                                  ponds to a diﬀerent tech-
+                                                                  nology.
+                                                                     Both axes are provided,
+                                                                  one with the oxide thickness
+                                                                  and one with the channel
+                                                                  length. A ratio of 50 is taken
+                                                                  between them.
+                                                                     This curve allows predic-
+                                                                  tion of the A for future
+                                                                                 VT
+                                                                  CMOS technologies in a
+                                                                  fairly obvious way. Care has
+to be exerted however, when extrapolating to deep submicron CMOS technologies.
+  For example, it has already been found (Tuinhout, IEDM 1997, 631–634 and more recently
+by Croon, Springer 2004), that below 130 nm channel lengths, several phenomena show up such
+that the A does not decrease any more but becomes more or less constant at a value of about
+          VT
+3 mVmm.
+OVset and CMRR: random and systematic                                                        425
+
+  In conventional CMOS the main contribution to A is the eﬀect of ﬂuctuations in channel
+                                                     VT
+doping. Fluctuations in Gate doping and surface-roughness scattering are dominant in A . For
+                                                                                      WL
+nanometer CMOS, poly-silicon gate depletion comes in heavily. Metal Gates are expected to
+remedy this.
+  More experimental evidence is required, however.
+
+                                                                   159
+                                                                   The other transistor param-
+                                                                   eters are subject to similar
+                                                                   spreadings.
+                                                                      An expression can be
+                                                                   established for the K∞
+                                                                   parameter in a similar way
+                                                                   as for the threshold voltage.
+                                                                   However, its parameter A
+                                                                                              K∞
+                                                                   is quite small.
+                                                                      The same applies to the
+                                                                   dimensions W and L.
+                                                                   Photolithography and mask
+                                                                   making play a role in this
+                                                                   expression. It is clear that
+                                                                   the smaller dimension W or
+                                                                   L plays the dominant role.
+The A parameter is larger than A . It is also larger for a pMOST than for a nMOST. Its
+      WL                             VT
+value does not seem to change all that much with technology. It is still around 2%mm for
+minimum feature sizes.
+  Finally, the substrate eﬀect parameter g has a similar expression as well. When the Bulk is
+shorted to the Source, the eﬀect of this parameter spreading can be neglected. We will do so
+whenever possible. This is why most input stages of operational ampliﬁers use pMOSTs. They
+can be put in the same n-well. Their matching can now be expected to improve.
+
+                                                                   1510
+                                                                   Some more data is given
+                                                                   next.
+                                                                      It is clearly seen that the
+                                                                   A      continues to decrease
+                                                                     VT
+                                                                   for smaller channel lengths
+                                                                   but not A . The latter
+                                                                                 WL
+                                                                   parameter seems to stabilize
+                                                                   around 2%mm. This means
+                                                                   that if the spreading on the
+                                                                   threshold is the main con-
+                                                                   tributor to mismatch, then
+                                                                   spreading in sizing may
+                                                                   become the dominant one in
+                                                                   the future.
+                                                                      Two more parameters are
+                                                                   introduced below. The ﬁrst
+426                                                                                  Chapter #15
+
+one is S . It indicates the spreading of the threshold voltage V for two transistors separated
+        VT                                                      T
+by a distance of 1 mm. Values are given for some older technologies but not for more recent
+ones. The reason is that CMOS processing is now carried out on large wafers (of 12 inch and
+more) such that homogeneity has been strongly improved. Spreading on such short distances of
+1 mm has therefore become negligible. The same applies to the other factor S .
+                                                                            WL
+                                                                    1511
+                                                                    Note that several sources of
+                                                                    parameter spreading have
+                                                                    been identiﬁed, we can try
+                                                                    to establish their relation-
+                                                                    ship with the oﬀset.
+                                                                       A simple diﬀerential pair
+                                                                    is taken ﬁrst, in which the
+                                                                    only source of asymmetry is
+                                                                    the spreading in load resis-
+                                                                    tor RL. This will result in a
+                                                                    diﬀerential output voltage
+                                                                    v and therefore into an
+                                                                      od
+                                                                    oﬀset voltage. It is calcu-
+                                                                    lated in this slide.
+                                                                       The diﬀerential output
+                                                                    voltage v is readily calcu-
+                                                                              od
+lated, as both transistors carry an equal current I /2. This v divided by the small-signal gain
+                                                   B           od
+g R gives the diﬀerential input voltage required to make the diﬀerential output voltage zero,
+ m L
+which is by deﬁnition the oﬀset voltage v .
+                                           os
+   The ﬁnal result for the oﬀset voltage v shows that the input transistors must be designed for
+                                          os
+high gain, which means they must be designed for small V −V .
+                                                            GS    T
+   Pushing them into a weak inversion would make the oﬀset voltage even smaller! Indeed for a
+weak inversion factor (V −V )/2 it can be substituted by nkT/q, which is always smaller.
+                          GS    T
+                                                                    1512
+                                                                    A similar calculation can be
+                                                                    carried out for the other
+                                                                    delta’s.
+                                                                       The easiest one to under-
+                                                                    stand is the one for the
+                                                                    spreading in V . This one
+                                                                                    T
+                                                                    simply appears at the input
+                                                                    of the diﬀerential pair. This
+                                                                    is why it can simply be
+                                                                    added to the oﬀset voltage
+                                                                    v .
+                                                                      os
+                                                                       The resulting expression
+                                                                    contains four terms. Since
+                                                                    all of them can have both
+                                                                    positive and negative values,
+                                                                    they never all add up. Such
+OVset and CMRR: random and systematic                                                             427
+
+a worst case never occurs in practice. They never cancel out either.
+   Three of them are scaled by (V −V )/2. The oﬀset can now be reduced by designing the
+                                     GS     T
+transistors with small values of V −V , or by pushing them into weak inversion.
+                                    GS    T
+   Note that trimming the resistors allows it to compensate for all other terms. It is clear however,
+that this cancellation point depends on the stability of the biasing point (through V −V ) with
+                                                                                        GS    T
+respect to other biasing and supply voltages and with respect to temperature. This is exceedingly
+diﬃcult to realize in practice. Trimming of the oﬀset voltage for MOSTs is therefore a real problem.
+
+                                                                     1513
+                                                                     Two matched transistors are
+                                                                     also used in current mirrors.
+                                                                     The diﬀerence with a diﬀer-
+                                                                     ential pair however, is that
+                                                                     we now have to concentrate
+                                                                     on the output currents,
+                                                                     rather than on the diﬀer-
+                                                                     ential input voltage.
+                                                                        The relative spreading on
+                                                                     the output current depends
+                                                                     again on the transistor
+                                                                     parameter spreadings.
+                                                                        It is easy to understand
+                                                                     that when one transistor is
+                                                                     1% larger than the other
+                                                                     one, the currents diﬀer
+                                                                     accordingly.
+  This time the spreading in threshold voltage must be scaled by (V −V )/2.
+                                                                      GS     T
+  This leads to the conclusion that current source transistors are well matched if they have been
+designed for large value of V −V . In this case, the A is the dominant source of mismatch.
+                             GS    T                     WL
+Remember that this one does not scale with technology.
+
+                                                                       1514
+                                                                       Note however, that current
+                                                                       mirrors, which are used for
+                                                                       biasing, may have errors in
+                                                                       the output currents, caused
+                                                                       by resistances in the supply
+                                                                       lines. On the left such a cur-
+                                                                       rent mirror is shown. It is
+                                                                       duplicated on the right with
+                                                                       some series resistance R in
+                                                                                                 S
+                                                                       the supply line.
+                                                                          The output current I
+                                                                                                  out2
+                                                                       will be decreased because a
+                                                                       voltage drop R I        has to
+                                                                                        S out2
+                                                                       be subtracted from its V .
+                                                                                                 GS2
+                                                                       This voltage drop must
+                                                                       always be subtracted. It is
+428                                                                                 Chapter #15
+
+now a systematic error, not a random one. More systematic spreadings will be discussed
+later.
+
+
+                                                                  1515
+                                                                  The spreading on the total
+                                                                  drain current contains both
+                                                                  the spreading on the beta
+                                                                  and the spreading on the
+                                                                  threshold voltage V , but in
+                                                                                       T
+                                                                  a diﬀerent way. The spread-
+                                                                  ings on K∞ and on W/L are
+                                                                  taken up by the spreading
+                                                                  on beta for simplicity.
+                                                                     Taking the derivatives
+                                                                  allows us to calculate the
+                                                                  total eﬀective spreading on
+                                                                  the drain current I . It is
+                                                                                        DS
+                                                                  clear that for large values of
+                                                                  V −V , the spreading in
+                                                                    GS     T
+                                                                  beta is dominant. This is the
+                                                                  case for a current mirror.
+  For small values of V −V however, the spreading in threshold voltage may be dominant
+                       GS    T
+depending on the actual values, which depend on the actual sizes used.
+  This also applies to transistors biased in weak inversion. For weak inversion the term
+(V −V )/2 has to be substituted by nkT/q. Remember that these terms are nothing more than
+  GS    T
+the g /I values of the transistor, independent of weak or strong inversion.
+     m DS
+  A plot version weak inversion coeﬃcient is shown next.
+
+
+                                                                   1516
+                                                                   A plot of the mismatch of
+                                                                   the drain current version
+                                                                   weak inversion coeﬃcient is
+                                                                   shown below. This is the
+                                                                   ratio of the drain current to
+                                                                   the si/wi transition current
+                                                                   (see Chapter 1). In terms of
+                                                                   beta, this transition current
+                                                                   is about 2nb(kT/q)2 or 0.002
+                                                                   b. Note that V =kT/q.
+                                                                                   t
+                                                                      It is clear that for weak
+                                                                   inversion the spreading in
+                                                                   threshold voltage is domi-
+                                                                   nant. For strong inversion,
+                                                                   the spreading in beta is
+                                                                   dominant, most probably
+due to the spreading in W and L values, whichever is smaller.
+OVset and CMRR: random and systematic                                                            429
+
+  The crossover region is quite large however, as can be expected near the cross-over between
+weak and strong inversion (explained in Chapter 1).
+
+
+
+
+                                                                       1517
+                                                                       Besides the oﬀset voltage, a
+                                                                       diﬀerential pair has another
+                                                                       speciﬁcation, which also
+                                                                       reﬂects the inﬂuences of
+                                                                       the spreadings. It is the
+                                                                       CMRR or Common-mode
+                                                                       Rejection Ratio.
+                                                                          Remember (from Chap-
+                                                                       ter 3) that a diﬀerential pair
+                                                                       has two inputs, which are
+                                                                       better converted into a
+                                                                       diﬀerential input v and a
+                                                                                             id
+                                                                       common-mode (or average)
+                                                                       input v . The same applies
+                                                                                ic
+                                                                       to the outputs. In this way
+                                                                       insight can be built up about
+                                                                       the actual operation.
+   As a result, we ﬁnd four diﬀerent gains. Up till now we have concentrated on the diﬀerential-
+to-diﬀerential gain A . This gain is easy to calculate as it is the diﬀerential output voltage v
+                       dd                                                                          od
+obtained for a diﬀerential input voltage v , when the common-mode input voltage v is zero.
+                                              id                                            ic
+In this case the diﬀerential-to-common-mode gain A does not play a role.
+                                                       dc
+   If the diﬀerential pair is driven with a common-mode voltage however, the gain A may come
+                                                                                         dc
+in. It is deﬁned as the diﬀerential output voltage v obtained for a common-mode input voltage
+                                                    od
+v , when the diﬀerential input voltage v is zero. This situation is sketched in this slide. A
+ ic                                           id
+common-mode input voltage v is applied and the diﬀerential output voltage v is measured.
+                                  inc                                                 od
+   The ratio of the two gains is the CMRR. It is inﬁnity if gain A (and not A !) is zero. Note
+                                                                    dc              cc
+also that the CMRR does not play a role for a purely diﬀerential drive (v =0).
+                                                                              ic
+
+
+
+
+1518
+In order to calculate the CMRR, we need to calculate the gain A . A common-mode input
+                                                                       dc
+voltage v is then applied and the diﬀerential output voltage v is measured.
+            inc                                                   od
+   It is clear that no diﬀerential output voltage v can be detected if no delta’s occur. Both input
+                                                   od
+Gates and the common-Source point carry the same signal. The currents in both transistors are
+now the same and for equal load resistors R the output voltages are also the same. The
+                                                   L
+diﬀerential output voltage is then zero.
+   Let us assume that a diﬀerence in load resistor is now present. Both transistors are still equal.
+In this, case the input voltage v causes a small current i to ﬂow through the output resistance
+                                   inc                     c
+R of the current source. This current is divided equally through both transistors and reaches
+  B
+430                    Chapter #15
+
+      the output resistors. A
+      diﬀerential output voltage
+      v thus develops as given in
+       od
+      this slide. Gain A is thus
+                            dc
+      readily obtained.
+         Division by the diﬀer-
+      ential gain g R , yields the
+                      m L
+      CMRR.
+         It is clear that the CMRR
+      depends on the output resis-
+      tance of the current source.
+      It can be made large by use
+      of cascodes.
+         As an example, for a g R
+                                m B
+      of 30 and a DR /R of 1%,
+                        L L
+      the CMRR is about 6000
+      or 75 dB.
+
+
+
+
+      1519
+      If all other parameter
+      spreadings are included, an
+      expression is found for the
+      CMRR as shown in this
+      slide. Note again that we
+      ﬁnd four terms, which add
+      up algebraically. The sum is
+      never reached and neither
+      is an average of zero. The
+      same combination of terms
+      is found as for the oﬀset.
+         There must therefore be a
+      simple relationship between
+      oﬀset and CMRR, as
+      shown next.
+OVset and CMRR: random and systematic                                                     431
+
+                                                                 1520
+                                                                 Copying the expressions of
+                                                                 the random oﬀset and the
+                                                                 CMRR shows that their
+                                                                 product cancels out all the
+                                                                 delta terms. Moreover, the
+                                                                 product can be simpliﬁed as
+                                                                 the input devices are in-
+                                                                 volved in an obvious way,
+                                                                 and also the current source
+                                                                 transistor.
+                                                                    The resulting parameter is
+                                                                 merely the Early Voltage
+                                                                 V L of the current source.
+                                                                   E B
+                                                                 Its value depends on the
+                                                                 channel length L chosen. If
+                                                                                   B
+                                                                 an average value for V L
+                                                                                         E B
+is taken of about 10 V, then some important conclusions can be drawn.
+
+
+
+
+                                                              1521
+                                                              For an average value for
+                                                              V L of 10 V, it becomes
+                                                                E B
+                                                              clear that decreasing the
+                                                              oﬀset or increasing the
+                                                              CMRR is the same design
+                                                              task.
+                                                                 If an oﬀset can be
+                                                              expected of about 10 mV, as
+                                                              for many MOST diﬀerential
+                                                              pairs and opamps, then a
+                                                              CMRR of approximately
+                                                              60 dB can be expected.
+                                                                 If, on the other hand, the
+                                                              oﬀset is 10 times smaller, as
+                                                              for bipolar opamps, then the
+                                                              CMRR is 20 dB higher as
+                                                              well.
+  If the oﬀset is trimmed down to the mV level, then the CMRR increases accordingly. Note
+however, that a CMRR of 120 dB can only be reached provided the oﬀset is trimmed down to
+10 mV. This is not an easy task whatever technique is used.
+432                                                                                     Chapter #15
+
+                                                                      1522
+                                                                      Up till now only random
+                                                                      eﬀects have been examined.
+                                                                      They lead to a random oﬀset
+                                                                      and random CMRR, which
+                                                                      are linked by each other.
+                                                                         Systematic errors can also
+                                                                      occur. In general, they are
+                                                                      the result of systematic
+                                                                      asymmetries. In principle,
+                                                                      they can be avoided by
+                                                                      proper design, as they are
+                                                                      systematic. They give rise to
+                                                                      a systematic oﬀset and sys-
+                                                                      tematic CMRR which are
+                                                                      also linked.
+                                                                         Some examples are given
+                                                                      next.
+
+
+                                                                     1523
+                                                                     A ﬁrst source of systematic
+                                                                     error is caused by the sys-
+                                                                     tematic asymmetry of a cur-
+                                                                     rent mirror. Even without
+                                                                     random errors, a diﬀerence
+                                                                     in Drain-Source voltage v ,
+                                                                                                 DS
+                                                                     causes a small diﬀerence in
+                                                                     output current Di , which
+                                                                                          out
+                                                                     always has the same sign.
+                                                                        It can easily be calculated,
+                                                                     leading to the expression in
+                                                                     this slide.
+                                                                        The larger the channel
+                                                                     length, the more horizontal
+                                                                     the curves are and the
+                                                                     smaller the output current
+diﬀerence. It can never be made zero however, as it is just about impossible to make v exactly
+                                                                                         DS1
+equal to v .
+          DS2
+
+1524
+Another source of systematic error is a result of the common-mode drive v of a diﬀerential
+                                                                             inc
+pair, as shown in this slide. The systematic asymmetry of the current mirror gives a diﬀerential
+output current i     . This current can then be compensated at the input by a diﬀerential input
+                 OUT
+voltage or oﬀset voltage v .
+                            osc
+  In order to calculate the oﬀset voltage required to compensate for the output current caused
+by the common-mode input voltage v , a small signal equivalent circuit is sketched.
+                                       inc
+OVset and CMRR: random and systematic                                                         433
+
+                                                                        The common-mode input
+                                                                    voltage v causes a current
+                                                                              inc
+                                                                    i to ﬂow through the output
+                                                                     c
+                                                                    resistance R of the current
+                                                                                  B
+                                                                    source. Half of this current
+                                                                    ﬂows through both input
+                                                                    devices. They can now be
+                                                                    represented by two current
+                                                                    sources with value i /2.
+                                                                                         c
+                                                                        The load can be taken
+                                                                    to be a short to ground,
+                                                                    as intermediate frequencies
+                                                                    are considered. The current
+                                                                    through it is the diﬀerential
+                                                                    output current i       . As a
+                                                                                       OUT
+                                                                    result, only r has to be
+                                                                                    o1
+                                                                    included.
+   The current mirror has been simpliﬁed to a resistor with value 1/g . The current through it
+                                                                       m3
+is mirrored to the output.
+   From this simpliﬁed equivalent circuit, the output current is easily calculated. It evidently
+depends on g and r .
+              m3      o1
+
+                                                                    1525
+                                                                    This output current i        ,
+                                                                                             OUT
+                                                                    can now be referred back to
+                                                                    the input by simple division
+                                                                    by g . The oﬀset voltage
+                                                                          m1
+                                                                    v     is merely this output
+                                                                      osc
+                                                                    current divided by g .
+                                                                                          m1
+                                                                       Note however, that the
+                                                                    ratio of the output current
+                                                                    caused by the common-
+                                                                    mode voltage to the out-
+                                                                    put current caused by the
+                                                                    diﬀerential input voltage or
+                                                                    oﬀset voltage, is nothing else
+                                                                    than the inverse of the
+                                                                    CMRR . This is the link
+                                                                             s
+                                                                    between systematic oﬀset
+voltage and systematic CMRR .
+                               s
+  The actual expression is given next.
+
+
+1526
+Substitution of several gains by means of the transistor parameters yields the CMRR . Its value
+                                                                                   s
+is quite large as two g r products are multiplied.
+                       m o
+   Again, the product of the CMRR and the oﬀset amounts to some constant value, which is the
+434                                                                                     Chapter #15
+
+                                                                     common-mode input volt-
+                                                                     age in this case. Its value is
+                                                                     quite limited. As a result,
+                                                                     high values of common-
+                                                                     mode rejection can only be
+                                                                     reached provided the oﬀset
+                                                                     is quite small.
+                                                                        It is now also clear that
+                                                                     the output voltage of an
+                                                                     opamp can be made zero
+                                                                     either by application of a
+                                                                     diﬀerential input voltage,
+                                                                     which is by deﬁnition the
+                                                                     oﬀset voltage v , or by
+                                                                                       osc
+                                                                     application of a common-
+                                                                     mode input voltage v .
+                                                                                                inc
+                                                                     Their ratio is then the
+                                                                     CMRR.
+  An easy measurement technique for the CMRR consists of the application of a certain
+diﬀerential input voltage v , and by measurement of the common-mode input voltage v
+                           osc                                                                   inc
+required to return the output voltage to the original value. Their ratio is again the CMRR.
+
+
+                                                                      1527
+                                                                      However, in this way both
+                                                                      the random CMRR and the
+                                                                                         r
+                                                                      systematic CMRR are mea-
+                                                                                       s
+                                                                      sured. The smaller one
+                                                                      always dominates.
+
+
+
+
+1528
+A CMOS Miller OTA is shown in this slide. The oﬀset of such an ampliﬁer is examined next.
+  The input devices are normally pMOSTs so that they can share the same n-well bulk. In this
+way mismatch in substrate parameter c does not come in. This parameter does come in however,
+for the nMOSTs. This is why the term DV has an asterisk. It is larger without the eﬀect of the
+                                        T3
+substrate parameter.
+OVset and CMRR: random and systematic                                                        435
+
+                                                                       The oﬀset voltage is given
+                                                                    in this slide. First of all,
+                                                                    it includes any diﬀerence
+                                                                    between nodes 1 and 2,
+                                                                    which is called DV . This
+                                                                                       DS1
+                                                                    diﬀerence can be caused by
+                                                                    a diﬀerence between V
+                                                                                              GS6
+                                                                    and V . It also includes
+                                                                           GS3
+                                                                    the large AC voltage swing
+                                                                    at node 1, which is much
+                                                                    smaller on node 2.
+                                                                       The second and third
+                                                                    term are caused by the mis-
+                                                                    matches between the V ’s.
+                                                                                              T
+                                                                    The last term includes the
+                                                                    mismatches between the
+                                                                    sizes and the K∞ factors.
+They are obviously scaled by V −V .
+                                 GS1      T
+   For a small value of V −V and for a small g /g , the term DV is probably dominant
+                         GS1     T                    m3 m1               T1
+if DV     can be kept small. If not, its contribution to the oﬀset is DV /A or V    /A A .
+      DS1                                                               DS1 v1   OUT v1 v2
+
+
+
+                                                                   1529
+                                                                   A folded cascode OTA is
+                                                                   shown in this slide. Its oﬀset
+                                                                   voltage is examined next.
+                                                                      The oﬀset voltage v is
+                                                                                             os
+                                                                   given in this slide. It ﬁrstly
+                                                                   includes any diﬀerence
+                                                                   between nodes 4 and 5,
+                                                                   which is called DV . It is
+                                                                                        DS3
+                                                                   mainly the large AC voltage
+                                                                   swing at node 4, which is
+                                                                   much smaller on node 5.
+                                                                      The next three terms are
+                                                                   caused by the mismatches
+                                                                   between the V ’s. They are
+                                                                                     T
+                                                                   equally important depend-
+                                                                   ing on the g ’s. The last
+                                                                                    m
+term includes the mismatches between the sizes and the K∞ factors. They are obviously scaled
+by V −V . The cascodes do not come in.
+     GS1     T
+   This clearly shows that the oﬀset of a folded cascode can be quite large, as it is made up by
+the spreading of three diﬀerential pairs.
+   Similar conclusions can be drawn as for the CMOS Miller opamp.
+436                                                                                     Chapter #15
+
+                                                                     1530
+                                                                     The expression of the
+                                                                     CMRR may have led to the
+                                                                     conclusion that the output
+                                                                     resistance of the current
+                                                                     source, feeding the diﬀer-
+                                                                     ential pair, is of utmost
+                                                                     importance. This is true, at
+                                                                     least at low frequencies.
+                                                                        At intermediate and high
+                                                                     frequencies, the output
+                                                                     capacitance of this current
+                                                                     source is of even more
+                                                                     importance, as shown next.
+
+
+
+
+                                                                     1531
+                                                                     The current source of a
+                                                                     diﬀerential pair has both an
+                                                                     output resistance R and
+                                                                                             B
+                                                                     capacitance C . Its size
+                                                                                       B
+                                                                     depends mainly on the
+                                                                     Drain-Bulk capacitance C
+                                                                                                   DB
+                                                                     of the current source transis-
+                                                                     tor. Its value is close to that
+                                                                     of the C of that transistor
+                                                                                 GS
+                                                                     (as explained in Chapter 1).
+                                                                     This capacitance C also
+                                                                                             B
+                                                                     includes the capacitance
+                                                                     C           between the well, in
+                                                                       well,bulk
+                                                                     which both input transistors
+                                                                     are imbedded, and the sub-
+                                                                     strate. It can therefore be a
+lot larger than the C of the current source transistor.
+                      GS
+   As a result, a new break frequency f shows up. It occurs as a zero in the characteristic of the
+                                        B
+gain A , but as a pole in one of the CMRR. Calculation of this frequency depends on the values
+       dc
+of these diﬀerent capacitances. It will be somewhere between the dominant pole of the ampliﬁer
+and a fraction of the f frequency of the current source transistor.
+                       T
+   The best way to design a diﬀerential pair with high CMRR at high frequencies is to provide
+it with a current source with the minimum size of drain area. A small square device is optimal,
+most probably requiring a high value of V −V , which is good for its f as well!
+                                             GS  T                        T
+OVset and CMRR: random and systematic                             437
+
+                                        1532
+                                        Mismatch is determined
+                                        mainly by size and a number
+                                        of other design rules, which
+                                        are now discussed.
+                                           It is already known that
+                                        matching improves with the
+                                        square root of the size. This
+                                        is the main criterion. It
+                                        always works. There are
+                                        many other layout condi-
+                                        tions however, which help in
+                                        the reduction of mismatch.
+                                           They all work to some
+                                        extent, even when proof is
+                                        not easy to ﬁnd in the litera-
+                                        ture. They are summarized
+                                        in 10 rules, as shown next.
+
+
+
+                                        1533
+                                        The ﬁrst rule for good
+                                        matching is that the compo-
+                                        nents must be of equal
+                                        nature. It is, for example,
+                                        impossible to match a resis-
+                                        tor to a 1/g value.
+                                                    m
+                                           Another example is that
+                                        matching between a MOST
+                                        capacitance and a junction
+                                        capacitance, will not work
+                                        either.
+                                           Many other examples can
+                                        be found.
+438                                                                                   Chapter #15
+
+                                                                     1534
+                                                                     A second condition for good
+                                                                     matching is that both
+                                                                     devices must be on the same
+                                                                     isotherm.
+                                                                        Most large chips operate
+                                                                     at    high     temperatures.
+                                                                     Silicon is a good thermal
+                                                                     conductor and yet temper-
+                                                                     ature diﬀerences are easily
+                                                                     generated, for example,
+                                                                     power devices operate on
+                                                                     one end of the chip and the
+                                                                     input transistors of an
+                                                                     opamp are on the other side.
+                                                                        Such a situation is
+                                                                     sketched next.
+
+
+
+                                                                    1535
+                                                                    Power devices are located
+                                                                    on the right. They heat up
+                                                                    the chip on the right side,
+                                                                    generating isotherms on the
+                                                                    other side of the chip.
+                                                                       The input transistors of
+                                                                    an opamp or any other
+                                                                    diﬀerential circuit is better
+                                                                    laid out on this isotherm. If
+                                                                    not, an internal thermal
+                                                                    resistance is active, which
+                                                                    limits the open-loop gain in
+                                                                    exactly the same way as a
+                                                                    feedback resistor would (see
+                                                                    reference).
+                                                                       This applies not only to
+static isotherms but also dynamic ones, for example when power switches (or relays) are integrated
+on the chip.
+   Temperature gradients can also induce stress in the chip. The same applies to the pack-
+age. Matched components have to be laid out on iso-stress lines, which may be hard to be
+identiﬁed!
+OVset and CMRR: random and systematic                                                             439
+
+                                                                      1536
+                                                                      The most important rule for
+                                                                      good matching is to increase
+                                                                      the size.
+                                                                         Let us ﬁrst have a look at
+                                                                      how size plays for resistors
+                                                                      and capacitors. For MOSTs
+                                                                      we know already that
+                                                                      spreading on V (and the
+                                                                                       T
+                                                                      other parameters) is in-
+                                                                      versely proportional to the
+                                                                      square root of WL. In other
+                                                                      words, if both the channel
+                                                                      width W and the channel
+                                                                      length L are multiplied by 2,
+                                                                      then the spreading (delta,
+                                                                      sigma) is divided by 2.
+  We will see that this also applies to resistors but not to capacitors.
+
+
+                                                                   1537
+                                                                   Resistors are little more
+                                                                   than a conductive island
+                                                                   contacted at both extremi-
+                                                                   ties. Many diﬀerent resistors
+                                                                   can be realized as many
+                                                                   diﬀerent diﬀused or ion
+                                                                   implanted islands can be
+                                                                   realized.
+                                                                      Some examples are given
+                                                                   in this slide. Normally the
+                                                                   smaller dimension, which
+                                                                   is W in the example at
+                                                                   the bottom, determines the
+                                                                   matching which can be
+                                                                   achieved.
+                                                                      In bipolar technologies,
+                                                                   several diﬀusion layers can
+be identiﬁed, such as the ones for the base, for the emitter, for the collector, etc. In CMOS
+technologies however, the source and drain diﬀusion is always available. Also the well-diﬀusion
+can be used for high-valued resistances. They are all listed next.
+
+
+1538
+This table lists the most common resistances in both bipolar and CMOS technologies.
+  The sheet resistivities are given, followed by the absolute accuracies and some more
+speciﬁcations.
+  It is clear that in bipolar technologies a wide variety of resistivities is available. The ones with
+440                                                                                     Chapter #15
+
+                                                                      the highest accuracy how-
+                                                                      ever, are the ion-implanted
+                                                                      ones. They are an addition
+                                                                      to a standard process how-
+                                                                      ever, and are not always
+                                                                      available.
+                                                                         In CMOS technologies,
+                                                                      the source/drain diﬀusion
+                                                                      yields a resistance of low
+                                                                      value which is very impre-
+                                                                      cise. The well is only a little
+                                                                      better. The only precise one
+                                                                      is the poly-silicon resistor.
+                                                                      Its sigma has an A of about
+                                                                                          R
+                                                                      0.04 mm. Again, it is an addi-
+                                                                      tion to a standard CMOS
+                                                                      process and is therefore
+expensive. It is not available in a digital CMOS process.
+  Thin ﬁlm resistances can also be added on top of the silicon structure. They are normally
+realized with Tantalum or Nichrome. They are very precise but mainly used for trimming.
+Aluminum metallization is less precise by lack of control of its thickness. Copper is now also used.
+
+
+
+                                                                      1539
+                                                                      For resistors, the absolute
+                                                                      and      relative    accuracy
+                                                                      decrease with size. Above
+                                                                      the relative accuracy is
+                                                                      sketched      versus    linear
+                                                                      dimension, for a ﬁxed W/L
+                                                                      ratio, in which W is the
+                                                                      smaller dimension.
+                                                                         This accuracy is about
+                                                                      inversely proportional to
+                                                                      size, as for MOST devices.
+                                                                      This is not surprising at all
+                                                                      as MOST devices are actu-
+                                                                      ally resistances.
+                                                                         The reason for this depen-
+                                                                      dency is that local errors
+dominate. They have jagged and rounded edges, and many more local deﬁciencies in the deﬁnition
+of the layout.
+   Also, note that ion implanted resistances are a lot better than diﬀused ones, because of the
+higher reproducibility involved.
+   Finally, note that resistances only provide limited accuracy for average sizes. If a minimum
+dimension is taken to be about 10 mm, then about 0.5% error can be expected. This corresponds
+to a signal-to-error or signal-to-distortion ratio of about 200 or 46 dB. Divided by 6 this 46 dB
+OVset and CMRR: random and systematic                                                           441
+
+yields little over 7 bit. This means that resistive ladders are easy to lay out as more than 7–8
+bits accuracy is not required. Many 8 bits ADC’s are still realized in this way (see Chapter 20).
+
+                                                                     1540
+                                                                     Some layouts of capaci-
+                                                                     tances are shown in this
+                                                                     slide.
+                                                                        The top one is a (n+
+                                                                     doped)       poly-to-diﬀusion
+                                                                     capacitance C . It uses the
+                                                                                     pp
+                                                                     Gate oxide as a dielectric. It
+                                                                     is not all that attractive as
+                                                                     it has a large series resis-
+                                                                     tance in the diﬀusion layer.
+                                                                     Moreover, it has a large
+                                                                     parasitic capacitance C
+                                                                                                 par
+                                                                     between the diﬀusion layer
+                                                                     and the substrate.
+                                                                        A double poly-layer has
+                                                                     much less series resistance
+                                                                     but still a fair amount of
+parasitic capacitances. Moreover a double poly-layer is an addition to standard CMOS process-
+ing, and is therefore expensive.
+  Nowadays, CMOS processes oﬀer many metal layers on top. Each pair of metal layers can
+be used as a capacitance. The main criteria are then the reproducibility of the dielectric thickness
+and the parasitic capacitance to all other layers. A wide choice is now available.
+
+                                                                  1541
+                                                                  Some typical values are col-
+                                                                  lected in the Table in this
+                                                                  slide.
+                                                                     In bipolar technologies all
+                                                                  capacitances are junction
+                                                                  capacitances. They are heav-
+                                                                  ily voltage dependent.
+                                                                     Only CMOS technologies
+                                                                  oﬀer good capacitances.
+                                                                  The best one is still the
+                                                                  Gate oxide capacitance. For
+                                                                  a 50 nm oxide thickness
+                                                                  (which corresponds to a
+                                                                  2.4 mm CMOS process), the
+                                                                  capacitance is quite high. It
+                                                                  is even ten times higher for
+                                                                  a 0.25 mm CMOS process.
+  Several other capacitances are gives. Do not forget that many more can be added, depending
+on the number of metal layers available.
+442                                                                                   Chapter #15
+
+                                                                     1542
+                                                                     The curve of the relative
+                                                                     accuracy versus size is not
+                                                                     as steep as for resistors
+                                                                     but gives smaller values.
+                                                                     Parameter S stands for the
+                                                                     side of a square capacitor.
+                                                                        The slope is about half of
+                                                                     the one for resistors. The
+                                                                     reason is that now a combi-
+                                                                     nation is found of local and
+                                                                     global errors. Global errors
+                                                                     are related to slowly chang-
+                                                                     ing oxide thicknesses from
+                                                                     one side of a wafer to the
+                                                                     other side, doping levels,
+                                                                     under-etching, etc. This
+combination leads to a lower slope.
+  Note that dry etching deﬁnes the capacitors in a better way than wet etching as used before.
+  Note also that capacitors provide higher accuracy than resistors. If square capacitors are taken
+with a side of 10 mm, then about 0.1% error can be expected. This corresponds to a signal-to-
+distortion ratio of about 1000 or 60 dB. Divided by 6 this 60 dB yields about 10 bit.
+  This means that capacitive ladders can be laid out with 10 bit accuracy. Many 10–12 bits
+ADC’s are realized in this way (see Chapter 20). For higher values, a very large number of
+capacitances have to be used, but 14 bit has been reached!
+
+
+                                                                 1543
+                                                                 In addition to size, distance
+                                                                 between two devices plays a
+                                                                 role, albeit less than in
+                                                                 earlier technologies.
+                                                                    From the Table with S
+                                                                                             VT
+                                                                 and S , it has become clear
+                                                                        WL
+                                                                 that the requirement of
+                                                                 short distance has been
+                                                                 relaxed. Indeed CMOS pro-
+                                                                 cessing has been carried out
+                                                                 on ever increasing wafer
+                                                                 sizes, reaching about 12 inch
+                                                                 at the moment, but 15 inch
+                                                                 wafers are surely being
+                                                                 planned.
+                                                                    As a result, the processing
+technologies have become more homogeneous over these large wafers. This is why distance on
+a short range, does not play the same role as before. Only when large fractions of a chip are
+being covered, then distance will play a role as explained under point 8 centroide layout.
+Examples are large capacitance banks aiming at 12–14 bits accuracy.
+OVset and CMRR: random and systematic                             443
+
+                                        1544
+                                        A more important point for
+                                        good matching has to do
+                                        with crystal orientation. A
+                                        crystal never has exactly the
+                                        same crystal structure (den-
+                                        sity, default density, ...) in
+                                        diﬀerent directions. As a
+                                        result, the mobility and thus
+                                        K∞ parameter will not be
+                                        quite the same in two
+                                        diﬀerent directions. This is
+                                        illustrated next.
+
+
+
+
+                                        1545
+                                        In the ﬁrst example, the
+                                        direction of the current in
+                                        the left transistor is perpen-
+                                        dicular to the direction of
+                                        the current in the second
+                                        transistor. This is indeed
+                                        bad for matching.
+                                           The other two examples
+                                        are better ones. The actual
+                                        positioning of the connec-
+                                        tions may cause some minor
+                                        diﬀerence in Source contact
+                                        resistance, but this is not
+                                        that evident.
+444                                                                                     Chapter #15
+
+                                                                      1546
+                                                                      An important improvement
+                                                                      in layout style towards good
+                                                                      matching is achieved by use
+                                                                      of the same area/perimeter
+                                                                      ratio, or simply by use of the
+                                                                      same shapes.
+                                                                         In this way, the relative
+                                                                      amount of jagging of the
+                                                                      edges, and of rounding is
+                                                                      always the same, as shown
+                                                                      next.
+
+
+
+
+                                                                      1547
+                                                                      A number of matched tran-
+                                                                      sistors is shown for a current
+                                                                      mirror with multiple out-
+                                                                      puts. The relative transistor
+                                                                      sizes are 4: 4: 2: 1: 2, when
+                                                                      the ﬁrst and last dummy
+                                                                      transistors are excluded.
+                                                                      The second transistor with
+                                                                      relative size 4 is connected
+                                                                      as a diode indeed.
+                                                                         These ratios won’t be
+                                                                      very accurate however. The
+                                                                      rounding of the corners for
+                                                                      a transistor with size 4, is
+                                                                      relatively speaking, much
+                                                                      less important than the
+same rounding for a transistor with size 1.
+   A better solution is to use the same shapes for all transistors and to connect them in parallel,
+as shown below. This 1:4 ratio will be much more accurate as local errors all have the same
+relative inﬂuence: their area to perimeter ratio is always the same.
+   This is a typical bipolar transistor layout style. More space is evidently required but we know
+already that more space leads to better matching.
+   Even better would be to lay out the single transistor in the middle of the four transistors, so
+that they have the same point of gravity, as explained in point 8 on the centroide layout.
+OVset and CMRR: random and systematic                             445
+
+                                        1548
+                                        A nice way to avoid
+                                        rounding of corners is
+                                        to make round transistor
+                                        shapes. Surrounding the
+                                        Drain of a MOST with its
+                                        Gate, and adding a Source
+                                        all around has been known
+                                        to yield excellent matching.
+                                           Unfortunately, not all
+                                        layout systems allow such
+                                        round shapes. An ortho-
+                                        gonal or hexagonal shape is
+                                        not that good!
+
+
+
+
+                                        1549
+                                        A very important layout
+                                        style for low mismatch is
+                                        centroide layout.
+                                           This means that all
+                                        matched structures must
+                                        have the same point of grav-
+                                        ity. In this way the eﬀects of
+                                        global changes (in oxide
+                                        thickness, ...) are averaged
+                                        out.
+                                           This is illustrated next.
+446                                                                                     Chapter #15
+
+                                                                    1550
+                                                                    The layout is shown of a
+                                                                    diﬀerential pair, each tran-
+                                                                    sistor of which consists of
+                                                                    two equal transistors, con-
+                                                                    nected in parallel but laid
+                                                                    out in opposite corners.
+                                                                    As a result, the eﬀects of
+                                                                    global changes, for example,
+                                                                    in oxide thickness, are
+                                                                    averaged out. For example,
+                                                                    MOST 2b has the lowest K∞
+                                                                    but MOST 2a the highest
+                                                                    one. Putting them in parallel
+                                                                    gives an average value for
+                                                                    K∞ which is about the same
+                                                                    as for MOSTs 1a and 1b.
+  Care must be take however, not to insert additional resistances in the Source connections, to
+connect the transistor terminals. Judicious use of the two or more layers of interconnect is thus
+mandatory.
+
+
+
+                                                                      1551
+                                                                      Another       example       of
+                                                                      centroide layout with capac-
+                                                                      itors is shown in this slide.
+                                                                         A capacitance bank is
+                                                                      made with ratios 1:2:4:8:16,
+                                                                      etc. The unit capacitor is in
+                                                                      the middle. The two capaci-
+                                                                      tors are on both sides.
+                                                                         They are connected in
+                                                                      parallel.
+                                                                         The four capacitors are
+                                                                      on either end as well. The
+                                                                      eight capacitors have as a
+                                                                      point of gravity the unit
+                                                                      capacitor in the middle, etc.
+                                                                      In this way global errors are
+                                                                      averaged out.
+   For a large capacitance bank, a large number of unit-capacitors have to be put in parallel, on
+either side of the unit capacitor in the middle. At this point it is better to lay out all the unit-
+capacitors randomly distributed over the whole area. In this way 14 accuracy has been obtained
+(Van der Plas, JSSC Dec. 99, 1708–1718).
+OVset and CMRR: random and systematic                             447
+
+                                        1552
+                                        In a series of equal struc-
+                                        tures, the ﬁrst and last ones
+                                        never quite match. The
+                                        reason is that the ﬁrst and
+                                        last ones see diﬀerent neigh-
+                                        bors. The eﬀects of process-
+                                        ing steps such as under-
+                                        etching, contact holes, etc.
+                                        will be diﬀerent. This is
+                                        why dummy transistors (or
+                                        capacitors) have to be added
+                                        at the beginning and at the
+                                        end. They are not used.
+                                        They are dummies.
+                                           This is illustrated next.
+
+
+
+
+                                        1553
+                                        In this series of transistors,
+                                        which form a multiple cur-
+                                        rent mirror, the ﬁrst and last
+                                        transistors are not con-
+                                        nected. They are dummies.
+                                        They are only present to
+                                        make sure that the process-
+                                        ing is more homogeneous
+                                        for all the other transistors
+                                        in between.
+448                                                                                    Chapter #15
+
+                                                                     1554
+                                                                     A good example of a layout
+                                                                     in which all rules are prop-
+                                                                     erly applied is shown in this
+                                                                     slide. It consists of nine
+                                                                     equal capacitors, to which
+                                                                     tabs have been added. These
+                                                                     tabs are used to connect
+                                                                     some of the capacitors. In
+                                                                     this way a ratio of 7/2 is
+                                                                     realized.
+                                                                        All tabs are always pre-
+                                                                     sent even if they are not
+                                                                     used. In this way the para-
+                                                                     sitic capacitances associated
+                                                                     with the four tabs are always
+                                                                     the same.
+  All unit capacitances have the same shape: they have the same area/perimeter ratio.
+  Moreover, they are laid out in centroide form. The two capacitors are in the middle, surrounded
+by the seven other ones. They have about the same point of gravity.
+  Finally, the whole structure is surrounded by a dummy ring to make sure that all capacitors
+see the same neighbors.
+
+
+
+                                                                     1555
+                                                                     All rules in this slide lead to
+                                                                     better matching, which
+                                                                     means lower oﬀset and
+                                                                     higher CMRR. Whatever is
+                                                                     being tried in CMOS tech-
+                                                                     nology, bipolar is always
+                                                                     doing better for the same
+                                                                     area. There are several
+                                                                     reasons for this.
+OVset and CMRR: random and systematic                                                            449
+
+                                                                       1556
+                                                                       Comparison of the models
+                                                                       of MOST and bipolar tech-
+                                                                       nologies show that MOSTs
+                                                                       are actually modulated
+                                                                       resistances, whereas bipolar
+                                                                       transistors employ a for-
+                                                                       ward biased diode as an
+                                                                       input. A bipolar transistor
+                                                                       does not have a threshold
+                                                                       voltage V and always has
+                                                                                  T
+                                                                       an exponential I /V rela-
+                                                                                       CE BE
+                                                                       tionship. Its current is a
+                                                                       small current I multiplied
+                                                                                       S
+                                                                       by the voltage V , scaled
+                                                                                         BE
+                                                                       by kT/q.
+                                                                          This is worked out fur-
+                                                                       ther next.
+
+
+
+                                                                        1557
+                                                                        Indeed, the expression of the
+                                                                        oﬀset of a bipolar transistor
+                                                                        does not include the eﬀect of
+                                                                        the spreading of threshold
+                                                                        voltage V . Moreover the
+                                                                                   T
+                                                                        scaling factor by which
+                                                                        parameters such as DR /R ,
+                                                                                               L L
+                                                                        etc. come in is only kT/q,
+                                                                        whereas it is (V −V )/2
+                                                                                           GS    T
+                                                                        for a MOST.
+                                                                           These are two important
+                                                                        reasons why the oﬀset volt-
+                                                                        age v for a bipolar is so
+                                                                              os
+                                                                        much smaller.
+                                                                           Moreover, the drift of the
+                                                                        oﬀset voltage v with tem-
+                                                                                        os
+perature is well controlled. The derivative of v to T is the absolute value of v divided by T.
+                                                   os                                os
+Trimming the oﬀset voltage v to a small value at the same time reduces the drift with
+                                   os
+temperature. This is not at all true for MOSTs, in which there is no relationship between oﬀset
+and oﬀset drift.
+   As a result, a bipolar transistor is an excellent choice for high-temperature applications, where
+a low oﬀset is required. If MOSTs have to be used, they will have to be supplemented by oﬀset
+cancellation circuitry, carrying out chopping or auto-zeroing (Ref. Enz, Temes, Proc. IEEE,
+Nov. 96, 1584–1614).
+   The main problem of bipolars, on the other hand, is that they have base currents. This is
+discussed next.
+450                                                                                  Chapter #15
+
+                                                                    1558
+                                                                    The base currents in bipolar
+                                                                    transistors can be quite
+                                                                    high. Shown in this slide are
+                                                                    the input currents for a
+                                                                    number of opamps in which
+                                                                    the input devices are real-
+                                                                    ized in diﬀerent technol-
+                                                                    ogies.
+                                                                       The currents in conven-
+                                                                    tional bipolar opamps are of
+                                                                    the mA level. Their base cur-
+                                                                    rents are therefore of the nA
+                                                                    level. Since the beta in-
+                                                                    creases with temperature,
+                                                                    the base currents decrease
+                                                                    with temperature, which is
+clearly an advantage in power applications. These base currents can be decreased even further
+by use of super-beta devices. They have beta values above 3000. As a result, the base currents
+are smaller. On the other hand, they cannot take collector voltages above a few Volts.
+   MOSTs have the lowest input currents, at least if they do not have a protection device. Such
+device includes some diodes, which have a leakage current which increases drastically with
+temperature (×2 every 8 degrees). This is similar to a Junction-FET.
+   A conventional bipolar transistor has the highest base current. Circuit techniques can be
+devised to compensate these currents. Some of them are discussed next.
+
+
+
+                                                                    1559
+                                                                    An older solution to provide
+                                                                    input current compensation
+                                                                    is shown in this slide.
+                                                                       We rely on the matching
+                                                                    between transistors T1 and
+                                                                    T3. In this case their base
+                                                                    currents can be expected to
+                                                                    be about the same. A cur-
+                                                                    rent mirror senses the cur-
+                                                                    rent into the base of
+                                                                    transistor T3 and injects the
+                                                                    same current into the base
+                                                                    of transistor T1.
+                                                                       A voltage clamp is present
+                                                                    between the emitters of tran-
+                                                                    sistors T5–8 and the emit-
+ters of the input transistors T1,2. As a result the collector-emitter voltage across the input
+transistors T1,2 never exceeds about 0.7 V. Super-beta devices can now be used for T1,2.
+   The base currents are compensated by this additional circuitry. No current is required exter-
+OVset and CMRR: random and systematic                                                          451
+
+nally. In practice, there is always some input current ﬂowing, depending on mismatching between
+T1 and T2 and between T7 an T8.
+   The main disadvantage of this circuit however, is that two diﬀerent base current cancellation
+circuits are used on either side of the diﬀerential pair. The noise of these additional circuits is
+now injected at the input terminals. The noise performance is poor.
+
+                                                                     1560
+                                                                     A better solution is to con-
+                                                                     struct one common current
+                                                                     generator and apply it to
+                                                                     both input terminals. The
+                                                                     noise generated by this
+                                                                     block then cancels out at the
+                                                                     diﬀerential output.
+                                                                        This is illustrated in this
+                                                                     slide.
+                                                                        We rely on the matching
+                                                                     between transistors T1,2
+                                                                     and T3,4. The base current
+                                                                     is sensed of the latter ones
+                                                                     by cascode transistor T9,
+                                                                     mirrored by transistors
+                                                                     T5–8 and injected into the
+                                                                     input bases.
+   The noise is now generated by all transistors T3–5 and T8–9 and is cancelled out at the
+diﬀerential output. Only the noise by transistors T6 and T7 is still diﬀerential and thus injected
+in the signal path.
+
+                                                                  1561
+                                                                  In order to realize a more
+                                                                  precise compensation of the
+                                                                  base currents, a more accu-
+                                                                  rate current mirror is
+                                                                  required. This means that
+                                                                  the transistors which carry
+                                                                  out the current mirroring
+                                                                  must have the same cur-
+                                                                  rents, the same beta’s and
+                                                                  the same collector-emitter
+                                                                  voltages v . This latter
+                                                                               CE
+                                                                  requirement is fulﬁlled in the
+                                                                  circuit in this slide.
+                                                                     The actual current com-
+                                                                  pensation is realized if the
+                                                                  input transistors Q21,22 are
+matched to transistor Q25. Its base current is mirrored by current mirror Q26–28 and fed to
+the input transistor bases.
+452                                                                                      Chapter #15
+
+   In order to ensure that v        equals the input v         , a voltage clamp of about 1.4 V (or 2
+                               CE25                    CE21,22
+V      ) is introduced with transistors Q29,30. This clamp (or bootstrap circuit) senses the common-
+  BEon
+mode input voltage at the Sources of the input transistors Q21,22 and keeps the Sources of the
+current mirror transistors Q26–28 at a constant 0.7 V (or V            ) below the common-mode input
+                                                                  BEon
+voltage. As result, all the transistors within this bootstrap loop (blue frame) follow the common-
+mode input voltage.
+   The base of Q25 is therefore always the same voltage as the average (or common-mode) input
+voltage. Its collector current is also the same as for transistors Q21,22 and also its v , because
+                                                                                           CE
+of equal resistors R1–3.
+
+                                                                        1562
+                                                                        A similar voltage clamp is
+                                                                        used in the circuit in this
+                                                                        slide. Transistors Q3 and Q4
+                                                                        maintain a 0.7 V voltage
+                                                                        drop across the input tran-
+                                                                        sistors Q1,2. These devices
+                                                                        are normally super-beta
+                                                                        transistors. Their v ’s must
+                                                                                            CE
+                                                                        therefore be small indeed.
+                                                                           Their base currents are
+                                                                        drawn from a current
+                                                                        mirror, which derives its
+                                                                        input current from the base
+                                                                        of transistor Q5. This tran-
+                                                                        sistor must therefore be well
+                                                                        matched to the input
+devices. Indeed, it is the same as for the input devices. Its current is also the same.
+  The actual currents are shown on the next slide.
+
+                                                                       1563
+                                                                       All relevant currents are
+                                                                       indicated. The DC current
+                                                                       in one single input transistor
+                                                                       Q1 (or Q2) is denoted by I .
+                                                                                                   B
+                                                                       As a result, the DC currents
+                                                                       in all transistors are I as
+                                                                                                B
+                                                                       well. The base current of
+                                                                       transistor Q5 is now I /b,
+                                                                                                 B
+                                                                       and so are the currents sent
+                                                                       to the bases of the input
+                                                                       transistors.
+                                                                          The external input cur-
+                                                                       rents will therefore be close
+                                                                       to zero.
+OVset and CMRR: random and systematic                                                             453
+
+                                                                      1564
+                                                                      It is clear from this slide that
+                                                                      mismatch has become the
+                                                                      main limitation to the
+                                                                      Dynamic Range that can
+                                                                      be obtained at a speciﬁc
+                                                                      frequency and a speciﬁc
+                                                                      power level.
+                                                                         If the accuracy is limited
+                                                                      by the spreading on the
+                                                                      threshold voltage only, then
+                                                                      it can be described approxi-
+                                                                      mately by the top expres-
+                                                                      sion.
+                                                                         Moreover, the speed is
+                                                                      related to the f of the tran-
+                                                                                       T
+                                                                      sistor, which has been
+                                                                      derived in Chapter 1.
+   As a result, the Speed Accuracy product for a speciﬁc amount of power consumption is
+determined by factors which are constant within a speciﬁc CMOS technology. Within the same
+technology it is not possible to go beyond a certain signal-to-distortion ratio for a certain speed
+and power consumption. It is assumed that this distortion is set by mismatch.
+   Moreover, as A is proportional to the oxide thickness, this product improves for deeper
+                   VT
+submicron or nanometer CMOS. Obviously, this is somehow to be expected!
+   This means that nanometer CMOS is able to provide lower power levels with similar signal-
+to-distortion ratios and given speciﬁc frequencies.
+
+
+
+                                                                  1565
+                                                                  It is clear that noise also
+                                                                  establishes a fundamental
+                                                                  limitation to the Dynamic
+                                                                  Range that can be obtained
+                                                                  at a speciﬁc frequency and a
+                                                                  speciﬁc power level.
+                                                                     The limit is calculated for
+                                                                  both the thermal noise gen-
+                                                                  erated by a resistor R and
+                                                                  for the noise bandwidth lim-
+                                                                  ited by a capacitance C.
+                                                                     In both cases, V          is
+                                                                                          pp
+                                                                  the maximum peak-to-peak
+                                                                  voltage that can be ob-
+                                                                  tained. It is taken to be the
+                                                                  same as the supply volt-
+age V . It cancels out of the expression of the minimum power consumption. Only the Signal-
+      DD
+to-noise ratio S/N and the bandwidth are left in this expression.
+454                                                                                     Chapter #15
+
+                                                                     1566
+                                                                     Both the Dynamic Range
+                                                                     limited by distortion (mis-
+                                                                     match) and by noise are
+                                                                     given in the graph in this
+                                                                     slide. The power consump-
+                                                                     tion required to carry out a
+                                                                     certain   function     (ﬁlter,
+                                                                     ADC, ...) at a certain fre-
+                                                                     quency is plotted versus the
+                                                                     required dynamic range.
+                                                                     The curves are calculated
+                                                                     with the expressions given
+                                                                     before.
+                                                                        A number of experimental
+                                                                     points are given as well.
+                                                                     They are taken from papers
+                                                                     in the IEEE Journal of Solid-
+State Circuits. They reﬂect data from ADC’s, from continuous-time and switched-capacitor ﬁlters
+(without the power consumption due to the clocks).
+  It is clear that mismatch data presents a more realistic estimate of the power/frequency ratio
+for a certain dynamic range than the noise does. Mismatch is now a more severe limit to the
+accuracy of analog integrated circuits than noise.
+
+
+
+                                                                       1567
+                                                                       As a conclusion to this
+                                                                       Chapter, another point of
+                                                                       concern is given about the
+                                                                       maximum dynamic range
+                                                                       for deep submicron CMOS.
+                                                                          For ever smaller channel
+                                                                       lengths, the supply voltage
+                                                                       is shrinking, as predicted
+                                                                       by the SIA roadmap (see
+                                                                       Chapter 1). The maximum
+                                                                       signal amplitude is a con-
+                                                                       stant fraction of the supply
+                                                                       voltage, determined by the
+                                                                       distortion allowed.
+                                                                          The     parameter    A
+                                                                                                 VT
+                                                                       describing the spreading on
+the threshold voltage decreases but if minimum-size devices are taken, the spreading on the V
+                                                                                                   T
+increases. If six times this spreading is taken, then only a small voltage dynamic range is left. It
+seems to go to zero for CMOS technologies beyond 90 nm.
+   A few obvious applications can live with such small dynamic ranges. Some biomedical applica-
+tions are happy with 20 dB, but most communication applications require more than 70 dB! To
+OVset and CMRR: random and systematic                                                         455
+
+reach such values, the supply voltage cannot be allowed to decrease, the distortion must be
+reduced (see Chapter 18) and larger than minimum-size transistors will have to be used.
+   The analog parts of a mixed-signal chip will consume more and more of the total area, as has
+already been seen.
+
+
+
+                                                                     1568
+                                                                     In this Chapter an overview
+                                                                     of the mechanisms are given
+                                                                     which play a role in mis-
+                                                                     match. Both random and
+                                                                     systematic mismatch have
+                                                                     been discussed.
+                                                                        It is shown that mismatch
+                                                                     leads to speciﬁcation such as
+                                                                     oﬀset and CMRR, which are
+                                                                     thus related to each other.
+                                                                        Layout techniques are
+                                                                     listed which can be applied
+                                                                     to      improve     matching.
+                                                                     Inevitably they lead to
+                                                                     larger chip sizes.
+                                                                        Finally a short compari-
+son is provided with bipolar transistor matching. Also, an attempt is made to establish the limits
+in power for dynamic range and frequency in both cases, when mismatch is a limit and when
+noise is a limit. It is shown that mismatch is the most severe.
+
